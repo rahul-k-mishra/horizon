@@ -71,3 +71,20 @@ Fifth amendment. The lines above are unchanged. Nothing in this amendment is reg
   - The capped-game rule is decided (docs/DESIGN.md, Section 5; docs/PREREG.md, Section 7.4).
   - Budget, upper bounds: 43 to 111 Kaggle chunks, 16.2 to 41.7 days, depending on the agent cap the pilot sets (logs/design_budget.log).
 - **Next:** the author's review of docs/DESIGN.md Section 12 and the five items at the head of docs/PREREG.md; then the truth-table generator with its hand check, the GVGAI adapter and search job, the agent copies and the analysis script, before the tag prereg-v1. No experiment of the study has run.
+
+## Amendment 24 Oct 2026 (f)
+
+Sixth amendment. The lines above are unchanged. Nothing is registered or tagged; generator outputs not yet hand-checked are EXPLORATORY.
+
+- **Review before the decisions** (09a6dcd): docs/design/DECISION_REVIEW.md gives a view on each of the author's five decisions with its evidence, and a sixth consideration. It changes no file; a point adopted from it enters by a dated change.
+- **The author's five decisions written in** (fd375cf), each with its reason, in docs/DESIGN.md (Sections 2.1, 3.3, 4, 7, 7.1, 12) and docs/PREREG.md draft v0 (Sections 4, 5, 7.4 to 7.8, 9.1, 10):
+  1. the level is the unit, games the clusters; the mechanics score is constant within a game, so H1 is tested on 26 effective points;
+  2. A2 fails for a shooting avatar; study 1's census had no such clause and disagreed with the Procgen truth on six games, five of them by firing or throwing and one by pushing;
+  3. the thresholds stand and are registered: AUROC floor 0.70, 98.33% Bonferroni family, void band 10% to 90%, capped shares 25% and 10%;
+  4. stage D, the development search on study 1's MiniGrid/BabyAI levels, runs before the tag as the kind devsearch; it may not be used as evidence for the registered claim;
+  5. the smallest detectable difference is registered before the tag, and a Refute outcome reads "no difference of at least d".
+- **Budget** with stage D as 1,610 (game, seed) units at a 900 s cap: 50 to 118 chunks at most, 18.8 to 44.3 days (logs/design_budget.log).
+- **Truth-table generator** (75ab7cd): scripts/truth_vgdl.py reads only the vendored GVGAI files and writes docs/truth/gvgai.json with every deciding clause and line. Its synthetic tests pass with warnings as errors (OK, run in this session). While writing it, A4 was clarified in the design: stationary producers count as classes that stay in place, and a blocker removed through a sprite only the avatar pushes counts as removed by the avatar. *Exploratory, not yet hand-checked:* on the 30 deterministic games, 150 units, A1 holds on 150, A2 on 50, A3 on 110, A4 on 145, A5 on 65; no game's vector differs between its levels (logs/truth_vgdl.log).
+- **Hand check prepared:** scripts/draw_handcheck.py, seed 20261025 (logs/draw_handcheck.log), drew clusters, colourescape, glow, labyrinthdual, lasers, painter, racebet, rivers, sokoban and wrapsokoban; the sheet docs/truth/HANDCHECK.md lists 100 rows, none filled in.
+- **Smallest detectable difference:** scripts/sdd.py and its tests (OK) are written; it waits on stage D's rows.
+- **Next:** the author's hand check; stage D's job (kind devsearch) written, dry-run tested and run through the loop; then scripts/sdd.py; then the author's two reserved decisions (Sections 2.1 and 7.1 of docs/DESIGN.md) before the tag.
