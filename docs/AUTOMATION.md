@@ -154,7 +154,7 @@ D:\python\3.11.9\python.exe -m venv D:\Research\horizon\.venv
 D:\Research\horizon\.venv\Scripts\python.exe -m pip install -r requirements.txt -r requirements-loop.txt
 # 2. the two repository secrets, read from the existing Kaggle login (no new token)
 gh secret set KAGGLE_USERNAME --body "ericsom"
-Get-Content "$env:USERPROFILE\.kaggle\access_token" -Raw | ForEach-Object { $_.Trim() } | gh secret set KAGGLE_KEY
+$k = (Get-Content "$env:USERPROFILE\.kaggle\access_token" -Raw).Trim(); gh secret set KAGGLE_KEY --body $k; Remove-Variable k
 # 3. register the notebook by pushing it once by hand (its run finds no dispatch and does nothing)
 $env:KAGGLE_USERNAME = "ericsom"
 D:\Research\horizon\.venv\Scripts\python.exe scripts\automation\loop.py prepare-kernel --dir "$env:TEMP\horizon-kernel"
