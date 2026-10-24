@@ -8,6 +8,8 @@
 # that long (at most 30 minutes) and starts this workflow again with workflow_dispatch, which the
 # workflow's own GITHUB_TOKEN may do.  When the manifest is complete or the loop is halted, next-wake
 # says "none" and no successor is started.  One concurrency group keeps ticks from overlapping.
+# A tick that ends with an error counts a crash in jobs/state.json (the tick does it itself, or the step
+# "Record a crash before the tick" when an earlier step failed); 12 in a row halt the loop.
 name: horizon-loop
 
 on:
@@ -37,6 +39,7 @@ jobs:
       - name: Install the Kaggle command-line tool
         run: python -m pip install --quiet -r requirements-loop.txt
       - name: Tick
+        id: tick
         env:
           KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
           KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_KEY }}
@@ -45,6 +48,15 @@ jobs:
           git config user.name "horizon-loop"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           python scripts/automation/loop.py tick
+      - name: Record a crash before the tick
+        # an earlier step (checkout aside) failed, so the tick never ran and could not count the crash itself
+        if: failure() && steps.tick.outcome == 'skipped'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "horizon-loop"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python3 scripts/automation/loop.py record-crash --reason "a workflow step before the tick failed (run ${{ github.run_id }})"
       - name: Start the next tick
         if: always()
         env:

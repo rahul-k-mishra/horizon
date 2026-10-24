@@ -22,6 +22,10 @@ complete.  Expected, and checked:
 A second scenario gives the agent kind an implementation that does not exist, so every session of
 dry-01 fails: after the registered maximum of 3 failures the loop halts, marks the chunk failed, writes
 STATE-ready text into logs/automation.log, and runs nothing more.
+A third scenario breaks the manifest so that ticks crash before reaching any chunk: each crash adds 1
+to the consecutive-crash count in jobs/state.json, a tick that reaches a chunk (after the manifest is
+repaired) sets it back to 0, and at the registered maximum (loop.MAX_CRASHES, 12) the loop halts with
+STATE-ready text; a crash after the halt is not counted, and next-wake says "none".
 Run (working directory D:\\Research\\horizon\\repo):
     D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\automation\\test_loop.py
 Expected last line: OK
@@ -115,6 +119,81 @@ def scenario_halt(env_base, tmp, check):
     r = subprocess.run([sys.executable, os.path.join(work, "scripts", "automation", "loop.py"), "next-wake",
                         "--repo", work], env=env, capture_output=True, text=True)
     check(r.stdout.startswith("none halted"), f"halt scenario: next-wake said {r.stdout.strip()!r}")
+
+
+def scenario_crash(env_base, tmp, check):
+    """A tick that crashes before it reaches a chunk (here: a manifest that fails its structural check)
+    adds 1 to the consecutive-crash count; a tick that reaches a chunk sets it back to 0; at the
+    registered maximum the loop halts with STATE-ready text, and later ticks and next-wake do nothing."""
+    sys.path.insert(0, os.path.join(REPO, "scripts", "automation"))
+    from loop import MAX_CRASHES  # noqa: E402
+    src = os.path.join(tmp, "src-crash")
+    os.makedirs(src)
+    for rel in ("scripts/automation", "kaggle", "jobs"):
+        shutil.copytree(os.path.join(REPO, rel), os.path.join(src, rel),
+                        ignore=shutil.ignore_patterns("__pycache__", "test_*.py"))
+    m = load_manifest(src)
+    m.update(session=dict(work_seconds=6, checkpoint_reserve_seconds=5, platform_limit_seconds=600))
+    fresh(src, m)
+    m["kinds"]["agent"].update(sleep_seconds=1, unit_seconds_cap=2)
+    save_manifest(src, m)
+    git(src, "init", "-q", "-b", "main")
+    git(src, "config", "user.name", "test")
+    git(src, "config", "user.email", "test@example.invalid")
+    git(src, "add", "-A")
+    git(src, "commit", "-q", "-m", "test setup")
+    git(src, "tag", "automation-v1")
+    bare = os.path.join(tmp, "remote-crash.git")
+    git(tmp, "clone", "-q", "--bare", src, bare)
+    work = os.path.join(tmp, "work-crash")
+    git(tmp, "clone", "-q", bare, work)
+    git(work, "config", "user.name", "horizon-loop")
+    git(work, "config", "user.email", "loop@example.invalid")
+    env = dict(env_base, FAKE_KAGGLE_STORE=os.path.join(tmp, "kaggle-crash"), FAKE_KAGGLE_REPO_URL=bare)
+    loop_py = os.path.join(work, "scripts", "automation", "loop.py")
+
+    def set_kind(kind):
+        mm = load_manifest(work)
+        mm["chunks"][2]["kind"] = kind
+        save_manifest(work, mm)
+        git(work, "commit", "-q", "-am", f"test: chunk dry-03 kind {kind}")
+        git(work, "push", "-q")
+
+    def tick(label):
+        r = subprocess.run([sys.executable, loop_py, "tick", "--repo", work], env=env, capture_output=True, text=True)
+        print(f"--- crash scenario {label} (exit {r.returncode})")
+        lines = [x for x in (r.stdout + r.stderr).strip().splitlines() if "Traceback" not in x and not x.startswith("  ")]
+        print("\n".join(lines)[-600:])
+        return r, read_json(os.path.join(work, "jobs", "state.json"))
+
+    set_kind("nonsense")
+    for i in range(2):
+        r, st = tick(f"tick {i + 1}, broken manifest")
+        check(r.returncode == 1 and st.get("consecutive_crashes") == i + 1,
+              f"crash scenario: tick {i + 1} exit {r.returncode}, count {st.get('consecutive_crashes')}")
+    set_kind("agent")
+    r, st = tick("tick 3, manifest repaired")
+    check(r.returncode == 0 and st.get("consecutive_crashes") == 0 and st.get("dispatch"),
+          f"crash scenario: a tick that reaches a chunk must reset the count: exit {r.returncode}, "
+          f"count {st.get('consecutive_crashes')}, dispatch {bool(st.get('dispatch'))}")
+    set_kind("nonsense")
+    for i in range(MAX_CRASHES):
+        r, st = tick(f"tick {4 + i}, broken manifest")
+        check(r.returncode == 1 and st.get("consecutive_crashes") == i + 1,
+              f"crash scenario: tick {4 + i} exit {r.returncode}, count {st.get('consecutive_crashes')}")
+        check(bool(st.get("halted")) == (i + 1 == MAX_CRASHES), f"crash scenario: halted {st.get('halted')} after {i + 1} crashes")
+    log = open(os.path.join(work, "logs", "automation.log"), encoding="utf-8").read()
+    check(f"{MAX_CRASHES} consecutive ticks crashed" in log and "STATE-ready text" in log and "CRASH COUNT reset" in log,
+          "crash scenario: no STATE-ready text or no reset line in the log")
+    before = git(work, "rev-parse", "HEAD")
+    r = subprocess.run([sys.executable, loop_py, "record-crash", "--repo", work, "--reason", "test"], env=env,
+                       capture_output=True, text=True)
+    check("already halted" in r.stdout and git(work, "rev-parse", "HEAD") == before,
+          "crash scenario: a crash after the halt must not be counted or committed")
+    r = subprocess.run([sys.executable, loop_py, "next-wake", "--repo", work], env=env, capture_output=True, text=True)
+    check(r.stdout.startswith("none halted"), f"crash scenario: next-wake said {r.stdout.strip()!r}")
+    msgs = [x for x in git(work, "log", "--format=%s").splitlines() if x.startswith("Loop: tick crashed")]
+    check(len(msgs) == 2 + MAX_CRASHES, f"crash scenario: {len(msgs)} crash commits")
 
 
 def main():
@@ -225,6 +304,7 @@ def main():
         except ValueError:
             pass
         scenario_halt(env, tmp, check)
+        scenario_crash(env, tmp, check)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     print("OK" if not fails else f"{len(fails)} failure(s)")

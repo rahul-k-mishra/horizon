@@ -7,6 +7,7 @@ the notebook again for the next chunk.
     python scripts/automation/loop.py tick              one tick (the workflow runs this on its cron and on its own successor)
     python scripts/automation/loop.py status            print the manifest and the dispatch in flight
     python scripts/automation/loop.py prepare-kernel --dir D   write the notebook folder for a manual push
+    python scripts/automation/loop.py record-crash --reason R   count a crash of a step before the tick
     python scripts/automation/loop.py next-wake [--min S] [--max S]   after a tick: how long the workflow
                                                         sleeps before it starts its own successor, or "none"
 
@@ -20,6 +21,8 @@ A tick:
        lock by committing and pushing jobs/lock.json and the dispatch (a rejected push means another
        runner acted first, and this tick stops), push the notebook, and commit the kernel version.
     4. If every chunk is done, say "manifest complete" and stop.
+A tick that ends with an error is a crash: jobs/state.json counts consecutive crashes, a tick that
+reaches a chunk sets the count back to 0, and at MAX_CRASHES the loop halts with STATE-ready text.
 A chunk's failures are counted (kernel error, missing or invalid output, no progress); at the
 registered maximum the loop halts and writes STATE-ready text into logs/automation.log.
 
@@ -55,6 +58,10 @@ from schema import validate_row  # noqa: E402
 
 REPO = os.path.dirname(os.path.dirname(HERE))
 RUNNING = ("queued", "running", "new_script", "cancel_requested")
+# Consecutive crashed ticks before the loop halts (docs/AUTOMATION.md, Section 7): at the chain's shortest
+# spacing of 5 minutes, 12 crashes are an hour of continuous failure, longer than an ordinary outage of
+# GitHub, Kaggle or the package index; under the cron alone they are 6 hours.
+MAX_CRASHES = 12
 
 
 def say(s):
@@ -415,6 +422,7 @@ def dispatch(repo, m, st):
                         expires_at=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(time.time() + limit))))
     st["dispatch"] = dict(chunk_id=c["chunk_id"], nonce=nonce, entry_hash=chunk_entry_hash(m, c["chunk_id"]),
                           runner=runner_id(), dispatched_at=now_iso(), kernel_version=None, pushed_at=None)
+    reached_chunk(repo, st)
     c["status"] = "running"
     c["attempts"] += 1
     save(repo, m, st)
@@ -442,7 +450,68 @@ def save(repo, m, st):
     write_json(os.path.join(repo, STATE), st)
 
 
+def reached_chunk(repo, st):
+    """The tick has reached a chunk (it obtained the kernel status of the chunk in flight, or chose a
+    chunk to dispatch): the count of consecutive crashes goes back to 0.  Returns True if it changed."""
+    n = int(st.get("consecutive_crashes") or 0)
+    if not n:
+        return False
+    st["consecutive_crashes"] = 0
+    log_line(repo, f"CRASH COUNT reset to 0 (was {n}): this tick reached a chunk")
+    return True
+
+
+def record_crash(repo, reason):
+    """A tick that ended with an error, or a workflow step before the tick that failed, adds 1 to the
+    count of consecutive crashes in jobs/state.json; at MAX_CRASHES the loop halts, as a failing chunk
+    halts it.  Best effort: if the repository cannot be restored, read or pushed (GitHub unreachable),
+    the crash is printed and not recorded."""
+    try:
+        pull(repo)
+    except Exception as e:  # noqa: BLE001 -- recorded locally if the remote is unreachable
+        say(f"crash record: could not fast-forward ({e}); recording on the local commit")
+    st = read_json(os.path.join(repo, STATE))
+    if st.get("halted"):
+        say(f"crash not counted: the loop is already halted ({st.get('halt_reason')})")
+        return
+    n = int(st.get("consecutive_crashes") or 0) + 1
+    st["consecutive_crashes"] = n
+    reason = " ".join(str(reason).split())[:600]
+    log_line(repo, f"CRASH {n} of at most {MAX_CRASHES} consecutive: {reason}")
+    if n >= MAX_CRASHES:
+        try:
+            chunks = counts(load_manifest(repo))
+        except Exception as e:  # noqa: BLE001 -- the manifest itself may be the cause
+            chunks = f"not readable ({type(e).__name__})"
+        st["halted"] = True
+        st["halted_at"] = now_iso()
+        st["halt_reason"] = f"{n} consecutive ticks crashed; last: {reason}"
+        text = (f"STATE-ready text: On {now_iso()} the HORIZON loop halted. {n} consecutive ticks crashed, the "
+                f"registered maximum of {MAX_CRASHES}, without a tick reaching a chunk in between. Last crash: "
+                f"{reason}. Chunks of the campaign: {chunks}. The loop does nothing until the cause is found "
+                f"and jobs/state.json \"halted\" is set back to false and \"consecutive_crashes\" to 0 by hand.")
+        log_line(repo, "HALT " + text)
+        say(text)
+    write_json(os.path.join(repo, STATE), st)
+    msg = f"Loop: tick crashed ({n} of {MAX_CRASHES})" + ("; loop halted" if n >= MAX_CRASHES else "")
+    try:
+        commit_push(repo, msg)
+    except Exception as e:  # noqa: BLE001
+        say(f"crash record not pushed: {e}")
+
+
 def tick(repo):
+    """One tick; an error anywhere in it is recorded as a crash (record_crash) and the exit code is 1."""
+    try:
+        return _tick(repo)
+    except Exception as e:  # noqa: BLE001 -- every error of a tick is a crash
+        import traceback
+        traceback.print_exc()
+        record_crash(repo, f"{type(e).__name__}: {e}")
+        return 1
+
+
+def _tick(repo):
     pull(repo)
     m = load_manifest(repo)
     errs = check_manifest(m)
@@ -455,10 +524,14 @@ def tick(repo):
     d = st.get("dispatch")
     if d:
         ks = kernel_status(kernel_ref(m))
+        reset = reached_chunk(repo, st)
         started = d.get("pushed_at") or d["dispatched_at"]
         overdue = time.time() - epoch(started) > float(m["session"]["platform_limit_seconds"]) + 1800
         if ks in RUNNING and not overdue:
             say(f"{d['chunk_id']} on kernel version {d.get('kernel_version')} is {ks} (pushed {started}); nothing to do")
+            if reset:
+                write_json(os.path.join(repo, STATE), st)
+                commit_push(repo, "Loop: crash count reset")
             return 0
         if ks in RUNNING:
             chunk = get_chunk(m, d["chunk_id"])
@@ -511,12 +584,16 @@ def status(repo):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description="the HORIZON loop")
-    ap.add_argument("command", choices=("tick", "status", "prepare-kernel", "next-wake"))
+    ap.add_argument("command", choices=("tick", "status", "prepare-kernel", "next-wake", "record-crash"))
+    ap.add_argument("--reason", default="a workflow step before the tick failed", help="record-crash: the cause")
     ap.add_argument("--repo", default=REPO)
     ap.add_argument("--dir", help="folder for prepare-kernel")
     ap.add_argument("--min", type=int, default=300, help="next-wake: shortest sleep, seconds")
     ap.add_argument("--max", type=int, default=1800, help="next-wake: longest sleep, seconds")
     a = ap.parse_args(argv)
+    if a.command == "record-crash":
+        record_crash(a.repo, a.reason)
+        return 0
     if a.command == "next-wake":
         secs, why = next_wake(a.repo, a.min, a.max)
         print(f"{'none' if secs is None else secs} {why}")
