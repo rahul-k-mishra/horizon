@@ -8,7 +8,7 @@
  "repository": "rahul-k-mishra/horizon",
  "session": {"checkpoint_reserve_seconds": 300, "platform_limit_seconds": 3600, "work_seconds": 180},
  "chunks": [
-  {"attempts": 1, "chunk_id": "ds-01", "failures": 0, "kind": "devsearch", "sessions": [{"ended_at": "2026-10-24T18:20:36Z", "kernel_status": "complete", "kernel_version": 6, "outcome": "partial", "run_nonce": "devsearch-dryrun-ds-01-20261024T181711Z-cd7c15", "units_done_this_session": ["ds-01-empty5-s1000", "ds-01-unlocklocal-s1002"]}], "status": "partial"}
+  {"attempts": 2, "chunk_id": "ds-01", "failures": 0, "kind": "devsearch", "sessions": [{"ended_at": "2026-10-24T18:20:36Z", "kernel_status": "complete", "kernel_version": 6, "outcome": "partial", "run_nonce": "devsearch-dryrun-ds-01-20261024T181711Z-cd7c15", "units_done_this_session": ["ds-01-empty5-s1000", "ds-01-unlocklocal-s1002"]}], "status": "running"}
  ],
  "units": [
   {"agent": null, "chunk_id": "ds-01", "game": "MiniGrid-Empty-5x5-v0", "kind": "devsearch", "level": 1000, "seed": null, "status": "done", "suite": "minigrid", "unit_id": "ds-01-empty5-s1000"},

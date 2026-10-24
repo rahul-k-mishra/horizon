@@ -22,3 +22,4 @@ No token to manage; credentials are cached locally for you.
 2026-10-24T18:17:11Z actions-40119983118-1 DISPATCH chunk ds-01 (devsearch) attempt 1 run devsearch-dryrun-ds-01-20261024T181711Z-cd7c15
 2026-10-24T18:17:14Z actions-40119983118-1 PUSHED chunk ds-01 as kernel version 6 run devsearch-dryrun-ds-01-20261024T181711Z-cd7c15
 2026-10-24T18:25:29Z actions-40120614871-1 COLLECT chunk ds-01 kernel version 6 run devsearch-dryrun-ds-01-20261024T181711Z-cd7c15: partial; chunks partial 1
+2026-10-24T18:25:31Z actions-40120614871-1 DISPATCH chunk ds-01 (devsearch) attempt 2 run devsearch-dryrun-ds-01-20261024T182531Z-36bf43
