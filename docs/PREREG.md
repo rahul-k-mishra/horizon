@@ -1,0 +1,154 @@
+# PREREG.md — draft v0 (NOT REGISTERED)
+
+Registration draft for HORIZON, written 24 October 2026 from docs/DESIGN.md, in the form of study 1's docs/PREREG.md v1. **Status: a draft for the author's review.** It binds nothing until the author creates the git tag `prereg-v1` on a commit that contains it, as version v1. After the tag it changes only by a new version with a dated diff section (Section 12). Every number below is a chosen value, or is printed by a committed script whose console is committed (logs/suite_evidence.log, logs/vgdl_scan.log, logs/draw_pilot.log, logs/design_budget.log).
+
+**What exists at this draft, and what does not.**
+- Exists: the automation, proven by its dry run (docs/AUTOMATION.md, docs/DRYRUN.md); the GVGAI descriptions vendored under third_party/gvgai at commit e58ff6597319155218759cc178931e05b81b524c; the eligibility scan scripts/vgdl_scan.py and its output docs/design/vgdl_scan.json; the pilot draw scripts/draw_pilot.py.
+- Written before the tag, and frozen by blob hash at it: the truth-table generator scripts/truth_vgdl.py and its output docs/truth/gvgai.json, with the hand check of Section 5; the GVGAI adapter and frame contract; the search job for GVGAI; the copies of study 1's agents; the analysis script scripts/analyze_horizon.py with synthetic tests.
+- Written after the tag, under v1.1: the pilot's values, by the rules of Section 8.
+
+**Items for the author to confirm before the tag** (each marked **[registered here]** where it appears):
+1. The unit of analysis, a (game, level) pair, with games as resampled clusters (Section 4).
+2. A2 fails for an avatar whose use action creates a sprite (Section 5).
+3. The thresholds and the multiplicity family (Section 7).
+4. The capped-game rule and its void shares (Section 7.4).
+5. The pilot gate and its stop rule (Section 8).
+
+---
+
+## 1. Claim and non-claims
+
+> For frame-only, prior-free agents that act on built-in assumptions, on the levels of unseen deterministic grid games, a pre-run measure of the size of the level's search (the number of reachable states) ranks the levels by first-level completion better than the match between the game's mechanics and the agents' assumptions (the number of the assumptions A1 to A5 that hold).
+
+- H2, search size, is the hypothesis; H1, mechanics match, is the rival. The test can find for either, or for neither (Section 7.5).
+- Not claimed: that search size causes failure; that the result transfers to games with random elements, which are excluded by construction (Section 4); that the agents are strong; that anything holds for agents with visual or language priors; any theorem. The effective-horizon bound is computed from a published theorem, not proved anew.
+
+## 2. Agents
+
+| agent | what | role |
+|---|---|---|
+| N | study 1's G-NAV planner, scripts/g_nav.py on scripts/g_agent.py, mode nav: its assumptions are A1 to A5 | evidence, primary |
+| R | study 1's hash_state explorer, scripts/g_agent.py, mode hash_state | evidence |
+| I1 | Rudakov, Shock and Cowley, "Graph-Based Exploration for ARC-AGI-3 Interactive Reasoning Tasks" (arXiv:2512.24156; MIT), through study 1's adapter | evidence |
+| Rand | uniform random actions over the action list, numpy default_rng(seed) | reported, outside the outcome table |
+
+The study-1 files are copied unchanged from study 1's tag prereg-v1.1 and frozen here by blob hash. Before the tag, the copies are checked against study 1's committed rows on a sample of study-1 MiniGrid games: the same (game, seed) must give the same actions and the same row fields except seconds.
+
+## 3. Environment contract and adapter
+
+**Contract** (study 1's, unchanged): reset(seed) gives a grid of integer colour indices; step(action) gives grid, level_end, game_end; a fixed action list per game. No reward, no score, no symbolic state, no text.
+
+**GVGAI adapter [registered here]:**
+- Framework: GVGAI at commit e58ff6597319155218759cc178931e05b81b524c, compiled with javac from a pinned Temurin JDK, called in-process through JPype1 1.7.1 under Python 3.11.
+- Grid: one cell per level cell, read from the game's observation grid. Each cell's index is given online, in order of first appearance within the run, to the set of visible sprite types in the cell; sprites with hidden=True or invisible=True are not drawn and not counted; the avatar's orientations are one index. Known limit: two sprite types drawn with the same image get different indices.
+- Action list: the avatar's available actions without the null action, in GVGAI's order.
+- level_end: the game reports a win. game_end: the game reports a loss, or GVGAI's tick limit ends the episode; the next episode starts on the same level.
+- Seeds 1000 to 1009 seed the agent; the games are deterministic, so the seed changes nothing in the game.
+
+## 4. Suite, units and splits
+
+- **Eligible games:** the single-player grid-physics games of GVGAI's examples/all_games_sp.csv at the commit above that have a level-0 file, parse, and are deterministic by the rule of scripts/vgdl_scan.py, frozen by its blob hash at the tag: 30 games, each with 5 level files (logs/vgdl_scan.log).
+- **Unit [registered here]:** a (game, level) pair, levels 0 to 4. An agent run starts on the unit's level, which is the first level it meets; the agents keep nothing between runs.
+- **Pilot:** 4 games drawn by scripts/draw_pilot.py with seed 20261024 (logs/draw_pilot.log): bait, labyrinthdual, rivers, watergame. They are excluded from every confirmatory analysis.
+- **Confirmatory:** the other 26 games, 130 units: chipschallenge, clusters, colourescape, cookmepasta, doorkoban, escape, garbagecollector, glow, grow, hungrybirds, iceandfire, islands, labyrinth, lasers, modality, painter, racebet, racebet2, realsokoban, roadfighter, sokoban, tercio, thecitadel, thesnowman, wrapsokoban, zenpuzzle.
+- **Development:** study 1's 175 games, rows and truth tables. Nothing from them enters a confirmatory analysis.
+
+## 5. Truth tables: the mechanics vector
+
+Per (game, level), from the description and the level file, by scripts/truth_vgdl.py, output docs/truth/gvgai.json with the description lines that decided each entry.
+
+- **A1** holds iff the avatar's class declares at least two actions that change the level differently (every class except NullAvatar).
+- **A2** holds iff exactly one sprite's displacement is a function of the action, the avatar. It fails if the avatar's use action creates a sprite (ShootAvatar, FlakAvatar, ShootOnlyAvatar, AimedAvatar, OngoingShootAvatar) **[registered here]**, if an interaction moves another sprite because the avatar moved into it (bounceForward, pullWithIt with the avatar as partner), or if more than one sprite type of an avatar class is present at level start.
+- **A3** holds iff each movement action, when not blocked, shifts the avatar by one constant vector whatever its position, facing and history: MovingAvatar, HorizontalAvatar, VerticalAvatar and FlakAvatar at speed 1; OrientedAvatar and ShootAvatar only with rotateInPlace=False. It fails for every other avatar class, for a speed other than 1, and where an interaction moves the avatar (teleportToExit, wrapAround, pullWithIt, bounceForward, windGust, slipForward, conveySprite, attractGaze).
+- **A4** holds iff every move without effect is explained by a sprite that blocks the avatar (stepBack or undoAll with the avatar), every blocking type is of a class that does not move on its own (Immovable, Passive, Door, Resource, ResourcePack), and blocking sprites are created or removed only through the avatar's own actions. A sprite that kills on contact does not block.
+- **A5** holds iff the only winning condition is a SpriteCounter with limit 0 on one sprite type, the level holds exactly one sprite of that type, and every interaction that removes it has the avatar or an avatar subtype as partner; a precondition met elsewhere is recorded and keeps A5 holding.
+
+**Mechanics score S_M** = the number of A1 to A5 that hold.
+
+**Hand check.** Before the tag the author checks the generator by hand on 10 games drawn with seed 20261025 from the 30, every predicate, on level 0 and on one other level drawn with the same seed. Every disagreement is resolved from the GVGAI source, fixes the generator, and is listed in v1; the generator is rerun on all units and 5 fresh games are checked, which must agree on every predicate.
+
+## 6. Search quantities
+
+Per (game, level), by the search job of docs/AUTOMATION.md, Sections 5 and 6:
+- **State:** for every sprite, its type, cell, orientation and resources, and the avatar's health points; the game tick only where the description has a Timeout termination or a sprite with a cooldown, limit or total parameter. Identified by a 64-bit hash of a canonical serialization. GVGAI's tick limit is not part of the search.
+- **Actions:** the adapter's action list. **Start:** the state after the level file is loaded. Win and loss states are counted and not expanded.
+- **R** = the number of distinct states reachable from the start. **L** = the fewest actions from the start to a win state; infinite if the search is complete without one. **b** = over the states expanded, the mean number of distinct successors other than the state itself.
+- **EH** = the effective-horizon bound of Laidlaw, Russell and Dragan (NeurIPS 2023, arXiv:2304.09853), Theorem 5.4, on the level's deterministic MDP with reward 1 on entering a win state, win and loss states absorbing, horizon T = 400 and the uniform random exploration policy, minimised over k ∈ {1, 2, 3} for which the MDP is k-QVI-solvable (their Definition 5.1), as written out in docs/DESIGN.md, Section 5; infinite if none is or if L > T. Computed only when the search is complete with R ≤ 200,000.
+- **Primary search score** = −log10 R. Secondary: L, b, EH.
+- **Caps** (per unit, summed over sessions): node cap 5,000,000 states expanded; time cap 14,400 s; memory ceiling 6 GiB resident per worker; frontier spill at 1,000,000 entries; checkpoint every 600 s or 250,000 expansions.
+
+## 7. Tests
+
+### 7.1 Outcome
+Per (agent, unit): 20,000 actions per seed, seeds 1000 to 1009. Y = 1 if the agent completed the level in at least 5 of the 10 seeds.
+
+### 7.2 AUROC
+AUROC_H = the AUROC of −log10 R for Y; AUROC_M = the AUROC of S_M for Y; the Mann–Whitney statistic with ties counted ½, over the confirmatory units.
+
+### 7.3 The contrast and its interval
+Δ = AUROC_H − AUROC_M. Its interval is the percentile interval of 10,000 game-clustered bootstrap resamples: the 26 confirmatory games drawn with replacement, each with all its units, the same resample for both AUROCs. Seed 20261024 in 8 chunks (default_rng([20261024, k])) on a worker pool. Resamples with one class only are skipped and counted.
+
+### 7.4 The capped-game rule [registered here]
+1. A unit stopped by the node cap enters R as the node cap, ranked largest and tied with every other node-capped unit; L as found if a win state was reached, otherwise as infinite, ranked longest and tied; b over the states expanded; EH as not computed.
+2. A unit stopped by the time cap or the memory ceiling before the node cap is excluded from the tests of R, b and EH, and from the test of L unless a win state was reached; it is listed with its partial counts.
+3. A search quantity is void if more than 25% of the confirmatory units are capped by any cap, or more than 10% are excluded under rule 2. For EH the 25% counts units where EH was not computed for any reason.
+4. Every analysis reports the number and share of capped units per cap.
+
+### 7.5 Verdict per evidence agent [registered here]
+Multiplicity: the family is the three evidence agents N, R and I1, and each interval of Δ is a two-sided 98.33% interval (Bonferroni, 0.05 / 3).
+- **H2 over H1:** the interval's lower end > 0 and AUROC_H ≥ 0.70.
+- **H1 over H2:** the interval's upper end < 0 and AUROC_M ≥ 0.70.
+- **Neither:** otherwise.
+
+### 7.6 Void rules
+- An agent is **void** if its share of units with Y = 1 lies outside [0.10, 0.90]; if the primary search score is void (Section 7.4); or if fewer than two values of S_M are each held by at least 10% of the confirmatory units.
+- The study is **void** if fewer than 20 confirmatory games remain.
+
+### 7.7 Secondary analyses, outside the outcome table
+Unadjusted 95% intervals, each labelled secondary: AUROC and Δ against S_M for L, b and EH; the contrast on level 0 alone (26 units, games resampled); each of A1 to A5 alone; grid area, action count and colour count (study 1's nuisance features); Rand on every line.
+
+*Power.* 26 games are resampled; the intervals will be wide; no power calculation was made, and the thresholds are kept.
+
+## 8. Pilot gate and stop rule [registered here]
+
+Run after the tag of v1, before any confirmatory unit, on the 4 pilot games (20 units):
+
+| gate | passes if |
+|---|---|
+| G1 | the adapter, JDK and JPype run in a Kaggle session from a clean start, and each of N, R, I1 and Rand plays 20,000 actions on 2 seeds of every pilot unit without an error |
+| G2 | on every pilot unit, 1,000 random action sequences of length 200, each replayed twice from the start, give identical state hashes at every step |
+| G3 | the agent unit cap given by the rule "twice the longest pilot time for 20,000 actions, rounded up to a whole minute" is at most 1,800 s, and the search job on every pilot unit completes or stops at the node cap |
+| G4 | the hand check of Section 5 has passed |
+| G5 | from the truth table alone, at least two values of S_M are each held by at least 10% of the confirmatory units |
+
+**Stop rule.** If any gate fails, no confirmatory unit runs. A failure of G1, G2 or G4 may be repaired once, by changing adapter, search or generator code only, never a threshold, a cap rule, a predicate or the game list; the repair is recorded in v1.1 and the pilot is rerun on the same pilot games. A second failure of the same gate, or any failure of G3 or G5, stops the study with the outcome VOID. The agent unit cap enters v1.1 by the rule of G3, and v1.1 is tagged before any confirmatory unit runs.
+
+## 9. Runs
+
+- All runs go through the loop of docs/AUTOMATION.md under the author's Kaggle account; no run is made by hand.
+- Search kind: one unit per (game, level). Agent kind: one unit per (agent, game, level, seed). A chunk holds one kind only.
+- Session: work 28,800 s, checkpoint reserve 900 s, platform_limit_seconds 32,400; latest end 8 h 31 min after the notebook starts (logs/design_budget.log).
+- Rows: the search and agent schemas horizon.search.v1 and horizon.agent.v1 (scripts/automation/schema.py); features are read only from search rows and truth tables, outcomes only from agent rows.
+- Budget, at most (logs/design_budget.log): 3 chunks of pilot search, 3 of pilot agents, 17 of confirmatory search, and 14 to 82 of confirmatory agents, depending on the pilot's agent cap; 43 to 111 chunks with the development stage. The development stage on MiniGrid/BabyAI (6 chunks at most) is exploratory and not part of this protocol.
+
+## 10. Outcome and venue, fixed before any confirmatory run
+
+| outcome | condition | venue |
+|---|---|---|
+| Support | N is H2 over H1; at least one of R and I1 is H2 over H1; no evidence agent is H1 over H2 | IEEE Transactions on Games; JAIR instead if all three evidence agents are H2 over H1 |
+| Refute | N is not void and Support does not hold | this repository and a preprint on Zenodo |
+| Void | N is void, the study is void, or the pilot gate stopped the study | this repository and a preprint on Zenodo, reported as void |
+
+## 11. Analysis code
+
+scripts/analyze_horizon.py reads the truth table, the search rows and the agent rows, and writes docs/tables/horizon.md and .json: every line of Sections 7.2 to 7.7 with its interval, the capped counts, and the verdicts. Its synthetic tests, with expected values computed by hand in the docstring, pass before the tag. The script is frozen at the tag; the only permitted change is a crash fix, logged in Section 13.
+
+## 12. Amendment rules
+
+- This file changes only by a new version (v1.1, v1.2, …), each with a dated diff section listing every changed line and why.
+- The pilot may change adapter, search and generator code by the stop rule of Section 8, never a threshold, a predicate, a cap rule, a seed or the game list.
+- A test not in the tagged version before its run is exploratory and enters no claim.
+
+## 13. Diff section
+
+Empty in draft v0.

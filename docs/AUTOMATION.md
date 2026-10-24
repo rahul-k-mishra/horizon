@@ -32,16 +32,27 @@ A piece may be too long for one Kaggle session. It then saves where it got to (a
 
 The notebook clones the public repository (branch main, which holds the manifest, the state, the rows and the checkpoints), checks out the code at the tag named in the manifest ("code_tag") into a separate folder, installs the pinned packages, and runs runner.py. The code that runs is therefore fixed by a tag, while the state it reads is the latest commit.
 
-**The deadline.** The notebook records its start time T0 in its first line. The runner stops starting new work at T0 + work_seconds, and must have written and verified its checkpoint by T0 + work_seconds + checkpoint_reserve_seconds. Registered at the study's tag:
+**The deadline.** The notebook records its start time T0 in its first line. The runner stops starting new work at T0 + work_seconds, and must have written and verified its checkpoint by T0 + work_seconds + checkpoint_reserve_seconds. A unit of the agent kind starts only if its own wall-clock cap still fits before the deadline. A search unit checks the deadline after every batch of expansions, and a batch is limited to 60 s.
+
+**The session limit is an assumption, not a verified fact.**
+- *What was verified.* The dry run's sessions ran to completion and stopped themselves at their computed deadlines (docs/DRYRUN.md), but none ran longer than a few minutes, so nothing about a long session's limit was observed. The sessions record the Kaggle image only by digest, not its versions.
+- *What could not be fetched, and why.* Kaggle's documentation of notebooks (https://www.kaggle.com/docs/notebooks) returns, to a plain fetch, a page with a title and no text: the content is drawn by a script in a browser. This was tried twice on 24 October 2026. The command-line tool reports a session's status, not its limit. So the limit of 12 hours for CPU sessions, as commonly stated, is not verified.
+- *The deadline chosen,* designed to stay correct at a 9-hour limit (registered at the study's tag; the arithmetic is printed by scripts/design_budget.py from docs/design/params_v0.json, logs/design_budget.log):
 
 | setting | value | meaning |
 |---|---|---|
-| work_seconds | 37,800 s (10 h 30 min) | no new work after this |
+| start-up allowance | 900 s (15 min) | before T0: the container starting, the clone, the JDK and packages installed; counted against the limit because the platform's clock may start before the notebook's first line |
+| work_seconds | 28,800 s (8 h) | no new work after T0 + this |
+| one search batch | at most 60 s | the most a search unit can run past the deadline before it sees it |
 | checkpoint_reserve_seconds | 900 s (15 min) | time kept to write, re-read and hash the checkpoint and pack the output |
-| platform limit assumed | 43,200 s (12 h) | Kaggle's session limit for CPU notebooks as commonly stated; Kaggle's own documentation page could not be read when this was written, so the margin below is kept wide |
-| margin to the platform limit | 4,500 s (1 h 15 min) | between the latest possible end of the runner (10 h 45 min) and 12 h |
+| latest end | 30,660 s (8 h 31 min) | the sum of the four lines above |
+| margin at a 9-hour limit | 1,740 s (29 min) | 32,400 − 30,660 |
+| margin at a 12-hour limit | 12,540 s (3 h 29 min) | 43,200 − 30,660 |
+| platform_limit_seconds in the study manifest | 32,400 s (9 h) | a session still running 30 minutes past this is overdue and counted as a failure (Section 7) |
 
-So every chunk ends inside 11 hours, as project rule R4 requires, and the notebook is never stopped by the platform. A unit of the agent kind starts only if its own wall-clock cap still fits before the deadline. A search unit checks the deadline after every batch of expansions.
+So every chunk ends inside 11 hours, as project rule R4 requires, and inside 9 hours with 29 minutes to spare.
+
+- *If the real limit is shorter than the latest end,* Kaggle stops the notebook before it writes result.json. The loop then finds no valid output, counts a failure for the chunk, and dispatches it again from its last committed checkpoint, which is the one written at the end of the previous session, so the work of the stopped session is lost and nothing wrong is committed. The same chunk stopped three times halts the loop with STATE-ready text naming the missing output (Section 7). At most three sessions are lost before the halt, and the halt is the signal to lower work_seconds by a dated amendment. A limit above 8 h 31 min is never reached; one below it is detected this way, not silently.
 
 The dry run uses work_seconds 300 and checkpoint_reserve_seconds 120 (jobs/manifest.json), so that one of its chunks is forced to stop and resume.
 
@@ -92,12 +103,16 @@ Registered at the study's tag (values per unit, summed over all sessions that wo
 |---|---|---|
 | node cap | 5,000,000 states expanded | the visited set then needs 40 MB as 64-bit hashes; a checkpoint stays small enough to commit or to upload |
 | wall-clock cap per game | 14,400 s (4 h), summed over sessions | at most a little over one third of a session's work time per game |
-| memory ceiling | 24 GiB resident memory (25,769,803,776 bytes), read from /proc/self/status after every batch | leaves room under a Kaggle CPU session's memory (about 30 GB) for the interpreter and the simulator |
+| memory ceiling | 6 GiB resident memory per search worker (6,442,450,944 bytes), read from /proc/self/status after every batch | four workers run at once (Section 11 of docs/DESIGN.md), so together they stay under 24 GiB and leave room in a Kaggle CPU session's memory (about 30 GB) for the interpreter and the simulator; the dry run used one worker with a ceiling of 24 GiB |
 | frontier spill | the in-memory frontier tail is written to a compressed file on disk when it reaches 1,000,000 entries | the frontier then never holds more than about two such blocks in memory |
 
 **What is written when a cap is hit.** A row, not a gap: complete false, capped true, cap_hit "node", "time" or "memory", and the partial counts at that moment (states seen and expanded, depth reached, frontier left, the solution length if the goal had been reached). A capped game is a recorded fact. The node cap is checked after every expansion, so a node-capped row has exactly the cap's number of expansions.
 
-**How a capped game enters an analysis.** The registration decides it, before any confirmatory run, and nothing afterwards changes it. The registration must state: which counts of a capped game are used, and as what (for example, as a lower bound that ranks the game above every uncapped game on that count, or not at all); whether capped games are excluded from a test or kept in it; and a share of capped games above which a search measure is declared void for a suite. Whatever is registered, every analysis reports the number and share of capped games per suite and per cap, next to its result.
+**How a capped game enters an analysis** (decided on 24 October 2026; docs/DESIGN.md, Section 5, and docs/PREREG.md draft v0, Section 7.4, registered when that file is tagged). The unit is a level:
+1. A level stopped by the node cap enters the reachable-state count as the node cap, ranked as the largest value and tied with every other node-capped level; its shortest solution length as found if the goal was reached (breadth first finds the shortest one first), and otherwise as infinite, ranked longest and tied; its branching over the states expanded; its effective-horizon bound as not computed.
+2. A level stopped by the time cap or the memory ceiling before the node cap is excluded from every test of a quantity the cap left undecided: the reachable-state count and the branching always, the solution length unless the goal was reached, the effective-horizon bound always. It is listed with its partial counts.
+3. A search quantity is void for the suite if more than 25% of the confirmatory levels are capped by any cap, or more than 10% are excluded under rule 2.
+4. Every analysis reports the number and share of capped levels per cap next to its result.
 
 **The frontier format for real simulators.** The dry run's dummy graph stores frontier entries as integers. For the suites of Phase 3 the frontier entry is either the simulator's serialized state, where cloning yields compact bytes, or the action sequence from the level start, replayed on resume; the choice is made per suite in Phase 3 and registered with its size per entry, so that the spill files and checkpoints stay within the limits of Section 4.
 
@@ -112,7 +127,7 @@ Registered at the study's tag (values per unit, summed over all sessions that wo
 
 (a) was chosen. Of its two forms, the bounded sleep followed by a dispatch was chosen over one long job that loops: each job lasts at most the sleep plus a tick (timeout 45 minutes, well inside the 6-hour job limit), so a lost runner costs at most one link of the chain, which the cron or the next manual run starts again, and every link runs the latest committed loop code.
 
-**How long the chain sleeps** (loop.py next-wake, from the committed files only). Halted loop, or every chunk done with nothing in flight: "none", so no successor is started and the loop stops. With a session in flight: until the session's deadline plus its checkpoint reserve, counted from the kernel push, but no less than 5 minutes and no more than 30. Work left and nothing in flight (for example after a failed push): 5 minutes. The step runs even when the tick step fails, so a passing fault (Kaggle or GitHub unreachable) does not break the chain; a fault inside a chunk's session is counted by the retry rule below and halts the loop at the maximum, but a tick that crashes before it reaches a chunk is not counted, and keeps the chain going at 5-minute intervals until someone looks (the run list shows each failed tick).
+**How long the chain sleeps** (loop.py next-wake, from the committed files only). Halted loop, or every chunk done with nothing in flight: "none", so no successor is started and the loop stops. With a session in flight: until the session's deadline plus its checkpoint reserve, counted from the kernel push, but no less than 5 minutes and no more than 30. Work left and nothing in flight (for example after a failed push): 5 minutes. The step runs even when the tick step fails, so a passing fault (Kaggle or GitHub unreachable) does not break the chain; a fault that repeats is stopped either by the retry rule of a chunk or by the consecutive-crash counter, both below.
 
 **One tick at a time.** All runs, whatever started them, share the concurrency group horizon-loop without cancelling the one in progress. GitHub keeps at most one run waiting in a group: a newer waiting run replaces the older one, which ends as cancelled without using a runner. A successor started during a sleep therefore waits for the current job to end, and a cron run that arrives while a link of the chain sleeps either replaces the waiting successor or is replaced by it. There is never more than one chain.
 
@@ -128,6 +143,10 @@ A tick:
 
 **Retries and the halt.** Each failure of a chunk (a kernel error, missing or invalid output, a partial session without progress, an overdue session, a push that fails) adds one to the chunk's failures and is logged. At the registered maximum, 3, the chunk becomes "failed", the loop halts, and logs/automation.log receives a paragraph that can be pasted into docs/STATE.md as it stands: the time, the chunk, the number of failures, the last reason with its kernel version and run nonce, and the count of chunks by status. A halted loop does nothing until the cause is found and the halt flag in jobs/state.json is cleared by hand.
 
+**Consecutive crashes** (added 24 October 2026). A tick that ends with an error, anywhere in it, is a crash; so is a workflow run in which a step before the tick fails (the installation of the Kaggle tool, for example), which the step "Record a crash before the tick" reports, since the tick never ran. jobs/state.json counts consecutive crashes in "consecutive_crashes", and each one is logged as "CRASH n of at most 12" and committed as "Loop: tick crashed (n of 12)". A tick that reaches a chunk (it obtains the kernel status of the chunk in flight, or chooses a chunk to dispatch) sets the count back to 0 and logs the reset. At 12 consecutive crashes the loop halts exactly as a failing chunk halts it: "halted" is set, and logs/automation.log receives STATE-ready text with the time, the count, the last error and the chunks by status; next-wake then says "none". A crash while the loop is halted is not counted. If GitHub itself cannot be reached, the crash cannot be committed and is only printed in the run's log.
+
+*Why 12.* After a crash the chain waits at least 5 minutes before the next tick, so 12 crashes in a row are at least an hour of continuous failure, longer than an ordinary outage of GitHub, Kaggle's interface or the package index, which the loop should ride out; under the cron alone they are 6 hours. A tick broken for good therefore stops within about an hour of chain time, instead of retrying for ever. A crash inside a chunk's own session is not a tick crash: the runner turns it into a failed result, and the chunk's retry count of 3 applies. The value is MAX_CRASHES in scripts/automation/loop.py; scripts/automation/test_loop.py checks it in its third scenario.
+
 **Commits made by the loop** carry the name horizon-loop and the GitHub Actions noreply address, and one-line messages: "Loop: dispatch <chunk> (attempt n)", "Loop: <chunk> pushed as kernel version n", "Loop: <chunk> done|partial|failed (kernel version n)".
 
 ## 8. Credentials, and why none is kept on Kaggle
@@ -141,7 +160,8 @@ Which credential works was found by testing the Kaggle tool 2.2.4 on 24 October 
 - **Concurrent sessions.** The loop runs one session at a time, so a limit on concurrent CPU sessions does not bind. More throughput, if needed, would come from several notebooks with their own slugs and their own locks; that is not built.
 - **Output size.** A session's output is result.json, console.log and one compressed bundle of rows and one checkpoint; with the node cap of Section 6 the bundle stays far below the size of the working folder Kaggle keeps.
 - **Internet.** The notebook needs internet to clone the repository and fetch release files. Kaggle allows internet in a notebook only for accounts with a verified phone number; the registration push (Section 12) shows whether it is on.
-- **Session length.** Section 3.
+- **Session length.** Section 3: an assumption, with the design kept correct at 9 hours.
+- **Hours per week.** Whether Kaggle limits CPU notebook hours per week could not be read either (Section 3). The study's budget runs sessions one after another for weeks (docs/DESIGN.md, Section 10). If a weekly limit exists and is reached, a notebook push is refused or the session does not start; the loop counts a refused push as a chunk failure and an overdue session as one too, so a weekly limit shows up as failures and, at worst, a halt with STATE-ready text, not as silent loss.
 - **Output of a session that fails.** Whether Kaggle keeps /kaggle/working of a session that errors is not relied on: the runner catches every error itself and ends normally. If a session is lost all the same, the work since the last committed checkpoint is done again; jobs are deterministic given their parameters, so the rows are the same.
 
 ## 10. GitHub Actions minutes

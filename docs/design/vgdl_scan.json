@@ -1,0 +1,2707 @@
+{
+ "gvgai_commit": "e58ff6597319155218759cc178931e05b81b524c",
+ "games": [
+  {
+   "game": "aliens",
+   "n_levels": 5,
+   "avatar_classes": [
+    "FlakAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite alien is Bomber with prob=0.01",
+    "sprite alienGreen is Bomber with prob=0.01",
+    "sprite alienBlue is Bomber with prob=0.01"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 30,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"0\", \"stype1\": \"portal\", \"stype2\": \"alien\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "angelsdemons",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite demon is Bomber with prob=0.15",
+    "sprite angel is Bomber with prob=0.05",
+    "sprite citizen is Chaser",
+    "sprite blessed is Chaser"
+   ],
+   "level0_rows": 14,
+   "level0_cols": 32,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"1000\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "assemblyline",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect attractGaze on product laser",
+    "effect attractGaze on product portal line"
+   ],
+   "level0_rows": 14,
+   "level0_cols": 25,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "fails",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"1\", \"min\": \"True\", \"stype1\": \"victory\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "avoidgeorge",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite annoyed is RandomNPC",
+    "sprite quiet is RandomNPC",
+    "sprite george is Chaser"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 24,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"1000\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "bait",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 6,
+   "level0_cols": 5,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "beltmanager",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect attractGaze on suitcase joint"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 35,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"passenger\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "blacksmoke",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite smokespawn is RandomMissile"
+   ],
+   "level0_rows": 13,
+   "level0_cols": 26,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "boloadventures",
+   "n_levels": 5,
+   "avatar_classes": [
+    "OrientedAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect attractGaze on boulderm avatar"
+   ],
+   "level0_rows": 13,
+   "level0_cols": 24,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "fails",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "bomber",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect attractGaze on bombm avatar laser"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 19,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "bomberman",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite bat is RandomNPC",
+    "sprite spider is RandomNPC",
+    "sprite scorpion is RandomNPC"
+   ],
+   "level0_rows": 9,
+   "level0_cols": 20,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "fails",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "boulderchase",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite enemy is Chaser",
+    "sprite crab is Chaser",
+    "sprite butterfly is Chaser"
+   ],
+   "level0_rows": 13,
+   "level0_cols": 26,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "fails",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"exitdoor\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "boulderdash",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite enemy is RandomNPC",
+    "sprite crab is RandomNPC",
+    "sprite butterfly is RandomNPC"
+   ],
+   "level0_rows": 13,
+   "level0_cols": 26,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "fails",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"exitdoor\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "brainman",
+   "n_levels": 5,
+   "avatar_classes": [
+    "OrientedAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect attractGaze on keym avatar"
+   ],
+   "level0_rows": 9,
+   "level0_cols": 17,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "fails",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "butterflies",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite butterfly is RandomNPC"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 28,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"butterfly\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "cakybaky",
+   "n_levels": 5,
+   "avatar_classes": [
+    "OrientedAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite chef is Chaser"
+   ],
+   "level0_rows": 14,
+   "level0_cols": 29,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"inc6\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "camelRace",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite randomCamel is RandomNPC"
+   ],
+   "level0_rows": 9,
+   "level0_cols": 48,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"1\", \"stype1\": \"winnerPlayer\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "catapults",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MissileAvatar",
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect attractGaze on avatar catapult"
+   ],
+   "level0_rows": 16,
+   "level0_cols": 16,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "chainreaction",
+   "n_levels": 5,
+   "avatar_classes": [
+    "OrientedAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect attractGaze on mboulderm avatar",
+    "effect attractGaze on normalBoulder boulderm",
+    "effect attractGaze on normalBoulder mboulderm"
+   ],
+   "level0_rows": 10,
+   "level0_cols": 17,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "fails",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"targetBoulder\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "chase",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite angry is Chaser",
+    "sprite scared is Fleeing"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 24,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"scared\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "chipschallenge",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 14,
+   "level0_cols": 15,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "chopper",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite satellite is RandomNPC",
+    "sprite tank is Bomber with prob=0.03",
+    "sprite portalAmmo is SpawnPoint with prob=0.15"
+   ],
+   "level0_rows": 12,
+   "level0_cols": 31,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "fails",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"0\", \"stype1\": \"portalBase\", \"stype2\": \"tank\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "circuit",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect teleportToExit on ball reset",
+    "effect setSpeedForAll on start flip",
+    "effect setSpeedForAll on incorrect ball",
+    "effect setSpeedForAll on correct ball"
+   ],
+   "level0_rows": 3,
+   "level0_cols": 9,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"end\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "clusters",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 10,
+   "level0_cols": 13,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "fails",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"box\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "colourescape",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 11,
+   "level0_cols": 18,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "cookmepasta",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 11,
+   "level0_cols": 14,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"1\", \"stype1\": \"plateinplace\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "cops",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite thug is Fleeing",
+    "sprite redthug is Fleeing",
+    "sprite greenthug is Fleeing",
+    "sprite yellowthug is Fleeing",
+    "sprite boss is Fleeing"
+   ],
+   "level0_rows": 16,
+   "level0_cols": 15,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"boss\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "crossfire",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite turret is RandomBomber"
+   ],
+   "level0_rows": 15,
+   "level0_cols": 31,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "defem",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite bullet is RandomMissile",
+    "sprite randomEnemy is RandomNPC",
+    "sprite chaseEnemy is Chaser",
+    "effect spawn on cannon avatar with prob=0.5"
+   ],
+   "level0_rows": 13,
+   "level0_cols": 19,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"enemy\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "defender",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite alien is Bomber with prob=0.04",
+    "sprite portalSlow is SpawnPoint with prob=0.2",
+    "sprite portalFast is SpawnPoint with prob=0.5",
+    "sprite portalAmmo is SpawnPoint with prob=0.15"
+   ],
+   "level0_rows": 14,
+   "level0_cols": 31,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"1000\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "deflection",
+   "n_levels": 5,
+   "avatar_classes": [
+    "OngoingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite turret is RandomBomber",
+    "effect attractGaze on avatar bomb"
+   ],
+   "level0_rows": 26,
+   "level0_cols": 34,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"blackhole\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "digdug",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect flipDirection on monster wall EOS resting"
+   ],
+   "level0_rows": 15,
+   "level0_cols": 27,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"0\", \"stype1\": \"goodies\", \"stype2\": \"monster\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "donkeykong",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite rightBarrelSpawn is BomberRandomMissile",
+    "sprite leftBarrelSpawn is BomberRandomMissile",
+    "sprite donkey is RandomNPC",
+    "effect attractGaze on downBarrel floor",
+    "effect attractGaze on rollingBarrel ladder"
+   ],
+   "level0_rows": 20,
+   "level0_cols": 39,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "doorkoban",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 13,
+   "level0_cols": 15,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "dungeon",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite firehole is SpawnPoint with prob=0.05",
+    "sprite boulderHole is SpawnPoint with prob=0.05",
+    "sprite boulderLefthole is SpawnPoint with prob=0.05",
+    "sprite boulderRighthole is SpawnPoint with prob=0.05",
+    "sprite groundTrapHole is SpawnPoint with prob=0.05"
+   ],
+   "level0_rows": 21,
+   "level0_cols": 22,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "fails",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "eggomania",
+   "n_levels": 5,
+   "avatar_classes": [
+    "FlakAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite fastChicken is Bomber with prob=0.2",
+    "sprite slowChicken is Bomber with prob=0.1"
+   ],
+   "level0_rows": 14,
+   "level0_cols": 32,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"1500\", \"win\": \"True\"}",
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"chicken\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "eighthpassenger",
+   "n_levels": 5,
+   "avatar_classes": [
+    "OrientedAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite pursuer is PathAltChaser",
+    "sprite pursuertunnel is PathAltChaser",
+    "sprite wanderer is PathAltChaser"
+   ],
+   "level0_rows": 14,
+   "level0_cols": 28,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "enemycitadel",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite enemy is RandomNPC"
+   ],
+   "level0_rows": 9,
+   "level0_cols": 15,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "escape",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 9,
+   "level0_cols": 13,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "explore",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite patrol is LOSChaser"
+   ],
+   "level0_rows": 6,
+   "level0_cols": 6,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"1\", \"stype1\": \"winner\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "factorymanager",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect attractGaze on car avatar laser"
+   ],
+   "level0_rows": 14,
+   "level0_cols": 25,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "fails",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"1000\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "firecaster",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite fire is Spreader with spreadprob=0.25"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 19,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "fireman",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite fireOn is SpawnPoint with prob=0.01",
+    "sprite fireStart is Spreader with spreadprob=0.6"
+   ],
+   "level0_rows": 18,
+   "level0_cols": 19,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"fire\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "firestorms",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite fire is RandomMissile",
+    "sprite seed is SpawnPoint with prob=0.25"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 28,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"escape\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "freeway",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MissileAvatar",
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite input is SpawnPoint with prob=0.05",
+    "effect teleportToExit on moving goal"
+   ],
+   "level0_rows": 15,
+   "level0_cols": 28,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"1900\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "frogs",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite forestDense is SpawnPoint with prob=0.4",
+    "sprite forestSparse is SpawnPoint with prob=0.1"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 28,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "garbagecollector",
+   "n_levels": 5,
+   "avatar_classes": [
+    "OngoingTurningAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 25,
+   "level0_cols": 69,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"garbage\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "ghostbuster",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite ghost is PathChaser",
+    "sprite standing is RandomNPC",
+    "sprite fleeing is PathChaser"
+   ],
+   "level0_rows": 10,
+   "level0_cols": 34,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"0\", \"stype1\": \"ghostspawn\", \"stype2\": \"ghost\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "glow",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 7,
+   "level0_cols": 14,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"exit\", \"win\": \"True\"}",
+    "Timeout {\"limit\": \"1500\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "grow",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 6,
+   "level0_cols": 9,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"1500\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "gymkhana",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MissileAvatar",
+    "OrientedAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite forest is SpawnPoint with prob=0.25",
+    "sprite forestR is SpawnPoint with prob=0.25",
+    "sprite forestL is SpawnPoint with prob=0.25",
+    "effect attractGaze on avatar catapult"
+   ],
+   "level0_rows": 16,
+   "level0_cols": 16,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "fails",
+    "A4": "fails",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "hungrybirds",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 11,
+   "level0_cols": 16,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "iceandfire",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 14,
+   "level0_cols": 16,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "ikaruga",
+   "n_levels": 5,
+   "avatar_classes": [
+    "FlakAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite alien is Bomber with prob=0.01",
+    "sprite blackAlien is Bomber with prob=0.01",
+    "sprite whiteAlien is Bomber with prob=0.01"
+   ],
+   "level0_rows": 19,
+   "level0_cols": 10,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"0\", \"stype1\": \"portal\", \"stype2\": \"alien\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "infection",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite npc is RandomNPC",
+    "sprite host is RandomNPC",
+    "sprite infected is RandomNPC",
+    "sprite doctor is RandomNPC"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 28,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"host\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "intersection",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite input is SpawnPoint with prob=0.05",
+    "effect teleportToExit on avatar goal",
+    "effect teleportToExit on avatar deadPortal"
+   ],
+   "level0_rows": 13,
+   "level0_cols": 27,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"1000\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "islands",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 10,
+   "level0_cols": 16,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "jaws",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite sharkhole is SpawnPoint with prob=0.025",
+    "sprite whalehole is SpawnPoint with prob=0.1",
+    "sprite piranhahole is SpawnPoint with prob=0.1",
+    "sprite shark is Chaser"
+   ],
+   "level0_rows": 9,
+   "level0_cols": 21,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"1000\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "killBillVol1",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MissileAvatar",
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite randomEnemy1 is RandomNPC",
+    "sprite randomEnemy1Hdn is RandomNPC",
+    "sprite randomEnemy2 is RandomNPC",
+    "sprite randomEnemy2Hdn is RandomNPC",
+    "sprite randomEnemy3 is RandomNPC",
+    "sprite randomEnemy3Hdn is RandomNPC",
+    "effect attractGaze on onground lift"
+   ],
+   "level0_rows": 17,
+   "level0_cols": 22,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "labyrinth",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 14,
+   "level0_cols": 16,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "labyrinthdual",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 14,
+   "level0_cols": 16,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "lasers",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 10,
+   "level0_cols": 31,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "fails",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "lasers2",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect attractGaze on laser mirror"
+   ],
+   "level0_rows": 10,
+   "level0_cols": 28,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "fails",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "lemmings",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite lemming is Chaser"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 21,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"0\", \"stype1\": \"entrance\", \"stype2\": \"lemming\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "link",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite enemy is Chaser",
+    "sprite paspawn is SpawnPoint with prob=0.1"
+   ],
+   "level0_rows": 10,
+   "level0_cols": 31,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "mirrors",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect attractGaze on boulder mirror"
+   ],
+   "level0_rows": 17,
+   "level0_cols": 22,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounterSubTypes {\"limit\": \"6\", \"stype1\": \"blocks\", \"subTypesNum\": \"3\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "missilecommand",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite incoming_slow is Chaser",
+    "sprite incoming_fast is Chaser"
+   ],
+   "level0_rows": 12,
+   "level0_cols": 24,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"incoming\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "modality",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 5,
+   "level0_cols": 7,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"target\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "overload",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite random is RandomNPC"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 19,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "pacman",
+   "n_levels": 5,
+   "avatar_classes": [
+    "OrientedAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite redOk is RandomPathAltChaser",
+    "sprite redSc is Fleeing",
+    "sprite blueOk is RandomPathAltChaser",
+    "sprite blueSc is Fleeing",
+    "sprite pinkOk is RandomPathAltChaser",
+    "sprite pinkSc is Fleeing",
+    "sprite orangeOk is RandomPathAltChaser",
+    "sprite orangeSc is Fleeing"
+   ],
+   "level0_rows": 31,
+   "level0_cols": 28,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"food\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "pacoban",
+   "n_levels": 5,
+   "avatar_classes": [
+    "OrientedAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite redOk is RandomPathAltChaser",
+    "sprite redSc is Fleeing",
+    "sprite blueOk is RandomPathAltChaser",
+    "sprite blueSc is Fleeing",
+    "sprite pinkOk is RandomPathAltChaser",
+    "sprite pinkSc is Fleeing",
+    "sprite orangeOk is RandomPathAltChaser",
+    "sprite orangeSc is Fleeing"
+   ],
+   "level0_rows": 24,
+   "level0_cols": 24,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"food\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "painter",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 3,
+   "level0_cols": 4,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"ground\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "plants",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite plant is Bomber with prob=0.05",
+    "sprite zombie is Bomber with prob=0.005",
+    "sprite fastHell is SpawnPoint with prob=0.01",
+    "sprite slowHell is SpawnPoint with prob=0.005"
+   ],
+   "level0_rows": 12,
+   "level0_cols": 38,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"1000\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "plaqueattack",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite food is Chaser",
+    "sprite hotdog is Chaser",
+    "sprite burger is Chaser",
+    "sprite hotdoghole is SpawnPoint with prob=0.15",
+    "sprite burgerhole is SpawnPoint with prob=0.15"
+   ],
+   "level0_rows": 22,
+   "level0_cols": 24,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"0\", \"stype1\": \"holes\", \"stype2\": \"food\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "pokemon",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite bossAbility is Chaser",
+    "sprite bossAbility0 is Chaser",
+    "sprite bossAbility1 is Chaser",
+    "sprite bossAbility2 is Chaser",
+    "sprite ability0 is Chaser",
+    "sprite ability1 is Chaser",
+    "sprite ability2 is Chaser",
+    "sprite ability3 is Chaser",
+    "sprite ability4 is Chaser",
+    "sprite pokemon is BomberRandomMissile",
+    "sprite pokemon0 is BomberRandomMissile",
+    "sprite pokemon1 is BomberRandomMissile",
+    "sprite pokemon2 is BomberRandomMissile",
+    "sprite boss is SpawnPoint with prob=0.0001",
+    "sprite bossDragon is SpawnPoint with prob=0.0001",
+    "sprite bossWater is SpawnPoint with prob=0.0001",
+    "sprite bossThunder is SpawnPoint with prob=0.0001",
+    "effect transformToRandomChild on boss ability1",
+    "effect transformToRandomChild on pokemon bossAbility1"
+   ],
+   "level0_rows": 7,
+   "level0_cols": 14,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"boss\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "portals",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite random is RandomNPC",
+    "effect teleportToExit on avatar portalentry"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 19,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "racebet",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 10,
+   "level0_cols": 35,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"2\", \"stype1\": \"winA\", \"stype2\": \"betA\", \"win\": \"True\"}",
+    "MultiSpriteCounter {\"limit\": \"2\", \"stype1\": \"winB\", \"stype2\": \"betB\", \"win\": \"True\"}",
+    "MultiSpriteCounter {\"limit\": \"2\", \"stype1\": \"winC\", \"stype2\": \"betC\", \"win\": \"True\"}",
+    "MultiSpriteCounter {\"limit\": \"2\", \"stype1\": \"winD\", \"stype2\": \"betD\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "racebet2",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 14,
+   "level0_cols": 35,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"2\", \"stype1\": \"winA\", \"stype2\": \"betA\", \"win\": \"True\"}",
+    "MultiSpriteCounter {\"limit\": \"2\", \"stype1\": \"winB\", \"stype2\": \"betB\", \"win\": \"True\"}",
+    "MultiSpriteCounter {\"limit\": \"2\", \"stype1\": \"winC\", \"stype2\": \"betC\", \"win\": \"True\"}",
+    "MultiSpriteCounter {\"limit\": \"2\", \"stype1\": \"winD\", \"stype2\": \"betD\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "realportals",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect teleportToExit on avatar portalentry",
+    "effect attractGaze on boulderm avatar",
+    "effect teleportToExit on boulderm portalentry",
+    "effect teleportToExit on missile portalentry",
+    "effect attractGaze on missile portalexit"
+   ],
+   "level0_rows": 13,
+   "level0_cols": 16,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "fails",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "realsokoban",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 7,
+   "level0_cols": 8,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"box\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "rivers",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 15,
+   "level0_cols": 20,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "fails",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"dryHouse\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "roadfighter",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 15,
+   "level0_cols": 10,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"500\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "roguelike",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite spider is RandomNPC",
+    "sprite phantom is Chaser"
+   ],
+   "level0_rows": 21,
+   "level0_cols": 22,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "run",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite groundeater is RandomMissile"
+   ],
+   "level0_rows": 13,
+   "level0_cols": 26,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "seaquest",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite sharkhole is SpawnPoint with prob=0.01",
+    "sprite whalehole is SpawnPoint with prob=0.005",
+    "sprite normaldiverhole is SpawnPoint with prob=0.005",
+    "sprite oftendiverhole is SpawnPoint with prob=0.025",
+    "sprite whale is Bomber with prob=0.02",
+    "sprite diver is RandomNPC"
+   ],
+   "level0_rows": 9,
+   "level0_cols": 21,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"1000\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "sheriff",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite bandit is Bomber with prob=0.1",
+    "sprite bup is Bomber with prob=0.1",
+    "sprite bdown is Bomber with prob=0.1",
+    "sprite bleft is Bomber with prob=0.1",
+    "sprite bright is Bomber with prob=0.1"
+   ],
+   "level0_rows": 14,
+   "level0_cols": 32,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"bandit\", \"win\": \"True\"}",
+    "Timeout {\"limit\": \"1000\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "shipwreck",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite goldhole is SpawnPoint with prob=0.01",
+    "sprite gemshole is SpawnPoint with prob=0.01",
+    "sprite diamondshole is SpawnPoint with prob=0.01"
+   ],
+   "level0_rows": 20,
+   "level0_cols": 22,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"1000\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "slide",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MissileAvatar",
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect setSpeedForAll on avatarM wall"
+   ],
+   "level0_rows": 7,
+   "level0_cols": 11,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"1\", \"stype1\": \"winner\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "sokoban",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 9,
+   "level0_cols": 13,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"box\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "solarfox",
+   "n_levels": 5,
+   "avatar_classes": [
+    "OngoingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect spawn on btm enemyground with prob=0.02",
+    "effect spawn on top enemyground with prob=0.02"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 10,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"0\", \"stype1\": \"blib\", \"stype2\": \"powerblib\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "superman",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite bandit is Bomber with prob=0.1",
+    "sprite bleft is Bomber with prob=0.1",
+    "sprite bright is Bomber with prob=0.1"
+   ],
+   "level0_rows": 14,
+   "level0_cols": 22,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "fails",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"0\", \"stype1\": \"portal\", \"stype2\": \"bandit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "surround",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite dog is RandomNPC"
+   ],
+   "level0_rows": 14,
+   "level0_cols": 16,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "fails",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"1\", \"stype1\": \"sword\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "survivezombies",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite flower is SpawnPoint with prob=0.02",
+    "sprite fastHell is SpawnPoint with prob=0.05",
+    "sprite slowHell is SpawnPoint with prob=0.03",
+    "sprite bee is RandomNPC",
+    "sprite zombie is Chaser"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 19,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"1000\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "tercio",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 8,
+   "level0_cols": 12,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"target\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "thecitadel",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 9,
+   "level0_cols": 10,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "themole",
+   "n_levels": 5,
+   "avatar_classes": [
+    "OngoingShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite overgroundEnemy is RandomNPC",
+    "sprite overgroundEnemyHdn is RandomNPC",
+    "sprite undergroundEnemy is RandomNPC",
+    "sprite undergroundEnemyHdn is RandomNPC"
+   ],
+   "level0_rows": 21,
+   "level0_cols": 29,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "fails",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"gem\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "theshepherd",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite scared is Fleeing",
+    "sprite seeking is PathChaser",
+    "sprite tamed is RandomNPC",
+    "sprite hungry is PathChaser",
+    "sprite help is PathChaser"
+   ],
+   "level0_rows": 9,
+   "level0_cols": 24,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"notamed\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "thesnowman",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 11,
+   "level0_cols": 14,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "fails",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"1\", \"stype1\": \"headinplace\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "towerdefense",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite turret is SpawnPointMultiSprite with prob=0.8",
+    "sprite turretH is SpawnPointMultiSprite with prob=0.8",
+    "sprite turretV is SpawnPointMultiSprite with prob=0.8"
+   ],
+   "level0_rows": 16,
+   "level0_cols": 24,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "fails",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"1500\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "vortex",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MissileAvatar",
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "effect attractGaze on falling water"
+   ],
+   "level0_rows": 16,
+   "level0_cols": 16,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "waitforbreakfast",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite kitchen is SpawnPoint with prob=0.05",
+    "sprite waiter is Chaser",
+    "sprite waiterwb is Chaser",
+    "sprite waiternb is Chaser"
+   ],
+   "level0_rows": 8,
+   "level0_cols": 11,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "fails",
+    "A4": "fails",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"0\", \"stype1\": \"emptytable\", \"stype2\": \"tablewb\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "watergame",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 6,
+   "level0_cols": 7,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"door\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "waves",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite portalSlow is SpawnPoint with prob=0.05",
+    "sprite rockPortal is SpawnPoint with prob=0.2",
+    "sprite alien is Bomber with prob=0.01"
+   ],
+   "level0_rows": 9,
+   "level0_cols": 32,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"1000\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "whackamole",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite tight is SpawnPoint with prob=0.002",
+    "sprite wide is SpawnPoint with prob=0.01",
+    "sprite cat is RandomNPC"
+   ],
+   "level0_rows": 5,
+   "level0_cols": 14,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "Timeout {\"limit\": \"500\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "wildgunman",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite enemy is Chaser",
+    "sprite enemy_slow is Chaser",
+    "sprite enemy_fast is Chaser",
+    "sprite niceGuy is Chaser"
+   ],
+   "level0_rows": 12,
+   "level0_cols": 24,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"0\", \"stype1\": \"goalObjects\", \"stype2\": \"portal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "witnessprotected",
+   "n_levels": 5,
+   "avatar_classes": [
+    "OrientedAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite bandit is Bomber with prob=0.4",
+    "sprite bleftd is Bomber with prob=0.4",
+    "sprite brightu is Bomber with prob=0.4",
+    "sprite bleftu is Bomber with prob=0.4",
+    "sprite brightd is Bomber with prob=0.4",
+    "effect attractGaze on protector turn"
+   ],
+   "level0_rows": 11,
+   "level0_cols": 38,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "fails",
+    "A4": "fails",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "witnessprotection",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite bandit is Bomber with prob=0.1",
+    "sprite bleftd is Bomber with prob=0.1",
+    "sprite brightu is Bomber with prob=0.1",
+    "sprite bleftu is Bomber with prob=0.1",
+    "sprite brightd is Bomber with prob=0.1",
+    "sprite running is Chaser"
+   ],
+   "level0_rows": 9,
+   "level0_cols": 38,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"exit\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "wrapsokoban",
+   "n_levels": 5,
+   "avatar_classes": [
+    "OrientedAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 7,
+   "level0_cols": 8,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"limit\": \"0\", \"stype\": \"box\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "x-racer",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MissileAvatar",
+    "OngoingShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite portal is BomberRandomMissile",
+    "sprite bikePortal is BomberRandomMissile"
+   ],
+   "level0_rows": 9,
+   "level0_cols": 31,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"1\", \"stype1\": \"winnerPlayer\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "zelda",
+   "n_levels": 5,
+   "avatar_classes": [
+    "ShootAvatar"
+   ],
+   "deterministic": false,
+   "stochastic_reasons": [
+    "sprite monsterQuick is RandomNPC",
+    "sprite monsterNormal is RandomNPC",
+    "sprite monsterSlow is RandomNPC"
+   ],
+   "level0_rows": 9,
+   "level0_cols": 13,
+   "scan": {
+    "A1": "holds",
+    "A2": "fails",
+    "A3": "fails",
+    "A4": "holds",
+    "A5": "holds"
+   },
+   "win_conditions": [
+    "SpriteCounter {\"stype\": \"goal\", \"win\": \"True\"}"
+   ]
+  },
+  {
+   "game": "zenpuzzle",
+   "n_levels": 5,
+   "avatar_classes": [
+    "MovingAvatar"
+   ],
+   "deterministic": true,
+   "stochastic_reasons": [],
+   "level0_rows": 12,
+   "level0_cols": 12,
+   "scan": {
+    "A1": "holds",
+    "A2": "holds",
+    "A3": "holds",
+    "A4": "fails",
+    "A5": "fails"
+   },
+   "win_conditions": [
+    "MultiSpriteCounter {\"limit\": \"0\", \"stype1\": \"isincenter\", \"stype2\": \"ground\", \"win\": \"True\"}"
+   ]
+  }
+ ],
+ "skipped": [
+  {
+   "game": "artillery",
+   "reason": "not grid physics"
+  },
+  {
+   "game": "arkanoid",
+   "reason": "not grid physics"
+  },
+  {
+   "game": "asteroids",
+   "reason": "not grid physics"
+  },
+  {
+   "game": "bird",
+   "reason": "not grid physics"
+  },
+  {
+   "game": "bubble",
+   "reason": "not grid physics"
+  },
+  {
+   "game": "candy",
+   "reason": "not grid physics"
+  },
+  {
+   "game": "jumper",
+   "reason": "not grid physics"
+  },
+  {
+   "game": "lander",
+   "reason": "not grid physics"
+  },
+  {
+   "game": "mario",
+   "reason": "not grid physics"
+  },
+  {
+   "game": "pong",
+   "reason": "not grid physics"
+  },
+  {
+   "game": "ptsp",
+   "reason": "not grid physics"
+  },
+  {
+   "game": "racing",
+   "reason": "not grid physics"
+  }
+ ]
+}

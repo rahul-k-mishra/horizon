@@ -1,0 +1,30 @@
+== PyPI
+JPype1: version 1.7.1, uploaded 2026-05-06T23:53:48, CPython 3.11 Linux x86_64 wheel: yes, wheel for every platform: no
+griddly: version 1.6.7, uploaded 2023-03-15T21:27:00, CPython 3.11 Linux x86_64 wheel: yes, wheel for every platform: no
+gvgai-gym: not on PyPI (HTTP 404)
+gym-gvgai: not on PyPI (HTTP 404)
+minatar: version 1.0.15, uploaded 2023-05-29T16:47:15, CPython 3.11 Linux x86_64 wheel: no, wheel for every platform: yes
+py-vgdl: not on PyPI (HTTP 404)
+vgdl: not on PyPI (HTTP 404)
+
+== source repositories
+Bam4d/Griddly: last push 2024-04-09T09:35:39Z, archived False, licence MIT
+GAIGResearch/GVGAI: last push 2022-04-23T20:41:33Z, archived False, licence NOASSERTION
+kenjyoung/MinAtar: last push 2024-12-19T23:25:41Z, archived False, licence GPL-3.0
+rubenrtorrado/GVGAI_GYM: last push 2020-01-22T23:50:20Z, archived False, licence Apache-2.0
+rubenvereecken/py-vgdl: last push 2022-10-04T21:44:08Z, archived False, licence BSD-3-Clause
+schaul/py-vgdl: last push 2019-06-23T20:30:16Z, archived False, licence BSD-3-Clause
+
+== Griddly, tag 1.6.6
+single-player GDY files: 24; distinct games: 17; under GVGAI/: 13; under Mini-Grid/: 4
+distinct games: bait, bait_keys, butterflies, clusters, cookmepasta, labyrinth, random_butterflies, sokoban, sokoban2, spider-nest, zelda, zelda_sequential, zenpuzzle, minigrid-doggo, minigrid-drunkdwarf, minigrid-eyeball, minigrid-spiders
+python/griddly/GymWrapper.py: def clone at line(s) [532], def get_state at line(s) [269]
+
+== GVGAI, commit e58ff6597319155218759cc178931e05b81b524c
+Java source files under src/: 347
+src/core/game/StateObservation.java: copy at line(s) [55], advance at line(s) [70]
+
+== py-vgdl, Python 3 fork (rubenvereecken/py-vgdl)
+game descriptions under vgdl/games: 9: aliens.txt, boulderdash.txt, chase.txt, frogs.txt, missilecommand.txt, portals.txt, sokoban.txt, survivezombies.txt, zelda.txt
+
+raw records: docs\design\suite_evidence.json

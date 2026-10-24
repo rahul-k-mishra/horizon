@@ -1,0 +1,72 @@
+vgdl_scan: GVGAI commit e58ff6597319155218759cc178931e05b81b524c; 122 games in examples/all_games_sp.csv
+skipped artillery: not grid physics
+skipped arkanoid: not grid physics
+skipped asteroids: not grid physics
+skipped bird: not grid physics
+skipped bubble: not grid physics
+skipped candy: not grid physics
+skipped jumper: not grid physics
+skipped lander: not grid physics
+skipped mario: not grid physics
+skipped pong: not grid physics
+skipped ptsp: not grid physics
+skipped racing: not grid physics
+grid-physics games with a level-0 file that parse: 110; deterministic by the rule: 30
+level files of the deterministic games: 150 (5 levels: 30 games)
+causes of non-determinism (games with each cause): class RandomNPC 22; class SpawnPoint 20; class Chaser 17; effect attractGaze 17; class Bomber 13; class Fleeing 5; effect teleportToExit 5; class RandomMissile 4; class BomberRandomMissile 3; effect setSpeedForAll 2; class RandomBomber 2; effect spawn 2; class Spreader 2; class PathChaser 2; class RandomPathAltChaser 2; effect flipDirection 1; class PathAltChaser 1; class LOSChaser 1; effect transformToRandomChild 1; class SpawnPointMultiSprite 1
+
+== all parsed games (110)
+avatar classes: ShootAvatar 44, MovingAvatar 43, OrientedAvatar 9, MissileAvatar+MovingAvatar 4, FlakAvatar 3, OngoingAvatar 2, OngoingTurningAvatar 1, MissileAvatar+OrientedAvatar 1, MissileAvatar+ShootAvatar 1, OngoingShootAvatar 1, MissileAvatar+OngoingShootAvatar 1
+A1: holds 110, fails 0
+A2: holds 38, fails 72
+A3: holds 49, fails 61
+A4: holds 86, fails 24
+A5: holds 43, fails 67
+score S (number of A1-A5 holding): S=1: 6, S=2: 34, S=3: 36, S=4: 26, S=5: 8
+distinct A1-A5 patterns: 16; 10010 23, 10110 12, 11110 12, 10011 11, 10111 8, 11111 8, 11010 7, 10000 6, 10001 6, 11011 5, 10100 4, 10101 2, 11001 2, 11100 2, 11101 1, 11000 1
+level-0 grid cells: smallest 12, median 264, largest 1725
+
+== deterministic games (30)
+avatar classes: MovingAvatar 23, ShootAvatar 5, OngoingTurningAvatar 1, OrientedAvatar 1
+A1: holds 30, fails 0
+A2: holds 10, fails 20
+A3: holds 22, fails 8
+A4: holds 25, fails 5
+A5: holds 13, fails 17
+score S (number of A1-A5 holding): S=1: 1, S=2: 6, S=3: 9, S=4: 10, S=5: 4
+distinct A1-A5 patterns: 11; 10111 7, 10110 5, 11111 4, 10010 3, 11110 3, 10100 2, 11010 2, 10011 1, 10001 1, 10000 1, 11100 1
+level-0 grid cells: smallest 12, median 154, largest 1725
+
+== deterministic games
+bait: avatar MovingAvatar, 5 levels, level 0 6x5, A1=h A2=f A3=h A4=h A5=h
+chipschallenge: avatar MovingAvatar, 5 levels, level 0 14x15, A1=h A2=f A3=h A4=h A5=h
+clusters: avatar MovingAvatar, 5 levels, level 0 10x13, A1=h A2=f A3=h A4=f A5=f
+colourescape: avatar MovingAvatar, 5 levels, level 0 11x18, A1=h A2=f A3=h A4=h A5=h
+cookmepasta: avatar MovingAvatar, 5 levels, level 0 11x14, A1=h A2=f A3=h A4=h A5=f
+doorkoban: avatar MovingAvatar, 5 levels, level 0 13x15, A1=h A2=f A3=h A4=h A5=h
+escape: avatar MovingAvatar, 5 levels, level 0 9x13, A1=h A2=f A3=h A4=h A5=h
+garbagecollector: avatar OngoingTurningAvatar, 5 levels, level 0 25x69, A1=h A2=h A3=f A4=h A5=f
+glow: avatar ShootAvatar, 5 levels, level 0 7x14, A1=h A2=f A3=f A4=h A5=f
+grow: avatar ShootAvatar, 5 levels, level 0 6x9, A1=h A2=f A3=f A4=h A5=f
+hungrybirds: avatar MovingAvatar, 5 levels, level 0 11x16, A1=h A2=h A3=h A4=h A5=h
+iceandfire: avatar MovingAvatar, 5 levels, level 0 14x16, A1=h A2=h A3=h A4=h A5=h
+islands: avatar ShootAvatar, 5 levels, level 0 10x16, A1=h A2=f A3=f A4=h A5=h
+labyrinth: avatar MovingAvatar, 5 levels, level 0 14x16, A1=h A2=h A3=h A4=h A5=h
+labyrinthdual: avatar MovingAvatar, 5 levels, level 0 14x16, A1=h A2=h A3=h A4=h A5=h
+lasers: avatar ShootAvatar, 5 levels, level 0 10x31, A1=h A2=f A3=f A4=f A5=h
+modality: avatar MovingAvatar, 5 levels, level 0 5x7, A1=h A2=f A3=h A4=h A5=f
+painter: avatar MovingAvatar, 5 levels, level 0 3x4, A1=h A2=h A3=h A4=h A5=f
+racebet: avatar MovingAvatar, 5 levels, level 0 10x35, A1=h A2=h A3=h A4=h A5=f
+racebet2: avatar MovingAvatar, 5 levels, level 0 14x35, A1=h A2=h A3=h A4=h A5=f
+realsokoban: avatar MovingAvatar, 5 levels, level 0 7x8, A1=h A2=f A3=h A4=h A5=f
+rivers: avatar ShootAvatar, 5 levels, level 0 15x20, A1=h A2=f A3=f A4=f A5=f
+roadfighter: avatar MovingAvatar, 5 levels, level 0 15x10, A1=h A2=h A3=f A4=h A5=f
+sokoban: avatar MovingAvatar, 5 levels, level 0 9x13, A1=h A2=f A3=h A4=h A5=f
+tercio: avatar MovingAvatar, 5 levels, level 0 8x12, A1=h A2=f A3=h A4=h A5=f
+thecitadel: avatar MovingAvatar, 5 levels, level 0 9x10, A1=h A2=f A3=h A4=h A5=h
+thesnowman: avatar MovingAvatar, 5 levels, level 0 11x14, A1=h A2=f A3=h A4=f A5=f
+watergame: avatar MovingAvatar, 5 levels, level 0 6x7, A1=h A2=f A3=h A4=h A5=h
+wrapsokoban: avatar OrientedAvatar, 5 levels, level 0 7x8, A1=h A2=f A3=f A4=h A5=f
+zenpuzzle: avatar MovingAvatar, 5 levels, level 0 12x12, A1=h A2=h A3=h A4=f A5=f
+
+written docs\design\vgdl_scan.json

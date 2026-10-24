@@ -1,0 +1,3 @@
+numpy 2.4.3; seed 20261024; 30 deterministic games in name order
+pilot (4): bait, labyrinthdual, rivers, watergame
+confirmatory (26): chipschallenge, clusters, colourescape, cookmepasta, doorkoban, escape, garbagecollector, glow, grow, hungrybirds, iceandfire, islands, labyrinth, lasers, modality, painter, racebet, racebet2, realsokoban, roadfighter, sokoban, tercio, thecitadel, thesnowman, wrapsokoban, zenpuzzle
