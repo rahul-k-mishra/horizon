@@ -1,1 +1,9 @@
 2026-10-24T15:27:24Z actions-40107025637-1 DISPATCH chunk dry-01 (agent) attempt 1 run dryrun-dry-01-20261024T152724Z-997967
+2026-10-24T15:27:26Z actions-40107025637-1 FAILURE chunk dry-01 kernel version None run dryrun-dry-01-20261024T152724Z-997967: kernel push failed: kernel push failed: Authentication required to call the Kaggle API.
+
+First, you will need a Kaggle account. You can sign up at
+  https://www.kaggle.com/account/login
+
+Recommended: log in with OAuth via a web-based authorization flow.
+No token to manage; credentials are cached locally for you.
+    ka (failure 1 of at most 3)
