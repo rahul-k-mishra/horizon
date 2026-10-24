@@ -4,8 +4,9 @@ actions_minutes.py -- the GitHub Actions time used by the HORIZON loop (docs/AUT
 Reads, with the gh tool, every run of the workflow horizon.yml in rahul-k-mishra/horizon and the
 timing of its job and steps, saves the raw records in runs/<campaign>/actions_runs.json (committed with
 the log), and prints from that file:
-    - per run: its trigger, start, conclusion, job seconds, the seconds of the step "Tick" and of the
-      step "Start the next tick" (the sleep before the successor), and the job rounded up to whole minutes;
+    - per run: its trigger, the account that started it (github-actions[bot] for a successor), start,
+      conclusion, job seconds, the seconds of the step "Tick" and of the step "Start the next tick"
+      (the sleep before the successor), and the job rounded up to whole minutes;
     - a tick: the median seconds of the step "Tick" over all runs;
     - a run that did not wait (its step "Start the next tick" under 30 s, or absent: a tick alone): the
       median job seconds, rounded up to whole minutes;
@@ -14,6 +15,10 @@ the log), and prints from that file:
     - a month of a campaign in flight: the rounded-up job minutes of the runs that waited for a
       successor, divided by the wall-clock minutes from the first such run's start to the last one's
       end, times the 43,200 minutes of 30 days.
+GitHub's step records are not always complete: on 24 October 2026 a step that slept had a start but
+no end, and a run had no step records at all, while every job had its start and end.  A step with a
+start and no end is therefore taken to end at the job's end (an upper bound, which includes the
+clean-up steps after it), and a run without step records shows no tick time; job times are always used.
 Runs cancelled while pending (a newer run replaced them in the concurrency group) used no runner time
 and are listed as not counted.  The repository is public, so GitHub charges none of this; the totals
 matter only if the repository were private (Section 10).  Plays nothing.
@@ -56,7 +61,8 @@ def main(argv=None):
         raise SystemExit("more than 100 runs: add paging before using this script")
     for r in data["workflow_runs"]:
         js = gh(f"/repos/{a.repository}/actions/runs/{r['id']}/jobs")["jobs"]
-        runs.append(dict(id=r["id"], event=r["event"], status=r["status"], conclusion=r["conclusion"],
+        runs.append(dict(id=r["id"], event=r["event"], actor=(r.get("triggering_actor") or {}).get("login"),
+                         status=r["status"], conclusion=r["conclusion"],
                          created_at=r["created_at"],
                          jobs=[dict(name=j["name"], started_at=j["started_at"], completed_at=j["completed_at"],
                                     steps=[dict(name=t["name"], started_at=t.get("started_at"),
@@ -71,8 +77,10 @@ def main(argv=None):
         runs = json.load(f)
 
     def step(j, name):
-        t = [x for x in j["steps"] if x["name"] == name and x["started_at"] and x["completed_at"]]
-        return epoch(t[0]["completed_at"]) - epoch(t[0]["started_at"]) if t else None
+        t = [x for x in j["steps"] if x["name"] == name and x["started_at"]]
+        if not t:
+            return None
+        return epoch(t[0]["completed_at"] or j["completed_at"]) - epoch(t[0]["started_at"])
 
     ticks, idle, waiting = [], [], []
     for r in runs:
@@ -86,7 +94,7 @@ def main(argv=None):
         if tk is not None:
             ticks.append(tk)
         (waiting if wt is not None and wt >= 30 else idle).append((s, j))
-        print(f"run {r['id']} {r['event']:<17} {r['created_at']} {r['conclusion']:<8} job {s:>5} s, tick {tk} s, "
+        print(f"run {r['id']} {r['event']:<17} by {r['actor']:<22} {r['created_at']} {r['conclusion']:<8} job {s:>5} s, tick {tk} s, "
               f"wait-and-start {wt} s = {math.ceil(s / 60)} min rounded up")
     print(f"runs counted: {len(idle) + len(waiting)} ({len(waiting)} that waited for a successor, {len(idle)} that did not)")
     if ticks:

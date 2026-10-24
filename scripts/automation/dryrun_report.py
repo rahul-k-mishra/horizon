@@ -106,7 +106,7 @@ def main():
     print(f"{len(fl)} failure line(s)")
     print("\n== the loop's commits")
     raw = git("log", "--format=%H%x1f%an%x1f%cI%x1f%B%x1e")
-    recs = [r.split("\x1f") for r in raw.split("\x1e") if r.strip()]
+    recs = [r.strip("\n").split("\x1f") for r in raw.split("\x1e") if r.strip()]
     loop = [r for r in recs if r[1] == "horizon-loop"]
     multi = [r for r in recs if len(r[3].strip().splitlines()) != 1]
     print(f"commits by horizon-loop: {len(loop)}; commits in the repository with a message of more than one line: {len(multi)}")
