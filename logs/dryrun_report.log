@@ -1,0 +1,65 @@
+dry-run report -- campaign dryrun, code tag automation-v1, state commit c09f2c2
+
+== chunks
+dry-01 (agent): done, attempts 2, failures 1
+   kernel version 2  run dryrun-dry-01-20261024T153044Z-9b86d2  kernel complete  outcome done  units ['dry-01-sleep-seed1']  ended 2026-10-24T15:33:01Z
+dry-02 (search): done, attempts 2, failures 0
+   kernel version 3  run dryrun-dry-02-20261024T162730Z-a1675a  kernel complete  outcome partial  units []  ended 2026-10-24T16:32:47Z
+   kernel version 4  run dryrun-dry-02-20261024T163347Z-620106  kernel complete  outcome done  units ['dry-02-graph-a', 'dry-02-graph-b']  ended 2026-10-24T16:36:28Z
+dry-03 (agent): done, attempts 1, failures 0
+   kernel version 5  run dryrun-dry-03-20261024T163736Z-9ff09c  kernel complete  outcome done  units ['dry-03-sleep-seed1']  ended 2026-10-24T16:39:53Z
+
+== rows
+agent dry-01-sleep-seed1: schema ok; marker kernel version 2
+   host 9ff74ca184ab  run dryrun-dry-01-20261024T153044Z-9b86d2  started 2026-10-24T15:31:00Z  ended 2026-10-24T15:33:01Z
+agent dry-03-sleep-seed1: schema ok; marker kernel version 5
+   host 6c3eb86c012c  run dryrun-dry-03-20261024T163736Z-9ff09c  started 2026-10-24T16:37:52Z  ended 2026-10-24T16:39:53Z
+search dry-02-graph-a: schema ok; marker kernel version 4
+   host 76f26e294854  run dryrun-dry-02-20261024T162730Z-a1675a  started 2026-10-24T16:27:47Z  ended 2026-10-24T16:32:47Z
+   host 2f46bf2200a1  run dryrun-dry-02-20261024T163347Z-620106  started 2026-10-24T16:34:05Z  ended 2026-10-24T16:36:28Z
+   complete True, capped False (None), counts {"depth_max": 87, "frontier_left": 0, "solution_length": 48, "spill_files_max": 6, "states_expanded": 28000, "states_seen": 28000, "successors_total": 84000}, seconds 440.107
+search dry-02-graph-b: schema ok; marker kernel version 4
+   host 2f46bf2200a1  run dryrun-dry-02-20261024T163347Z-620106  started 2026-10-24T16:34:05Z  ended 2026-10-24T16:36:28Z
+   complete False, capped True (node), counts {"depth_max": 14, "frontier_left": 115, "solution_length": null, "spill_files_max": 1, "states_expanded": 500, "states_seen": 615, "successors_total": 1500}, seconds 0.004
+
+== the forced checkpoint (dry-02)
+sessions: kernel version 3 partial; kernel version 4 done
+checkpoint commit: dc4bcde 2026-10-24T16:33:46Z Loop: dry-02 partial (kernel version 3)
+   checkpoint seq 7, run dryrun-dry-02-20261024T162730Z-a1675a, units done [], unit in progress dry-02-graph-a
+   head.json.gz: 38 bytes, git
+   spill_000187.json.gz: 373 bytes, git
+   spill_000188.json.gz: 367 bytes, git
+   spill_000189.json.gz: 371 bytes, git
+   spill_000190.json.gz: 371 bytes, git
+   spill_000191.json.gz: 381 bytes, git
+   tail.json.gz: 322 bytes, git
+   visited.u64.gz: 156459 bytes, release
+checkpoint commit: 6c79930 2026-10-24T16:37:35Z Loop: dry-02 done (kernel version 4)
+   (the checkpoint is removed in this commit: the chunk is done)
+graph-a: states seen 28000, goal depth 48, sessions 2; uninterrupted enumeration: 28000 states, goal depth 48; same
+graph-b: capped True by node at 500 expansions (node cap 500)
+
+== failures logged
+2026-10-24T15:27:26Z actions-40107025637-1 FAILURE chunk dry-01 kernel version None run dryrun-dry-01-20261024T152724Z-997967: kernel push failed: kernel push failed: Authentication required to call the Kaggle API.
+1 failure line(s)
+
+== the loop's commits
+commits by horizon-loop: 14; commits in the repository with a message of more than one line: 0
+   aa86001 2026-10-24T15:27:24Z Loop: dispatch dry-01 (attempt 1)
+   c375ac4 2026-10-24T15:27:26Z Loop: kernel push failed for dry-01
+   87a0582 2026-10-24T15:30:44Z Loop: dispatch dry-01 (attempt 2)
+   b734743 2026-10-24T15:30:48Z Loop: dry-01 pushed as kernel version 2
+   badc990 2026-10-24T16:27:28Z Loop: dry-01 done (kernel version 2)
+   aebf261 2026-10-24T16:27:30Z Loop: dispatch dry-02 (attempt 1)
+   9cf6558 2026-10-24T16:27:32Z Loop: dry-02 pushed as kernel version 3
+   dc4bcde 2026-10-24T16:33:46Z Loop: dry-02 partial (kernel version 3)
+   1df9718 2026-10-24T16:33:47Z Loop: dispatch dry-02 (attempt 2)
+   a05f1b5 2026-10-24T16:33:50Z Loop: dry-02 pushed as kernel version 4
+   6c79930 2026-10-24T16:37:35Z Loop: dry-02 done (kernel version 4)
+   e6ee9f1 2026-10-24T16:37:36Z Loop: dispatch dry-03 (attempt 1)
+   2cfd2ba 2026-10-24T16:37:39Z Loop: dry-03 pushed as kernel version 5
+   7bf137e 2026-10-24T16:44:55Z Loop: dry-03 done (kernel version 5)
+
+== elapsed
+first dispatch 2026-10-24T15:27:24Z; first notebook push that reached Kaggle 2026-10-24T15:30:48Z; last chunk collected 2026-10-24T16:44:55Z
+elapsed from the first dispatch: 1 h 17 min 31 s; from the first push that reached Kaggle: 1 h 14 min 07 s

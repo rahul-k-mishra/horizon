@@ -1,0 +1,15 @@
+run 40107025637 workflow_dispatch by rahul-k-mishra         2026-10-24T15:27:07Z success  job    17 s, tick 3 s, wait-and-start None s = 1 min rounded up
+run 40107285429 workflow_dispatch by rahul-k-mishra         2026-10-24T15:30:30Z success  job    18 s, tick 5 s, wait-and-start None s = 1 min rounded up
+run 40111623712 workflow_dispatch by rahul-k-mishra         2026-10-24T16:27:12Z success  job    20 s, tick 8 s, wait-and-start None s = 1 min rounded up
+run 40112106721 workflow_dispatch by rahul-k-mishra         2026-10-24T16:33:26Z success  job    24 s, tick 12 s, wait-and-start None s = 1 min rounded up
+run 40112403589 workflow_dispatch by rahul-k-mishra         2026-10-24T16:37:19Z success  job    19 s, tick 9 s, wait-and-start None s = 1 min rounded up
+run 40112453074 workflow_dispatch by rahul-k-mishra         2026-10-24T16:37:57Z success  job   400 s, tick 1 s, wait-and-start 389 s = 7 min rounded up
+run 40112968801 workflow_dispatch by github-actions[bot]    2026-10-24T16:44:39Z success  job    15 s, tick None s, wait-and-start None s = 1 min rounded up
+runs counted: 7 (1 that waited for a successor, 6 that did not)
+the step Tick: median 6.5 s, largest 12 s, over 6 runs
+a run that did not wait (a tick alone): median job 18.5 s; rounded up to whole minutes: 1
+a month with nothing to do: 1440 cron runs x 1 min = 1440 minutes
+runs that waited for a successor: 7 minutes rounded up over 6.7 wall-clock minutes (1.050 billed minutes per minute)
+a month of a campaign in flight: 1.050 x 43200 = 45360 minutes
+the repository is public: GitHub charges none of these minutes
+raw records: runs\dryrun\actions_runs.json
