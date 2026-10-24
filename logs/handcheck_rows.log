@@ -1,4 +1,4 @@
-docs/truth/handcheck_rows.json written: 100 rows, 10 games, sha256 ad56ac3a3c04b75ba3e19fd874ec73f6be1270988391686b9dc3b4722e8cce1e
+docs/truth/handcheck_rows.json written: 100 rows, 10 games, sha256 c03aaa851548f3c4be400905e640104c7d7519cfaa124e3b40088540f2a92cd8
    clusters: levels 0, 3; A1 holds/holds, A2 fails/fails, A3 holds/holds, A4 holds/holds, A5 fails/fails
    colourescape: levels 0, 3; A1 holds/holds, A2 fails/fails, A3 holds/holds, A4 holds/holds, A5 holds/holds
    glow: levels 0, 4; A1 holds/holds, A2 fails/fails, A3 fails/fails, A4 holds/holds, A5 fails/fails

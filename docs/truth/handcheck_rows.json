@@ -2,10 +2,10 @@
  "schema": "horizon.handcheck_rows.v1",
  "written_by": "scripts/handcheck_app.py",
  "sources": {
-  "docs/truth/gvgai.json": "08e70906a906be817580381a3c37e6761181146c80ef5bbed269fedab919b8cb",
-  "docs/truth/HANDCHECK.md": "9d2f2e612ac803fda4ad4baedc8ec1c90444496b8bde34dc6927941a525bfbed",
-  "docs/truth/HANDCHECK_GUIDE.md": "f80572f00c3ed5e86c64ad1f5dadf6d16b26107f9fb9318a61c3eb4762945cca",
-  "docs/truth/handcheck_readings.json": "329df5502ff549aeaf41acc72b4a38308012b88236c1065ce02e576b5dad84f3"
+  "docs/truth/gvgai.json": "4501e9e3d91eacd20e2090c469880359978bcc1cdbd1066cbf38207584e1bad0",
+  "docs/truth/HANDCHECK.md": "4b2f28958343930d6008a57077e764ea4c1a6a1bdbe3e6bd12e040d73ce3e611",
+  "docs/truth/HANDCHECK_GUIDE.md": "1873709983d89a16d69b71260ac3445bccf4d812102ef70f5f7d870e07e0ae5d",
+  "docs/truth/handcheck_readings.json": "332a8dd111fdbd97100a69feeb3b5e42d14eb4a052c1cadfb38acfb3290f9fb4"
  },
  "rows": [
   {
@@ -191,7 +191,7 @@
     "line": 49,
     "text": "avatar block > stepBack"
    },
-   "reading": "Walls (line 37) and the coloured blocks (line 49) send the avatar back, and both are Immovable (lines 7 and 19).",
+   "reading": "Walls (line 37) and the coloured blocks (line 49) send the avatar back, and both are Immovable (lines 7 and 19). A box pushed into a block, a wall or another box cancels the avatar's step too (undoAll, lines 51 to 55), and every sprite named there is Immovable or a box only the avatar pushes.",
    "wrong_if": "The verdict would be wrong if blocks appeared without the player: line 42 turns a box into a block when the box reaches a block, and the generator counts that as the avatar's doing because only the avatar pushes boxes.",
    "clauses": [
     {
@@ -217,6 +217,30 @@
      "line": 37,
      "text": "avatar wall > stepBack",
      "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 51,
+     "text": "greenbox blueblock redblock > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
+    },
+    {
+     "in": "description",
+     "line": 52,
+     "text": "redbox blueblock greenblock > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
+    },
+    {
+     "in": "description",
+     "line": 53,
+     "text": "bluebox greenblock redblock > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
+    },
+    {
+     "in": "description",
+     "line": 55,
+     "text": "box box wall > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
     },
     {
      "in": "description",
@@ -259,7 +283,7 @@
     "line": 49,
     "text": "avatar block > stepBack"
    },
-   "reading": "Walls (line 37) and the coloured blocks (line 49) send the avatar back, and both are Immovable (lines 7 and 19).",
+   "reading": "Walls (line 37) and the coloured blocks (line 49) send the avatar back, and both are Immovable (lines 7 and 19). A box pushed into a block, a wall or another box cancels the avatar's step too (undoAll, lines 51 to 55), and every sprite named there is Immovable or a box only the avatar pushes.",
    "wrong_if": "The verdict would be wrong if blocks appeared without the player: line 42 turns a box into a block when the box reaches a block, and the generator counts that as the avatar's doing because only the avatar pushes boxes.",
    "clauses": [
     {
@@ -285,6 +309,30 @@
      "line": 37,
      "text": "avatar wall > stepBack",
      "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 51,
+     "text": "greenbox blueblock redblock > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
+    },
+    {
+     "in": "description",
+     "line": 52,
+     "text": "redbox blueblock greenblock > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
+    },
+    {
+     "in": "description",
+     "line": 53,
+     "text": "bluebox greenblock redblock > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
+    },
+    {
+     "in": "description",
+     "line": 55,
+     "text": "box box wall > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
     },
     {
      "in": "description",
@@ -631,14 +679,44 @@
     "line": 45,
     "text": "avatar wall > stepBack"
    },
-   "reading": "Walls send the avatar back, and walls are Immovable (line 25).",
-   "wrong_if": "The verdict would be wrong if the moves cancelled at lines 48, 51, 54 and 57 (an avatar of the wrong colour pushing a box, undoAll) needed a blocker that moves on its own; there the boxes come first in the line and move only when an avatar pushes them.",
+   "reading": "Walls send the avatar back, and walls are Immovable (line 25). The undoAll lines 48 to 59 also cancel the avatar's step (an avatar of the wrong colour walking into a box, or a box pushed into a wall, switch, exit or box); every sprite they name is a box only an avatar pushes, or a wall, switch or exit that never moves on its own.",
+   "wrong_if": "The verdict would be wrong if a sprite named in lines 48 to 59 moved on its own, or were created or removed other than through the avatar: boxes vanish on a hole only after a push (line 62), and the exit is removed only by the avatar (line 61).",
    "clauses": [
     {
      "in": "description",
      "line": 45,
      "text": "avatar wall > stepBack",
      "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 48,
+     "text": "greenbox blueAvatar redAvatar normalAvatar > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
+    },
+    {
+     "in": "description",
+     "line": 51,
+     "text": "redbox blueAvatar greenAvatar normalAvatar > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
+    },
+    {
+     "in": "description",
+     "line": 54,
+     "text": "bluebox redAvatar greenAvatar normalAvatar > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
+    },
+    {
+     "in": "description",
+     "line": 57,
+     "text": "box redAvatar greenAvatar blueAvatar > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
+    },
+    {
+     "in": "description",
+     "line": 59,
+     "text": "boxes wall switch exit boxes > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
     },
     {
      "in": "description",
@@ -663,14 +741,44 @@
     "line": 45,
     "text": "avatar wall > stepBack"
    },
-   "reading": "Walls send the avatar back, and walls are Immovable (line 25).",
-   "wrong_if": "The verdict would be wrong if the moves cancelled at lines 48, 51, 54 and 57 (an avatar of the wrong colour pushing a box, undoAll) needed a blocker that moves on its own; there the boxes come first in the line and move only when an avatar pushes them.",
+   "reading": "Walls send the avatar back, and walls are Immovable (line 25). The undoAll lines 48 to 59 also cancel the avatar's step (an avatar of the wrong colour walking into a box, or a box pushed into a wall, switch, exit or box); every sprite they name is a box only an avatar pushes, or a wall, switch or exit that never moves on its own.",
+   "wrong_if": "The verdict would be wrong if a sprite named in lines 48 to 59 moved on its own, or were created or removed other than through the avatar: boxes vanish on a hole only after a push (line 62), and the exit is removed only by the avatar (line 61).",
    "clauses": [
     {
      "in": "description",
      "line": 45,
      "text": "avatar wall > stepBack",
      "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 48,
+     "text": "greenbox blueAvatar redAvatar normalAvatar > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
+    },
+    {
+     "in": "description",
+     "line": 51,
+     "text": "redbox blueAvatar greenAvatar normalAvatar > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
+    },
+    {
+     "in": "description",
+     "line": 54,
+     "text": "bluebox redAvatar greenAvatar normalAvatar > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
+    },
+    {
+     "in": "description",
+     "line": 57,
+     "text": "box redAvatar greenAvatar blueAvatar > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
+    },
+    {
+     "in": "description",
+     "line": 59,
+     "text": "boxes wall switch exit boxes > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
     },
     {
      "in": "description",
@@ -1615,7 +1723,7 @@
     "line": 34,
     "text": "avatar wall lasercannon > stepBack"
    },
-   "reading": "Walls and laser cannons send the avatar back; walls are Immovable, cannons are SpawnPoint (line 7) and never move, and a cannon changes kind only when the avatar's boulder hits it (lines 49 to 53).",
+   "reading": "Walls and laser cannons send the avatar back; walls are Immovable, cannons are SpawnPoint (line 7) and never move, and a cannon changes kind only when the avatar's boulder hits it (lines 49 to 53). A box pushed into a wall, a box or a cannon also cancels the step (undoAll, line 38), and boxes move only when the avatar pushes them.",
    "wrong_if": "The verdict would be wrong if a SpawnPoint did not count as staying in place, or if the boulder the avatar fires did not count as the avatar's own action.",
    "clauses": [
     {
@@ -1653,6 +1761,12 @@
      "line": 34,
      "text": "avatar wall lasercannon > stepBack",
      "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 38,
+     "text": "box wall box lasercannon > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
     },
     {
      "in": "description",
@@ -1707,7 +1821,7 @@
     "line": 34,
     "text": "avatar wall lasercannon > stepBack"
    },
-   "reading": "Walls and laser cannons send the avatar back; walls are Immovable, cannons are SpawnPoint (line 7) and never move, and a cannon changes kind only when the avatar's boulder hits it (lines 49 to 53).",
+   "reading": "Walls and laser cannons send the avatar back; walls are Immovable, cannons are SpawnPoint (line 7) and never move, and a cannon changes kind only when the avatar's boulder hits it (lines 49 to 53). A box pushed into a wall, a box or a cannon also cancels the step (undoAll, line 38), and boxes move only when the avatar pushes them.",
    "wrong_if": "The verdict would be wrong if a SpawnPoint did not count as staying in place, or if the boulder the avatar fires did not count as the avatar's own action.",
    "clauses": [
     {
@@ -1745,6 +1859,12 @@
      "line": 34,
      "text": "avatar wall lasercannon > stepBack",
      "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 38,
+     "text": "box wall box lasercannon > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
     },
     {
      "in": "description",
@@ -3014,6 +3134,12 @@
     },
     {
      "in": "description",
+     "line": 17,
+     "text": "box wall box  > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
+    },
+    {
+     "in": "description",
      "line": 7,
      "text": "wall > Immovable img=oryx/wall3 autotiling=True",
      "reads": "blocker wall is Immovable"
@@ -3043,6 +3169,12 @@
      "line": 15,
      "text": "avatar wall > stepBack",
      "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 17,
+     "text": "box wall box  > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
     },
     {
      "in": "description",
@@ -3287,7 +3419,7 @@
     "line": 24,
     "text": "avatar wall > stepBack"
    },
-   "reading": "Walls send the avatar back and are Immovable (line 11).",
+   "reading": "Walls send the avatar back and are Immovable (line 11). A box pushed into a wall or another box also cancels the step (undoAll, line 25), and boxes move only when the avatar pushes them; a pushed box that leaves the edge wraps round (line 23), which counts as the avatar's push (decided 25 October 2026).",
    "wrong_if": "The verdict would be wrong if a box, which can stop the avatar through undoAll at line 25, moved or changed other than through the avatar's push.",
    "clauses": [
     {
@@ -3295,6 +3427,12 @@
      "line": 24,
      "text": "avatar wall > stepBack",
      "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 25,
+     "text": "bbox wall bbox   > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
     },
     {
      "in": "description",
@@ -3319,7 +3457,7 @@
     "line": 24,
     "text": "avatar wall > stepBack"
    },
-   "reading": "Walls send the avatar back and are Immovable (line 11).",
+   "reading": "Walls send the avatar back and are Immovable (line 11). A box pushed into a wall or another box also cancels the step (undoAll, line 25), and boxes move only when the avatar pushes them; a pushed box that leaves the edge wraps round (line 23), which counts as the avatar's push (decided 25 October 2026).",
    "wrong_if": "The verdict would be wrong if a box, which can stop the avatar through undoAll at line 25, moved or changed other than through the avatar's push.",
    "clauses": [
     {
@@ -3327,6 +3465,12 @@
      "line": 24,
      "text": "avatar wall > stepBack",
      "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 25,
+     "text": "bbox wall bbox   > undoAll",
+     "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle"
     },
     {
      "in": "description",
