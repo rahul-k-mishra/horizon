@@ -1,19 +1,23 @@
 a4_unchecked: 30 deterministic games, 26 confirmatory
-bait (pilot, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later: line 30 `box wall box mushroom > undoAll`
-chipschallenge (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later: line 68 `crate crate wall door key chip gate mud fire boots > undoAll`
-clusters (confirmatory, A4 holds): 4 undoAll line(s) without the avatar first, 0 of them naming the avatar later: line 51 `greenbox blueblock redblock > undoAll`; line 52 `redbox blueblock greenblock > undoAll`; line 53 `bluebox greenblock redblock > undoAll`; line 55 `box box wall > undoAll`
-colourescape (confirmatory, A4 holds): 5 undoAll line(s) without the avatar first, 4 of them naming the avatar later: line 48 `greenbox blueAvatar redAvatar normalAvatar > undoAll`; line 51 `redbox blueAvatar greenAvatar normalAvatar > undoAll`; line 54 `bluebox redAvatar greenAvatar normalAvatar > undoAll`; line 57 `box redAvatar greenAvatar blueAvatar > undoAll`; line 59 `boxes wall switch exit boxes > undoAll`
-cookmepasta (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later: line 39 `food wall lock key > undoAll`
-doorkoban (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later: line 51 `box wall box door  > undoAll`
-escape (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later: line 20 `box wall exit box   > undoAll`
-lasers (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later: line 38 `box wall box lasercannon > undoAll`
-modality (confirmatory, A4 holds): 2 undoAll line(s) without the avatar first, 0 of them naming the avatar later: line 41 `crate wall > undoAll`; line 42 `target wall > undoAll`
-realsokoban (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later: line 23 `bbox wall bbox   > undoAll`
-sokoban (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later: line 17 `box wall box  > undoAll`
-tercio (confirmatory, A4 holds): 2 undoAll line(s) without the avatar first, 0 of them naming the avatar later: line 59 `crate wall > undoAll`; line 60 `target wall > undoAll`
-thecitadel (confirmatory, A4 holds): 2 undoAll line(s) without the avatar first, 0 of them naming the avatar later: line 28 `boulder boulder crate wall goal > undoAll`; line 36 `crate wall boulder goal roundhole > undoAll`
-thesnowman (confirmatory, A4 holds): 4 undoAll line(s) without the avatar first, 0 of them naming the avatar later: line 45 `base key wall lock > undoAll`; line 46 `body key wall lock > undoAll`; line 47 `chest key wall lock > undoAll`; line 48 `head key wall lock > undoAll`
-watergame (pilot, A4 holds): 2 undoAll line(s) without the avatar first, 0 of them naming the avatar later: line 15 `box wall box > undoAll`; line 16 `wall box > undoAll`
-wrapsokoban (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later: line 25 `bbox wall bbox   > undoAll`
+bait (pilot, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later, 1 cited by the A4 clauses: line 30 `box wall box mushroom > undoAll`
+chipschallenge (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later, 1 cited by the A4 clauses: line 68 `crate crate wall door key chip gate mud fire boots > undoAll`
+clusters (confirmatory, A4 holds): 4 undoAll line(s) without the avatar first, 0 of them naming the avatar later, 4 cited by the A4 clauses: line 51 `greenbox blueblock redblock > undoAll`; line 52 `redbox blueblock greenblock > undoAll`; line 53 `bluebox greenblock redblock > undoAll`; line 55 `box box wall > undoAll`
+colourescape (confirmatory, A4 holds): 5 undoAll line(s) without the avatar first, 4 of them naming the avatar later, 5 cited by the A4 clauses: line 48 `greenbox blueAvatar redAvatar normalAvatar > undoAll`; line 51 `redbox blueAvatar greenAvatar normalAvatar > undoAll`; line 54 `bluebox redAvatar greenAvatar normalAvatar > undoAll`; line 57 `box redAvatar greenAvatar blueAvatar > undoAll`; line 59 `boxes wall switch exit boxes > undoAll`
+cookmepasta (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later, 1 cited by the A4 clauses: line 39 `food wall lock key > undoAll`
+doorkoban (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later, 1 cited by the A4 clauses: line 51 `box wall box door  > undoAll`
+escape (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later, 1 cited by the A4 clauses: line 20 `box wall exit box   > undoAll`
+lasers (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later, 1 cited by the A4 clauses: line 38 `box wall box lasercannon > undoAll`
+modality (confirmatory, A4 holds): 2 undoAll line(s) without the avatar first, 0 of them naming the avatar later, 2 cited by the A4 clauses: line 41 `crate wall > undoAll`; line 42 `target wall > undoAll`
+realsokoban (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later, 1 cited by the A4 clauses: line 23 `bbox wall bbox   > undoAll`
+sokoban (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later, 1 cited by the A4 clauses: line 17 `box wall box  > undoAll`
+tercio (confirmatory, A4 holds): 2 undoAll line(s) without the avatar first, 0 of them naming the avatar later, 2 cited by the A4 clauses: line 59 `crate wall > undoAll`; line 60 `target wall > undoAll`
+thecitadel (confirmatory, A4 holds): 2 undoAll line(s) without the avatar first, 0 of them naming the avatar later, 2 cited by the A4 clauses: line 28 `boulder boulder crate wall goal > undoAll`; line 36 `crate wall boulder goal roundhole > undoAll`
+thesnowman (confirmatory, A4 holds): 4 undoAll line(s) without the avatar first, 0 of them naming the avatar later, 4 cited by the A4 clauses: line 45 `base key wall lock > undoAll`; line 46 `body key wall lock > undoAll`; line 47 `chest key wall lock > undoAll`; line 48 `head key wall lock > undoAll`
+watergame (pilot, A4 holds): 2 undoAll line(s) without the avatar first, 0 of them naming the avatar later, 2 cited by the A4 clauses: line 15 `box wall box > undoAll`; line 16 `wall box > undoAll`
+wrapsokoban (confirmatory, A4 holds): 1 undoAll line(s) without the avatar first, 0 of them naming the avatar later, 1 cited by the A4 clauses: line 25 `bbox wall bbox   > undoAll`
 confirmatory games where A4 holds and such a line exists: 14 of 26 (chipschallenge, clusters, colourescape, cookmepasta, doorkoban, escape, lasers, modality, realsokoban, sokoban, tercio, thecitadel, thesnowman, wrapsokoban)
+confirmatory games with such lines, every one cited by the A4 clauses: 14
 pilot games where A4 holds and such a line exists: 2 of 4 (bait, watergame)
+pilot games with such lines, every one cited by the A4 clauses: 2
+effects applied to the avatar as the first sprite, in the deterministic games (lines): stepBack 47, transformTo 24, killSprite 13, changeResource 5, killIfHasLess 5, addHealthPoints 3, subtractHealthPoints 2, undoAll 1, shieldFrom 1, killIfFrontal 1, killIfNotFrontal 1, wrapAround 1
+undoAll lines with a notStype option in the deterministic games: none
