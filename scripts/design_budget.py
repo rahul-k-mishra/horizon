@@ -71,7 +71,8 @@ def main():
               f"{chunks * per_session / 86400:.1f} days at most")
         return chunks
 
-    dev = stage("development search, MiniGrid/BabyAI", p["development"]["minigrid_games"], p["development"]["search_time_cap_seconds"])
+    dev = stage("development search (stage D, kind devsearch), MiniGrid/BabyAI macro, one unit per (game, seed)",
+                p["development"]["minigrid_games"] * p["development"]["seeds"], p["development"]["search_time_cap_seconds"])
     pil_s = stage("pilot search", levels(n_pilot), cap_s)
     pil_a = stage("pilot agents (cap at its largest)", levels(n_pilot) * len(agents) * p["pilot"]["seeds"], p["agent_unit_cap_seconds_max"])
     con_s = stage("confirmatory search", levels(n_conf), cap_s)

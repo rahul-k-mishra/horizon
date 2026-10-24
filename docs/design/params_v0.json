@@ -9,14 +9,45 @@
   "search_batch_seconds_max": 60,
   "loop_gap_seconds_max": 1800
  },
- "machine": {"workers": 4, "ram_bytes": 30000000000, "search_memory_cap_bytes_per_worker": 6442450944},
- "suite": {"levels_per_game_used": 5, "pilot_games": 4},
- "agents": ["N", "R", "I1", "Rand"],
+ "machine": {
+  "workers": 4,
+  "ram_bytes": 30000000000,
+  "search_memory_cap_bytes_per_worker": 6442450944
+ },
+ "suite": {
+  "levels_per_game_used": 5,
+  "pilot_games": 4
+ },
+ "agents": [
+  "N",
+  "R",
+  "I1",
+  "Rand"
+ ],
  "seeds": 10,
  "actions_per_unit": 20000,
  "agent_unit_cap_seconds_max": 1800,
- "agent_unit_cap_seconds_shown": [300, 600, 1200, 1800],
- "search": {"node_cap": 5000000, "time_cap_seconds": 14400, "eh_state_limit": 200000, "eh_horizon": 400},
- "pilot": {"seeds": 2},
- "development": {"minigrid_games": 161, "search_time_cap_seconds": 3600, "source_of_count": "docs/oracle/READING.md, Section 2 (161 MiniGrid/BabyAI games), from logs/oracle_v2.log"}
+ "agent_unit_cap_seconds_shown": [
+  300,
+  600,
+  1200,
+  1800
+ ],
+ "search": {
+  "node_cap": 5000000,
+  "time_cap_seconds": 14400,
+  "eh_state_limit": 200000,
+  "eh_horizon": 400
+ },
+ "pilot": {
+  "seeds": 2
+ },
+ "development": {
+  "minigrid_games": 161,
+  "seeds": 10,
+  "condition": "macro",
+  "search_time_cap_seconds": 900,
+  "source_of_count": "docs/oracle/READING.md, Section 2 (161 MiniGrid/BabyAI games), from logs/oracle_v2.log; seeds 1000-1009 as in study 1",
+  "note": "one unit per (game, seed): each seed of a MiniGrid game is a different layout; games whose sprites move at random (Dynamic-Obstacles) are excluded when the manifest is written, so the unit count here is an upper bound"
+ }
 }
