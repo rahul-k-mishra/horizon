@@ -10,7 +10,7 @@
  "chunks": [
   {"attempts": 2, "chunk_id": "dry-01", "failures": 1, "kind": "agent", "sessions": [{"ended_at": "2026-10-24T15:33:01Z", "kernel_status": "complete", "kernel_version": 2, "outcome": "done", "run_nonce": "dryrun-dry-01-20261024T153044Z-9b86d2", "units_done_this_session": ["dry-01-sleep-seed1"]}], "status": "done"},
   {"attempts": 2, "chunk_id": "dry-02", "failures": 0, "kind": "search", "sessions": [{"ended_at": "2026-10-24T16:32:47Z", "kernel_status": "complete", "kernel_version": 3, "outcome": "partial", "run_nonce": "dryrun-dry-02-20261024T162730Z-a1675a", "units_done_this_session": []}, {"ended_at": "2026-10-24T16:36:28Z", "kernel_status": "complete", "kernel_version": 4, "outcome": "done", "run_nonce": "dryrun-dry-02-20261024T163347Z-620106", "units_done_this_session": ["dry-02-graph-a", "dry-02-graph-b"]}], "status": "done"},
-  {"attempts": 0, "chunk_id": "dry-03", "failures": 0, "kind": "agent", "sessions": [], "status": "pending"}
+  {"attempts": 1, "chunk_id": "dry-03", "failures": 0, "kind": "agent", "sessions": [], "status": "running"}
  ],
  "units": [
   {"agent": "dummy", "chunk_id": "dry-01", "game": "sleep", "kind": "agent", "level": null, "seed": 1, "status": "done", "suite": "dummy", "unit_id": "dry-01-sleep-seed1"},
