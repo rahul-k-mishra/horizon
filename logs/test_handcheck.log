@@ -1,0 +1,5 @@
+rows: 100 rows on 10 games; equal to a fresh build; every deciding line matches its file
+cells: on all 16 rows that count a sprite in the level, the coloured squares equal the generator's count
+window: answers kept after each click; keys ignored while typing; back and skip; resumed at row 5; finish recorded
+report: counts per predicate and game, the disagreement and the unsure row with notes, games and levels
+OK
