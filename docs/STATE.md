@@ -102,3 +102,14 @@ Seventh amendment. The lines above are unchanged. Nothing is registered; the pre
 - **Dry run of the kind** through the loop on Kaggle (docs/DRYRUN_DEVSEARCH.md, 2fd4f21): kernel version 6 partial, checkpoint committed in d64ad89, kernel version 7 resumed on another machine and done in 4f88211; the three rows equal the laptop's counts. The dummy dry-run manifest is archived at jobs/archive/dryrun/manifest.json.
 - **Stage D's manifest** (afa984c): jobs/stage_d/manifest.json, 156 games (5 Dynamic-Obstacles games left out), 1,560 units, 39 chunks, registered caps; between 39 and 195 sessions (logs/make_stage_d_manifest.log). Not launched.
 - **Next:** the author decides whether to launch stage D (copy jobs/stage_d/manifest.json to jobs/manifest.json and start the workflow); the author's hand check; then scripts/sdd.py on stage D's rows.
+
+## Amendment 25 Oct 2026 (h)
+
+Eighth amendment. The lines above are unchanged. Nothing is registered; the prereg tag is not created. No file under jobs/ or runs/ was changed.
+
+- **A window for the hand check** (3590100 to 7c5981a, and a fix to how it hashes files): scripts/handcheck_app.py, standard library only, shows one row at a time: a predicate on one drawn level, with the description and level file beside it, the deciding line highlighted, the generator's verdict, a plain reading of the line and what would make the verdict wrong. It keeps the answers in docs/truth/handcheck_answers.json after every click and resumes where it stopped.
+- **docs/truth/HANDCHECK_GUIDE.md**: how a VGDL description and a level file are written, and for each of A1 to A5 its question, the words that decide it, an example and a counter-example. The per-row readings are in docs/truth/handcheck_readings.json.
+- **docs/truth/handcheck_rows.json**: the 100 rows of the 10 drawn games (logs/handcheck_rows.log), built from docs/truth/gvgai.json, docs/truth/HANDCHECK.md, the guide and the readings.
+- **scripts/handcheck_report.py** writes docs/truth/HANDCHECK_RESULT.md from the answers: counts per predicate and per game, every disagreement and unsure row with its note, games, levels and dates; it resolves nothing. scripts/test_handcheck.py, run in this session, OK (logs/test_handcheck.log).
+- Not yet decided by the author, and not written into docs/DESIGN.md or docs/PREREG.md: whether the hand check is made by the author or the automated cross-checks stand alone. No answers exist yet.
+- **Next:** the author tries the tool and decides; stage D as in amendment (g).
