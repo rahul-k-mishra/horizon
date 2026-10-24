@@ -1,0 +1,27 @@
+truth_diff: docs/truth/gvgai.json at 923d046 against the working tree; 110 games then, 110 now
+games only in the old file: none; only in the new: none
+assemblyline (not deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+bait (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+chipschallenge (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+clusters (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+colourescape (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+cookmepasta (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+doorkoban (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+enemycitadel (not deterministic): verdicts changed: L0 A4 holds -> fails, L1 A4 holds -> fails, L2 A4 holds -> fails, L3 A4 holds -> fails, L4 A4 holds -> fails
+escape (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+factorymanager (not deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+lasers (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+mirrors (not deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+modality (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+pacoban (not deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+realsokoban (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+sokoban (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+tercio (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+thecitadel (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+thesnowman (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+vortex (not deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+watergame (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+wrapsokoban (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+units compared: 550, 2750 (unit, predicate) verdicts
+verdicts changed: 5 in all games, 0 in the 30 deterministic games; entries with clauses changed and the verdict the same: 105
+the set of deterministic games is the same: 30 games

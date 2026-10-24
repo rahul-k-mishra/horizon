@@ -74,6 +74,27 @@ GAMES = {
                       extra_mapping="        b > floor box\n        h > floor hole\n        d > floor door",
                       extra_inter="        box avatar > bounceForward\n        avatar door > stepBack\n"
                                   "        crates hole > killAll stype=door"),
+    # A4 holds: a box pushed into a wall is stopped by undoAll, which also cancels the avatar's move; the
+    # box is pushed only by the avatar and the wall never changes, so the cancelled move is explained
+    "boxwall": dict(avatar="        avatar > MovingAvatar", extra_sprites="        box > Passive",
+                    extra_mapping="        b > floor box",
+                    extra_inter="        box avatar > bounceForward\n        box wall > undoAll"),
+    # A4 holds (decided 25 October 2026): a box pushed along by another box the avatar pushed is still
+    # moved only through the avatar (thecitadel)
+    "chainpush": dict(avatar="        avatar > MovingAvatar", extra_sprites="        box > Passive",
+                      extra_mapping="        b > floor box",
+                      extra_inter="        box avatar > bounceForward\n        box box > bounceForward\n"
+                                  "        box wall > undoAll"),
+    # A4 holds (decided 25 October 2026): a pushed box that wraps round the edge continues the avatar's
+    # push (wrapsokoban)
+    "wrapbox": dict(avatar="        avatar > MovingAvatar", extra_sprites="        box > Passive",
+                    extra_mapping="        b > floor box",
+                    extra_inter="        box avatar > bounceForward\n        box EOS > wrapAround\n"
+                                "        box wall > undoAll"),
+    # A4 fails: as boxwall, but the line that stops the box names a sprite that moves on its own
+    "boxbat": dict(avatar="        avatar > MovingAvatar", extra_sprites="        box > Passive\n        bat > RandomNPC",
+                   extra_mapping="        b > floor box\n        z > floor bat",
+                   extra_inter="        box avatar > bounceForward\n        box bat > undoAll"),
     # A4 fails: the same, but a random NPC can also push the box, so the door can open without the avatar
     "npcbox": dict(avatar="        avatar > MovingAvatar",
                    extra_sprites="        box > Passive\n        hole > Immovable\n        door > Immovable\n"
@@ -177,6 +198,12 @@ def main():
         check(v("pushbox", "A2") == "fails" and cites("pushbox", "A2", "box avatar > bounceForward"), "pushbox: A2 fails at the push")
         check(v("pushbox", "A4") == "holds", "pushbox: A4 holds, since only the avatar moves the box that opens the door")
         check(v("parentbox", "A4") == "holds", "parentbox: A4 holds, the unplaced parent counted by its placeable box")
+        check(v("boxwall", "A4") == "holds" and cites("boxwall", "A4", "box wall > undoAll"),
+              "boxwall: A4 holds, citing the undoAll line it checked")
+        check(v("chainpush", "A4") == "holds", "chainpush: A4 holds, a box pushed by an avatar-pushed box is agent-driven")
+        check(v("wrapbox", "A4") == "holds", "wrapbox: A4 holds, a pushed box wrapping at the edge is agent-driven")
+        check(v("boxbat", "A4") == "fails" and cites("boxbat", "A4", "bat > RandomNPC"),
+              "boxbat: A4 fails at the self-moving sprite the cancelling undoAll names")
         check(v("npcbox", "A4") == "fails" and cites("npcbox", "A4", "box hole > killAll"), "npcbox: A4 fails at the removal")
         check(v("movingwall", "A4") == "fails" and cites("movingwall", "A4", "slider > Missile"), "movingwall: A4 fails")
         ok_pre = any("precondition" in c["reads"] for c in t["keydoor"]["levels"]["0"]["A5"]["clauses"])

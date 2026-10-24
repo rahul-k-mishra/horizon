@@ -766,6 +766,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/assemblyline.txt",
+        "line": 72,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "vortex wall vortex lasercannon  > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/assemblyline.txt",
         "line": 21,
         "reads": "blocker lcdown is SpawnPoint",
         "text": "lcdown > img=newset/lasercannon_2 stype=ldown"
@@ -893,6 +899,12 @@
         "line": 69,
         "reads": "wall blocks the avatar",
         "text": "avatar wall lasercannon > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/assemblyline.txt",
+        "line": 72,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "vortex wall vortex lasercannon  > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/assemblyline.txt",
@@ -1026,6 +1038,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/assemblyline.txt",
+        "line": 72,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "vortex wall vortex lasercannon  > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/assemblyline.txt",
         "line": 21,
         "reads": "blocker lcdown is SpawnPoint",
         "text": "lcdown > img=newset/lasercannon_2 stype=ldown"
@@ -1156,6 +1174,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/assemblyline.txt",
+        "line": 72,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "vortex wall vortex lasercannon  > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/assemblyline.txt",
         "line": 21,
         "reads": "blocker lcdown is SpawnPoint",
         "text": "lcdown > img=newset/lasercannon_2 stype=ldown"
@@ -1283,6 +1307,12 @@
         "line": 69,
         "reads": "wall blocks the avatar",
         "text": "avatar wall lasercannon > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/assemblyline.txt",
+        "line": 72,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "vortex wall vortex lasercannon  > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/assemblyline.txt",
@@ -1760,6 +1790,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/bait.txt",
+        "line": 30,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box mushroom > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/bait.txt",
         "line": 13,
         "reads": "blocker goal is Immovable",
         "text": "goal > Immovable img=oryx/doorclosed1"
@@ -1863,6 +1899,12 @@
         "line": 27,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/bait.txt",
+        "line": 30,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box mushroom > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/bait.txt",
@@ -1972,6 +2014,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/bait.txt",
+        "line": 30,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box mushroom > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/bait.txt",
         "line": 13,
         "reads": "blocker goal is Immovable",
         "text": "goal > Immovable img=oryx/doorclosed1"
@@ -2078,6 +2126,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/bait.txt",
+        "line": 30,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box mushroom > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/bait.txt",
         "line": 13,
         "reads": "blocker goal is Immovable",
         "text": "goal > Immovable img=oryx/doorclosed1"
@@ -2181,6 +2235,12 @@
         "line": 27,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/bait.txt",
+        "line": 30,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box mushroom > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/bait.txt",
@@ -9290,6 +9350,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/chipschallenge.txt",
+        "line": 68,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate crate wall door key chip gate mud fire boots > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/chipschallenge.txt",
         "line": 19,
         "reads": "blocker bluedoor is Immovable",
         "text": "bluedoor > Immovable img=oryx/slime1"
@@ -9429,6 +9495,12 @@
         "line": 93,
         "reads": "yellowdoor blocks the avatar",
         "text": "avatar wall door > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/chipschallenge.txt",
+        "line": 68,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate crate wall door key chip gate mud fire boots > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/chipschallenge.txt",
@@ -9574,6 +9646,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/chipschallenge.txt",
+        "line": 68,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate crate wall door key chip gate mud fire boots > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/chipschallenge.txt",
         "line": 19,
         "reads": "blocker bluedoor is Immovable",
         "text": "bluedoor > Immovable img=oryx/slime1"
@@ -9716,6 +9794,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/chipschallenge.txt",
+        "line": 68,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate crate wall door key chip gate mud fire boots > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/chipschallenge.txt",
         "line": 19,
         "reads": "blocker bluedoor is Immovable",
         "text": "bluedoor > Immovable img=oryx/slime1"
@@ -9855,6 +9939,12 @@
         "line": 93,
         "reads": "yellowdoor blocks the avatar",
         "text": "avatar wall door > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/chipschallenge.txt",
+        "line": 68,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate crate wall door key chip gate mud fire boots > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/chipschallenge.txt",
@@ -10946,6 +11036,30 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 51,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "greenbox blueblock redblock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 52,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "redbox blueblock greenblock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 53,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bluebox greenblock redblock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 55,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box box wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
         "line": 8,
         "reads": "blocker blueblock is Immovable",
         "text": "blueblock > img=newset/blockB"
@@ -11055,6 +11169,30 @@
         "line": 37,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 51,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "greenbox blueblock redblock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 52,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "redbox blueblock greenblock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 53,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bluebox greenblock redblock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 55,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box box wall > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
@@ -11170,6 +11308,30 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 51,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "greenbox blueblock redblock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 52,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "redbox blueblock greenblock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 53,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bluebox greenblock redblock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 55,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box box wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
         "line": 8,
         "reads": "blocker blueblock is Immovable",
         "text": "blueblock > img=newset/blockB"
@@ -11282,6 +11444,30 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 51,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "greenbox blueblock redblock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 52,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "redbox blueblock greenblock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 53,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bluebox greenblock redblock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 55,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box box wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
         "line": 8,
         "reads": "blocker blueblock is Immovable",
         "text": "blueblock > img=newset/blockB"
@@ -11391,6 +11577,30 @@
         "line": 37,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 51,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "greenbox blueblock redblock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 52,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "redbox blueblock greenblock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 53,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bluebox greenblock redblock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
+        "line": 55,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box box wall > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/clusters.txt",
@@ -11530,6 +11740,36 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 48,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "greenbox blueAvatar redAvatar normalAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 51,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "redbox blueAvatar greenAvatar normalAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 54,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bluebox redAvatar greenAvatar normalAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 57,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box redAvatar greenAvatar blueAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 59,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "boxes wall switch exit boxes > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
         "line": 25,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall3 autotiling=True"
@@ -11645,6 +11885,36 @@
         "line": 45,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 48,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "greenbox blueAvatar redAvatar normalAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 51,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "redbox blueAvatar greenAvatar normalAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 54,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bluebox redAvatar greenAvatar normalAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 57,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box redAvatar greenAvatar blueAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 59,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "boxes wall switch exit boxes > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
@@ -11766,6 +12036,36 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 48,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "greenbox blueAvatar redAvatar normalAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 51,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "redbox blueAvatar greenAvatar normalAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 54,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bluebox redAvatar greenAvatar normalAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 57,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box redAvatar greenAvatar blueAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 59,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "boxes wall switch exit boxes > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
         "line": 25,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall3 autotiling=True"
@@ -11881,6 +12181,36 @@
         "line": 45,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 48,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "greenbox blueAvatar redAvatar normalAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 51,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "redbox blueAvatar greenAvatar normalAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 54,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bluebox redAvatar greenAvatar normalAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 57,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box redAvatar greenAvatar blueAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 59,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "boxes wall switch exit boxes > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
@@ -12002,6 +12332,36 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 48,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "greenbox blueAvatar redAvatar normalAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 51,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "redbox blueAvatar greenAvatar normalAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 54,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bluebox redAvatar greenAvatar normalAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 57,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box redAvatar greenAvatar blueAvatar > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+        "line": 59,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "boxes wall switch exit boxes > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/colourescape.txt",
         "line": 25,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall3 autotiling=True"
@@ -12096,6 +12456,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/cookmepasta.txt",
+        "line": 39,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "food wall lock key > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/cookmepasta.txt",
         "line": 7,
         "reads": "blocker lock is Immovable",
         "text": "lock > Immovable img=newset/lock1"
@@ -12175,6 +12541,12 @@
         "line": 58,
         "reads": "wall blocks the avatar",
         "text": "avatar wall lock > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/cookmepasta.txt",
+        "line": 39,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "food wall lock key > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/cookmepasta.txt",
@@ -12260,6 +12632,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/cookmepasta.txt",
+        "line": 39,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "food wall lock key > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/cookmepasta.txt",
         "line": 7,
         "reads": "blocker lock is Immovable",
         "text": "lock > Immovable img=newset/lock1"
@@ -12342,6 +12720,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/cookmepasta.txt",
+        "line": 39,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "food wall lock key > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/cookmepasta.txt",
         "line": 7,
         "reads": "blocker lock is Immovable",
         "text": "lock > Immovable img=newset/lock1"
@@ -12421,6 +12805,12 @@
         "line": 58,
         "reads": "wall blocks the avatar",
         "text": "avatar wall lock > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/cookmepasta.txt",
+        "line": 39,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "food wall lock key > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/cookmepasta.txt",
@@ -15442,6 +15832,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/doorkoban.txt",
+        "line": 51,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box door  > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/doorkoban.txt",
         "line": 20,
         "reads": "blocker door0 is Door",
         "text": "door0 >"
@@ -15569,6 +15965,12 @@
         "line": 49,
         "reads": "wall blocks the avatar",
         "text": "avatar wall door > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/doorkoban.txt",
+        "line": 51,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box door  > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/doorkoban.txt",
@@ -15702,6 +16104,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/doorkoban.txt",
+        "line": 51,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box door  > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/doorkoban.txt",
         "line": 20,
         "reads": "blocker door0 is Door",
         "text": "door0 >"
@@ -15832,6 +16240,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/doorkoban.txt",
+        "line": 51,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box door  > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/doorkoban.txt",
         "line": 20,
         "reads": "blocker door0 is Door",
         "text": "door0 >"
@@ -15959,6 +16373,12 @@
         "line": 49,
         "reads": "wall blocks the avatar",
         "text": "avatar wall door > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/doorkoban.txt",
+        "line": 51,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box door  > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/doorkoban.txt",
@@ -17982,42 +18402,12 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 27,
-        "reads": "roundhole blocks the avatar",
-        "text": "avatar wall squarehole roundhole > stepBack"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 27,
-        "reads": "squarehole blocks the avatar",
-        "text": "avatar wall squarehole roundhole > stepBack"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 27,
-        "reads": "wall blocks the avatar",
-        "text": "avatar wall squarehole roundhole > stepBack"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 7,
-        "reads": "blocker roundhole is Immovable",
-        "text": "roundhole   > Immovable color=DARKBLUE img=newset/hole4"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 6,
-        "reads": "blocker squarehole is Immovable",
-        "text": "squarehole   > Immovable color=DARKBLUE img=newset/hole5"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 13,
-        "reads": "blocker wall is Immovable",
-        "text": "wall > Immovable img=oryx/dirtwall autotiling=true"
+        "line": 12,
+        "reads": "enemy, named in the undoAll of line 44, is RandomNPC, not a class that stays in place",
+        "text": "enemy > RandomNPC speed=0.5 color=PINK img=oryx/eviltree1 cons=1"
        }
       ],
-      "verdict": "holds"
+      "verdict": "fails"
      },
      "A5": {
       "clauses": [
@@ -18094,42 +18484,12 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 27,
-        "reads": "roundhole blocks the avatar",
-        "text": "avatar wall squarehole roundhole > stepBack"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 27,
-        "reads": "squarehole blocks the avatar",
-        "text": "avatar wall squarehole roundhole > stepBack"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 27,
-        "reads": "wall blocks the avatar",
-        "text": "avatar wall squarehole roundhole > stepBack"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 7,
-        "reads": "blocker roundhole is Immovable",
-        "text": "roundhole   > Immovable color=DARKBLUE img=newset/hole4"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 6,
-        "reads": "blocker squarehole is Immovable",
-        "text": "squarehole   > Immovable color=DARKBLUE img=newset/hole5"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 13,
-        "reads": "blocker wall is Immovable",
-        "text": "wall > Immovable img=oryx/dirtwall autotiling=true"
+        "line": 12,
+        "reads": "enemy, named in the undoAll of line 44, is RandomNPC, not a class that stays in place",
+        "text": "enemy > RandomNPC speed=0.5 color=PINK img=oryx/eviltree1 cons=1"
        }
       ],
-      "verdict": "holds"
+      "verdict": "fails"
      },
      "A5": {
       "clauses": [
@@ -18206,42 +18566,12 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 27,
-        "reads": "roundhole blocks the avatar",
-        "text": "avatar wall squarehole roundhole > stepBack"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 27,
-        "reads": "squarehole blocks the avatar",
-        "text": "avatar wall squarehole roundhole > stepBack"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 27,
-        "reads": "wall blocks the avatar",
-        "text": "avatar wall squarehole roundhole > stepBack"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 7,
-        "reads": "blocker roundhole is Immovable",
-        "text": "roundhole   > Immovable color=DARKBLUE img=newset/hole4"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 6,
-        "reads": "blocker squarehole is Immovable",
-        "text": "squarehole   > Immovable color=DARKBLUE img=newset/hole5"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 13,
-        "reads": "blocker wall is Immovable",
-        "text": "wall > Immovable img=oryx/dirtwall autotiling=true"
+        "line": 12,
+        "reads": "enemy, named in the undoAll of line 44, is RandomNPC, not a class that stays in place",
+        "text": "enemy > RandomNPC speed=0.5 color=PINK img=oryx/eviltree1 cons=1"
        }
       ],
-      "verdict": "holds"
+      "verdict": "fails"
      },
      "A5": {
       "clauses": [
@@ -18318,42 +18648,12 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 27,
-        "reads": "roundhole blocks the avatar",
-        "text": "avatar wall squarehole roundhole > stepBack"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 27,
-        "reads": "squarehole blocks the avatar",
-        "text": "avatar wall squarehole roundhole > stepBack"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 27,
-        "reads": "wall blocks the avatar",
-        "text": "avatar wall squarehole roundhole > stepBack"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 7,
-        "reads": "blocker roundhole is Immovable",
-        "text": "roundhole   > Immovable color=DARKBLUE img=newset/hole4"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 6,
-        "reads": "blocker squarehole is Immovable",
-        "text": "squarehole   > Immovable color=DARKBLUE img=newset/hole5"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 13,
-        "reads": "blocker wall is Immovable",
-        "text": "wall > Immovable img=oryx/dirtwall autotiling=true"
+        "line": 12,
+        "reads": "enemy, named in the undoAll of line 44, is RandomNPC, not a class that stays in place",
+        "text": "enemy > RandomNPC speed=0.5 color=PINK img=oryx/eviltree1 cons=1"
        }
       ],
-      "verdict": "holds"
+      "verdict": "fails"
      },
      "A5": {
       "clauses": [
@@ -18430,42 +18730,12 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 27,
-        "reads": "roundhole blocks the avatar",
-        "text": "avatar wall squarehole roundhole > stepBack"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 27,
-        "reads": "squarehole blocks the avatar",
-        "text": "avatar wall squarehole roundhole > stepBack"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 27,
-        "reads": "wall blocks the avatar",
-        "text": "avatar wall squarehole roundhole > stepBack"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 7,
-        "reads": "blocker roundhole is Immovable",
-        "text": "roundhole   > Immovable color=DARKBLUE img=newset/hole4"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 6,
-        "reads": "blocker squarehole is Immovable",
-        "text": "squarehole   > Immovable color=DARKBLUE img=newset/hole5"
-       },
-       {
-        "file": "third_party/gvgai/examples/gridphysics/enemycitadel.txt",
-        "line": 13,
-        "reads": "blocker wall is Immovable",
-        "text": "wall > Immovable img=oryx/dirtwall autotiling=true"
+        "line": 12,
+        "reads": "enemy, named in the undoAll of line 44, is RandomNPC, not a class that stays in place",
+        "text": "enemy > RandomNPC speed=0.5 color=PINK img=oryx/eviltree1 cons=1"
        }
       ],
-      "verdict": "holds"
+      "verdict": "fails"
      },
      "A5": {
       "clauses": [
@@ -18545,6 +18815,12 @@
         "line": 18,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/escape.txt",
+        "line": 20,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall exit box   > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/escape.txt",
@@ -18630,6 +18906,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/escape.txt",
+        "line": 20,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall exit box   > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/escape.txt",
         "line": 8,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/dirtwall autotiling=True"
@@ -18709,6 +18991,12 @@
         "line": 18,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/escape.txt",
+        "line": 20,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall exit box   > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/escape.txt",
@@ -18794,6 +19082,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/escape.txt",
+        "line": 20,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall exit box   > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/escape.txt",
         "line": 8,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/dirtwall autotiling=True"
@@ -18873,6 +19167,12 @@
         "line": 18,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/escape.txt",
+        "line": 20,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall exit box   > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/escape.txt",
@@ -19350,6 +19650,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/factorymanager.txt",
+        "line": 50,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box line  > undoAll notStype=car"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/factorymanager.txt",
         "line": 9,
         "reads": "blocker lcdown is SpawnPoint",
         "text": "lcdown > img=newset/lasercannon_2 stype=ldown"
@@ -19477,6 +19783,12 @@
         "line": 46,
         "reads": "wall blocks the avatar",
         "text": "avatar wall line > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/factorymanager.txt",
+        "line": 50,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box line  > undoAll notStype=car"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/factorymanager.txt",
@@ -19610,6 +19922,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/factorymanager.txt",
+        "line": 50,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box line  > undoAll notStype=car"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/factorymanager.txt",
         "line": 9,
         "reads": "blocker lcdown is SpawnPoint",
         "text": "lcdown > img=newset/lasercannon_2 stype=ldown"
@@ -19740,6 +20058,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/factorymanager.txt",
+        "line": 50,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box line  > undoAll notStype=car"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/factorymanager.txt",
         "line": 9,
         "reads": "blocker lcdown is SpawnPoint",
         "text": "lcdown > img=newset/lasercannon_2 stype=ldown"
@@ -19867,6 +20191,12 @@
         "line": 46,
         "reads": "wall blocks the avatar",
         "text": "avatar wall line > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/factorymanager.txt",
+        "line": 50,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box line  > undoAll notStype=car"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/factorymanager.txt",
@@ -29406,6 +29736,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/lasers.txt",
+        "line": 38,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box lasercannon > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/lasers.txt",
         "line": 9,
         "reads": "blocker lcdown is SpawnPoint",
         "text": "lcdown > img=newset/lasercannon_2 stype=ldown"
@@ -29545,6 +29881,12 @@
         "line": 34,
         "reads": "wall blocks the avatar",
         "text": "avatar wall lasercannon > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/lasers.txt",
+        "line": 38,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box lasercannon > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/lasers.txt",
@@ -29690,6 +30032,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/lasers.txt",
+        "line": 38,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box lasercannon > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/lasers.txt",
         "line": 9,
         "reads": "blocker lcdown is SpawnPoint",
         "text": "lcdown > img=newset/lasercannon_2 stype=ldown"
@@ -29832,6 +30180,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/lasers.txt",
+        "line": 38,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box lasercannon > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/lasers.txt",
         "line": 9,
         "reads": "blocker lcdown is SpawnPoint",
         "text": "lcdown > img=newset/lasercannon_2 stype=ldown"
@@ -29971,6 +30325,12 @@
         "line": 34,
         "reads": "wall blocks the avatar",
         "text": "avatar wall lasercannon > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/lasers.txt",
+        "line": 38,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box lasercannon > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/lasers.txt",
@@ -31280,6 +31640,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/mirrors.txt",
+        "line": 65,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "mirror wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/mirrors.txt",
         "line": 38,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall3 autotiling=True"
@@ -31347,6 +31713,12 @@
         "line": 63,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/mirrors.txt",
+        "line": 65,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "mirror wall > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/mirrors.txt",
@@ -31420,6 +31792,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/mirrors.txt",
+        "line": 65,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "mirror wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/mirrors.txt",
         "line": 38,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall3 autotiling=True"
@@ -31490,6 +31868,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/mirrors.txt",
+        "line": 65,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "mirror wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/mirrors.txt",
         "line": 38,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall3 autotiling=True"
@@ -31557,6 +31941,12 @@
         "line": 63,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/mirrors.txt",
+        "line": 65,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "mirror wall > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/mirrors.txt",
@@ -32016,6 +32406,18 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/modality.txt",
+        "line": 41,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/modality.txt",
+        "line": 42,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "target wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/modality.txt",
         "line": 5,
         "reads": "blocker black is Immovable",
         "text": "black > Immovable color=BLACK img=oryx/backBlack"
@@ -32125,6 +32527,18 @@
         "line": 33,
         "reads": "white blocks the avatar",
         "text": "inBlack white > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/modality.txt",
+        "line": 41,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/modality.txt",
+        "line": 42,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "target wall > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/modality.txt",
@@ -32240,6 +32654,18 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/modality.txt",
+        "line": 41,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/modality.txt",
+        "line": 42,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "target wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/modality.txt",
         "line": 5,
         "reads": "blocker black is Immovable",
         "text": "black > Immovable color=BLACK img=oryx/backBlack"
@@ -32352,6 +32778,18 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/modality.txt",
+        "line": 41,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/modality.txt",
+        "line": 42,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "target wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/modality.txt",
         "line": 5,
         "reads": "blocker black is Immovable",
         "text": "black > Immovable color=BLACK img=oryx/backBlack"
@@ -32461,6 +32899,18 @@
         "line": 33,
         "reads": "white blocks the avatar",
         "text": "inBlack white > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/modality.txt",
+        "line": 41,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/modality.txt",
+        "line": 42,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "target wall > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/modality.txt",
@@ -33492,9 +33942,9 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/pacoban.txt",
-        "line": 34,
-        "reads": "no sprite blocks the avatar (no stepBack or undoAll with the avatar first, except at the edge)",
-        "text": "InteractionSet"
+        "line": 36,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "wall wall > undoAll"
        }
       ],
       "verdict": "holds"
@@ -33580,9 +34030,9 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/pacoban.txt",
-        "line": 34,
-        "reads": "no sprite blocks the avatar (no stepBack or undoAll with the avatar first, except at the edge)",
-        "text": "InteractionSet"
+        "line": 36,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "wall wall > undoAll"
        }
       ],
       "verdict": "holds"
@@ -33668,9 +34118,9 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/pacoban.txt",
-        "line": 34,
-        "reads": "no sprite blocks the avatar (no stepBack or undoAll with the avatar first, except at the edge)",
-        "text": "InteractionSet"
+        "line": 36,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "wall wall > undoAll"
        }
       ],
       "verdict": "holds"
@@ -33756,9 +34206,9 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/pacoban.txt",
-        "line": 34,
-        "reads": "no sprite blocks the avatar (no stepBack or undoAll with the avatar first, except at the edge)",
-        "text": "InteractionSet"
+        "line": 36,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "wall wall > undoAll"
        }
       ],
       "verdict": "holds"
@@ -33844,9 +34294,9 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/pacoban.txt",
-        "line": 34,
-        "reads": "no sprite blocks the avatar (no stepBack or undoAll with the avatar first, except at the edge)",
-        "text": "InteractionSet"
+        "line": 36,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "wall wall > undoAll"
        }
       ],
       "verdict": "holds"
@@ -37884,6 +38334,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/realsokoban.txt",
+        "line": 23,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bbox wall bbox   > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/realsokoban.txt",
         "line": 11,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall3 autotiling=True"
@@ -37957,6 +38413,12 @@
         "line": 21,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/realsokoban.txt",
+        "line": 23,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bbox wall bbox   > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/realsokoban.txt",
@@ -38036,6 +38498,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/realsokoban.txt",
+        "line": 23,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bbox wall bbox   > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/realsokoban.txt",
         "line": 11,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall3 autotiling=True"
@@ -38112,6 +38580,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/realsokoban.txt",
+        "line": 23,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bbox wall bbox   > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/realsokoban.txt",
         "line": 11,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall3 autotiling=True"
@@ -38185,6 +38659,12 @@
         "line": 21,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/realsokoban.txt",
+        "line": 23,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bbox wall bbox   > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/realsokoban.txt",
@@ -41868,6 +42348,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/sokoban.txt",
+        "line": 17,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box  > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/sokoban.txt",
         "line": 7,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall3 autotiling=True"
@@ -41941,6 +42427,12 @@
         "line": 15,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/sokoban.txt",
+        "line": 17,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box  > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/sokoban.txt",
@@ -42020,6 +42512,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/sokoban.txt",
+        "line": 17,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box  > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/sokoban.txt",
         "line": 7,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall3 autotiling=True"
@@ -42096,6 +42594,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/sokoban.txt",
+        "line": 17,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box  > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/sokoban.txt",
         "line": 7,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall3 autotiling=True"
@@ -42169,6 +42673,12 @@
         "line": 15,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/sokoban.txt",
+        "line": 17,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box  > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/sokoban.txt",
@@ -43774,6 +44284,18 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/tercio.txt",
+        "line": 59,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/tercio.txt",
+        "line": 60,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "target wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/tercio.txt",
         "line": 5,
         "reads": "blocker black is Immovable",
         "text": "black > Immovable img=oryx/backBlack"
@@ -43901,6 +44423,18 @@
         "line": 49,
         "reads": "white blocks the avatar",
         "text": "inBlack white blue > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/tercio.txt",
+        "line": 59,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/tercio.txt",
+        "line": 60,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "target wall > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/tercio.txt",
@@ -44034,6 +44568,18 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/tercio.txt",
+        "line": 59,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/tercio.txt",
+        "line": 60,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "target wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/tercio.txt",
         "line": 5,
         "reads": "blocker black is Immovable",
         "text": "black > Immovable img=oryx/backBlack"
@@ -44161,6 +44707,18 @@
         "line": 49,
         "reads": "white blocks the avatar",
         "text": "inBlack white blue > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/tercio.txt",
+        "line": 59,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/tercio.txt",
+        "line": 60,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "target wall > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/tercio.txt",
@@ -44294,6 +44852,18 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/tercio.txt",
+        "line": 59,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/tercio.txt",
+        "line": 60,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "target wall > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/tercio.txt",
         "line": 5,
         "reads": "blocker black is Immovable",
         "text": "black > Immovable img=oryx/backBlack"
@@ -44412,6 +44982,18 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/thecitadel.txt",
+        "line": 28,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "boulder boulder crate wall goal > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thecitadel.txt",
+        "line": 36,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate wall boulder goal roundhole > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thecitadel.txt",
         "line": 7,
         "reads": "blocker roundhole is Immovable",
         "text": "roundhole   > Immovable color=DARKBLUE img=newset/hole4"
@@ -44521,6 +45103,18 @@
         "line": 25,
         "reads": "wall blocks the avatar",
         "text": "avatar wall squarehole roundhole > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thecitadel.txt",
+        "line": 28,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "boulder boulder crate wall goal > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thecitadel.txt",
+        "line": 36,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate wall boulder goal roundhole > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/thecitadel.txt",
@@ -44636,6 +45230,18 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/thecitadel.txt",
+        "line": 28,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "boulder boulder crate wall goal > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thecitadel.txt",
+        "line": 36,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate wall boulder goal roundhole > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thecitadel.txt",
         "line": 7,
         "reads": "blocker roundhole is Immovable",
         "text": "roundhole   > Immovable color=DARKBLUE img=newset/hole4"
@@ -44748,6 +45354,18 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/thecitadel.txt",
+        "line": 28,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "boulder boulder crate wall goal > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thecitadel.txt",
+        "line": 36,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate wall boulder goal roundhole > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thecitadel.txt",
         "line": 7,
         "reads": "blocker roundhole is Immovable",
         "text": "roundhole   > Immovable color=DARKBLUE img=newset/hole4"
@@ -44857,6 +45475,18 @@
         "line": 25,
         "reads": "wall blocks the avatar",
         "text": "avatar wall squarehole roundhole > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thecitadel.txt",
+        "line": 28,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "boulder boulder crate wall goal > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thecitadel.txt",
+        "line": 36,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "crate wall boulder goal roundhole > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/thecitadel.txt",
@@ -46344,6 +46974,30 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 45,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "base key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 46,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "body key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 47,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "chest key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 48,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "head key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
         "line": 18,
         "reads": "blocker baseinplace is Immovable",
         "text": "baseinplace > img=newset/snowmanbase"
@@ -46483,6 +47137,30 @@
         "line": 37,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 45,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "base key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 46,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "body key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 47,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "chest key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 48,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "head key wall lock > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
@@ -46628,6 +47306,30 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 45,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "base key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 46,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "body key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 47,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "chest key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 48,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "head key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
         "line": 18,
         "reads": "blocker baseinplace is Immovable",
         "text": "baseinplace > img=newset/snowmanbase"
@@ -46770,6 +47472,30 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 45,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "base key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 46,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "body key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 47,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "chest key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 48,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "head key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
         "line": 18,
         "reads": "blocker baseinplace is Immovable",
         "text": "baseinplace > img=newset/snowmanbase"
@@ -46909,6 +47635,30 @@
         "line": 37,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 45,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "base key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 46,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "body key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 47,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "chest key wall lock > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
+        "line": 48,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "head key wall lock > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/thesnowman.txt",
@@ -47464,6 +48214,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/vortex.txt",
+        "line": 43,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box  > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/vortex.txt",
         "line": 22,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/tree1"
@@ -47537,6 +48293,12 @@
         "line": 41,
         "reads": "wall blocks the avatar",
         "text": "moving wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/vortex.txt",
+        "line": 43,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box  > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/vortex.txt",
@@ -47616,6 +48378,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/vortex.txt",
+        "line": 43,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box  > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/vortex.txt",
         "line": 22,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/tree1"
@@ -47692,6 +48460,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/vortex.txt",
+        "line": 43,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box  > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/vortex.txt",
         "line": 22,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/tree1"
@@ -47765,6 +48539,12 @@
         "line": 41,
         "reads": "wall blocks the avatar",
         "text": "moving wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/vortex.txt",
+        "line": 43,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box  > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/vortex.txt",
@@ -48326,6 +49106,18 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/watergame.txt",
+        "line": 15,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/watergame.txt",
+        "line": 16,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "wall box > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/watergame.txt",
         "line": 5,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall6"
@@ -48405,6 +49197,18 @@
         "line": 13,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/watergame.txt",
+        "line": 15,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/watergame.txt",
+        "line": 16,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "wall box > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/watergame.txt",
@@ -48490,6 +49294,18 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/watergame.txt",
+        "line": 15,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/watergame.txt",
+        "line": 16,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "wall box > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/watergame.txt",
         "line": 5,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall6"
@@ -48572,6 +49388,18 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/watergame.txt",
+        "line": 15,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/watergame.txt",
+        "line": 16,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "wall box > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/watergame.txt",
         "line": 5,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall6"
@@ -48651,6 +49479,18 @@
         "line": 13,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/watergame.txt",
+        "line": 15,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "box wall box > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/watergame.txt",
+        "line": 16,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "wall box > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/watergame.txt",
@@ -50576,6 +51416,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
+        "line": 25,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bbox wall bbox   > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
         "line": 11,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall3 autotiling=True"
@@ -50643,6 +51489,12 @@
         "line": 24,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
+        "line": 25,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bbox wall bbox   > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
@@ -50716,6 +51568,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
+        "line": 25,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bbox wall bbox   > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
         "line": 11,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall3 autotiling=True"
@@ -50786,6 +51644,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
+        "line": 25,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bbox wall bbox   > undoAll"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
         "line": 11,
         "reads": "blocker wall is Immovable",
         "text": "wall > Immovable img=oryx/wall3 autotiling=True"
@@ -50853,6 +51717,12 @@
         "line": 24,
         "reads": "wall blocks the avatar",
         "text": "avatar wall > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
+        "line": 25,
+        "reads": "undoAll here also cancels the avatar's move; every sprite it names is agent-driven or a fixed obstacle",
+        "text": "bbox wall bbox   > undoAll"
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",

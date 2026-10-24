@@ -13,9 +13,9 @@ games whose vector differs between levels: 0
 A1: holds 550, fails 0
 A2: holds 100, fails 450
 A3: holds 245, fails 305
-A4: holds 450, fails 100
+A4: holds 445, fails 105
 A5: holds 205, fails 345
-S_M (number holding): 1: 30, 2: 205, 3: 190, 4: 85, 5: 40
+S_M (number holding): 1: 30, 2: 205, 3: 195, 4: 80, 5: 40
 games whose vector differs between levels: 0
 
 == deterministic games, per level (h holds, f fails; A1 A2 A3 A4 A5)

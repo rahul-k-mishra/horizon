@@ -1,24 +1,26 @@
-truth_vgdl: 15 grid-physics games with levels 0-4; 14 deterministic; skipped 0
+truth_vgdl: 19 grid-physics games with levels 0-4; 17 deterministic; skipped 0
 
-== deterministic games: 14 games, 70 (game, level) units
-A1: holds 65, fails 5
-A2: holds 45, fails 25
-A3: holds 55, fails 15
-A4: holds 65, fails 5
-A5: holds 64, fails 6
-S_M (number holding): 3: 5, 4: 46, 5: 19
+== deterministic games: 17 games, 85 (game, level) units
+A1: holds 80, fails 5
+A2: holds 45, fails 40
+A3: holds 70, fails 15
+A4: holds 80, fails 5
+A5: holds 79, fails 6
+S_M (number holding): 3: 5, 4: 61, 5: 19
 games whose vector differs between levels: 1 (twogoals)
 
-== all games: 15 games, 75 (game, level) units
-A1: holds 70, fails 5
-A2: holds 45, fails 30
-A3: holds 60, fails 15
-A4: holds 65, fails 10
-A5: holds 69, fails 6
-S_M (number holding): 3: 10, 4: 46, 5: 19
+== all games: 19 games, 95 (game, level) units
+A1: holds 90, fails 5
+A2: holds 45, fails 50
+A3: holds 80, fails 15
+A4: holds 80, fails 15
+A5: holds 89, fails 6
+S_M (number holding): 3: 15, 4: 61, 5: 19
 games whose vector differs between levels: 1 (twogoals)
 
 == deterministic games, per level (h holds, f fails; A1 A2 A3 A4 A5)
+boxwall: L0 hfhhh  L1 hfhhh  L2 hfhhh  L3 hfhhh  L4 hfhhh
+chainpush: L0 hfhhh  L1 hfhhh  L2 hfhhh  L3 hfhhh  L4 hfhhh
 keydoor: L0 hhhhh  L1 hhhhh  L2 hhhhh  L3 hhhhh  L4 hhhhh
 movingwall: L0 hhhfh  L1 hhhfh  L2 hhhfh  L3 hhhfh  L4 hhhfh
 nomap: L0 hhhhh  L1 hhhhh  L2 hhhhh  L3 hhhhh  L4 hhhhh
@@ -33,6 +35,7 @@ timeout: L0 hhhhf  L1 hhhhf  L2 hhhhf  L3 hhhhf  L4 hhhhf
 twoavatars: L0 hfhhh  L1 hfhhh  L2 hfhhh  L3 hfhhh  L4 hfhhh
 twogoals: L0 hhhhf  L1 hhhhh  L2 hhhhh  L3 hhhhh  L4 hhhhh
 walkspawn: L0 hfhhh  L1 hfhhh  L2 hfhhh  L3 hfhhh  L4 hfhhh
+wrapbox: L0 hfhhh  L1 hfhhh  L2 hfhhh  L3 hfhhh  L4 hfhhh
 
-written C:/Users/SHIVAN~1/AppData/Local/Temp/horizon-truthtest-0mhgwi7s/truth.json
+written C:/Users/SHIVAN~1/AppData/Local/Temp/horizon-truthtest-zb677j5n/truth.json
 OK

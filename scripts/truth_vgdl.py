@@ -34,7 +34,10 @@ A4  Every sprite type that blocks the avatar (stepBack or undoAll with the avata
     are the avatar, the sprites its use action creates, and any stationary-class sprite moved only by
     those (a box that only the avatar pushes; agent_driven).  A name stands for agent-driven sprites when
     every type it can place is one (stands_for_driven; Q4 of docs/truth/PREDICATE_QUESTIONS.md).
-    No blocking type at all: holds (the edge of the level is fixed).
+    No blocking type at all: holds (the edge of the level is fixed).  The first clause, every move without
+    effect explained by a blocker, is checked through undoAll: a line without the avatar first also cancels
+    the avatar's move (UndoAll.java:40-57), so every sprite it names must be agent-driven or meet the
+    conditions on a blocker (cancelling_lines, obstacle_fails; decided 25 October 2026).
 A5  The only winning termination is a SpriteCounter with limit 0 on one sprite type G; the level holds
     exactly one sprite of G at start; at least one interaction removes G, and every interaction that
     removes G has only avatar types as partners.  A partner that is an avatar type absent at level start
@@ -251,19 +254,22 @@ def stands_for_driven(d, name, driven):
 
 def agent_driven(d, av):
     """The avatar types, the sprites its use action creates, and every stationary-class type that moves
-    only when one of those pushes or pulls it (a box only the avatar pushes), to a fixed point."""
-    out = set(av) | shot_types(d, av)
+    only when one of those pushes or pulls it (a box only the avatar pushes).  Decided 25 October 2026:
+    the set is the largest one consistent with itself, so a crate pushed only by the avatar or by such
+    crates counts (thecitadel), and a move whose only partner is the edge of the level continues a move
+    already made and does not count against the sprite (a pushed box wrapping round, wrapsokoban)."""
+    base = set(av) | shot_types(d, av)
+    moves = {t: [it for it in d["inter"] if it["effect"] in MOVERS_ANY and t in members(d, it["names"][0])]
+             for t, sp in d["sprites"].items() if t not in base and sp["cls"] in STILL}
+    cand = {t for t, m in moves.items() if m}
     while True:
-        new = set()
-        for t, sp in d["sprites"].items():
-            if t in out or sp["cls"] not in STILL:
-                continue
-            moves = [it for it in d["inter"] if it["effect"] in MOVERS_ANY and t in members(d, it["names"][0])]
-            if moves and all(any(stands_for_driven(d, n, out) for n in it["names"][1:]) for it in moves):
-                new.add(t)
-        if not new:
-            return out
-        out |= new
+        pool = base | cand
+        keep = {t for t in cand if all(all(p == "EOS" for p in it["names"][1:]) and it["names"][1:]
+                                       or any(stands_for_driven(d, p, pool) for p in it["names"][1:])
+                                       for it in moves[t])}
+        if keep == cand:
+            return pool
+        cand = keep
 
 
 def caused_by_avatar(d, it, driven):
@@ -343,6 +349,41 @@ def pred_A3(d, av):
     return "holds", ok + [header_clause(d, "InteractionSet", "no interaction moves the avatar")]
 
 
+def obstacle_fails(d, b, driven, role):
+    """Why sprite type b is not a fixed obstacle: its class moves on its own, or a producer, or an
+    interaction the avatar does not cause, creates, removes or moves it.  role names b in the clause."""
+    sp, fails = d["sprites"][b], []
+    if sp["cls"] not in STILL:
+        fails.append(sprite_clause(d, b, f"{role} is {sp['cls']}, not a class that stays in place"))
+    for n, ps in d["sprites"].items():
+        if ps["cls"] in PRODUCERS and ps["params"].get("stype") and b in members(d, ps["params"]["stype"]):
+            fails.append(sprite_clause(d, n, f"producer {n} creates {role}"))
+    for it2 in d["inter"]:
+        st = it2["params"].get("stype")
+        creates = it2["effect"] in CREATE_EFFECTS and bool(st) and b in members(d, st)
+        removes = (it2["effect"] in REMOVE_EFFECTS and b in members(d, it2["names"][0])) or             (it2["effect"] in REMOVE_BY_STYPE and bool(st) and b in members(d, st))
+        moves = it2["effect"] in MOVERS_ANY and b in members(d, it2["names"][0])
+        if (creates or removes or moves) and not caused_by_avatar(d, it2, driven):
+            what = "creates" if creates else ("removes" if removes else "moves")
+            fails.append(inter_clause(d, it2, f"{it2['effect']} {what} {role} without the avatar"))
+    return fails
+
+
+def cancelling_lines(d, av):
+    """undoAll lines without the avatar first that still cancel the avatar's move: undoAll puts every
+    sprite back to its last position whichever sprite is named first (src/ontology/effects/unary/
+    UndoAll.java:40-57), except the types its notStype option lists."""
+    out = []
+    for it in d["inter"]:
+        if it["effect"] != "undoAll" or touches_avatar(d, it["names"][0], av):
+            continue
+        spared = set().union(*[members(d, n) for n in it["params"].get("notStype", "").split(",") if n])
+        if leaves(d, av) <= spared:
+            continue
+        out.append(it)
+    return out
+
+
 def pred_A4(d, av):
     driven = agent_driven(d, av)
     blocking = {}
@@ -353,26 +394,24 @@ def pred_A4(d, av):
                     continue
                 for b in leaves(d, members(d, p)) - av:
                     blocking.setdefault(b, it)
-    if not blocking:
+    # The first clause: every move without effect is explained by a sprite that blocks it.  A line that
+    # cancels the avatar's move without naming it first is explained only if every sprite it names is
+    # agent-driven or a fixed obstacle by the conditions on a blocker (decided 25 October 2026).
+    cancel = cancelling_lines(d, av)
+    if not blocking and not cancel:
         return "holds", [header_clause(d, "InteractionSet", "no sprite blocks the avatar (no stepBack or undoAll with "
                                                             "the avatar first, except at the edge)")]
     fails, ok = [], []
     for b, it in sorted(blocking.items()):
-        sp = d["sprites"][b]
         ok.append(inter_clause(d, it, f"{b} blocks the avatar"))
-        if sp["cls"] not in STILL:
-            fails.append(sprite_clause(d, b, f"blocker {b} is {sp['cls']}, not a class that stays in place"))
-        for n, ps in d["sprites"].items():
-            if ps["cls"] in PRODUCERS and ps["params"].get("stype") and b in members(d, ps["params"]["stype"]):
-                fails.append(sprite_clause(d, n, f"producer {n} creates blocker {b}"))
-        for it2 in d["inter"]:
-            st = it2["params"].get("stype")
-            creates = it2["effect"] in CREATE_EFFECTS and bool(st) and b in members(d, st)
-            removes = (it2["effect"] in REMOVE_EFFECTS and b in members(d, it2["names"][0])) or                 (it2["effect"] in REMOVE_BY_STYPE and bool(st) and b in members(d, st))
-            moves = it2["effect"] in MOVERS_ANY and b in members(d, it2["names"][0])
-            if (creates or removes or moves) and not caused_by_avatar(d, it2, driven):
-                what = "creates" if creates else ("removes" if removes else "moves")
-                fails.append(inter_clause(d, it2, f"{it2['effect']} {what} blocker {b} without the avatar"))
+        fails += obstacle_fails(d, b, driven, f"blocker {b}")
+    for it in cancel:
+        named = set().union(*[leaves(d, members(d, n)) for n in it["names"] if n != "EOS"])
+        others = sorted(named - driven - set(blocking))
+        for t in others:
+            fails += obstacle_fails(d, t, driven, f"{t}, named in the undoAll of line {it['line']},")
+        ok.append(inter_clause(d, it, "undoAll here also cancels the avatar's move; every sprite it names is "
+                                      "agent-driven or a fixed obstacle"))
     if fails:
         return "fails", fails
     return "holds", ok + [sprite_clause(d, b, f"blocker {b} is {d['sprites'][b]['cls']}") for b in sorted(blocking)]
