@@ -50,8 +50,9 @@ def rel(path):
 
 
 def sha256(path):
+    """Of the file with Windows line endings read as Unix ones, so that a checkout with either gives the same."""
     with open(path, "rb") as f:
-        return hashlib.sha256(f.read()).hexdigest()
+        return hashlib.sha256(f.read().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def read_json(path):
