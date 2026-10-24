@@ -32,3 +32,15 @@ Second amendment. The lines above are unchanged.
   - In the first test run an expectation in the test was wrong (balanced accuracy of an all-false prediction is 0.5 under study 1's function, not undefined); the test was corrected, not the script.
   - requirements.txt now pins numpy 2.4.3 and matplotlib 3.10.9, the versions in D:\python\3.11.9.
 - **Not yet run on study-1 data.** No oracle number exists. The author runs the script and pastes the console; docs/oracle/READING.md follows the paste.
+
+## Amendment 24 Oct 2026 (c)
+
+Third amendment. The lines above are unchanged. Everything in this amendment about the oracle test is EXPLORATORY.
+
+- **The oracle run.** The author ran scripts/oracle_v2.py on 24 October 2026 with 8 workers and pasted the console. The console, written by the script, is logs/oracle_v2.log; the outputs are docs/oracle/oracle_v2.md, oracle_v2.json, fig_oracle_vs_census.png and fig_search_features.png. All are committed in ff85628.
+  - Inputs as the log reports them: 10,500 row files, 10,080 confirmatory rows kept, 420 pilot rows skipped; 0 rows with an error field, 0 short of their budget; both imported study-1 analysis files match their blob hashes registered at study 1's prereg-v1.1.
+- **The three reproduction checks**, from the log: reproduction of study-1 census lines 20 of 20 identical to docs/tables/v2.json; the bootstrap loop reproduces bootstrap_auroc_ci on 20 of 20 lines; the logistic refit reproduces logistic_fit_predict for B on 20 of 20 lines.
+- **The finding, in one sentence (exploratory):** with exact mechanics in place of the census, first-level completion is ranked at AUROC 0.5477 to 0.6967 on MiniGrid/BabyAI, with leave-one-game-out fits of the mechanics vector below 0.5 on all 14 MiniGrid/BabyAI lines, while grid area alone ranks the games better on five of the six primary lines and measures read out of N's runs better still, post hoc.
+- **docs/oracle/READING.md** (ff85628) gives the reading per suite and condition, the limits, and, as a reading and not a plan, that the registered study must be built around H2 (search size) with H1 (mechanics match) as the rival.
+- **scripts/oracle_sat.py** (ff85628), written and not yet run on study-1 data: how each AUROC of 1.0000 arises (values per class, overlap, whether the censoring flag alone separates the classes) and the pre-run number per line (area, action count, colour count, alone and together, in-sample and leave-one-out). It was exercised once on the fabricated data of scripts/test_oracle_v2.py in the session scratchpad, not on study-1 rows. Command, working directory D:\Research\horizon\repo: D:\Research\horizon\.venv\Scripts\python.exe scripts\oracle_sat.py --workers 4. Outputs docs/oracle/saturation.md, saturation.json and logs/oracle_sat.log.
+- **Next:** the author runs scripts/oracle_sat.py; then Phase 2, the automation, built and proven by a dry run before any study code.
