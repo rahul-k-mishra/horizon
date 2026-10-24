@@ -113,3 +113,12 @@ Eighth amendment. The lines above are unchanged. Nothing is registered; the prer
 - **scripts/handcheck_report.py** writes docs/truth/HANDCHECK_RESULT.md from the answers: counts per predicate and per game, every disagreement and unsure row with its note, games, levels and dates; it resolves nothing. scripts/test_handcheck.py, run in this session, OK (logs/test_handcheck.log).
 - Not yet decided by the author, and not written into docs/DESIGN.md or docs/PREREG.md: whether the hand check is made by the author or the automated cross-checks stand alone. No answers exist yet.
 - **Next:** the author tries the tool and decides; stage D as in amendment (g).
+
+## Amendment 25 Oct 2026 (i)
+
+Ninth amendment. The lines above are unchanged. Nothing is registered; the prereg tag is not created. No row of stage D has been read and no analysis has run.
+
+- **State before the launch.** jobs/manifest.json was the campaign devsearch-dryrun, its one chunk ds-01 done; no dispatch in flight; the loop not halted; the tag automation-v2, which jobs/stage_d/manifest.json names, on the remote at afa984c.
+- **Stage D launched** (2ce262c): the devsearch dry-run manifest moved to jobs/archive/devsearch-dryrun/manifest.json; jobs/stage_d/manifest.json copied unchanged to jobs/manifest.json (campaign dev-minigrid, 39 chunks, 1,560 units); jobs/state.json reset to no dispatch, not halted, 0 consecutive crashes.
+- **First chunk.** The loop was started with gh workflow run horizon.yml (run 40141855308). logs/automation.log: chunk d-001 dispatched at 2026-10-24T23:13:58Z and pushed to Kaggle as kernel version 8 at 23:14:04Z.
+- **Next:** wait until every chunk of dev-minigrid is done; then the campaign check, scripts/sdd.py on the stage D rows, and the development reading, in that order. docs/DESIGN.md and docs/PREREG.md are not changed before the author decides.
