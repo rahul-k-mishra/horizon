@@ -1,0 +1,14 @@
+# Python environment lives outside the repository (D:\Research\horizon\.venv); ignore any local one
+.venv/
+venv/
+env/
+# caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+# local editor and tool settings
+.vscode/
+.idea/
+.claude/settings.local.json
