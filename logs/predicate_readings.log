@@ -1,0 +1,53 @@
+predicate_readings (EXPLORATORY): 110 games in docs/truth/gvgai.json, 30 deterministic, 26 confirmatory (pilot bait, labyrinthdual, rivers, watergame)
+self-check: the copy of pred_A4 with every switch off gives the generator's A4 verdict on 550 of 550 units, and with the leaf count of Q4b alone it gives the same
+S_M on the 26 confirmatory games now: 2: 3, 3: 11, 4: 9, 5: 3
+
+== Q1 (A2 read the other way)
+chase (not deterministic): A2 holds -> fails on levels 0, 1, 2, 3, 4
+defem (not deterministic): A2 holds -> fails on levels 0, 1, 2, 3, 4
+deflection (not deterministic): A2 holds -> fails on levels 0, 1, 2, 3, 4
+dungeon (not deterministic): A2 holds -> fails on levels 0, 1, 2, 3, 4
+painter (confirmatory): A2 holds -> fails on levels 0, 1, 2, 3, 4
+slide (not deterministic): A2 holds -> fails on levels 0, 1, 2, 3, 4
+solarfox (not deterministic): A2 holds -> fails on levels 0, 1, 2, 3, 4
+waitforbreakfast (not deterministic): A2 holds -> fails on levels 0, 1, 2, 3, 4
+zenpuzzle (confirmatory): A2 holds -> fails on levels 0, 1, 2, 3, 4
+units changed: 45 of all, 10 of the deterministic, 10 of the confirmatory; games changed: 9 of all, 2 deterministic, 2 confirmatory
+S_M on the confirmatory games under this reading: 2: 3, 3: 13, 4: 7, 5: 3
+A2 holds on 7 of the 26 confirmatory games under this reading, 9 now
+
+== Q2 (A4 read the other way)
+rivers (pilot): A4 fails -> holds on levels 0, 1, 2, 3, 4
+waitforbreakfast (not deterministic): A4 fails -> holds on levels 0, 1, 2, 3, 4
+units changed: 10 of all, 5 of the deterministic, 0 of the confirmatory; games changed: 2 of all, 1 deterministic, 0 confirmatory
+S_M on the confirmatory games under this reading: 2: 3, 3: 11, 4: 9, 5: 3
+A4 holds on 26 of the 26 confirmatory games under this reading, 26 now
+
+== Q3 (A4 read the other way)
+bait (pilot): A4 holds -> fails on levels 0, 1, 2, 3, 4
+catapults (not deterministic): A4 holds -> fails on levels 0, 1, 2, 3, 4
+eighthpassenger (not deterministic): A4 holds -> fails on levels 0, 1, 2, 3, 4
+freeway (not deterministic): A4 holds -> fails on levels 0, 1, 2, 3, 4
+gymkhana (not deterministic): A4 holds -> fails on levels 0, 1, 2, 3, 4
+killBillVol1 (not deterministic): A4 holds -> fails on levels 0, 1, 2, 3, 4
+labyrinthdual (pilot): A4 holds -> fails on levels 0, 1, 2, 3, 4
+modality (confirmatory): A4 holds -> fails on levels 0, 1, 2, 3, 4
+pacman (not deterministic): A4 holds -> fails on levels 0, 1, 2, 3, 4
+tercio (confirmatory): A4 holds -> fails on levels 0, 1, 2, 3, 4
+themole (not deterministic): A4 holds -> fails on levels 0, 1, 2, 3, 4
+vortex (not deterministic): A4 holds -> fails on levels 0, 1, 2, 3, 4
+zelda (not deterministic): A4 holds -> fails on levels 0, 1, 2, 3, 4
+units changed: 65 of all, 20 of the deterministic, 10 of the confirmatory; games changed: 13 of all, 4 deterministic, 2 confirmatory
+S_M on the confirmatory games under this reading: 2: 5, 3: 9, 4: 9, 5: 3
+A4 holds on 24 of the 26 confirmatory games under this reading, 26 now
+
+== Q4 (A4 read the other way)
+colourescape (confirmatory): A4 holds -> fails on levels 0, 1, 2, 3, 4
+units changed: 5 of all, 5 of the deterministic, 5 of the confirmatory; games changed: 1 of all, 1 deterministic, 1 confirmatory
+S_M on the confirmatory games under this reading: 2: 3, 3: 12, 4: 8, 5: 3
+A4 holds on 25 of the 26 confirmatory games under this reading, 26 now
+
+== Q4b (A4 read the other way)
+units changed: 0 of all, 0 of the deterministic, 0 of the confirmatory; games changed: 0 of all, 0 deterministic, 0 confirmatory
+S_M on the confirmatory games under this reading: 2: 3, 3: 11, 4: 9, 5: 3
+A4 holds on 26 of the 26 confirmatory games under this reading, 26 now
