@@ -1,0 +1,3404 @@
+{
+ "schema": "horizon.handcheck_rows.v1",
+ "written_by": "scripts/handcheck_app.py",
+ "sources": {
+  "docs/truth/gvgai.json": "d4924bee5fd76aadf473f9d418b202a21d9c552daa55dd4acc1bebe0ea20d50a",
+  "docs/truth/HANDCHECK.md": "21fc0c3687af648bcafaa9821c2412c6aaa73866815e865a95c219a51a4695e3",
+  "docs/truth/HANDCHECK_GUIDE.md": "368d9b84967ba2e2427e19c092e544f27182ef5c3ef518c9d786e3e13fc547ca",
+  "docs/truth/handcheck_readings.json": "0660c099391b3ae8311ce5aaf0ddb453595e02d327300b7227022367a8ef55f1"
+ },
+ "rows": [
+  {
+   "id": "clusters/A1/0",
+   "game": "clusters",
+   "level": 0,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/clusters.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/clusters_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 18,
+    "text": "avatar > MovingAvatar img=oryx/knight1"
+   },
+   "reading": "The sprite placed by A is a MovingAvatar: it steps up, down, left or right, one key for each.",
+   "wrong_if": "The verdict would be wrong only if a MovingAvatar answered to fewer than two different keys, which in GVGAI is true only of NullAvatar and MissileAvatar.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 18,
+     "text": "avatar > MovingAvatar img=oryx/knight1",
+     "reads": "avatar type avatar is MovingAvatar"
+    }
+   ]
+  },
+  {
+   "id": "clusters/A1/3",
+   "game": "clusters",
+   "level": 3,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/clusters.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/clusters_lvl3.txt",
+   "deciding": {
+    "in": "description",
+    "line": 18,
+    "text": "avatar > MovingAvatar img=oryx/knight1"
+   },
+   "reading": "The sprite placed by A is a MovingAvatar: it steps up, down, left or right, one key for each.",
+   "wrong_if": "The verdict would be wrong only if a MovingAvatar answered to fewer than two different keys, which in GVGAI is true only of NullAvatar and MissileAvatar.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 18,
+     "text": "avatar > MovingAvatar img=oryx/knight1",
+     "reads": "avatar type avatar is MovingAvatar"
+    }
+   ]
+  },
+  {
+   "id": "clusters/A2/0",
+   "game": "clusters",
+   "level": 0,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/clusters.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/clusters_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 40,
+    "text": "box avatar > bounceForward"
+   },
+   "reading": "When the avatar walks into a box, the box is pushed one square forward, so the arrow keys move boxes as well as the avatar.",
+   "wrong_if": "The verdict would be wrong if a box pushed by the avatar did not count as a second sprite moved by the player's action.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 40,
+     "text": "box avatar > bounceForward",
+     "reads": "bounceForward moves box when the avatar moves into it"
+    }
+   ]
+  },
+  {
+   "id": "clusters/A2/3",
+   "game": "clusters",
+   "level": 3,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/clusters.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/clusters_lvl3.txt",
+   "deciding": {
+    "in": "description",
+    "line": 40,
+    "text": "box avatar > bounceForward"
+   },
+   "reading": "When the avatar walks into a box, the box is pushed one square forward, so the arrow keys move boxes as well as the avatar.",
+   "wrong_if": "The verdict would be wrong if a box pushed by the avatar did not count as a second sprite moved by the player's action.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 40,
+     "text": "box avatar > bounceForward",
+     "reads": "bounceForward moves box when the avatar moves into it"
+    }
+   ]
+  },
+  {
+   "id": "clusters/A3/0",
+   "game": "clusters",
+   "level": 0,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/clusters.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/clusters_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 18,
+    "text": "avatar > MovingAvatar img=oryx/knight1"
+   },
+   "reading": "The avatar is a MovingAvatar with no speed given, so speed 1, and no line of the InteractionSet carries the avatar anywhere; stepBack only cancels its step.",
+   "wrong_if": "The verdict would be wrong if some interaction with the avatar first moved it, as wrapAround or bounceForward would.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 18,
+     "text": "avatar > MovingAvatar img=oryx/knight1",
+     "reads": "avatar is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 36,
+     "text": "InteractionSet",
+     "reads": "no interaction moves the avatar"
+    }
+   ]
+  },
+  {
+   "id": "clusters/A3/3",
+   "game": "clusters",
+   "level": 3,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/clusters.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/clusters_lvl3.txt",
+   "deciding": {
+    "in": "description",
+    "line": 18,
+    "text": "avatar > MovingAvatar img=oryx/knight1"
+   },
+   "reading": "The avatar is a MovingAvatar with no speed given, so speed 1, and no line of the InteractionSet carries the avatar anywhere; stepBack only cancels its step.",
+   "wrong_if": "The verdict would be wrong if some interaction with the avatar first moved it, as wrapAround or bounceForward would.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 18,
+     "text": "avatar > MovingAvatar img=oryx/knight1",
+     "reads": "avatar is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 36,
+     "text": "InteractionSet",
+     "reads": "no interaction moves the avatar"
+    }
+   ]
+  },
+  {
+   "id": "clusters/A4/0",
+   "game": "clusters",
+   "level": 0,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/clusters.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/clusters_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 49,
+    "text": "avatar block > stepBack"
+   },
+   "reading": "Walls (line 37) and the coloured blocks (line 49) send the avatar back, and both are Immovable (lines 7 and 19).",
+   "wrong_if": "The verdict would be wrong if blocks appeared without the player: line 42 turns a box into a block when the box reaches a block, and the generator counts that as the avatar's doing because only the avatar pushes boxes.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 49,
+     "text": "avatar block > stepBack",
+     "reads": "blueblock blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 49,
+     "text": "avatar block > stepBack",
+     "reads": "greenblock blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 49,
+     "text": "avatar block > stepBack",
+     "reads": "redblock blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 37,
+     "text": "avatar wall > stepBack",
+     "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 8,
+     "text": "blueblock > img=newset/blockB",
+     "reads": "blocker blueblock is Immovable"
+    },
+    {
+     "in": "description",
+     "line": 10,
+     "text": "greenblock > img=newset/blockG",
+     "reads": "blocker greenblock is Immovable"
+    },
+    {
+     "in": "description",
+     "line": 9,
+     "text": "redblock > img=newset/blockR",
+     "reads": "blocker redblock is Immovable"
+    },
+    {
+     "in": "description",
+     "line": 19,
+     "text": "wall > Immovable img=oryx/wall3 autotiling=True",
+     "reads": "blocker wall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "clusters/A4/3",
+   "game": "clusters",
+   "level": 3,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/clusters.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/clusters_lvl3.txt",
+   "deciding": {
+    "in": "description",
+    "line": 49,
+    "text": "avatar block > stepBack"
+   },
+   "reading": "Walls (line 37) and the coloured blocks (line 49) send the avatar back, and both are Immovable (lines 7 and 19).",
+   "wrong_if": "The verdict would be wrong if blocks appeared without the player: line 42 turns a box into a block when the box reaches a block, and the generator counts that as the avatar's doing because only the avatar pushes boxes.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 49,
+     "text": "avatar block > stepBack",
+     "reads": "blueblock blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 49,
+     "text": "avatar block > stepBack",
+     "reads": "greenblock blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 49,
+     "text": "avatar block > stepBack",
+     "reads": "redblock blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 37,
+     "text": "avatar wall > stepBack",
+     "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 8,
+     "text": "blueblock > img=newset/blockB",
+     "reads": "blocker blueblock is Immovable"
+    },
+    {
+     "in": "description",
+     "line": 10,
+     "text": "greenblock > img=newset/blockG",
+     "reads": "blocker greenblock is Immovable"
+    },
+    {
+     "in": "description",
+     "line": 9,
+     "text": "redblock > img=newset/blockR",
+     "reads": "blocker redblock is Immovable"
+    },
+    {
+     "in": "description",
+     "line": 19,
+     "text": "wall > Immovable img=oryx/wall3 autotiling=True",
+     "reads": "blocker wall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "clusters/A5/0",
+   "game": "clusters",
+   "level": 0,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/clusters.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/clusters_lvl0.txt",
+   "deciding": {
+    "in": "level",
+    "line": 3,
+    "text": "w..11...2.2.w"
+   },
+   "reading": "The game is won when no box is left (line 61 of the description), and this level places 8 boxes, not one.",
+   "wrong_if": "The verdict would be wrong if the level held a single box, or if the winning line counted something other than boxes.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 61,
+     "text": "SpriteCounter stype=box limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 3,
+     "text": "w..11...2.2.w",
+     "reads": "the level places 8 sprite(s) of box"
+    }
+   ]
+  },
+  {
+   "id": "clusters/A5/3",
+   "game": "clusters",
+   "level": 3,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/clusters.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/clusters_lvl3.txt",
+   "deciding": {
+    "in": "level",
+    "line": 3,
+    "text": "w...1.2..c..w"
+   },
+   "reading": "The game is won when no box is left (line 61 of the description), and this level places 9 boxes, not one.",
+   "wrong_if": "The verdict would be wrong if the level held a single box, or if the winning line counted something other than boxes.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 61,
+     "text": "SpriteCounter stype=box limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 3,
+     "text": "w...1.2..c..w",
+     "reads": "the level places 9 sprite(s) of box"
+    }
+   ]
+  },
+  {
+   "id": "colourescape/A1/0",
+   "game": "colourescape",
+   "level": 0,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/colourescape_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 20,
+    "text": "normalAvatar > img=newset/girl3"
+   },
+   "reading": "normalAvatar, placed by A, sits under line 19, avatar > MovingAvatar, so it is a MovingAvatar.",
+   "wrong_if": "The verdict would be wrong if normalAvatar did not take the class MovingAvatar from its parent line 19.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 20,
+     "text": "normalAvatar > img=newset/girl3",
+     "reads": "avatar type normalAvatar is MovingAvatar"
+    }
+   ]
+  },
+  {
+   "id": "colourescape/A1/3",
+   "game": "colourescape",
+   "level": 3,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/colourescape_lvl3.txt",
+   "deciding": {
+    "in": "description",
+    "line": 20,
+    "text": "normalAvatar > img=newset/girl3"
+   },
+   "reading": "normalAvatar, placed by A, sits under line 19, avatar > MovingAvatar, so it is a MovingAvatar.",
+   "wrong_if": "The verdict would be wrong if normalAvatar did not take the class MovingAvatar from its parent line 19.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 20,
+     "text": "normalAvatar > img=newset/girl3",
+     "reads": "avatar type normalAvatar is MovingAvatar"
+    }
+   ]
+  },
+  {
+   "id": "colourescape/A2/0",
+   "game": "colourescape",
+   "level": 0,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/colourescape_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 56,
+    "text": "box normalAvatar  > bounceForward"
+   },
+   "reading": "When normalAvatar walks into a plain box the box is pushed forward; lines 47, 50 and 53 do the same for the coloured boxes and avatars.",
+   "wrong_if": "The verdict would be wrong if a pushed box did not count as a second sprite moved by the player's action.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 47,
+     "text": "greenbox greenAvatar > bounceForward",
+     "reads": "bounceForward moves greenbox when the avatar moves into it"
+    },
+    {
+     "in": "description",
+     "line": 50,
+     "text": "redbox redAvatar > bounceForward",
+     "reads": "bounceForward moves redbox when the avatar moves into it"
+    },
+    {
+     "in": "description",
+     "line": 53,
+     "text": "bluebox blueAvatar > bounceForward",
+     "reads": "bounceForward moves bluebox when the avatar moves into it"
+    },
+    {
+     "in": "description",
+     "line": 56,
+     "text": "box normalAvatar  > bounceForward",
+     "reads": "bounceForward moves box when the avatar moves into it"
+    }
+   ]
+  },
+  {
+   "id": "colourescape/A2/3",
+   "game": "colourescape",
+   "level": 3,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/colourescape_lvl3.txt",
+   "deciding": {
+    "in": "description",
+    "line": 56,
+    "text": "box normalAvatar  > bounceForward"
+   },
+   "reading": "When normalAvatar walks into a plain box the box is pushed forward; lines 47, 50 and 53 do the same for the coloured boxes and avatars.",
+   "wrong_if": "The verdict would be wrong if a pushed box did not count as a second sprite moved by the player's action.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 47,
+     "text": "greenbox greenAvatar > bounceForward",
+     "reads": "bounceForward moves greenbox when the avatar moves into it"
+    },
+    {
+     "in": "description",
+     "line": 50,
+     "text": "redbox redAvatar > bounceForward",
+     "reads": "bounceForward moves redbox when the avatar moves into it"
+    },
+    {
+     "in": "description",
+     "line": 53,
+     "text": "bluebox blueAvatar > bounceForward",
+     "reads": "bounceForward moves bluebox when the avatar moves into it"
+    },
+    {
+     "in": "description",
+     "line": 56,
+     "text": "box normalAvatar  > bounceForward",
+     "reads": "bounceForward moves box when the avatar moves into it"
+    }
+   ]
+  },
+  {
+   "id": "colourescape/A3/0",
+   "game": "colourescape",
+   "level": 0,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/colourescape_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 20,
+    "text": "normalAvatar > img=newset/girl3"
+   },
+   "reading": "All four avatar kinds are MovingAvatar at speed 1; a switch (lines 64 to 67) changes the avatar's colour, not its place.",
+   "wrong_if": "The verdict would be wrong if changing the avatar's kind with transformTo counted as an interaction that moves it.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 21,
+     "text": "blueAvatar > img=newset/girl2",
+     "reads": "blueAvatar is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 23,
+     "text": "greenAvatar > img=newset/girl1",
+     "reads": "greenAvatar is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 20,
+     "text": "normalAvatar > img=newset/girl3",
+     "reads": "normalAvatar is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 22,
+     "text": "redAvatar > img=newset/girl5",
+     "reads": "redAvatar is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 44,
+     "text": "InteractionSet",
+     "reads": "no interaction moves the avatar"
+    }
+   ]
+  },
+  {
+   "id": "colourescape/A3/3",
+   "game": "colourescape",
+   "level": 3,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/colourescape_lvl3.txt",
+   "deciding": {
+    "in": "description",
+    "line": 20,
+    "text": "normalAvatar > img=newset/girl3"
+   },
+   "reading": "All four avatar kinds are MovingAvatar at speed 1; a switch (lines 64 to 67) changes the avatar's colour, not its place.",
+   "wrong_if": "The verdict would be wrong if changing the avatar's kind with transformTo counted as an interaction that moves it.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 21,
+     "text": "blueAvatar > img=newset/girl2",
+     "reads": "blueAvatar is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 23,
+     "text": "greenAvatar > img=newset/girl1",
+     "reads": "greenAvatar is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 20,
+     "text": "normalAvatar > img=newset/girl3",
+     "reads": "normalAvatar is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 22,
+     "text": "redAvatar > img=newset/girl5",
+     "reads": "redAvatar is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 44,
+     "text": "InteractionSet",
+     "reads": "no interaction moves the avatar"
+    }
+   ]
+  },
+  {
+   "id": "colourescape/A4/0",
+   "game": "colourescape",
+   "level": 0,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/colourescape_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 45,
+    "text": "avatar wall > stepBack"
+   },
+   "reading": "Walls send the avatar back, and walls are Immovable (line 25).",
+   "wrong_if": "The verdict would be wrong if the moves cancelled at lines 48, 51, 54 and 57 (an avatar of the wrong colour pushing a box, undoAll) needed a blocker that moves on its own; there the boxes come first in the line and move only when an avatar pushes them.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 45,
+     "text": "avatar wall > stepBack",
+     "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 25,
+     "text": "wall > Immovable img=oryx/wall3 autotiling=True",
+     "reads": "blocker wall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "colourescape/A4/3",
+   "game": "colourescape",
+   "level": 3,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/colourescape_lvl3.txt",
+   "deciding": {
+    "in": "description",
+    "line": 45,
+    "text": "avatar wall > stepBack"
+   },
+   "reading": "Walls send the avatar back, and walls are Immovable (line 25).",
+   "wrong_if": "The verdict would be wrong if the moves cancelled at lines 48, 51, 54 and 57 (an avatar of the wrong colour pushing a box, undoAll) needed a blocker that moves on its own; there the boxes come first in the line and move only when an avatar pushes them.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 45,
+     "text": "avatar wall > stepBack",
+     "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 25,
+     "text": "wall > Immovable img=oryx/wall3 autotiling=True",
+     "reads": "blocker wall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "colourescape/A5/0",
+   "game": "colourescape",
+   "level": 0,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/colourescape_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 71,
+    "text": "SpriteCounter stype=exit limit=0 win=True"
+   },
+   "reading": "The game is won when no exit is left, the level places 1 exit, and only the avatar removes it (line 61).",
+   "wrong_if": "The verdict would be wrong if some sprite other than the avatar could remove the exit, or if there were a second winning line.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 71,
+     "text": "SpriteCounter stype=exit limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 2,
+     "text": "w........w.x.....w",
+     "reads": "the level places 1 sprite(s) of exit"
+    },
+    {
+     "in": "description",
+     "line": 61,
+     "text": "exit avatar > killSprite scoreChange=1",
+     "reads": "the avatar removes the goal"
+    }
+   ]
+  },
+  {
+   "id": "colourescape/A5/3",
+   "game": "colourescape",
+   "level": 3,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/colourescape.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/colourescape_lvl3.txt",
+   "deciding": {
+    "in": "description",
+    "line": 71,
+    "text": "SpriteCounter stype=exit limit=0 win=True"
+   },
+   "reading": "The game is won when no exit is left, the level places 1 exit, and only the avatar removes it (line 61).",
+   "wrong_if": "The verdict would be wrong if some sprite other than the avatar could remove the exit, or if there were a second winning line.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 71,
+     "text": "SpriteCounter stype=exit limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 2,
+     "text": "w..x..3..wc...4..w",
+     "reads": "the level places 1 sprite(s) of exit"
+    },
+    {
+     "in": "description",
+     "line": 61,
+     "text": "exit avatar > killSprite scoreChange=1",
+     "reads": "the avatar removes the goal"
+    }
+   ]
+  },
+  {
+   "id": "glow/A1/0",
+   "game": "glow",
+   "level": 0,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/glow.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/glow_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > ShootAvatar img=newset/man3 frameRate=8 stype=spark"
+   },
+   "reading": "The avatar is a ShootAvatar: it moves with the arrow keys and fires with the use key.",
+   "wrong_if": "The verdict would be wrong only if a ShootAvatar answered to fewer than two different keys.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > ShootAvatar img=newset/man3 frameRate=8 stype=spark",
+     "reads": "avatar type avatar is ShootAvatar"
+    }
+   ]
+  },
+  {
+   "id": "glow/A1/4",
+   "game": "glow",
+   "level": 4,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/glow.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/glow_lvl4.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > ShootAvatar img=newset/man3 frameRate=8 stype=spark"
+   },
+   "reading": "The avatar is a ShootAvatar: it moves with the arrow keys and fires with the use key.",
+   "wrong_if": "The verdict would be wrong only if a ShootAvatar answered to fewer than two different keys.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > ShootAvatar img=newset/man3 frameRate=8 stype=spark",
+     "reads": "avatar type avatar is ShootAvatar"
+    }
+   ]
+  },
+  {
+   "id": "glow/A2/0",
+   "game": "glow",
+   "level": 0,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/glow.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/glow_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > ShootAvatar img=newset/man3 frameRate=8 stype=spark"
+   },
+   "reading": "A ShootAvatar's use key creates a new sprite, here a spark (stype=spark), so the action makes a second object as well as moving the avatar.",
+   "wrong_if": "The verdict would be wrong if the use key created nothing, for instance if stype named no sprite.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > ShootAvatar img=newset/man3 frameRate=8 stype=spark",
+     "reads": "avatar type avatar is ShootAvatar: its use action creates a sprite"
+    }
+   ]
+  },
+  {
+   "id": "glow/A2/4",
+   "game": "glow",
+   "level": 4,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/glow.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/glow_lvl4.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > ShootAvatar img=newset/man3 frameRate=8 stype=spark"
+   },
+   "reading": "A ShootAvatar's use key creates a new sprite, here a spark (stype=spark), so the action makes a second object as well as moving the avatar.",
+   "wrong_if": "The verdict would be wrong if the use key created nothing, for instance if stype named no sprite.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > ShootAvatar img=newset/man3 frameRate=8 stype=spark",
+     "reads": "avatar type avatar is ShootAvatar: its use action creates a sprite"
+    }
+   ]
+  },
+  {
+   "id": "glow/A3/0",
+   "game": "glow",
+   "level": 0,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/glow.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/glow_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > ShootAvatar img=newset/man3 frameRate=8 stype=spark"
+   },
+   "reading": "The line does not set rotateInPlace=False, and a ShootAvatar by default turns to face a new direction on the first press instead of stepping.",
+   "wrong_if": "The verdict would be wrong if this line or a parent line set rotateInPlace=False.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > ShootAvatar img=newset/man3 frameRate=8 stype=spark",
+     "reads": "avatar is ShootAvatar, which turns in place when pressed in a new direction"
+    }
+   ]
+  },
+  {
+   "id": "glow/A3/4",
+   "game": "glow",
+   "level": 4,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/glow.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/glow_lvl4.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > ShootAvatar img=newset/man3 frameRate=8 stype=spark"
+   },
+   "reading": "The line does not set rotateInPlace=False, and a ShootAvatar by default turns to face a new direction on the first press instead of stepping.",
+   "wrong_if": "The verdict would be wrong if this line or a parent line set rotateInPlace=False.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > ShootAvatar img=newset/man3 frameRate=8 stype=spark",
+     "reads": "avatar is ShootAvatar, which turns in place when pressed in a new direction"
+    }
+   ]
+  },
+  {
+   "id": "glow/A4/0",
+   "game": "glow",
+   "level": 0,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/glow.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/glow_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 29,
+    "text": "avatar wall EOS > stepBack"
+   },
+   "reading": "Walls and the edge of the screen (EOS) send the avatar back, and walls are Immovable (line 18).",
+   "wrong_if": "The verdict would be wrong if something else stopped the avatar, or if walls could be made or removed during play; the bridges and traps of lines 31 to 34 change or kill sprites but do not block.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 29,
+     "text": "avatar wall EOS > stepBack",
+     "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 18,
+     "text": "wall > Immovable color=BLACK img=oryx/wall3 autotiling=True",
+     "reads": "blocker wall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "glow/A4/4",
+   "game": "glow",
+   "level": 4,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/glow.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/glow_lvl4.txt",
+   "deciding": {
+    "in": "description",
+    "line": 29,
+    "text": "avatar wall EOS > stepBack"
+   },
+   "reading": "Walls and the edge of the screen (EOS) send the avatar back, and walls are Immovable (line 18).",
+   "wrong_if": "The verdict would be wrong if something else stopped the avatar, or if walls could be made or removed during play; the bridges and traps of lines 31 to 34 change or kill sprites but do not block.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 29,
+     "text": "avatar wall EOS > stepBack",
+     "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 18,
+     "text": "wall > Immovable color=BLACK img=oryx/wall3 autotiling=True",
+     "reads": "blocker wall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "glow/A5/0",
+   "game": "glow",
+   "level": 0,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/glow.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/glow_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 40,
+    "text": "Timeout limit=1500 win=True"
+   },
+   "reading": "There are two ways to win: no exit left (line 39) and lasting until the time limit (line 40, Timeout win=True), so reaching the goal is not the only win.",
+   "wrong_if": "The verdict would be wrong if the Timeout line with win=True did not count as a winning condition.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 39,
+     "text": "SpriteCounter stype=exit win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "description",
+     "line": 40,
+     "text": "Timeout limit=1500 win=True",
+     "reads": "a winning termination"
+    }
+   ]
+  },
+  {
+   "id": "glow/A5/4",
+   "game": "glow",
+   "level": 4,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/glow.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/glow_lvl4.txt",
+   "deciding": {
+    "in": "description",
+    "line": 40,
+    "text": "Timeout limit=1500 win=True"
+   },
+   "reading": "There are two ways to win: no exit left (line 39) and lasting until the time limit (line 40, Timeout win=True), so reaching the goal is not the only win.",
+   "wrong_if": "The verdict would be wrong if the Timeout line with win=True did not count as a winning condition.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 39,
+     "text": "SpriteCounter stype=exit win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "description",
+     "line": 40,
+     "text": "Timeout limit=1500 win=True",
+     "reads": "a winning termination"
+    }
+   ]
+  },
+  {
+   "id": "labyrinthdual/A1/0",
+   "game": "labyrinthdual",
+   "level": 0,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/labyrinthdual.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/labyrinthdual_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 16,
+    "text": "avatarNormal > img=newset/girl1"
+   },
+   "reading": "avatarNormal, placed by A, sits under line 15, avatar > MovingAvatar, so it is a MovingAvatar.",
+   "wrong_if": "The verdict would be wrong if avatarNormal did not take the class MovingAvatar from its parent line 15.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 16,
+     "text": "avatarNormal > img=newset/girl1",
+     "reads": "avatar type avatarNormal is MovingAvatar"
+    }
+   ]
+  },
+  {
+   "id": "labyrinthdual/A1/1",
+   "game": "labyrinthdual",
+   "level": 1,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/labyrinthdual.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/labyrinthdual_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 16,
+    "text": "avatarNormal > img=newset/girl1"
+   },
+   "reading": "avatarNormal, placed by A, sits under line 15, avatar > MovingAvatar, so it is a MovingAvatar.",
+   "wrong_if": "The verdict would be wrong if avatarNormal did not take the class MovingAvatar from its parent line 15.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 16,
+     "text": "avatarNormal > img=newset/girl1",
+     "reads": "avatar type avatarNormal is MovingAvatar"
+    }
+   ]
+  },
+  {
+   "id": "labyrinthdual/A2/0",
+   "game": "labyrinthdual",
+   "level": 0,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/labyrinthdual.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/labyrinthdual_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 16,
+    "text": "avatarNormal > img=newset/girl1"
+   },
+   "reading": "The only avatar at start is avatarNormal, a MovingAvatar whose use key creates nothing, and no line pushes or pulls a sprite the avatar walks into.",
+   "wrong_if": "The verdict would be wrong if the level placed more than one avatar, or if picking up a coat (lines 28 and 31, which remove the coat) counted as the action moving another sprite.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 16,
+     "text": "avatarNormal > img=newset/girl1",
+     "reads": "the one avatar sprite at start is avatarNormal, MovingAvatar, which creates nothing"
+    },
+    {
+     "in": "description",
+     "line": 20,
+     "text": "InteractionSet",
+     "reads": "no bounceForward or pullWithIt with the avatar as partner"
+    }
+   ]
+  },
+  {
+   "id": "labyrinthdual/A2/1",
+   "game": "labyrinthdual",
+   "level": 1,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/labyrinthdual.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/labyrinthdual_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 16,
+    "text": "avatarNormal > img=newset/girl1"
+   },
+   "reading": "The only avatar at start is avatarNormal, a MovingAvatar whose use key creates nothing, and no line pushes or pulls a sprite the avatar walks into.",
+   "wrong_if": "The verdict would be wrong if the level placed more than one avatar, or if picking up a coat (lines 28 and 31, which remove the coat) counted as the action moving another sprite.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 16,
+     "text": "avatarNormal > img=newset/girl1",
+     "reads": "the one avatar sprite at start is avatarNormal, MovingAvatar, which creates nothing"
+    },
+    {
+     "in": "description",
+     "line": 20,
+     "text": "InteractionSet",
+     "reads": "no bounceForward or pullWithIt with the avatar as partner"
+    }
+   ]
+  },
+  {
+   "id": "labyrinthdual/A3/0",
+   "game": "labyrinthdual",
+   "level": 0,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/labyrinthdual.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/labyrinthdual_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 16,
+    "text": "avatarNormal > img=newset/girl1"
+   },
+   "reading": "All three avatar kinds are MovingAvatar at speed 1; putting on a coat (lines 28 and 31) changes the avatar's kind, not its place.",
+   "wrong_if": "The verdict would be wrong if changing the avatar's kind with transformTo counted as an interaction that moves it.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 18,
+     "text": "avatarBlue > img=oryx/queen1",
+     "reads": "avatarBlue is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 16,
+     "text": "avatarNormal > img=newset/girl1",
+     "reads": "avatarNormal is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 17,
+     "text": "avatarRed > img=oryx/princess1",
+     "reads": "avatarRed is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 20,
+     "text": "InteractionSet",
+     "reads": "no interaction moves the avatar"
+    }
+   ]
+  },
+  {
+   "id": "labyrinthdual/A3/1",
+   "game": "labyrinthdual",
+   "level": 1,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/labyrinthdual.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/labyrinthdual_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 16,
+    "text": "avatarNormal > img=newset/girl1"
+   },
+   "reading": "All three avatar kinds are MovingAvatar at speed 1; putting on a coat (lines 28 and 31) changes the avatar's kind, not its place.",
+   "wrong_if": "The verdict would be wrong if changing the avatar's kind with transformTo counted as an interaction that moves it.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 18,
+     "text": "avatarBlue > img=oryx/queen1",
+     "reads": "avatarBlue is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 16,
+     "text": "avatarNormal > img=newset/girl1",
+     "reads": "avatarNormal is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 17,
+     "text": "avatarRed > img=oryx/princess1",
+     "reads": "avatarRed is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 20,
+     "text": "InteractionSet",
+     "reads": "no interaction moves the avatar"
+    }
+   ]
+  },
+  {
+   "id": "labyrinthdual/A4/0",
+   "game": "labyrinthdual",
+   "level": 0,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/labyrinthdual.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/labyrinthdual_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 23,
+    "text": "avatarNormal wall > stepBack"
+   },
+   "reading": "Walls send the avatar back (lines 22 to 25), each colour of wall for some avatar kinds only, and all walls are Immovable (line 7).",
+   "wrong_if": "The verdict would be wrong if a set of blockers that changes with the coat the player puts on (lines 24 and 25) did not count as fixed by the player's own actions.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 23,
+     "text": "avatarNormal wall > stepBack",
+     "reads": "blueWall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 22,
+     "text": "avatar normalWall > stepBack",
+     "reads": "normalWall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 23,
+     "text": "avatarNormal wall > stepBack",
+     "reads": "redWall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 10,
+     "text": "blueWall > img=oryx/wall3 autotiling=True",
+     "reads": "blocker blueWall is Immovable"
+    },
+    {
+     "in": "description",
+     "line": 8,
+     "text": "normalWall > img=oryx/wall1",
+     "reads": "blocker normalWall is Immovable"
+    },
+    {
+     "in": "description",
+     "line": 9,
+     "text": "redWall > img=oryx/dirtwall autotiling=True",
+     "reads": "blocker redWall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "labyrinthdual/A4/1",
+   "game": "labyrinthdual",
+   "level": 1,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/labyrinthdual.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/labyrinthdual_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 23,
+    "text": "avatarNormal wall > stepBack"
+   },
+   "reading": "Walls send the avatar back (lines 22 to 25), each colour of wall for some avatar kinds only, and all walls are Immovable (line 7).",
+   "wrong_if": "The verdict would be wrong if a set of blockers that changes with the coat the player puts on (lines 24 and 25) did not count as fixed by the player's own actions.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 23,
+     "text": "avatarNormal wall > stepBack",
+     "reads": "blueWall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 22,
+     "text": "avatar normalWall > stepBack",
+     "reads": "normalWall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 23,
+     "text": "avatarNormal wall > stepBack",
+     "reads": "redWall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 10,
+     "text": "blueWall > img=oryx/wall3 autotiling=True",
+     "reads": "blocker blueWall is Immovable"
+    },
+    {
+     "in": "description",
+     "line": 8,
+     "text": "normalWall > img=oryx/wall1",
+     "reads": "blocker normalWall is Immovable"
+    },
+    {
+     "in": "description",
+     "line": 9,
+     "text": "redWall > img=oryx/dirtwall autotiling=True",
+     "reads": "blocker redWall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "labyrinthdual/A5/0",
+   "game": "labyrinthdual",
+   "level": 0,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/labyrinthdual.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/labyrinthdual_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 38,
+    "text": "SpriteCounter stype=exit limit=0 win=True"
+   },
+   "reading": "The game is won when no exit is left, the level places 1 exit, and only the avatar removes it (line 33).",
+   "wrong_if": "The verdict would be wrong if some sprite other than the avatar could remove the exit, or if there were a second winning line.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 38,
+     "text": "SpriteCounter stype=exit limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 2,
+     "text": "ww.....rrr....xw",
+     "reads": "the level places 1 sprite(s) of exit"
+    },
+    {
+     "in": "description",
+     "line": 33,
+     "text": "exit avatar > killSprite scoreChange=1",
+     "reads": "the avatar removes the goal"
+    }
+   ]
+  },
+  {
+   "id": "labyrinthdual/A5/1",
+   "game": "labyrinthdual",
+   "level": 1,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/labyrinthdual.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/labyrinthdual_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 38,
+    "text": "SpriteCounter stype=exit limit=0 win=True"
+   },
+   "reading": "The game is won when no exit is left, the level places 1 exit, and only the avatar removes it (line 33).",
+   "wrong_if": "The verdict would be wrong if some sprite other than the avatar could remove the exit, or if there were a second winning line.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 38,
+     "text": "SpriteCounter stype=exit limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 3,
+     "text": "wxttttw.....ww.w",
+     "reads": "the level places 1 sprite(s) of exit"
+    },
+    {
+     "in": "description",
+     "line": 33,
+     "text": "exit avatar > killSprite scoreChange=1",
+     "reads": "the avatar removes the goal"
+    }
+   ]
+  },
+  {
+   "id": "lasers/A1/0",
+   "game": "lasers",
+   "level": 0,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/lasers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/lasers_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > ShootAvatar stype=boulder rotateInPlace=true img=oryx/archer1"
+   },
+   "reading": "The avatar is a ShootAvatar: it moves with the arrow keys and fires with the use key.",
+   "wrong_if": "The verdict would be wrong only if a ShootAvatar answered to fewer than two different keys.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > ShootAvatar stype=boulder rotateInPlace=true img=oryx/archer1",
+     "reads": "avatar type avatar is ShootAvatar"
+    }
+   ]
+  },
+  {
+   "id": "lasers/A1/1",
+   "game": "lasers",
+   "level": 1,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/lasers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/lasers_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > ShootAvatar stype=boulder rotateInPlace=true img=oryx/archer1"
+   },
+   "reading": "The avatar is a ShootAvatar: it moves with the arrow keys and fires with the use key.",
+   "wrong_if": "The verdict would be wrong only if a ShootAvatar answered to fewer than two different keys.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > ShootAvatar stype=boulder rotateInPlace=true img=oryx/archer1",
+     "reads": "avatar type avatar is ShootAvatar"
+    }
+   ]
+  },
+  {
+   "id": "lasers/A2/0",
+   "game": "lasers",
+   "level": 0,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/lasers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/lasers_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > ShootAvatar stype=boulder rotateInPlace=true img=oryx/archer1"
+   },
+   "reading": "The use key fires a boulder (stype=boulder), and line 37 pushes a box when the avatar walks into it: two ways the action moves something besides the avatar.",
+   "wrong_if": "The verdict would be wrong if neither the shot boulder nor the pushed box counted as a second sprite moved by the action.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > ShootAvatar stype=boulder rotateInPlace=true img=oryx/archer1",
+     "reads": "avatar type avatar is ShootAvatar: its use action creates a sprite"
+    },
+    {
+     "in": "description",
+     "line": 37,
+     "text": "box avatar  > bounceForward",
+     "reads": "bounceForward moves box when the avatar moves into it"
+    }
+   ]
+  },
+  {
+   "id": "lasers/A2/1",
+   "game": "lasers",
+   "level": 1,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/lasers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/lasers_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > ShootAvatar stype=boulder rotateInPlace=true img=oryx/archer1"
+   },
+   "reading": "The use key fires a boulder (stype=boulder), and line 37 pushes a box when the avatar walks into it: two ways the action moves something besides the avatar.",
+   "wrong_if": "The verdict would be wrong if neither the shot boulder nor the pushed box counted as a second sprite moved by the action.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > ShootAvatar stype=boulder rotateInPlace=true img=oryx/archer1",
+     "reads": "avatar type avatar is ShootAvatar: its use action creates a sprite"
+    },
+    {
+     "in": "description",
+     "line": 37,
+     "text": "box avatar  > bounceForward",
+     "reads": "bounceForward moves box when the avatar moves into it"
+    }
+   ]
+  },
+  {
+   "id": "lasers/A3/0",
+   "game": "lasers",
+   "level": 0,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/lasers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/lasers_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > ShootAvatar stype=boulder rotateInPlace=true img=oryx/archer1"
+   },
+   "reading": "The avatar is a ShootAvatar with rotateInPlace=true, so pressing a new direction first turns it without moving it.",
+   "wrong_if": "The verdict would be wrong if rotateInPlace=true did not make the first press in a new direction a turn.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > ShootAvatar stype=boulder rotateInPlace=true img=oryx/archer1",
+     "reads": "avatar is ShootAvatar, which turns in place when pressed in a new direction"
+    }
+   ]
+  },
+  {
+   "id": "lasers/A3/1",
+   "game": "lasers",
+   "level": 1,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/lasers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/lasers_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > ShootAvatar stype=boulder rotateInPlace=true img=oryx/archer1"
+   },
+   "reading": "The avatar is a ShootAvatar with rotateInPlace=true, so pressing a new direction first turns it without moving it.",
+   "wrong_if": "The verdict would be wrong if rotateInPlace=true did not make the first press in a new direction a turn.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > ShootAvatar stype=boulder rotateInPlace=true img=oryx/archer1",
+     "reads": "avatar is ShootAvatar, which turns in place when pressed in a new direction"
+    }
+   ]
+  },
+  {
+   "id": "lasers/A4/0",
+   "game": "lasers",
+   "level": 0,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/lasers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/lasers_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 34,
+    "text": "avatar wall lasercannon > stepBack"
+   },
+   "reading": "Walls and laser cannons send the avatar back; walls are Immovable, cannons are SpawnPoint (line 7) and never move, and a cannon changes kind only when the avatar's boulder hits it (lines 49 to 53).",
+   "wrong_if": "The verdict would be wrong if a SpawnPoint did not count as staying in place, or if the boulder the avatar fires did not count as the avatar's own action.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 34,
+     "text": "avatar wall lasercannon > stepBack",
+     "reads": "lcdown blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 34,
+     "text": "avatar wall lasercannon > stepBack",
+     "reads": "lcleft blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 34,
+     "text": "avatar wall lasercannon > stepBack",
+     "reads": "lcright blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 34,
+     "text": "avatar wall lasercannon > stepBack",
+     "reads": "lcswap blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 34,
+     "text": "avatar wall lasercannon > stepBack",
+     "reads": "lcup blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 34,
+     "text": "avatar wall lasercannon > stepBack",
+     "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 9,
+     "text": "lcdown > img=newset/lasercannon_2 stype=ldown",
+     "reads": "blocker lcdown is SpawnPoint"
+    },
+    {
+     "in": "description",
+     "line": 11,
+     "text": "lcleft > img=newset/lasercannon_3 stype=lleft",
+     "reads": "blocker lcleft is SpawnPoint"
+    },
+    {
+     "in": "description",
+     "line": 10,
+     "text": "lcright > img=newset/lasercannon_1 stype=lright",
+     "reads": "blocker lcright is SpawnPoint"
+    },
+    {
+     "in": "description",
+     "line": 12,
+     "text": "lcswap > img=newset/lasercannon_4 stype=lleft",
+     "reads": "blocker lcswap is SpawnPoint"
+    },
+    {
+     "in": "description",
+     "line": 8,
+     "text": "lcup > img=newset/lasercannon stype=lup",
+     "reads": "blocker lcup is SpawnPoint"
+    },
+    {
+     "in": "description",
+     "line": 20,
+     "text": "wall > Immovable img=oryx/wall3 autotiling=True",
+     "reads": "blocker wall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "lasers/A4/1",
+   "game": "lasers",
+   "level": 1,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/lasers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/lasers_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 34,
+    "text": "avatar wall lasercannon > stepBack"
+   },
+   "reading": "Walls and laser cannons send the avatar back; walls are Immovable, cannons are SpawnPoint (line 7) and never move, and a cannon changes kind only when the avatar's boulder hits it (lines 49 to 53).",
+   "wrong_if": "The verdict would be wrong if a SpawnPoint did not count as staying in place, or if the boulder the avatar fires did not count as the avatar's own action.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 34,
+     "text": "avatar wall lasercannon > stepBack",
+     "reads": "lcdown blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 34,
+     "text": "avatar wall lasercannon > stepBack",
+     "reads": "lcleft blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 34,
+     "text": "avatar wall lasercannon > stepBack",
+     "reads": "lcright blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 34,
+     "text": "avatar wall lasercannon > stepBack",
+     "reads": "lcswap blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 34,
+     "text": "avatar wall lasercannon > stepBack",
+     "reads": "lcup blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 34,
+     "text": "avatar wall lasercannon > stepBack",
+     "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 9,
+     "text": "lcdown > img=newset/lasercannon_2 stype=ldown",
+     "reads": "blocker lcdown is SpawnPoint"
+    },
+    {
+     "in": "description",
+     "line": 11,
+     "text": "lcleft > img=newset/lasercannon_3 stype=lleft",
+     "reads": "blocker lcleft is SpawnPoint"
+    },
+    {
+     "in": "description",
+     "line": 10,
+     "text": "lcright > img=newset/lasercannon_1 stype=lright",
+     "reads": "blocker lcright is SpawnPoint"
+    },
+    {
+     "in": "description",
+     "line": 12,
+     "text": "lcswap > img=newset/lasercannon_4 stype=lleft",
+     "reads": "blocker lcswap is SpawnPoint"
+    },
+    {
+     "in": "description",
+     "line": 8,
+     "text": "lcup > img=newset/lasercannon stype=lup",
+     "reads": "blocker lcup is SpawnPoint"
+    },
+    {
+     "in": "description",
+     "line": 20,
+     "text": "wall > Immovable img=oryx/wall3 autotiling=True",
+     "reads": "blocker wall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "lasers/A5/0",
+   "game": "lasers",
+   "level": 0,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/lasers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/lasers_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 58,
+    "text": "SpriteCounter stype=goal    limit=0 win=True"
+   },
+   "reading": "The game is won when no goal is left, the level places 1 goal, and only the avatar removes it (line 47).",
+   "wrong_if": "The verdict would be wrong if some sprite other than the avatar could remove the goal, or if there were a second winning line.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 58,
+     "text": "SpriteCounter stype=goal    limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 5,
+     "text": "w.b.......d..................gw",
+     "reads": "the level places 1 sprite(s) of goal"
+    },
+    {
+     "in": "description",
+     "line": 47,
+     "text": "goal avatar > killSprite scoreChange=5",
+     "reads": "the avatar removes the goal"
+    }
+   ]
+  },
+  {
+   "id": "lasers/A5/1",
+   "game": "lasers",
+   "level": 1,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/lasers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/lasers_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 58,
+    "text": "SpriteCounter stype=goal    limit=0 win=True"
+   },
+   "reading": "The game is won when no goal is left, the level places 1 goal, and only the avatar removes it (line 47).",
+   "wrong_if": "The verdict would be wrong if some sprite other than the avatar could remove the goal, or if there were a second winning line.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 58,
+     "text": "SpriteCounter stype=goal    limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 10,
+     "text": "w.........ww..........w..g.w",
+     "reads": "the level places 1 sprite(s) of goal"
+    },
+    {
+     "in": "description",
+     "line": 47,
+     "text": "goal avatar > killSprite scoreChange=5",
+     "reads": "the avatar removes the goal"
+    }
+   ]
+  },
+  {
+   "id": "painter/A1/0",
+   "game": "painter",
+   "level": 0,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/painter.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/painter_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 15,
+    "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21"
+   },
+   "reading": "The avatar is a MovingAvatar: it steps up, down, left or right, one key for each.",
+   "wrong_if": "The verdict would be wrong only if a MovingAvatar answered to fewer than two different keys.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 15,
+     "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21",
+     "reads": "avatar type avatar is MovingAvatar"
+    }
+   ]
+  },
+  {
+   "id": "painter/A1/3",
+   "game": "painter",
+   "level": 3,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/painter.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/painter_lvl3.txt",
+   "deciding": {
+    "in": "description",
+    "line": 15,
+    "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21"
+   },
+   "reading": "The avatar is a MovingAvatar: it steps up, down, left or right, one key for each.",
+   "wrong_if": "The verdict would be wrong only if a MovingAvatar answered to fewer than two different keys.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 15,
+     "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21",
+     "reads": "avatar type avatar is MovingAvatar"
+    }
+   ]
+  },
+  {
+   "id": "painter/A2/0",
+   "game": "painter",
+   "level": 0,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/painter.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/painter_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 15,
+    "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21"
+   },
+   "reading": "The one avatar is a MovingAvatar whose use key creates nothing, and no line pushes or pulls a sprite the avatar walks into.",
+   "wrong_if": "The verdict would be wrong if a sprite made by walking counted as a second sprite moved by the action: line 29 spawns prepaint wherever the avatar steps on ground.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 15,
+     "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21",
+     "reads": "the one avatar sprite at start is avatar, MovingAvatar, which creates nothing"
+    },
+    {
+     "in": "description",
+     "line": 25,
+     "text": "InteractionSet",
+     "reads": "no bounceForward or pullWithIt with the avatar as partner"
+    }
+   ]
+  },
+  {
+   "id": "painter/A2/3",
+   "game": "painter",
+   "level": 3,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/painter.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/painter_lvl3.txt",
+   "deciding": {
+    "in": "description",
+    "line": 15,
+    "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21"
+   },
+   "reading": "The one avatar is a MovingAvatar whose use key creates nothing, and no line pushes or pulls a sprite the avatar walks into.",
+   "wrong_if": "The verdict would be wrong if a sprite made by walking counted as a second sprite moved by the action: line 29 spawns prepaint wherever the avatar steps on ground.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 15,
+     "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21",
+     "reads": "the one avatar sprite at start is avatar, MovingAvatar, which creates nothing"
+    },
+    {
+     "in": "description",
+     "line": 25,
+     "text": "InteractionSet",
+     "reads": "no bounceForward or pullWithIt with the avatar as partner"
+    }
+   ]
+  },
+  {
+   "id": "painter/A3/0",
+   "game": "painter",
+   "level": 0,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/painter.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/painter_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 15,
+    "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21"
+   },
+   "reading": "The avatar is a MovingAvatar at speed 1, and no line carries it anywhere; the edge only sends it back (line 26).",
+   "wrong_if": "The verdict would be wrong if some interaction with the avatar first moved it.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 15,
+     "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21",
+     "reads": "avatar is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 25,
+     "text": "InteractionSet",
+     "reads": "no interaction moves the avatar"
+    }
+   ]
+  },
+  {
+   "id": "painter/A3/3",
+   "game": "painter",
+   "level": 3,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/painter.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/painter_lvl3.txt",
+   "deciding": {
+    "in": "description",
+    "line": 15,
+    "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21"
+   },
+   "reading": "The avatar is a MovingAvatar at speed 1, and no line carries it anywhere; the edge only sends it back (line 26).",
+   "wrong_if": "The verdict would be wrong if some interaction with the avatar first moved it.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 15,
+     "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21",
+     "reads": "avatar is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 25,
+     "text": "InteractionSet",
+     "reads": "no interaction moves the avatar"
+    }
+   ]
+  },
+  {
+   "id": "painter/A4/0",
+   "game": "painter",
+   "level": 0,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/painter.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/painter_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 26,
+    "text": "avatar EOS > stepBack"
+   },
+   "reading": "Only the edge of the screen sends the avatar back (avatar EOS > stepBack); no sprite blocks it, not even wall, which has no interaction line.",
+   "wrong_if": "The verdict would be wrong if some move had no effect for a reason other than the edge.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 25,
+     "text": "InteractionSet",
+     "reads": "no sprite blocks the avatar (no stepBack or undoAll with the avatar first, except at the edge)"
+    }
+   ]
+  },
+  {
+   "id": "painter/A4/3",
+   "game": "painter",
+   "level": 3,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/painter.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/painter_lvl3.txt",
+   "deciding": {
+    "in": "description",
+    "line": 26,
+    "text": "avatar EOS > stepBack"
+   },
+   "reading": "Only the edge of the screen sends the avatar back (avatar EOS > stepBack); no sprite blocks it, not even wall, which has no interaction line.",
+   "wrong_if": "The verdict would be wrong if some move had no effect for a reason other than the edge.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 25,
+     "text": "InteractionSet",
+     "reads": "no sprite blocks the avatar (no stepBack or undoAll with the avatar first, except at the edge)"
+    }
+   ]
+  },
+  {
+   "id": "painter/A5/0",
+   "game": "painter",
+   "level": 0,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/painter.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/painter_lvl0.txt",
+   "deciding": {
+    "in": "level",
+    "line": 1,
+    "text": "A..."
+   },
+   "reading": "The game is won when no ground is left (line 41 of the description), and this level places 10 ground tiles, not one.",
+   "wrong_if": "The verdict would be wrong if the level held a single ground tile, or if the winning line counted something other than ground.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 41,
+     "text": "SpriteCounter stype=ground limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 1,
+     "text": "A...",
+     "reads": "the level places 10 sprite(s) of ground"
+    }
+   ]
+  },
+  {
+   "id": "painter/A5/3",
+   "game": "painter",
+   "level": 3,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/painter.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/painter_lvl3.txt",
+   "deciding": {
+    "in": "level",
+    "line": 1,
+    "text": "A...w."
+   },
+   "reading": "The game is won when no ground is left (line 41 of the description), and this level places 17 ground tiles, not one.",
+   "wrong_if": "The verdict would be wrong if the level held a single ground tile, or if the winning line counted something other than ground.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 41,
+     "text": "SpriteCounter stype=ground limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 1,
+     "text": "A...w.",
+     "reads": "the level places 17 sprite(s) of ground"
+    }
+   ]
+  },
+  {
+   "id": "racebet/A1/0",
+   "game": "racebet",
+   "level": 0,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/racebet.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/racebet_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 26,
+    "text": "normal >"
+   },
+   "reading": "normal, placed by A, sits under line 25, avatar > MovingAvatar speed=1.0, so it is a MovingAvatar.",
+   "wrong_if": "The verdict would be wrong if normal did not take the class MovingAvatar from its parent line 25.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 26,
+     "text": "normal >",
+     "reads": "avatar type normal is MovingAvatar"
+    }
+   ]
+  },
+  {
+   "id": "racebet/A1/4",
+   "game": "racebet",
+   "level": 4,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/racebet.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/racebet_lvl4.txt",
+   "deciding": {
+    "in": "description",
+    "line": 26,
+    "text": "normal >"
+   },
+   "reading": "normal, placed by A, sits under line 25, avatar > MovingAvatar speed=1.0, so it is a MovingAvatar.",
+   "wrong_if": "The verdict would be wrong if normal did not take the class MovingAvatar from its parent line 25.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 26,
+     "text": "normal >",
+     "reads": "avatar type normal is MovingAvatar"
+    }
+   ]
+  },
+  {
+   "id": "racebet/A2/0",
+   "game": "racebet",
+   "level": 0,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/racebet.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/racebet_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 26,
+    "text": "normal >"
+   },
+   "reading": "The only avatar at start is normal, a MovingAvatar that creates nothing; stepping on a pit (lines 37 to 41) changes its kind and moves nothing else.",
+   "wrong_if": "The verdict would be wrong if the level placed more than one avatar, or if the camels, which run on their own (line 6), moved because of the player's keys.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 26,
+     "text": "normal >",
+     "reads": "the one avatar sprite at start is normal, MovingAvatar, which creates nothing"
+    },
+    {
+     "in": "description",
+     "line": 35,
+     "text": "InteractionSet",
+     "reads": "no bounceForward or pullWithIt with the avatar as partner"
+    }
+   ]
+  },
+  {
+   "id": "racebet/A2/4",
+   "game": "racebet",
+   "level": 4,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/racebet.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/racebet_lvl4.txt",
+   "deciding": {
+    "in": "description",
+    "line": 26,
+    "text": "normal >"
+   },
+   "reading": "The only avatar at start is normal, a MovingAvatar that creates nothing; stepping on a pit (lines 37 to 41) changes its kind and moves nothing else.",
+   "wrong_if": "The verdict would be wrong if the level placed more than one avatar, or if the camels, which run on their own (line 6), moved because of the player's keys.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 26,
+     "text": "normal >",
+     "reads": "the one avatar sprite at start is normal, MovingAvatar, which creates nothing"
+    },
+    {
+     "in": "description",
+     "line": 35,
+     "text": "InteractionSet",
+     "reads": "no bounceForward or pullWithIt with the avatar as partner"
+    }
+   ]
+  },
+  {
+   "id": "racebet/A3/0",
+   "game": "racebet",
+   "level": 0,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/racebet.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/racebet_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 25,
+    "text": "avatar > MovingAvatar speed=1.0 img=newset/man4"
+   },
+   "reading": "Every avatar kind takes MovingAvatar speed=1.0 from line 25, and no line carries the avatar anywhere.",
+   "wrong_if": "The verdict would be wrong if speed=1.0 were not speed 1, or if changing the avatar's kind on a pit counted as moving it.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 27,
+     "text": "betA >",
+     "reads": "betA is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 28,
+     "text": "betB >",
+     "reads": "betB is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 29,
+     "text": "betC >",
+     "reads": "betC is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 30,
+     "text": "betD >",
+     "reads": "betD is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 26,
+     "text": "normal >",
+     "reads": "normal is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 35,
+     "text": "InteractionSet",
+     "reads": "no interaction moves the avatar"
+    }
+   ]
+  },
+  {
+   "id": "racebet/A3/4",
+   "game": "racebet",
+   "level": 4,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/racebet.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/racebet_lvl4.txt",
+   "deciding": {
+    "in": "description",
+    "line": 25,
+    "text": "avatar > MovingAvatar speed=1.0 img=newset/man4"
+   },
+   "reading": "Every avatar kind takes MovingAvatar speed=1.0 from line 25, and no line carries the avatar anywhere.",
+   "wrong_if": "The verdict would be wrong if speed=1.0 were not speed 1, or if changing the avatar's kind on a pit counted as moving it.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 27,
+     "text": "betA >",
+     "reads": "betA is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 28,
+     "text": "betB >",
+     "reads": "betB is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 29,
+     "text": "betC >",
+     "reads": "betC is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 30,
+     "text": "betD >",
+     "reads": "betD is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 26,
+     "text": "normal >",
+     "reads": "normal is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 35,
+     "text": "InteractionSet",
+     "reads": "no interaction moves the avatar"
+    }
+   ]
+  },
+  {
+   "id": "racebet/A4/0",
+   "game": "racebet",
+   "level": 0,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/racebet.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/racebet_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 48,
+    "text": "avatar wall > stepBack"
+   },
+   "reading": "Only walls send the avatar back, and walls are Immovable (line 33); the camels run on their own but never block the avatar.",
+   "wrong_if": "The verdict would be wrong if a camel or a barrier could stop the avatar; line 49 stops only camels.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 48,
+     "text": "avatar wall > stepBack",
+     "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 33,
+     "text": "wall > Immovable img=oryx/space5",
+     "reads": "blocker wall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "racebet/A4/4",
+   "game": "racebet",
+   "level": 4,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/racebet.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/racebet_lvl4.txt",
+   "deciding": {
+    "in": "description",
+    "line": 48,
+    "text": "avatar wall > stepBack"
+   },
+   "reading": "Only walls send the avatar back, and walls are Immovable (line 33); the camels run on their own but never block the avatar.",
+   "wrong_if": "The verdict would be wrong if a camel or a barrier could stop the avatar; line 49 stops only camels.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 48,
+     "text": "avatar wall > stepBack",
+     "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 33,
+     "text": "wall > Immovable img=oryx/space5",
+     "reads": "blocker wall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "racebet/A5/0",
+   "game": "racebet",
+   "level": 0,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/racebet.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/racebet_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 68,
+    "text": "MultiSpriteCounter stype1=winA stype2=betA limit=2 win=True"
+   },
+   "reading": "The winning lines (68 to 71) are MultiSpriteCounter lines that count a winning camel and a bet together, not a single SpriteCounter with limit 0, so there is no single goal to reach.",
+   "wrong_if": "The verdict would be wrong if a MultiSpriteCounter with limit 2 counted as a single place goal under the registered wording.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 68,
+     "text": "MultiSpriteCounter stype1=winA stype2=betA limit=2 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "description",
+     "line": 69,
+     "text": "MultiSpriteCounter stype1=winB stype2=betB limit=2 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "description",
+     "line": 70,
+     "text": "MultiSpriteCounter stype1=winC stype2=betC limit=2 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "description",
+     "line": 71,
+     "text": "MultiSpriteCounter stype1=winD stype2=betD limit=2 win=True",
+     "reads": "a winning termination"
+    }
+   ]
+  },
+  {
+   "id": "racebet/A5/4",
+   "game": "racebet",
+   "level": 4,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/racebet.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/racebet_lvl4.txt",
+   "deciding": {
+    "in": "description",
+    "line": 68,
+    "text": "MultiSpriteCounter stype1=winA stype2=betA limit=2 win=True"
+   },
+   "reading": "The winning lines (68 to 71) are MultiSpriteCounter lines that count a winning camel and a bet together, not a single SpriteCounter with limit 0, so there is no single goal to reach.",
+   "wrong_if": "The verdict would be wrong if a MultiSpriteCounter with limit 2 counted as a single place goal under the registered wording.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 68,
+     "text": "MultiSpriteCounter stype1=winA stype2=betA limit=2 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "description",
+     "line": 69,
+     "text": "MultiSpriteCounter stype1=winB stype2=betB limit=2 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "description",
+     "line": 70,
+     "text": "MultiSpriteCounter stype1=winC stype2=betC limit=2 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "description",
+     "line": 71,
+     "text": "MultiSpriteCounter stype1=winD stype2=betD limit=2 win=True",
+     "reads": "a winning termination"
+    }
+   ]
+  },
+  {
+   "id": "rivers/A1/0",
+   "game": "rivers",
+   "level": 0,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/rivers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/rivers_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar  > ShootAvatar stype=shovel img=newset/man1"
+   },
+   "reading": "The avatar is a ShootAvatar: it moves with the arrow keys and uses its shovel with the use key.",
+   "wrong_if": "The verdict would be wrong only if a ShootAvatar answered to fewer than two different keys.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar  > ShootAvatar stype=shovel img=newset/man1",
+     "reads": "avatar type avatar is ShootAvatar"
+    }
+   ]
+  },
+  {
+   "id": "rivers/A1/4",
+   "game": "rivers",
+   "level": 4,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/rivers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/rivers_lvl4.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar  > ShootAvatar stype=shovel img=newset/man1"
+   },
+   "reading": "The avatar is a ShootAvatar: it moves with the arrow keys and uses its shovel with the use key.",
+   "wrong_if": "The verdict would be wrong only if a ShootAvatar answered to fewer than two different keys.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar  > ShootAvatar stype=shovel img=newset/man1",
+     "reads": "avatar type avatar is ShootAvatar"
+    }
+   ]
+  },
+  {
+   "id": "rivers/A2/0",
+   "game": "rivers",
+   "level": 0,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/rivers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/rivers_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar  > ShootAvatar stype=shovel img=newset/man1"
+   },
+   "reading": "The use key creates a shovel sprite (stype=shovel), a second object made by the action.",
+   "wrong_if": "The verdict would be wrong if the use key created nothing, for instance if stype named no sprite.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar  > ShootAvatar stype=shovel img=newset/man1",
+     "reads": "avatar type avatar is ShootAvatar: its use action creates a sprite"
+    }
+   ]
+  },
+  {
+   "id": "rivers/A2/4",
+   "game": "rivers",
+   "level": 4,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/rivers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/rivers_lvl4.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar  > ShootAvatar stype=shovel img=newset/man1"
+   },
+   "reading": "The use key creates a shovel sprite (stype=shovel), a second object made by the action.",
+   "wrong_if": "The verdict would be wrong if the use key created nothing, for instance if stype named no sprite.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar  > ShootAvatar stype=shovel img=newset/man1",
+     "reads": "avatar type avatar is ShootAvatar: its use action creates a sprite"
+    }
+   ]
+  },
+  {
+   "id": "rivers/A3/0",
+   "game": "rivers",
+   "level": 0,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/rivers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/rivers_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar  > ShootAvatar stype=shovel img=newset/man1"
+   },
+   "reading": "The line does not set rotateInPlace=False, and a ShootAvatar by default turns to face a new direction on the first press instead of stepping.",
+   "wrong_if": "The verdict would be wrong if this line or a parent line set rotateInPlace=False.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar  > ShootAvatar stype=shovel img=newset/man1",
+     "reads": "avatar is ShootAvatar, which turns in place when pressed in a new direction"
+    }
+   ]
+  },
+  {
+   "id": "rivers/A3/4",
+   "game": "rivers",
+   "level": 4,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/rivers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/rivers_lvl4.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar  > ShootAvatar stype=shovel img=newset/man1"
+   },
+   "reading": "The line does not set rotateInPlace=False, and a ShootAvatar by default turns to face a new direction on the first press instead of stepping.",
+   "wrong_if": "The verdict would be wrong if this line or a parent line set rotateInPlace=False.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar  > ShootAvatar stype=shovel img=newset/man1",
+     "reads": "avatar is ShootAvatar, which turns in place when pressed in a new direction"
+    }
+   ]
+  },
+  {
+   "id": "rivers/A4/0",
+   "game": "rivers",
+   "level": 0,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/rivers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/rivers_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 39,
+    "text": "dryHouse water > transformTo stype=waterHouse scoreChange=1"
+   },
+   "reading": "Houses send the avatar back (line 32), and this line turns a dry house into a wet one when water reaches it; water is not the avatar, so a blocker is replaced without the player's own step.",
+   "wrong_if": "The verdict would be wrong if water counted as driven by the avatar (it flows only into holes the shovel digs, lines 36 and 40), or if swapping one blocking house for another in the same square did not count as changing the blockers.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 39,
+     "text": "dryHouse water > transformTo stype=waterHouse scoreChange=1",
+     "reads": "transformTo removes blocker dryHouse without the avatar"
+    },
+    {
+     "in": "description",
+     "line": 39,
+     "text": "dryHouse water > transformTo stype=waterHouse scoreChange=1",
+     "reads": "transformTo creates blocker waterHouse without the avatar"
+    }
+   ]
+  },
+  {
+   "id": "rivers/A4/4",
+   "game": "rivers",
+   "level": 4,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/rivers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/rivers_lvl4.txt",
+   "deciding": {
+    "in": "description",
+    "line": 39,
+    "text": "dryHouse water > transformTo stype=waterHouse scoreChange=1"
+   },
+   "reading": "Houses send the avatar back (line 32), and this line turns a dry house into a wet one when water reaches it; water is not the avatar, so a blocker is replaced without the player's own step.",
+   "wrong_if": "The verdict would be wrong if water counted as driven by the avatar (it flows only into holes the shovel digs, lines 36 and 40), or if swapping one blocking house for another in the same square did not count as changing the blockers.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 39,
+     "text": "dryHouse water > transformTo stype=waterHouse scoreChange=1",
+     "reads": "transformTo removes blocker dryHouse without the avatar"
+    },
+    {
+     "in": "description",
+     "line": 39,
+     "text": "dryHouse water > transformTo stype=waterHouse scoreChange=1",
+     "reads": "transformTo creates blocker waterHouse without the avatar"
+    }
+   ]
+  },
+  {
+   "id": "rivers/A5/0",
+   "game": "rivers",
+   "level": 0,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/rivers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/rivers_lvl0.txt",
+   "deciding": {
+    "in": "level",
+    "line": 3,
+    "text": "w.........r......h.w"
+   },
+   "reading": "The game is won when no dry house is left (line 45 of the description), and this level places 6 dry houses, not one.",
+   "wrong_if": "The verdict would be wrong if the level held a single dry house, or if the winning line counted something other than dry houses.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 45,
+     "text": "SpriteCounter stype=dryHouse limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 3,
+     "text": "w.........r......h.w",
+     "reads": "the level places 6 sprite(s) of dryHouse"
+    }
+   ]
+  },
+  {
+   "id": "rivers/A5/4",
+   "game": "rivers",
+   "level": 4,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/rivers.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/rivers_lvl4.txt",
+   "deciding": {
+    "in": "level",
+    "line": 3,
+    "text": "w............h.....w"
+   },
+   "reading": "The game is won when no dry house is left (line 45 of the description), and this level places 6 dry houses, not one.",
+   "wrong_if": "The verdict would be wrong if the level held a single dry house, or if the winning line counted something other than dry houses.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 45,
+     "text": "SpriteCounter stype=dryHouse limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 3,
+     "text": "w............h.....w",
+     "reads": "the level places 6 sprite(s) of dryHouse"
+    }
+   ]
+  },
+  {
+   "id": "sokoban/A1/0",
+   "game": "sokoban",
+   "level": 0,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/sokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/sokoban_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > MovingAvatar img=oryx/knight1"
+   },
+   "reading": "The avatar is a MovingAvatar: it steps up, down, left or right, one key for each.",
+   "wrong_if": "The verdict would be wrong only if a MovingAvatar answered to fewer than two different keys.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > MovingAvatar img=oryx/knight1",
+     "reads": "avatar type avatar is MovingAvatar"
+    }
+   ]
+  },
+  {
+   "id": "sokoban/A1/1",
+   "game": "sokoban",
+   "level": 1,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/sokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/sokoban_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > MovingAvatar img=oryx/knight1"
+   },
+   "reading": "The avatar is a MovingAvatar: it steps up, down, left or right, one key for each.",
+   "wrong_if": "The verdict would be wrong only if a MovingAvatar answered to fewer than two different keys.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > MovingAvatar img=oryx/knight1",
+     "reads": "avatar type avatar is MovingAvatar"
+    }
+   ]
+  },
+  {
+   "id": "sokoban/A2/0",
+   "game": "sokoban",
+   "level": 0,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/sokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/sokoban_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 16,
+    "text": "box avatar  > bounceForward"
+   },
+   "reading": "When the avatar walks into a box, the box is pushed one square forward, so the arrow keys move boxes as well as the avatar.",
+   "wrong_if": "The verdict would be wrong if a box pushed by the avatar did not count as a second sprite moved by the player's action.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 16,
+     "text": "box avatar  > bounceForward",
+     "reads": "bounceForward moves box when the avatar moves into it"
+    }
+   ]
+  },
+  {
+   "id": "sokoban/A2/1",
+   "game": "sokoban",
+   "level": 1,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/sokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/sokoban_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 16,
+    "text": "box avatar  > bounceForward"
+   },
+   "reading": "When the avatar walks into a box, the box is pushed one square forward, so the arrow keys move boxes as well as the avatar.",
+   "wrong_if": "The verdict would be wrong if a box pushed by the avatar did not count as a second sprite moved by the player's action.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 16,
+     "text": "box avatar  > bounceForward",
+     "reads": "bounceForward moves box when the avatar moves into it"
+    }
+   ]
+  },
+  {
+   "id": "sokoban/A3/0",
+   "game": "sokoban",
+   "level": 0,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/sokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/sokoban_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > MovingAvatar img=oryx/knight1"
+   },
+   "reading": "The avatar is a MovingAvatar with no speed given, so speed 1, and no line carries it anywhere; stepBack only cancels its step.",
+   "wrong_if": "The verdict would be wrong if some interaction with the avatar first moved it.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > MovingAvatar img=oryx/knight1",
+     "reads": "avatar is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 14,
+     "text": "InteractionSet",
+     "reads": "no interaction moves the avatar"
+    }
+   ]
+  },
+  {
+   "id": "sokoban/A3/1",
+   "game": "sokoban",
+   "level": 1,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/sokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/sokoban_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 5,
+    "text": "avatar > MovingAvatar img=oryx/knight1"
+   },
+   "reading": "The avatar is a MovingAvatar with no speed given, so speed 1, and no line carries it anywhere; stepBack only cancels its step.",
+   "wrong_if": "The verdict would be wrong if some interaction with the avatar first moved it.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 5,
+     "text": "avatar > MovingAvatar img=oryx/knight1",
+     "reads": "avatar is MovingAvatar at speed 1"
+    },
+    {
+     "in": "description",
+     "line": 14,
+     "text": "InteractionSet",
+     "reads": "no interaction moves the avatar"
+    }
+   ]
+  },
+  {
+   "id": "sokoban/A4/0",
+   "game": "sokoban",
+   "level": 0,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/sokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/sokoban_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 15,
+    "text": "avatar wall > stepBack"
+   },
+   "reading": "Walls send the avatar back and are Immovable (line 7); a box pushed into a wall also cancels the avatar's step (line 17), and boxes move only when the avatar pushes them.",
+   "wrong_if": "The verdict would be wrong if a box, which can stop the avatar through undoAll at line 17, moved or vanished other than through the avatar's push; it falls into a hole (line 18) only after a push.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 15,
+     "text": "avatar wall > stepBack",
+     "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 7,
+     "text": "wall > Immovable img=oryx/wall3 autotiling=True",
+     "reads": "blocker wall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "sokoban/A4/1",
+   "game": "sokoban",
+   "level": 1,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/sokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/sokoban_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 15,
+    "text": "avatar wall > stepBack"
+   },
+   "reading": "Walls send the avatar back and are Immovable (line 7); a box pushed into a wall also cancels the avatar's step (line 17), and boxes move only when the avatar pushes them.",
+   "wrong_if": "The verdict would be wrong if a box, which can stop the avatar through undoAll at line 17, moved or vanished other than through the avatar's push; it falls into a hole (line 18) only after a push.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 15,
+     "text": "avatar wall > stepBack",
+     "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 7,
+     "text": "wall > Immovable img=oryx/wall3 autotiling=True",
+     "reads": "blocker wall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "sokoban/A5/0",
+   "game": "sokoban",
+   "level": 0,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/sokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/sokoban_lvl0.txt",
+   "deciding": {
+    "in": "level",
+    "line": 3,
+    "text": "w...1.......w"
+   },
+   "reading": "The game is won when no box is left (line 20 of the description), and this level places 4 boxes, not one.",
+   "wrong_if": "The verdict would be wrong if the level held a single box, or if the winning line counted something other than boxes.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 20,
+     "text": "SpriteCounter stype=box    limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 3,
+     "text": "w...1.......w",
+     "reads": "the level places 4 sprite(s) of box"
+    }
+   ]
+  },
+  {
+   "id": "sokoban/A5/1",
+   "game": "sokoban",
+   "level": 1,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/sokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/sokoban_lvl1.txt",
+   "deciding": {
+    "in": "level",
+    "line": 3,
+    "text": "wwww1......ww"
+   },
+   "reading": "The game is won when no box is left (line 20 of the description), and this level places 3 boxes, not one.",
+   "wrong_if": "The verdict would be wrong if the level held a single box, or if the winning line counted something other than boxes.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 20,
+     "text": "SpriteCounter stype=box    limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 3,
+     "text": "wwww1......ww",
+     "reads": "the level places 3 sprite(s) of box"
+    }
+   ]
+  },
+  {
+   "id": "wrapsokoban/A1/0",
+   "game": "wrapsokoban",
+   "level": 0,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/wrapsokoban_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 7,
+    "text": "avatar > OrientedAvatar rotateInPlace=False img=oryx/knight1"
+   },
+   "reading": "The avatar is an OrientedAvatar: it moves with the four arrow keys.",
+   "wrong_if": "The verdict would be wrong only if an OrientedAvatar answered to fewer than two different keys.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 7,
+     "text": "avatar > OrientedAvatar rotateInPlace=False img=oryx/knight1",
+     "reads": "avatar type avatar is OrientedAvatar"
+    }
+   ]
+  },
+  {
+   "id": "wrapsokoban/A1/1",
+   "game": "wrapsokoban",
+   "level": 1,
+   "predicate": "A1",
+   "name": "Input coupling",
+   "question": "Does the player's character, as placed in the level at the start, answer to at least two different keys?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/wrapsokoban_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 7,
+    "text": "avatar > OrientedAvatar rotateInPlace=False img=oryx/knight1"
+   },
+   "reading": "The avatar is an OrientedAvatar: it moves with the four arrow keys.",
+   "wrong_if": "The verdict would be wrong only if an OrientedAvatar answered to fewer than two different keys.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 7,
+     "text": "avatar > OrientedAvatar rotateInPlace=False img=oryx/knight1",
+     "reads": "avatar type avatar is OrientedAvatar"
+    }
+   ]
+  },
+  {
+   "id": "wrapsokoban/A2/0",
+   "game": "wrapsokoban",
+   "level": 0,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/wrapsokoban_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 22,
+    "text": "bbox avatar  > bounceForward"
+   },
+   "reading": "When the avatar walks into a box, the box is pushed one square forward, so the arrow keys move boxes as well as the avatar.",
+   "wrong_if": "The verdict would be wrong if a box pushed by the avatar did not count as a second sprite moved by the player's action.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 22,
+     "text": "bbox avatar  > bounceForward",
+     "reads": "bounceForward moves bbox when the avatar moves into it"
+    }
+   ]
+  },
+  {
+   "id": "wrapsokoban/A2/1",
+   "game": "wrapsokoban",
+   "level": 1,
+   "predicate": "A2",
+   "name": "One controlled object",
+   "question": "Is the avatar the only thing whose position the player's keys decide?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/wrapsokoban_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 22,
+    "text": "bbox avatar  > bounceForward"
+   },
+   "reading": "When the avatar walks into a box, the box is pushed one square forward, so the arrow keys move boxes as well as the avatar.",
+   "wrong_if": "The verdict would be wrong if a box pushed by the avatar did not count as a second sprite moved by the player's action.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 22,
+     "text": "bbox avatar  > bounceForward",
+     "reads": "bounceForward moves bbox when the avatar moves into it"
+    }
+   ]
+  },
+  {
+   "id": "wrapsokoban/A3/0",
+   "game": "wrapsokoban",
+   "level": 0,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/wrapsokoban_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 21,
+    "text": "avatar EOS > wrapAround"
+   },
+   "reading": "When the avatar walks off the edge of the screen it reappears on the other side, so at the edge one step does not move it by one square.",
+   "wrong_if": "The verdict would be wrong if the level's walls kept the avatar from ever reaching the edge, so that the wrap could never happen.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 21,
+     "text": "avatar EOS > wrapAround",
+     "reads": "wrapAround moves the avatar"
+    }
+   ]
+  },
+  {
+   "id": "wrapsokoban/A3/1",
+   "game": "wrapsokoban",
+   "level": 1,
+   "predicate": "A3",
+   "name": "Lattice motion",
+   "question": "Does each arrow key, when the avatar is not blocked, always move it exactly one square in the same direction, wherever it is and whichever way it faces?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/wrapsokoban_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 21,
+    "text": "avatar EOS > wrapAround"
+   },
+   "reading": "When the avatar walks off the edge of the screen it reappears on the other side, so at the edge one step does not move it by one square.",
+   "wrong_if": "The verdict would be wrong if the level's walls kept the avatar from ever reaching the edge, so that the wrap could never happen.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 21,
+     "text": "avatar EOS > wrapAround",
+     "reads": "wrapAround moves the avatar"
+    }
+   ]
+  },
+  {
+   "id": "wrapsokoban/A4/0",
+   "game": "wrapsokoban",
+   "level": 0,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/wrapsokoban_lvl0.txt",
+   "deciding": {
+    "in": "description",
+    "line": 24,
+    "text": "avatar wall > stepBack"
+   },
+   "reading": "Walls send the avatar back and are Immovable (line 11).",
+   "wrong_if": "The verdict would be wrong if a box, which can stop the avatar through undoAll at line 25, moved or changed other than through the avatar's push.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 24,
+     "text": "avatar wall > stepBack",
+     "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 11,
+     "text": "wall > Immovable img=oryx/wall3 autotiling=True",
+     "reads": "blocker wall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "wrapsokoban/A4/1",
+   "game": "wrapsokoban",
+   "level": 1,
+   "predicate": "A4",
+   "name": "A fixed set of blockers",
+   "question": "Is every step that the avatar cannot take stopped by a sprite that never moves on its own and that only the player's own actions can create, remove or move?",
+   "verdict": "holds",
+   "description": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/wrapsokoban_lvl1.txt",
+   "deciding": {
+    "in": "description",
+    "line": 24,
+    "text": "avatar wall > stepBack"
+   },
+   "reading": "Walls send the avatar back and are Immovable (line 11).",
+   "wrong_if": "The verdict would be wrong if a box, which can stop the avatar through undoAll at line 25, moved or changed other than through the avatar's push.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 24,
+     "text": "avatar wall > stepBack",
+     "reads": "wall blocks the avatar"
+    },
+    {
+     "in": "description",
+     "line": 11,
+     "text": "wall > Immovable img=oryx/wall3 autotiling=True",
+     "reads": "blocker wall is Immovable"
+    }
+   ]
+  },
+  {
+   "id": "wrapsokoban/A5/0",
+   "game": "wrapsokoban",
+   "level": 0,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/wrapsokoban_lvl0.txt",
+   "deciding": {
+    "in": "level",
+    "line": 3,
+    "text": ".w.o*.w."
+   },
+   "reading": "The game is won when no box is left (line 30 of the description), and this level places 4 boxes, not one.",
+   "wrong_if": "The verdict would be wrong if the level held a single box, or if the winning line counted something other than boxes.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 30,
+     "text": "SpriteCounter stype=box    limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 3,
+     "text": ".w.o*.w.",
+     "reads": "the level places 4 sprite(s) of box"
+    }
+   ]
+  },
+  {
+   "id": "wrapsokoban/A5/1",
+   "game": "wrapsokoban",
+   "level": 1,
+   "predicate": "A5",
+   "name": "A place goal",
+   "question": "Is the only way to win to reach one single goal object that only the avatar can remove?",
+   "verdict": "fails",
+   "description": "third_party/gvgai/examples/gridphysics/wrapsokoban.txt",
+   "level_file": "third_party/gvgai/examples/gridphysics/wrapsokoban_lvl1.txt",
+   "deciding": {
+    "in": "level",
+    "line": 1,
+    "text": ".........*."
+   },
+   "reading": "The game is won when no box is left (line 30 of the description), and this level places 3 boxes, not one.",
+   "wrong_if": "The verdict would be wrong if the level held a single box, or if the winning line counted something other than boxes.",
+   "clauses": [
+    {
+     "in": "description",
+     "line": 30,
+     "text": "SpriteCounter stype=box    limit=0 win=True",
+     "reads": "a winning termination"
+    },
+    {
+     "in": "level",
+     "line": 1,
+     "text": ".........*.",
+     "reads": "the level places 3 sprite(s) of box"
+    }
+   ]
+  }
+ ]
+}
