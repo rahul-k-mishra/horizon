@@ -1,0 +1,19 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v1
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit 9cf6558e65089e03a13fb89369a5d169b4a5a939 Loop: dry-02 pushed as kernel version 3
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v1)
+code commit 59ddd885b1f7714624bad9bf1d3753dc0efd84af (tag automation-v1)
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1792859267.0169854
+[2026-10-24T16:27:48Z] chunk dry-02 (search), nonce dryrun-dry-02-20261024T162730Z-a1675a; work deadline 2026-10-24T16:32:47Z, checkpoint by 2026-10-24T16:34:47Z
+[2026-10-24T16:27:48Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-10-24T16:27:48Z] search unit dry-02-graph-a: start
+[2026-10-24T16:28:47Z] checkpoint 1: 0 units done, in progress dry-02-graph-a, 6 payload files
+[2026-10-24T16:29:32Z] checkpoint 2: 0 units done, in progress dry-02-graph-a, 7 payload files
+[2026-10-24T16:30:17Z] checkpoint 3: 0 units done, in progress dry-02-graph-a, 9 payload files
+[2026-10-24T16:31:02Z] checkpoint 4: 0 units done, in progress dry-02-graph-a, 9 payload files
+[2026-10-24T16:31:47Z] checkpoint 5: 0 units done, in progress dry-02-graph-a, 9 payload files
+[2026-10-24T16:32:32Z] checkpoint 6: 0 units done, in progress dry-02-graph-a, 9 payload files
+[2026-10-24T16:32:47Z] checkpoint 7: 0 units done, in progress dry-02-graph-a, 8 payload files
+[2026-10-24T16:32:47Z] chunk dry-02: partial; units done 0 of 2; stopped: deadline reached inside a search unit
+[2026-10-24T16:32:47Z] wrote result.json (status partial) and bundle.tar.gz

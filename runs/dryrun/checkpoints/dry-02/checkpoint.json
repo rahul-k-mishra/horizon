@@ -1,0 +1,105 @@
+{
+ "campaign": "dryrun",
+ "chunk_id": "dry-02",
+ "entry_hash": "6fca04d4ead82375576d3930a8fea2bc2b39c869fd6f5435be439e0ab3bc4aa1",
+ "kind": "search",
+ "payload": {
+  "head.json.gz": {
+   "bytes": 38,
+   "location": "git",
+   "sha256": "f8aaf903dcdb87b0ac84d7ebf655c090d4cd50e58ee910938305cbb731cc1e93"
+  },
+  "spill_000187.json.gz": {
+   "bytes": 373,
+   "location": "git",
+   "sha256": "1e9c01be6484ee374a28579b8cd195cb96699f132313d99c51415967f9ec7ab8"
+  },
+  "spill_000188.json.gz": {
+   "bytes": 367,
+   "location": "git",
+   "sha256": "4338cd1741e15c8f859d51116dbece7631302a1df8b1b01e3927df7c2b718035"
+  },
+  "spill_000189.json.gz": {
+   "bytes": 371,
+   "location": "git",
+   "sha256": "156de457748563f02d4d2435cd316e363a0687ebd5b9905eef886a8ebbd5529e"
+  },
+  "spill_000190.json.gz": {
+   "bytes": 371,
+   "location": "git",
+   "sha256": "e37f1f8e84a64a6435ae4a05324f4bdbd644f44326b392e0471f3abdbacc0e06"
+  },
+  "spill_000191.json.gz": {
+   "bytes": 381,
+   "location": "git",
+   "sha256": "f2d2e1dfe3a569b75442757d3741dfba4b9a109a2fb7ff17c27d6dfead4dbe04"
+  },
+  "tail.json.gz": {
+   "bytes": 322,
+   "location": "git",
+   "sha256": "9d42f32e1da5c0b0acec65749fac6b1de6422bc0a09607c04a889ae3636fa75b"
+  },
+  "visited.u64.gz": {
+   "asset": "dry-02__s7__visited.u64.gz",
+   "bytes": 156459,
+   "location": "release",
+   "sha256": "8d747c2eb56bf648e8366ffce27889364a7b48b47f47c9fc2136b819f1cbb273",
+   "url": "https://github.com/rahul-k-mishra/horizon/releases/download/ckpt-dryrun/dry-02__s7__visited.u64.gz"
+  }
+ },
+ "run_nonce": "dryrun-dry-02-20261024T162730Z-a1675a",
+ "schema": "horizon.checkpoint.v1",
+ "seq": 7,
+ "unit_in_progress": {
+  "search": {
+   "counts": {
+    "depth_max": 55,
+    "frontier_left": 584,
+    "solution_length": 48,
+    "spill_files_max": 6,
+    "states_expanded": 19055,
+    "states_seen": 19639,
+    "successors_total": 57165
+   },
+   "files": {
+    "head.json.gz": "f8aaf903dcdb87b0ac84d7ebf655c090d4cd50e58ee910938305cbb731cc1e93",
+    "spill_000187.json.gz": "1e9c01be6484ee374a28579b8cd195cb96699f132313d99c51415967f9ec7ab8",
+    "spill_000188.json.gz": "4338cd1741e15c8f859d51116dbece7631302a1df8b1b01e3927df7c2b718035",
+    "spill_000189.json.gz": "156de457748563f02d4d2435cd316e363a0687ebd5b9905eef886a8ebbd5529e",
+    "spill_000190.json.gz": "e37f1f8e84a64a6435ae4a05324f4bdbd644f44326b392e0471f3abdbacc0e06",
+    "spill_000191.json.gz": "f2d2e1dfe3a569b75442757d3741dfba4b9a109a2fb7ff17c27d6dfead4dbe04",
+    "tail.json.gz": "9d42f32e1da5c0b0acec65749fac6b1de6422bc0a09607c04a889ae3636fa75b",
+    "visited.u64.gz": "8d747c2eb56bf648e8366ffce27889364a7b48b47f47c9fc2136b819f1cbb273"
+   },
+   "seconds_spent": 298.8837203979492,
+   "sessions": [
+    {
+     "ended_at": "2026-10-24T16:32:47Z",
+     "host": "76f26e294854",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_zLNLsGTUMrXQUmO8e6YQA2PmHmyuAi90bHwjWjbOA-361861270-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "asia-east1-a",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dryrun-dry-02-20261024T162730Z-a1675a",
+     "started_at": "2026-10-24T16:27:47Z"
+    }
+   ],
+   "spill_seq": 191,
+   "spills": [
+    "spill_000187.json.gz",
+    "spill_000188.json.gz",
+    "spill_000189.json.gz",
+    "spill_000190.json.gz",
+    "spill_000191.json.gz"
+   ],
+   "visited_n": 19639
+  },
+  "unit_id": "dry-02-graph-a"
+ },
+ "units_done": [],
+ "written_at": "2026-10-24T16:32:47Z"
+}
