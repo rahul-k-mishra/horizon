@@ -1,10 +1,10 @@
-docs/truth/handcheck_rows.json written: 100 rows, 10 games, sha256 f7380a7a2bd13be19f1eadc53e47a2ae12da08e3d012418e26acb5c19846bccd
+docs/truth/handcheck_rows.json written: 100 rows, 10 games, sha256 ad56ac3a3c04b75ba3e19fd874ec73f6be1270988391686b9dc3b4722e8cce1e
    clusters: levels 0, 3; A1 holds/holds, A2 fails/fails, A3 holds/holds, A4 holds/holds, A5 fails/fails
    colourescape: levels 0, 3; A1 holds/holds, A2 fails/fails, A3 holds/holds, A4 holds/holds, A5 holds/holds
    glow: levels 0, 4; A1 holds/holds, A2 fails/fails, A3 fails/fails, A4 holds/holds, A5 fails/fails
    labyrinthdual: levels 0, 1; A1 holds/holds, A2 holds/holds, A3 holds/holds, A4 holds/holds, A5 holds/holds
    lasers: levels 0, 1; A1 holds/holds, A2 fails/fails, A3 fails/fails, A4 holds/holds, A5 holds/holds
-   painter: levels 0, 3; A1 holds/holds, A2 holds/holds, A3 holds/holds, A4 holds/holds, A5 fails/fails
+   painter: levels 0, 3; A1 holds/holds, A2 fails/fails, A3 holds/holds, A4 holds/holds, A5 fails/fails
    racebet: levels 0, 4; A1 holds/holds, A2 holds/holds, A3 holds/holds, A4 holds/holds, A5 fails/fails
    rivers: levels 0, 4; A1 holds/holds, A2 fails/fails, A3 fails/fails, A4 fails/fails, A5 fails/fails
    sokoban: levels 0, 1; A1 holds/holds, A2 fails/fails, A3 holds/holds, A4 holds/holds, A5 fails/fails

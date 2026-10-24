@@ -2,10 +2,10 @@
  "schema": "horizon.handcheck_rows.v1",
  "written_by": "scripts/handcheck_app.py",
  "sources": {
-  "docs/truth/gvgai.json": "db80ef30e37b71f3a022533d243106707e6fa96914e463a870f9dfa1092f25ca",
-  "docs/truth/HANDCHECK.md": "21fc0c3687af648bcafaa9821c2412c6aaa73866815e865a95c219a51a4695e3",
-  "docs/truth/HANDCHECK_GUIDE.md": "368d9b84967ba2e2427e19c092e544f27182ef5c3ef518c9d786e3e13fc547ca",
-  "docs/truth/handcheck_readings.json": "0660c099391b3ae8311ce5aaf0ddb453595e02d327300b7227022367a8ef55f1"
+  "docs/truth/gvgai.json": "08e70906a906be817580381a3c37e6761181146c80ef5bbed269fedab919b8cb",
+  "docs/truth/HANDCHECK.md": "9d2f2e612ac803fda4ad4baedc8ec1c90444496b8bde34dc6927941a525bfbed",
+  "docs/truth/HANDCHECK_GUIDE.md": "f80572f00c3ed5e86c64ad1f5dadf6d16b26107f9fb9318a61c3eb4762945cca",
+  "docs/truth/handcheck_readings.json": "329df5502ff549aeaf41acc72b4a38308012b88236c1065ce02e576b5dad84f3"
  },
  "rows": [
   {
@@ -1107,8 +1107,8 @@
     "line": 16,
     "text": "avatarNormal > img=newset/girl1"
    },
-   "reading": "The only avatar at start is avatarNormal, a MovingAvatar whose use key creates nothing, and no line pushes or pulls a sprite the avatar walks into.",
-   "wrong_if": "The verdict would be wrong if the level placed more than one avatar, or if picking up a coat (lines 28 and 31, which remove the coat) counted as the action moving another sprite.",
+   "reading": "The only avatar at start is avatarNormal, a MovingAvatar whose use key creates nothing; no line pushes or pulls a sprite the avatar walks into, and no line with the avatar creates another sprite: a coat turns the avatar into another avatar kind (lines 28 and 31).",
+   "wrong_if": "The verdict would be wrong if the level placed more than one avatar, or if picking up a coat (lines 28 and 31, which remove the coat) counted as the action moving or creating another sprite.",
    "clauses": [
     {
      "in": "description",
@@ -1120,7 +1120,7 @@
      "in": "description",
      "line": 20,
      "text": "InteractionSet",
-     "reads": "no bounceForward or pullWithIt with the avatar as partner"
+     "reads": "no bounceForward or pullWithIt with the avatar as partner, and no interaction with the avatar that creates another sprite"
     }
    ]
   },
@@ -1139,8 +1139,8 @@
     "line": 16,
     "text": "avatarNormal > img=newset/girl1"
    },
-   "reading": "The only avatar at start is avatarNormal, a MovingAvatar whose use key creates nothing, and no line pushes or pulls a sprite the avatar walks into.",
-   "wrong_if": "The verdict would be wrong if the level placed more than one avatar, or if picking up a coat (lines 28 and 31, which remove the coat) counted as the action moving another sprite.",
+   "reading": "The only avatar at start is avatarNormal, a MovingAvatar whose use key creates nothing; no line pushes or pulls a sprite the avatar walks into, and no line with the avatar creates another sprite: a coat turns the avatar into another avatar kind (lines 28 and 31).",
+   "wrong_if": "The verdict would be wrong if the level placed more than one avatar, or if picking up a coat (lines 28 and 31, which remove the coat) counted as the action moving or creating another sprite.",
    "clauses": [
     {
      "in": "description",
@@ -1152,7 +1152,7 @@
      "in": "description",
      "line": 20,
      "text": "InteractionSet",
-     "reads": "no bounceForward or pullWithIt with the avatar as partner"
+     "reads": "no bounceForward or pullWithIt with the avatar as partner, and no interaction with the avatar that creates another sprite"
     }
    ]
   },
@@ -1919,28 +1919,28 @@
    "predicate": "A2",
    "name": "One controlled object",
    "question": "Is the avatar the only thing whose position the player's keys decide?",
-   "verdict": "holds",
+   "verdict": "fails",
    "description": "third_party/gvgai/examples/gridphysics/painter.txt",
    "level_file": "third_party/gvgai/examples/gridphysics/painter_lvl0.txt",
    "deciding": {
     "in": "description",
-    "line": 15,
-    "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21"
+    "line": 29,
+    "text": "ground avatar > spawn stype=prepaint"
    },
-   "reading": "The one avatar is a MovingAvatar whose use key creates nothing, and no line pushes or pulls a sprite the avatar walks into.",
-   "wrong_if": "The verdict would be wrong if a sprite made by walking counted as a second sprite moved by the action: line 29 spawns prepaint wherever the avatar steps on ground.",
+   "reading": "When the avatar steps on ground, line 29 creates a prepaint sprite there, and line 35 creates a preground sprite where it steps on paint: the action creates a sprite other than the avatar.",
+   "wrong_if": "The verdict would be wrong if neither line named the avatar, or if what they create were an avatar type.",
    "clauses": [
     {
      "in": "description",
-     "line": 15,
-     "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21",
-     "reads": "the one avatar sprite at start is avatar, MovingAvatar, which creates nothing"
+     "line": 29,
+     "text": "ground avatar > spawn stype=prepaint",
+     "reads": "spawn creates prepaint, a sprite other than the avatar, in an interaction with the avatar"
     },
     {
      "in": "description",
-     "line": 25,
-     "text": "InteractionSet",
-     "reads": "no bounceForward or pullWithIt with the avatar as partner"
+     "line": 35,
+     "text": "paint avatar > spawn stype=preground",
+     "reads": "spawn creates preground, a sprite other than the avatar, in an interaction with the avatar"
     }
    ]
   },
@@ -1951,28 +1951,28 @@
    "predicate": "A2",
    "name": "One controlled object",
    "question": "Is the avatar the only thing whose position the player's keys decide?",
-   "verdict": "holds",
+   "verdict": "fails",
    "description": "third_party/gvgai/examples/gridphysics/painter.txt",
    "level_file": "third_party/gvgai/examples/gridphysics/painter_lvl3.txt",
    "deciding": {
     "in": "description",
-    "line": 15,
-    "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21"
+    "line": 29,
+    "text": "ground avatar > spawn stype=prepaint"
    },
-   "reading": "The one avatar is a MovingAvatar whose use key creates nothing, and no line pushes or pulls a sprite the avatar walks into.",
-   "wrong_if": "The verdict would be wrong if a sprite made by walking counted as a second sprite moved by the action: line 29 spawns prepaint wherever the avatar steps on ground.",
+   "reading": "When the avatar steps on ground, line 29 creates a prepaint sprite there, and line 35 creates a preground sprite where it steps on paint: the action creates a sprite other than the avatar.",
+   "wrong_if": "The verdict would be wrong if neither line named the avatar, or if what they create were an avatar type.",
    "clauses": [
     {
      "in": "description",
-     "line": 15,
-     "text": "avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21",
-     "reads": "the one avatar sprite at start is avatar, MovingAvatar, which creates nothing"
+     "line": 29,
+     "text": "ground avatar > spawn stype=prepaint",
+     "reads": "spawn creates prepaint, a sprite other than the avatar, in an interaction with the avatar"
     },
     {
      "in": "description",
-     "line": 25,
-     "text": "InteractionSet",
-     "reads": "no bounceForward or pullWithIt with the avatar as partner"
+     "line": 35,
+     "text": "paint avatar > spawn stype=preground",
+     "reads": "spawn creates preground, a sprite other than the avatar, in an interaction with the avatar"
     }
    ]
   },
@@ -2223,7 +2223,7 @@
     "line": 26,
     "text": "normal >"
    },
-   "reading": "The only avatar at start is normal, a MovingAvatar that creates nothing; stepping on a pit (lines 37 to 41) changes its kind and moves nothing else.",
+   "reading": "The only avatar at start is normal, a MovingAvatar that creates nothing; stepping on a pit (lines 37 to 41) turns it into another avatar kind, and moves or creates nothing else.",
    "wrong_if": "The verdict would be wrong if the level placed more than one avatar, or if the camels, which run on their own (line 6), moved because of the player's keys.",
    "clauses": [
     {
@@ -2236,7 +2236,7 @@
      "in": "description",
      "line": 35,
      "text": "InteractionSet",
-     "reads": "no bounceForward or pullWithIt with the avatar as partner"
+     "reads": "no bounceForward or pullWithIt with the avatar as partner, and no interaction with the avatar that creates another sprite"
     }
    ]
   },
@@ -2255,7 +2255,7 @@
     "line": 26,
     "text": "normal >"
    },
-   "reading": "The only avatar at start is normal, a MovingAvatar that creates nothing; stepping on a pit (lines 37 to 41) changes its kind and moves nothing else.",
+   "reading": "The only avatar at start is normal, a MovingAvatar that creates nothing; stepping on a pit (lines 37 to 41) turns it into another avatar kind, and moves or creates nothing else.",
    "wrong_if": "The verdict would be wrong if the level placed more than one avatar, or if the camels, which run on their own (line 6), moved because of the player's keys.",
    "clauses": [
     {
@@ -2268,7 +2268,7 @@
      "in": "description",
      "line": 35,
      "text": "InteractionSet",
-     "reads": "no bounceForward or pullWithIt with the avatar as partner"
+     "reads": "no bounceForward or pullWithIt with the avatar as partner, and no interaction with the avatar that creates another sprite"
     }
    ]
   },

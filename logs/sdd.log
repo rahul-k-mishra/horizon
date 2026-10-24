@@ -1,4 +1,4 @@
 sdd: smallest detectable difference, 26 clusters, 4000 simulated studies, seed 20261026, alpha 0.016667 two-sided, power 0.8
-mechanics score in the confirmatory suite (26 games, constant over each game's levels): S_M=2: 3 games, S_M=3: 11 games, S_M=4: 9 games, S_M=5: 3 games
-predicates holding, of the confirmatory games: A1 26, A2 9, A3 19, A4 26, A5 10
+mechanics score in the confirmatory suite (26 games, constant over each game's levels): S_M=2: 3 games, S_M=3: 13 games, S_M=4: 7 games, S_M=5: 3 games
+predicates holding, of the confirmatory games: A1 26, A2 7, A3 19, A4 26, A5 10
 waiting: no development search rows under runs\dev-minigrid\devsearch; stage D has not run

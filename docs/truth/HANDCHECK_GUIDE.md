@@ -31,11 +31,11 @@ The line numbers the generator quotes count every line of the file from 1, blank
 
 **Question.** Is the avatar the only thing whose position the player's keys decide?
 
-**The words that decide it.** It fails on any of three things: the level places more than one avatar, or none; an interaction pushes or pulls another sprite when the avatar walks into it (`bounceForward`, or `pullWithIt` with the avatar second); the avatar's use key creates a sprite (the classes `ShootAvatar`, `FlakAvatar`, `ShootOnlyAvatar`, `AimedAvatar`, `OngoingShootAvatar`; the `stype=` option names what is created).
+**The words that decide it.** It fails on any of four things: the level places more than one avatar, or none; an interaction pushes or pulls another sprite when the avatar walks into it (`bounceForward`, or `pullWithIt` with the avatar second); the avatar's use key creates a sprite (the classes `ShootAvatar`, `FlakAvatar`, `ShootOnlyAvatar`, `AimedAvatar`, `OngoingShootAvatar`; the `stype=` option names what is created); an interaction that names the avatar, first or second, creates a sprite that is not an avatar kind (a `spawn` effect, `cloneSprite`, or a `transformTo` into a type that is not an avatar; decided 25 October 2026, docs/truth/PREDICATE_QUESTIONS.md, Q1). A `transformTo` that turns the avatar into another avatar kind, as with a coat or a key, creates no other sprite.
 
-**Example.** painter.txt, line 15: `avatar > MovingAvatar shrinkfactor=0.8 img=newset/painter21`, with no `bounceForward` or `pullWithIt` in the InteractionSet (line 25 on) and one A in the level. Only the avatar moves when a key is pressed, so A2 holds.
+**Example.** labyrinthdual.txt, line 16: `avatarNormal > img=newset/girl1`, a MovingAvatar by its parent line 15, with no `bounceForward` or `pullWithIt` in the InteractionSet, one A in the level, and coats that only turn the avatar into another avatar kind (lines 28 and 31). Only the avatar moves when a key is pressed and nothing else is created, so A2 holds.
 
-**Counter-example.** sokoban.txt, line 16: `box avatar  > bounceForward`. When the avatar walks into a box the box moves as well, so the keys move a second sprite and A2 fails.
+**Counter-example.** sokoban.txt, line 16: `box avatar  > bounceForward`. When the avatar walks into a box the box moves as well, so the keys move a second sprite and A2 fails. painter.txt, line 29: `ground avatar > spawn stype=prepaint`. Stepping on ground creates a prepaint sprite, so the action creates a second sprite and A2 fails.
 
 ## A3. Lattice motion
 
