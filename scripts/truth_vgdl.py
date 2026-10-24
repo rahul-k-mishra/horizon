@@ -4,7 +4,8 @@ and the level file (docs/DESIGN.md, Section 4; docs/PREREG.md draft v0, Section 
 
 Reads only the vendored GVGAI files under third_party/gvgai (commit e58ff6597319155218759cc178931e05b81b524c):
 examples/all_games_sp.csv, the grid-physics descriptions examples/gridphysics/<game>.txt and their level
-files <game>_lvl<k>.txt.  Plays nothing and runs no simulator.  Writes docs/truth/gvgai.json: per game,
+files <game>_lvl<k>.txt, with the framework's two default characters, 'w' for wall and 'A' for avatar,
+where a LevelMapping does not name them (src/core/game/BasicGame.java:51-56, not vendored).  Plays nothing and runs no simulator.  Writes docs/truth/gvgai.json: per game,
 whether it is deterministic by the rule of scripts/vgdl_scan.py (imported, not copied), and per level
 0 to 4 each predicate's verdict ("holds" or "fails") with the clauses that decide it: for each clause the
 file, the line number, the text of the line, and what was read from it.
@@ -155,6 +156,17 @@ def parse(path):
         elif section == "TerminationSet":
             toks = s.split()
             d["term"].append(dict(cls=toks[0], params=_params(toks[1:]), line=no, text=s))
+    # The framework's defaults, which a description overrides by naming the same character or sprite:
+    # 'w' places wall and 'A' places avatar (src/core/game/BasicGame.java:51-56); wall is Immovable and
+    # avatar is MovingAvatar (src/core/game/Game.java:359-367).  Neither file is vendored; both are read at
+    # the commit above, https://github.com/GAIGResearch/GVGAI/tree/e58ff6597319155218759cc178931e05b81b524c.
+    for ch, name, line in (("w", "wall", 52), ("A", "avatar", 55)):
+        if ch not in d["mapping"]:
+            d["mapping"][ch] = ([name], None, f"{ch} > {name} (default of src/core/game/BasicGame.java:{line})")
+    for name, cls, line in (("wall", "Immovable", 360), ("avatar", "MovingAvatar", 366)):
+        if name not in d["sprites"]:
+            d["sprites"][name] = dict(cls=cls, cls_line=None, params={}, param_line={}, line=None, parents=[],
+                                      text=f"{name} > {cls} (default of src/core/game/Game.java:{line})")
     return d
 
 
@@ -169,7 +181,8 @@ def leaves(d, names):
 
 
 def level_counts(d, level_path):
-    """{sprite type: [(line, column), ...]} of the sprites the level file places, via the LevelMapping."""
+    """{sprite type: [(line, column), ...]} of the sprites the level file places, via the LevelMapping and
+    the framework's defaults for 'w' and 'A' (parse)."""
     out = collections.defaultdict(list)
     for no, row in enumerate(read_text(level_path).splitlines(), 1):
         for col, ch in enumerate(row, 1):

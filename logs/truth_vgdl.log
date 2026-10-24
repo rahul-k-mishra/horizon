@@ -10,12 +10,12 @@ S_M (number holding): 1: 5, 2: 15, 3: 55, 4: 55, 5: 20
 games whose vector differs between levels: 0
 
 == all games: 110 games, 550 (game, level) units
-A1: holds 545, fails 5
+A1: holds 550, fails 0
 A2: holds 190, fails 360
 A3: holds 245, fails 305
 A4: holds 450, fails 100
 A5: holds 205, fails 345
-S_M (number holding): 1: 25, 2: 190, 3: 160, 4: 125, 5: 50
+S_M (number holding): 1: 25, 2: 185, 3: 165, 4: 125, 5: 50
 games whose vector differs between levels: 0
 
 == deterministic games, per level (h holds, f fails; A1 A2 A3 A4 A5)

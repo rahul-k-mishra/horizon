@@ -94,7 +94,8 @@ def build(root):
     gp = os.path.join(root, "examples", "gridphysics")
     os.makedirs(gp)
     lines = []
-    for i, (g, spec) in enumerate(list(GAMES.items()) + [("twogoals", {}), ("twoavatars", {}), ("timeout", {})]):
+    for i, (g, spec) in enumerate(list(GAMES.items()) + [("twogoals", {}), ("twoavatars", {}), ("timeout", {}),
+                                                         ("nomap", {})]):
         spec = dict(avatar="        avatar > MovingAvatar", extra_sprites="", extra_mapping="", extra_inter="",
                     start="avatar") | spec
         text = BASE.format(**spec)
@@ -102,6 +103,8 @@ def build(root):
             text = text.replace("        goal avatar > killSprite\n", "")
         if g == "timeout":
             text = text.replace("SpriteCounter stype=goal limit=0 win=True", "Timeout limit=100 win=True")
+        if g == "nomap":   # no mapping line for w or A: the framework's defaults place wall and avatar
+            text = text.replace("        w > wall\n", "").replace("        A > floor avatar\n", "")
         text = "\n".join(ln for ln in text.splitlines() if ln.strip()) + "\n"
         with open(os.path.join(gp, f"{g}.txt"), "w", encoding="utf-8", newline="\n") as f:
             f.write(text)
@@ -169,6 +172,8 @@ def main():
         check(lv_clause and lv_clause[0]["line"] == 2, "twogoals: the level clause cites line 2 of the level file")
         check(v("twoavatars", "A2") == "fails", "twoavatars: A2 fails")
         check(v("timeout", "A5") == "fails" and cites("timeout", "A5", "Timeout"), "timeout: A5 fails at the termination")
+        check(all(v("nomap", p) == "holds" for p in truth_vgdl.PREDICATES) and cites("nomap", "A1", "MovingAvatar"),
+              "nomap: 'A' places avatar and 'w' places wall by default, so every predicate holds as in plain")
         for g in t:
             for k in t[g]["levels"]:
                 for p in truth_vgdl.PREDICATES:

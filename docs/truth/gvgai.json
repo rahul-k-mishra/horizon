@@ -9634,6 +9634,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/chopper.txt",
+        "line": 47,
+        "reads": "wall blocks the avatar",
+        "text": "avatar wall EOS > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/chopper.txt",
         "line": 23,
         "reads": "blocker portalAmmo is SpawnPoint",
         "text": "portalAmmo  > stype=supply cooldown=10 prob=0.15"
@@ -9655,6 +9661,12 @@
         "line": 6,
         "reads": "blocker troposphere is Immovable",
         "text": "troposphere > img=oryx/backGrey"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/chopper.txt",
+        "line": null,
+        "reads": "blocker wall is Immovable",
+        "text": "wall > Immovable (default of src/core/game/Game.java:360)"
        }
       ],
       "verdict": "holds"
@@ -9740,6 +9752,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/chopper.txt",
+        "line": 47,
+        "reads": "wall blocks the avatar",
+        "text": "avatar wall EOS > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/chopper.txt",
         "line": 23,
         "reads": "blocker portalAmmo is SpawnPoint",
         "text": "portalAmmo  > stype=supply cooldown=10 prob=0.15"
@@ -9761,6 +9779,12 @@
         "line": 6,
         "reads": "blocker troposphere is Immovable",
         "text": "troposphere > img=oryx/backGrey"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/chopper.txt",
+        "line": null,
+        "reads": "blocker wall is Immovable",
+        "text": "wall > Immovable (default of src/core/game/Game.java:360)"
        }
       ],
       "verdict": "holds"
@@ -9846,6 +9870,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/chopper.txt",
+        "line": 47,
+        "reads": "wall blocks the avatar",
+        "text": "avatar wall EOS > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/chopper.txt",
         "line": 23,
         "reads": "blocker portalAmmo is SpawnPoint",
         "text": "portalAmmo  > stype=supply cooldown=10 prob=0.15"
@@ -9867,6 +9897,12 @@
         "line": 6,
         "reads": "blocker troposphere is Immovable",
         "text": "troposphere > img=oryx/backGrey"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/chopper.txt",
+        "line": null,
+        "reads": "blocker wall is Immovable",
+        "text": "wall > Immovable (default of src/core/game/Game.java:360)"
        }
       ],
       "verdict": "holds"
@@ -9952,6 +9988,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/chopper.txt",
+        "line": 47,
+        "reads": "wall blocks the avatar",
+        "text": "avatar wall EOS > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/chopper.txt",
         "line": 23,
         "reads": "blocker portalAmmo is SpawnPoint",
         "text": "portalAmmo  > stype=supply cooldown=10 prob=0.15"
@@ -9973,6 +10015,12 @@
         "line": 6,
         "reads": "blocker troposphere is Immovable",
         "text": "troposphere > img=oryx/backGrey"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/chopper.txt",
+        "line": null,
+        "reads": "blocker wall is Immovable",
+        "text": "wall > Immovable (default of src/core/game/Game.java:360)"
        }
       ],
       "verdict": "holds"
@@ -10058,6 +10106,12 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/chopper.txt",
+        "line": 47,
+        "reads": "wall blocks the avatar",
+        "text": "avatar wall EOS > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/chopper.txt",
         "line": 23,
         "reads": "blocker portalAmmo is SpawnPoint",
         "text": "portalAmmo  > stype=supply cooldown=10 prob=0.15"
@@ -10079,6 +10133,12 @@
         "line": 6,
         "reads": "blocker troposphere is Immovable",
         "text": "troposphere > img=oryx/backGrey"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/chopper.txt",
+        "line": null,
+        "reads": "blocker wall is Immovable",
+        "text": "wall > Immovable (default of src/core/game/Game.java:360)"
        }
       ],
       "verdict": "holds"
@@ -10140,9 +10200,15 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/circuit.txt",
-        "line": 61,
-        "reads": "no sprite blocks the avatar (no stepBack or undoAll with the avatar first, except at the edge)",
-        "text": "InteractionSet"
+        "line": 62,
+        "reads": "wall blocks the avatar",
+        "text": "avatar wall EOS > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/circuit.txt",
+        "line": null,
+        "reads": "blocker wall is Immovable",
+        "text": "wall > Immovable (default of src/core/game/Game.java:360)"
        }
       ],
       "verdict": "holds"
@@ -10204,9 +10270,15 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/circuit.txt",
-        "line": 61,
-        "reads": "no sprite blocks the avatar (no stepBack or undoAll with the avatar first, except at the edge)",
-        "text": "InteractionSet"
+        "line": 62,
+        "reads": "wall blocks the avatar",
+        "text": "avatar wall EOS > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/circuit.txt",
+        "line": null,
+        "reads": "blocker wall is Immovable",
+        "text": "wall > Immovable (default of src/core/game/Game.java:360)"
        }
       ],
       "verdict": "holds"
@@ -10268,9 +10340,15 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/circuit.txt",
-        "line": 61,
-        "reads": "no sprite blocks the avatar (no stepBack or undoAll with the avatar first, except at the edge)",
-        "text": "InteractionSet"
+        "line": 62,
+        "reads": "wall blocks the avatar",
+        "text": "avatar wall EOS > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/circuit.txt",
+        "line": null,
+        "reads": "blocker wall is Immovable",
+        "text": "wall > Immovable (default of src/core/game/Game.java:360)"
        }
       ],
       "verdict": "holds"
@@ -10332,9 +10410,15 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/circuit.txt",
-        "line": 61,
-        "reads": "no sprite blocks the avatar (no stepBack or undoAll with the avatar first, except at the edge)",
-        "text": "InteractionSet"
+        "line": 62,
+        "reads": "wall blocks the avatar",
+        "text": "avatar wall EOS > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/circuit.txt",
+        "line": null,
+        "reads": "blocker wall is Immovable",
+        "text": "wall > Immovable (default of src/core/game/Game.java:360)"
        }
       ],
       "verdict": "holds"
@@ -10396,9 +10480,15 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/circuit.txt",
-        "line": 61,
-        "reads": "no sprite blocks the avatar (no stepBack or undoAll with the avatar first, except at the edge)",
-        "text": "InteractionSet"
+        "line": 62,
+        "reads": "wall blocks the avatar",
+        "text": "avatar wall EOS > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/circuit.txt",
+        "line": null,
+        "reads": "blocker wall is Immovable",
+        "text": "wall > Immovable (default of src/core/game/Game.java:360)"
        }
       ],
       "verdict": "holds"
@@ -16565,21 +16655,15 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/eggomania.txt",
-        "line": 34,
-        "reads": "no avatar sprite is placed by the level file",
-        "text": "LevelMapping"
+        "line": 15,
+        "reads": "avatar type avatar is FlakAvatar",
+        "text": "avatar  > FlakAvatar stype=sam ammo=explosiveegg minAmmo=5 ammoCost=5 img=newset/girl3"
        }
       ],
-      "verdict": "fails"
+      "verdict": "holds"
      },
      "A2": {
       "clauses": [
-       {
-        "file": "third_party/gvgai/examples/gridphysics/eggomania_lvl0.txt",
-        "line": null,
-        "reads": "the level places 0 avatar sprites",
-        "text": null
-       },
        {
         "file": "third_party/gvgai/examples/gridphysics/eggomania.txt",
         "line": 15,
@@ -16647,21 +16731,15 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/eggomania.txt",
-        "line": 34,
-        "reads": "no avatar sprite is placed by the level file",
-        "text": "LevelMapping"
+        "line": 15,
+        "reads": "avatar type avatar is FlakAvatar",
+        "text": "avatar  > FlakAvatar stype=sam ammo=explosiveegg minAmmo=5 ammoCost=5 img=newset/girl3"
        }
       ],
-      "verdict": "fails"
+      "verdict": "holds"
      },
      "A2": {
       "clauses": [
-       {
-        "file": "third_party/gvgai/examples/gridphysics/eggomania_lvl1.txt",
-        "line": null,
-        "reads": "the level places 0 avatar sprites",
-        "text": null
-       },
        {
         "file": "third_party/gvgai/examples/gridphysics/eggomania.txt",
         "line": 15,
@@ -16729,21 +16807,15 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/eggomania.txt",
-        "line": 34,
-        "reads": "no avatar sprite is placed by the level file",
-        "text": "LevelMapping"
+        "line": 15,
+        "reads": "avatar type avatar is FlakAvatar",
+        "text": "avatar  > FlakAvatar stype=sam ammo=explosiveegg minAmmo=5 ammoCost=5 img=newset/girl3"
        }
       ],
-      "verdict": "fails"
+      "verdict": "holds"
      },
      "A2": {
       "clauses": [
-       {
-        "file": "third_party/gvgai/examples/gridphysics/eggomania_lvl2.txt",
-        "line": null,
-        "reads": "the level places 0 avatar sprites",
-        "text": null
-       },
        {
         "file": "third_party/gvgai/examples/gridphysics/eggomania.txt",
         "line": 15,
@@ -16811,21 +16883,15 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/eggomania.txt",
-        "line": 34,
-        "reads": "no avatar sprite is placed by the level file",
-        "text": "LevelMapping"
+        "line": 15,
+        "reads": "avatar type avatar is FlakAvatar",
+        "text": "avatar  > FlakAvatar stype=sam ammo=explosiveegg minAmmo=5 ammoCost=5 img=newset/girl3"
        }
       ],
-      "verdict": "fails"
+      "verdict": "holds"
      },
      "A2": {
       "clauses": [
-       {
-        "file": "third_party/gvgai/examples/gridphysics/eggomania_lvl3.txt",
-        "line": null,
-        "reads": "the level places 0 avatar sprites",
-        "text": null
-       },
        {
         "file": "third_party/gvgai/examples/gridphysics/eggomania.txt",
         "line": 15,
@@ -16893,21 +16959,15 @@
       "clauses": [
        {
         "file": "third_party/gvgai/examples/gridphysics/eggomania.txt",
-        "line": 34,
-        "reads": "no avatar sprite is placed by the level file",
-        "text": "LevelMapping"
+        "line": 15,
+        "reads": "avatar type avatar is FlakAvatar",
+        "text": "avatar  > FlakAvatar stype=sam ammo=explosiveegg minAmmo=5 ammoCost=5 img=newset/girl3"
        }
       ],
-      "verdict": "fails"
+      "verdict": "holds"
      },
      "A2": {
       "clauses": [
-       {
-        "file": "third_party/gvgai/examples/gridphysics/eggomania_lvl4.txt",
-        "line": null,
-        "reads": "the level places 0 avatar sprites",
-        "text": null
-       },
        {
         "file": "third_party/gvgai/examples/gridphysics/eggomania.txt",
         "line": 15,
@@ -25760,9 +25820,21 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/islands.txt",
+        "line": 36,
+        "reads": "wall blocks the avatar",
+        "text": "avatar EOS wall bomb  > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/islands.txt",
         "line": 12,
         "reads": "blocker bomb is Immovable",
         "text": "bomb > Immovable img=newset/bomb shrinkfactor=0.8"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/islands.txt",
+        "line": null,
+        "reads": "blocker wall is Immovable",
+        "text": "wall > Immovable (default of src/core/game/Game.java:360)"
        }
       ],
       "verdict": "holds"
@@ -25836,9 +25908,21 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/islands.txt",
+        "line": 36,
+        "reads": "wall blocks the avatar",
+        "text": "avatar EOS wall bomb  > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/islands.txt",
         "line": 12,
         "reads": "blocker bomb is Immovable",
         "text": "bomb > Immovable img=newset/bomb shrinkfactor=0.8"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/islands.txt",
+        "line": null,
+        "reads": "blocker wall is Immovable",
+        "text": "wall > Immovable (default of src/core/game/Game.java:360)"
        }
       ],
       "verdict": "holds"
@@ -25912,9 +25996,21 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/islands.txt",
+        "line": 36,
+        "reads": "wall blocks the avatar",
+        "text": "avatar EOS wall bomb  > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/islands.txt",
         "line": 12,
         "reads": "blocker bomb is Immovable",
         "text": "bomb > Immovable img=newset/bomb shrinkfactor=0.8"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/islands.txt",
+        "line": null,
+        "reads": "blocker wall is Immovable",
+        "text": "wall > Immovable (default of src/core/game/Game.java:360)"
        }
       ],
       "verdict": "holds"
@@ -25988,9 +26084,21 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/islands.txt",
+        "line": 36,
+        "reads": "wall blocks the avatar",
+        "text": "avatar EOS wall bomb  > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/islands.txt",
         "line": 12,
         "reads": "blocker bomb is Immovable",
         "text": "bomb > Immovable img=newset/bomb shrinkfactor=0.8"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/islands.txt",
+        "line": null,
+        "reads": "blocker wall is Immovable",
+        "text": "wall > Immovable (default of src/core/game/Game.java:360)"
        }
       ],
       "verdict": "holds"
@@ -26064,9 +26172,21 @@
        },
        {
         "file": "third_party/gvgai/examples/gridphysics/islands.txt",
+        "line": 36,
+        "reads": "wall blocks the avatar",
+        "text": "avatar EOS wall bomb  > stepBack"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/islands.txt",
         "line": 12,
         "reads": "blocker bomb is Immovable",
         "text": "bomb > Immovable img=newset/bomb shrinkfactor=0.8"
+       },
+       {
+        "file": "third_party/gvgai/examples/gridphysics/islands.txt",
+        "line": null,
+        "reads": "blocker wall is Immovable",
+        "text": "wall > Immovable (default of src/core/game/Game.java:360)"
        }
       ],
       "verdict": "holds"
