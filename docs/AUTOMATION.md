@@ -119,9 +119,9 @@ A tick:
 
 ## 8. Credentials, and why none is kept on Kaggle
 
-The loop needs the Kaggle credentials to push the notebook and read its output; the notebook needs none, because it only clones a public repository and downloads public release files. The credentials therefore live only in two GitHub repository secrets, KAGGLE_USERNAME and KAGGLE_KEY, read by the Kaggle tool from the environment of the workflow step. Nothing secret is stored on Kaggle, in the notebook, in the repository or in any log; the notebook records only Kaggle's own environment variables whose names contain none of TOKEN, SECRET, KEY or PROXY. A notebook that could push to GitHub would need a GitHub token inside Kaggle, where anyone who gained access to the notebook could read it; this design avoids that.
+The loop needs the Kaggle credentials to push the notebook and read its output; the notebook needs none, because it only clones a public repository and downloads public release files. The credentials therefore live only in two GitHub repository secrets: KAGGLE_USERNAME, the account name, used to name the notebook (account/horizon-runner), and KAGGLE_KEY, the author's existing Kaggle API token, which the workflow step hands to the Kaggle tool as the environment variable KAGGLE_API_TOKEN. Nothing secret is stored on Kaggle, in the notebook, in the repository or in any log; the notebook records only Kaggle's own environment variables whose names contain none of TOKEN, SECRET, KEY or PROXY. A notebook that could push to GitHub would need a GitHub token inside Kaggle, where anyone who gained access to the notebook could read it; this design avoids that.
 
-The author's laptop authenticates the Kaggle tool with the file %USERPROFILE%\.kaggle\access_token (the newer login of the Kaggle tool; there is no kaggle.json). Tested on 24 October 2026: with an empty home folder, the Kaggle tool 2.2.4 authenticated with KAGGLE_USERNAME set to the account name and KAGGLE_KEY set to the contents of that file, and not with KAGGLE_API_TOKEN set to it. So the two secrets are the account name and that file's contents, and no new token is created.
+Which credential works was found by testing the Kaggle tool 2.2.4 on 24 October 2026 in an empty home folder, with no Kaggle variable inherited from the laptop. The laptop has no kaggle.json. It has the environment variable KAGGLE_API_TOKEN, holding an API token (prefix KGAT_), and the file %USERPROFILE%\.kaggle\access_token, holding a token of another kind (prefix KGRT_). Only KAGGLE_API_TOKEN set to the KGAT_ token authenticated. KAGGLE_USERNAME with KAGGLE_KEY failed with either token, as with a made-up key, and the file's token did not authenticate. A first test, which did not clear the inherited KAGGLE_API_TOKEN, had wrongly shown the username-and-key form working; the first tick on GitHub, the only place without that variable, then failed its push (docs/DRYRUN.md). So the secret KAGGLE_KEY holds the existing KGAT_ token, no new token is created, and the secret names stay as specified.
 
 ## 9. Kaggle limits checked against the design
 
@@ -137,7 +137,7 @@ The repository is public. GitHub's billing documentation states that "the use of
 
 ## 11. Fallback: the same loop from the laptop
 
-If the Actions minutes ever ran out (for example if the repository were made private), the same tick runs from a Windows scheduled task on the laptop every 30 minutes, in a separate clone of the repository used for nothing else: the task sets KAGGLE_USERNAME and KAGGLE_KEY from the access_token file and runs D:\Research\horizon\.venv\Scripts\python.exe scripts\automation\loop.py tick in that clone. The lock of Section 7 keeps it from ever acting at the same time as an Actions run, so the workflow need not be switched off first; this fallback is used only if the minutes run out, and it needs the laptop on.
+If the Actions minutes ever ran out (for example if the repository were made private), the same tick runs from a Windows scheduled task on the laptop every 30 minutes, in a separate clone of the repository used for nothing else: the task, with KAGGLE_USERNAME set to the account name and the laptop's own KAGGLE_API_TOKEN, runs D:\Research\horizon\.venv\Scripts\python.exe scripts\automation\loop.py tick in that clone. The lock of Section 7 keeps it from ever acting at the same time as an Actions run, so the workflow need not be switched off first; this fallback is used only if the minutes run out, and it needs the laptop on.
 
 ## 12. The dry run
 
@@ -152,9 +152,9 @@ cd D:\Research\horizon\repo
 # 1. the Python environment, outside the repository (once; skip if it exists)
 D:\python\3.11.9\python.exe -m venv D:\Research\horizon\.venv
 D:\Research\horizon\.venv\Scripts\python.exe -m pip install -r requirements.txt -r requirements-loop.txt
-# 2. the two repository secrets, read from the existing Kaggle login (no new token)
+# 2. the two repository secrets: the account name, and this laptop's existing Kaggle API token (no new token)
 gh secret set KAGGLE_USERNAME --body "ericsom"
-$k = (Get-Content "$env:USERPROFILE\.kaggle\access_token" -Raw).Trim(); gh secret set KAGGLE_KEY --body $k; Remove-Variable k
+gh secret set KAGGLE_KEY --body $env:KAGGLE_API_TOKEN
 # 3. register the notebook by pushing it once by hand (its run finds no dispatch and does nothing)
 $env:KAGGLE_USERNAME = "ericsom"
 D:\Research\horizon\.venv\Scripts\python.exe scripts\automation\loop.py prepare-kernel --dir "$env:TEMP\horizon-kernel"
