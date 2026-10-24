@@ -1,13 +1,5 @@
 {
- "dispatch": {
-  "chunk_id": "dry-02",
-  "dispatched_at": "2026-10-24T16:33:47Z",
-  "entry_hash": "6fca04d4ead82375576d3930a8fea2bc2b39c869fd6f5435be439e0ab3bc4aa1",
-  "kernel_version": 4,
-  "nonce": "dryrun-dry-02-20261024T163347Z-620106",
-  "pushed_at": "2026-10-24T16:33:50Z",
-  "runner": "actions-40112106721-1"
- },
+ "dispatch": null,
  "halt_reason": null,
  "halted": false,
  "halted_at": null

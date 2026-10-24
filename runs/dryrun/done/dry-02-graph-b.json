@@ -1,0 +1,10 @@
+{
+ "chunk_id": "dry-02",
+ "committed_at": "2026-10-24T16:37:34Z",
+ "kernel_version": 4,
+ "kind": "search",
+ "row_path": "runs/dryrun/search/dry-02-graph-b.json",
+ "row_sha256": "35396ced2556455f61ef8839c2b179eacb538949bfbfff069d1f251c7200a8f3",
+ "run_nonce": "dryrun-dry-02-20261024T163347Z-620106",
+ "unit_id": "dry-02-graph-b"
+}

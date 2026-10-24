@@ -15,3 +15,4 @@ No token to manage; credentials are cached locally for you.
 2026-10-24T16:33:46Z actions-40112106721-1 COLLECT chunk dry-02 kernel version 3 run dryrun-dry-02-20261024T162730Z-a1675a: partial; chunks done 1, partial 1, pending 1
 2026-10-24T16:33:47Z actions-40112106721-1 DISPATCH chunk dry-02 (search) attempt 2 run dryrun-dry-02-20261024T163347Z-620106
 2026-10-24T16:33:50Z actions-40112106721-1 PUSHED chunk dry-02 as kernel version 4 run dryrun-dry-02-20261024T163347Z-620106
+2026-10-24T16:37:35Z actions-40112403589-1 COLLECT chunk dry-02 kernel version 4 run dryrun-dry-02-20261024T163347Z-620106: done; chunks done 2, pending 1

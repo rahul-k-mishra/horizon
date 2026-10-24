@@ -1,0 +1,17 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v1
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit a05f1b573a1d1f851015a0b32173eacb994f5dac Loop: dry-02 pushed as kernel version 4
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v1)
+code commit 59ddd885b1f7714624bad9bf1d3753dc0efd84af (tag automation-v1)
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1792859645.5917664
+[2026-10-24T16:34:06Z] chunk dry-02 (search), nonce dryrun-dry-02-20261024T163347Z-620106; work deadline 2026-10-24T16:39:05Z, checkpoint by 2026-10-24T16:41:05Z
+[2026-10-24T16:34:06Z] resuming from checkpoint 7 of run dryrun-dry-02-20261024T162730Z-a1675a: 0 units done, in progress dry-02-graph-a
+[2026-10-24T16:34:06Z] search unit dry-02-graph-a: resume
+[2026-10-24T16:34:52Z] checkpoint 8: 0 units done, in progress dry-02-graph-a, 7 payload files
+[2026-10-24T16:35:37Z] checkpoint 9: 0 units done, in progress dry-02-graph-a, 6 payload files
+[2026-10-24T16:36:28Z] search unit dry-02-graph-a: complete, 28000 states seen
+[2026-10-24T16:36:28Z] search unit dry-02-graph-b: start
+[2026-10-24T16:36:28Z] search unit dry-02-graph-b: capped, 615 states seen
+[2026-10-24T16:36:28Z] chunk dry-02: done; units done 2 of 2
+[2026-10-24T16:36:28Z] wrote result.json (status done) and bundle.tar.gz

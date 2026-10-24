@@ -1,0 +1,45 @@
+{
+ "campaign": "dryrun",
+ "cap_hit": "node",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 25769803776,
+  "node_cap": 500,
+  "spill_frontier_over": 100,
+  "time_cap_seconds": 3600.0
+ },
+ "chunk_id": "dry-02",
+ "complete": false,
+ "counts": {
+  "depth_max": 14,
+  "frontier_left": 115,
+  "solution_length": null,
+  "spill_files_max": 1,
+  "states_expanded": 500,
+  "states_seen": 615,
+  "successors_total": 1500
+ },
+ "game": "graph-b",
+ "level": 1,
+ "schema": "horizon.search.v1",
+ "seconds_spent": 0.004,
+ "sessions": [
+  {
+   "ended_at": "2026-10-24T16:36:28Z",
+   "host": "2f46bf2200a1",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_fjc2W8sMNlkmAoBJlSX9EDdQuwzgkS2RHGkGnUsrRXs-361862973-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-east1-b",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dryrun-dry-02-20261024T163347Z-620106",
+   "started_at": "2026-10-24T16:34:05Z"
+  }
+ ],
+ "suite": "dummy",
+ "unit_id": "dry-02-graph-b",
+ "written_at": "2026-10-24T16:36:28Z"
+}
