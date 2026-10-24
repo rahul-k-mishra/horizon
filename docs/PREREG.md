@@ -1,6 +1,6 @@
 # PREREG.md — draft v0 (NOT REGISTERED)
 
-Registration draft for HORIZON, written 24 October 2026 from docs/DESIGN.md, in the form of study 1's docs/PREREG.md v1. **Status: a draft; the author's decisions of 24 October 2026 are written in as registered values.** It binds nothing until the author creates the git tag `prereg-v1` on a commit that contains it, as version v1. After the tag it changes only by a new version with a dated diff section (Section 12). Every number below is a chosen value, or is printed by a committed script whose console is committed (logs/suite_evidence.log, logs/vgdl_scan.log, logs/draw_pilot.log, logs/design_budget.log, logs/truth_vgdl.log, logs/draw_handcheck.log).
+Registration draft for HORIZON, written 24 October 2026 from docs/DESIGN.md, in the form of study 1's docs/PREREG.md v1. **Status: a draft; the author's decisions of 24 October 2026, and the four changes he adopted on 25 October 2026 from docs/design/DECISION_REVIEW.md (marked [changed 25 Oct 2026]), are written in as registered values.** It binds nothing until the author creates the git tag `prereg-v1` on a commit that contains it, as version v1. After the tag it changes only by a new version with a dated diff section (Section 12). Every number below is a chosen value, or is printed by a committed script whose console is committed (logs/suite_evidence.log, logs/vgdl_scan.log, logs/draw_pilot.log, logs/design_budget.log, logs/truth_vgdl.log, logs/draw_handcheck.log).
 
 **What exists at this draft, and what does not.**
 - Exists: the automation, proven by its dry run (docs/AUTOMATION.md, docs/DRYRUN.md); the GVGAI descriptions vendored under third_party/gvgai at commit e58ff6597319155218759cc178931e05b81b524c; the eligibility scan scripts/vgdl_scan.py and its output docs/design/vgdl_scan.json; the pilot draw scripts/draw_pilot.py; the truth-table generator scripts/truth_vgdl.py with its synthetic tests and its output docs/truth/gvgai.json (not yet hand-checked); the hand-check sheet docs/truth/HANDCHECK.md; the smallest-detectable-difference script scripts/sdd.py with its synthetic tests.
@@ -22,6 +22,7 @@ Registration draft for HORIZON, written 24 October 2026 from docs/DESIGN.md, in 
 
 - H2, search size, is the hypothesis; H1, mechanics match, is the rival. The test can find for either, or for neither (Section 7.5).
 - Not claimed: that search size causes failure; that the result transfers to games with random elements, which are excluded by construction (Section 4); that the agents are strong; that anything holds for agents with visual or language priors; any theorem. The effective-horizon bound is computed from a published theorem, not proved anew.
+- **A registered limit [changed 25 Oct 2026]:** restricting the suite to deterministic games removes most of its A4 failures: A4 fails on 100 of 550 units across all 110 grid-physics games, against 5 of 150 in the 30 deterministic games (logs/truth_vgdl.log), and it holds on all 26 confirmatory games, as does A1 (logs/sdd.log). So the confirmatory suite varies little on A4, and the study tests H1 mainly through A2, A3 and A5. The smallest detectable difference (Section 7.8) must be read with that in mind; scripts/sdd.py reports the mechanics score's variation in the confirmatory suite beside its number.
 
 ## 2. Agents
 
@@ -83,7 +84,7 @@ Per (game, level), by the search job of docs/AUTOMATION.md, Sections 5 and 6:
 Per (agent, unit): 20,000 actions per seed, seeds 1000 to 1009. Y = 1 if the agent completed the level in at least 5 of the 10 seeds.
 
 ### 7.2 AUROC
-AUROC_H = the AUROC of −log10 R for Y; AUROC_M = the AUROC of S_M for Y; the Mann–Whitney statistic with ties counted ½, over the confirmatory units.
+AUROC_H = the AUROC of −log10 R for Y; AUROC_M = the AUROC of S_M for Y; the Mann–Whitney statistic with ties counted ½, over the pairs of a completed and an uncompleted confirmatory unit **that come from different games**; within-game pairs are excluded from both **[changed 25 Oct 2026]**. *Reason:* the mechanics score is constant inside a game, so a within-game pair is scored one half for the mechanics score by construction while the search score can order it, which would hand part of the contrast to H2 before any data. *Cost:* at most 6 within-game pairs per game, at most 156 over the 26 games: at most 10.3% of all pairs at an edge of the void band, 3.7% at a completed share of one half (logs/design_budget.log). The bootstrap of Section 7.3 is unchanged; pairs between two draws of the same game in a resample are within-game and excluded.
 
 ### 7.3 The contrast and its interval
 Δ = AUROC_H − AUROC_M. Its interval is the percentile interval of 10,000 game-clustered bootstrap resamples: the 26 confirmatory games drawn with replacement, each with all its units, the same resample for both AUROCs. Seed 20261024 in 8 chunks (default_rng([20261024, k])) on a worker pool. Resamples with one class only are skipped and counted.
@@ -104,15 +105,17 @@ The thresholds of Sections 7.4 to 7.6 (the AUROC floor 0.70, the 98.33% family, 
 
 ### 7.6 Void rules
 - An agent is **void** if its share of units with Y = 1 lies outside [0.10, 0.90]; if the primary search score is void (Section 7.4); or if fewer than two values of S_M are each held by at least 10% of the confirmatory units.
-- The study is **void** if fewer than 20 confirmatory games remain.
+- The study is **void** if fewer than 20 confirmatory games remain, or if two of the three evidence agents are void **[changed 25 Oct 2026]**. No agent is added, removed or re-weighted after the fact; the three agents and the 98.33% family stand as registered. *Reason:* what follows from agents voiding is fixed before any run. A single primary agent at 95% was considered and not adopted, because narrowing the test after seeing the risk would weaken the registration (docs/design/DECISION_REVIEW.md, Decision 3).
 
 ### 7.7 Secondary analyses, outside the outcome table
 Unadjusted 95% intervals, each labelled secondary: AUROC and Δ against S_M for L, b and EH; the contrast on level 0 alone (26 units, games resampled); each of A1 to A5 alone; grid area, action count and colour count (study 1's nuisance features); Rand on every line.
 
 ### 7.8 The smallest detectable difference [decided 24 Oct 2026]
-d = **[the number printed by scripts/sdd.py in logs/sdd.log, entered here before the tag; the script waits on stage D's rows]**.
+d = **[the number printed by scripts/sdd.py in logs/sdd.log, entered here before the tag, with both estimates below; the script waits on stage D's rows]**.
 
-Method: on stage D's development units, for each evidence agent, 4,000 simulated studies each draw 26 development games with replacement (each with all its units) and compute Δ; SE is the standard deviation of Δ over them; d = (z(1 − α/2) + z(0.80)) × SE with α = 0.05 / 3, the largest over N, R and I1, rounded up to two decimals. It is the true difference at which the registered interval would exclude zero with probability 0.80, under a normal approximation. *Reason:* a Refute outcome must state the size of difference it rules out. **A Refute outcome reads "no difference of at least d between the search score and the mechanics score", not "the data could not tell".** If d is so large that the study is uninformative, the author decides before the tag whether to proceed, widen the suite or change the claim, and records the decision in v1.
+Estimate 1, from the development data: **[from logs/sdd.log]**. Estimate 2, on the confirmatory structure **[changed 25 Oct 2026]**: **[from logs/sdd.log]**. The mechanics score's variation in the confirmatory suite, reported beside them: S_M is 2 on 3 games, 3 on 11, 4 on 9 and 5 on 3, and A1 and A4 hold on all 26 (logs/sdd.log).
+
+Method: on stage D's development units, for each evidence agent, 4,000 simulated studies each draw 26 development games with replacement (each with all its units) and compute Δ over between-game pairs; SE is the standard deviation of Δ over them; the estimate is (z(1 − α/2) + z(0.80)) × SE with α = 0.05 / 3. Estimate 2 **[changed 25 Oct 2026]** repeats this on the confirmatory structure: 26 clusters of 5 units, each carrying the actual S_M of a confirmatory game drawn with replacement and the search scores and outcomes of 5 units of a development game; there the mechanics score has no relation to the outcome, so the estimate measures the spread of Δ under the suite's own S_M values and ties. d is the larger estimate, the largest over N, R and I1, rounded up to two decimals. It is the true difference at which the registered interval would exclude zero with probability 0.80, under a normal approximation. *Reason:* a Refute outcome must state the size of difference it rules out. **A Refute outcome reads "no difference of at least d between the search score and the mechanics score", not "the data could not tell".** If d is so large that the study is uninformative, the author decides before the tag whether to proceed, widen the suite or change the claim, and records the decision in v1.
 
 ## 8. Pilot gate and stop rule [registered here]
 
@@ -134,10 +137,10 @@ Run after the tag of v1, before any confirmatory unit, on the 4 pilot games (20 
 - Search kind: one unit per (game, level). Agent kind: one unit per (agent, game, level, seed). A chunk holds one kind only.
 - Session: work 28,800 s, checkpoint reserve 900 s, platform_limit_seconds 32,400; latest end 8 h 31 min after the notebook starts (logs/design_budget.log).
 - Rows: the search and agent schemas horizon.search.v1 and horizon.agent.v1 (scripts/automation/schema.py); features are read only from search rows and truth tables, outcomes only from agent rows.
-- Budget, at most (logs/design_budget.log): 3 chunks of pilot search, 3 of pilot agents, 17 of confirmatory search, and 14 to 82 of confirmatory agents, depending on the pilot's agent cap; 50 to 118 chunks with stage D (13 chunks at most).
+- Budget, at most (logs/design_budget.log): 3 chunks of pilot search, 3 of pilot agents, 17 of confirmatory search, and 14 to 82 of confirmatory agents, depending on the pilot's agent cap; 232 to 300 chunks with stage D (195 at most at the registered time cap; its manifest has 39 chunks, logs/make_stage_d_manifest.log).
 
 ### 9.1 Stage D, run before the tag [decided 24 Oct 2026]
-- **What ran:** the search job of Section 6 with the same quantities (R, L, b, and EH where its limits allow) on study 1's confirmatory MiniGrid/BabyAI games in the macro condition, one unit per (game, seed) for seeds 1000 to 1009, the layout produced by reset(seed); games whose sprites move at random excluded. Kind devsearch, campaign dev-minigrid, rows under runs/dev-minigrid/search/. Outcomes are study 1's committed rows, read and never written. *Reason:* the claim is registered knowing whether the search quantities rank completion at all on data whose outcomes already exist.
+- **What ran:** the search job of Section 6 with the same quantities (R, L, b, and EH where its limits allow) on study 1's confirmatory MiniGrid/BabyAI games in the macro condition, one unit per (game, seed) for seeds 1000 to 1009, the layout produced by reset(seed); the 5 Dynamic-Obstacles games excluded because their obstacles move at random, leaving 156 games and 1,560 units (logs/make_stage_d_manifest.log). The registered caps of Section 6. Kind devsearch, campaign dev-minigrid, rows of the schema horizon.search.v2 under runs/dev-minigrid/devsearch/ (docs/AUTOMATION.md, Section 5.1). Outcomes are study 1's committed rows, read and never written. *Reason:* the claim is registered knowing whether the search quantities rank completion at all on data whose outcomes already exist.
 - **What it showed:** **[entered here before the tag, from its analysis log, each paragraph labelled exploratory]**.
 - **It may not be used as evidence for the registered claim.** It is development data, and its mechanics vector takes two values (docs/oracle/READING.md, Section 5).
 - **If the search quantities did not predict completion there,** the author decides before the tag whether the registered claim is weakened, and records the decision here.
@@ -148,7 +151,7 @@ Run after the tag of v1, before any confirmatory unit, on the 4 pilot games (20 
 |---|---|---|
 | Support | N is H2 over H1; at least one of R and I1 is H2 over H1; no evidence agent is H1 over H2 | IEEE Transactions on Games; JAIR instead if all three evidence agents are H2 over H1 |
 | Refute | N is not void and Support does not hold; read as "no difference of at least d" (Section 7.8) | this repository and a preprint on Zenodo |
-| Void | N is void, the study is void, or the pilot gate stopped the study | this repository and a preprint on Zenodo, reported as void |
+| Void | N is void, two of the three evidence agents are void, the study is void, or the pilot gate stopped the study | this repository and a preprint on Zenodo, reported as void |
 
 ## 11. Analysis code
 
@@ -162,4 +165,4 @@ scripts/analyze_horizon.py reads the truth table, the search rows and the agent 
 
 ## 13. Diff section
 
-Empty in draft v0. The author's decisions of 24 October 2026 were written into the draft before any tag, so they are part of v1 as tagged, not amendments.
+Empty in draft v0. The author's decisions of 24 October 2026 and the changes of 25 October 2026 were written into the draft before any tag, so they are part of v1 as tagged, not amendments.

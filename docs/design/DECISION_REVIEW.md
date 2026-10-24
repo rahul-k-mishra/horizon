@@ -57,3 +57,13 @@ Written 24 October 2026, at the author's request, before the decisions were writ
 - *Consequence.* H1 is tested on games chosen, for a technical reason, to be the ones where its most common failure is absent. A Support result would say that search size beats mechanics where mechanics mostly fit. **Opinion:** this is an honest limit and should be stated in the claim's non-claims. It is not a reason to change the suite: the search quantities do not exist on the random games.
 - *What I would do.* Add to docs/PREREG.md, Section 1, a non-claim in these words: "the suite excludes games with moving or random sprites, where A4 fails most often, so H1 is tested on games where A1 and A4 almost always hold."
 - *Cost.* None in compute; a narrower claim.
+
+## What the author adopted, 25 October 2026
+
+Recorded here as the record of this review; each change is written into docs/DESIGN.md and docs/PREREG.md draft v0 with its date and reason.
+- **Point 1, adopted.** Both AUROCs over between-game pairs only (docs/PREREG.md, Section 7.2).
+- **Point 6, adopted as a registered limit, not a change of test.** The non-claim in docs/PREREG.md, Section 1; scripts/sdd.py reports the mechanics score's variation in the confirmatory suite beside its number.
+- **Decision 3: what happens when agents void, registered in advance.** Two of the three evidence agents void makes the study Void; no agent is added, removed or re-weighted after the fact. The three agents and the 98.33% family stand.
+  - *Considered and not adopted:* the alternative set out under Decision 3 above, a single primary agent (N) tested at 95% with R and I1 as secondary lines.
+  - *Reason (the author's):* narrowing the test after seeing the risk would weaken the registration.
+- **Point 5's second estimate, adopted.** scripts/sdd.py also reports an estimate on the confirmatory structure, 26 clusters of 5 levels with the mechanics score's actual distribution, beside the estimate from the development data; the registration states both and registers the larger.

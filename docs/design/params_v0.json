@@ -43,11 +43,11 @@
   "seeds": 2
  },
  "development": {
-  "minigrid_games": 161,
+  "minigrid_games": 156,
   "seeds": 10,
   "condition": "macro",
-  "search_time_cap_seconds": 900,
-  "source_of_count": "docs/oracle/READING.md, Section 2 (161 MiniGrid/BabyAI games), from logs/oracle_v2.log; seeds 1000-1009 as in study 1",
-  "note": "one unit per (game, seed): each seed of a MiniGrid game is a different layout; games whose sprites move at random (Dynamic-Obstacles) are excluded when the manifest is written, so the unit count here is an upper bound"
+  "search_time_cap_seconds": 14400,
+  "source_of_count": "logs/make_stage_d_manifest.log: 161 confirmatory MiniGrid/BabyAI games of study 1, 5 Dynamic-Obstacles games left out",
+  "note": "one unit per (game, seed); the caps are the registered values (docs/PREREG.md, Section 6), as decided on 25 October 2026"
  }
 }

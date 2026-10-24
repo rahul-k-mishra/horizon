@@ -87,13 +87,35 @@ Every job writes a checkpoint at a registered interval, in seconds and in work u
 
 **Checkpoints that are too large for git.** A payload file larger than payload_commit_limit_bytes (registered at the study's tag: 50,000,000 bytes, under GitHub's 100 MB file limit) is uploaded by the loop as an asset of the release ckpt-<campaign>, and checkpoint.json records its URL and sha256. The repository is public, so the notebook downloads it without a credential. When the chunk is done, its checkpoint folder is removed from the repository and its release assets are deleted; the rows and markers are what remain. The dry run sets the limit to 65,536 bytes so that this path is exercised.
 
-## 5. Two job kinds, two schemas
+## 5. Two job kinds, two schemas (and a third kind for development data)
 
 **search** enumerates the first level of a game from the simulator, with state cloning, breadth first, and runs no agent. It writes one row per game and level, schema horizon.search.v1, under runs/<campaign>/search/. The row holds the counts (states seen, states expanded, depth reached, frontier left, shortest solution length if the goal was reached, successors produced, the largest number of spill files), the caps in force, whether the search is complete or capped and by which cap, the seconds spent, and the sessions that worked on it.
 
 **agent** runs one agent on one game and seed. It writes one row per unit, schema horizon.agent.v1, under runs/<campaign>/agent/. The row holds the outcome (level 1 completed, levels) and, apart, agent_stats: what the agent itself did.
 
 **No feature may be computable only after an agent runs.** The two schemas share only identity fields (schema, campaign, unit, chunk, suite, game, sessions, time written); every other field belongs to exactly one schema, and a row with any field outside its schema fails validation (schema.validate_search_row, validate_agent_row), so the loop refuses to commit it. An analysis reads features only through schema.load_features, which accepts search rows only, and outcomes only through schema.load_outcomes, which returns the two outcome fields of an agent row and nothing else. agent_stats is never returned by any loader. This rule exists because the oracle test found that measures read out of an agent's own runs (its states and its actions to the first level end) separate completing from non-completing games largely through the censoring of runs that never ended level 1 (docs/oracle/saturation.md); such measures are not available before an agent runs and are not features.
+
+### 5.1 The third kind: devsearch (stage D, added 25 October 2026)
+
+**What it is.** The search job of Section 6 on study 1's MiniGrid/BabyAI levels, as development data (docs/DESIGN.md, Section 2.1). One unit is one (game, seed): the layout that gymnasium.make(game).reset(seed=seed) produces, under study 1's macro action list (north, south, east and west, each a turn to face that way then a step forward; then pickup, drop, toggle and done; study 1, docs/PREREG.md v1, Section 3.2). The 5 Dynamic-Obstacles games are refused, because their obstacles move at random and a search over them is not defined. A devsearch chunk holds devsearch units only. Its rows have the schema horizon.search.v2: the fields of v1 plus "measures", which holds the branching (distinct successors other than the state itself, per state expanded) and the effective-horizon bound with its k and status. The rows go under runs/<campaign>/devsearch/.
+
+**The simulator** (scripts/automation/sim_minigrid.py). Win is an episode that ends with reward above 0; loss is one that ends otherwise; both are counted and not expanded. The environment's own step limit is lifted, because the search counts states, not time. A state is keyed by the agent's cell and facing, and the carried object. It also includes the object in every cell and the state of every object that can change (doors, keys, balls, boxes). On BabyAI levels it adds the instruction's progress. Objects are told apart by a stable index given at reset, so the key is the same in every session. States are restored from snapshots of what a step can change, not by deep copies. A stack of snapshots along the current action sequence serves the breadth-first search, which visits each layer in lexicographic order of the sequences.
+
+**The effective-horizon bound** (scripts/automation/eh.py) is computed by exact dynamic programming over the recorded transitions, for levels whose search is complete with at most 200,000 states, with T = 400 (docs/DESIGN.md, Section 5).
+
+**The worker pool** (project rule R4). The runner gives each of params.workers processes (4) one unit at a time; a unit runs until it completes, hits a cap, or reaches the session deadline. Each worker's memory is its own and is checked against the ceiling of 6 GiB.
+- At the deadline every running unit saves its whole search state in its own folder.
+- A unit that was in the previous checkpoint but was not reached this session keeps its files unchanged.
+- The runner then writes one checkpoint for the chunk. Its "units_in_progress" maps each unfinished unit to its saved state, and every payload file is named <unit_id>__<file>.
+- Large files take the release path as in Section 4.2. A partial session counts as progress if any unit finished, or if any unit in progress expanded more states than in the previous checkpoint.
+
+**Caps:** the registered values of Section 6 (node cap 5,000,000; time cap 14,400 s per unit summed over sessions; 6 GiB per worker; spill at 1,000,000; checkpoints every 600 s or 250,000 expansions).
+
+**Software:** kaggle/requirements-runner.txt pins gymnasium 1.3.0 and minigrid 3.1.0, study 1's versions, which the notebook installs before the runner starts.
+
+**Tests:**
+- **scripts/automation/test_devsearch.py.** The bound against a hand-worked example and against a separate loop-by-loop implementation on random small MDPs. The snapshot search against a plain search that deep-copies every state, on six levels. A stopped, saved and resumed search against an uninterrupted one. The refusal of Dynamic-Obstacles.
+- **The fourth scenario of scripts/automation/test_loop.py.** The kind through the whole loop on a pool of two workers, with one unit slowed so that it is checkpointed and resumed.
 
 ## 6. The search job: caps, spill and the capped-game rule
 

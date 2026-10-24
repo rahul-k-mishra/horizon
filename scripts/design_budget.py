@@ -10,7 +10,10 @@ experiment.  Prints:
        chunks, as upper bounds from the registered caps, and the wall-clock days if every chunk used its
        whole session and the loop's largest gap;
     3. the same for the agent kind at each unit cap in params agent_unit_cap_seconds_shown, since the
-       registered cap is set by the pilot (docs/PREREG.md, Section 9).
+       registered cap is set by the pilot (docs/PREREG.md, Section 9);
+    4. what excluding within-game pairs from both AUROCs costs (docs/PREREG.md, Section 7.2): the most
+       within-game pairs a game of 5 levels can hold, and their largest share of all pairs when the share
+       of completed units is at the edges of the void band and at one half.
 Run (working directory D:\\Research\\horizon\\repo):
     D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\design_budget.py > logs\\design_budget.log
 """
@@ -81,6 +84,19 @@ def main():
         con_a = stage(f"confirmatory agents, cap {cap} s", levels(n_conf) * len(agents) * seeds, cap)
         tot = dev + pil_s + pil_a + con_s + con_a
         print(f"   all stages with this cap: {tot} chunks at most, {tot * per_session / 86400:.1f} days at most")
+
+    print("\n== 4. between-game pairs")
+    units = levels(n_conf)
+    within_max = (lv // 2) * (lv - lv // 2)
+    print(f"a game of {lv} levels holds at most {within_max} (completed, not completed) pairs of its own; "
+          f"{n_conf} games at most {n_conf * within_max}")
+    for share in (0.10, 0.50, 0.90):
+        n1 = round(units * share)
+        total = n1 * (units - n1)
+        print(f"completed share {share:.2f} ({n1} of {units} units): {total} pairs in all; within-game pairs removed "
+              f"at most {n_conf * within_max}, {100 * n_conf * within_max / total:.1f}% of them")
+    print("the bootstrap still resamples the games with replacement; pairs between two draws of the same game are "
+          "within-game and excluded")
     return 0
 
 

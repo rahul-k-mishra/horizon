@@ -1,12 +1,12 @@
 Exception ignored in: <_io.FileIO name='D:\\Research\\horizon\\repo\\docs\\design\\params_v0.json' mode='rb' closefd=True>
 Traceback (most recent call last):
-  File "D:\Research\horizon\repo\scripts\design_budget.py", line 33, in main
+  File "D:\Research\horizon\repo\scripts\design_budget.py", line 36, in main
     p = json.load(open(os.path.join(REPO, "docs", "design", "params_v0.json"), encoding="utf-8"))
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ResourceWarning: unclosed file <_io.TextIOWrapper name='D:\\Research\\horizon\\repo\\docs\\design\\params_v0.json' mode='r' encoding='utf-8'>
 Exception ignored in: <_io.FileIO name='D:\\Research\\horizon\\repo\\docs\\design\\vgdl_scan.json' mode='rb' closefd=True>
 Traceback (most recent call last):
-  File "D:\Research\horizon\repo\scripts\design_budget.py", line 34, in main
+  File "D:\Research\horizon\repo\scripts\design_budget.py", line 37, in main
     scan = json.load(open(os.path.join(REPO, "docs", "design", "vgdl_scan.json"), encoding="utf-8"))
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ResourceWarning: unclosed file <_io.TextIOWrapper name='D:\\Research\\horizon\\repo\\docs\\design\\vgdl_scan.json' mode='r' encoding='utf-8'>
@@ -19,17 +19,24 @@ search memory: 4 workers x 6442450944 bytes = 25769803776 bytes, against 3000000
 
 == 2. the budget (one session at a time; a chunk holds work for 4 workers x 28800 s = 115200 worker-seconds; a session with the loop's largest gap takes at most 32460 s (9 h 01 min))
 deterministic GVGAI games 30 (docs/design/vgdl_scan.json), 5 levels each; pilot 4 games, confirmatory 26 games = 130 level units
-development search (stage D, kind devsearch), MiniGrid/BabyAI macro, one unit per (game, seed): 1610 units, cap 900 s, 128 units per chunk, 13 chunks at most, 4.9 days at most
+development search (stage D, kind devsearch), MiniGrid/BabyAI macro, one unit per (game, seed): 1560 units, cap 14400 s, 8 units per chunk, 195 chunks at most, 73.3 days at most
 pilot search: 20 units, cap 14400 s, 8 units per chunk, 3 chunks at most, 1.1 days at most
 pilot agents (cap at its largest): 160 units, cap 1800 s, 64 units per chunk, 3 chunks at most, 1.1 days at most
 confirmatory search: 130 units, cap 14400 s, 8 units per chunk, 17 chunks at most, 6.4 days at most
 
 == 3. confirmatory agents, by the unit cap the pilot sets
 confirmatory agents, cap 300 s: 5200 units, cap 300 s, 384 units per chunk, 14 chunks at most, 5.3 days at most
-   all stages with this cap: 50 chunks at most, 18.8 days at most
+   all stages with this cap: 232 chunks at most, 87.2 days at most
 confirmatory agents, cap 600 s: 5200 units, cap 600 s, 192 units per chunk, 28 chunks at most, 10.5 days at most
-   all stages with this cap: 64 chunks at most, 24.0 days at most
+   all stages with this cap: 246 chunks at most, 92.4 days at most
 confirmatory agents, cap 1200 s: 5200 units, cap 1200 s, 96 units per chunk, 55 chunks at most, 20.7 days at most
-   all stages with this cap: 91 chunks at most, 34.2 days at most
+   all stages with this cap: 273 chunks at most, 102.6 days at most
 confirmatory agents, cap 1800 s: 5200 units, cap 1800 s, 64 units per chunk, 82 chunks at most, 30.8 days at most
-   all stages with this cap: 118 chunks at most, 44.3 days at most
+   all stages with this cap: 300 chunks at most, 112.7 days at most
+
+== 4. between-game pairs
+a game of 5 levels holds at most 6 (completed, not completed) pairs of its own; 26 games at most 156
+completed share 0.10 (13 of 130 units): 1521 pairs in all; within-game pairs removed at most 156, 10.3% of them
+completed share 0.50 (65 of 130 units): 4225 pairs in all; within-game pairs removed at most 156, 3.7% of them
+completed share 0.90 (117 of 130 units): 1521 pairs in all; within-game pairs removed at most 156, 10.3% of them
+the bootstrap still resamples the games with replacement; pairs between two draws of the same game are within-game and excluded

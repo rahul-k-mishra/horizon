@@ -3,8 +3,8 @@ draw_pilot.py -- draws the pilot games of docs/PREREG.md (Section 4) from the de
 
 Reads only docs/design/vgdl_scan.json (written by scripts/vgdl_scan.py).  The games marked deterministic
 there are sorted by name, and numpy.random.default_rng(20261024).choice(n, 4, replace=False) picks the
-pilot; the rest are the confirmatory games.  Run (working directory D:\Research\horizon\repo):
-    D:\Research\horizon\.venv\Scripts\python.exe scripts\draw_pilot.py > logs\draw_pilot.log
+pilot; the rest are the confirmatory games.  Run (working directory D:\\Research\\horizon\\repo):
+    D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\draw_pilot.py > logs\\draw_pilot.log
 """
 from __future__ import annotations
 
@@ -19,7 +19,8 @@ SEED, N_PILOT = 20261024, 4
 
 
 def main():
-    scan = json.load(open(os.path.join(REPO, "docs", "design", "vgdl_scan.json"), encoding="utf-8"))
+    with open(os.path.join(REPO, "docs", "design", "vgdl_scan.json"), encoding="utf-8") as f:
+        scan = json.load(f)
     games = sorted(g["game"] for g in scan["games"] if g["deterministic"])
     idx = np.random.default_rng(SEED).choice(len(games), N_PILOT, replace=False)
     pilot = sorted(games[i] for i in idx)

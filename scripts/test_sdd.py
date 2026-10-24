@@ -9,6 +9,8 @@ Hand values:
     scores (1, 2, 3, 4), labels (F, F, T, T): every positive above every negative, AUROC 1.
     scores (1, 2, 2, 3), labels (F, T, F, T): pairs (pos, neg) = (2,1) 1, (2,2) 1/2, (3,1) 1, (3,2) 1, so 3.5/4 = 0.875.
     one class only: None.
+    between-game pairs: scores (2, 1, 4, 3), labels (T, F, T, F), games (0, 0, 1, 1): the pairs (pos, neg) from
+    different games are (2 vs 3) 0 and (4 vs 1) 1, so 0.5; over all pairs it is (1 + 0 + 1 + 1) / 4 = 0.75.
 Simulation: 60 fabricated clusters of 5 units where the search score separates the classes perfectly and
 the mechanics score is constant, so Delta is 0.5 in every draw with both classes and its SE is 0; with
 noisy scores the MDD at 104 clusters is smaller than at 26.
@@ -37,6 +39,9 @@ def main():
     check(abs(sdd.auroc([1, 2, 3, 4], [0, 0, 1, 1]) - 1.0) < 1e-12, "auroc perfect")
     check(abs(sdd.auroc([1, 2, 2, 3], [0, 1, 0, 1]) - 0.875) < 1e-12, "auroc with a tie")
     check(sdd.auroc([1, 2], [1, 1]) is None, "auroc one class")
+    check(abs(sdd.auroc_between([2, 1, 4, 3], [1, 0, 1, 0], [0, 0, 1, 1]) - 0.5) < 1e-12, "auroc over between-game pairs")
+    check(abs(sdd.auroc([2, 1, 4, 3], [1, 0, 1, 0]) - 0.75) < 1e-12, "auroc over all pairs, same data")
+    check(sdd.auroc_between([2, 1], [1, 0], [0, 0]) is None, "no between-game pair")
     rng = np.random.default_rng(1)
     clean = []
     for _ in range(60):
@@ -46,6 +51,9 @@ def main():
     check(len(d) + skipped == 200 and all(abs(x - 0.5) < 1e-12 for x in d), "constant Delta of 0.5")
     se, mdd = sdd.mdd_from(d)
     check(se < 1e-12 and mdd < 1e-12, "zero SE gives zero MDD")
+    d2, sk2 = sdd.simulate(clean, n=26, sims=100, seed=5, workers=1, sm_games=[3, 3, 3])
+    check(len(d2) + sk2 == 100 and all(abs(x - 0.5) < 1e-12 for x in d2),
+          "confirmatory structure with a constant mechanics score: Delta 0.5 in every draw")
     noisy = []
     for _ in range(200):
         y = rng.random(5) < 0.5
