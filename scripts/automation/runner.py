@@ -15,6 +15,10 @@ Started by kaggle/runner.ipynb; standard library only.
        the deadline.  A search unit runs until it completes, hits a cap, or reaches the deadline.
        Checkpoints are written at the registered interval (seconds and work units) and at the end of an
        unfinished session.
+    5a. The kind devsearch (stage D) runs its units on a pool of params.workers processes, each unit a
+       search of its own; at the deadline each running unit saves its state, the units already in a
+       checkpoint but not reached keep their files, and one chunk checkpoint holds them all
+       ("units_in_progress", payload files named <unit_id>__<file>).
     6. Write /kaggle/working/result.json and /kaggle/working/bundle.tar.gz (rows and checkpoint).  The
        chunk is reported "done" only when every unit has a row; otherwise "partial".  Any exception
        gives status "failed" with its traceback, and the runner still exits normally, so that the
@@ -23,6 +27,7 @@ Started by kaggle/runner.ipynb; standard library only.
 from __future__ import annotations
 
 import argparse
+import concurrent.futures as cf
 import os
 import shutil
 import socket
@@ -38,7 +43,7 @@ from common import (STATE, check_manifest, checkpoint_reldir, chunk_entry_hash, 
                     load_manifest, now_iso, read_json, row_relpath, sha256_file, unit_done, unit_params,
                     write_json)
 from jobs import SearchState, run_agent, run_search, session_entry  # noqa: E402
-from schema import validate_row  # noqa: E402
+from schema import SEARCH_SCHEMA_V2, validate_row  # noqa: E402
 
 CKPT = "horizon.checkpoint.v1"
 RESULT = "horizon.result.v1"
@@ -67,6 +72,29 @@ def fetch_checkpoint(state_repo, m, chunk_id, dest):
         if sha256_file(target) != info["sha256"]:
             raise ValueError(f"checkpoint file {name}: sha256 differs from checkpoint.json")
     return ck
+
+
+def devsearch_unit(args):
+    """One unit of the kind devsearch, in a worker process.  Returns (unit_id, status, row, meta, counts):
+    meta is the saved state of a unit stopped by the deadline (files in args['final_dir'])."""
+    u, p, unit_dir, resume_dir, resume_meta, deadline, nonce, started = (
+        args["unit"], args["params"], args["unit_dir"], args["resume_dir"], args["resume_meta"], args["deadline"],
+        args["nonce"], args["started"])
+    spill_dir = os.path.join(unit_dir, "spill")
+    state = SearchState.load(resume_dir, resume_meta, spill_dir) if resume_meta else None
+    os.makedirs(spill_dir, exist_ok=True)
+
+    def on_ck(st):
+        st.save(os.path.join(unit_dir, "periodic"), spill_dir)
+    status, row, st = run_search(u, p, spill_dir, state, deadline, on_ck, nonce, started, schema=SEARCH_SCHEMA_V2)
+    meta = None
+    if status == "stopped":
+        st.sessions.append(session_entry(nonce, started))
+        final = os.path.join(unit_dir, "final")
+        if os.path.isdir(final):
+            shutil.rmtree(final)
+        meta = st.save(final, spill_dir)
+    return u["unit_id"], status, row, meta, dict(st.counts)
 
 
 class Session:
@@ -109,6 +137,87 @@ class Session:
                  f"{ip['unit_id'] if ip else 'none'}, {len(payload)} payload files")
         return ck
 
+    def write_pool_checkpoint(self, m, chunk, done, in_progress, nonce):
+        """in_progress: {unit_id: (source dir, meta)}.  One checkpoint for the chunk; each unit's files are
+        copied in as <unit_id>__<name>."""
+        d = os.path.join(self.stage, "checkpoint")
+        if os.path.isdir(d):
+            shutil.rmtree(d)
+        os.makedirs(d)
+        self.seq += 1
+        uip = {}
+        for uid, (src, meta) in sorted(in_progress.items()):
+            for name in meta["files"]:
+                shutil.copyfile(os.path.join(src, name), os.path.join(d, f"{uid}__{name}"))
+            uip[uid] = meta
+        payload = {n: dict(sha256=sha256_file(os.path.join(d, n)), bytes=os.path.getsize(os.path.join(d, n)))
+                   for n in sorted(os.listdir(d))}
+        ck = dict(schema=CKPT, campaign=m["campaign"], chunk_id=chunk["chunk_id"], kind=chunk["kind"],
+                  entry_hash=chunk_entry_hash(m, chunk["chunk_id"]), seq=self.seq, units_done=sorted(done),
+                  unit_in_progress=None, units_in_progress=uip, payload=payload, run_nonce=nonce, written_at=now_iso())
+        write_json(os.path.join(d, "checkpoint.json"), ck)
+        back = read_json(os.path.join(d, "checkpoint.json"))
+        assert back == ck, "checkpoint.json does not read back equal"
+        for n, info in payload.items():
+            assert sha256_file(os.path.join(d, n)) == info["sha256"], f"checkpoint file {n} changed"
+        self.say(f"checkpoint {self.seq}: {len(done)} units done, {len(uip)} in progress, {len(payload)} payload files")
+
+    def run_pool(self, m, chunk, units, done, ck, ck_dir, deadline, nonce):
+        """The kind devsearch: units on a worker pool.  Returns the stop reason, or None."""
+        kp = unit_params(m, units[0]) if units else {}
+        workers = int(kp.get("workers", 4))
+        resume = {}
+        if ck is not None:
+            for uid, meta in (ck.get("units_in_progress") or {}).items():
+                rd = os.path.join(self.work_dir, "units", uid, "resume")
+                os.makedirs(rd, exist_ok=True)
+                for name in meta["files"]:
+                    shutil.copyfile(os.path.join(ck_dir, f"{uid}__{name}"), os.path.join(rd, name))
+                resume[uid] = (rd, meta)
+        todo = [u for u in units if u["unit_id"] not in done]
+        todo.sort(key=lambda u: u["unit_id"] not in resume)       # units already begun go first
+        self.say(f"devsearch: {len(todo)} units to run on {workers} workers, {len(resume)} resumed from the checkpoint")
+        stopped, ran = {}, set()
+        with cf.ProcessPoolExecutor(max_workers=workers) as ex:
+            pending, queue = set(), list(todo)
+
+            def submit(u):
+                uid = u["unit_id"]
+                rd, meta = resume.get(uid, (None, None))
+                args = dict(unit=u, params=unit_params(m, u), unit_dir=os.path.join(self.work_dir, "units", uid),
+                            resume_dir=rd, resume_meta=meta, deadline=deadline, nonce=nonce, started=self.started)
+                ran.add(uid)
+                self.say(f"devsearch unit {uid}: {'resume' if meta else 'start'}")
+                pending.add(ex.submit(devsearch_unit, args))
+            while queue and len(pending) < workers and time.time() < deadline:
+                submit(queue.pop(0))
+            while pending:
+                fin, pending = cf.wait(pending, return_when=cf.FIRST_COMPLETED)
+                for f in fin:
+                    uid, status, row, meta, counts = f.result()
+                    self.result["progress"][uid] = dict(states_expanded=counts["states_expanded"])
+                    if status == "stopped":
+                        stopped[uid] = (os.path.join(self.work_dir, "units", uid, "final"), meta)
+                        self.say(f"devsearch unit {uid}: stopped at the deadline, {counts['states_expanded']} expanded")
+                        continue
+                    u = next(x for x in units if x["unit_id"] == uid)
+                    errs = validate_row(row, chunk["kind"])
+                    if errs:
+                        raise ValueError(f"row of {uid} fails its schema: {errs}")
+                    rel = row_relpath(m, u)
+                    write_json(os.path.join(self.stage, rel), row)
+                    self.result["rows"].append(dict(unit_id=uid, path=rel, sha256=sha256_file(os.path.join(self.stage, rel))))
+                    done.add(uid)
+                    self.say(f"devsearch unit {uid}: {status}, {counts['states_seen']} states seen")
+                while queue and len(pending) < workers and time.time() < deadline:
+                    submit(queue.pop(0))
+        carried = {uid: resume[uid] for uid in resume if uid not in ran and uid not in done}
+        in_progress = dict(carried, **stopped)
+        if in_progress or any(u["unit_id"] not in done for u in units):
+            self.write_pool_checkpoint(m, chunk, done, in_progress, nonce)
+            return "deadline reached with devsearch units unfinished"
+        return None
+
     def run(self):
         st = read_json(os.path.join(self.state_repo, STATE))
         d = st.get("dispatch")
@@ -147,17 +256,22 @@ class Session:
             missing = set(ck["units_done"]) - done
             if missing:
                 raise ValueError(f"checkpoint lists units done without valid done-markers: {sorted(missing)}")
-            if ck["unit_in_progress"]:
+            if ck.get("unit_in_progress"):
                 ip = ck["unit_in_progress"]
                 resume = (ip["unit_id"], SearchState.load(ck_dir, ip["search"], os.path.join(self.work_dir, "search")))
             self.say(f"resuming from checkpoint {ck['seq']} of run {ck['run_nonce']}: {len(done)} units done, "
-                     f"in progress {resume[0] if resume else 'none'}")
+                     f"in progress {resume[0] if resume else sorted(ck.get('units_in_progress') or {}) or 'none'}")
         else:
             self.say(f"no checkpoint: starting the chunk; {len(done)} units already have done-markers")
         start_done = set(done)
         stop_reason = None
+        if chunk["kind"] == "devsearch":
+            stop_reason = self.run_pool(m, chunk, units, done, ck, ck_dir, deadline, nonce)
+            units_loop = []
+        else:
+            units_loop = units
 
-        for u in units:
+        for u in units_loop:
             if u["unit_id"] in done:
                 continue
             p = unit_params(m, u)

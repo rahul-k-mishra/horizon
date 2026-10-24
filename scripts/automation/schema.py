@@ -5,6 +5,8 @@ Two kinds of row, in two folders, with two schemas whose fields are disjoint apa
 fields.  The rule they enforce: no feature may be computable only after an agent runs.
     horizon.search.v1   runs/<campaign>/search/<unit_id>.json   written by a search job, which plays
                         no agent; it holds the only fields an analysis may use as features
+    horizon.search.v2   the same, plus "measures" (branching and the effective-horizon bound); written by
+                        the kind devsearch under runs/<campaign>/devsearch/ (stage D, docs/DESIGN.md 2.1)
     horizon.agent.v1    runs/<campaign>/agent/<unit_id>.json    written by an agent job; its "outcome"
                         is the only part an analysis may read, and only as the outcome; "agent_stats"
                         (what the agent did, how many states it saw, how many actions it took) is kept
@@ -17,6 +19,9 @@ from __future__ import annotations
 import json
 
 SEARCH_SCHEMA = "horizon.search.v1"
+SEARCH_SCHEMA_V2 = "horizon.search.v2"
+SEARCH_KINDS = ("search", "devsearch")
+MEASURE_KEYS = {"branching", "eh", "eh_k", "eh_status", "eh_horizon"}
 AGENT_SCHEMA = "horizon.agent.v1"
 IDENTITY = {"schema", "campaign", "unit_id", "chunk_id", "suite", "game", "sessions", "written_at"}
 SEARCH_KEYS = IDENTITY | {"level", "complete", "capped", "cap_hit", "counts", "caps", "seconds_spent"}
@@ -27,7 +32,8 @@ CAP_KINDS = ("node", "time", "memory")
 AGENT_KEYS = IDENTITY | {"agent", "seed", "budget", "outcome", "agent_stats", "cut_by_cap", "seconds"}
 OUTCOME_KEYS = {"level1_completed", "levels"}
 SESSION_KEYS = {"run_nonce", "host", "started_at", "ended_at", "kaggle_env"}
-assert not (SEARCH_KEYS - IDENTITY) & (AGENT_KEYS - IDENTITY), "the two schemas must stay disjoint"
+SEARCH_KEYS_V2 = SEARCH_KEYS | {"measures"}
+assert not (SEARCH_KEYS_V2 - IDENTITY) & (AGENT_KEYS - IDENTITY), "the two schemas must stay disjoint"
 
 
 def _sessions(row, errs):
@@ -42,12 +48,15 @@ def _sessions(row, errs):
 
 def validate_search_row(row):
     errs = []
-    if row.get("schema") != SEARCH_SCHEMA:
-        return [f"schema is {row.get('schema')!r}, expected {SEARCH_SCHEMA}"]
-    if set(row) != SEARCH_KEYS:
-        errs.append(f"keys differ from {SEARCH_SCHEMA}: extra {sorted(set(row) - SEARCH_KEYS)}, "
-                    f"missing {sorted(SEARCH_KEYS - set(row))}")
+    keys = {SEARCH_SCHEMA: SEARCH_KEYS, SEARCH_SCHEMA_V2: SEARCH_KEYS_V2}.get(row.get("schema"))
+    if keys is None:
+        return [f"schema is {row.get('schema')!r}, expected {SEARCH_SCHEMA} or {SEARCH_SCHEMA_V2}"]
+    if set(row) != keys:
+        errs.append(f"keys differ from {row['schema']}: extra {sorted(set(row) - keys)}, "
+                    f"missing {sorted(keys - set(row))}")
         return errs
+    if "measures" in row and (not isinstance(row["measures"], dict) or set(row["measures"]) != MEASURE_KEYS):
+        errs.append(f"measures keys must be {sorted(MEASURE_KEYS)}")
     if set(row["counts"]) != SEARCH_COUNTS:
         errs.append(f"counts keys {sorted(row['counts'])}, expected {sorted(SEARCH_COUNTS)}")
     if set(row["caps"]) != SEARCH_CAPS:
@@ -86,7 +95,7 @@ def validate_agent_row(row):
 
 
 def validate_row(row, kind):
-    return validate_search_row(row) if kind == "search" else validate_agent_row(row)
+    return validate_search_row(row) if kind in SEARCH_KINDS else validate_agent_row(row)
 
 
 # ---------------------------------------------------------------- the only two loaders an analysis may use
@@ -101,7 +110,7 @@ def load_features(paths):
         if e:
             raise ValueError(f"{p}: not a valid {SEARCH_SCHEMA} row: {e}")
         out[(r["suite"], r["game"], r["level"])] = dict(r["counts"], complete=r["complete"], capped=r["capped"],
-                                                      cap_hit=r["cap_hit"])
+                                                      cap_hit=r["cap_hit"], measures=r.get("measures"))
     return out
 
 

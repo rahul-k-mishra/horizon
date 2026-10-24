@@ -1,0 +1,8 @@
+effective horizon: 40 of 40 random MDPs agree with the reference
+MiniGrid-Empty-5x5-v0 seed 1000: {'states_seen': 23, 'states_expanded': 21, 'solution_length': 4, 'successors_distinct': 74}; plain search {'states_seen': 23, 'states_expanded': 21, 'solution_length': 4, 'successors_distinct': 74}; EH 14.224211049418248 (ok)
+MiniGrid-DoorKey-5x5-v0 seed 1000: {'states_seen': 112, 'states_expanded': 109, 'solution_length': 9, 'successors_distinct': 368}; plain search {'states_seen': 112, 'states_expanded': 109, 'solution_length': 9, 'successors_distinct': 368}; EH 12.092274837467597 (ok)
+MiniGrid-LavaGapS5-v0 seed 1000: {'states_seen': 20, 'states_expanded': 15, 'solution_length': 4, 'successors_distinct': 51}; plain search {'states_seen': 20, 'states_expanded': 15, 'solution_length': 4, 'successors_distinct': 51}; EH 7.905520251337376 (ok)
+MiniGrid-Fetch-5x5-N2-v0 seed 1001: {'states_seen': 28, 'states_expanded': 22, 'solution_length': 1, 'successors_distinct': 78}; plain search {'states_seen': 28, 'states_expanded': 22, 'solution_length': 1, 'successors_distinct': 78}; EH 7.286992808539008 (ok)
+BabyAI-GoToRedBallNoDists-v0 seed 1000: {'states_seen': 113, 'states_expanded': 110, 'solution_length': 4, 'successors_distinct': 415}; plain search {'states_seen': 113, 'states_expanded': 110, 'solution_length': 4, 'successors_distinct': 415}; EH 10.171148182104128 (ok)
+BabyAI-UnlockLocal-v0 seed 1002: {'states_seen': 4273, 'states_expanded': 4272, 'solution_length': 11, 'successors_distinct': 16345}; plain search {'states_seen': 4273, 'states_expanded': 4272, 'solution_length': 11, 'successors_distinct': 16345}; EH 22.575548788585717 (ok)
+OK

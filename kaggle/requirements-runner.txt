@@ -1,1 +1,4 @@
-# Pinned packages the Kaggle runner installs before a chunk. None for the dry run (standard library only).
+# Packages the notebook installs before it runs a chunk (kaggle/runner.ipynb).  Stage D's kind devsearch
+# needs MiniGrid at study 1's versions (study 1, docs/PREREG.md v1, Section 3.2).
+gymnasium==1.3.0
+minigrid==3.1.0

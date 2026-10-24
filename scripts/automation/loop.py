@@ -371,6 +371,11 @@ def integrate(repo, m, st, chunk, res, stage, version, nonce):
     ck = read_json(os.path.join(ckd, "checkpoint.json"))
     progress = bool(after - before)
     ip = ck.get("unit_in_progress")
+    uip = ck.get("units_in_progress") or {}
+    if not progress and uip:                                  # the kind devsearch: several units in progress
+        old = (prev or {}).get("units_in_progress") or {}
+        progress = any(meta["counts"]["states_expanded"] > ((old.get(uid) or {}).get("counts") or {}).get("states_expanded", 0)
+                       for uid, meta in uip.items())
     if not progress and ip:
         old = (prev or {}).get("unit_in_progress")
         a = old["search"]["counts"]["states_expanded"] if old and old["unit_id"] == ip["unit_id"] else 0

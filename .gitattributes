@@ -1,0 +1,4 @@
+# Rows, done-markers, checkpoints and manifests are checked by their sha256 (scripts/automation/common.py,
+# unit_done), so git must never rewrite their line endings on any machine.
+runs/** -text
+jobs/** -text

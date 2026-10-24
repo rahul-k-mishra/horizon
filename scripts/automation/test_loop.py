@@ -26,6 +26,9 @@ A third scenario breaks the manifest so that ticks crash before reaching any chu
 to the consecutive-crash count in jobs/state.json, a tick that reaches a chunk (after the manifest is
 repaired) sets it back to 0, and at the registered maximum (loop.MAX_CRASHES, 12) the loop halts with
 STATE-ready text; a crash after the halt is not counted, and next-wake says "none".
+A fourth scenario runs the kind devsearch (stage D) through the loop: three MiniGrid units on a pool of two
+workers, one slowed so that the first session ends partial with it in a checkpoint; it is resumed in a
+later session and must count the same 112 states as an uninterrupted search.  Needs gymnasium and minigrid.
 Run (working directory D:\\Research\\horizon\\repo):
     D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\automation\\test_loop.py
 Expected last line: OK
@@ -84,6 +87,7 @@ def scenario_halt(env_base, tmp, check):
     for rel in ("scripts/automation", "kaggle", "jobs"):
         shutil.copytree(os.path.join(REPO, rel), os.path.join(src, rel),
                         ignore=shutil.ignore_patterns("__pycache__", "test_*.py"))
+    shutil.copyfile(os.path.join(REPO, ".gitattributes"), os.path.join(src, ".gitattributes"))
     m = load_manifest(src)
     m.update(session=dict(work_seconds=6, checkpoint_reserve_seconds=5, platform_limit_seconds=600))
     fresh(src, m)
@@ -132,6 +136,7 @@ def scenario_crash(env_base, tmp, check):
     for rel in ("scripts/automation", "kaggle", "jobs"):
         shutil.copytree(os.path.join(REPO, rel), os.path.join(src, rel),
                         ignore=shutil.ignore_patterns("__pycache__", "test_*.py"))
+    shutil.copyfile(os.path.join(REPO, ".gitattributes"), os.path.join(src, ".gitattributes"))
     m = load_manifest(src)
     m.update(session=dict(work_seconds=6, checkpoint_reserve_seconds=5, platform_limit_seconds=600))
     fresh(src, m)
@@ -196,6 +201,79 @@ def scenario_crash(env_base, tmp, check):
     check(len(msgs) == 2 + MAX_CRASHES, f"crash scenario: {len(msgs)} crash commits")
 
 
+def scenario_devsearch(env_base, tmp, check):
+    """The kind devsearch through the whole loop: three MiniGrid units on a pool of two workers, one of them
+    slowed so that the first session ends at its deadline with that unit in a checkpoint; later sessions
+    resume it.  Every row must be a valid horizon.search.v2 row under runs/<campaign>/devsearch/, and the
+    resumed unit must count what an uninterrupted search counts (scripts/automation/test_devsearch.py)."""
+    src = os.path.join(tmp, "src-dev")
+    os.makedirs(src)
+    for rel in ("scripts/automation", "kaggle", "jobs"):
+        shutil.copytree(os.path.join(REPO, rel), os.path.join(src, rel),
+                        ignore=shutil.ignore_patterns("__pycache__", "test_*.py"))
+    shutil.copyfile(os.path.join(REPO, ".gitattributes"), os.path.join(src, ".gitattributes"))
+    base = dict(simulator="minigrid", workers=2, node_cap=5000000, time_cap_seconds=14400,
+                memory_cap_bytes=6442450944, spill_frontier_over=1000000, checkpoint_every_seconds=600,
+                checkpoint_every_nodes=250000, batch=5, eh_state_limit=200000, eh_horizon=400)
+    units = [dict(unit_id="d-01-empty5-s1000", chunk_id="d-01", kind="devsearch", suite="minigrid",
+                  game="MiniGrid-Empty-5x5-v0", level=1000, agent=None, seed=None, status="pending"),
+             dict(unit_id="d-01-lavagap5-s1000", chunk_id="d-01", kind="devsearch", suite="minigrid",
+                  game="MiniGrid-LavaGapS5-v0", level=1000, agent=None, seed=None, status="pending"),
+             dict(unit_id="d-01-doorkey5-s1000", chunk_id="d-01", kind="devsearch", suite="minigrid",
+                  game="MiniGrid-DoorKey-5x5-v0", level=1000, agent=None, seed=None, status="pending",
+                  params=dict(seconds_per_batch=0.4))]
+    m = dict(campaign="devtest", code_tag="automation-v1", repository="local/test", kernel_slug="horizon-runner",
+             max_failures=3, payload_commit_limit_bytes=65536,
+             session=dict(work_seconds=8, checkpoint_reserve_seconds=5, platform_limit_seconds=600),
+             kinds=dict(devsearch=base),
+             chunks=[dict(chunk_id="d-01", kind="devsearch", status="pending", attempts=0, failures=0, sessions=[])],
+             units=units)
+    save_manifest(src, m)
+    write_json(os.path.join(src, "jobs", "state.json"), dict(dispatch=None, halted=False, halted_at=None, halt_reason=None))
+    if os.path.exists(os.path.join(src, "jobs", "lock.json")):
+        os.remove(os.path.join(src, "jobs", "lock.json"))
+    git(src, "init", "-q", "-b", "main")
+    git(src, "config", "user.name", "test")
+    git(src, "config", "user.email", "test@example.invalid")
+    git(src, "add", "-A")
+    git(src, "commit", "-q", "-m", "test setup")
+    git(src, "tag", "automation-v1")
+    bare = os.path.join(tmp, "remote-dev.git")
+    git(tmp, "clone", "-q", "--bare", src, bare)
+    work = os.path.join(tmp, "work-dev")
+    git(tmp, "clone", "-q", bare, work)
+    git(work, "config", "user.name", "horizon-loop")
+    git(work, "config", "user.email", "loop@example.invalid")
+    env = dict(env_base, FAKE_KAGGLE_STORE=os.path.join(tmp, "kaggle-dev"), FAKE_KAGGLE_REPO_URL=bare,
+               HORIZON_RELEASE_DIR=os.path.join(tmp, "releases-dev"))
+    outs = []
+    for i in range(10):
+        r = subprocess.run([sys.executable, os.path.join(work, "scripts", "automation", "loop.py"), "tick",
+                            "--repo", work], env=env, capture_output=True, text=True)
+        outs.append(r.stdout + r.stderr)
+        print(f"--- devsearch tick {i + 1} (exit {r.returncode})\n{(r.stdout + r.stderr).strip()[-1500:]}")
+        check(r.returncode == 0, f"devsearch tick {i + 1} exit code {r.returncode}")
+        if "manifest complete" in r.stdout:
+            break
+    check(any("manifest complete" in o for o in outs), "devsearch: the loop never reported 'manifest complete'")
+    m = load_manifest(work)
+    c = m["chunks"][0]
+    outcomes = [s["outcome"] for s in c["sessions"]]
+    check(c["status"] == "done" and outcomes[0] == "partial" and outcomes[-1] == "done" and "failed" not in outcomes,
+          f"devsearch sessions {outcomes}")
+    for u in units:
+        p = os.path.join(work, "runs", "devtest", "devsearch", f"{u['unit_id']}.json")
+        check(os.path.exists(p), f"devsearch row missing: {p}")
+        if os.path.exists(p):
+            row = read_json(p)
+            check(not validate_search_row(row) and row["schema"] == "horizon.search.v2",
+                  f"{u['unit_id']}: {validate_search_row(row)}")
+            if u["game"] == "MiniGrid-DoorKey-5x5-v0":
+                check(row["counts"]["states_seen"] == 112 and len(row["sessions"]) >= 2,
+                      f"the resumed DoorKey unit: {row['counts']['states_seen']} states over {len(row['sessions'])} sessions "
+                      "(an uninterrupted search sees 112, scripts/automation/test_devsearch.py)")
+
+
 def main():
     fails = []
 
@@ -210,6 +288,7 @@ def main():
         for rel in ("scripts/automation", "kaggle", "jobs"):
             shutil.copytree(os.path.join(REPO, rel), os.path.join(src, rel),
                             ignore=shutil.ignore_patterns("__pycache__", "test_*.py"))
+        shutil.copyfile(os.path.join(REPO, ".gitattributes"), os.path.join(src, ".gitattributes"))
         m = load_manifest(src)
         fresh(src, m)
         m.update(session=dict(work_seconds=6, checkpoint_reserve_seconds=5, platform_limit_seconds=600))
@@ -270,10 +349,15 @@ def main():
         # the checkpoint between the two dry-02 sessions held a release file
         ck_commits = git(work, "log", "--format=%h %s", "--", "runs/dryrun/checkpoints/dry-02/checkpoint.json")
         check(bool(ck_commits.strip()), "no commit touched the dry-02 checkpoint")
-        ck_rev = ck_commits.strip().splitlines()[-1].split()[0]
-        ck = json.loads(git(work, "show", f"{ck_rev}:runs/dryrun/checkpoints/dry-02/checkpoint.json"))
-        locs = {i["location"] for i in ck["payload"].values()}
-        check(locs == {"git", "release"}, f"checkpoint payload locations {locs}")
+        all_locs = []
+        for line in ck_commits.strip().splitlines():
+            try:
+                ck = json.loads(git(work, "show", f"{line.split()[0]}:runs/dryrun/checkpoints/dry-02/checkpoint.json"))
+            except subprocess.CalledProcessError:
+                continue                          # the commit that removed the checkpoint
+            all_locs.append({i["location"] for i in ck["payload"].values()})
+        check(any(x == {"git", "release"} for x in all_locs),
+              f"no dry-02 checkpoint held files both in git and in the release folder: {all_locs}")
         check(any(n.startswith("spill_") for n in ck["payload"]), "the checkpoint holds no spill file")
         check(not os.path.exists(os.path.join(work, "runs", "dryrun", "checkpoints", "dry-02")),
               "the checkpoint of a done chunk was not removed")
@@ -305,6 +389,7 @@ def main():
             pass
         scenario_halt(env, tmp, check)
         scenario_crash(env, tmp, check)
+        scenario_devsearch(env, tmp, check)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     print("OK" if not fails else f"{len(fails)} failure(s)")

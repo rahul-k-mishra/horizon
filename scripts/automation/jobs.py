@@ -10,9 +10,9 @@ agent   runs one agent on one game and seed.  The seed is the smallest resumable
         only if its registered wall-clock cap fits before the session deadline, so no seed is ever cut
         by a session; a seed that exceeds its own cap is recorded as cut_by_cap.
 
-A simulator is reached through a small interface (root, successors, key, is_goal, encode, decode); the
-dry run uses DummyGraph, a deterministic integer graph slowed down by a sleep per batch, and the dummy
-agent, a sleep.  The suites' simulators are written in Phase 3 and registered before use.
+A simulator is reached through a small interface (root_enc, root_info, expand; see DummyGraph): the dry run
+uses DummyGraph, a deterministic integer graph slowed down by a sleep per batch, and the dummy agent, a
+sleep; stage D's kind devsearch uses sim_minigrid.MiniGridSim.
 """
 from __future__ import annotations
 
@@ -26,7 +26,7 @@ import time
 from array import array
 
 from common import now_iso, sha256_file
-from schema import AGENT_SCHEMA, SEARCH_SCHEMA
+from schema import AGENT_SCHEMA, SEARCH_SCHEMA, SEARCH_SCHEMA_V2
 
 
 def rss_bytes():
@@ -82,8 +82,28 @@ class DummyGraph:
     def decode(self, x):
         return int(x)
 
+    # the generic interface used by run_search
+    win_is_terminal = False      # the dummy graph keeps expanding through its goal
 
-SIMULATORS = {"dummy_graph": DummyGraph}
+    def root_enc(self):
+        return self.root()
+
+    def root_info(self):
+        r = self.root()
+        return self.key(r), self.is_goal(r), False
+
+    def expand(self, enc):
+        n = self.decode(enc)
+        return self.key(n), [(a, self.encode(x), self.key(x), self.is_goal(x), False) for a, x in self.successors(n)]
+
+
+def make_simulator(p, unit):
+    if p["simulator"] == "dummy_graph":
+        return DummyGraph(p)
+    if p["simulator"] == "minigrid":
+        from sim_minigrid import MiniGridSim  # noqa: PLC0415 -- needs gymnasium and minigrid
+        return MiniGridSim(p, unit)
+    raise ValueError(f"unknown simulator {p['simulator']}")
 
 
 def h64(b):
@@ -106,6 +126,9 @@ class SearchState:
         self.seconds_spent = 0.0
         self.spill_seq = 0
         self.sessions = []
+        self.extra = dict(successors_distinct=0)
+        self.graph = None            # transitions for the effective horizon, while the level is small enough
+        self.graph_status = None     # None while recording, or why it stopped
 
     def frontier_size(self, spill_over):
         return len(self.head) + len(self.tail) + len(self.spills) * spill_over
@@ -126,10 +149,21 @@ class SearchState:
             with open(os.path.join(work_dir, s), "rb") as src, open(os.path.join(d, s), "wb") as dst:
                 dst.write(src.read())
             files[s] = None
+        graph_meta = None
+        if self.graph is not None:
+            g = self.graph
+            for name, arr in (("graph_hashes.u64.gz", g["hashes"]), ("graph_rows.i32.gz", g["rows"]),
+                              ("graph_next.i32.gz", g["next"]), ("graph_win.i32.gz", g["win"]),
+                              ("graph_loss.i32.gz", g["loss"])):
+                with gzip.open(os.path.join(d, name), "wb", compresslevel=6) as f:
+                    f.write(arr.tobytes())
+                files[name] = None
+            graph_meta = dict(A=g["A"], n=len(g["hashes"]))
         for k in files:
             files[k] = sha256_file(os.path.join(d, k))
         return dict(files=files, spills=list(self.spills), spill_seq=self.spill_seq, counts=dict(self.counts),
-                    seconds_spent=self.seconds_spent, sessions=list(self.sessions), visited_n=len(self.visited))
+                    seconds_spent=self.seconds_spent, sessions=list(self.sessions), visited_n=len(self.visited),
+                    extra=dict(self.extra), graph=graph_meta, graph_status=self.graph_status)
 
     @classmethod
     def load(cls, d, meta, work_dir):
@@ -156,26 +190,63 @@ class SearchState:
         st.counts = dict(meta["counts"])
         st.seconds_spent = float(meta["seconds_spent"])
         st.sessions = list(meta["sessions"])
+        st.extra = dict(meta.get("extra") or dict(successors_distinct=0))
+        st.graph_status = meta.get("graph_status")
+        if meta.get("graph"):
+            g = dict(A=meta["graph"]["A"])
+            for key, name, code in (("hashes", "graph_hashes.u64.gz", "Q"), ("rows", "graph_rows.i32.gz", "i"),
+                                    ("next", "graph_next.i32.gz", "i"), ("win", "graph_win.i32.gz", "i"),
+                                    ("loss", "graph_loss.i32.gz", "i")):
+                arr = array(code)
+                with gzip.open(os.path.join(d, name), "rb") as f:
+                    arr.frombytes(f.read())
+                g[key] = arr
+            g["index"] = {h: i for i, h in enumerate(g["hashes"])}
+            if len(g["hashes"]) != meta["graph"]["n"]:
+                raise ValueError("graph size differs from the checkpoint record")
+            st.graph = g
         return st
 
 
-def run_search(unit, p, work_dir, state, deadline, on_checkpoint, nonce, started):
+def _graph_id(g, hk):
+    i = g["index"].get(hk)
+    if i is None:
+        i = len(g["hashes"])
+        g["index"][hk] = i
+        g["hashes"].append(hk)
+    return i
+
+
+def run_search(unit, p, work_dir, state, deadline, on_checkpoint, nonce, started, schema=SEARCH_SCHEMA):
     """Expand until the frontier is empty (complete), a cap is hit (capped), or the session deadline
-    (stopped, state returned for the checkpoint).  Returns (status, row_or_None, state)."""
-    sim = SIMULATORS[p["simulator"]](p)
+    (stopped, state returned for the checkpoint).  Returns (status, row_or_None, state).
+
+    Win and loss states are counted and, where the simulator says so (win_is_terminal), not expanded.
+    With params eh_state_limit, the transitions are recorded while the level has at most that many states,
+    and a complete search computes the effective-horizon bound (eh.py) with horizon eh_horizon; such rows
+    use the schema horizon.search.v2, whose "measures" hold the branching and the bound."""
+    sim = make_simulator(p, unit)
+    terminal_on_win = getattr(sim, "win_is_terminal", False)
     spill_over = int(p["spill_frontier_over"])
     node_cap, time_cap, mem_cap = int(p["node_cap"]), float(p["time_cap_seconds"]), int(p["memory_cap_bytes"])
     batch, pause = int(p.get("batch", 1000)), float(p.get("seconds_per_batch", 0.0))
     every_s, every_n = float(p["checkpoint_every_seconds"]), int(p["checkpoint_every_nodes"])
+    eh_limit = int(p.get("eh_state_limit", 0))
     os.makedirs(work_dir, exist_ok=True)
     if state is None:
         state = SearchState()
-        r = sim.root()
-        state.visited.add(h64(sim.key(r)))
+        rkey, rwin, rloss = sim.root_info()
+        hk = h64(rkey)
+        state.visited.add(hk)
         state.counts["states_seen"] = 1
-        if sim.is_goal(r):
+        if rwin:
             state.counts["solution_length"] = 0
-        state.head.append((sim.encode(r), 0))
+        if eh_limit:
+            state.graph = dict(A=None, hashes=array("Q"), rows=array("i"), next=array("i"), win=array("i"),
+                               loss=array("i"), index={})
+            _graph_id(state.graph, hk)
+        if not ((rwin and terminal_on_win) or rloss):
+            state.head.append((sim.root_enc(), 0))
     c = state.counts
     t_mark = time.time()
     last_ck_t, last_ck_n = time.time(), c["states_expanded"]
@@ -202,19 +273,36 @@ def run_search(unit, p, work_dir, state, deadline, on_checkpoint, nonce, started
             if not state.head or c["states_expanded"] >= node_cap:
                 break
             enc, depth = state.head.popleft()
-            node = sim.decode(enc)
+            pkey, kids = sim.expand(enc)
+            phk = h64(pkey)
             c["states_expanded"] += 1
-            for _a, nxt in sim.successors(node):
+            g = state.graph
+            if g is not None:
+                g["A"] = len(kids)
+                g["rows"].append(_graph_id(g, phk))
+            distinct = set()
+            for _a, enc2, key2, win, loss in kids:
                 c["successors_total"] += 1
-                hk = h64(sim.key(nxt))
+                hk = h64(key2)
+                if hk != phk:
+                    distinct.add(hk)
+                if g is not None:
+                    cid = _graph_id(g, hk)
+                    g["next"].append(cid)
+                    if win:
+                        g["win"].append(cid)
+                    if loss:
+                        g["loss"].append(cid)
                 if hk in state.visited:
                     continue
                 state.visited.add(hk)
                 c["states_seen"] += 1
                 c["depth_max"] = max(c["depth_max"], depth + 1)
-                if c["solution_length"] is None and sim.is_goal(nxt):
+                if c["solution_length"] is None and win:
                     c["solution_length"] = depth + 1
-                state.tail.append((sim.encode(nxt), depth + 1))
+                if (win and terminal_on_win) or loss:
+                    continue
+                state.tail.append((enc2, depth + 1))
                 if len(state.tail) >= spill_over:            # spill the newest entries to disk
                     state.spill_seq += 1
                     name = f"spill_{state.spill_seq:06d}.json.gz"
@@ -223,6 +311,9 @@ def run_search(unit, p, work_dir, state, deadline, on_checkpoint, nonce, started
                     state.spills.append(name)
                     state.tail = []
                     c["spill_files_max"] = max(c["spill_files_max"], len(state.spills))
+            state.extra["successors_distinct"] += len(distinct)
+            if g is not None and len(g["hashes"]) > eh_limit:
+                state.graph, state.graph_status = None, f"more than {eh_limit} states"
         if pause:
             time.sleep(pause)
         spend()
@@ -245,13 +336,44 @@ def run_search(unit, p, work_dir, state, deadline, on_checkpoint, nonce, started
     spend()
     c["frontier_left"] = state.frontier_size(spill_over)
     sessions = state.sessions + [session_entry(nonce, started)]
-    row = dict(schema=SEARCH_SCHEMA, campaign=unit["campaign"], unit_id=unit["unit_id"], chunk_id=unit["chunk_id"],
+    row = dict(schema=schema, campaign=unit["campaign"], unit_id=unit["unit_id"], chunk_id=unit["chunk_id"],
                suite=unit["suite"], game=unit["game"], level=unit["level"],
                complete=cap_hit is None, capped=cap_hit is not None, cap_hit=cap_hit, counts=dict(c),
                caps=dict(node_cap=node_cap, time_cap_seconds=time_cap, memory_cap_bytes=mem_cap,
                          spill_frontier_over=spill_over),
                seconds_spent=round(state.seconds_spent, 3), sessions=sessions, written_at=now_iso())
+    if schema == SEARCH_SCHEMA_V2:
+        row["measures"] = measures(state, cap_hit, p)
     return ("capped" if cap_hit else "complete"), row, state
+
+
+def measures(state, cap_hit, p):
+    """Branching and the effective-horizon bound for a horizon.search.v2 row."""
+    c = state.counts
+    b = state.extra["successors_distinct"] / c["states_expanded"] if c["states_expanded"] else None
+    out = dict(branching=b, eh=None, eh_k=None, eh_status=None, eh_horizon=int(p.get("eh_horizon", 0)) or None)
+    if cap_hit:
+        out["eh_status"] = f"not computed: capped by {cap_hit}"
+    elif state.graph is None:
+        out["eh_status"] = f"not computed: {state.graph_status or 'not recorded'}"
+    else:
+        import numpy as np  # noqa: PLC0415
+        from eh import effective_horizon  # noqa: PLC0415
+        g = state.graph
+        n = len(g["hashes"])
+        A = g["A"] or 1
+        win = np.zeros(n, bool)
+        win[np.frombuffer(g["win"].tobytes(), dtype=np.int32)] = True
+        loss = np.zeros(n, bool)
+        loss[np.frombuffer(g["loss"].tobytes(), dtype=np.int32)] = True
+        rows = np.frombuffer(g["rows"].tobytes(), dtype=np.int32)
+        if not len(rows):
+            out["eh_status"] = "not computed: the start is terminal"
+            return out
+        nxt = np.frombuffer(g["next"].tobytes(), dtype=np.int32).reshape(len(rows), A)
+        r = effective_horizon(nxt, rows, win, loss, start=0, T=int(p["eh_horizon"]), A=A)
+        out.update(eh=r["eh"], eh_k=r["k"], eh_status=r["status"])
+    return out
 
 
 # ---------------------------------------------------------------- agent
