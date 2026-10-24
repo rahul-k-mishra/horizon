@@ -6,8 +6,9 @@ It prints:
     - per chunk: status, attempts, failures, and every session with its Kaggle kernel version, run
       nonce, outcome and end time;
     - per row: unit, schema check, and the host, run nonce and times of each session that built it;
-    - the forced-checkpoint chunk dry-02: its two kernel versions and the commits that wrote its
-      checkpoint between them;
+    - the forced-checkpoint chunk dry-02: its two kernel versions, the commits that wrote and removed
+      its checkpoint, and the checkpoint's files with their sizes and where each was kept (git or the
+      release);
     - graph-a against an uninterrupted enumeration of the same dummy graph (states seen, goal depth),
       and graph-b's cap;
     - every FAILURE line of logs/automation.log;
@@ -89,6 +90,16 @@ def main():
     log = git("log", "--reverse", "--format=%h %cI %s", "--", f"runs/{m['campaign']}/checkpoints/dry-02/checkpoint.json")
     for line in log.strip().splitlines():
         print(f"checkpoint commit: {line}")
+        h = line.split()[0]
+        try:
+            ck = json.loads(git("show", f"{h}:runs/{m['campaign']}/checkpoints/dry-02/checkpoint.json"))
+        except subprocess.CalledProcessError:
+            print("   (the checkpoint is removed in this commit: the chunk is done)")
+            continue
+        print(f"   checkpoint seq {ck['seq']}, run {ck['run_nonce']}, units done {ck['units_done']}, "
+              f"unit in progress {ck['unit_in_progress']['unit_id']}")
+        for name, v in sorted(ck["payload"].items()):
+            print(f"   {name}: {v['bytes']} bytes, {v.get('location', 'git')}")
     p = m["kinds"]["search"]
     n_ref, d_ref = reference(int(p["M"]), [tuple(e) for e in p["edges"]], int(p["goal"]))
     ra = read_json(os.path.join(base, "search", "dry-02-graph-a.json"))
