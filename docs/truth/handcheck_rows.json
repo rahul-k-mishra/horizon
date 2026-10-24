@@ -2,7 +2,7 @@
  "schema": "horizon.handcheck_rows.v1",
  "written_by": "scripts/handcheck_app.py",
  "sources": {
-  "docs/truth/gvgai.json": "d4924bee5fd76aadf473f9d418b202a21d9c552daa55dd4acc1bebe0ea20d50a",
+  "docs/truth/gvgai.json": "db80ef30e37b71f3a022533d243106707e6fa96914e463a870f9dfa1092f25ca",
   "docs/truth/HANDCHECK.md": "21fc0c3687af648bcafaa9821c2412c6aaa73866815e865a95c219a51a4695e3",
   "docs/truth/HANDCHECK_GUIDE.md": "368d9b84967ba2e2427e19c092e544f27182ef5c3ef518c9d786e3e13fc547ca",
   "docs/truth/handcheck_readings.json": "0660c099391b3ae8311ce5aaf0ddb453595e02d327300b7227022367a8ef55f1"

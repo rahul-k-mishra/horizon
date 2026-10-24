@@ -1,0 +1,9 @@
+truth_diff: docs/truth/gvgai.json at b0091c7 against the working tree; 110 games then, 110 now
+games only in the old file: none; only in the new: none
+chopper (not deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+circuit (not deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+eggomania (not deterministic): verdicts changed: L0 A1 fails -> holds, L1 A1 fails -> holds, L2 A1 fails -> holds, L3 A1 fails -> holds, L4 A1 fails -> holds
+eggomania (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+islands (deterministic): clauses changed, verdict the same: L0 A4, L1 A4, L2 A4, L3 A4, L4 A4
+verdicts changed: 5 in all games, 0 in the 30 deterministic games; entries with clauses changed and the verdict the same: 20
+the set of deterministic games is the same: 30 games
