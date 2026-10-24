@@ -21,7 +21,8 @@ A tick:
 A chunk's failures are counted (kernel error, missing or invalid output, no progress); at the
 registered maximum the loop halts and writes STATE-ready text into logs/automation.log.
 
-Environment: KAGGLE_USERNAME and KAGGLE_KEY (read by the Kaggle tool); GH_TOKEN for gh in Actions.
+Environment: KAGGLE_USERNAME (the account, for the notebook's id) and KAGGLE_API_TOKEN (the Kaggle API
+token, read by the Kaggle tool; the workflow fills it from the secret KAGGLE_KEY); GH_TOKEN for gh in Actions.
 For tests: KAGGLE_CMD replaces the kaggle command (a JSON list or a shell-style string), HORIZON_RELEASE_DIR replaces GitHub releases with a
 local folder, HORIZON_NO_PULL skips git pull and push when the repository has no remote.
 """

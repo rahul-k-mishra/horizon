@@ -1,6 +1,7 @@
 # The HORIZON loop (docs/AUTOMATION.md, Section 6).  Every 30 minutes, and on demand, one tick:
 # poll the Kaggle notebook, collect and verify a finished session, commit it, push the next chunk.
-# The runner computes nothing; all work happens on Kaggle.  Secrets: KAGGLE_USERNAME, KAGGLE_KEY.
+# The runner computes nothing; all work happens on Kaggle.  Secrets: KAGGLE_USERNAME (the account name,
+# for the notebook's id) and KAGGLE_KEY (the existing Kaggle API token, given to the tool as KAGGLE_API_TOKEN).
 name: horizon-loop
 
 on:
@@ -31,7 +32,7 @@ jobs:
       - name: Tick
         env:
           KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
-          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_KEY }}
           GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "horizon-loop"
