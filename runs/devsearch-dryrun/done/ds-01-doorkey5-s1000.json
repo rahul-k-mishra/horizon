@@ -1,0 +1,10 @@
+{
+ "chunk_id": "ds-01",
+ "committed_at": "2026-10-24T18:33:49Z",
+ "kernel_version": 7,
+ "kind": "devsearch",
+ "row_path": "runs/devsearch-dryrun/devsearch/ds-01-doorkey5-s1000.json",
+ "row_sha256": "c80e92e68d5d8393d56f9a6a776f7919f5883c1e6573f951561bf640ec39851f",
+ "run_nonce": "devsearch-dryrun-ds-01-20261024T182531Z-36bf43",
+ "unit_id": "ds-01-doorkey5-s1000"
+}

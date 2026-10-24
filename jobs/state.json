@@ -1,13 +1,5 @@
 {
- "dispatch": {
-  "chunk_id": "ds-01",
-  "dispatched_at": "2026-10-24T18:25:31Z",
-  "entry_hash": "0828a1f03df7e4fe827070a9b6bedbf71454b8944b412daf8fb58b5a84d0089d",
-  "kernel_version": 7,
-  "nonce": "devsearch-dryrun-ds-01-20261024T182531Z-36bf43",
-  "pushed_at": "2026-10-24T18:25:33Z",
-  "runner": "actions-40120614871-1"
- },
+ "dispatch": null,
  "halt_reason": null,
  "halted": false,
  "halted_at": null
