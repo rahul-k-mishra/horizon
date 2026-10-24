@@ -1,0 +1,116 @@
+oracle_sat -- EXPLORATORY: how the perfect separations of the oracle test arise
+oracle_v2.json: 20 lines
+rows read: 10500 files, 10080 confirmatory rows kept, 420 pilot rows skipped
+consistency with oracle_v2.json (N medians and censored seeds): 2017 of 2017 games agree on 20 of 20 lines
+line minigrid macro primary I1 (evidence): n=83 pos=61
+  pre-run  area=0.8666 actions=0.5101 colours=0.6218 | B in-sample=0.8413 leave-one-out=0.7757
+  censoring flag  majority: flagged 7, separates no, auroc=0.5972; any: flagged 23, separates no, auroc=0.8372
+  saturated  (none)
+line minigrid macro primary N (instrument check): n=112 pos=100
+  pre-run  area=0.7262 actions=0.3850 colours=0.5312 | B in-sample=0.8725 leave-one-out=0.8217
+  censoring flag  majority: flagged 12, separates yes, auroc=1.0000; any: flagged 30, separates no, auroc=0.9100
+  N_actions auroc=1.0000 complete n=100 [min 4.0000, med 316.7500, max 18124.0] not n=12 [min 20000.0, med 20000.0, max 20000.0] overlap 0/0 gap=1876.0 at budget 12/12
+  Nsearch in-sample auroc=1.0000 complete n=100 [min 0.9998, med 1.0000, max 1.0000] not n=12 [min 0.0000, med 0.0000, max 0.0000] overlap 0/0 gap=0.9997
+  Nsearch leave-one-out auroc=1.0000 complete n=100 [min 0.0052, med 1.0000, max 1.0000] not n=12 [min 0.0000, med 0.0000, max 0.0000] overlap 0/0 gap=0.0052
+  search5 in-sample auroc=1.0000 complete n=100 [min 0.9998, med 1.0000, max 1.0000] not n=12 [min 0.0000, med 0.0000, max 0.0001] overlap 0/0 gap=0.9997
+line minigrid macro primary R (evidence): n=112 pos=101
+  pre-run  area=0.7840 actions=0.4239 colours=0.5653 | B in-sample=0.8515 leave-one-out=0.7912
+  censoring flag  majority: flagged 12, separates no, auroc=0.9950; any: flagged 30, separates no, auroc=0.9059
+  Nsearch in-sample auroc=1.0000 complete n=101 [min 0.3826, med 1.0000, max 1.0000] not n=11 [min 0.0000, med 0.0000, max 0.3389] overlap 0/0 gap=0.0437
+  search5 in-sample auroc=1.0000 complete n=101 [min 0.9970, med 1.0000, max 1.0000] not n=11 [min 0.0000, med 0.0000, max 0.0030] overlap 0/0 gap=0.9940
+line minigrid macro primary, D9b included I1 (evidence): n=112 pos=61
+  pre-run  area=0.8454 actions=0.5230 colours=0.4789 | B in-sample=0.8734 leave-one-out=0.8422
+  censoring flag  majority: flagged 12, separates no, auroc=0.5816; any: flagged 30, separates no, auroc=0.6861
+  saturated  (none)
+line minigrid macro all games I1 (evidence): n=161 pos=61
+  pre-run  area=0.6918 actions=0.5278 colours=0.4618 | B in-sample=0.7562 leave-one-out=0.7320
+  censoring flag  majority: flagged 61, separates no, auroc=0.7786; any: flagged 79, separates no, auroc=0.8158
+  saturated  (none)
+line minigrid macro all games N (instrument check): n=161 pos=100
+  pre-run  area=0.4484 actions=0.4854 colours=0.4441 | B in-sample=0.5752 leave-one-out=0.5092
+  censoring flag  majority: flagged 61, separates yes, auroc=1.0000; any: flagged 79, separates no, auroc=0.9100
+  N_actions auroc=1.0000 complete n=100 [min 4.0000, med 316.7500, max 18124.0] not n=61 [min 20000.0, med 20000.0, max 20000.0] overlap 0/0 gap=1876.0 at budget 61/61
+  Nsearch in-sample auroc=1.0000 complete n=100 [min 0.9995, med 1.0000, max 1.0000] not n=61 [min 0.0000, med 0.0000, max 0.0000] overlap 0/0 gap=0.9995
+  Nsearch leave-one-out auroc=1.0000 complete n=100 [min 0.0026, med 1.0000, max 1.0000] not n=61 [min 0.0000, med 0.0000, max 0.0000] overlap 0/0 gap=0.0025
+  search5 in-sample auroc=1.0000 complete n=100 [min 0.9996, med 1.0000, max 1.0000] not n=61 [min 0.0000, med 0.0000, max 0.0002] overlap 0/0 gap=0.9994
+line minigrid macro all games R (evidence): n=161 pos=101
+  pre-run  area=0.4578 actions=0.4982 colours=0.4525 | B in-sample=0.5589 leave-one-out=0.4620
+  censoring flag  majority: flagged 61, separates no, auroc=0.9950; any: flagged 79, separates no, auroc=0.9059
+  Nsearch in-sample auroc=1.0000 complete n=101 [min 0.2606, med 1.0000, max 1.0000] not n=60 [min 0.0000, med 0.0000, max 0.2294] overlap 0/0 gap=0.0312
+  search5 in-sample auroc=1.0000 complete n=101 [min 0.9603, med 1.0000, max 1.0000] not n=60 [min 0.0000, med 0.0000, max 0.0397] overlap 0/0 gap=0.9207
+line minigrid raw primary I1 (evidence): n=98 pos=71
+  pre-run  area=0.8498 actions=0.5097 colours=0.6390 | B in-sample=0.8534 leave-one-out=0.7606
+  censoring flag  majority: flagged 6, separates no, auroc=0.5856; any: flagged 32, separates no, auroc=0.8881
+  saturated  (none)
+line minigrid raw primary N (instrument check): n=155 pos=130
+  pre-run  area=0.6817 actions=0.4954 colours=0.5177 | B in-sample=0.6202 leave-one-out=0.5025
+  censoring flag  majority: flagged 25, separates yes, auroc=1.0000; any: flagged 62, separates no, auroc=0.8577
+  N_actions auroc=1.0000 complete n=130 [min 48.0000, med 599.2500, max 19958.0] not n=25 [min 20000.0, med 20000.0, max 20000.0] overlap 0/0 gap=42.0000 at budget 25/25
+  Nsearch in-sample auroc=1.0000 complete n=130 [min 0.8135, med 1.0000, max 1.0000] not n=25 [min 0.0001, med 0.0029, max 0.0557] overlap 0/0 gap=0.7577
+  search5 in-sample auroc=1.0000 complete n=130 [min 0.8184, med 1.0000, max 1.0000] not n=25 [min 0.0000, med 0.0015, max 0.0521] overlap 0/0 gap=0.7663
+line minigrid raw primary R (evidence): n=155 pos=126
+  pre-run  area=0.6890 actions=0.4986 colours=0.5112 | B in-sample=0.6561 leave-one-out=0.5569
+  censoring flag  majority: flagged 25, separates no, auroc=0.9098; any: flagged 62, separates no, auroc=0.8690
+  saturated  (none)
+line minigrid raw primary, D9b included I1 (evidence): n=155 pos=71
+  pre-run  area=0.7884 actions=0.5222 colours=0.4623 | B in-sample=0.8184 leave-one-out=0.7976
+  censoring flag  majority: flagged 25, separates no, auroc=0.6358; any: flagged 62, separates no, auroc=0.7651
+  saturated  (none)
+line minigrid raw all games I1 (evidence): n=161 pos=71
+  pre-run  area=0.7631 actions=0.5226 colours=0.4557 | B in-sample=0.8086 leave-one-out=0.7879
+  censoring flag  majority: flagged 31, separates no, auroc=0.6596; any: flagged 68, separates no, auroc=0.7770
+  saturated  (none)
+line minigrid raw all games N (instrument check): n=161 pos=130
+  pre-run  area=0.6112 actions=0.4993 colours=0.4764 | B in-sample=0.6036 leave-one-out=0.4973
+  censoring flag  majority: flagged 31, separates yes, auroc=1.0000; any: flagged 68, separates no, auroc=0.8577
+  N_actions auroc=1.0000 complete n=130 [min 48.0000, med 599.2500, max 19958.0] not n=31 [min 20000.0, med 20000.0, max 20000.0] overlap 0/0 gap=42.0000 at budget 31/31
+  Nsearch in-sample auroc=1.0000 complete n=130 [min 0.8013, med 1.0000, max 1.0000] not n=31 [min 0.0001, med 0.0028, max 0.0604] overlap 0/0 gap=0.7408
+  search5 in-sample auroc=1.0000 complete n=130 [min 0.8066, med 1.0000, max 1.0000] not n=31 [min 0.0000, med 0.0014, max 0.0562] overlap 0/0 gap=0.7504
+line minigrid raw all games R (evidence): n=161 pos=126
+  pre-run  area=0.6265 actions=0.5016 colours=0.4755 | B in-sample=0.6472 leave-one-out=0.5592
+  censoring flag  majority: flagged 31, separates no, auroc=0.9246; any: flagged 68, separates no, auroc=0.8690
+  saturated  (none)
+line procgen center_off all I1 (evidence): n=14 pos=6
+  pre-run  area=0.5000 actions=0.5000 colours=0.4896 | B in-sample=0.5104 leave-one-out=0.0000 (constant: area, actions)
+  censoring flag  majority: flagged 5, separates no, auroc=0.8125; any: flagged 7, separates no, auroc=0.7917
+  saturated  (none)
+line procgen center_off all N (instrument check): n=14 pos=9
+  pre-run  area=0.5000 actions=0.5000 colours=0.4333 | B in-sample=0.5667 leave-one-out=0.2667 (constant: area, actions)
+  censoring flag  majority: flagged 5, separates yes, auroc=1.0000; any: flagged 7, separates no, auroc=0.8889
+  N_actions auroc=1.0000 complete n=9 [min 42.0000, med 1187.0, max 9660.0] not n=5 [min 20000.0, med 20000.0, max 20000.0] overlap 0/0 gap=10340.0 at budget 5/5
+  Nsearch in-sample auroc=1.0000 complete n=9 [min 1.0000, med 1.0000, max 1.0000] not n=5 [min 0.0000, med 0.0000, max 0.0000] overlap 0/0 gap=1.0000
+  Nsearch leave-one-out auroc=1.0000 complete n=9 [min 0.9999, med 1.0000, max 1.0000] not n=5 [min 0.0000, med 0.0000, max 0.1763] overlap 0/0 gap=0.8237
+  search5 in-sample auroc=1.0000 complete n=9 [min 1.0000, med 1.0000, max 1.0000] not n=5 [min 0.0000, med 0.0000, max 0.0000] overlap 0/0 gap=1.0000
+  search5 leave-one-out auroc=1.0000 complete n=9 [min 0.4469, med 1.0000, max 1.0000] not n=5 [min 0.0000, med 0.0000, max 0.3518] overlap 0/0 gap=0.0951
+line procgen center_off all R (evidence): n=14 pos=9
+  pre-run  area=0.5000 actions=0.5000 colours=0.4333 | B in-sample=0.5667 leave-one-out=0.2667 (constant: area, actions)
+  censoring flag  majority: flagged 5, separates yes, auroc=1.0000; any: flagged 7, separates no, auroc=0.8889
+  N_actions auroc=1.0000 complete n=9 [min 42.0000, med 1187.0, max 9660.0] not n=5 [min 20000.0, med 20000.0, max 20000.0] overlap 0/0 gap=10340.0 at budget 5/5
+  Nsearch in-sample auroc=1.0000 complete n=9 [min 1.0000, med 1.0000, max 1.0000] not n=5 [min 0.0000, med 0.0000, max 0.0000] overlap 0/0 gap=1.0000
+  Nsearch leave-one-out auroc=1.0000 complete n=9 [min 0.9999, med 1.0000, max 1.0000] not n=5 [min 0.0000, med 0.0000, max 0.1763] overlap 0/0 gap=0.8237
+  search5 in-sample auroc=1.0000 complete n=9 [min 1.0000, med 1.0000, max 1.0000] not n=5 [min 0.0000, med 0.0000, max 0.0000] overlap 0/0 gap=1.0000
+  search5 leave-one-out auroc=1.0000 complete n=9 [min 0.4458, med 1.0000, max 1.0000] not n=5 [min 0.0000, med 0.0000, max 0.3499] overlap 0/0 gap=0.0959
+line procgen center_off in_range I1 (evidence): n=9 pos=4
+  pre-run  area=0.5000 actions=0.5000 colours=0.5250 | B in-sample=0.4750 leave-one-out=0.0000 (constant: area, actions)
+  censoring flag  majority: flagged 4, separates no, auroc=0.9000; any: flagged 5, separates no, auroc=0.7750
+  N_actions auroc=1.0000 complete n=4 [min 42.0000, med 505.7500, max 8303.5] not n=5 [min 9660.0, med 20000.0, max 20000.0] overlap 0/0 gap=1356.5 at budget 4/5
+  Nsearch in-sample auroc=1.0000 complete n=4 [min 0.9999, med 1.0000, max 1.0000] not n=5 [min 0.0000, med 0.0000, max 0.0001] overlap 0/0 gap=0.9998
+  search5 in-sample auroc=1.0000 complete n=4 [min 1.0000, med 1.0000, max 1.0000] not n=5 [min 0.0000, med 0.0000, max 0.0000] overlap 0/0 gap=1.0000
+line procgen center_off in_range N (instrument check): n=9 pos=5
+  pre-run  area=0.5000 actions=0.5000 colours=0.7000 | B in-sample=0.7000 leave-one-out=0.0000 (constant: area, actions)
+  censoring flag  majority: flagged 4, separates yes, auroc=1.0000; any: flagged 5, separates no, auroc=0.9000
+  N_states auroc=1.0000 complete n=5 [min 16.0000, med 342.0000, max 7901.5] not n=4 [min 17138.5, med 19579.2, max 19688.0] overlap 0/0 gap=9237.0
+  N_actions auroc=1.0000 complete n=5 [min 42.0000, med 901.5000, max 9660.0] not n=4 [min 20000.0, med 20000.0, max 20000.0] overlap 0/0 gap=10340.0 at budget 4/4
+  Nsearch in-sample auroc=1.0000 complete n=5 [min 1.0000, med 1.0000, max 1.0000] not n=4 [min 0.0000, med 0.0000, max 0.0000] overlap 0/0 gap=1.0000
+  Nsearch leave-one-out auroc=1.0000 complete n=5 [min 0.9998, med 1.0000, max 1.0000] not n=4 [min 0.0000, med 0.0000, max 0.0000] overlap 0/0 gap=0.9998
+  search5 in-sample auroc=1.0000 complete n=5 [min 1.0000, med 1.0000, max 1.0000] not n=4 [min 0.0000, med 0.0000, max 0.0000] overlap 0/0 gap=1.0000
+line procgen center_off in_range R (evidence): n=9 pos=5
+  pre-run  area=0.5000 actions=0.5000 colours=0.7000 | B in-sample=0.7000 leave-one-out=0.0000 (constant: area, actions)
+  censoring flag  majority: flagged 4, separates yes, auroc=1.0000; any: flagged 5, separates no, auroc=0.9000
+  N_states auroc=1.0000 complete n=5 [min 16.0000, med 342.0000, max 7901.5] not n=4 [min 17138.5, med 19579.2, max 19688.0] overlap 0/0 gap=9237.0
+  N_actions auroc=1.0000 complete n=5 [min 42.0000, med 901.5000, max 9660.0] not n=4 [min 20000.0, med 20000.0, max 20000.0] overlap 0/0 gap=10340.0 at budget 4/4
+  Nsearch in-sample auroc=1.0000 complete n=5 [min 1.0000, med 1.0000, max 1.0000] not n=4 [min 0.0000, med 0.0000, max 0.0000] overlap 0/0 gap=1.0000
+  Nsearch leave-one-out auroc=1.0000 complete n=5 [min 0.9998, med 1.0000, max 1.0000] not n=4 [min 0.0000, med 0.0000, max 0.0000] overlap 0/0 gap=0.9998
+  search5 in-sample auroc=1.0000 complete n=5 [min 1.0000, med 1.0000, max 1.0000] not n=4 [min 0.0000, med 0.0000, max 0.0000] overlap 0/0 gap=1.0000
+saturated items: 41 on 11 lines; of them separated by the majority censoring flag alone: 8 lines
+wrote docs\oracle\saturation.md, docs\oracle\saturation.json
