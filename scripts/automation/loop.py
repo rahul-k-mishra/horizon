@@ -208,7 +208,7 @@ def log_line(repo, text):
     p = os.path.join(repo, AUTOLOG)
     os.makedirs(os.path.dirname(p), exist_ok=True)
     with open(p, "a", encoding="utf-8", newline="\n") as f:
-        f.write(f"{now_iso()} {runner_id()} {text}\n")
+        f.write(f"{now_iso()} {runner_id()} {' '.join(str(text).split())}\n")   # one line per entry
 
 
 def counts(m):
