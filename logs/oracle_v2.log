@@ -1,0 +1,129 @@
+oracle_v2 -- EXPLORATORY: study-1 V2 recomputed with the truth-table mechanics vector
+old repository: D:\Research\arc3\repo
+frozen analysis blob scripts/analyze_common.py: caad22731807db78aff9c92c993a79a63f042ec3 registered caad22731807db78aff9c92c993a79a63f042ec3 match
+frozen analysis blob scripts/analyze_v2.py: 90a849c44e47addd8efdbfa579efdb16288edd50 registered 90a849c44e47addd8efdbfa579efdb16288edd50 match
+truth tables: minigrid 178 ids, 161 confirmatory; procgen 16 games, 14 confirmatory; unparsed truth entries 0
+rows read: 10500 files, 10080 confirmatory rows kept, 420 pilot rows skipped
+rows minigrid macro I1: 1610
+rows minigrid macro N: 1610
+rows minigrid macro R: 1610
+rows minigrid raw I1: 1610
+rows minigrid raw N: 1610
+rows minigrid raw R: 1610
+rows procgen center_off I1: 140
+rows procgen center_off N: 140
+rows procgen center_off R: 140
+rows with an error field: 0; rows short of their budget: 0
+lines: 20 (minigrid macro 7, minigrid raw 7, procgen center_off 6); workers 8
+line minigrid macro primary I1 (evidence): n=83 pos=61
+  census  auroc=0.7187 ci=[0.5902, 0.8298] ba=0.5838 auroc_B=0.8413 verdict=neither | v2.json same
+  oracle  auroc=0.6967 ci=[0.6356, 0.7583] ba=0.6967 auroc_B=0.8413 verdict(rule, exploratory)=neither
+  search  area=0.8666 actions=0.5101 colours=0.6218 N_states=0.8826 N_actions=0.8674 (censored N seeds: states 102, actions 102)
+  models  in-sample B=0.8413 Nsearch=0.8927 search5=0.9001 oracle=0.7157 | leave-one-out B=0.7757 Nsearch=0.8234 search5=0.8174 oracle=0.4382
+line minigrid macro primary N (instrument check): n=112 pos=100
+  census  auroc=0.6613 ci=[0.5049, 0.7941] ba=0.5700 auroc_B=0.8725 verdict=neither | v2.json same
+  oracle  auroc=0.5617 ci=[0.4289, 0.6667] ba=0.5617 auroc_B=0.8725 verdict(rule, exploratory)=FAIL
+  search  area=0.7262 actions=0.3850 colours=0.5312 N_states=0.6925 N_actions=1.0000 (censored N seeds: states 149, actions 149)
+  models  in-sample B=0.8725 Nsearch=1.0000 search5=1.0000 oracle=0.6421 | leave-one-out B=0.8217 Nsearch=1.0000 search5=0.9992 oracle=0.4142
+line minigrid macro primary R (evidence): n=112 pos=101
+  census  auroc=0.6985 ci=none ba=0.5693 auroc_B=0.8515 verdict=VOID | v2.json same
+  oracle  auroc=0.5527 ci=none ba=0.5527 auroc_B=0.8515 verdict(rule, exploratory)=VOID
+  search  area=0.7840 actions=0.4239 colours=0.5653 N_states=0.7511 N_actions=0.9950 (censored N seeds: states 149, actions 149)
+  models  in-sample B=0.8515 Nsearch=1.0000 search5=1.0000 oracle=0.6053 | leave-one-out B=0.7912 Nsearch=0.9865 search5=0.9428 oracle=0.3591
+line minigrid macro primary, D9b included I1 (evidence): n=112 pos=61
+  census  auroc=0.7719 ci=[0.6840, 0.8529] ba=0.5968 auroc_B=0.8734 verdict=reported, not tested | v2.json same
+  oracle  auroc=0.6281 ci=[0.5507, 0.7030] ba=0.6281 auroc_B=0.8734 verdict(rule, exploratory)=reported, not tested
+  search  area=0.8454 actions=0.5230 colours=0.4789 N_states=0.8531 N_actions=0.8145 (censored N seeds: states 149, actions 149)
+  models  in-sample B=0.8734 Nsearch=0.8447 search5=0.8994 oracle=0.6517 | leave-one-out B=0.8422 Nsearch=0.7946 search5=0.8637 oracle=0.3870
+line minigrid macro all games I1 (evidence): n=161 pos=61
+  census  auroc=0.7517 ci=[0.6764, 0.8223] ba=0.6016 auroc_B=0.7562 verdict=reported, not tested | v2.json same
+  oracle  auroc=0.6617 ci=[0.5974, 0.7266] ba=0.6617 auroc_B=0.7562 verdict(rule, exploratory)=reported, not tested
+  search  area=0.6918 actions=0.5278 colours=0.4618 N_states=0.8865 N_actions=0.8974 (censored N seeds: states 639, actions 639)
+  models  in-sample B=0.7562 Nsearch=0.9148 search5=0.9485 oracle=0.6898 | leave-one-out B=0.7320 Nsearch=0.8834 search5=0.9308 oracle=0.4223
+line minigrid macro all games N (instrument check): n=161 pos=100
+  census  auroc=0.6352 ci=[0.5514, 0.7114] ba=0.5700 auroc_B=0.5752 verdict=reported, not tested | v2.json same
+  oracle  auroc=0.6286 ci=[0.5811, 0.6764] ba=0.6286 auroc_B=0.5752 verdict(rule, exploratory)=reported, not tested
+  search  area=0.4484 actions=0.4854 colours=0.4441 N_states=0.7974 N_actions=1.0000 (censored N seeds: states 639, actions 639)
+  models  in-sample B=0.5752 Nsearch=1.0000 search5=1.0000 oracle=0.6364 | leave-one-out B=0.5092 Nsearch=1.0000 search5=0.9995 oracle=0.3144
+line minigrid macro all games R (evidence): n=161 pos=101
+  census  auroc=0.6434 ci=[0.5609, 0.7208] ba=0.5693 auroc_B=0.5589 verdict=reported, not tested | v2.json same
+  oracle  auroc=0.6269 ci=[0.5789, 0.6751] ba=0.6269 auroc_B=0.5589 verdict(rule, exploratory)=reported, not tested
+  search  area=0.4578 actions=0.4982 colours=0.4525 N_states=0.8113 N_actions=0.9950 (censored N seeds: states 639, actions 639)
+  models  in-sample B=0.5589 Nsearch=1.0000 search5=1.0000 oracle=0.6294 | leave-one-out B=0.4620 Nsearch=0.9875 search5=0.9891 oracle=0.2776
+line minigrid raw primary I1 (evidence): n=98 pos=71
+  census  auroc=0.5370 ci=[0.4324, 0.6410] ba=0.5070 auroc_B=0.8534 verdict=FAIL | v2.json same
+  oracle  auroc=0.6690 ci=[0.6119, 0.7244] ba=0.5000 auroc_B=0.8534 verdict(rule, exploratory)=neither
+  search  area=0.8498 actions=0.5097 colours=0.6390 N_states=0.8472 N_actions=0.8558 (censored N seeds: states 121, actions 121)
+  models  in-sample B=0.8534 Nsearch=0.8623 search5=0.8665 oracle=0.6849 | leave-one-out B=0.7606 Nsearch=0.7626 search5=0.7642 oracle=0.3798
+line minigrid raw primary N (instrument check): n=155 pos=130
+  census  auroc=0.5255 ci=[0.4320, 0.6156] ba=0.5038 auroc_B=0.6202 verdict=FAIL | v2.json same
+  oracle  auroc=0.5477 ci=[0.4677, 0.6143] ba=0.5000 auroc_B=0.6202 verdict(rule, exploratory)=FAIL
+  search  area=0.6817 actions=0.4954 colours=0.5177 N_states=0.9068 N_actions=1.0000 (censored N seeds: states 321, actions 321)
+  models  in-sample B=0.6202 Nsearch=1.0000 search5=1.0000 oracle=0.5498 | leave-one-out B=0.5025 Nsearch=0.9929 search5=0.9923 oracle=0.1809
+line minigrid raw primary R (evidence): n=155 pos=126
+  census  auroc=0.5224 ci=[0.4330, 0.6096] ba=0.5040 auroc_B=0.6561 verdict=FAIL | v2.json same
+  oracle  auroc=0.5594 ci=[0.4843, 0.6203] ba=0.5000 auroc_B=0.6561 verdict(rule, exploratory)=FAIL
+  search  area=0.6890 actions=0.4986 colours=0.5112 N_states=0.9193 N_actions=0.9880 (censored N seeds: states 321, actions 321)
+  models  in-sample B=0.6561 Nsearch=0.9907 search5=0.9915 oracle=0.5602 | leave-one-out B=0.5569 Nsearch=0.9606 search5=0.9581 oracle=0.1916
+line minigrid raw primary, D9b included I1 (evidence): n=155 pos=71
+  census  auroc=0.6258 ci=[0.5405, 0.7065] ba=0.5070 auroc_B=0.8184 verdict=reported, not tested | v2.json same
+  oracle  auroc=0.6273 ci=[0.5632, 0.6894] ba=0.5000 auroc_B=0.8184 verdict(rule, exploratory)=reported, not tested
+  search  area=0.7884 actions=0.5222 colours=0.4623 N_states=0.8460 N_actions=0.8536 (censored N seeds: states 321, actions 321)
+  models  in-sample B=0.8184 Nsearch=0.8494 search5=0.9002 oracle=0.6499 | leave-one-out B=0.7976 Nsearch=0.7936 search5=0.8665 oracle=0.3568
+line minigrid raw all games I1 (evidence): n=161 pos=71
+  census  auroc=0.6069 ci=[0.5235, 0.6926] ba=0.5070 auroc_B=0.8086 verdict=reported, not tested | v2.json same
+  oracle  auroc=0.6301 ci=[0.5694, 0.6905] ba=0.5000 auroc_B=0.8086 verdict(rule, exploratory)=reported, not tested
+  search  area=0.7631 actions=0.5226 colours=0.4557 N_states=0.8385 N_actions=0.8629 (censored N seeds: states 381, actions 381)
+  models  in-sample B=0.8086 Nsearch=0.8593 search5=0.9069 oracle=0.6531 | leave-one-out B=0.7879 Nsearch=0.8074 search5=0.8754 oracle=0.3593
+line minigrid raw all games N (instrument check): n=161 pos=130
+  census  auroc=0.4772 ci=[0.3829, 0.5696] ba=0.5038 auroc_B=0.6036 verdict=reported, not tested | v2.json same
+  oracle  auroc=0.5593 ci=[0.4907, 0.6192] ba=0.5000 auroc_B=0.6036 verdict(rule, exploratory)=reported, not tested
+  search  area=0.6112 actions=0.4993 colours=0.4764 N_states=0.8498 N_actions=1.0000 (censored N seeds: states 381, actions 381)
+  models  in-sample B=0.6036 Nsearch=1.0000 search5=1.0000 oracle=0.5605 | leave-one-out B=0.4973 Nsearch=0.9935 search5=0.9931 oracle=0.1876
+line minigrid raw all games R (evidence): n=161 pos=126
+  census  auroc=0.4805 ci=[0.3919, 0.5687] ba=0.5040 auroc_B=0.6472 verdict=reported, not tested | v2.json same
+  oracle  auroc=0.5683 ci=[0.5033, 0.6264] ba=0.5000 auroc_B=0.6472 verdict(rule, exploratory)=reported, not tested
+  search  area=0.6265 actions=0.5016 colours=0.4755 N_states=0.8686 N_actions=0.9893 (censored N seeds: states 381, actions 381)
+  models  in-sample B=0.6472 Nsearch=0.9914 search5=0.9930 oracle=0.5717 | leave-one-out B=0.5592 Nsearch=0.9673 search5=0.9651 oracle=0.1968
+line procgen center_off all I1 (evidence): n=14 pos=6
+  census  auroc=0.6458 ci=[0.3333, 0.9445] ba=0.5000 auroc_B=0.5104 verdict=FAIL | v2.json same
+  oracle  auroc=0.7917 ci=[0.5222, 1.0000] ba=0.5833 auroc_B=0.5104 verdict(rule, exploratory)=neither
+  search  area=0.5000 actions=0.5000 colours=0.4896 N_states=0.8750 N_actions=0.9167 (censored N seeds: states 52, actions 52)
+  models  in-sample B=0.5104 Nsearch=0.9375 search5=0.9375 oracle=0.8021 | leave-one-out B=0.0000 Nsearch=0.8542 search5=0.7292 oracle=0.4167
+line procgen center_off all N (instrument check): n=14 pos=9
+  census  auroc=0.7222 ci=[0.5000, 0.9333] ba=0.5000 auroc_B=0.5667 verdict=neither | v2.json same
+  oracle  auroc=0.7556 ci=[0.5000, 0.9583] ba=0.5556 auroc_B=0.5667 verdict(rule, exploratory)=neither
+  search  area=0.5000 actions=0.5000 colours=0.4333 N_states=0.9778 N_actions=1.0000 (censored N seeds: states 52, actions 52)
+  models  in-sample B=0.5667 Nsearch=1.0000 search5=1.0000 oracle=0.8333 | leave-one-out B=0.2667 Nsearch=1.0000 search5=1.0000 oracle=0.5333
+line procgen center_off all R (evidence): n=14 pos=9
+  census  auroc=0.7222 ci=[0.5000, 0.9333] ba=0.5000 auroc_B=0.5667 verdict=neither | v2.json same
+  oracle  auroc=0.7556 ci=[0.5000, 0.9583] ba=0.5556 auroc_B=0.5667 verdict(rule, exploratory)=neither
+  search  area=0.5000 actions=0.5000 colours=0.4333 N_states=0.9778 N_actions=1.0000 (censored N seeds: states 52, actions 52)
+  models  in-sample B=0.5667 Nsearch=1.0000 search5=1.0000 oracle=0.8333 | leave-one-out B=0.2667 Nsearch=1.0000 search5=1.0000 oracle=0.5333
+line procgen center_off in_range I1 (evidence): n=9 pos=4
+  census  auroc=0.8750 ci=[0.5000, 1.0000] ba=0.5000 auroc_B=0.4750 verdict=neither | v2.json same
+  oracle  auroc=0.8250 ci=[0.4375, 1.0000] ba=0.6250 auroc_B=0.4750 verdict(rule, exploratory)=neither
+  search  area=0.5000 actions=0.5000 colours=0.5250 N_states=0.9500 N_actions=1.0000 (censored N seeds: states 41, actions 41)
+  models  in-sample B=0.4750 Nsearch=1.0000 search5=1.0000 oracle=0.8500 | leave-one-out B=0.0000 Nsearch=0.9000 search5=0.9500 oracle=0.4500
+line procgen center_off in_range N (instrument check): n=9 pos=5
+  census  auroc=0.8000 ci=[0.5000, 1.0000] ba=0.5000 auroc_B=0.7000 verdict=neither | v2.json same
+  oracle  auroc=0.7250 ci=[0.3750, 1.0000] ba=0.6000 auroc_B=0.7000 verdict(rule, exploratory)=neither
+  search  area=0.5000 actions=0.5000 colours=0.7000 N_states=1.0000 N_actions=1.0000 (censored N seeds: states 41, actions 41)
+  models  in-sample B=0.7000 Nsearch=1.0000 search5=1.0000 oracle=0.8500 | leave-one-out B=0.0000 Nsearch=1.0000 search5=0.9500 oracle=0.5000
+line procgen center_off in_range R (evidence): n=9 pos=5
+  census  auroc=0.8000 ci=[0.5000, 1.0000] ba=0.5000 auroc_B=0.7000 verdict=neither | v2.json same
+  oracle  auroc=0.7250 ci=[0.3750, 1.0000] ba=0.6000 auroc_B=0.7000 verdict(rule, exploratory)=neither
+  search  area=0.5000 actions=0.5000 colours=0.7000 N_states=1.0000 N_actions=1.0000 (censored N seeds: states 41, actions 41)
+  models  in-sample B=0.7000 Nsearch=1.0000 search5=1.0000 oracle=0.8500 | leave-one-out B=0.0000 Nsearch=1.0000 search5=0.9500 oracle=0.5000
+reproduction of study-1 census lines: 20 of 20 identical to docs/tables/v2.json
+bootstrap loop reproduces bootstrap_auroc_ci: 20 of 20 lines
+logistic refit reproduces logistic_fit_predict for B: 20 of 20 lines
+oracle suite line minigrid macro primary: not failed (decided by I1 alone)
+oracle suite line minigrid macro primary, D9b included: reported, not tested
+oracle suite line minigrid macro all games: reported, not tested
+oracle suite line minigrid raw primary: not failed (decided by R and I1)
+oracle suite line minigrid raw primary, D9b included: reported, not tested
+oracle suite line minigrid raw all games: reported, not tested
+oracle suite line procgen center_off all: not failed (decided by R and I1)
+oracle suite line procgen center_off in_range: not failed (decided by R and I1)
+wrote docs\oracle\oracle_v2.md, docs\oracle\oracle_v2.json, docs\oracle\fig_oracle_vs_census.png, docs\oracle\fig_search_features.png
