@@ -1,4 +1,5 @@
 {
+ "consecutive_crashes": 0,
  "dispatch": null,
  "halt_reason": null,
  "halted": false,
