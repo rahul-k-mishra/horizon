@@ -1,21 +1,21 @@
-truth_vgdl: 14 grid-physics games with levels 0-4; 13 deterministic; skipped 0
+truth_vgdl: 15 grid-physics games with levels 0-4; 14 deterministic; skipped 0
 
-== deterministic games: 13 games, 65 (game, level) units
-A1: holds 60, fails 5
-A2: holds 45, fails 20
-A3: holds 50, fails 15
-A4: holds 60, fails 5
-A5: holds 59, fails 6
-S_M (number holding): 3: 5, 4: 41, 5: 19
-games whose vector differs between levels: 1 (twogoals)
-
-== all games: 14 games, 70 (game, level) units
+== deterministic games: 14 games, 70 (game, level) units
 A1: holds 65, fails 5
 A2: holds 45, fails 25
 A3: holds 55, fails 15
-A4: holds 60, fails 10
+A4: holds 65, fails 5
 A5: holds 64, fails 6
-S_M (number holding): 3: 10, 4: 41, 5: 19
+S_M (number holding): 3: 5, 4: 46, 5: 19
+games whose vector differs between levels: 1 (twogoals)
+
+== all games: 15 games, 75 (game, level) units
+A1: holds 70, fails 5
+A2: holds 45, fails 30
+A3: holds 60, fails 15
+A4: holds 65, fails 10
+A5: holds 69, fails 6
+S_M (number holding): 3: 10, 4: 46, 5: 19
 games whose vector differs between levels: 1 (twogoals)
 
 == deterministic games, per level (h holds, f fails; A1 A2 A3 A4 A5)
@@ -32,6 +32,7 @@ slow: L0 hhfhh  L1 hhfhh  L2 hhfhh  L3 hhfhh  L4 hhfhh
 timeout: L0 hhhhf  L1 hhhhf  L2 hhhhf  L3 hhhhf  L4 hhhhf
 twoavatars: L0 hfhhh  L1 hfhhh  L2 hfhhh  L3 hfhhh  L4 hfhhh
 twogoals: L0 hhhhf  L1 hhhhh  L2 hhhhh  L3 hhhhh  L4 hhhhh
+walkspawn: L0 hfhhh  L1 hfhhh  L2 hfhhh  L3 hfhhh  L4 hfhhh
 
-written C:/Users/SHIVAN~1/AppData/Local/Temp/horizon-truthtest-d2bzgvxm/truth.json
+written C:/Users/SHIVAN~1/AppData/Local/Temp/horizon-truthtest-0mhgwi7s/truth.json
 OK

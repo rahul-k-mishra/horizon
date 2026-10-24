@@ -52,6 +52,9 @@ GAMES = {
     # A2 fails (Decision 2), A3 holds: a shooter that moves one cell per action
     "shooter": dict(avatar="        avatar > ShootAvatar stype=bullet rotateInPlace=False",
                     extra_sprites="        bullet > Missile"),
+    # A2 fails (Q1, decided 25 October 2026): walking onto floor spawns a mark, a sprite the action creates
+    "walkspawn": dict(avatar="        avatar > MovingAvatar", extra_sprites="        mark > Immovable",
+                      extra_inter="        floor avatar > spawn stype=mark"),
     # A3 fails: an oriented avatar turns in place by default
     "rotating": dict(avatar="        avatar > OrientedAvatar"),
     # A3 fails: speed 0.5
@@ -166,6 +169,9 @@ def main():
         check(v("null", "A1") == "fails" and cites("null", "A1", "NullAvatar"), "null: A1 fails at the avatar line")
         check(v("shooter", "A2") == "fails" and cites("shooter", "A2", "ShootAvatar"), "shooter: A2 fails at the avatar line")
         check(v("shooter", "A3") == "holds", "shooter with rotateInPlace=False: A3 holds")
+        check(v("walkspawn", "A2") == "fails" and cites("walkspawn", "A2", "floor avatar > spawn"),
+              "walkspawn: A2 fails at the spawn")
+        check(v("keydoor", "A2") == "holds", "keydoor: A2 holds, the avatar's transform into its own subtype creates no other sprite")
         check(v("rotating", "A3") == "fails" and cites("rotating", "A3", "OrientedAvatar"), "rotating: A3 fails")
         check(v("slow", "A3") == "fails" and cites("slow", "A3", "speed=0.5"), "slow: A3 fails at the speed")
         check(v("pushbox", "A2") == "fails" and cites("pushbox", "A2", "box avatar > bounceForward"), "pushbox: A2 fails at the push")

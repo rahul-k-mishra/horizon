@@ -1,0 +1,63 @@
+truth_diff: docs/truth/gvgai.json at f783e4c against the working tree; 110 games then, 110 now
+games only in the old file: none; only in the new: none
+beltmanager (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+boloadventures (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+bomber (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+brainman (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+butterflies (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+cakybaky (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+camelRace (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+catapults (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+chainreaction (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+chase (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+cops (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+crossfire (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+defem (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+deflection (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+dungeon (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+eighthpassenger (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+explore (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+firestorms (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+freeway (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+frogs (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+garbagecollector (deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+ghostbuster (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+gymkhana (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+hungrybirds (deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+iceandfire (deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+infection (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+intersection (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+islands (deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+jaws (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+killBillVol1 (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+labyrinth (deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+labyrinthdual (deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+link (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+pacman (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+pacoban (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+painter (deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+plaqueattack (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+portals (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+racebet (deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+racebet2 (deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+realportals (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+roadfighter (deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+roguelike (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+run (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+seaquest (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+shipwreck (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+slide (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+solarfox (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+superman (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+surround (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+survivezombies (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+themole (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+towerdefense (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+waitforbreakfast (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+whackamole (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+witnessprotected (not deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+x-racer (not deterministic): clauses changed, verdict the same: L0 A2, L1 A2, L2 A2, L3 A2, L4 A2
+zenpuzzle (deterministic): verdicts changed: L0 A2 holds -> fails, L1 A2 holds -> fails, L2 A2 holds -> fails, L3 A2 holds -> fails, L4 A2 holds -> fails
+units compared: 550, 2750 (unit, predicate) verdicts
+verdicts changed: 90 in all games, 10 in the 30 deterministic games; entries with clauses changed and the verdict the same: 200
+the set of deterministic games is the same: 30 games

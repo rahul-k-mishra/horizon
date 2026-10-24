@@ -17,8 +17,11 @@ A1  The avatar present at level start is of a class that responds to at least tw
 A2  Exactly one sprite's displacement is a function of the action.  Fails if the level does not hold
     exactly one avatar sprite at start; if any avatar type of the game is of a class whose use action
     creates a sprite (SHOOTERS; Decision 2 of 24 October 2026: a created sprite is another object
-    responding to the action); or if an interaction pushes or pulls a non-avatar sprite with the avatar
-    as partner (bounceForward, pullWithIt).
+    responding to the action); if an interaction pushes or pulls a non-avatar sprite with the avatar
+    as partner (bounceForward, pullWithIt); or if an interaction that names an avatar type, in any
+    position, creates a sprite of a type other than an avatar type (a spawn, cloneSprite, or a transform
+    into a non-avatar type), so that the action creates another sprite (Q1 of
+    docs/truth/PREDICATE_QUESTIONS.md, decided 25 October 2026).
 A3  Each movement action shifts the avatar by one constant vector, whatever its position, facing and
     history.  Every avatar type of the game must be MovingAvatar, HorizontalAvatar, VerticalAvatar or
     FlakAvatar without rotateInPlace=True, or OrientedAvatar or ShootAvatar with rotateInPlace=False
@@ -278,6 +281,17 @@ def pred_A1(d, start_av):
     return "holds", cl
 
 
+def created_types(d, it):
+    """The sprite types an interaction creates: the stype of a spawn or transform effect, or the first
+    sprite's own types for cloneSprite."""
+    if it["effect"] not in CREATE_EFFECTS:
+        return set()
+    if it["effect"] == "cloneSprite":
+        return members(d, it["names"][0])
+    st = it["params"].get("stype")
+    return members(d, st) if st else set()
+
+
 def pred_A2(d, av, start_av, n_av_sprites, av_positions, level_path):
     fails = []
     if n_av_sprites != 1:
@@ -290,10 +304,16 @@ def pred_A2(d, av, start_av, n_av_sprites, av_positions, level_path):
         if it["effect"] in PUSH_EFFECTS and members(d, it["names"][0]) - av and \
                 any(touches_avatar(d, p, av) for p in it["names"][1:]):
             fails.append(inter_clause(d, it, f"{it['effect']} moves {it['names'][0]} when the avatar moves into it"))
+    for it in d["inter"]:
+        made = created_types(d, it) - av
+        if made and any(touches_avatar(d, n, av) for n in it["names"]):
+            fails.append(inter_clause(d, it, f"{it['effect']} creates {', '.join(sorted(made))}, a sprite other than the avatar, "
+                                             "in an interaction with the avatar"))
     if fails:
         return "fails", fails
     return "holds", [sprite_clause(d, n, f"the one avatar sprite at start is {n}, {d['sprites'][n]['cls']}, which creates nothing")
-                     for n in sorted(start_av)] + [header_clause(d, "InteractionSet", "no bounceForward or pullWithIt with the avatar as partner")]
+                     for n in sorted(start_av)] + [header_clause(d, "InteractionSet", "no bounceForward or pullWithIt with the avatar as partner, and no "
+                                                                "interaction with the avatar that creates another sprite")]
 
 
 def pred_A3(d, av):
