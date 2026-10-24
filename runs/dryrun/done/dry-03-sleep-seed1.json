@@ -1,0 +1,10 @@
+{
+ "chunk_id": "dry-03",
+ "committed_at": "2026-10-24T16:44:55Z",
+ "kernel_version": 5,
+ "kind": "agent",
+ "row_path": "runs/dryrun/agent/dry-03-sleep-seed1.json",
+ "row_sha256": "35547d480d1f14ce6018e60bcca8ca3cbafa9c51346cefd7fcc8b1a957dbf4cc",
+ "run_nonce": "dryrun-dry-03-20261024T163736Z-9ff09c",
+ "unit_id": "dry-03-sleep-seed1"
+}
