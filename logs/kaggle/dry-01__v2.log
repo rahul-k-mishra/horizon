@@ -1,0 +1,13 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v1
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit b734743ddd33daa96372568e47c5795d3d025091 Loop: dry-01 pushed as kernel version 2
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v1)
+code commit 59ddd885b1f7714624bad9bf1d3753dc0efd84af (tag automation-v1)
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1792855860.6014957
+[2026-10-24T15:31:01Z] chunk dry-01 (agent), nonce dryrun-dry-01-20261024T153044Z-9b86d2; work deadline 2026-10-24T15:36:00Z, checkpoint by 2026-10-24T15:38:00Z
+[2026-10-24T15:31:01Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-10-24T15:31:01Z] agent unit dry-01-sleep-seed1 (seed 1): start
+[2026-10-24T15:33:01Z] checkpoint 1: 1 units done, in progress none, 0 payload files
+[2026-10-24T15:33:01Z] chunk dry-01: done; units done 1 of 1
+[2026-10-24T15:33:01Z] wrote result.json (status done) and bundle.tar.gz

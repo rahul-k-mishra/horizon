@@ -1,0 +1,37 @@
+{
+ "agent": "dummy",
+ "agent_stats": {
+  "slept_seconds": 120.0
+ },
+ "budget": null,
+ "campaign": "dryrun",
+ "chunk_id": "dry-01",
+ "cut_by_cap": false,
+ "game": "sleep",
+ "outcome": {
+  "level1_completed": false,
+  "levels": 0
+ },
+ "schema": "horizon.agent.v1",
+ "seconds": 120.0,
+ "seed": 1,
+ "sessions": [
+  {
+   "ended_at": "2026-10-24T15:33:01Z",
+   "host": "9ff74ca184ab",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_Aynjt8NzzuKM90KbUBa6oWHRLygR1puZXQrILeqcE0-361846255-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-east1-d",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dryrun-dry-01-20261024T153044Z-9b86d2",
+   "started_at": "2026-10-24T15:31:00Z"
+  }
+ ],
+ "suite": "dummy",
+ "unit_id": "dry-01-sleep-seed1",
+ "written_at": "2026-10-24T15:33:01Z"
+}
