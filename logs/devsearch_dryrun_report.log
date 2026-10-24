@@ -1,0 +1,32 @@
+devsearch dry run -- campaign devsearch-dryrun, code tag automation-v2, state commit 4f88211, workers 4
+
+== chunk ds-01: done, attempts 2, failures 0
+   kernel version 6  run devsearch-dryrun-ds-01-20261024T181711Z-cd7c15  outcome partial  units ['ds-01-empty5-s1000', 'ds-01-unlocklocal-s1002']  ended 2026-10-24T18:20:36Z
+   kernel version 7  run devsearch-dryrun-ds-01-20261024T182531Z-36bf43  outcome done  units ['ds-01-doorkey5-s1000']  ended 2026-10-24T18:27:30Z
+
+== rows
+ds-01-empty5-s1000 (MiniGrid-Empty-5x5-v0, seed 1000): schema horizon.search.v2 ok; complete True; states seen 23, expanded 21, shortest solution 4; branching 3.5238; EH 14.224211049418248 (k 2, ok); seconds 0.007
+   session: host 65482b2b1a0d  run devsearch-dryrun-ds-01-20261024T181711Z-cd7c15  2026-10-24T18:17:27Z to 2026-10-24T18:17:36Z
+   laptop (logs/test_devsearch.log): seen 23, expanded 21, shortest 4: same
+ds-01-unlocklocal-s1002 (BabyAI-UnlockLocal-v0, seed 1002): schema horizon.search.v2 ok; complete True; states seen 4273, expanded 4272, shortest solution 11; branching 3.8261; EH 22.575548788585717 (k 1, ok); seconds 6.109
+   session: host 65482b2b1a0d  run devsearch-dryrun-ds-01-20261024T181711Z-cd7c15  2026-10-24T18:17:27Z to 2026-10-24T18:17:42Z
+   laptop (logs/test_devsearch.log): seen 4273, expanded 4272, shortest 11: same
+ds-01-doorkey5-s1000 (MiniGrid-DoorKey-5x5-v0, seed 1000): schema horizon.search.v2 ok; complete True; states seen 112, expanded 109, shortest solution 9; branching 3.3761; EH 12.092274837467597 (k 3, ok); seconds 270.056
+   session: host 65482b2b1a0d  run devsearch-dryrun-ds-01-20261024T181711Z-cd7c15  2026-10-24T18:17:27Z to 2026-10-24T18:20:36Z
+   session: host 11ddabbf2625  run devsearch-dryrun-ds-01-20261024T182531Z-36bf43  2026-10-24T18:25:49Z to 2026-10-24T18:27:29Z
+   laptop (logs/test_devsearch.log): seen 112, expanded 109, shortest 9: same
+
+== checkpoint commits
+d64ad89 2026-10-24T18:25:29Z Loop: ds-01 partial (kernel version 6)
+   seq 1, run devsearch-dryrun-ds-01-20261024T181711Z-cd7c15, units done ['ds-01-empty5-s1000', 'ds-01-unlocklocal-s1002'], in progress ds-01-doorkey5-s1000 (70 expanded)
+   payload: 8 files, locations ['git']
+4f88211 2026-10-24T18:33:49Z Loop: ds-01 done (kernel version 7)
+   (checkpoint removed: the chunk is done)
+
+== automation.log lines of this campaign
+2026-10-24T18:17:11Z actions-40119983118-1 DISPATCH chunk ds-01 (devsearch) attempt 1 run devsearch-dryrun-ds-01-20261024T181711Z-cd7c15
+2026-10-24T18:17:14Z actions-40119983118-1 PUSHED chunk ds-01 as kernel version 6 run devsearch-dryrun-ds-01-20261024T181711Z-cd7c15
+2026-10-24T18:25:29Z actions-40120614871-1 COLLECT chunk ds-01 kernel version 6 run devsearch-dryrun-ds-01-20261024T181711Z-cd7c15: partial; chunks partial 1
+2026-10-24T18:25:31Z actions-40120614871-1 DISPATCH chunk ds-01 (devsearch) attempt 2 run devsearch-dryrun-ds-01-20261024T182531Z-36bf43
+2026-10-24T18:25:33Z actions-40120614871-1 PUSHED chunk ds-01 as kernel version 7 run devsearch-dryrun-ds-01-20261024T182531Z-36bf43
+2026-10-24T18:33:49Z actions-40121256627-1 COLLECT chunk ds-01 kernel version 7 run devsearch-dryrun-ds-01-20261024T182531Z-36bf43: done; chunks done 1
