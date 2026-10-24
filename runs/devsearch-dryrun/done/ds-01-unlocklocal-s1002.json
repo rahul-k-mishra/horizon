@@ -1,0 +1,10 @@
+{
+ "chunk_id": "ds-01",
+ "committed_at": "2026-10-24T18:25:29Z",
+ "kernel_version": 6,
+ "kind": "devsearch",
+ "row_path": "runs/devsearch-dryrun/devsearch/ds-01-unlocklocal-s1002.json",
+ "row_sha256": "5cc2a2eaf3b3325f6566dedd1a848c3a2a05d9d82600f7d727d93117514ba49a",
+ "run_nonce": "devsearch-dryrun-ds-01-20261024T181711Z-cd7c15",
+ "unit_id": "ds-01-unlocklocal-s1002"
+}

@@ -1,0 +1,108 @@
+{
+ "campaign": "devsearch-dryrun",
+ "chunk_id": "ds-01",
+ "entry_hash": "0828a1f03df7e4fe827070a9b6bedbf71454b8944b412daf8fb58b5a84d0089d",
+ "kind": "devsearch",
+ "payload": {
+  "ds-01-doorkey5-s1000__graph_hashes.u64.gz": {
+   "bytes": 744,
+   "location": "git",
+   "sha256": "0560a3119961385723e7e14a22e22cfd17e8a6d43851058b4a82b08850322d27"
+  },
+  "ds-01-doorkey5-s1000__graph_loss.i32.gz": {
+   "bytes": 35,
+   "location": "git",
+   "sha256": "c6562ba444d0e4ccc99753071ddcae1a9ff10a8b48bac2af235be31dfe7c83c7"
+  },
+  "ds-01-doorkey5-s1000__graph_next.i32.gz": {
+   "bytes": 434,
+   "location": "git",
+   "sha256": "1a442d50c35ffa80928e0da91512096280aadc1c3bd981dd266f9aa753bef89b"
+  },
+  "ds-01-doorkey5-s1000__graph_rows.i32.gz": {
+   "bytes": 144,
+   "location": "git",
+   "sha256": "4c764cb608e218bebd5b0bd19721d8c8197717104585b3769abd885944caf081"
+  },
+  "ds-01-doorkey5-s1000__graph_win.i32.gz": {
+   "bytes": 40,
+   "location": "git",
+   "sha256": "a4010c8234dfa22c421351ced1e5d728aca85bb188e81c9d2ea853516027bd60"
+  },
+  "ds-01-doorkey5-s1000__head.json.gz": {
+   "bytes": 67,
+   "location": "git",
+   "sha256": "61f54ddf94955a2b12c4183c9a54633b57634ad9d35a423c621bdd510aed432c"
+  },
+  "ds-01-doorkey5-s1000__tail.json.gz": {
+   "bytes": 102,
+   "location": "git",
+   "sha256": "54fd5afc177e60451ca2d34763323f527e8fcc92220207d92283a358ab18a4a2"
+  },
+  "ds-01-doorkey5-s1000__visited.u64.gz": {
+   "bytes": 739,
+   "location": "git",
+   "sha256": "747d3a79d6e685cd57c94a59b7e22bb6731c0c7f6d33d784b5191700ace548c7"
+  }
+ },
+ "run_nonce": "devsearch-dryrun-ds-01-20261024T181711Z-cd7c15",
+ "schema": "horizon.checkpoint.v1",
+ "seq": 1,
+ "unit_in_progress": null,
+ "units_done": [
+  "ds-01-empty5-s1000",
+  "ds-01-unlocklocal-s1002"
+ ],
+ "units_in_progress": {
+  "ds-01-doorkey5-s1000": {
+   "counts": {
+    "depth_max": 10,
+    "frontier_left": 17,
+    "solution_length": 9,
+    "spill_files_max": 0,
+    "states_expanded": 70,
+    "states_seen": 88,
+    "successors_total": 560
+   },
+   "extra": {
+    "successors_distinct": 243
+   },
+   "files": {
+    "graph_hashes.u64.gz": "0560a3119961385723e7e14a22e22cfd17e8a6d43851058b4a82b08850322d27",
+    "graph_loss.i32.gz": "c6562ba444d0e4ccc99753071ddcae1a9ff10a8b48bac2af235be31dfe7c83c7",
+    "graph_next.i32.gz": "1a442d50c35ffa80928e0da91512096280aadc1c3bd981dd266f9aa753bef89b",
+    "graph_rows.i32.gz": "4c764cb608e218bebd5b0bd19721d8c8197717104585b3769abd885944caf081",
+    "graph_win.i32.gz": "a4010c8234dfa22c421351ced1e5d728aca85bb188e81c9d2ea853516027bd60",
+    "head.json.gz": "61f54ddf94955a2b12c4183c9a54633b57634ad9d35a423c621bdd510aed432c",
+    "tail.json.gz": "54fd5afc177e60451ca2d34763323f527e8fcc92220207d92283a358ab18a4a2",
+    "visited.u64.gz": "747d3a79d6e685cd57c94a59b7e22bb6731c0c7f6d33d784b5191700ace548c7"
+   },
+   "graph": {
+    "A": 8,
+    "n": 88
+   },
+   "graph_status": null,
+   "seconds_spent": 180.0331997871399,
+   "sessions": [
+    {
+     "ended_at": "2026-10-24T18:20:36Z",
+     "host": "65482b2b1a0d",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_4Yap8ug8IlaLlcyT1HjHNg7dltbEnqNoT8Wyq5nQ-361889818-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "us-east1-d",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "devsearch-dryrun-ds-01-20261024T181711Z-cd7c15",
+     "started_at": "2026-10-24T18:17:27Z"
+    }
+   ],
+   "spill_seq": 0,
+   "spills": [],
+   "visited_n": 88
+  }
+ },
+ "written_at": "2026-10-24T18:20:36Z"
+}
