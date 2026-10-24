@@ -103,7 +103,20 @@ Registered at the study's tag (values per unit, summed over all sessions that wo
 
 ## 7. The loop (GitHub Actions)
 
-.github/workflows/horizon.yml runs on a cron every 30 minutes and on manual trigger. It checks out the repository, installs the Kaggle command-line tool (pinned in requirements-loop.txt), and runs one tick, scripts/automation/loop.py tick. The runner does no computation: everything it does is poll, download, check, copy, commit and push.
+.github/workflows/horizon.yml runs on a cron every 30 minutes, on manual trigger, and on its own successor (below). It checks out the repository, installs the Kaggle command-line tool (pinned in requirements-loop.txt), and runs one tick, scripts/automation/loop.py tick. The runner does no computation: everything it does is poll, download, check, copy, commit, push and wait.
+
+**Two triggers, and why.** GitHub may delay or drop scheduled events, and on 24 October 2026 it did: after the workflow was pushed with its cron, no scheduled run appeared for over an hour, and the loop moved only on manual runs. The cron is kept, and a second trigger that does not depend on it was added on the same day. Three were weighed:
+- (a) *A workflow that starts its own successor.* After the tick, a last step asks loop.py next-wake how long to wait, sleeps that long inside the job, and starts the workflow again with workflow_dispatch, using the workflow's own GITHUB_TOKEN (permission actions: write). GitHub's documentation on GITHUB_TOKEN states that events it triggers "will not create a new workflow run", and that "workflow_dispatch and repository_dispatch events always create workflow runs". It needs no new credential and nothing outside GitHub.
+- (b) *A free external cron service calling a dispatch webhook.* It needs a token stored at that service. GitHub's table of permissions for fine-grained tokens puts POST /repos/{owner}/{repo}/dispatches under the repository permission Contents (write), the same permission that creates, changes and deletes files, commits and tags. A token limited to that one action does not exist (the workflow-dispatch endpoint needs Actions (write), which also covers cancelling, re-running and deleting runs). It would also be a new credential held by a third party. Not used.
+- (c) *The workflow waking on push*, each tick's commit starting the next. The loop pushes with GITHUB_TOKEN, and by the sentence quoted under (a) such a push starts no run. Making it start one would need a personal token or deploy key, a new credential. Also, a tick that finds the kernel still running commits nothing, so the chain would stop exactly while it is needed. Not used.
+
+(a) was chosen. Of its two forms, the bounded sleep followed by a dispatch was chosen over one long job that loops: each job lasts at most the sleep plus a tick (timeout 45 minutes, well inside the 6-hour job limit), so a lost runner costs at most one link of the chain, which the cron or the next manual run starts again, and every link runs the latest committed loop code.
+
+**How long the chain sleeps** (loop.py next-wake, from the committed files only). Halted loop, or every chunk done with nothing in flight: "none", so no successor is started and the loop stops. With a session in flight: until the session's deadline plus its checkpoint reserve, counted from the kernel push, but no less than 5 minutes and no more than 30. Work left and nothing in flight (for example after a failed push): 5 minutes. The step runs even when the tick step fails, so a passing fault (Kaggle or GitHub unreachable) does not break the chain; a fault inside a chunk's session is counted by the retry rule below and halts the loop at the maximum, but a tick that crashes before it reaches a chunk is not counted, and keeps the chain going at 5-minute intervals until someone looks (the run list shows each failed tick).
+
+**One tick at a time.** All runs, whatever started them, share the concurrency group horizon-loop without cancelling the one in progress. GitHub keeps at most one run waiting in a group: a newer waiting run replaces the older one, which ends as cancelled without using a runner. A successor started during a sleep therefore waits for the current job to end, and a cron run that arrives while a link of the chain sleeps either replaces the waiting successor or is replaced by it. There is never more than one chain.
+
+**Costs.** A tick that finds nothing to do (the manifest complete or the loop halted) costs only the job's setup and the tick, seconds, and starts no successor; the cron's later runs cost the same. While a campaign is in flight the chain keeps a runner busy for most of the wall-clock time, mostly asleep; Section 10 gives the measured figures.
 
 A tick:
 1. Restores jobs/, runs/ and logs/ to the last commit (a crashed tick leaves nothing behind) and fast-forwards to the remote. If the loop is halted, it says so and stops.
@@ -133,7 +146,7 @@ Which credential works was found by testing the Kaggle tool 2.2.4 on 24 October 
 
 ## 10. GitHub Actions minutes
 
-The repository is public. GitHub's billing documentation states that "the use of standard GitHub-hosted runners is free" in public repositories, so the loop uses none of the author's included minutes, which matter only for private repositories (2,000 minutes a month on the Free plan). The measured duration of each tick is given in docs/DRYRUN.md, from scripts/automation/actions_minutes.py, together with the monthly total the cron would use if the repository were private: 48 ticks a day for 30 days, each counted as at least one minute.
+The repository is public. GitHub's billing documentation states that "the use of standard GitHub-hosted runners is free" in public repositories, so the loop uses none of the author's included minutes, which matter only for private repositories (2,000 minutes a month on the Free plan). scripts/automation/actions_minutes.py measures every run of the workflow from GitHub's own job and step times and writes logs/actions_minutes.log; docs/DRYRUN.md gives its figures: the seconds of a tick, the minutes of a run that does not wait, the monthly total of the cron with nothing to do (48 runs a day for 30 days, each rounded up to whole minutes), and the monthly total while a campaign is in flight (the measured billed minutes per wall-clock minute of the chain, times the 43,200 minutes of 30 days). The second total is far above the 2,000 minutes of a private repository on the Free plan, because the chain sleeps on a runner; that is free only because the repository is public.
 
 ## 11. Fallback: the same loop from the laptop
 
@@ -159,6 +172,6 @@ gh secret set KAGGLE_KEY --body $env:KAGGLE_API_TOKEN
 $env:KAGGLE_USERNAME = "ericsom"
 D:\Research\horizon\.venv\Scripts\python.exe scripts\automation\loop.py prepare-kernel --dir "$env:TEMP\horizon-kernel"
 D:\Research\horizon\.venv\Scripts\kaggle.exe kernels push -p "$env:TEMP\horizon-kernel"
-# 4. start the loop at once instead of waiting for the next half hour
+# 4. start the loop; each run then starts its own successor until the manifest is complete or the loop halts
 gh workflow run horizon.yml
 ```

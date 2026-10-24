@@ -1,7 +1,13 @@
-# The HORIZON loop (docs/AUTOMATION.md, Section 6).  Every 30 minutes, and on demand, one tick:
-# poll the Kaggle notebook, collect and verify a finished session, commit it, push the next chunk.
-# The runner computes nothing; all work happens on Kaggle.  Secrets: KAGGLE_USERNAME (the account name,
-# for the notebook's id) and KAGGLE_KEY (the existing Kaggle API token, given to the tool as KAGGLE_API_TOKEN).
+# The HORIZON loop (docs/AUTOMATION.md, Section 7).  One tick: poll the Kaggle notebook, collect and
+# verify a finished session, commit it, push the next chunk.  The runner computes nothing; all work
+# happens on Kaggle.  Secrets: KAGGLE_USERNAME (the account name, for the notebook's id) and KAGGLE_KEY
+# (the existing Kaggle API token, given to the tool as KAGGLE_API_TOKEN).
+#
+# Two triggers start a tick.  The cron is kept, but GitHub may delay or drop scheduled events, so the
+# job also starts its own successor: after the tick it asks "loop.py next-wake" how long to wait, sleeps
+# that long (at most 30 minutes) and starts this workflow again with workflow_dispatch, which the
+# workflow's own GITHUB_TOKEN may do.  When the manifest is complete or the loop is halted, next-wake
+# says "none" and no successor is started.  One concurrency group keeps ticks from overlapping.
 name: horizon-loop
 
 on:
@@ -11,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: horizon-loop
@@ -19,7 +26,7 @@ concurrency:
 jobs:
   tick:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
@@ -38,3 +45,15 @@ jobs:
           git config user.name "horizon-loop"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           python scripts/automation/loop.py tick
+      - name: Start the next tick
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          next=$(python scripts/automation/loop.py next-wake --min 300 --max 1800)
+          echo "next-wake: $next"
+          secs=${next%% *}
+          if [ "$secs" = "none" ]; then echo "no successor: the loop has nothing left to do"; exit 0; fi
+          sleep "$secs"
+          gh workflow run horizon.yml --ref "${{ github.ref_name }}"
+          echo "successor started after $secs s"

@@ -1,12 +1,14 @@
 """
-loop.py -- one tick of the HORIZON loop (docs/AUTOMATION.md, Section 6).  Standard library plus the
+loop.py -- one tick of the HORIZON loop (docs/AUTOMATION.md, Section 7).  Standard library plus the
 Kaggle command-line tool and git (and gh for checkpoint files too large to commit).  It computes
 nothing: it polls Kaggle, collects and verifies a finished session's output, commits it, and pushes
 the notebook again for the next chunk.
 
-    python scripts/automation/loop.py tick              one tick (the workflow runs this every 30 minutes)
+    python scripts/automation/loop.py tick              one tick (the workflow runs this on its cron and on its own successor)
     python scripts/automation/loop.py status            print the manifest and the dispatch in flight
     python scripts/automation/loop.py prepare-kernel --dir D   write the notebook folder for a manual push
+    python scripts/automation/loop.py next-wake [--min S] [--max S]   after a tick: how long the workflow
+                                                        sleeps before it starts its own successor, or "none"
 
 A tick:
     1. git pull.  If jobs/state.json says the loop is halted, say so and stop.
@@ -478,6 +480,25 @@ def tick(repo):
     return 0
 
 
+def next_wake(repo, lo, hi):
+    """Seconds until the next tick is worth running, or None when the loop has nothing left to do
+    (halted, or every chunk done with nothing in flight).  Read from the committed files only."""
+    m = load_manifest(repo)
+    st = read_json(os.path.join(repo, STATE))
+    if st.get("halted"):
+        return None, f"halted since {st.get('halted_at')}"
+    d = st.get("dispatch")
+    if not d and all(c["status"] == "done" for c in m["chunks"]):
+        return None, f"manifest complete: {counts(m)}"
+    if not d and select_next(m) is None:
+        return None, f"no chunk can run: {counts(m)}"
+    if d and d.get("pushed_at"):
+        end = epoch(d["pushed_at"]) + float(m["session"]["work_seconds"]) + float(m["session"]["checkpoint_reserve_seconds"])
+        left = int(end - time.time())
+        return max(lo, min(hi, left)), f"{d['chunk_id']} on kernel version {d.get('kernel_version')}, session due to end in {left} s"
+    return lo, "work remains and nothing is in flight"
+
+
 def status(repo):
     m = load_manifest(repo)
     st = read_json(os.path.join(repo, STATE))
@@ -490,10 +511,16 @@ def status(repo):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description="the HORIZON loop")
-    ap.add_argument("command", choices=("tick", "status", "prepare-kernel"))
+    ap.add_argument("command", choices=("tick", "status", "prepare-kernel", "next-wake"))
     ap.add_argument("--repo", default=REPO)
     ap.add_argument("--dir", help="folder for prepare-kernel")
+    ap.add_argument("--min", type=int, default=300, help="next-wake: shortest sleep, seconds")
+    ap.add_argument("--max", type=int, default=1800, help="next-wake: longest sleep, seconds")
     a = ap.parse_args(argv)
+    if a.command == "next-wake":
+        secs, why = next_wake(a.repo, a.min, a.max)
+        print(f"{'none' if secs is None else secs} {why}")
+        return 0
     if a.command == "tick":
         return tick(a.repo)
     if a.command == "status":

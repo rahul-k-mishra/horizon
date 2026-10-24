@@ -15,6 +15,8 @@ complete.  Expected, and checked:
             the goal at depth 48; graph-b is capped at its node cap of 500 and recorded as capped
     dry-03  done in one session
     a further tick says "manifest complete" and commits nothing
+    after every tick, next-wake gives a sleep inside its bounds while work remains, and "none" once
+    the manifest is complete (and "none" in the halt scenario below)
     every row passes its schema; search rows carry no agent field and agent rows no search field
     every commit message is one line
 A second scenario gives the agent kind an implementation that does not exist, so every session of
@@ -38,7 +40,7 @@ sys.dont_write_bytecode = True
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, HERE)
-from common import load_manifest, read_json, save_manifest  # noqa: E402
+from common import load_manifest, read_json, save_manifest, write_json  # noqa: E402
 from schema import load_features, load_outcomes, validate_agent_row, validate_search_row  # noqa: E402
 
 
@@ -59,6 +61,17 @@ def reference_count(M, edges, goal):
     return len(seen), depth.get(goal)
 
 
+def fresh(src, m):
+    """The repository's jobs/ may hold a live campaign's progress: start the copy from nothing."""
+    for c in m["chunks"]:
+        c.update(status="pending", attempts=0, failures=0, sessions=[])
+    for u in m["units"]:
+        u["status"] = "pending"
+    write_json(os.path.join(src, "jobs", "state.json"), dict(dispatch=None, halted=False, halted_at=None, halt_reason=None))
+    if os.path.exists(os.path.join(src, "jobs", "lock.json")):
+        os.remove(os.path.join(src, "jobs", "lock.json"))
+
+
 def scenario_halt(env_base, tmp, check):
     """A chunk whose every session fails (unknown agent implementation) must halt the loop after the
     registered maximum of failures, with STATE-ready text in logs/automation.log."""
@@ -69,6 +82,7 @@ def scenario_halt(env_base, tmp, check):
                         ignore=shutil.ignore_patterns("__pycache__", "test_*.py"))
     m = load_manifest(src)
     m.update(session=dict(work_seconds=6, checkpoint_reserve_seconds=5, platform_limit_seconds=600))
+    fresh(src, m)
     m["kinds"]["agent"].update(agent_impl="not_written", sleep_seconds=1, unit_seconds_cap=2)
     save_manifest(src, m)
     git(src, "init", "-q", "-b", "main")
@@ -98,6 +112,9 @@ def scenario_halt(env_base, tmp, check):
           f"halt scenario: halted {st['halted']}, chunk {c['status']} failures {c['failures']}")
     check("STATE-ready text" in log and "NotImplementedError" in log, "halt scenario: no STATE-ready text in the log")
     check(all(x["status"] == "pending" for x in m["chunks"][1:]), "halt scenario: later chunks were run")
+    r = subprocess.run([sys.executable, os.path.join(work, "scripts", "automation", "loop.py"), "next-wake",
+                        "--repo", work], env=env, capture_output=True, text=True)
+    check(r.stdout.startswith("none halted"), f"halt scenario: next-wake said {r.stdout.strip()!r}")
 
 
 def main():
@@ -115,6 +132,7 @@ def main():
             shutil.copytree(os.path.join(REPO, rel), os.path.join(src, rel),
                             ignore=shutil.ignore_patterns("__pycache__", "test_*.py"))
         m = load_manifest(src)
+        fresh(src, m)
         m.update(session=dict(work_seconds=6, checkpoint_reserve_seconds=5, platform_limit_seconds=600))
         m["kinds"]["agent"].update(sleep_seconds=1, unit_seconds_cap=2)
         m["kinds"]["search"].update(seconds_per_batch=0.05, checkpoint_every_seconds=2)
@@ -136,16 +154,22 @@ def main():
                    FAKE_KAGGLE_STORE=os.path.join(tmp, "kaggle"), FAKE_KAGGLE_REPO_URL=bare,
                    HORIZON_RELEASE_DIR=os.path.join(tmp, "releases"))
         env.pop("GITHUB_RUN_ID", None)
-        outs = []
+        outs, wakes = [], []
         for i in range(12):
             r = subprocess.run([sys.executable, os.path.join(work, "scripts", "automation", "loop.py"), "tick",
                                 "--repo", work], env=env, capture_output=True, text=True)
             outs.append(r.stdout + r.stderr)
             print(f"--- tick {i + 1} (exit {r.returncode})\n{(r.stdout + r.stderr).strip()}")
             check(r.returncode == 0, f"tick {i + 1} exit code {r.returncode}")
+            w = subprocess.run([sys.executable, os.path.join(work, "scripts", "automation", "loop.py"), "next-wake",
+                                "--repo", work, "--min", "5", "--max", "60"], env=env, capture_output=True, text=True)
+            print(f"    next-wake: {w.stdout.strip()}")
+            wakes.append(w.stdout.split()[0] if w.stdout.strip() else "?")
             if "manifest complete" in r.stdout:
                 break
         check(any("manifest complete" in o for o in outs), "the loop never reported 'manifest complete'")
+        check(wakes[-1] == "none" and all(w.isdigit() and 5 <= int(w) <= 60 for w in wakes[:-1]),
+              f"next-wake must give a bounded sleep while work remains and 'none' at the end: {wakes}")
         before = git(work, "rev-parse", "HEAD")
         r = subprocess.run([sys.executable, os.path.join(work, "scripts", "automation", "loop.py"), "tick",
                             "--repo", work], env=env, capture_output=True, text=True)
