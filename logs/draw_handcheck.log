@@ -1,0 +1,3 @@
+numpy 2.4.3; seed 20261025; 30 deterministic games in name order
+drawn: clusters (levels 0 and 3), colourescape (levels 0 and 3), glow (levels 0 and 4), labyrinthdual (levels 0 and 1), lasers (levels 0 and 1), painter (levels 0 and 3), racebet (levels 0 and 4), rivers (levels 0 and 4), sokoban (levels 0 and 1), wrapsokoban (levels 0 and 1)
+written docs\truth\HANDCHECK.md: 10 games, 100 rows to mark

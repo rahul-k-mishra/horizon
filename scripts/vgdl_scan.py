@@ -80,6 +80,11 @@ SPAWN_EFFECTS = {"spawn", "spawnAbove", "spawnBelow", "spawnLeft", "spawnRight",
                  "transformToSingleton", "transformIfCount", "transformToRandomChild"}
 
 
+
+def read_text(path):
+    with open(path, encoding="utf-8", errors="replace") as f:
+        return f.read()
+
 def params(tokens):
     out = {}
     for t in tokens:
@@ -155,7 +160,7 @@ def members(d, name):
 
 
 def scan_game(name, desc_path, lvl_path):
-    d = parse(open(desc_path, encoding="utf-8", errors="replace").read())
+    d = parse(read_text(desc_path))
     sp = d["sprites"]
     avatars = sorted(n for n, s in sp.items() if s["cls"] in AVATARS)
     leaf_av = [n for n in avatars if not any(n in sp[m]["parents"] for m in avatars)]
@@ -176,7 +181,7 @@ def scan_game(name, desc_path, lvl_path):
         pv = fnum(p.get("prob"), 1.0)
         if 0 < pv < 1:
             reasons.append(f"effect {eff} on {' '.join(names)} with prob={pv}")
-    level = open(lvl_path, encoding="utf-8", errors="replace").read().splitlines() if lvl_path else []
+    level = read_text(lvl_path).splitlines() if lvl_path else []
     counts = collections.Counter(ch for row in level for ch in row)
 
     def n_in_level(stype):
@@ -231,7 +236,7 @@ def scan_game(name, desc_path, lvl_path):
 
 def main():
     games = []
-    for line in open(os.path.join(GV, "examples", "all_games_sp.csv"), encoding="utf-8"):
+    for line in read_text(os.path.join(GV, "examples", "all_games_sp.csv")).splitlines():
         line = line.strip()
         if line:
             games.append(line.split(",", 1)[1])
