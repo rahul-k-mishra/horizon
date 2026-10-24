@@ -29,7 +29,8 @@ A4  Every sprite type that blocks the avatar (stepBack or undoAll with the avata
     producers SpawnPoint, SpawnPointMultiSprite, Portal, SpriteProducer) and is created, removed or moved
     only by an interaction the avatar causes: one whose names include only agent-driven sprites, which
     are the avatar, the sprites its use action creates, and any stationary-class sprite moved only by
-    those (a box that only the avatar pushes; agent_driven).
+    those (a box that only the avatar pushes; agent_driven).  A name stands for agent-driven sprites when
+    every type it can place is one (stands_for_driven; Q4 of docs/truth/PREDICATE_QUESTIONS.md).
     No blocking type at all: holds (the edge of the level is fixed).
 A5  The only winning termination is a SpriteCounter with limit 0 on one sprite type G; the level holds
     exactly one sprite of G at start; at least one interaction removes G, and every interaction that
@@ -237,6 +238,14 @@ def shot_types(d, av):
     return out
 
 
+def stands_for_driven(d, name, driven):
+    """A name stands only for agent-driven sprites: every type it can place (its leaf types) is one.  A
+    parent that is never placed itself, such as colourescape's "boxes", is counted by its leaves
+    (decided 25 October 2026, docs/truth/PREDICATE_QUESTIONS.md, Q4)."""
+    placed = leaves(d, members(d, name))
+    return bool(placed) and placed <= driven
+
+
 def agent_driven(d, av):
     """The avatar types, the sprites its use action creates, and every stationary-class type that moves
     only when one of those pushes or pulls it (a box only the avatar pushes), to a fixed point."""
@@ -247,7 +256,7 @@ def agent_driven(d, av):
             if t in out or sp["cls"] not in STILL:
                 continue
             moves = [it for it in d["inter"] if it["effect"] in MOVERS_ANY and t in members(d, it["names"][0])]
-            if moves and all(any(members(d, n) and members(d, n) <= out for n in it["names"][1:]) for it in moves):
+            if moves and all(any(stands_for_driven(d, n, out) for n in it["names"][1:]) for it in moves):
                 new.add(t)
         if not new:
             return out
@@ -256,7 +265,7 @@ def agent_driven(d, av):
 
 def caused_by_avatar(d, it, driven):
     """An interaction the avatar causes: one of its names stands only for agent-driven sprites."""
-    return any(members(d, n) and members(d, n) <= driven for n in it["names"])
+    return any(stands_for_driven(d, n, driven) for n in it["names"])
 
 
 def pred_A1(d, start_av):

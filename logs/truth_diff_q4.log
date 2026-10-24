@@ -1,0 +1,5 @@
+truth_diff: docs/truth/gvgai.json at 727eb4c against the working tree; 110 games then, 110 now
+games only in the old file: none; only in the new: none
+units compared: 550, 2750 (unit, predicate) verdicts
+verdicts changed: 0 in all games, 0 in the 30 deterministic games; entries with clauses changed and the verdict the same: 0
+the set of deterministic games is the same: 30 games

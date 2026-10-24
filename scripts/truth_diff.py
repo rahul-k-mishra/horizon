@@ -54,6 +54,8 @@ def main(argv=None):
     det = [g for g in new if new[g]["deterministic"]]
     det_v = sum(old[g]["levels"][k][p]["verdict"] != new[g]["levels"][k][p]["verdict"]
                 for g in det if g in old for k in new[g]["levels"] for p in PREDICATES)
+    units = sum(len(new[g]["levels"]) for g in set(old) & set(new))
+    print(f"units compared: {units}, {units * len(PREDICATES)} (unit, predicate) verdicts")
     print(f"verdicts changed: {verdicts} in all games, {det_v} in the {len(det)} deterministic games; "
           f"entries with clauses changed and the verdict the same: {clauses}")
     same = sorted(g for g in old if old[g]["deterministic"]) == sorted(det)

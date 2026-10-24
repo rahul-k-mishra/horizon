@@ -63,6 +63,14 @@ GAMES = {
                     extra_mapping="        b > floor box\n        h > floor hole\n        d > floor door",
                     extra_inter="        box avatar > bounceForward\n        avatar door > stepBack\n"
                                 "        box hole > killAll stype=door"),
+    # A4 holds: as pushbox, but the box sits under a parent that is never placed, and the line that opens
+    # the door names the parent; the parent is counted by its one placeable type, the box
+    "parentbox": dict(avatar="        avatar > MovingAvatar",
+                      extra_sprites="        crates > Passive\n            box >\n        hole > Immovable\n"
+                                    "        door > Immovable",
+                      extra_mapping="        b > floor box\n        h > floor hole\n        d > floor door",
+                      extra_inter="        box avatar > bounceForward\n        avatar door > stepBack\n"
+                                  "        crates hole > killAll stype=door"),
     # A4 fails: the same, but a random NPC can also push the box, so the door can open without the avatar
     "npcbox": dict(avatar="        avatar > MovingAvatar",
                    extra_sprites="        box > Passive\n        hole > Immovable\n        door > Immovable\n"
@@ -162,6 +170,7 @@ def main():
         check(v("slow", "A3") == "fails" and cites("slow", "A3", "speed=0.5"), "slow: A3 fails at the speed")
         check(v("pushbox", "A2") == "fails" and cites("pushbox", "A2", "box avatar > bounceForward"), "pushbox: A2 fails at the push")
         check(v("pushbox", "A4") == "holds", "pushbox: A4 holds, since only the avatar moves the box that opens the door")
+        check(v("parentbox", "A4") == "holds", "parentbox: A4 holds, the unplaced parent counted by its placeable box")
         check(v("npcbox", "A4") == "fails" and cites("npcbox", "A4", "box hole > killAll"), "npcbox: A4 fails at the removal")
         check(v("movingwall", "A4") == "fails" and cites("movingwall", "A4", "slider > Missile"), "movingwall: A4 fails")
         ok_pre = any("precondition" in c["reads"] for c in t["keydoor"]["levels"]["0"]["A5"]["clauses"])
