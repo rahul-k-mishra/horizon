@@ -8,7 +8,7 @@
  "repository": "rahul-k-mishra/horizon",
  "session": {"checkpoint_reserve_seconds": 900, "platform_limit_seconds": 32400, "work_seconds": 28800},
  "chunks": [
-  {"attempts": 1, "chunk_id": "d-001", "failures": 0, "kind": "devsearch", "sessions": [{"ended_at": "2026-10-25T07:15:03Z", "kernel_status": "complete", "kernel_version": 8, "outcome": "partial", "run_nonce": "dev-minigrid-d-001-20261024T231358Z-33dddb", "units_done_this_session": ["d-001-BabyAI-ActionObjDoor-v0-s1000", "d-001-BabyAI-ActionObjDoor-v0-s1001", "d-001-BabyAI-ActionObjDoor-v0-s1002", "d-001-BabyAI-ActionObjDoor-v0-s1003", "d-001-BabyAI-ActionObjDoor-v0-s1004", "d-001-BabyAI-ActionObjDoor-v0-s1005"]}], "status": "partial"},
+  {"attempts": 2, "chunk_id": "d-001", "failures": 0, "kind": "devsearch", "sessions": [{"ended_at": "2026-10-25T07:15:03Z", "kernel_status": "complete", "kernel_version": 8, "outcome": "partial", "run_nonce": "dev-minigrid-d-001-20261024T231358Z-33dddb", "units_done_this_session": ["d-001-BabyAI-ActionObjDoor-v0-s1000", "d-001-BabyAI-ActionObjDoor-v0-s1001", "d-001-BabyAI-ActionObjDoor-v0-s1002", "d-001-BabyAI-ActionObjDoor-v0-s1003", "d-001-BabyAI-ActionObjDoor-v0-s1004", "d-001-BabyAI-ActionObjDoor-v0-s1005"]}], "status": "running"},
   {"attempts": 0, "chunk_id": "d-002", "failures": 0, "kind": "devsearch", "sessions": [], "status": "pending"},
   {"attempts": 0, "chunk_id": "d-003", "failures": 0, "kind": "devsearch", "sessions": [], "status": "pending"},
   {"attempts": 0, "chunk_id": "d-004", "failures": 0, "kind": "devsearch", "sessions": [], "status": "pending"},
