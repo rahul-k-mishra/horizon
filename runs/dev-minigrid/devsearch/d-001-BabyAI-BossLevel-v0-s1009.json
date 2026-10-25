@@ -1,0 +1,52 @@
+{
+ "campaign": "dev-minigrid",
+ "cap_hit": "time",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "d-001",
+ "complete": false,
+ "counts": {
+  "depth_max": 28,
+  "frontier_left": 1736319,
+  "solution_length": 25,
+  "spill_files_max": 1,
+  "states_expanded": 2398335,
+  "states_seen": 4134698,
+  "successors_total": 19186680
+ },
+ "game": "BabyAI-BossLevel-v0",
+ "level": 1009,
+ "measures": {
+  "branching": 3.995516889842328,
+  "eh": null,
+  "eh_horizon": 400,
+  "eh_k": null,
+  "eh_status": "not computed: capped by time"
+ },
+ "schema": "horizon.search.v2",
+ "seconds_spent": 14400.625,
+ "sessions": [
+  {
+   "ended_at": "2026-10-25T19:59:57Z",
+   "host": "6dac48c4ba49",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_bNwaIDMCVbugdOFbHJ4ASXC1LCY66YGrBB4zP73x8-362179007-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "europe-west4-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-001-20261025T152424Z-76dc9d",
+   "started_at": "2026-10-25T15:24:41Z"
+  }
+ ],
+ "suite": "minigrid",
+ "unit_id": "d-001-BabyAI-BossLevel-v0-s1009",
+ "written_at": "2026-10-25T19:59:57Z"
+}
