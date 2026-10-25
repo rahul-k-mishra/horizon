@@ -1,0 +1,64 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit d5dd237ae4fe2b86d8b7b3f54289cebe1abfeb9f Loop: d-001 pushed as kernel version 9
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1792912758.522836
+[2026-10-25T07:19:27Z] chunk d-001 (devsearch), nonce dev-minigrid-d-001-20261025T071900Z-f0cb8e; work deadline 2026-10-25T15:19:18Z, checkpoint by 2026-10-25T15:34:18Z
+[2026-10-25T07:19:30Z] resuming from checkpoint 1 of run dev-minigrid-d-001-20261024T231358Z-33dddb: 6 units done, in progress ['d-001-BabyAI-ActionObjDoor-v0-s1006', 'd-001-BabyAI-ActionObjDoor-v0-s1007', 'd-001-BabyAI-ActionObjDoor-v0-s1008', 'd-001-BabyAI-ActionObjDoor-v0-s1009']
+[2026-10-25T07:19:30Z] devsearch: 34 units to run on 4 workers, 4 resumed from the checkpoint
+[2026-10-25T07:19:30Z] devsearch unit d-001-BabyAI-ActionObjDoor-v0-s1006: resume
+[2026-10-25T07:19:30Z] devsearch unit d-001-BabyAI-ActionObjDoor-v0-s1007: resume
+[2026-10-25T07:19:30Z] devsearch unit d-001-BabyAI-ActionObjDoor-v0-s1008: resume
+[2026-10-25T07:19:30Z] devsearch unit d-001-BabyAI-ActionObjDoor-v0-s1009: resume
+[2026-10-25T07:19:54Z] devsearch unit d-001-BabyAI-ActionObjDoor-v0-s1006: capped, 7811451 states seen
+[2026-10-25T07:19:54Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1000: start
+[2026-10-25T07:19:55Z] devsearch unit d-001-BabyAI-ActionObjDoor-v0-s1007: capped, 8284335 states seen
+[2026-10-25T07:19:55Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1001: start
+[2026-10-25T07:27:26Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1000: complete, 392529 states seen
+[2026-10-25T07:27:26Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1002: start
+[2026-10-25T07:27:32Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1001: complete, 392528 states seen
+[2026-10-25T07:27:32Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1003: start
+[2026-10-25T07:34:51Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1002: complete, 392485 states seen
+[2026-10-25T07:34:51Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1004: start
+[2026-10-25T07:35:02Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1003: complete, 392485 states seen
+[2026-10-25T07:35:02Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1005: start
+[2026-10-25T07:42:19Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1004: complete, 392485 states seen
+[2026-10-25T07:42:19Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1006: start
+[2026-10-25T07:42:36Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1005: complete, 392485 states seen
+[2026-10-25T07:42:36Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1007: start
+[2026-10-25T07:46:46Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1006: complete, 232965 states seen
+[2026-10-25T07:46:46Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1008: start
+[2026-10-25T07:50:11Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1007: complete, 389657 states seen
+[2026-10-25T07:50:11Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1009: start
+[2026-10-25T07:54:14Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1008: complete, 392485 states seen
+[2026-10-25T07:54:14Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1000: start
+[2026-10-25T07:57:45Z] devsearch unit d-001-BabyAI-BlockedUnlockPickup-v0-s1009: complete, 392486 states seen
+[2026-10-25T07:57:45Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1001: start
+[2026-10-25T11:12:16Z] devsearch unit d-001-BabyAI-ActionObjDoor-v0-s1008: capped, 8180373 states seen
+[2026-10-25T11:12:16Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1002: start
+[2026-10-25T11:16:09Z] devsearch unit d-001-BabyAI-ActionObjDoor-v0-s1009: capped, 7509530 states seen
+[2026-10-25T11:16:09Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1003: start
+[2026-10-25T11:54:15Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1000: capped, 3877959 states seen
+[2026-10-25T11:54:15Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1004: start
+[2026-10-25T11:57:46Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1001: capped, 4388906 states seen
+[2026-10-25T11:57:46Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1005: start
+[2026-10-25T15:12:17Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1002: capped, 5579760 states seen
+[2026-10-25T15:12:17Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1006: start
+[2026-10-25T15:16:10Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1003: capped, 5253835 states seen
+[2026-10-25T15:16:10Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1007: start
+[2026-10-25T15:19:20Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1007: stopped at the deadline, 30012 expanded
+[2026-10-25T15:19:20Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1006: stopped at the deadline, 72706 expanded
+[2026-10-25T15:19:29Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1004: stopped at the deadline, 1931394 expanded
+[2026-10-25T15:19:34Z] devsearch unit d-001-BabyAI-BossLevel-v0-s1005: stopped at the deadline, 2217843 expanded
+Sampling rejected: cannot do anything with/to a key that can be used to open a door
+Sampling rejected: objs already next to each other
+Sampling rejected: cannot do anything with/to a key that can be used to open a door
+[2026-10-25T15:19:35Z] checkpoint 2: 24 units done, 4 in progress, 24 payload files
+[2026-10-25T15:19:35Z] chunk d-001: partial; units done 24 of 40; stopped: deadline reached with devsearch units unfinished
+[2026-10-25T15:19:38Z] wrote result.json (status partial) and bundle.tar.gz

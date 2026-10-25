@@ -1,0 +1,66 @@
+{
+ "campaign": "dev-minigrid",
+ "cap_hit": "time",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "d-001",
+ "complete": false,
+ "counts": {
+  "depth_max": 22,
+  "frontier_left": 3440155,
+  "solution_length": 1,
+  "spill_files_max": 3,
+  "states_expanded": 4712638,
+  "states_seen": 8284335,
+  "successors_total": 37701104
+ },
+ "game": "BabyAI-ActionObjDoor-v0",
+ "level": 1007,
+ "measures": {
+  "branching": 4.004425546795659,
+  "eh": null,
+  "eh_horizon": 400,
+  "eh_k": null,
+  "eh_status": "not computed: capped by time"
+ },
+ "schema": "horizon.search.v2",
+ "seconds_spent": 14400.293,
+ "sessions": [
+  {
+   "ended_at": "2026-10-25T07:14:20Z",
+   "host": "a621f90fac99",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_SXXNNgN8KFmBOAVaazflRGi0FLNJerAupXGM664I-361952630-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-east1-c",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-001-20261024T231358Z-33dddb",
+   "started_at": "2026-10-24T23:14:20Z"
+  },
+  {
+   "ended_at": "2026-10-25T07:19:54Z",
+   "host": "a9351494afcc",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_AUPNVCX2sQkyJpQX1YcuQA05W0cZB9Ff8piL0qHX8-362049598-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-east1-c",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-001-20261025T071900Z-f0cb8e",
+   "started_at": "2026-10-25T07:19:18Z"
+  }
+ ],
+ "suite": "minigrid",
+ "unit_id": "d-001-BabyAI-ActionObjDoor-v0-s1007",
+ "written_at": "2026-10-25T07:19:54Z"
+}

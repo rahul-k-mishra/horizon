@@ -4,119 +4,130 @@
  "entry_hash": "409da8447802df9ce9aa6216d848ecf215e951f3b051c4b73cc442360cbfdd06",
  "kind": "devsearch",
  "payload": {
-  "d-001-BabyAI-ActionObjDoor-v0-s1006__head.json.gz": {
-   "bytes": 1134128,
+  "d-001-BabyAI-BossLevel-v0-s1004__head.json.gz": {
+   "bytes": 662425,
    "location": "git",
-   "sha256": "8d4ec1c4241d3a4ed0206ec7888bab0e190a0fbf4e8523057f87a26c4dab0f48"
+   "sha256": "05c2f434c90f597ff06bce2fabc6dec0f28cad3bee22156bb27efbd5137b032c"
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1006__spill_000004.json.gz": {
-   "bytes": 2522077,
+  "d-001-BabyAI-BossLevel-v0-s1004__spill_000001.json.gz": {
+   "bytes": 2496350,
    "location": "git",
-   "sha256": "9faa90f2eae1fcd9ea415848220fa79f4ea986a6518e82770c5278e30d8a48d9"
+   "sha256": "106ee1d6813c7d70c3752596f71613862a4a2cfb62b93a2ae1fb3239f128b2b2"
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1006__spill_000005.json.gz": {
-   "bytes": 2535326,
+  "d-001-BabyAI-BossLevel-v0-s1004__tail.json.gz": {
+   "bytes": 42789,
    "location": "git",
-   "sha256": "97d87c330936defbe49854ccc22f51c5380d78220b1a11b63837855ac125b6d9"
+   "sha256": "a59afd480e1e87b8ff105a47cbcce74bc62c95bdd2e2f110deeb11b3d95a28da"
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1006__tail.json.gz": {
-   "bytes": 1225552,
+  "d-001-BabyAI-BossLevel-v0-s1004__visited.u64.gz": {
+   "bytes": 23882872,
    "location": "git",
-   "sha256": "2ac7a1e46cbb5b877cc4adbca7cd62bf096d6cea311ac90ca94acf52092c3929"
+   "sha256": "0ded5365c58b5d02887c489d7e3180117e3c6bf49464c8a8ae306a18fa04108d"
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1006__visited.u64.gz": {
-   "asset": "d-001__s1__d-001-BabyAI-ActionObjDoor-v0-s1006__visited.u64.gz",
-   "bytes": 55981861,
-   "location": "release",
-   "sha256": "9a854ea52cdcad7b5a212524f7edfbb13267cf702fcf4acba545a3719b59a0e3",
-   "url": "https://github.com/rahul-k-mishra/horizon/releases/download/ckpt-dev-minigrid/d-001__s1__d-001-BabyAI-ActionObjDoor-v0-s1006__visited.u64.gz"
-  },
-  "d-001-BabyAI-ActionObjDoor-v0-s1007__head.json.gz": {
-   "bytes": 1585571,
+  "d-001-BabyAI-BossLevel-v0-s1005__head.json.gz": {
+   "bytes": 1166350,
    "location": "git",
-   "sha256": "8c652f8cc8ee434c8bc38184853933b0d51d6a365ebc65172f05973fad2e4e33"
+   "sha256": "7f611401cf567398f15fe09180793fdbc1df68c5cd7342c61becebc9f2619a34"
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1007__spill_000005.json.gz": {
-   "bytes": 2442616,
+  "d-001-BabyAI-BossLevel-v0-s1005__spill_000002.json.gz": {
+   "bytes": 2594178,
    "location": "git",
-   "sha256": "36f77fe1ed1386b10af321a65a99287e05c2fe36f7616094ab4e19fb542342ca"
+   "sha256": "bd7e2adbd47e738913acd8ddefa321194bd280bef000af6c8c58c0f89b08e70e"
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1007__spill_000006.json.gz": {
-   "bytes": 2455534,
+  "d-001-BabyAI-BossLevel-v0-s1005__tail.json.gz": {
+   "bytes": 656556,
    "location": "git",
-   "sha256": "92e583260db3ef29b75adc56fa87258adec833186e90cddc9b45fc72151e5567"
+   "sha256": "6e8de66f8ff517bf311890b49c4d56dd4162073b0effd1a6976ce3a6560435b7"
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1007__tail.json.gz": {
-   "bytes": 1962505,
+  "d-001-BabyAI-BossLevel-v0-s1005__visited.u64.gz": {
+   "bytes": 29002274,
    "location": "git",
-   "sha256": "00bde2824f25f08362e22143b522a630eb7f618c460eb7fc2e6983e5854c052b"
+   "sha256": "68125cd067a66e94ba873c708d66862222bf80b2bc5099c97de9d4a729c3cbda"
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1007__visited.u64.gz": {
-   "asset": "d-001__s1__d-001-BabyAI-ActionObjDoor-v0-s1007__visited.u64.gz",
-   "bytes": 59184160,
-   "location": "release",
-   "sha256": "133cc815703a02a8d69069524a2cceb57fbbf3c23d3f3f3d513e5bba7471df99",
-   "url": "https://github.com/rahul-k-mishra/horizon/releases/download/ckpt-dev-minigrid/d-001__s1__d-001-BabyAI-ActionObjDoor-v0-s1007__visited.u64.gz"
-  },
-  "d-001-BabyAI-ActionObjDoor-v0-s1008__head.json.gz": {
-   "bytes": 293683,
+  "d-001-BabyAI-BossLevel-v0-s1006__graph_hashes.u64.gz": {
+   "bytes": 987092,
    "location": "git",
-   "sha256": "b1ccfbdbbfc8e8cc1ef14807365f1c328c65d48bf4c368d7df48e8f6063457af"
+   "sha256": "3528f6fdf2dd702c1d0ac81f90c1254ee5170451f7b88a2d33f503fb235c1c33"
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1008__tail.json.gz": {
-   "bytes": 17510,
-   "location": "git",
-   "sha256": "1eef02b49f5930ff8063295f13b81c5bbf6943d5b20a87d43ebae05cfd6402b0"
-  },
-  "d-001-BabyAI-ActionObjDoor-v0-s1008__visited.u64.gz": {
-   "bytes": 2250257,
-   "location": "git",
-   "sha256": "e412e7b7250c965f63ad2b72e1b7b452fc8a32a9ef7b261a5b4f914bc453662b"
-  },
-  "d-001-BabyAI-ActionObjDoor-v0-s1009__graph_hashes.u64.gz": {
-   "bytes": 1032622,
-   "location": "git",
-   "sha256": "8ae8bf153105a5521135397921e2406bb36c9985069754bc433d44cb01d00eac"
-  },
-  "d-001-BabyAI-ActionObjDoor-v0-s1009__graph_loss.i32.gz": {
+  "d-001-BabyAI-BossLevel-v0-s1006__graph_loss.i32.gz": {
    "bytes": 35,
    "location": "git",
-   "sha256": "23df875fbdf618e5d40fbfa67af2298a5deb26bfeab98e4c01ed82ec585b2adb"
+   "sha256": "1da2dab4d260c79b700bdd965b295349690405eb986f710a68167b27daa0814f"
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1009__graph_next.i32.gz": {
-   "bytes": 701902,
+  "d-001-BabyAI-BossLevel-v0-s1006__graph_next.i32.gz": {
+   "bytes": 699117,
    "location": "git",
-   "sha256": "9718829601912c1f139b00ee4484d932ec67fe464d6e890ef9731133814e8976"
+   "sha256": "6874017fec3c4907cad6f52f8abdae08f7adcb4dcba9f7b6b33bdeabf915db0d"
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1009__graph_rows.i32.gz": {
-   "bytes": 95908,
+  "d-001-BabyAI-BossLevel-v0-s1006__graph_rows.i32.gz": {
+   "bytes": 100656,
    "location": "git",
-   "sha256": "efca1a58605119ed82d9ae8f3997a58dc12c463f29391b752cf3087db9aec479"
+   "sha256": "32b46666c5ca8f93133462608747487e139d4a0fe85a3772b13b8e211bad716a"
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1009__graph_win.i32.gz": {
-   "bytes": 18730,
+  "d-001-BabyAI-BossLevel-v0-s1006__graph_win.i32.gz": {
+   "bytes": 9112,
    "location": "git",
-   "sha256": "7efc8c61fb6f383f1370d00ffdb9cf1f3b88a360e352a5fe80341951a257addc"
+   "sha256": "061892881f658b8cc242d33448bf3d19396b619371ae73c0b6122f91c22f92aa"
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1009__head.json.gz": {
-   "bytes": 35452,
+  "d-001-BabyAI-BossLevel-v0-s1006__head.json.gz": {
+   "bytes": 41710,
    "location": "git",
-   "sha256": "5bd35cd9a17b6d55ad9464cae0a0c8fdff6a64c6b29f443b6c4c5c7ce7202edc"
+   "sha256": "e4270d0d51d7cf6bc42b5420a5f78833b60f1601b5e8907b6ad906f3b400ecb5"
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1009__tail.json.gz": {
-   "bytes": 100754,
+  "d-001-BabyAI-BossLevel-v0-s1006__tail.json.gz": {
+   "bytes": 77507,
    "location": "git",
-   "sha256": "8b5d58f083d07471f1e07fe247a74d37cedf81496667cf61358ba27706ac1f09"
+   "sha256": "4acaecbae37b69636e63d6208dc5ff7d24ea1b9bc4ac0d58d8666c46ad64ed07"
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1009__visited.u64.gz": {
-   "bytes": 1004898,
+  "d-001-BabyAI-BossLevel-v0-s1006__visited.u64.gz": {
+   "bytes": 961297,
    "location": "git",
-   "sha256": "3932c56c395519da3c08bac8a938882b6c90fa4bd2bb73c5497d2f0c2a8d0c65"
+   "sha256": "fa4a1b4c6d0d0ef84d510d8d534096e16ba0bb4d636d288782fd03288dd3c925"
+  },
+  "d-001-BabyAI-BossLevel-v0-s1007__graph_hashes.u64.gz": {
+   "bytes": 379251,
+   "location": "git",
+   "sha256": "11c6ecb2c7742628ff10c3e9ec1e8ed4a927d5d984b36458c7afd09a2fbd98c7"
+  },
+  "d-001-BabyAI-BossLevel-v0-s1007__graph_loss.i32.gz": {
+   "bytes": 35,
+   "location": "git",
+   "sha256": "1da2dab4d260c79b700bdd965b295349690405eb986f710a68167b27daa0814f"
+  },
+  "d-001-BabyAI-BossLevel-v0-s1007__graph_next.i32.gz": {
+   "bytes": 285045,
+   "location": "git",
+   "sha256": "a77aea2a69d08bc910cb832c39e9c611b4614e87226f6b9279baca1abe0b1aea"
+  },
+  "d-001-BabyAI-BossLevel-v0-s1007__graph_rows.i32.gz": {
+   "bytes": 41587,
+   "location": "git",
+   "sha256": "571245dd668981d97d471680539f6a42a8724bb0f8cff8ca9041a3f2329f72c3"
+  },
+  "d-001-BabyAI-BossLevel-v0-s1007__graph_win.i32.gz": {
+   "bytes": 1786,
+   "location": "git",
+   "sha256": "52f52b462db29cd512ed6a12122a0dc070ecc9966376b18b46176ba6397bd44c"
+  },
+  "d-001-BabyAI-BossLevel-v0-s1007__head.json.gz": {
+   "bytes": 12315,
+   "location": "git",
+   "sha256": "0af5a6c432ac186f5ceb55078fe4db0b1b3843921d46961dff6b7dce824fa6f1"
+  },
+  "d-001-BabyAI-BossLevel-v0-s1007__tail.json.gz": {
+   "bytes": 28925,
+   "location": "git",
+   "sha256": "87c2c4db8b17533eb84415deda733b5397f6fddf265b6640bc05abf532009954"
+  },
+  "d-001-BabyAI-BossLevel-v0-s1007__visited.u64.gz": {
+   "bytes": 374290,
+   "location": "git",
+   "sha256": "5caf71e5c836504412cc2b9d92f54c30bdfd22500fa07f58868afac22e2e49be"
   }
  },
- "run_nonce": "dev-minigrid-d-001-20261024T231358Z-33dddb",
+ "run_nonce": "dev-minigrid-d-001-20261025T071900Z-f0cb8e",
  "schema": "horizon.checkpoint.v1",
- "seq": 1,
+ "seq": 2,
  "unit_in_progress": null,
  "units_done": [
   "d-001-BabyAI-ActionObjDoor-v0-s1000",
@@ -124,191 +135,213 @@
   "d-001-BabyAI-ActionObjDoor-v0-s1002",
   "d-001-BabyAI-ActionObjDoor-v0-s1003",
   "d-001-BabyAI-ActionObjDoor-v0-s1004",
-  "d-001-BabyAI-ActionObjDoor-v0-s1005"
+  "d-001-BabyAI-ActionObjDoor-v0-s1005",
+  "d-001-BabyAI-ActionObjDoor-v0-s1006",
+  "d-001-BabyAI-ActionObjDoor-v0-s1007",
+  "d-001-BabyAI-ActionObjDoor-v0-s1008",
+  "d-001-BabyAI-ActionObjDoor-v0-s1009",
+  "d-001-BabyAI-BlockedUnlockPickup-v0-s1000",
+  "d-001-BabyAI-BlockedUnlockPickup-v0-s1001",
+  "d-001-BabyAI-BlockedUnlockPickup-v0-s1002",
+  "d-001-BabyAI-BlockedUnlockPickup-v0-s1003",
+  "d-001-BabyAI-BlockedUnlockPickup-v0-s1004",
+  "d-001-BabyAI-BlockedUnlockPickup-v0-s1005",
+  "d-001-BabyAI-BlockedUnlockPickup-v0-s1006",
+  "d-001-BabyAI-BlockedUnlockPickup-v0-s1007",
+  "d-001-BabyAI-BlockedUnlockPickup-v0-s1008",
+  "d-001-BabyAI-BlockedUnlockPickup-v0-s1009",
+  "d-001-BabyAI-BossLevel-v0-s1000",
+  "d-001-BabyAI-BossLevel-v0-s1001",
+  "d-001-BabyAI-BossLevel-v0-s1002",
+  "d-001-BabyAI-BossLevel-v0-s1003"
  ],
  "units_in_progress": {
-  "d-001-BabyAI-ActionObjDoor-v0-s1006": {
-   "counts": {
-    "depth_max": 25,
-    "frontier_left": 2932094,
-    "solution_length": 4,
-    "spill_files_max": 2,
-    "states_expanded": 4686730,
-    "states_seen": 7804631,
-    "successors_total": 37493840
-   },
-   "extra": {
-    "successors_distinct": 18430756
-   },
-   "files": {
-    "head.json.gz": "8d4ec1c4241d3a4ed0206ec7888bab0e190a0fbf4e8523057f87a26c4dab0f48",
-    "spill_000004.json.gz": "9faa90f2eae1fcd9ea415848220fa79f4ea986a6518e82770c5278e30d8a48d9",
-    "spill_000005.json.gz": "97d87c330936defbe49854ccc22f51c5380d78220b1a11b63837855ac125b6d9",
-    "tail.json.gz": "2ac7a1e46cbb5b877cc4adbca7cd62bf096d6cea311ac90ca94acf52092c3929",
-    "visited.u64.gz": "9a854ea52cdcad7b5a212524f7edfbb13267cf702fcf4acba545a3719b59a0e3"
-   },
-   "graph": null,
-   "graph_status": "more than 200000 states",
-   "seconds_spent": 14387.804069042206,
-   "sessions": [
-    {
-     "ended_at": "2026-10-25T07:14:21Z",
-     "host": "a621f90fac99",
-     "kaggle_env": {
-      "KAGGLE_CONTAINER_NAME": "kaggle_SXXNNgN8KFmBOAVaazflRGi0FLNJerAupXGM664I-361952630-webtier",
-      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
-      "KAGGLE_GCP_ZONE": "us-east1-c",
-      "KAGGLE_KERNEL_INTEGRATIONS": "",
-      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
-      "KAGGLE_URL_BASE": "https://api.kaggle.com"
-     },
-     "run_nonce": "dev-minigrid-d-001-20261024T231358Z-33dddb",
-     "started_at": "2026-10-24T23:14:20Z"
-    }
-   ],
-   "spill_seq": 5,
-   "spills": [
-    "spill_000004.json.gz",
-    "spill_000005.json.gz"
-   ],
-   "visited_n": 7804631
-  },
-  "d-001-BabyAI-ActionObjDoor-v0-s1007": {
+  "d-001-BabyAI-BossLevel-v0-s1004": {
    "counts": {
     "depth_max": 22,
-    "frontier_left": 3436917,
-    "solution_length": 1,
-    "spill_files_max": 3,
-    "states_expanded": 4708438,
-    "states_seen": 8276784,
-    "successors_total": 37667504
+    "frontier_left": 1292016,
+    "solution_length": null,
+    "spill_files_max": 1,
+    "states_expanded": 1931394,
+    "states_seen": 3223410,
+    "successors_total": 15451152
    },
    "extra": {
-    "successors_distinct": 18854604
+    "successors_distinct": 7681569
    },
    "files": {
-    "head.json.gz": "8c652f8cc8ee434c8bc38184853933b0d51d6a365ebc65172f05973fad2e4e33",
-    "spill_000005.json.gz": "36f77fe1ed1386b10af321a65a99287e05c2fe36f7616094ab4e19fb542342ca",
-    "spill_000006.json.gz": "92e583260db3ef29b75adc56fa87258adec833186e90cddc9b45fc72151e5567",
-    "tail.json.gz": "00bde2824f25f08362e22143b522a630eb7f618c460eb7fc2e6983e5854c052b",
-    "visited.u64.gz": "133cc815703a02a8d69069524a2cceb57fbbf3c23d3f3f3d513e5bba7471df99"
+    "head.json.gz": "05c2f434c90f597ff06bce2fabc6dec0f28cad3bee22156bb27efbd5137b032c",
+    "spill_000001.json.gz": "106ee1d6813c7d70c3752596f71613862a4a2cfb62b93a2ae1fb3239f128b2b2",
+    "tail.json.gz": "a59afd480e1e87b8ff105a47cbcce74bc62c95bdd2e2f110deeb11b3d95a28da",
+    "visited.u64.gz": "0ded5365c58b5d02887c489d7e3180117e3c6bf49464c8a8ae306a18fa04108d"
    },
    "graph": null,
    "graph_status": "more than 200000 states",
-   "seconds_spent": 14387.584188699722,
+   "seconds_spent": 12303.423632621765,
    "sessions": [
     {
-     "ended_at": "2026-10-25T07:14:20Z",
-     "host": "a621f90fac99",
+     "ended_at": "2026-10-25T15:19:19Z",
+     "host": "a9351494afcc",
      "kaggle_env": {
-      "KAGGLE_CONTAINER_NAME": "kaggle_SXXNNgN8KFmBOAVaazflRGi0FLNJerAupXGM664I-361952630-webtier",
+      "KAGGLE_CONTAINER_NAME": "kaggle_AUPNVCX2sQkyJpQX1YcuQA05W0cZB9Ff8piL0qHX8-362049598-webtier",
       "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
       "KAGGLE_GCP_ZONE": "us-east1-c",
       "KAGGLE_KERNEL_INTEGRATIONS": "",
       "KAGGLE_KERNEL_RUN_TYPE": "Batch",
       "KAGGLE_URL_BASE": "https://api.kaggle.com"
      },
-     "run_nonce": "dev-minigrid-d-001-20261024T231358Z-33dddb",
-     "started_at": "2026-10-24T23:14:20Z"
+     "run_nonce": "dev-minigrid-d-001-20261025T071900Z-f0cb8e",
+     "started_at": "2026-10-25T07:19:18Z"
     }
    ],
-   "spill_seq": 6,
+   "spill_seq": 1,
    "spills": [
-    "spill_000005.json.gz",
-    "spill_000006.json.gz"
+    "spill_000001.json.gz"
    ],
-   "visited_n": 8276784
+   "visited_n": 3223410
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1008": {
+  "d-001-BabyAI-BossLevel-v0-s1005": {
    "counts": {
-    "depth_max": 17,
-    "frontier_left": 127816,
-    "solution_length": 5,
-    "spill_files_max": 0,
-    "states_expanded": 161815,
-    "states_seen": 292688,
-    "successors_total": 1294520
+    "depth_max": 26,
+    "frontier_left": 1717754,
+    "solution_length": null,
+    "spill_files_max": 1,
+    "states_expanded": 2217843,
+    "states_seen": 3935597,
+    "successors_total": 17742744
    },
    "extra": {
-    "successors_distinct": 644384
+    "successors_distinct": 8907030
    },
    "files": {
-    "head.json.gz": "b1ccfbdbbfc8e8cc1ef14807365f1c328c65d48bf4c368d7df48e8f6063457af",
-    "tail.json.gz": "1eef02b49f5930ff8063295f13b81c5bbf6943d5b20a87d43ebae05cfd6402b0",
-    "visited.u64.gz": "e412e7b7250c965f63ad2b72e1b7b452fc8a32a9ef7b261a5b4f914bc453662b"
+    "head.json.gz": "7f611401cf567398f15fe09180793fdbc1df68c5cd7342c61becebc9f2619a34",
+    "spill_000002.json.gz": "bd7e2adbd47e738913acd8ddefa321194bd280bef000af6c8c58c0f89b08e70e",
+    "tail.json.gz": "6e8de66f8ff517bf311890b49c4d56dd4162073b0effd1a6976ce3a6560435b7",
+    "visited.u64.gz": "68125cd067a66e94ba873c708d66862222bf80b2bc5099c97de9d4a729c3cbda"
    },
    "graph": null,
    "graph_status": "more than 200000 states",
-   "seconds_spent": 438.46264839172363,
+   "seconds_spent": 12092.62143445015,
    "sessions": [
     {
-     "ended_at": "2026-10-25T07:14:20Z",
-     "host": "a621f90fac99",
+     "ended_at": "2026-10-25T15:19:19Z",
+     "host": "a9351494afcc",
      "kaggle_env": {
-      "KAGGLE_CONTAINER_NAME": "kaggle_SXXNNgN8KFmBOAVaazflRGi0FLNJerAupXGM664I-361952630-webtier",
+      "KAGGLE_CONTAINER_NAME": "kaggle_AUPNVCX2sQkyJpQX1YcuQA05W0cZB9Ff8piL0qHX8-362049598-webtier",
       "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
       "KAGGLE_GCP_ZONE": "us-east1-c",
       "KAGGLE_KERNEL_INTEGRATIONS": "",
       "KAGGLE_KERNEL_RUN_TYPE": "Batch",
       "KAGGLE_URL_BASE": "https://api.kaggle.com"
      },
-     "run_nonce": "dev-minigrid-d-001-20261024T231358Z-33dddb",
-     "started_at": "2026-10-24T23:14:20Z"
+     "run_nonce": "dev-minigrid-d-001-20261025T071900Z-f0cb8e",
+     "started_at": "2026-10-25T07:19:18Z"
     }
    ],
-   "spill_seq": 0,
-   "spills": [],
-   "visited_n": 292688
+   "spill_seq": 2,
+   "spills": [
+    "spill_000002.json.gz"
+   ],
+   "visited_n": 3935597
   },
-  "d-001-BabyAI-ActionObjDoor-v0-s1009": {
+  "d-001-BabyAI-BossLevel-v0-s1006": {
    "counts": {
-    "depth_max": 16,
-    "frontier_left": 55697,
-    "solution_length": 5,
+    "depth_max": 24,
+    "frontier_left": 48652,
+    "solution_length": 12,
     "spill_files_max": 0,
-    "states_expanded": 69254,
-    "states_seen": 129034,
-    "successors_total": 554032
+    "states_expanded": 72706,
+    "states_seen": 123344,
+    "successors_total": 581648
    },
    "extra": {
-    "successors_distinct": 275108
+    "successors_distinct": 287420
    },
    "files": {
-    "graph_hashes.u64.gz": "8ae8bf153105a5521135397921e2406bb36c9985069754bc433d44cb01d00eac",
-    "graph_loss.i32.gz": "23df875fbdf618e5d40fbfa67af2298a5deb26bfeab98e4c01ed82ec585b2adb",
-    "graph_next.i32.gz": "9718829601912c1f139b00ee4484d932ec67fe464d6e890ef9731133814e8976",
-    "graph_rows.i32.gz": "efca1a58605119ed82d9ae8f3997a58dc12c463f29391b752cf3087db9aec479",
-    "graph_win.i32.gz": "7efc8c61fb6f383f1370d00ffdb9cf1f3b88a360e352a5fe80341951a257addc",
-    "head.json.gz": "5bd35cd9a17b6d55ad9464cae0a0c8fdff6a64c6b29f443b6c4c5c7ce7202edc",
-    "tail.json.gz": "8b5d58f083d07471f1e07fe247a74d37cedf81496667cf61358ba27706ac1f09",
-    "visited.u64.gz": "3932c56c395519da3c08bac8a938882b6c90fa4bd2bb73c5497d2f0c2a8d0c65"
+    "graph_hashes.u64.gz": "3528f6fdf2dd702c1d0ac81f90c1254ee5170451f7b88a2d33f503fb235c1c33",
+    "graph_loss.i32.gz": "1da2dab4d260c79b700bdd965b295349690405eb986f710a68167b27daa0814f",
+    "graph_next.i32.gz": "6874017fec3c4907cad6f52f8abdae08f7adcb4dcba9f7b6b33bdeabf915db0d",
+    "graph_rows.i32.gz": "32b46666c5ca8f93133462608747487e139d4a0fe85a3772b13b8e211bad716a",
+    "graph_win.i32.gz": "061892881f658b8cc242d33448bf3d19396b619371ae73c0b6122f91c22f92aa",
+    "head.json.gz": "e4270d0d51d7cf6bc42b5420a5f78833b60f1601b5e8907b6ad906f3b400ecb5",
+    "tail.json.gz": "4acaecbae37b69636e63d6208dc5ff7d24ea1b9bc4ac0d58d8666c46ad64ed07",
+    "visited.u64.gz": "fa4a1b4c6d0d0ef84d510d8d534096e16ba0bb4d636d288782fd03288dd3c925"
    },
    "graph": {
     "A": 8,
-    "n": 129034
+    "n": 123344
    },
    "graph_status": null,
-   "seconds_spent": 205.15934944152832,
+   "seconds_spent": 421.07111501693726,
    "sessions": [
     {
-     "ended_at": "2026-10-25T07:14:21Z",
-     "host": "a621f90fac99",
+     "ended_at": "2026-10-25T15:19:19Z",
+     "host": "a9351494afcc",
      "kaggle_env": {
-      "KAGGLE_CONTAINER_NAME": "kaggle_SXXNNgN8KFmBOAVaazflRGi0FLNJerAupXGM664I-361952630-webtier",
+      "KAGGLE_CONTAINER_NAME": "kaggle_AUPNVCX2sQkyJpQX1YcuQA05W0cZB9Ff8piL0qHX8-362049598-webtier",
       "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
       "KAGGLE_GCP_ZONE": "us-east1-c",
       "KAGGLE_KERNEL_INTEGRATIONS": "",
       "KAGGLE_KERNEL_RUN_TYPE": "Batch",
       "KAGGLE_URL_BASE": "https://api.kaggle.com"
      },
-     "run_nonce": "dev-minigrid-d-001-20261024T231358Z-33dddb",
-     "started_at": "2026-10-24T23:14:20Z"
+     "run_nonce": "dev-minigrid-d-001-20261025T071900Z-f0cb8e",
+     "started_at": "2026-10-25T07:19:18Z"
     }
    ],
    "spill_seq": 0,
    "spills": [],
-   "visited_n": 129034
+   "visited_n": 123344
+  },
+  "d-001-BabyAI-BossLevel-v0-s1007": {
+   "counts": {
+    "depth_max": 17,
+    "frontier_left": 16986,
+    "solution_length": 6,
+    "spill_files_max": 0,
+    "states_expanded": 30012,
+    "states_seen": 47387,
+    "successors_total": 240096
+   },
+   "extra": {
+    "successors_distinct": 117629
+   },
+   "files": {
+    "graph_hashes.u64.gz": "11c6ecb2c7742628ff10c3e9ec1e8ed4a927d5d984b36458c7afd09a2fbd98c7",
+    "graph_loss.i32.gz": "1da2dab4d260c79b700bdd965b295349690405eb986f710a68167b27daa0814f",
+    "graph_next.i32.gz": "a77aea2a69d08bc910cb832c39e9c611b4614e87226f6b9279baca1abe0b1aea",
+    "graph_rows.i32.gz": "571245dd668981d97d471680539f6a42a8724bb0f8cff8ca9041a3f2329f72c3",
+    "graph_win.i32.gz": "52f52b462db29cd512ed6a12122a0dc070ecc9966376b18b46176ba6397bd44c",
+    "head.json.gz": "0af5a6c432ac186f5ceb55078fe4db0b1b3843921d46961dff6b7dce824fa6f1",
+    "tail.json.gz": "87c2c4db8b17533eb84415deda733b5397f6fddf265b6640bc05abf532009954",
+    "visited.u64.gz": "5caf71e5c836504412cc2b9d92f54c30bdfd22500fa07f58868afac22e2e49be"
+   },
+   "graph": {
+    "A": 8,
+    "n": 47387
+   },
+   "graph_status": null,
+   "seconds_spent": 189.51211428642273,
+   "sessions": [
+    {
+     "ended_at": "2026-10-25T15:19:19Z",
+     "host": "a9351494afcc",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_AUPNVCX2sQkyJpQX1YcuQA05W0cZB9Ff8piL0qHX8-362049598-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "us-east1-c",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dev-minigrid-d-001-20261025T071900Z-f0cb8e",
+     "started_at": "2026-10-25T07:19:18Z"
+    }
+   ],
+   "spill_seq": 0,
+   "spills": [],
+   "visited_n": 47387
   }
  },
- "written_at": "2026-10-25T07:14:56Z"
+ "written_at": "2026-10-25T15:19:34Z"
 }
