@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-001",
+ "committed_at": "2026-10-26T07:36:20Z",
+ "kernel_version": 11,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-001-BabyAI-BossLevelNoUnlock-v0-s1005.json",
+ "row_sha256": "87e6e00ec7ee493d4c9c745678fe0baf685bbb5c0ad4c765b3f2fb32602b5ece",
+ "run_nonce": "dev-minigrid-d-001-20261025T233019Z-e178ee",
+ "unit_id": "d-001-BabyAI-BossLevelNoUnlock-v0-s1005"
+}
