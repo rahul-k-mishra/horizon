@@ -1,0 +1,66 @@
+{
+ "campaign": "dev-minigrid",
+ "cap_hit": "node",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "d-003",
+ "complete": false,
+ "counts": {
+  "depth_max": 20,
+  "frontier_left": 4516442,
+  "solution_length": 5,
+  "spill_files_max": 4,
+  "states_expanded": 5000000,
+  "states_seen": 9697156,
+  "successors_total": 40000000
+ },
+ "game": "BabyAI-GoToLocal-v0",
+ "level": 1007,
+ "measures": {
+  "branching": 4.0516976,
+  "eh": null,
+  "eh_horizon": 400,
+  "eh_k": null,
+  "eh_status": "not computed: capped by node"
+ },
+ "schema": "horizon.search.v2",
+ "seconds_spent": 9808.232,
+ "sessions": [
+  {
+   "ended_at": "2026-10-27T14:24:25Z",
+   "host": "901f56592db5",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_RmuKHpF6RbLnj72n83mNknZL2egxN4OFxphWTWFtE-362731423-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "asia-east1-c",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-003-20261027T062357Z-b2e79c",
+   "started_at": "2026-10-27T06:24:15Z"
+  },
+  {
+   "ended_at": "2026-10-27T15:40:28Z",
+   "host": "9720390d0c3a",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_qsFQZTgJPs80g1ct3HcXKqhMfBJ2CYJXChs01kOcgA-362863197-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "europe-west4-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-003-20261027T143139Z-f761a2",
+   "started_at": "2026-10-27T14:31:57Z"
+  }
+ ],
+ "suite": "minigrid",
+ "unit_id": "d-003-BabyAI-GoToLocal-v0-s1007",
+ "written_at": "2026-10-27T15:40:28Z"
+}
