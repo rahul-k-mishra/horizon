@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-003",
+ "committed_at": "2026-10-27T06:23:36Z",
+ "kernel_version": 14,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-003-BabyAI-GoToDoor-v0-s1004.json",
+ "row_sha256": "84eba26ca1b7729816a610b00649e440bddf5d72c95884cddd487be05e66535b",
+ "run_nonce": "dev-minigrid-d-003-20261026T221718Z-7fe897",
+ "unit_id": "d-003-BabyAI-GoToDoor-v0-s1004"
+}

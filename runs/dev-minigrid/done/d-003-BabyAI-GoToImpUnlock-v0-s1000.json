@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-003",
+ "committed_at": "2026-10-27T06:23:36Z",
+ "kernel_version": 14,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-003-BabyAI-GoToImpUnlock-v0-s1000.json",
+ "row_sha256": "fff9864b6184c591f92e75fcca26e69348785f90a689bd83fdb8871337892845",
+ "run_nonce": "dev-minigrid-d-003-20261026T221718Z-7fe897",
+ "unit_id": "d-003-BabyAI-GoToImpUnlock-v0-s1000"
+}
