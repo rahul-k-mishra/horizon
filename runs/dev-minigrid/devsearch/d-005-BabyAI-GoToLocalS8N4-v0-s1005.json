@@ -1,0 +1,66 @@
+{
+ "campaign": "dev-minigrid",
+ "cap_hit": "node",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "d-005",
+ "complete": false,
+ "counts": {
+  "depth_max": 28,
+  "frontier_left": 1836027,
+  "solution_length": 4,
+  "spill_files_max": 1,
+  "states_expanded": 5000000,
+  "states_seen": 7029407,
+  "successors_total": 40000000
+ },
+ "game": "BabyAI-GoToLocalS8N4-v0",
+ "level": 1005,
+ "measures": {
+  "branching": 3.9021232,
+  "eh": null,
+  "eh_horizon": 400,
+  "eh_k": null,
+  "eh_status": "not computed: capped by node"
+ },
+ "schema": "horizon.search.v2",
+ "seconds_spent": 8441.59,
+ "sessions": [
+  {
+   "ended_at": "2026-10-28T03:11:20Z",
+   "host": "b7436b46c3b3",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_wiieHQh2YN37qKkjwa8FdWO6wqvP3mDLvQK95dTg-362941390-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "europe-west4-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-005-20261027T191048Z-dba68c",
+   "started_at": "2026-10-27T19:11:07Z"
+  },
+  {
+   "ended_at": "2026-10-28T03:23:10Z",
+   "host": "d1ce976375d4",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_rVknMUSjVs6R6E8np92zjEZ1EbCIyX1i8PTu4EfrA-363026960-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-west1-c",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-005-20261028T031827Z-2f30c4",
+   "started_at": "2026-10-28T03:18:45Z"
+  }
+ ],
+ "suite": "minigrid",
+ "unit_id": "d-005-BabyAI-GoToLocalS8N4-v0-s1005",
+ "written_at": "2026-10-28T03:23:10Z"
+}
