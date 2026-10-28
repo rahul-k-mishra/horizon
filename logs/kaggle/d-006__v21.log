@@ -1,0 +1,50 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit 3f758affe7ec71820796a3851f7a8a87e04b1089 Loop: d-006 pushed as kernel version 21
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1793194090.3299072
+[2026-10-28T13:32:48Z] chunk d-006 (devsearch), nonce dev-minigrid-d-006-20261028T132754Z-931ca6; work deadline 2026-10-28T21:28:10Z, checkpoint by 2026-10-28T21:43:10Z
+[2026-10-28T13:32:49Z] resuming from checkpoint 1 of run dev-minigrid-d-006-20261028T052023Z-870f53: 12 units done, in progress ['d-006-BabyAI-GoToLocalS8N6-v0-s1002', 'd-006-BabyAI-GoToLocalS8N6-v0-s1003', 'd-006-BabyAI-GoToLocalS8N6-v0-s1004', 'd-006-BabyAI-GoToLocalS8N6-v0-s1005']
+[2026-10-28T13:32:49Z] devsearch: 28 units to run on 4 workers, 4 resumed from the checkpoint
+[2026-10-28T13:32:49Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1002: resume
+[2026-10-28T13:32:49Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1003: resume
+[2026-10-28T13:32:49Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1004: resume
+[2026-10-28T13:32:49Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1005: resume
+[2026-10-28T14:52:22Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1003: capped, 9211910 states seen
+[2026-10-28T14:52:22Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1006: start
+[2026-10-28T14:55:02Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1002: capped, 7622807 states seen
+[2026-10-28T14:55:02Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1007: start
+[2026-10-28T14:58:21Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1004: capped, 9057366 states seen
+[2026-10-28T14:58:21Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1008: start
+[2026-10-28T14:58:34Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1005: capped, 9019043 states seen
+[2026-10-28T14:58:34Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1009: start
+[2026-10-28T17:20:12Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1006: capped, 9350712 states seen
+[2026-10-28T17:20:12Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1000: start
+[2026-10-28T17:25:19Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1007: capped, 8765729 states seen
+[2026-10-28T17:25:19Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1001: start
+[2026-10-28T17:27:30Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1008: capped, 8676288 states seen
+[2026-10-28T17:27:30Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1002: start
+[2026-10-28T17:29:33Z] devsearch unit d-006-BabyAI-GoToLocalS8N6-v0-s1009: capped, 8844112 states seen
+[2026-10-28T17:29:33Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1003: start
+[2026-10-28T19:56:16Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1000: capped, 9470896 states seen
+[2026-10-28T19:56:16Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1004: start
+[2026-10-28T20:02:58Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1002: capped, 8938193 states seen
+[2026-10-28T20:02:58Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1005: start
+[2026-10-28T20:05:36Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1003: capped, 9480984 states seen
+[2026-10-28T20:05:36Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1006: start
+[2026-10-28T20:22:54Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1001: capped, 8147147 states seen
+[2026-10-28T20:22:54Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1007: start
+[2026-10-28T21:28:35Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1007: stopped at the deadline, 2190851 expanded
+[2026-10-28T21:28:45Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1004: stopped at the deadline, 3000338 expanded
+[2026-10-28T21:28:46Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1006: stopped at the deadline, 2715597 expanded
+[2026-10-28T21:28:47Z] devsearch unit d-006-BabyAI-GoToLocalS8N7-v0-s1005: stopped at the deadline, 2794773 expanded
+Sampling rejected: unreachable object at (1, 6)
+[2026-10-28T21:28:49Z] checkpoint 2: 24 units done, 4 in progress, 17 payload files
+[2026-10-28T21:28:49Z] chunk d-006: partial; units done 24 of 40; stopped: deadline reached with devsearch units unfinished
+[2026-10-28T21:28:58Z] wrote result.json (status partial) and bundle.tar.gz
