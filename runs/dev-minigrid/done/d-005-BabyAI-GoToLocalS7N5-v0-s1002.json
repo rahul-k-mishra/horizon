@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-005",
+ "committed_at": "2026-10-28T03:18:15Z",
+ "kernel_version": 18,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-005-BabyAI-GoToLocalS7N5-v0-s1002.json",
+ "row_sha256": "866ece4c1a04e81f5b61b7b4d783b98cfcf633c30be697a0bdccaf26173a753b",
+ "run_nonce": "dev-minigrid-d-005-20261027T191048Z-dba68c",
+ "unit_id": "d-005-BabyAI-GoToLocalS7N5-v0-s1002"
+}
