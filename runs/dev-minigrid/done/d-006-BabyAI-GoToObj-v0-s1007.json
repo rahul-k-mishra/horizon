@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-006",
+ "committed_at": "2026-10-29T00:17:16Z",
+ "kernel_version": 22,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-006-BabyAI-GoToObj-v0-s1007.json",
+ "row_sha256": "5da03098489830d99a80cc1d7349947b235bb4748429ae6288e5caeb9190bd4e",
+ "run_nonce": "dev-minigrid-d-006-20261028T214347Z-57d350",
+ "unit_id": "d-006-BabyAI-GoToObj-v0-s1007"
+}
