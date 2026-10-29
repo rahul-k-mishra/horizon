@@ -1,0 +1,66 @@
+{
+ "campaign": "dev-minigrid",
+ "cap_hit": "time",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "d-007",
+ "complete": false,
+ "counts": {
+  "depth_max": 21,
+  "frontier_left": 4180211,
+  "solution_length": 1,
+  "spill_files_max": 3,
+  "states_expanded": 4895093,
+  "states_seen": 9365692,
+  "successors_total": 39160744
+ },
+ "game": "BabyAI-GoToObjDoor-v0",
+ "level": 1008,
+ "measures": {
+  "branching": 4.02858883375658,
+  "eh": null,
+  "eh_horizon": 400,
+  "eh_k": null,
+  "eh_status": "not computed: capped by time"
+ },
+ "schema": "horizon.search.v2",
+ "seconds_spent": 14400.197,
+ "sessions": [
+  {
+   "ended_at": "2026-10-29T08:17:43Z",
+   "host": "ebb8367b923a",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_vgjnqyXjYtvus2jJGGLJn6gF8bvKq2fNpvFCET4lI-363324354-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "asia-east1-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-007-20261029T001718Z-dd8767",
+   "started_at": "2026-10-29T00:17:35Z"
+  },
+  {
+   "ended_at": "2026-10-29T10:35:57Z",
+   "host": "8861655f5cb7",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_jZUKHE36l2TDMrBpILxIhOHYOZYR8lKv9XKEXEr2lEQ-363428665-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "europe-west4-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-007-20261029T082558Z-7a7846",
+   "started_at": "2026-10-29T08:26:16Z"
+  }
+ ],
+ "suite": "minigrid",
+ "unit_id": "d-007-BabyAI-GoToObjDoor-v0-s1008",
+ "written_at": "2026-10-29T10:35:57Z"
+}
