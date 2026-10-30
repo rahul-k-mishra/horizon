@@ -1,0 +1,622 @@
+stage_d_progress: campaign dev-minigrid, code tag automation-v2, 39 chunks, 1560 units
+registered caps: time 14400 s, nodes 5000000, memory 6442450944 bytes; 4 workers; session work 28800 s, checkpoint reserve 900 s
+chunks by status: done 9, pending 29, running 1
+
+rows read: 378
+
+== every completed unit: unit, seconds, state, cap hit, sessions it spanned ==
+  d-001-BabyAI-ActionObjDoor-v0-s1000     14400.1 s  capped    cap time    sessions 1
+  d-001-BabyAI-ActionObjDoor-v0-s1001     14400.3 s  capped    cap time    sessions 1
+  d-001-BabyAI-ActionObjDoor-v0-s1002     14400.3 s  capped    cap time    sessions 1
+  d-001-BabyAI-ActionObjDoor-v0-s1003     14181.2 s  capped    cap node    sessions 1
+  d-001-BabyAI-ActionObjDoor-v0-s1004     14400.6 s  capped    cap time    sessions 1
+  d-001-BabyAI-ActionObjDoor-v0-s1005     13948.1 s  capped    cap node    sessions 1
+  d-001-BabyAI-ActionObjDoor-v0-s1006     14400.5 s  capped    cap time    sessions 2
+  d-001-BabyAI-ActionObjDoor-v0-s1007     14400.3 s  capped    cap time    sessions 2
+  d-001-BabyAI-ActionObjDoor-v0-s1008     14400.5 s  capped    cap time    sessions 2
+  d-001-BabyAI-ActionObjDoor-v0-s1009     14400.2 s  capped    cap time    sessions 2
+  d-001-BabyAI-BlockedUnlockPickup-v0-s1000       452.1 s  complete  cap -       sessions 1
+  d-001-BabyAI-BlockedUnlockPickup-v0-s1001       456.5 s  complete  cap -       sessions 1
+  d-001-BabyAI-BlockedUnlockPickup-v0-s1002       445.2 s  complete  cap -       sessions 1
+  d-001-BabyAI-BlockedUnlockPickup-v0-s1003       450.4 s  complete  cap -       sessions 1
+  d-001-BabyAI-BlockedUnlockPickup-v0-s1004       448.1 s  complete  cap -       sessions 1
+  d-001-BabyAI-BlockedUnlockPickup-v0-s1005       453.3 s  complete  cap -       sessions 1
+  d-001-BabyAI-BlockedUnlockPickup-v0-s1006       266.8 s  complete  cap -       sessions 1
+  d-001-BabyAI-BlockedUnlockPickup-v0-s1007       455.5 s  complete  cap -       sessions 1
+  d-001-BabyAI-BlockedUnlockPickup-v0-s1008       447.5 s  complete  cap -       sessions 1
+  d-001-BabyAI-BlockedUnlockPickup-v0-s1009       453.5 s  complete  cap -       sessions 1
+  d-001-BabyAI-BossLevel-v0-s1000     14400.8 s  capped    cap time    sessions 1
+  d-001-BabyAI-BossLevel-v0-s1001     14400.6 s  capped    cap time    sessions 1
+  d-001-BabyAI-BossLevel-v0-s1002     14400.8 s  capped    cap time    sessions 1
+  d-001-BabyAI-BossLevel-v0-s1003     14400.0 s  capped    cap time    sessions 1
+  d-001-BabyAI-BossLevel-v0-s1004     14400.7 s  capped    cap time    sessions 2
+  d-001-BabyAI-BossLevel-v0-s1005     14400.5 s  capped    cap time    sessions 2
+  d-001-BabyAI-BossLevel-v0-s1006     14400.1 s  capped    cap time    sessions 2
+  d-001-BabyAI-BossLevel-v0-s1007       964.7 s  complete  cap -       sessions 2
+  d-001-BabyAI-BossLevel-v0-s1008     14400.2 s  capped    cap time    sessions 1
+  d-001-BabyAI-BossLevel-v0-s1009     14400.6 s  capped    cap time    sessions 1
+  d-001-BabyAI-BossLevelNoUnlock-v0-s1000     14400.1 s  capped    cap time    sessions 1
+  d-001-BabyAI-BossLevelNoUnlock-v0-s1001     14400.1 s  capped    cap time    sessions 1
+  d-001-BabyAI-BossLevelNoUnlock-v0-s1002     14400.7 s  capped    cap time    sessions 2
+  d-001-BabyAI-BossLevelNoUnlock-v0-s1003     14400.8 s  capped    cap time    sessions 2
+  d-001-BabyAI-BossLevelNoUnlock-v0-s1004     14400.0 s  capped    cap time    sessions 2
+  d-001-BabyAI-BossLevelNoUnlock-v0-s1005     14400.8 s  capped    cap time    sessions 2
+  d-001-BabyAI-BossLevelNoUnlock-v0-s1006     14400.3 s  capped    cap time    sessions 1
+  d-001-BabyAI-BossLevelNoUnlock-v0-s1007     14400.2 s  capped    cap time    sessions 1
+  d-001-BabyAI-BossLevelNoUnlock-v0-s1008     14400.1 s  capped    cap time    sessions 1
+  d-001-BabyAI-BossLevelNoUnlock-v0-s1009     14400.1 s  capped    cap time    sessions 1
+  d-002-BabyAI-FindObjS5-v0-s1000       251.1 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS5-v0-s1001         8.7 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS5-v0-s1002       246.4 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS5-v0-s1003       507.6 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS5-v0-s1004       501.8 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS5-v0-s1005       475.2 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS5-v0-s1006       122.0 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS5-v0-s1007      1016.8 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS5-v0-s1008       246.9 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS5-v0-s1009       514.6 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS6-v0-s1000       270.8 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS6-v0-s1001       551.7 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS6-v0-s1002      1123.4 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS6-v0-s1003      1155.1 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS6-v0-s1004      2312.3 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS6-v0-s1005      1079.6 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS6-v0-s1006       274.8 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS6-v0-s1007      1126.6 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS6-v0-s1008       552.7 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS6-v0-s1009      2350.5 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS7-v0-s1000       530.0 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS7-v0-s1001       517.0 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS7-v0-s1002      1030.1 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS7-v0-s1003      2190.9 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS7-v0-s1004      4448.6 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS7-v0-s1005      2045.9 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS7-v0-s1006       532.3 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS7-v0-s1007      2183.4 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS7-v0-s1008      1093.0 s  complete  cap -       sessions 1
+  d-002-BabyAI-FindObjS7-v0-s1009      4532.3 s  complete  cap -       sessions 1
+  d-002-BabyAI-GoTo-v0-s1000     14400.8 s  capped    cap time    sessions 1
+  d-002-BabyAI-GoTo-v0-s1001     14400.6 s  capped    cap time    sessions 1
+  d-002-BabyAI-GoTo-v0-s1002     14400.3 s  capped    cap time    sessions 1
+  d-002-BabyAI-GoTo-v0-s1003     14400.1 s  capped    cap time    sessions 1
+  d-002-BabyAI-GoTo-v0-s1004     14400.3 s  capped    cap time    sessions 2
+  d-002-BabyAI-GoTo-v0-s1005     14400.0 s  capped    cap time    sessions 2
+  d-002-BabyAI-GoTo-v0-s1006     14400.2 s  capped    cap time    sessions 2
+  d-002-BabyAI-GoTo-v0-s1007     14400.5 s  capped    cap time    sessions 2
+  d-002-BabyAI-GoTo-v0-s1008     14401.8 s  capped    cap time    sessions 1
+  d-002-BabyAI-GoTo-v0-s1009     14400.5 s  capped    cap time    sessions 1
+  d-003-BabyAI-GoToDoor-v0-s1000         1.0 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToDoor-v0-s1001         0.9 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToDoor-v0-s1002         0.9 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToDoor-v0-s1003         3.1 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToDoor-v0-s1004         2.7 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToDoor-v0-s1005         7.4 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToDoor-v0-s1006         0.2 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToDoor-v0-s1007         2.9 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToDoor-v0-s1008         0.8 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToDoor-v0-s1009         0.9 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToImpUnlock-v0-s1000     14400.2 s  capped    cap time    sessions 1
+  d-003-BabyAI-GoToImpUnlock-v0-s1001     14400.1 s  capped    cap time    sessions 1
+  d-003-BabyAI-GoToImpUnlock-v0-s1002     14400.4 s  capped    cap time    sessions 1
+  d-003-BabyAI-GoToImpUnlock-v0-s1003     14400.4 s  capped    cap time    sessions 1
+  d-003-BabyAI-GoToImpUnlock-v0-s1004     14400.5 s  capped    cap time    sessions 2
+  d-003-BabyAI-GoToImpUnlock-v0-s1005     14400.5 s  capped    cap time    sessions 2
+  d-003-BabyAI-GoToImpUnlock-v0-s1006     14400.5 s  capped    cap time    sessions 2
+  d-003-BabyAI-GoToImpUnlock-v0-s1007     14400.2 s  capped    cap time    sessions 2
+  d-003-BabyAI-GoToImpUnlock-v0-s1008     14400.4 s  capped    cap time    sessions 1
+  d-003-BabyAI-GoToImpUnlock-v0-s1009     14400.5 s  capped    cap time    sessions 1
+  d-003-BabyAI-GoToLocal-v0-s1000     11455.3 s  capped    cap node    sessions 1
+  d-003-BabyAI-GoToLocal-v0-s1001     11577.1 s  capped    cap node    sessions 1
+  d-003-BabyAI-GoToLocal-v0-s1002     11555.1 s  capped    cap node    sessions 1
+  d-003-BabyAI-GoToLocal-v0-s1003     10290.0 s  capped    cap node    sessions 1
+  d-003-BabyAI-GoToLocal-v0-s1004     10259.0 s  capped    cap node    sessions 1
+  d-003-BabyAI-GoToLocal-v0-s1005     10314.0 s  capped    cap node    sessions 1
+  d-003-BabyAI-GoToLocal-v0-s1006     10060.1 s  capped    cap node    sessions 2
+  d-003-BabyAI-GoToLocal-v0-s1007      9808.2 s  capped    cap node    sessions 2
+  d-003-BabyAI-GoToLocal-v0-s1008      9768.9 s  capped    cap node    sessions 2
+  d-003-BabyAI-GoToLocal-v0-s1009     10341.7 s  capped    cap node    sessions 2
+  d-003-BabyAI-GoToLocalS5N2-v0-s1000         0.3 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToLocalS5N2-v0-s1001         0.4 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToLocalS5N2-v0-s1002         0.0 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToLocalS5N2-v0-s1003         0.3 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToLocalS5N2-v0-s1004         0.2 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToLocalS5N2-v0-s1005         0.2 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToLocalS5N2-v0-s1006         0.3 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToLocalS5N2-v0-s1007         0.1 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToLocalS5N2-v0-s1008         0.4 s  complete  cap -       sessions 1
+  d-003-BabyAI-GoToLocalS5N2-v0-s1009         0.1 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N2-v0-s1000         0.8 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N2-v0-s1001         0.8 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N2-v0-s1002         0.1 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N2-v0-s1003         0.8 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N2-v0-s1004         0.8 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N2-v0-s1005         1.7 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N2-v0-s1006         0.8 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N2-v0-s1007         0.0 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N2-v0-s1008         1.8 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N2-v0-s1009         0.8 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N3-v0-s1000         1.5 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N3-v0-s1001        12.0 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N3-v0-s1002         0.7 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N3-v0-s1003        12.7 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N3-v0-s1004         1.6 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N3-v0-s1005        22.6 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N3-v0-s1006        22.5 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N3-v0-s1007         0.5 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N3-v0-s1008        51.4 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N3-v0-s1009        10.9 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N4-v0-s1000       168.2 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N4-v0-s1001       157.8 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N4-v0-s1002        10.8 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N4-v0-s1003       164.5 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N4-v0-s1004       343.7 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N4-v0-s1005      1616.9 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N4-v0-s1006       368.7 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N4-v0-s1007         8.8 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N4-v0-s1008        21.3 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS6N4-v0-s1009       174.4 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS7N4-v0-s1000      1301.2 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS7N4-v0-s1001      1359.8 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS7N4-v0-s1002       119.4 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS7N4-v0-s1003      1385.5 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS7N4-v0-s1004      2894.1 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS7N4-v0-s1005      4859.1 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS7N4-v0-s1006      2868.3 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS7N4-v0-s1007      1359.7 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS7N4-v0-s1008      3994.1 s  complete  cap -       sessions 1
+  d-004-BabyAI-GoToLocalS7N4-v0-s1009      1170.4 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS7N5-v0-s1000      8626.2 s  capped    cap node    sessions 1
+  d-005-BabyAI-GoToLocalS7N5-v0-s1001      8669.3 s  capped    cap node    sessions 1
+  d-005-BabyAI-GoToLocalS7N5-v0-s1002      2722.4 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS7N5-v0-s1003      8682.4 s  capped    cap node    sessions 1
+  d-005-BabyAI-GoToLocalS7N5-v0-s1004      8767.5 s  capped    cap node    sessions 1
+  d-005-BabyAI-GoToLocalS7N5-v0-s1005      8565.4 s  capped    cap node    sessions 1
+  d-005-BabyAI-GoToLocalS7N5-v0-s1006      8630.0 s  capped    cap node    sessions 1
+  d-005-BabyAI-GoToLocalS7N5-v0-s1007      2333.4 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS7N5-v0-s1008      8552.4 s  capped    cap node    sessions 1
+  d-005-BabyAI-GoToLocalS7N5-v0-s1009      8639.3 s  capped    cap node    sessions 1
+  d-005-BabyAI-GoToLocalS8N2-v0-s1000         5.6 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N2-v0-s1001         5.7 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N2-v0-s1002         0.2 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N2-v0-s1003         5.6 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N2-v0-s1004        10.9 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N2-v0-s1005        11.5 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N2-v0-s1006         5.6 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N2-v0-s1007         0.1 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N2-v0-s1008         5.7 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N2-v0-s1009         5.6 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N3-v0-s1000        12.5 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N3-v0-s1001       196.0 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N3-v0-s1002       789.0 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N3-v0-s1003       201.7 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N3-v0-s1004       403.2 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N3-v0-s1005       807.8 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N3-v0-s1006       406.0 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N3-v0-s1007         5.9 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N3-v0-s1008       405.7 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N3-v0-s1009       203.6 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N4-v0-s1000      7129.4 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N4-v0-s1001      7320.0 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N4-v0-s1002       427.3 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N4-v0-s1003      8566.6 s  capped    cap node    sessions 1
+  d-005-BabyAI-GoToLocalS8N4-v0-s1004       443.6 s  complete  cap -       sessions 1
+  d-005-BabyAI-GoToLocalS8N4-v0-s1005      8441.6 s  capped    cap node    sessions 2
+  d-005-BabyAI-GoToLocalS8N4-v0-s1006      7588.2 s  capped    cap node    sessions 2
+  d-005-BabyAI-GoToLocalS8N4-v0-s1007      6496.5 s  complete  cap -       sessions 2
+  d-005-BabyAI-GoToLocalS8N4-v0-s1008      6574.3 s  capped    cap node    sessions 2
+  d-005-BabyAI-GoToLocalS8N4-v0-s1009      6342.2 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N5-v0-s1000      9005.4 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N5-v0-s1001      8064.5 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N5-v0-s1002      9047.1 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N5-v0-s1003      8026.1 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N5-v0-s1004      8956.3 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N5-v0-s1005      7981.9 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N5-v0-s1006      8047.2 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N5-v0-s1007      8053.2 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N5-v0-s1008      7936.3 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N5-v0-s1009      7945.5 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N6-v0-s1000      8169.6 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N6-v0-s1001      8180.0 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N6-v0-s1002      9710.3 s  capped    cap node    sessions 2
+  d-006-BabyAI-GoToLocalS8N6-v0-s1003      8604.8 s  capped    cap node    sessions 2
+  d-006-BabyAI-GoToLocalS8N6-v0-s1004      8669.6 s  capped    cap node    sessions 2
+  d-006-BabyAI-GoToLocalS8N6-v0-s1005      8624.2 s  capped    cap node    sessions 2
+  d-006-BabyAI-GoToLocalS8N6-v0-s1006      8868.8 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N6-v0-s1007      9016.1 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N6-v0-s1008      8947.1 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N6-v0-s1009      9057.8 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N7-v0-s1000      9362.3 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N7-v0-s1001     10652.6 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N7-v0-s1002      9326.8 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N7-v0-s1003      9361.1 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N7-v0-s1004      8864.1 s  capped    cap node    sessions 2
+  d-006-BabyAI-GoToLocalS8N7-v0-s1005      8796.7 s  capped    cap node    sessions 2
+  d-006-BabyAI-GoToLocalS8N7-v0-s1006      8830.7 s  capped    cap node    sessions 2
+  d-006-BabyAI-GoToLocalS8N7-v0-s1007      8478.8 s  capped    cap node    sessions 2
+  d-006-BabyAI-GoToLocalS8N7-v0-s1008      5185.8 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToLocalS8N7-v0-s1009      5418.0 s  capped    cap node    sessions 1
+  d-006-BabyAI-GoToObj-v0-s1000         0.1 s  complete  cap -       sessions 1
+  d-006-BabyAI-GoToObj-v0-s1001         0.1 s  complete  cap -       sessions 1
+  d-006-BabyAI-GoToObj-v0-s1002         0.1 s  complete  cap -       sessions 1
+  d-006-BabyAI-GoToObj-v0-s1003         0.1 s  complete  cap -       sessions 1
+  d-006-BabyAI-GoToObj-v0-s1004         0.1 s  complete  cap -       sessions 1
+  d-006-BabyAI-GoToObj-v0-s1005         0.1 s  complete  cap -       sessions 1
+  d-006-BabyAI-GoToObj-v0-s1006         0.1 s  complete  cap -       sessions 1
+  d-006-BabyAI-GoToObj-v0-s1007         0.1 s  complete  cap -       sessions 1
+  d-006-BabyAI-GoToObj-v0-s1008         0.1 s  complete  cap -       sessions 1
+  d-006-BabyAI-GoToObj-v0-s1009         0.1 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjDoor-v0-s1000     10996.8 s  capped    cap node    sessions 1
+  d-007-BabyAI-GoToObjDoor-v0-s1001     11068.5 s  capped    cap node    sessions 1
+  d-007-BabyAI-GoToObjDoor-v0-s1002     11057.5 s  capped    cap node    sessions 1
+  d-007-BabyAI-GoToObjDoor-v0-s1003     11104.3 s  capped    cap node    sessions 1
+  d-007-BabyAI-GoToObjDoor-v0-s1004     11095.5 s  capped    cap node    sessions 1
+  d-007-BabyAI-GoToObjDoor-v0-s1005     11076.9 s  capped    cap node    sessions 1
+  d-007-BabyAI-GoToObjDoor-v0-s1006     11850.9 s  capped    cap node    sessions 1
+  d-007-BabyAI-GoToObjDoor-v0-s1007     11023.1 s  capped    cap node    sessions 1
+  d-007-BabyAI-GoToObjDoor-v0-s1008     14400.2 s  capped    cap time    sessions 2
+  d-007-BabyAI-GoToObjDoor-v0-s1009     14400.4 s  capped    cap time    sessions 2
+  d-007-BabyAI-GoToObjMaze-v0-s1000       572.4 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMaze-v0-s1001      1169.4 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMaze-v0-s1002       576.1 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMaze-v0-s1003      1166.1 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMaze-v0-s1004      2373.0 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMaze-v0-s1005       579.4 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMaze-v0-s1006       571.2 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMaze-v0-s1007       578.4 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMaze-v0-s1008       575.3 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMaze-v0-s1009      1172.7 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeOpen-v0-s1000       574.8 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeOpen-v0-s1001      1162.7 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeOpen-v0-s1002       570.9 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeOpen-v0-s1003      1671.4 s  complete  cap -       sessions 2
+  d-007-BabyAI-GoToObjMazeOpen-v0-s1004      4391.4 s  complete  cap -       sessions 2
+  d-007-BabyAI-GoToObjMazeOpen-v0-s1005      1101.1 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeOpen-v0-s1006      1108.7 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeOpen-v0-s1007      1100.8 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeOpen-v0-s1008      1115.1 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeOpen-v0-s1009      2228.3 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeS4-v0-s1000        56.0 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeS4-v0-s1001       115.5 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeS4-v0-s1002       106.8 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeS4-v0-s1003        68.0 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeS4-v0-s1004        53.5 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeS4-v0-s1005        53.7 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeS4-v0-s1006        53.4 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeS4-v0-s1007       234.8 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeS4-v0-s1008        50.7 s  complete  cap -       sessions 1
+  d-007-BabyAI-GoToObjMazeS4-v0-s1009       182.0 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS4R2-v0-s1000         0.5 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS4R2-v0-s1001         0.4 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS4R2-v0-s1002         0.5 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS4R2-v0-s1003         0.5 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS4R2-v0-s1004         0.4 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS4R2-v0-s1005         0.4 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS4R2-v0-s1006         0.4 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS4R2-v0-s1007         0.4 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS4R2-v0-s1008         0.4 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS4R2-v0-s1009         0.4 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS5-v0-s1000        63.7 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS5-v0-s1001       155.0 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS5-v0-s1002       305.5 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS5-v0-s1003       195.3 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS5-v0-s1004       146.6 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS5-v0-s1005       150.7 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS5-v0-s1006       670.0 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS5-v0-s1007      1342.5 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS5-v0-s1008       162.8 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS5-v0-s1009       321.7 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS6-v0-s1000       345.7 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS6-v0-s1001       331.1 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS6-v0-s1002       327.7 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS6-v0-s1003       663.4 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS6-v0-s1004      1354.0 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS6-v0-s1005       332.8 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS6-v0-s1006      1329.1 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS6-v0-s1007       319.2 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS6-v0-s1008       319.9 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS6-v0-s1009       658.5 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS7-v0-s1000       614.3 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS7-v0-s1001      1241.3 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS7-v0-s1002       606.2 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS7-v0-s1003      1241.8 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS7-v0-s1004      2264.2 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS7-v0-s1005       620.3 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS7-v0-s1006       608.2 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS7-v0-s1007       605.3 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS7-v0-s1008       562.8 s  complete  cap -       sessions 1
+  d-008-BabyAI-GoToObjMazeS7-v0-s1009       932.2 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS4-v0-s1000         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS4-v0-s1001         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS4-v0-s1002         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS4-v0-s1003         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS4-v0-s1004         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS4-v0-s1005         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS4-v0-s1006         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS4-v0-s1007         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS4-v0-s1008         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS4-v0-s1009         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS6-v1-s1000         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS6-v1-s1001         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS6-v1-s1002         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS6-v1-s1003         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS6-v1-s1004         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS6-v1-s1005         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS6-v1-s1006         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS6-v1-s1007         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS6-v1-s1008         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToObjS6-v1-s1009         0.0 s  complete  cap -       sessions 1
+  d-009-BabyAI-GoToOpen-v0-s1000     14400.2 s  capped    cap time    sessions 1
+  d-009-BabyAI-GoToOpen-v0-s1001     14400.7 s  capped    cap time    sessions 1
+  d-009-BabyAI-GoToOpen-v0-s1002     14400.6 s  capped    cap time    sessions 1
+  d-009-BabyAI-GoToOpen-v0-s1003     14400.1 s  capped    cap time    sessions 1
+  d-009-BabyAI-GoToOpen-v0-s1004     14400.2 s  capped    cap time    sessions 2
+  d-009-BabyAI-GoToOpen-v0-s1005     14400.3 s  capped    cap time    sessions 2
+  d-009-BabyAI-GoToOpen-v0-s1006     14400.1 s  capped    cap time    sessions 2
+  d-009-BabyAI-GoToOpen-v0-s1007     14400.4 s  capped    cap time    sessions 2
+  d-009-BabyAI-GoToOpen-v0-s1008     14400.8 s  capped    cap time    sessions 1
+  d-009-BabyAI-GoToOpen-v0-s1009     14400.1 s  capped    cap time    sessions 1
+  d-009-BabyAI-GoToRedBall-v0-s1000      8778.8 s  capped    cap node    sessions 1
+  d-009-BabyAI-GoToRedBall-v0-s1001      8762.8 s  capped    cap node    sessions 1
+  d-009-BabyAI-GoToRedBall-v0-s1002      8653.3 s  capped    cap node    sessions 1
+  d-009-BabyAI-GoToRedBall-v0-s1003      9634.2 s  capped    cap node    sessions 1
+  d-009-BabyAI-GoToRedBall-v0-s1004      8858.0 s  capped    cap node    sessions 1
+  d-009-BabyAI-GoToRedBall-v0-s1005      8861.1 s  capped    cap node    sessions 1
+  d-009-BabyAI-GoToRedBall-v0-s1006     10245.9 s  capped    cap node    sessions 1
+  d-009-BabyAI-GoToRedBall-v0-s1007      9174.4 s  capped    cap node    sessions 1
+  d-009-BabyAI-GoToRedBall-v0-s1008      6873.2 s  capped    cap node    sessions 2
+  d-009-BabyAI-GoToRedBall-v0-s1009      7562.6 s  capped    cap node    sessions 2
+  d-010-BabyAI-GoToRedBallNoDists-v0-s1000         0.2 s  complete  cap -       sessions 1
+  d-010-BabyAI-GoToRedBallNoDists-v0-s1001         0.2 s  complete  cap -       sessions 1
+  d-010-BabyAI-GoToRedBallNoDists-v0-s1002         0.1 s  complete  cap -       sessions 1
+  d-010-BabyAI-GoToRedBallNoDists-v0-s1003         0.1 s  complete  cap -       sessions 1
+  d-010-BabyAI-GoToRedBallNoDists-v0-s1004         0.1 s  complete  cap -       sessions 1
+  d-010-BabyAI-GoToRedBallNoDists-v0-s1005         0.2 s  complete  cap -       sessions 1
+  d-010-BabyAI-GoToRedBallNoDists-v0-s1006         0.1 s  complete  cap -       sessions 1
+  d-010-BabyAI-GoToRedBallNoDists-v0-s1007         0.1 s  complete  cap -       sessions 1
+  d-010-BabyAI-GoToRedBallNoDists-v0-s1008         0.2 s  complete  cap -       sessions 1
+  d-010-BabyAI-GoToRedBallNoDists-v0-s1009         0.2 s  complete  cap -       sessions 1
+  d-010-BabyAI-GoToRedBlueBall-v0-s1000      9661.6 s  capped    cap node    sessions 1
+  d-010-BabyAI-GoToRedBlueBall-v0-s1001      9611.6 s  capped    cap node    sessions 1
+  d-010-BabyAI-GoToRedBlueBall-v0-s1002      9649.1 s  capped    cap node    sessions 1
+  d-010-BabyAI-GoToRedBlueBall-v0-s1003      9462.5 s  capped    cap node    sessions 1
+  d-010-BabyAI-GoToRedBlueBall-v0-s1004      9701.0 s  capped    cap node    sessions 1
+  d-010-BabyAI-GoToRedBlueBall-v0-s1005      9655.0 s  capped    cap node    sessions 1
+  d-010-BabyAI-GoToRedBlueBall-v0-s1006      9740.8 s  capped    cap node    sessions 1
+  d-010-BabyAI-GoToRedBlueBall-v0-s1007      9752.5 s  capped    cap node    sessions 1
+
+== seconds per unit ==
+  total 1737022.5 s (482.51 h of worker time)
+  min 0.0, median 870.0, mean 4595.3, max 14401.8
+  quantile 0.25: 8.8 s
+  quantile 0.75: 9174.4 s
+  quantile 0.90: 14400.2 s
+  units under 60 s: 111
+  units under 600 s: 179
+  units under 3600 s: 230
+  share of all worker seconds taken by the slowest k units:
+    k=10: 0.0829
+    k=20: 0.1658
+    k=40: 0.3316
+    k=60: 0.4973
+
+== the slowest ten units ==
+  d-002-BabyAI-GoTo-v0-s1008  14401.8 s  capped True  cap time  states expanded 4407283
+  d-001-BabyAI-BossLevelNoUnlock-v0-s1005  14400.8 s  capped True  cap time  states expanded 2603293
+  d-001-BabyAI-BossLevel-v0-s1000  14400.8 s  capped True  cap time  states expanded 2364376
+  d-002-BabyAI-GoTo-v0-s1000  14400.8 s  capped True  cap time  states expanded 3022642
+  d-009-BabyAI-GoToOpen-v0-s1008  14400.8 s  capped True  cap time  states expanded 3004287
+  d-001-BabyAI-BossLevelNoUnlock-v0-s1003  14400.8 s  capped True  cap time  states expanded 2880370
+  d-001-BabyAI-BossLevel-v0-s1002  14400.8 s  capped True  cap time  states expanded 2807597
+  d-001-BabyAI-BossLevelNoUnlock-v0-s1002  14400.7 s  capped True  cap time  states expanded 2802208
+  d-001-BabyAI-BossLevel-v0-s1004  14400.7 s  capped True  cap time  states expanded 2252892
+  d-009-BabyAI-GoToOpen-v0-s1001  14400.7 s  capped True  cap time  states expanded 2883183
+
+== caps hit ==
+  units capped: 140 of 378
+    cap node: 81
+    cap time: 59
+  complete: 238
+  neither complete nor capped: 0
+    seconds of units capped by node: min 5185.8, median 8956.3, max 14181.2
+    seconds of units capped by time: min 14400.0, median 14400.3, max 14401.8
+  units at 14400 s or more: 59 (the slowest ten are drawn from these, in order of seconds to the tenth of a second)
+  units spanning more than one session: 46
+
+== per game: units, capped, worker seconds ==
+  d-001 BabyAI-ActionObjDoor-v0: 10 units, capped 10, 143332.0 s
+  d-001 BabyAI-BlockedUnlockPickup-v0: 10 units, capped 0, 4329.0 s
+  d-001 BabyAI-BossLevel-v0: 10 units, capped 9, 130569.0 s
+  d-001 BabyAI-BossLevelNoUnlock-v0: 10 units, capped 10, 144003.1 s
+  d-002 BabyAI-FindObjS5-v0: 10 units, capped 0, 3891.1 s
+  d-002 BabyAI-FindObjS6-v0: 10 units, capped 0, 10797.5 s
+  d-002 BabyAI-FindObjS7-v0: 10 units, capped 0, 19103.6 s
+  d-002 BabyAI-GoTo-v0: 10 units, capped 10, 144005.1 s
+  d-003 BabyAI-GoToDoor-v0: 10 units, capped 0, 20.8 s
+  d-003 BabyAI-GoToImpUnlock-v0: 10 units, capped 10, 144003.8 s
+  d-003 BabyAI-GoToLocal-v0: 10 units, capped 10, 105429.5 s
+  d-003 BabyAI-GoToLocalS5N2-v0: 10 units, capped 0, 2.3 s
+  d-004 BabyAI-GoToLocalS6N2-v0: 10 units, capped 0, 8.5 s
+  d-004 BabyAI-GoToLocalS6N3-v0: 10 units, capped 0, 136.4 s
+  d-004 BabyAI-GoToLocalS6N4-v0: 10 units, capped 0, 3035.2 s
+  d-004 BabyAI-GoToLocalS7N4-v0: 10 units, capped 0, 21311.5 s
+  d-005 BabyAI-GoToLocalS7N5-v0: 10 units, capped 8, 74188.2 s
+  d-005 BabyAI-GoToLocalS8N2-v0: 10 units, capped 0, 56.6 s
+  d-005 BabyAI-GoToLocalS8N3-v0: 10 units, capped 0, 3431.2 s
+  d-005 BabyAI-GoToLocalS8N4-v0: 10 units, capped 5, 59329.7 s
+  d-006 BabyAI-GoToLocalS8N5-v0: 10 units, capped 10, 83063.7 s
+  d-006 BabyAI-GoToLocalS8N6-v0: 10 units, capped 10, 87848.2 s
+  d-006 BabyAI-GoToLocalS8N7-v0: 10 units, capped 10, 84277.0 s
+  d-006 BabyAI-GoToObj-v0: 10 units, capped 0, 1.3 s
+  d-007 BabyAI-GoToObjDoor-v0: 10 units, capped 10, 118074.1 s
+  d-007 BabyAI-GoToObjMaze-v0: 10 units, capped 0, 9333.9 s
+  d-007 BabyAI-GoToObjMazeOpen-v0: 10 units, capped 0, 15025.3 s
+  d-007 BabyAI-GoToObjMazeS4-v0: 10 units, capped 0, 974.4 s
+  d-008 BabyAI-GoToObjMazeS4R2-v0: 10 units, capped 0, 4.5 s
+  d-008 BabyAI-GoToObjMazeS5-v0: 10 units, capped 0, 3513.8 s
+  d-008 BabyAI-GoToObjMazeS6-v0: 10 units, capped 0, 5981.3 s
+  d-008 BabyAI-GoToObjMazeS7-v0: 10 units, capped 0, 9296.7 s
+  d-009 BabyAI-GoToObjS4-v0: 10 units, capped 0, 0.1 s
+  d-009 BabyAI-GoToObjS6-v1: 10 units, capped 0, 0.4 s
+  d-009 BabyAI-GoToOpen-v0: 10 units, capped 10, 144003.6 s
+  d-009 BabyAI-GoToRedBall-v0: 10 units, capped 10, 87404.4 s
+  d-010 BabyAI-GoToRedBallNoDists-v0: 10 units, capped 0, 1.5 s
+  d-010 BabyAI-GoToRedBlueBall-v0: 8 units, capped 8, 77234.1 s
+  games with at least one capped unit: 15 of 38; with every unit capped: 12
+  share of all worker seconds in the games with a capped unit: 0.9365
+  chunks are filled in the manifest's order of game names, so the finished chunks are not a random draw of the games
+
+== finished chunks: sessions, capped units, worker seconds, wall-clock first dispatch to last collect ==
+  d-001: 40 of 40 units, sessions 4, capped 29, worker 422233.1 s, wall 32.37 h
+  d-002: 40 of 40 units, sessions 2, capped 10, worker 177797.4 s, wall 14.68 h
+  d-003: 40 of 40 units, sessions 3, capped 20, worker 249456.4 s, wall 18.28 h
+  d-004: 40 of 40 units, sessions 1, capped 0, worker 24491.6 s, wall 2.61 h
+  d-005: 40 of 40 units, sessions 2, capped 13, worker 137005.6 s, wall 10.16 h
+  d-006: 40 of 40 units, sessions 3, capped 30, worker 255190.2 s, wall 18.95 h
+  d-007: 40 of 40 units, sessions 2, capped 10, worker 143407.6 s, wall 10.71 h
+  d-008: 40 of 40 units, sessions 1, capped 0, worker 18796.4 s, wall 2.04 h
+  d-009: 40 of 40 units, sessions 3, capped 20, worker 231408.4 s, wall 17.37 h
+  sessions per finished chunk: 1 sessions: 2 chunks, 2 sessions: 3 chunks, 3 sessions: 3 chunks, 4 sessions: 1 chunks
+  sessions in all: 21, mean 2.333
+  wall per chunk: min 2.04 h, median 14.68 h, mean 14.13 h, max 32.37 h
+  collect to next dispatch of the same chunk: 12 gaps, max 25 s
+  last collect of a chunk to first dispatch of the next: max 2 s
+  partial sessions: 13; dispatch to collect: min 8.08 h, max 8.26 h
+  stage D first dispatch 2026-10-24T23:13:58Z, last collect of a finished chunk 2026-10-30T06:24:53Z: 127.18 h for 9 chunks
+
+== the 29 pending chunks, if they behave as the 9 finished ones ==
+  basis: wall per finished chunk, first dispatch to last collect, from logs/automation.log; it includes the loop's gaps between sessions
+  29 x min 2.04 h = 59.11 h = 2.46 days
+  29 x median 14.68 h = 425.78 h = 17.74 days
+  29 x mean 14.13 h = 409.80 h = 17.07 days
+  29 x max 32.37 h = 938.81 h = 39.12 days
+
+== the bound from the registered caps ==
+  a unit takes at most 14400 s of one worker; a session gives 4 x 28800 = 115200 worker seconds
+  a chunk of 40 units every one at the time cap needs 40 x 14400 / 115200 = 5.00, so 5 sessions (more if four capped units do not fill a session evenly)
+  mean partial session, dispatch to collect: 8.14 h
+  29 chunks x 5 sessions x 8.14 h = 1179.72 h = 49.15 days, if every pending unit hit the time cap
+  29 chunks x 1 session, if no pending unit is slow: at least 29 sessions
+
+  chunk d-010 (running): 18 of 40 units done after 1 session(s), capped 8; not in the 29; its 22 units left need at most 22 x 14400 / 115200 = 2.75 sessions of work
+
+== games of the units still to run ==
+  units not done: 1182
+  d-010 BabyAI-GoToRedBlueBall-v0: 2
+  d-010 BabyAI-GoToSeq-v0: 10
+  d-010 BabyAI-GoToSeqS5R2-v0: 10
+  d-011 BabyAI-KeyCorridor-v0: 10
+  d-011 BabyAI-KeyCorridorS3R1-v0: 10
+  d-011 BabyAI-KeyCorridorS3R2-v0: 10
+  d-011 BabyAI-KeyCorridorS3R3-v0: 10
+  d-012 BabyAI-KeyCorridorS4R3-v0: 10
+  d-012 BabyAI-KeyCorridorS5R3-v0: 10
+  d-012 BabyAI-KeyCorridorS6R3-v0: 10
+  d-012 BabyAI-KeyInBox-v0: 10
+  d-013 BabyAI-MiniBossLevel-v0: 10
+  d-013 BabyAI-MoveTwoAcrossS5N2-v0: 10
+  d-013 BabyAI-MoveTwoAcrossS8N9-v0: 10
+  d-013 BabyAI-OneRoomS12-v0: 10
+  d-014 BabyAI-OneRoomS16-v0: 10
+  d-014 BabyAI-OneRoomS20-v0: 10
+  d-014 BabyAI-OneRoomS8-v0: 10
+  d-014 BabyAI-Open-v0: 10
+  d-015 BabyAI-OpenDoor-v0: 10
+  d-015 BabyAI-OpenDoorColor-v0: 10
+  d-015 BabyAI-OpenDoorDebug-v0: 10
+  d-015 BabyAI-OpenDoorLoc-v0: 10
+  d-016 BabyAI-OpenDoorsOrderN2-v0: 10
+  d-016 BabyAI-OpenDoorsOrderN2Debug-v0: 10
+  d-016 BabyAI-OpenDoorsOrderN4-v0: 10
+  d-016 BabyAI-OpenDoorsOrderN4Debug-v0: 10
+  d-017 BabyAI-OpenRedBlueDoors-v0: 10
+  d-017 BabyAI-OpenRedBlueDoorsDebug-v0: 10
+  d-017 BabyAI-OpenRedDoor-v0: 10
+  d-017 BabyAI-OpenTwoDoors-v0: 10
+  d-018 BabyAI-Pickup-v0: 10
+  d-018 BabyAI-PickupAbove-v0: 10
+  d-018 BabyAI-PickupDist-v0: 10
+  d-018 BabyAI-PickupDistDebug-v0: 10
+  d-019 BabyAI-PickupLoc-v0: 10
+  d-019 BabyAI-PutNextLocal-v0: 10
+  d-019 BabyAI-PutNextLocalS5N3-v0: 10
+  d-019 BabyAI-PutNextLocalS6N4-v0: 10
+  d-020 BabyAI-PutNextS4N1-v0: 10
+  d-020 BabyAI-PutNextS5N1-v0: 10
+  d-020 BabyAI-PutNextS5N2-v0: 10
+  d-020 BabyAI-PutNextS5N2Carrying-v0: 10
+  d-021 BabyAI-PutNextS6N3-v0: 10
+  d-021 BabyAI-PutNextS6N3Carrying-v0: 10
+  d-021 BabyAI-PutNextS7N4-v0: 10
+  d-021 BabyAI-PutNextS7N4Carrying-v0: 10
+  d-022 BabyAI-Synth-v0: 10
+  d-022 BabyAI-SynthLoc-v0: 10
+  d-022 BabyAI-SynthS5R2-v0: 10
+  d-022 BabyAI-SynthSeq-v0: 10
+  d-023 BabyAI-UnblockPickup-v0: 10
+  d-023 BabyAI-Unlock-v0: 10
+  d-023 BabyAI-UnlockLocal-v0: 10
+  d-023 BabyAI-UnlockLocalDist-v0: 10
+  d-024 BabyAI-UnlockPickup-v0: 10
+  d-024 BabyAI-UnlockPickupDist-v0: 10
+  d-024 BabyAI-UnlockToUnlock-v0: 10
+  d-024 MiniGrid-BlockedUnlockPickup-v0: 10
+  d-025 MiniGrid-DistShift1-v0: 10
+  d-025 MiniGrid-DistShift2-v0: 10
+  d-025 MiniGrid-DoorKey-16x16-v0: 10
+  d-025 MiniGrid-DoorKey-5x5-v0: 10
+  d-026 MiniGrid-DoorKey-6x6-v0: 10
+  d-026 MiniGrid-Empty-16x16-v0: 10
+  d-026 MiniGrid-Empty-6x6-v0: 10
+  d-026 MiniGrid-Empty-8x8-v0: 10
+  d-027 MiniGrid-Empty-Random-5x5-v0: 10
+  d-027 MiniGrid-Empty-Random-6x6-v0: 10
+  d-027 MiniGrid-Fetch-6x6-N2-v0: 10
+  d-027 MiniGrid-Fetch-8x8-N3-v0: 10
+  d-028 MiniGrid-GoToDoor-5x5-v0: 10
+  d-028 MiniGrid-GoToDoor-6x6-v0: 10
+  d-028 MiniGrid-GoToDoor-8x8-v0: 10
+  d-028 MiniGrid-GoToObject-6x6-N2-v0: 10
+  d-029 MiniGrid-GoToObject-8x8-N2-v0: 10
+  d-029 MiniGrid-KeyCorridorS3R1-v0: 10
+  d-029 MiniGrid-KeyCorridorS3R2-v0: 10
+  d-029 MiniGrid-KeyCorridorS3R3-v0: 10
+  d-030 MiniGrid-KeyCorridorS4R3-v0: 10
+  d-030 MiniGrid-KeyCorridorS5R3-v0: 10
+  d-030 MiniGrid-KeyCorridorS6R3-v0: 10
+  d-030 MiniGrid-LavaCrossingS11N5-v0: 10
+  d-031 MiniGrid-LavaCrossingS9N1-v0: 10
+  d-031 MiniGrid-LavaCrossingS9N2-v0: 10
+  d-031 MiniGrid-LavaCrossingS9N3-v0: 10
+  d-031 MiniGrid-LavaGapS5-v0: 10
+  d-032 MiniGrid-LavaGapS6-v0: 10
+  d-032 MiniGrid-LavaGapS7-v0: 10
+  d-032 MiniGrid-LockedRoom-v0: 10
+  d-032 MiniGrid-MemoryS11-v0: 10
+  d-033 MiniGrid-MemoryS13-v0: 10
+  d-033 MiniGrid-MemoryS13Random-v0: 10
+  d-033 MiniGrid-MemoryS17Random-v0: 10
+  d-033 MiniGrid-MemoryS7-v0: 10
+  d-034 MiniGrid-MemoryS9-v0: 10
+  d-034 MiniGrid-MultiRoom-N2-S4-v0: 10
+  d-034 MiniGrid-MultiRoom-N4-S5-v1: 10
+  d-034 MiniGrid-MultiRoom-N6-v0: 10
+  d-035 MiniGrid-ObstructedMaze-1Dl-v0: 10
+  d-035 MiniGrid-ObstructedMaze-1Dlh-v0: 10
+  d-035 MiniGrid-ObstructedMaze-1Dlhb-v0: 10
+  d-035 MiniGrid-ObstructedMaze-1Q-v1: 10
+  d-036 MiniGrid-ObstructedMaze-2Dl-v0: 10
+  d-036 MiniGrid-ObstructedMaze-2Dlh-v0: 10
+  d-036 MiniGrid-ObstructedMaze-2Dlhb-v1: 10
+  d-036 MiniGrid-ObstructedMaze-2Q-v1: 10
+  d-037 MiniGrid-ObstructedMaze-Full-v1: 10
+  d-037 MiniGrid-Playground-v0: 10
+  d-037 MiniGrid-PutNear-6x6-N2-v0: 10
+  d-037 MiniGrid-PutNear-8x8-N3-v0: 10
+  d-038 MiniGrid-RedBlueDoors-6x6-v0: 10
+  d-038 MiniGrid-RedBlueDoors-8x8-v0: 10
+  d-038 MiniGrid-SimpleCrossingS11N5-v0: 10
+  d-038 MiniGrid-SimpleCrossingS9N1-v0: 10
+  d-039 MiniGrid-SimpleCrossingS9N2-v0: 10
+  d-039 MiniGrid-SimpleCrossingS9N3-v0: 10
+  d-039 MiniGrid-Unlock-v0: 10
+  d-039 MiniGrid-UnlockPickup-v0: 10
