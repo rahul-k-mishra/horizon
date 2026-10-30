@@ -1,0 +1,78 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit 49072d920bbc25df57dcb061b9690fb6c5ca161c Loop: d-010 pushed as kernel version 29
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1793341511.060884
+[2026-10-30T06:25:54Z] chunk d-010 (devsearch), nonce dev-minigrid-d-010-20261030T062454Z-12582a; work deadline 2026-10-30T14:25:11Z, checkpoint by 2026-10-30T14:40:11Z
+[2026-10-30T06:25:54Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-10-30T06:25:54Z] devsearch: 40 units to run on 4 workers, 0 resumed from the checkpoint
+[2026-10-30T06:25:54Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1000: start
+[2026-10-30T06:25:54Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1001: start
+[2026-10-30T06:25:54Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1002: start
+[2026-10-30T06:25:54Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1003: start
+[2026-10-30T06:25:56Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1001: complete, 115 states seen
+[2026-10-30T06:25:56Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1004: start
+[2026-10-30T06:25:57Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1003: complete, 113 states seen
+[2026-10-30T06:25:57Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1005: start
+[2026-10-30T06:25:57Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1000: complete, 113 states seen
+[2026-10-30T06:25:57Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1006: start
+[2026-10-30T06:25:57Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1002: complete, 114 states seen
+[2026-10-30T06:25:57Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1007: start
+[2026-10-30T06:25:57Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1006: complete, 114 states seen
+[2026-10-30T06:25:57Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1008: start
+[2026-10-30T06:25:57Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1004: complete, 114 states seen
+[2026-10-30T06:25:57Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1009: start
+[2026-10-30T06:25:57Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1007: complete, 113 states seen
+[2026-10-30T06:25:57Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1005: complete, 116 states seen
+[2026-10-30T06:25:57Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1000: start
+[2026-10-30T06:25:57Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1001: start
+[2026-10-30T06:25:58Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1008: complete, 114 states seen
+[2026-10-30T06:25:58Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1002: start
+[2026-10-30T06:25:58Z] devsearch unit d-010-BabyAI-GoToRedBallNoDists-v0-s1009: complete, 115 states seen
+[2026-10-30T06:25:58Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1003: start
+[2026-10-30T09:03:42Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1003: capped, 9913058 states seen
+[2026-10-30T09:03:42Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1004: start
+[2026-10-30T09:06:11Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1001: capped, 9317780 states seen
+[2026-10-30T09:06:11Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1005: start
+[2026-10-30T09:06:49Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1002: capped, 9296125 states seen
+[2026-10-30T09:06:49Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1006: start
+[2026-10-30T09:07:01Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1000: capped, 9801367 states seen
+[2026-10-30T09:07:01Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1007: start
+[2026-10-30T11:45:25Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1004: capped, 9946484 states seen
+[2026-10-30T11:45:25Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1008: start
+[2026-10-30T11:47:08Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1005: capped, 9607008 states seen
+[2026-10-30T11:47:08Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1009: start
+[2026-10-30T11:49:12Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1006: capped, 9344262 states seen
+[2026-10-30T11:49:12Z] devsearch unit d-010-BabyAI-GoToSeq-v0-s1000: start
+[2026-10-30T11:49:35Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1007: capped, 9489637 states seen
+[2026-10-30T11:49:35Z] devsearch unit d-010-BabyAI-GoToSeq-v0-s1001: start
+[2026-10-30T14:25:38Z] devsearch unit d-010-BabyAI-GoToSeq-v0-s1001: stopped at the deadline, 1315177 expanded
+[2026-10-30T14:25:50Z] devsearch unit d-010-BabyAI-GoToSeq-v0-s1000: stopped at the deadline, 1951212 expanded
+[2026-10-30T14:26:19Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1009: stopped at the deadline, 4826649 expanded
+[2026-10-30T14:26:19Z] devsearch unit d-010-BabyAI-GoToRedBlueBall-v0-s1008: stopped at the deadline, 4891067 expanded
+Sampling rejected: can only have one blue or red ball
+Sampling rejected: can only have one blue or red ball
+Sampling rejected: can only have one blue or red ball
+Sampling rejected: can only have one blue or red ball
+Sampling rejected: can only have one blue or red ball
+Sampling rejected: unreachable object at (1, 6)
+Sampling rejected: can only have one blue or red ball
+Sampling rejected: can only have one blue or red ball
+Sampling rejected: can only have one blue or red ball
+Sampling rejected: can only have one blue or red ball
+Sampling rejected: can only have one blue or red ball
+Sampling rejected: can only have one blue or red ball
+Sampling rejected: can only have one blue or red ball
+Sampling rejected: unreachable object at (6, 5)
+Sampling rejected: can only have one blue or red ball
+Sampling rejected: unreachable object at (4, 2)
+Sampling rejected: can only have one blue or red ball
+[2026-10-30T14:26:21Z] checkpoint 1: 18 units done, 4 in progress, 18 payload files
+[2026-10-30T14:26:22Z] chunk d-010: partial; units done 18 of 40; stopped: deadline reached with devsearch units unfinished
+[2026-10-30T14:26:34Z] wrote result.json (status partial) and bundle.tar.gz

@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-010",
+ "committed_at": "2026-10-30T14:36:26Z",
+ "kernel_version": 29,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-010-BabyAI-GoToRedBlueBall-v0-s1003.json",
+ "row_sha256": "e954e9ec8b2df849f2dbe668b5f5d91d67f95d65b35bf61d8182cb1af9410340",
+ "run_nonce": "dev-minigrid-d-010-20261030T062454Z-12582a",
+ "unit_id": "d-010-BabyAI-GoToRedBlueBall-v0-s1003"
+}
