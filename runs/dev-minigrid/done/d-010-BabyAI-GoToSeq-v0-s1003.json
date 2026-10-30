@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-010",
+ "committed_at": "2026-10-30T22:49:08Z",
+ "kernel_version": 30,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-010-BabyAI-GoToSeq-v0-s1003.json",
+ "row_sha256": "3e954540256abfe921ed9f5ab77f26536ed90478b42c15b1e8dbc5d008951008",
+ "run_nonce": "dev-minigrid-d-010-20261030T143648Z-9501a4",
+ "unit_id": "d-010-BabyAI-GoToSeq-v0-s1003"
+}
