@@ -1,0 +1,20 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit ee26ad928170b9d67d6cf36367b23c30547d9a0d Loop: d-009 pushed as kernel version 28
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1793337837.2226946
+[2026-10-30T05:24:54Z] chunk d-009 (devsearch), nonce dev-minigrid-d-009-20261030T052336Z-7e9b7e; work deadline 2026-10-30T13:23:57Z, checkpoint by 2026-10-30T13:38:57Z
+[2026-10-30T05:24:54Z] resuming from checkpoint 2 of run dev-minigrid-d-009-20261029T211329Z-8ac844: 38 units done, in progress ['d-009-BabyAI-GoToRedBall-v0-s1008', 'd-009-BabyAI-GoToRedBall-v0-s1009']
+[2026-10-30T05:24:55Z] devsearch: 2 units to run on 4 workers, 2 resumed from the checkpoint
+[2026-10-30T05:24:55Z] devsearch unit d-009-BabyAI-GoToRedBall-v0-s1008: resume
+[2026-10-30T05:24:55Z] devsearch unit d-009-BabyAI-GoToRedBall-v0-s1009: resume
+[2026-10-30T05:48:56Z] devsearch unit d-009-BabyAI-GoToRedBall-v0-s1008: capped, 9088284 states seen
+[2026-10-30T06:00:28Z] devsearch unit d-009-BabyAI-GoToRedBall-v0-s1009: capped, 8284083 states seen
+[2026-10-30T06:00:28Z] chunk d-009: done; units done 40 of 40
+[2026-10-30T06:00:28Z] wrote result.json (status done) and bundle.tar.gz
