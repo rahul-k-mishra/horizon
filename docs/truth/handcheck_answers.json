@@ -1,0 +1,16 @@
+{
+ "schema": "horizon.handcheck_answers.v1",
+ "rows_file": "docs/truth/handcheck_rows.json",
+ "rows_sha256": "c03aaa851548f3c4be400905e640104c7d7519cfaa124e3b40088540f2a92cd8",
+ "started_at": "2026-10-25T05:32:28+05:30",
+ "updated_at": "2026-10-25T05:40:18+05:30",
+ "finished_at": null,
+ "position": 1,
+ "answers": {
+  "clusters/A1/0": {
+   "answer": "agree",
+   "answered_at": "2026-10-25T05:39:42+05:30",
+   "note": ""
+  }
+ }
+}
