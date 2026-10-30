@@ -161,3 +161,12 @@ Twelfth amendment. The lines above are unchanged. Nothing is registered; the pre
 - **Tests:** four new games, boxwall, boxbat, chainpush and wrapbox, all OK (logs/test_truth_vgdl.log). boxwall and boxbat fail on the generator before the check.
 - **Reruns.** S_M on the 26 is unchanged at 2: 3, 3: 13, 4: 7, 5: 3; A1 and A4 hold on all 26, so the registered limit stands (logs/sdd.log). The deterministic suite, the pilot draw and the hand-check draw are unchanged. docs/truth/HANDCHECK.md changed in A4 clauses only. The A4 readings of clusters, colourescape, lasers and wrapsokoban and the guide's A4 section were rewritten. The rows were written again (logs/handcheck_rows.log), and scripts/test_handcheck.py is OK.
 - **Next:** the hand check by the author; stage D runs on, and its reading comes after every chunk is done.
+
+## Amendment 30 Oct 2026 (m)
+
+Thirteenth amendment. The lines above are unchanged. Nothing is registered; the prereg tag is not created. No file under jobs/ or runs/ was changed by this session's work; stage D is running, chunk d-010 on its second session (kernel version 30). docs/DESIGN.md and docs/PREREG.md are unchanged. This is a progress count of the automation, not a reading of stage D; no search result other than seconds, caps and state was read.
+
+- **Progress report** (217e57e): scripts/stage_d_progress.py reads runs/dev-minigrid/devsearch/*.json, jobs/manifest.json and logs/automation.log and writes logs/stage_d_progress.log. Run in this session on committed files only.
+- **From the log.** 378 rows; 140 units capped, 81 by the node cap and 59 by the time cap of 14400 s; 238 complete. 15 of 38 games have a capped unit, 12 have every unit capped, and those 15 games hold 0.9365 of all worker seconds; the slowest 10 units hold 0.0829. Finished chunks needed 1 session (2 chunks), 2 (3), 3 (3) and 4 (1); wall per chunk from first dispatch to last collect 2.04 h to 32.37 h, median 14.68 h, mean 14.13 h. d-010 has 18 of 40 units done after one session.
+- **Estimate for the 29 pending chunks, on that basis:** 17.07 days at the mean, 17.74 at the median, 2.46 to 39.12 days at the finished extremes; at most 5 sessions a chunk under the registered caps, 49.15 days if every pending unit hit the time cap. The finished chunks hold the first games in name order, not a random draw.
+- **Next:** stage D runs on; its reading comes after every chunk is done.
