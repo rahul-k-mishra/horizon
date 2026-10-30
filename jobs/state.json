@@ -4,9 +4,9 @@
   "chunk_id": "d-009",
   "dispatched_at": "2026-10-30T05:23:36Z",
   "entry_hash": "c499282e1e88f1b6a94368fddfbfc0d2e15e6b81c7390da93237f406ed613e39",
-  "kernel_version": null,
+  "kernel_version": 28,
   "nonce": "dev-minigrid-d-009-20261030T052336Z-7e9b7e",
-  "pushed_at": null,
+  "pushed_at": "2026-10-30T05:23:39Z",
   "runner": "actions-41008120251-1"
  },
  "halt_reason": null,
