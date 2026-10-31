@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-011",
+ "committed_at": "2026-10-31T14:10:10Z",
+ "kernel_version": 32,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-011-BabyAI-KeyCorridorS3R1-v0-s1002.json",
+ "row_sha256": "2e616aed8fa13ed5b76d8bcf55d4a8e1133d88e875b8adffa1681ee3f483a29d",
+ "run_nonce": "dev-minigrid-d-011-20261031T055815Z-3066a7",
+ "unit_id": "d-011-BabyAI-KeyCorridorS3R1-v0-s1002"
+}

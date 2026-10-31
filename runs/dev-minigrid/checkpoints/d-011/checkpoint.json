@@ -1,0 +1,167 @@
+{
+ "campaign": "dev-minigrid",
+ "chunk_id": "d-011",
+ "entry_hash": "5b6391e7a3a0879e8cdcf0201572ea3bc22c282e655203f09f223f3655273ee2",
+ "kind": "devsearch",
+ "payload": {
+  "d-011-BabyAI-KeyCorridor-v0-s1008__head.json.gz": {
+   "bytes": 47903,
+   "location": "git",
+   "sha256": "835e7c55f583ec6ac36f61073a88e40f79a05af90103380bd2f5651bfd7b2ccb"
+  },
+  "d-011-BabyAI-KeyCorridor-v0-s1008__tail.json.gz": {
+   "bytes": 945436,
+   "location": "git",
+   "sha256": "b8c94098809c4f67009f807d3b37c65dfb736d187514db123a8121108f3fa8ed"
+  },
+  "d-011-BabyAI-KeyCorridor-v0-s1008__visited.u64.gz": {
+   "bytes": 25420040,
+   "location": "git",
+   "sha256": "7eeb176885b12b19331b317c365cf242383d4c1dd2c5456d88d78105855d4692"
+  },
+  "d-011-BabyAI-KeyCorridor-v0-s1009__head.json.gz": {
+   "bytes": 76252,
+   "location": "git",
+   "sha256": "8493d778bf212f02b91a09b839e5b8a0a6085d4c7410bacbec0b59144bbae45d"
+  },
+  "d-011-BabyAI-KeyCorridor-v0-s1009__tail.json.gz": {
+   "bytes": 713269,
+   "location": "git",
+   "sha256": "41675aa5c8ff582a3b646d6cf1ee45ffcff6184837e2b7f6b317b35171d0ed77"
+  },
+  "d-011-BabyAI-KeyCorridor-v0-s1009__visited.u64.gz": {
+   "bytes": 24451630,
+   "location": "git",
+   "sha256": "c393d825e69cabe441bffde646648bd4f27346b256c056ba0aa998db7746316a"
+  }
+ },
+ "run_nonce": "dev-minigrid-d-011-20261031T055815Z-3066a7",
+ "schema": "horizon.checkpoint.v1",
+ "seq": 1,
+ "unit_in_progress": null,
+ "units_done": [
+  "d-011-BabyAI-KeyCorridor-v0-s1000",
+  "d-011-BabyAI-KeyCorridor-v0-s1001",
+  "d-011-BabyAI-KeyCorridor-v0-s1002",
+  "d-011-BabyAI-KeyCorridor-v0-s1003",
+  "d-011-BabyAI-KeyCorridor-v0-s1004",
+  "d-011-BabyAI-KeyCorridor-v0-s1005",
+  "d-011-BabyAI-KeyCorridor-v0-s1006",
+  "d-011-BabyAI-KeyCorridor-v0-s1007",
+  "d-011-BabyAI-KeyCorridorS3R1-v0-s1000",
+  "d-011-BabyAI-KeyCorridorS3R1-v0-s1001",
+  "d-011-BabyAI-KeyCorridorS3R1-v0-s1002",
+  "d-011-BabyAI-KeyCorridorS3R1-v0-s1003",
+  "d-011-BabyAI-KeyCorridorS3R1-v0-s1004",
+  "d-011-BabyAI-KeyCorridorS3R1-v0-s1005",
+  "d-011-BabyAI-KeyCorridorS3R1-v0-s1006",
+  "d-011-BabyAI-KeyCorridorS3R1-v0-s1007",
+  "d-011-BabyAI-KeyCorridorS3R1-v0-s1008",
+  "d-011-BabyAI-KeyCorridorS3R1-v0-s1009",
+  "d-011-BabyAI-KeyCorridorS3R2-v0-s1000",
+  "d-011-BabyAI-KeyCorridorS3R2-v0-s1001",
+  "d-011-BabyAI-KeyCorridorS3R2-v0-s1002",
+  "d-011-BabyAI-KeyCorridorS3R2-v0-s1003",
+  "d-011-BabyAI-KeyCorridorS3R2-v0-s1004",
+  "d-011-BabyAI-KeyCorridorS3R2-v0-s1005",
+  "d-011-BabyAI-KeyCorridorS3R2-v0-s1006",
+  "d-011-BabyAI-KeyCorridorS3R2-v0-s1007",
+  "d-011-BabyAI-KeyCorridorS3R2-v0-s1008",
+  "d-011-BabyAI-KeyCorridorS3R2-v0-s1009",
+  "d-011-BabyAI-KeyCorridorS3R3-v0-s1000",
+  "d-011-BabyAI-KeyCorridorS3R3-v0-s1001",
+  "d-011-BabyAI-KeyCorridorS3R3-v0-s1002",
+  "d-011-BabyAI-KeyCorridorS3R3-v0-s1003",
+  "d-011-BabyAI-KeyCorridorS3R3-v0-s1004",
+  "d-011-BabyAI-KeyCorridorS3R3-v0-s1005",
+  "d-011-BabyAI-KeyCorridorS3R3-v0-s1006",
+  "d-011-BabyAI-KeyCorridorS3R3-v0-s1007",
+  "d-011-BabyAI-KeyCorridorS3R3-v0-s1008",
+  "d-011-BabyAI-KeyCorridorS3R3-v0-s1009"
+ ],
+ "units_in_progress": {
+  "d-011-BabyAI-KeyCorridor-v0-s1008": {
+   "counts": {
+    "depth_max": 44,
+    "frontier_left": 379182,
+    "solution_length": 19,
+    "spill_files_max": 0,
+    "states_expanded": 3050459,
+    "states_seen": 3436396,
+    "successors_total": 24403672
+   },
+   "extra": {
+    "successors_distinct": 11565579
+   },
+   "files": {
+    "head.json.gz": "835e7c55f583ec6ac36f61073a88e40f79a05af90103380bd2f5651bfd7b2ccb",
+    "tail.json.gz": "b8c94098809c4f67009f807d3b37c65dfb736d187514db123a8121108f3fa8ed",
+    "visited.u64.gz": "7eeb176885b12b19331b317c365cf242383d4c1dd2c5456d88d78105855d4692"
+   },
+   "graph": null,
+   "graph_status": "more than 200000 states",
+   "seconds_spent": 4487.811837434769,
+   "sessions": [
+    {
+     "ended_at": "2026-10-31T13:58:32Z",
+     "host": "cf7ea990dd70",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_fbGNnPK0jzjjUxwVJMQZXvgvrDzNFSI7v3OTVQjh0u8-364126361-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "europe-west4-c",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dev-minigrid-d-011-20261031T055815Z-3066a7",
+     "started_at": "2026-10-31T05:58:32Z"
+    }
+   ],
+   "spill_seq": 0,
+   "spills": [],
+   "visited_n": 3436396
+  },
+  "d-011-BabyAI-KeyCorridor-v0-s1009": {
+   "counts": {
+    "depth_max": 54,
+    "frontier_left": 305396,
+    "solution_length": 36,
+    "spill_files_max": 0,
+    "states_expanded": 2991623,
+    "states_seen": 3301942,
+    "successors_total": 23932984
+   },
+   "extra": {
+    "successors_distinct": 11328280
+   },
+   "files": {
+    "head.json.gz": "8493d778bf212f02b91a09b839e5b8a0a6085d4c7410bacbec0b59144bbae45d",
+    "tail.json.gz": "41675aa5c8ff582a3b646d6cf1ee45ffcff6184837e2b7f6b317b35171d0ed77",
+    "visited.u64.gz": "c393d825e69cabe441bffde646648bd4f27346b256c056ba0aa998db7746316a"
+   },
+   "graph": null,
+   "graph_status": "more than 200000 states",
+   "seconds_spent": 4272.595536708832,
+   "sessions": [
+    {
+     "ended_at": "2026-10-31T13:58:32Z",
+     "host": "cf7ea990dd70",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_fbGNnPK0jzjjUxwVJMQZXvgvrDzNFSI7v3OTVQjh0u8-364126361-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "europe-west4-c",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dev-minigrid-d-011-20261031T055815Z-3066a7",
+     "started_at": "2026-10-31T05:58:32Z"
+    }
+   ],
+   "spill_seq": 0,
+   "spills": [],
+   "visited_n": 3301942
+  }
+ },
+ "written_at": "2026-10-31T13:58:44Z"
+}

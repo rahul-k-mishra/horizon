@@ -1,0 +1,97 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit 314506644757cc2356b68a1240837c2c5f65b435 Loop: d-011 pushed as kernel version 32
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1793426312.1852746
+[2026-10-31T05:59:22Z] chunk d-011 (devsearch), nonce dev-minigrid-d-011-20261031T055815Z-3066a7; work deadline 2026-10-31T13:58:32Z, checkpoint by 2026-10-31T14:13:32Z
+[2026-10-31T05:59:22Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-10-31T05:59:22Z] devsearch: 40 units to run on 4 workers, 0 resumed from the checkpoint
+[2026-10-31T05:59:22Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1000: start
+[2026-10-31T05:59:22Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1001: start
+[2026-10-31T05:59:22Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1002: start
+[2026-10-31T05:59:22Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1003: start
+[2026-10-31T09:18:28Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1001: capped, 5200843 states seen
+[2026-10-31T09:18:28Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1004: start
+[2026-10-31T09:23:42Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1000: capped, 5530999 states seen
+[2026-10-31T09:23:42Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1005: start
+[2026-10-31T09:27:02Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1003: capped, 5608258 states seen
+[2026-10-31T09:27:02Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1006: start
+[2026-10-31T09:27:12Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1002: capped, 5769369 states seen
+[2026-10-31T09:27:12Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1007: start
+[2026-10-31T12:43:44Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1005: capped, 5176010 states seen
+[2026-10-31T12:43:44Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1008: start
+[2026-10-31T12:47:19Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1004: capped, 5684428 states seen
+[2026-10-31T12:47:19Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1009: start
+[2026-10-31T12:51:24Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1006: capped, 5482370 states seen
+[2026-10-31T12:51:24Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1000: start
+[2026-10-31T12:51:24Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1000: complete, 93 states seen
+[2026-10-31T12:51:24Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1001: start
+[2026-10-31T12:51:25Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1001: complete, 93 states seen
+[2026-10-31T12:51:25Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1002: start
+[2026-10-31T12:51:26Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1002: complete, 93 states seen
+[2026-10-31T12:51:26Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1003: start
+[2026-10-31T12:51:26Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1003: complete, 93 states seen
+[2026-10-31T12:51:26Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1004: start
+[2026-10-31T12:51:27Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1004: complete, 93 states seen
+[2026-10-31T12:51:27Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1005: start
+[2026-10-31T12:51:28Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1005: complete, 93 states seen
+[2026-10-31T12:51:28Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1006: start
+[2026-10-31T12:51:28Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1006: complete, 93 states seen
+[2026-10-31T12:51:28Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1007: start
+[2026-10-31T12:51:29Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1007: complete, 93 states seen
+[2026-10-31T12:51:29Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1008: start
+[2026-10-31T12:51:30Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1008: complete, 93 states seen
+[2026-10-31T12:51:30Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1009: start
+[2026-10-31T12:51:30Z] devsearch unit d-011-BabyAI-KeyCorridorS3R1-v0-s1009: complete, 93 states seen
+[2026-10-31T12:51:30Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1000: start
+[2026-10-31T12:51:33Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1007: capped, 5421310 states seen
+[2026-10-31T12:51:33Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1001: start
+[2026-10-31T12:51:37Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1000: complete, 1926 states seen
+[2026-10-31T12:51:37Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1002: start
+[2026-10-31T12:51:37Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1001: complete, 1006 states seen
+[2026-10-31T12:51:37Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1003: start
+[2026-10-31T12:51:40Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1002: complete, 1006 states seen
+[2026-10-31T12:51:40Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1004: start
+[2026-10-31T12:51:40Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1003: complete, 1006 states seen
+[2026-10-31T12:51:40Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1005: start
+[2026-10-31T12:51:45Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1005: complete, 1201 states seen
+[2026-10-31T12:51:45Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1006: start
+[2026-10-31T12:51:51Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1006: complete, 1926 states seen
+[2026-10-31T12:51:51Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1007: start
+[2026-10-31T12:51:57Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1004: complete, 4994 states seen
+[2026-10-31T12:51:57Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1008: start
+[2026-10-31T12:51:57Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1007: complete, 1884 states seen
+[2026-10-31T12:51:57Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1009: start
+[2026-10-31T12:52:03Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1009: complete, 1884 states seen
+[2026-10-31T12:52:03Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1000: start
+[2026-10-31T12:52:13Z] devsearch unit d-011-BabyAI-KeyCorridorS3R2-v0-s1008: complete, 4994 states seen
+[2026-10-31T12:52:13Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1001: start
+[2026-10-31T12:53:50Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1000: complete, 30852 states seen
+[2026-10-31T12:53:50Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1002: start
+[2026-10-31T12:56:33Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1002: complete, 46196 states seen
+[2026-10-31T12:56:33Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1003: start
+[2026-10-31T12:57:48Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1003: complete, 22232 states seen
+[2026-10-31T12:57:48Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1004: start
+[2026-10-31T12:58:49Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1001: complete, 109824 states seen
+[2026-10-31T12:58:49Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1005: start
+[2026-10-31T12:59:48Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1005: complete, 17249 states seen
+[2026-10-31T12:59:48Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1006: start
+[2026-10-31T13:00:33Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1006: complete, 13456 states seen
+[2026-10-31T13:00:33Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1007: start
+[2026-10-31T13:00:57Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1004: complete, 53508 states seen
+[2026-10-31T13:00:57Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1008: start
+[2026-10-31T13:01:47Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1007: complete, 21712 states seen
+[2026-10-31T13:01:47Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1009: start
+[2026-10-31T13:03:05Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1009: complete, 22530 states seen
+[2026-10-31T13:03:54Z] devsearch unit d-011-BabyAI-KeyCorridorS3R3-v0-s1008: complete, 55911 states seen
+[2026-10-31T13:58:42Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1009: stopped at the deadline, 2991623 expanded
+[2026-10-31T13:58:43Z] devsearch unit d-011-BabyAI-KeyCorridor-v0-s1008: stopped at the deadline, 3050459 expanded
+[2026-10-31T13:58:44Z] checkpoint 1: 38 units done, 2 in progress, 6 payload files
+[2026-10-31T13:58:44Z] chunk d-011: partial; units done 38 of 40; stopped: deadline reached with devsearch units unfinished
+[2026-10-31T13:58:47Z] wrote result.json (status partial) and bundle.tar.gz
