@@ -1,0 +1,66 @@
+{
+ "campaign": "dev-minigrid",
+ "cap_hit": "node",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "d-011",
+ "complete": false,
+ "counts": {
+  "depth_max": 49,
+  "frontier_left": 473688,
+  "solution_length": 19,
+  "spill_files_max": 0,
+  "states_expanded": 5000000,
+  "states_seen": 5486017,
+  "successors_total": 40000000
+ },
+ "game": "BabyAI-KeyCorridor-v0",
+ "level": 1008,
+ "measures": {
+  "branching": 3.785622,
+  "eh": null,
+  "eh_horizon": 400,
+  "eh_k": null,
+  "eh_status": "not computed: capped by node"
+ },
+ "schema": "horizon.search.v2",
+ "seconds_spent": 7150.999,
+ "sessions": [
+  {
+   "ended_at": "2026-10-31T13:58:32Z",
+   "host": "cf7ea990dd70",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_fbGNnPK0jzjjUxwVJMQZXvgvrDzNFSI7v3OTVQjh0u8-364126361-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "europe-west4-c",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-011-20261031T055815Z-3066a7",
+   "started_at": "2026-10-31T05:58:32Z"
+  },
+  {
+   "ended_at": "2026-10-31T14:55:58Z",
+   "host": "89abf7f1af2c",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_q4PFJ1zLaAj4wPy5wPKJFhDmWB9h3ZE9Y7tZ03q0-364253193-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-west1-b",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-011-20261031T141017Z-c2acf8",
+   "started_at": "2026-10-31T14:10:36Z"
+  }
+ ],
+ "suite": "minigrid",
+ "unit_id": "d-011-BabyAI-KeyCorridor-v0-s1008",
+ "written_at": "2026-10-31T14:55:58Z"
+}
