@@ -110,6 +110,11 @@ def make_src(tmp, name, m):
         shutil.copytree(os.path.join(REPO, rel), os.path.join(src, rel),
                         ignore=shutil.ignore_patterns("__pycache__", "test_*.py"))
     shutil.copyfile(os.path.join(REPO, ".gitattributes"), os.path.join(src, ".gitattributes"))
+    # the fake sessions run the notebook with this interpreter, so the runner's frozen requirements (pinned for
+    # Kaggle's image) would be installed into the project's environment; with comments only, the notebook skips
+    # the install, and this environment already has gymnasium and minigrid
+    with open(os.path.join(src, "kaggle", "requirements-runner.txt"), "w", encoding="utf-8", newline="\n") as f:
+        f.write("# left empty by test_loop.py: the notebook installs nothing in the fake sessions\n")
     os.makedirs(os.path.join(src, "jobs"))
     save_manifest(src, m)
     write_json(os.path.join(src, "jobs", "state.json"),
