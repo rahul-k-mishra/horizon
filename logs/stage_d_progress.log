@@ -1,8 +1,8 @@
 stage_d_progress: campaign dev-minigrid, code tag automation-v2, 39 chunks, 1560 units
 registered caps: time 14400 s, nodes 5000000, memory 6442450944 bytes; 4 workers; session work 28800 s, checkpoint reserve 900 s
-chunks by status: done 9, pending 29, running 1
+chunks by status: done 12, pending 26, running 1
 
-rows read: 378
+rows read: 490
 
 == every completed unit: unit, seconds, state, cap hit, sessions it spanned ==
   d-001-BabyAI-ActionObjDoor-v0-s1000     14400.1 s  capped    cap time    sessions 1
@@ -383,44 +383,156 @@ rows read: 378
   d-010-BabyAI-GoToRedBlueBall-v0-s1005      9655.0 s  capped    cap node    sessions 1
   d-010-BabyAI-GoToRedBlueBall-v0-s1006      9740.8 s  capped    cap node    sessions 1
   d-010-BabyAI-GoToRedBlueBall-v0-s1007      9752.5 s  capped    cap node    sessions 1
+  d-010-BabyAI-GoToRedBlueBall-v0-s1008      9784.9 s  capped    cap node    sessions 2
+  d-010-BabyAI-GoToRedBlueBall-v0-s1009      9798.8 s  capped    cap node    sessions 2
+  d-010-BabyAI-GoToSeq-v0-s1000     14400.5 s  capped    cap time    sessions 2
+  d-010-BabyAI-GoToSeq-v0-s1001     14401.0 s  capped    cap time    sessions 2
+  d-010-BabyAI-GoToSeq-v0-s1002     14400.6 s  capped    cap time    sessions 1
+  d-010-BabyAI-GoToSeq-v0-s1003     14401.0 s  capped    cap time    sessions 1
+  d-010-BabyAI-GoToSeq-v0-s1004     14400.4 s  capped    cap time    sessions 1
+  d-010-BabyAI-GoToSeq-v0-s1005     14400.8 s  capped    cap time    sessions 1
+  d-010-BabyAI-GoToSeq-v0-s1006     14400.6 s  capped    cap time    sessions 2
+  d-010-BabyAI-GoToSeq-v0-s1007     14400.5 s  capped    cap time    sessions 2
+  d-010-BabyAI-GoToSeq-v0-s1008     14401.2 s  capped    cap time    sessions 2
+  d-010-BabyAI-GoToSeq-v0-s1009     14400.3 s  capped    cap time    sessions 2
+  d-010-BabyAI-GoToSeqS5R2-v0-s1000     10766.3 s  capped    cap node    sessions 1
+  d-010-BabyAI-GoToSeqS5R2-v0-s1001     11151.1 s  capped    cap node    sessions 1
+  d-010-BabyAI-GoToSeqS5R2-v0-s1002     10760.1 s  capped    cap node    sessions 1
+  d-010-BabyAI-GoToSeqS5R2-v0-s1003      2292.3 s  complete  cap -       sessions 1
+  d-010-BabyAI-GoToSeqS5R2-v0-s1004     13073.0 s  capped    cap node    sessions 1
+  d-010-BabyAI-GoToSeqS5R2-v0-s1005      1379.8 s  complete  cap -       sessions 1
+  d-010-BabyAI-GoToSeqS5R2-v0-s1006     10278.6 s  capped    cap node    sessions 1
+  d-010-BabyAI-GoToSeqS5R2-v0-s1007      9016.4 s  capped    cap node    sessions 1
+  d-010-BabyAI-GoToSeqS5R2-v0-s1008      8138.6 s  capped    cap node    sessions 1
+  d-010-BabyAI-GoToSeqS5R2-v0-s1009         3.0 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridor-v0-s1000     12257.2 s  capped    cap node    sessions 1
+  d-011-BabyAI-KeyCorridor-v0-s1001     11943.4 s  capped    cap node    sessions 1
+  d-011-BabyAI-KeyCorridor-v0-s1002     12467.1 s  capped    cap node    sessions 1
+  d-011-BabyAI-KeyCorridor-v0-s1003     12456.7 s  capped    cap node    sessions 1
+  d-011-BabyAI-KeyCorridor-v0-s1004     12530.1 s  capped    cap node    sessions 1
+  d-011-BabyAI-KeyCorridor-v0-s1005     12001.1 s  capped    cap node    sessions 1
+  d-011-BabyAI-KeyCorridor-v0-s1006     12261.1 s  capped    cap node    sessions 1
+  d-011-BabyAI-KeyCorridor-v0-s1007     12260.6 s  capped    cap node    sessions 1
+  d-011-BabyAI-KeyCorridor-v0-s1008      7151.0 s  capped    cap node    sessions 2
+  d-011-BabyAI-KeyCorridor-v0-s1009      6991.2 s  capped    cap node    sessions 2
+  d-011-BabyAI-KeyCorridorS3R1-v0-s1000         0.1 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R1-v0-s1001         0.1 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R1-v0-s1002         0.1 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R1-v0-s1003         0.1 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R1-v0-s1004         0.1 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R1-v0-s1005         0.1 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R1-v0-s1006         0.1 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R1-v0-s1007         0.1 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R1-v0-s1008         0.1 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R1-v0-s1009         0.1 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R2-v0-s1000         2.4 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R2-v0-s1001         1.3 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R2-v0-s1002         1.2 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R2-v0-s1003         1.2 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R2-v0-s1004         6.5 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R2-v0-s1005         1.5 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R2-v0-s1006         2.3 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R2-v0-s1007         2.2 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R2-v0-s1008         6.0 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R2-v0-s1009         2.3 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R3-v0-s1000        44.6 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R3-v0-s1001       170.0 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R3-v0-s1002        69.3 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R3-v0-s1003        30.4 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R3-v0-s1004        78.6 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R3-v0-s1005        23.9 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R3-v0-s1006        19.0 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R3-v0-s1007        29.9 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R3-v0-s1008        82.2 s  complete  cap -       sessions 1
+  d-011-BabyAI-KeyCorridorS3R3-v0-s1009        32.5 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS4R3-v0-s1000       397.2 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS4R3-v0-s1001       432.7 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS4R3-v0-s1002      1999.7 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS4R3-v0-s1003      2253.3 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS4R3-v0-s1004       929.2 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS4R3-v0-s1005       392.6 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS4R3-v0-s1006      1937.0 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS4R3-v0-s1007       926.5 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS4R3-v0-s1008       986.4 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS4R3-v0-s1009      1000.0 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS5R3-v0-s1000      7520.8 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS5R3-v0-s1001      3576.6 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS5R3-v0-s1002      9776.5 s  capped    cap node    sessions 1
+  d-012-BabyAI-KeyCorridorS5R3-v0-s1003      9781.5 s  capped    cap node    sessions 1
+  d-012-BabyAI-KeyCorridorS5R3-v0-s1004      7421.7 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS5R3-v0-s1005      3570.0 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS5R3-v0-s1006      7662.4 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS5R3-v0-s1007      7501.6 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS5R3-v0-s1008      7600.0 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS5R3-v0-s1009      7696.5 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyCorridorS6R3-v0-s1000     11410.5 s  capped    cap node    sessions 2
+  d-012-BabyAI-KeyCorridorS6R3-v0-s1001     11177.6 s  capped    cap node    sessions 2
+  d-012-BabyAI-KeyCorridorS6R3-v0-s1002     11600.9 s  capped    cap node    sessions 2
+  d-012-BabyAI-KeyCorridorS6R3-v0-s1003     11598.4 s  capped    cap node    sessions 2
+  d-012-BabyAI-KeyCorridorS6R3-v0-s1004     11727.2 s  capped    cap node    sessions 1
+  d-012-BabyAI-KeyCorridorS6R3-v0-s1005     11261.1 s  capped    cap node    sessions 1
+  d-012-BabyAI-KeyCorridorS6R3-v0-s1006     11482.8 s  capped    cap node    sessions 1
+  d-012-BabyAI-KeyCorridorS6R3-v0-s1007     11462.7 s  capped    cap node    sessions 1
+  d-012-BabyAI-KeyCorridorS6R3-v0-s1008      8513.3 s  capped    cap node    sessions 1
+  d-012-BabyAI-KeyCorridorS6R3-v0-s1009      8327.5 s  capped    cap node    sessions 1
+  d-012-BabyAI-KeyInBox-v0-s1000       480.0 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyInBox-v0-s1001       480.5 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyInBox-v0-s1002       484.6 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyInBox-v0-s1003       472.6 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyInBox-v0-s1004       473.6 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyInBox-v0-s1005       473.1 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyInBox-v0-s1006       479.5 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyInBox-v0-s1007       486.8 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyInBox-v0-s1008       482.7 s  complete  cap -       sessions 1
+  d-012-BabyAI-KeyInBox-v0-s1009       401.7 s  complete  cap -       sessions 1
+  d-013-BabyAI-MiniBossLevel-v0-s1000         0.7 s  complete  cap -       sessions 1
+  d-013-BabyAI-MiniBossLevel-v0-s1001     13233.2 s  capped    cap node    sessions 1
+  d-013-BabyAI-MiniBossLevel-v0-s1002     10354.0 s  capped    cap node    sessions 1
+  d-013-BabyAI-MiniBossLevel-v0-s1003     11072.0 s  capped    cap node    sessions 1
+  d-013-BabyAI-MiniBossLevel-v0-s1004     11936.0 s  capped    cap node    sessions 1
+  d-013-BabyAI-MiniBossLevel-v0-s1005         2.5 s  complete  cap -       sessions 1
+  d-013-BabyAI-MiniBossLevel-v0-s1006     12188.1 s  capped    cap node    sessions 1
+  d-013-BabyAI-MiniBossLevel-v0-s1007     12045.5 s  capped    cap node    sessions 1
+  d-013-BabyAI-MiniBossLevel-v0-s1008     12414.6 s  capped    cap node    sessions 1
+  d-013-BabyAI-MiniBossLevel-v0-s1009     11463.9 s  capped    cap node    sessions 1
 
 == seconds per unit ==
-  total 1737022.5 s (482.51 h of worker time)
-  min 0.0, median 870.0, mean 4595.3, max 14401.8
-  quantile 0.25: 8.8 s
-  quantile 0.75: 9174.4 s
+  total 2381750.1 s (661.60 h of worker time)
+  min 0.0, median 1096.9, mean 4860.7, max 14401.8
+  quantile 0.25: 12.0 s
+  quantile 0.75: 9776.5 s
   quantile 0.90: 14400.2 s
-  units under 60 s: 111
-  units under 600 s: 179
-  units under 3600 s: 230
+  units under 60 s: 140
+  units under 600 s: 225
+  units under 3600 s: 287
   share of all worker seconds taken by the slowest k units:
-    k=10: 0.0829
-    k=20: 0.1658
-    k=40: 0.3316
-    k=60: 0.4973
+    k=10: 0.0605
+    k=20: 0.1209
+    k=40: 0.2418
+    k=60: 0.3628
 
 == the slowest ten units ==
   d-002-BabyAI-GoTo-v0-s1008  14401.8 s  capped True  cap time  states expanded 4407283
+  d-010-BabyAI-GoToSeq-v0-s1008  14401.2 s  capped True  cap time  states expanded 2090073
+  d-010-BabyAI-GoToSeq-v0-s1001  14401.0 s  capped True  cap time  states expanded 2007442
+  d-010-BabyAI-GoToSeq-v0-s1003  14401.0 s  capped True  cap time  states expanded 2047336
   d-001-BabyAI-BossLevelNoUnlock-v0-s1005  14400.8 s  capped True  cap time  states expanded 2603293
   d-001-BabyAI-BossLevel-v0-s1000  14400.8 s  capped True  cap time  states expanded 2364376
   d-002-BabyAI-GoTo-v0-s1000  14400.8 s  capped True  cap time  states expanded 3022642
+  d-010-BabyAI-GoToSeq-v0-s1005  14400.8 s  capped True  cap time  states expanded 2065804
   d-009-BabyAI-GoToOpen-v0-s1008  14400.8 s  capped True  cap time  states expanded 3004287
   d-001-BabyAI-BossLevelNoUnlock-v0-s1003  14400.8 s  capped True  cap time  states expanded 2880370
-  d-001-BabyAI-BossLevel-v0-s1002  14400.8 s  capped True  cap time  states expanded 2807597
-  d-001-BabyAI-BossLevelNoUnlock-v0-s1002  14400.7 s  capped True  cap time  states expanded 2802208
-  d-001-BabyAI-BossLevel-v0-s1004  14400.7 s  capped True  cap time  states expanded 2252892
-  d-009-BabyAI-GoToOpen-v0-s1001  14400.7 s  capped True  cap time  states expanded 2883183
 
 == caps hit ==
-  units capped: 140 of 378
-    cap node: 81
-    cap time: 59
-  complete: 238
+  units capped: 189 of 490
+    cap node: 120
+    cap time: 69
+  complete: 301
   neither complete nor capped: 0
-    seconds of units capped by node: min 5185.8, median 8956.3, max 14181.2
-    seconds of units capped by time: min 14400.0, median 14400.3, max 14401.8
-  units at 14400 s or more: 59 (the slowest ten are drawn from these, in order of seconds to the tenth of a second)
-  units spanning more than one session: 46
+    seconds of units capped by node: min 5185.8, median 9658.3, max 14181.2
+    seconds of units capped by time: min 14400.0, median 14400.4, max 14401.8
+  units at 14400 s or more: 69 (the slowest ten are drawn from these, in order of seconds to the tenth of a second)
+  units spanning more than one session: 60
 
 == per game: units, capped, worker seconds ==
   d-001 BabyAI-ActionObjDoor-v0: 10 units, capped 10, 143332.0 s
@@ -460,9 +572,20 @@ rows read: 378
   d-009 BabyAI-GoToOpen-v0: 10 units, capped 10, 144003.6 s
   d-009 BabyAI-GoToRedBall-v0: 10 units, capped 10, 87404.4 s
   d-010 BabyAI-GoToRedBallNoDists-v0: 10 units, capped 0, 1.5 s
-  d-010 BabyAI-GoToRedBlueBall-v0: 8 units, capped 8, 77234.1 s
-  games with at least one capped unit: 15 of 38; with every unit capped: 12
-  share of all worker seconds in the games with a capped unit: 0.9365
+  d-010 BabyAI-GoToRedBlueBall-v0: 10 units, capped 10, 96817.8 s
+  d-010 BabyAI-GoToSeq-v0: 10 units, capped 10, 144007.0 s
+  d-010 BabyAI-GoToSeqS5R2-v0: 10 units, capped 7, 76859.1 s
+  d-011 BabyAI-KeyCorridor-v0: 10 units, capped 10, 112319.4 s
+  d-011 BabyAI-KeyCorridorS3R1-v0: 10 units, capped 0, 1.0 s
+  d-011 BabyAI-KeyCorridorS3R2-v0: 10 units, capped 0, 27.0 s
+  d-011 BabyAI-KeyCorridorS3R3-v0: 10 units, capped 0, 580.5 s
+  d-012 BabyAI-KeyCorridorS4R3-v0: 10 units, capped 0, 11254.7 s
+  d-012 BabyAI-KeyCorridorS5R3-v0: 10 units, capped 2, 72107.6 s
+  d-012 BabyAI-KeyCorridorS6R3-v0: 10 units, capped 10, 108562.0 s
+  d-012 BabyAI-KeyInBox-v0: 10 units, capped 0, 4715.1 s
+  d-013 BabyAI-MiniBossLevel-v0: 10 units, capped 8, 94710.5 s
+  games with at least one capped unit: 21 of 49; with every unit capped: 15
+  share of all worker seconds in the games with a capped unit: 0.9467
   chunks are filled in the manifest's order of game names, so the finished chunks are not a random draw of the games
 
 == finished chunks: sessions, capped units, worker seconds, wall-clock first dispatch to last collect ==
@@ -475,44 +598,35 @@ rows read: 378
   d-007: 40 of 40 units, sessions 2, capped 10, worker 143407.6 s, wall 10.71 h
   d-008: 40 of 40 units, sessions 1, capped 0, worker 18796.4 s, wall 2.04 h
   d-009: 40 of 40 units, sessions 3, capped 20, worker 231408.4 s, wall 17.37 h
-  sessions per finished chunk: 1 sessions: 2 chunks, 2 sessions: 3 chunks, 3 sessions: 3 chunks, 4 sessions: 1 chunks
-  sessions in all: 21, mean 2.333
-  wall per chunk: min 2.04 h, median 14.68 h, mean 14.13 h, max 32.37 h
-  collect to next dispatch of the same chunk: 12 gaps, max 25 s
+  d-010: 40 of 40 units, sessions 3, capped 27, worker 317685.4 s, wall 23.56 h
+  d-011: 40 of 40 units, sessions 2, capped 10, worker 112927.9 s, wall 9.22 h
+  d-012: 40 of 40 units, sessions 2, capped 12, worker 196639.5 s, wall 14.82 h
+  sessions per finished chunk: 1 sessions: 2 chunks, 2 sessions: 5 chunks, 3 sessions: 4 chunks, 4 sessions: 1 chunks
+  sessions in all: 28, mean 2.333
+  wall per chunk: min 2.04 h, median 14.75 h, mean 14.56 h, max 32.37 h
+  collect to next dispatch of the same chunk: 16 gaps, max 25 s
   last collect of a chunk to first dispatch of the next: max 2 s
-  partial sessions: 13; dispatch to collect: min 8.08 h, max 8.26 h
-  stage D first dispatch 2026-10-24T23:13:58Z, last collect of a finished chunk 2026-10-30T06:24:53Z: 127.18 h for 9 chunks
+  partial sessions: 17; dispatch to collect: min 8.08 h, max 8.94 h
+  stage D first dispatch 2026-10-24T23:13:58Z, last collect of a finished chunk 2026-11-01T06:00:48Z: 174.78 h for 12 chunks
 
-== the 29 pending chunks, if they behave as the 9 finished ones ==
+== the 26 pending chunks, if they behave as the 12 finished ones ==
   basis: wall per finished chunk, first dispatch to last collect, from logs/automation.log; it includes the loop's gaps between sessions
-  29 x min 2.04 h = 59.11 h = 2.46 days
-  29 x median 14.68 h = 425.78 h = 17.74 days
-  29 x mean 14.13 h = 409.80 h = 17.07 days
-  29 x max 32.37 h = 938.81 h = 39.12 days
+  26 x min 2.04 h = 53.00 h = 2.21 days
+  26 x median 14.75 h = 383.55 h = 15.98 days
+  26 x mean 14.56 h = 378.68 h = 15.78 days
+  26 x max 32.37 h = 841.69 h = 35.07 days
 
 == the bound from the registered caps ==
   a unit takes at most 14400 s of one worker; a session gives 4 x 28800 = 115200 worker seconds
   a chunk of 40 units every one at the time cap needs 40 x 14400 / 115200 = 5.00, so 5 sessions (more if four capped units do not fill a session evenly)
-  mean partial session, dispatch to collect: 8.14 h
-  29 chunks x 5 sessions x 8.14 h = 1179.72 h = 49.15 days, if every pending unit hit the time cap
-  29 chunks x 1 session, if no pending unit is slow: at least 29 sessions
+  mean partial session, dispatch to collect: 8.19 h
+  26 chunks x 5 sessions x 8.19 h = 1065.20 h = 44.38 days, if every pending unit hit the time cap
+  26 chunks x 1 session, if no pending unit is slow: at least 26 sessions
 
-  chunk d-010 (running): 18 of 40 units done after 1 session(s), capped 8; not in the 29; its 22 units left need at most 22 x 14400 / 115200 = 2.75 sessions of work
+  chunk d-013 (running): 10 of 40 units done after 1 session(s), capped 8; not in the 26; its 30 units left need at most 30 x 14400 / 115200 = 3.75 sessions of work
 
 == games of the units still to run ==
-  units not done: 1182
-  d-010 BabyAI-GoToRedBlueBall-v0: 2
-  d-010 BabyAI-GoToSeq-v0: 10
-  d-010 BabyAI-GoToSeqS5R2-v0: 10
-  d-011 BabyAI-KeyCorridor-v0: 10
-  d-011 BabyAI-KeyCorridorS3R1-v0: 10
-  d-011 BabyAI-KeyCorridorS3R2-v0: 10
-  d-011 BabyAI-KeyCorridorS3R3-v0: 10
-  d-012 BabyAI-KeyCorridorS4R3-v0: 10
-  d-012 BabyAI-KeyCorridorS5R3-v0: 10
-  d-012 BabyAI-KeyCorridorS6R3-v0: 10
-  d-012 BabyAI-KeyInBox-v0: 10
-  d-013 BabyAI-MiniBossLevel-v0: 10
+  units not done: 1070
   d-013 BabyAI-MoveTwoAcrossS5N2-v0: 10
   d-013 BabyAI-MoveTwoAcrossS8N9-v0: 10
   d-013 BabyAI-OneRoomS12-v0: 10
