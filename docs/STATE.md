@@ -224,3 +224,26 @@ Eighteenth amendment. The lines above are unchanged. Nothing is registered; the 
 - **From the log.** Chunks: 12 done, 1 running (d-013), 26 pending, of 39. 490 rows of 1,560 units; 1,070 units not done. 189 units capped, 120 by the node cap and 69 by the time cap; 301 complete. 21 of 49 games with rows have a capped unit, 15 have every unit capped, and the games with a capped unit hold 0.9467 of all worker seconds. Finished chunks needed 1 session (2 chunks), 2 (5), 3 (4) and 4 (1); wall per chunk from first dispatch to last collect 2.04 h to 32.37 h, median 14.75 h, mean 14.56 h. d-013 has 10 of 40 units done after one session, 8 of them capped.
 - **Estimate for the 26 pending chunks, on that basis:** 15.78 days at the mean, 15.98 at the median, 2.21 to 35.07 days at the finished extremes; 44.38 days if every pending unit hit the time cap. The finished chunks hold the first games in name order, not a random draw. The halt of amendment (n) falls in d-013, which is not yet among the finished chunks.
 - **Next:** stage D runs on; its reading comes after every chunk is done.
+
+## Amendment 1 Nov 2026 (s)
+
+Nineteenth amendment. The lines above are unchanged. Nothing is registered; the prereg tag and the confirmatory code tag are not created. docs/DESIGN.md and docs/PREREG.md are unchanged. No file under jobs/ or runs/ was changed by this session's work. Stage D runs on, chunk d-013 on kernel version 37, with the file of the code tag automation-v2, which is unchanged (two pins); the notebook installs kaggle/requirements-runner.txt from the tag's worktree, never from main.
+
+- **What stage D's sessions ran on.** No committed file recorded the versions the image supplies. All 550 session entries in stage D's rows name one image, gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e.
+- **The environment probe** (d5777d4), at the author's choice of 1 November 2026: kaggle/envprobe/probe.ipynb, a private notebook of its own, ericsom/horizon-envprobe, apart from the runner and the campaign. It was pushed once from the laptop by scripts/automation/envprobe.py (kernel version 1). It records the image and Python, installs the tag's kaggle/requirements-runner.txt with the runner's own command, records every package the file needs as installed, and imports gymnasium and minigrid. It runs no search.
+- **What it found** (logs/envprobe.log, e4ce0f1):
+  - the same image as every stage D session;
+  - CPython 3.13.15;
+  - cloudpickle 3.1.2, farama-notifications 0.0.6, gymnasium 1.3.0, minigrid 3.1.0, numpy 2.1.3, pygame-ce 2.5.8 and typing-extensions 4.16.0;
+  - the install changed three packages only: gymnasium (1.2.0 in the image), minigrid and pygame-ce (absent).
+  pygame-ce, the one package pip chose, has had 2.5.8 as its latest release since 9 August 2026 (PyPI), before stage D began, so stage D's sessions had the same set.
+- **The freeze** (e8210da): kaggle/requirements-runner.txt now pins those 7 packages, with the image and Python named in its header. scripts/automation/check_runner_freeze.py checks, from committed files and PyPI:
+  - every line is an exact pin;
+  - every pin has a wheel for CPython 3.13 manylinux x86_64;
+  - every requirement each wheel declares is pinned at a version it allows;
+  - every module outside the standard library that scripts/automation imports (numpy, gymnasium, minigrid) comes from a pinned package;
+  - the pins equal the probe's versions.
+  OK (logs/check_runner_freeze.log). The control, the same check on the file before the freeze, fails 8 times: the five packages pip chose and numpy imported directly (logs/check_runner_freeze_control.log). The empty install of check_freeze.sh does not apply, because the runner installs into the image and the laptop has no Python 3.13.
+- **The loop test** (e8c62b2): its fake sessions run the notebook with the project's interpreter, so the new pins would have put numpy 2.1.3 over the 2.4.3 of requirements.txt. Each scenario now gets a requirements-runner.txt with comments only, which the notebook skips. OK (logs/test_loop.log), with the project environment unchanged.
+- **What the freeze does not cover.** The image itself and its Python: if the confirmatory campaign runs on a different image, the pins hold but the rest of the image does not. Whether that image can be pinned through the notebook's metadata has not been checked.
+- **Next:** stage D runs on; its reading comes after every chunk is done. The confirmatory code tag, when it is cut from main, carries this file. The item of amendment (q) is done.
