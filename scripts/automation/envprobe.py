@@ -6,6 +6,8 @@ kaggle/requirements-runner.txt needs there (docs/STATE.md, amendment s).  The pr
 
     python scripts/automation/envprobe.py push --user <kaggle account>
     python scripts/automation/envprobe.py collect --user <kaggle account> > logs/envprobe.log
+    python scripts/automation/envprobe.py push --user <account> --docker-image gcr.io/kaggle-images/python@sha256:<digest>
+        asks Kaggle for that image (does the metadata pin the image?); collect with the same --docker-image
 
 collect also reads, from the committed rows of stage D (runs/dev-minigrid/devsearch/*.json), the image digests
 that stage D's sessions recorded, and says whether the probe ran on the same image.  It changes no file in the
@@ -50,6 +52,9 @@ def push(a):
         shutil.copyfile(os.path.join(REPO, "kaggle", "envprobe", "probe.ipynb"), os.path.join(tmp, "probe.ipynb"))
         meta = json.load(open(os.path.join(REPO, "kaggle", "envprobe", "kernel-metadata.json"), encoding="utf-8"))
         meta["id"] = f"{a.user}/{SLUG}"
+        if a.docker_image:                    # the image Kaggle is asked to run (kernel-metadata "docker_image")
+            meta["docker_image"] = a.docker_image
+        print(f"metadata pushed: {json.dumps(meta, sort_keys=True)}")
         json.dump(meta, open(os.path.join(tmp, "kernel-metadata.json"), "w", encoding="utf-8"), indent=1)
         print(kaggle(a.kaggle, "kernels", "push", "-p", tmp))
     finally:
@@ -76,6 +81,9 @@ def collect(a):
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     print(f"probe image: {d['docker_image']}")
+    if a.docker_image:
+        print(f"image asked for in the metadata: {a.docker_image}")
+        print(f"the session ran on the image asked for: {'yes' if d['docker_image'] == a.docker_image else 'NO'}")
     print(f"probe python: {d['python']} ({d['implementation']}, {d['machine']}, {d['python_executable']})")
     print(f"code tag {d['code_tag']} at {d['code_commit']}")
     print("requirements-runner.txt at the tag:")
@@ -106,6 +114,7 @@ def main():
     ap.add_argument("command", choices=("push", "collect"))
     ap.add_argument("--user", required=True, help="the Kaggle account")
     ap.add_argument("--kaggle", default="kaggle", help="the kaggle command")
+    ap.add_argument("--docker-image", help="push: the image to ask for; collect: the image that was asked for")
     a = ap.parse_args()
     return push(a) if a.command == "push" else collect(a)
 
