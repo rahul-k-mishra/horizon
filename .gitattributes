@@ -2,3 +2,5 @@
 # unit_done), so git must never rewrite their line endings on any machine.
 runs/** -text
 jobs/** -text
+# shell scripts run in Git Bash on Windows, which cannot run them with CRLF line endings
+*.sh text eol=lf
