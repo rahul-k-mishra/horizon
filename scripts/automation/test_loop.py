@@ -83,9 +83,9 @@ def fixture_manifest():
     return dict(
         campaign="dryrun", code_tag="automation-v1", repository="local/test", kernel_slug="horizon-runner",
         max_failures=3, payload_commit_limit_bytes=65536,
-        # 12 s of work: a session spends about 4 s of it cloning and running pip before the runner starts
-        # (measured on the laptop on 1 November 2026), and an agent unit needs 2 s left to start; the search
-        # of graph-a needs about 14 s, so dry-02 still ends its first session partial.
+        # 12 s of work: a session spends part of it cloning and running pip before the runner starts, and an
+        # agent unit needs 2 s left to start, which 6 s did not always leave; the search of graph-a needs
+        # about 14 s, so dry-02 still ends its first session partial.
         session=dict(work_seconds=12, checkpoint_reserve_seconds=5, platform_limit_seconds=600),
         kinds=dict(
             agent=dict(agent_impl="dummy_sleep", budget=None, checkpoint_every_seconds=60, checkpoint_every_units=1,
