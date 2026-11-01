@@ -1,0 +1,49 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit cf2e503fff7e306db2fc77c984720320003d1a78 Loop: d-013 pushed as kernel version 36
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1793512871.3632414
+[2026-11-01T06:02:07Z] chunk d-013 (devsearch), nonce dev-minigrid-d-013-20261101T060049Z-ed012e; work deadline 2026-11-01T14:01:11Z, checkpoint by 2026-11-01T14:16:11Z
+[2026-11-01T06:02:07Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-11-01T06:02:07Z] devsearch: 40 units to run on 4 workers, 0 resumed from the checkpoint
+[2026-11-01T06:02:07Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1000: start
+[2026-11-01T06:02:07Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1001: start
+[2026-11-01T06:02:07Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1002: start
+[2026-11-01T06:02:07Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1003: start
+[2026-11-01T06:02:11Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1000: complete, 432 states seen
+[2026-11-01T06:02:11Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1004: start
+[2026-11-01T08:54:45Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1002: capped, 7774067 states seen
+[2026-11-01T08:54:45Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1005: start
+[2026-11-01T08:54:51Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1005: complete, 1378 states seen
+[2026-11-01T08:54:51Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1006: start
+[2026-11-01T09:06:43Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1003: capped, 7219414 states seen
+[2026-11-01T09:06:43Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1007: start
+[2026-11-01T09:21:09Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1004: capped, 7300428 states seen
+[2026-11-01T09:21:09Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1008: start
+[2026-11-01T09:42:45Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1001: capped, 7332574 states seen
+[2026-11-01T09:42:45Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1009: start
+[2026-11-01T12:18:01Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1006: capped, 7099723 states seen
+[2026-11-01T12:18:01Z] devsearch unit d-013-BabyAI-MoveTwoAcrossS5N2-v0-s1000: start
+[2026-11-01T12:27:30Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1007: capped, 7589891 states seen
+[2026-11-01T12:27:30Z] devsearch unit d-013-BabyAI-MoveTwoAcrossS5N2-v0-s1001: start
+[2026-11-01T12:48:06Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1008: capped, 7417643 states seen
+[2026-11-01T12:48:06Z] devsearch unit d-013-BabyAI-MoveTwoAcrossS5N2-v0-s1002: start
+[2026-11-01T12:53:51Z] devsearch unit d-013-BabyAI-MiniBossLevel-v0-s1009: capped, 7507307 states seen
+[2026-11-01T12:53:51Z] devsearch unit d-013-BabyAI-MoveTwoAcrossS5N2-v0-s1003: start
+[2026-11-01T14:01:39Z] devsearch unit d-013-BabyAI-MoveTwoAcrossS5N2-v0-s1002: stopped at the deadline, 2543187 expanded
+[2026-11-01T14:01:40Z] devsearch unit d-013-BabyAI-MoveTwoAcrossS5N2-v0-s1000: stopped at the deadline, 3534773 expanded
+[2026-11-01T14:01:48Z] devsearch unit d-013-BabyAI-MoveTwoAcrossS5N2-v0-s1003: stopped at the deadline, 2354950 expanded
+[2026-11-01T14:01:51Z] devsearch unit d-013-BabyAI-MoveTwoAcrossS5N2-v0-s1001: stopped at the deadline, 3231645 expanded
+Sampling rejected: cannot do anything with/to a key that can be used to open a door
+Sampling rejected: there are objects that match both lhs and rhs of PutNext
+Timeout during mission generation: rejection sampling failed in place_obj
+Sampling rejected: cannot do anything with/to a key that can be used to open a door
+[2026-11-01T14:01:52Z] checkpoint 1: 10 units done, 4 in progress, 14 payload files
+[2026-11-01T14:01:53Z] chunk d-013: partial; units done 10 of 40; stopped: deadline reached with devsearch units unfinished
+[2026-11-01T14:01:59Z] wrote result.json (status partial) and bundle.tar.gz
