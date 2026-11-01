@@ -1,4 +1,14 @@
-# Packages the notebook installs before it runs a chunk (kaggle/runner.ipynb).  Stage D's kind devsearch
-# needs MiniGrid at study 1's versions (study 1, docs/PREREG.md v1, Section 3.2).
+# Packages the notebook installs before it runs a chunk (kaggle/runner.ipynb).  The kind devsearch needs
+# MiniGrid at study 1's versions (study 1, docs/PREREG.md v1, Section 3.2).
+# Frozen on 1 November 2026 for the confirmatory code tag (docs/STATE.md, amendments q and s): every package the
+# runner imports or that these need, at the version installed on the Kaggle image of every stage D session,
+# gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e,
+# CPython 3.13.15 (logs/envprobe.log). Nothing is left to pip. Checked by scripts/automation/check_runner_freeze.py.
+# Stage D runs the file of the code tag automation-v2, not this one.
+cloudpickle==3.1.2
+farama-notifications==0.0.6
 gymnasium==1.3.0
 minigrid==3.1.0
+numpy==2.1.3
+pygame-ce==2.5.8
+typing-extensions==4.16.0

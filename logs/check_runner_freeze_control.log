@@ -1,0 +1,22 @@
+Kaggle's Python from logs/envprobe.log: 3.13.15 CPython x86_64
+probe image: gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e
+ok   step 1: exact pin: gymnasium==1.3.0
+ok   step 1: exact pin: minigrid==3.1.0
+pins: 2
+ok   step 2: every pin has a wheel for CPython 3.13 manylinux x86_64
+wheels: 2
+    gymnasium-1.3.0-py3-none-any.whl
+    minigrid-3.1.0-py3-none-any.whl
+ok   step 2: one wheel per pin
+FAIL step 3: gymnasium 1.3.0 needs numpy>=1.21.0: pinned NOT PINNED
+FAIL step 3: gymnasium 1.3.0 needs cloudpickle>=1.2.0: pinned NOT PINNED
+FAIL step 3: gymnasium 1.3.0 needs typing-extensions>=4.3.0: pinned NOT PINNED
+FAIL step 3: gymnasium 1.3.0 needs farama-notifications>=0.0.1: pinned NOT PINNED
+FAIL step 3: minigrid 3.1.0 needs numpy>=1.18.0: pinned NOT PINNED
+ok   step 3: minigrid 3.1.0 needs gymnasium>=0.28.1: pinned 1.3.0
+FAIL step 3: minigrid 3.1.0 needs pygame-ce>=2.4.0: pinned NOT PINNED
+ok   step 4: module gymnasium (imported by sim_minigrid.py) comes from a pinned package
+ok   step 4: module minigrid (imported by sim_minigrid.py) comes from a pinned package
+FAIL step 4: module numpy (imported by eh.py, jobs.py) comes from a pinned package
+FAIL step 5: the pins equal the versions on stage D's image: [('gymnasium', '1.3.0'), ('minigrid', '3.1.0')] against [('cloudpickle', '3.1.2'), ('farama-notifications', '0.0.6'), ('gymnasium', '1.3.0'), ('minigrid', '3.1.0'), ('numpy', '2.1.3'), ('pygame-ce', '2.5.8'), ('typing-extensions', '4.16.0')]
+8 failure(s)
