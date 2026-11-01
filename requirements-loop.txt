@@ -1,6 +1,40 @@
+# Every package the loop installs, pinned: the full freeze of a fresh install of kaggle==2.2.4 with
+# python-dateutil==3.0.0 and six==1.17.0, made on 1 November 2026 and checked against the live Kaggle API.
+# Nothing floats. kaggle 2.2.4 imports six without declaring it, and six came only through
+# python-dateutil 3.0.0; python-dateutil 4.0.0, uploaded 2026-11-01T07:02:40Z, drops six, and every tick
+# from 07:32Z on 1 November 2026 failed on import until 013ee76. colorama is needed by tqdm on Windows only.
+attrs==26.1.0
+bleach==6.4.0
+certifi==2026.10.23
+charset-normalizer==3.5.2
+fastjsonschema==2.22.2
+idna==3.20
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+jupyter_core==5.9.1
+jupytext==1.19.6
 kaggle==2.2.4
-# kaggle 2.2.4 imports six (kaggle/models/upload_file.py) without declaring it; six came only through
-# python-dateutil 3.0.0. python-dateutil 4.0.0, uploaded 2026-11-01T07:02:40Z, drops six, and every tick
-# from 07:32Z on 1 November 2026 failed on import. Both are pinned to the last set that worked.
+kagglesdk==0.1.38
+markdown-it-py==4.2.0
+mdit-py-plugins==0.6.1
+mdurl==0.1.2
+nbformat==5.11.1
+packaging==26.3
+platformdirs==4.14.2
+protobuf==7.36.2
 python-dateutil==3.0.0
+python-dotenv==1.2.4
+python-slugify==9.1.3
+PyYAML==6.0.3
+referencing==0.37.0
+requests==2.34.2
+rpds-py==2026.9.1
 six==1.17.0
+text-unidecode==1.3
+tqdm==4.70.1
+traitlets==5.16.1
+typing_extensions==4.16.0
+tzdata==2026.6
+urllib3==2.8.0
+webencodings==0.6.1
+colorama==0.4.6; sys_platform == "win32"
