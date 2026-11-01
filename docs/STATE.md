@@ -260,3 +260,16 @@ Twentieth amendment. The lines above are unchanged. Nothing is registered; the p
 - **Not known:** how long Kaggle keeps an image runnable, and what a later push without docker_image does after a pinned one.
 - **What is not changed, and why.** The loop builds the runner's metadata from kaggle/kernel-metadata.json on main at every dispatch (scripts/automation/loop.py, prepare_kernel), not from the code tag. Adding docker_image there would pin stage D's own sessions from the next dispatch on. That would hold stage D on the image of all its sessions so far, but it changes the running campaign, so it is the author's decision. The probe's last version, private and apart from the campaign, is left on 81b1e7c4....
 - **Next:** stage D runs on; its reading comes after every chunk is done. For the confirmatory campaign, docker_image in the runner's metadata can name the image. Whether it does, and which image, is for the author before the tag.
+
+## Amendment 1 Nov 2026 (u)
+
+Twenty-first amendment. The lines above are unchanged. Nothing is registered; the prereg tag and the confirmatory code tag are not created. docs/DESIGN.md and docs/PREREG.md are unchanged. No file under jobs/ or runs/ was changed by this session's work.
+
+- **Stage D's image is not pinned, by decision of the author on 1 November 2026.** kaggle/kernel-metadata.json stays as it is, with no docker_image key. git diff shows it unchanged against the code tag automation-v2 and against 01858fa, the halt of this morning; its last change is 59ddd88. Reasons:
+  1. All 550 session entries in stage D's rows name one image, gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e.
+  2. The evidence of amendment (t) suggests that Kaggle keeps a notebook on the image it first ran on.
+  3. Changing the metadata of a running campaign adds a risk larger than the one it removes.
+- **The loop after the decision.** jobs/state.json: not halted, 0 consecutive crashes, d-013 dispatched as kernel version 37 (pushed 2026-11-01T14:57:44Z). kaggle kernels status at 17:49Z: RUNNING. The workflow's ticks at 16:29Z and 16:59Z succeeded, and the one of 17:30Z was running.
+- **A change of image during stage D would be visible.** Every session entry of a row records Kaggle's own environment variables (kaggle_env, scripts/automation/jobs.py at automation-v2), the image digest KAGGLE_DOCKER_IMAGE among them. The row schema requires kaggle_env (scripts/automation/schema.py); the digest is there because Kaggle sets it, and all 550 session entries so far carry it. If stage D's rows name more than one image when every chunk is done, that is stated as a limit of the development data, with the chunks and units each image ran.
+- **Before the confirmatory code tag is cut**, docker_image is set in the runner's metadata, kaggle/kernel-metadata.json, with the image chosen at that point.
+- **Next:** stage D runs on; its reading comes after every chunk is done, and it counts the images the rows name.
