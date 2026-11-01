@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-012",
+ "committed_at": "2026-11-01T06:00:48Z",
+ "kernel_version": 35,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-012-BabyAI-KeyInBox-v0-s1001.json",
+ "row_sha256": "71622adf5e36e3c16175322b30d3aba4aeb7807bfcd11a498c6c8c0fd087034a",
+ "run_nonce": "dev-minigrid-d-012-20261031T232232Z-8085f1",
+ "unit_id": "d-012-BabyAI-KeyInBox-v0-s1001"
+}

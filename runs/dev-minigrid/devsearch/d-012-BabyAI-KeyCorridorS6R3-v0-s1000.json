@@ -1,0 +1,66 @@
+{
+ "campaign": "dev-minigrid",
+ "cap_hit": "node",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "d-012",
+ "complete": false,
+ "counts": {
+  "depth_max": 48,
+  "frontier_left": 523347,
+  "solution_length": 24,
+  "spill_files_max": 0,
+  "states_expanded": 5000000,
+  "states_seen": 5530999,
+  "successors_total": 40000000
+ },
+ "game": "BabyAI-KeyCorridorS6R3-v0",
+ "level": 1000,
+ "measures": {
+  "branching": 3.790659,
+  "eh": null,
+  "eh_horizon": 400,
+  "eh_k": null,
+  "eh_status": "not computed: capped by node"
+ },
+ "schema": "horizon.search.v2",
+ "seconds_spent": 11410.483,
+ "sessions": [
+  {
+   "ended_at": "2026-10-31T23:11:48Z",
+   "host": "b0fee1d3ff79",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_ylARKlRARelgKsREa6QWtjoZ5DS4kk53S7Qo94zF6oQ-364269787-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-central1-c",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-012-20261031T151130Z-3af2dc",
+   "started_at": "2026-10-31T15:11:47Z"
+  },
+  {
+   "ended_at": "2026-11-01T00:15:12Z",
+   "host": "1892aaea118f",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_plfi0vjZVopYgB2QsiD5lx5gMCUFzyLkgV2Kkx1HBNk-364374893-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-central1-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-012-20261031T232232Z-8085f1",
+   "started_at": "2026-10-31T23:22:47Z"
+  }
+ ],
+ "suite": "minigrid",
+ "unit_id": "d-012-BabyAI-KeyCorridorS6R3-v0-s1000",
+ "written_at": "2026-11-01T00:15:12Z"
+}
