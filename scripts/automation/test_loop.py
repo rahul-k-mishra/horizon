@@ -3,9 +3,10 @@ test_loop.py -- the whole loop on this machine, with a fake Kaggle (scripts/auto
 a local bare git remote, and a local folder in place of GitHub releases.  Plays no game and calls no
 service.
 
-It copies the automation files into a fresh repository in a temporary folder, tags the code
-automation-v1, writes a fast version of the dry-run manifest (session work 6 s, agent sleep 1 s,
-search slowed to about 14 s, payload commit limit 64 KB), and runs ticks until the manifest is
+It copies the automation code (not jobs/) into a fresh repository in a temporary folder, writes its own
+manifest there (fixture_manifest: the dummy dry run of the kinds agent and search, session work 12 s,
+agent sleep 1 s, search slowed to about 14 s, payload commit limit 64 KB), so that it runs the same
+whatever campaign is live in jobs/; tags the code automation-v1, and runs ticks until the manifest is
 complete.  Expected, and checked:
     dry-01  done in one session
     dry-02  partial (the search stops at the session deadline with its frontier, spill files and
@@ -68,31 +69,60 @@ def reference_count(M, edges, goal):
     return len(seen), depth.get(goal)
 
 
-def fresh(src, m):
-    """The repository's jobs/ may hold a live campaign's progress: start the copy from nothing."""
-    for c in m["chunks"]:
-        c.update(status="pending", attempts=0, failures=0, sessions=[])
-    for u in m["units"]:
-        u["status"] = "pending"
-    write_json(os.path.join(src, "jobs", "state.json"), dict(dispatch=None, halted=False, halted_at=None, halt_reason=None))
-    if os.path.exists(os.path.join(src, "jobs", "lock.json")):
-        os.remove(os.path.join(src, "jobs", "lock.json"))
+def fixture_manifest():
+    """The test's own campaign, built here and never read from jobs/: the dummy dry run of the kinds agent
+    and search (jobs/archive/dryrun/manifest.json) with fast settings.  dry-01 and dry-03 are one agent unit
+    each; dry-02 holds graph-a (28,000 reachable nodes, goal at depth 48) and graph-b (node cap 500)."""
+    def unit(chunk, kind, game, **kw):
+        u = dict(unit_id=f"{chunk}-{game}" if kind == "search" else f"{chunk}-{game}-seed1", chunk_id=chunk,
+                 kind=kind, suite="dummy", game=game, level=None, agent="dummy", seed=1, status="pending")
+        if kind == "search":
+            u.update(level=1, agent=None, seed=None)
+        u.update(kw)
+        return u
+    return dict(
+        campaign="dryrun", code_tag="automation-v1", repository="local/test", kernel_slug="horizon-runner",
+        max_failures=3, payload_commit_limit_bytes=65536,
+        # 12 s of work: a session spends about 4 s of it cloning and running pip before the runner starts
+        # (measured on the laptop on 1 November 2026), and an agent unit needs 2 s left to start; the search
+        # of graph-a needs about 14 s, so dry-02 still ends its first session partial.
+        session=dict(work_seconds=12, checkpoint_reserve_seconds=5, platform_limit_seconds=600),
+        kinds=dict(
+            agent=dict(agent_impl="dummy_sleep", budget=None, checkpoint_every_seconds=60, checkpoint_every_units=1,
+                       sleep_seconds=1, unit_seconds_cap=2),
+            search=dict(simulator="dummy_graph", M=28001, edges=[[3, 1], [5, 2], [7, 3]], goal=27000, batch=100,
+                        node_cap=1000000, time_cap_seconds=3600, memory_cap_bytes=25769803776, spill_frontier_over=100,
+                        checkpoint_every_nodes=3000, checkpoint_every_seconds=2, seconds_per_batch=0.05)),
+        chunks=[dict(chunk_id=c, kind=k, status="pending", attempts=0, failures=0, sessions=[])
+                for c, k in (("dry-01", "agent"), ("dry-02", "search"), ("dry-03", "agent"))],
+        units=[unit("dry-01", "agent", "sleep"),
+               unit("dry-02", "search", "graph-a"),
+               unit("dry-02", "search", "graph-b", params=dict(node_cap=500, seconds_per_batch=0.0)),
+               unit("dry-03", "agent", "sleep")])
+
+
+def make_src(tmp, name, m):
+    """A source repository for one scenario: the automation code copied from this repository, and a jobs/
+    written from nothing (manifest m, no dispatch, not halted, no lock), whatever campaign is live here."""
+    src = os.path.join(tmp, name)
+    os.makedirs(src)
+    for rel in ("scripts/automation", "kaggle"):
+        shutil.copytree(os.path.join(REPO, rel), os.path.join(src, rel),
+                        ignore=shutil.ignore_patterns("__pycache__", "test_*.py"))
+    shutil.copyfile(os.path.join(REPO, ".gitattributes"), os.path.join(src, ".gitattributes"))
+    os.makedirs(os.path.join(src, "jobs"))
+    save_manifest(src, m)
+    write_json(os.path.join(src, "jobs", "state.json"),
+               dict(consecutive_crashes=0, dispatch=None, halted=False, halted_at=None, halt_reason=None))
+    return src
 
 
 def scenario_halt(env_base, tmp, check):
     """A chunk whose every session fails (unknown agent implementation) must halt the loop after the
     registered maximum of failures, with STATE-ready text in logs/automation.log."""
-    src = os.path.join(tmp, "src-halt")
-    os.makedirs(src)
-    for rel in ("scripts/automation", "kaggle", "jobs"):
-        shutil.copytree(os.path.join(REPO, rel), os.path.join(src, rel),
-                        ignore=shutil.ignore_patterns("__pycache__", "test_*.py"))
-    shutil.copyfile(os.path.join(REPO, ".gitattributes"), os.path.join(src, ".gitattributes"))
-    m = load_manifest(src)
-    m.update(session=dict(work_seconds=6, checkpoint_reserve_seconds=5, platform_limit_seconds=600))
-    fresh(src, m)
-    m["kinds"]["agent"].update(agent_impl="not_written", sleep_seconds=1, unit_seconds_cap=2)
-    save_manifest(src, m)
+    m = fixture_manifest()
+    m["kinds"]["agent"]["agent_impl"] = "not_written"
+    src = make_src(tmp, "src-halt", m)
     git(src, "init", "-q", "-b", "main")
     git(src, "config", "user.name", "test")
     git(src, "config", "user.email", "test@example.invalid")
@@ -131,17 +161,7 @@ def scenario_crash(env_base, tmp, check):
     registered maximum the loop halts with STATE-ready text, and later ticks and next-wake do nothing."""
     sys.path.insert(0, os.path.join(REPO, "scripts", "automation"))
     from loop import MAX_CRASHES  # noqa: E402
-    src = os.path.join(tmp, "src-crash")
-    os.makedirs(src)
-    for rel in ("scripts/automation", "kaggle", "jobs"):
-        shutil.copytree(os.path.join(REPO, rel), os.path.join(src, rel),
-                        ignore=shutil.ignore_patterns("__pycache__", "test_*.py"))
-    shutil.copyfile(os.path.join(REPO, ".gitattributes"), os.path.join(src, ".gitattributes"))
-    m = load_manifest(src)
-    m.update(session=dict(work_seconds=6, checkpoint_reserve_seconds=5, platform_limit_seconds=600))
-    fresh(src, m)
-    m["kinds"]["agent"].update(sleep_seconds=1, unit_seconds_cap=2)
-    save_manifest(src, m)
+    src = make_src(tmp, "src-crash", fixture_manifest())
     git(src, "init", "-q", "-b", "main")
     git(src, "config", "user.name", "test")
     git(src, "config", "user.email", "test@example.invalid")
@@ -206,12 +226,6 @@ def scenario_devsearch(env_base, tmp, check):
     slowed so that the first session ends at its deadline with that unit in a checkpoint; later sessions
     resume it.  Every row must be a valid horizon.search.v2 row under runs/<campaign>/devsearch/, and the
     resumed unit must count what an uninterrupted search counts (scripts/automation/test_devsearch.py)."""
-    src = os.path.join(tmp, "src-dev")
-    os.makedirs(src)
-    for rel in ("scripts/automation", "kaggle", "jobs"):
-        shutil.copytree(os.path.join(REPO, rel), os.path.join(src, rel),
-                        ignore=shutil.ignore_patterns("__pycache__", "test_*.py"))
-    shutil.copyfile(os.path.join(REPO, ".gitattributes"), os.path.join(src, ".gitattributes"))
     base = dict(simulator="minigrid", workers=2, node_cap=5000000, time_cap_seconds=14400,
                 memory_cap_bytes=6442450944, spill_frontier_over=1000000, checkpoint_every_seconds=600,
                 checkpoint_every_nodes=250000, batch=5, eh_state_limit=200000, eh_horizon=400)
@@ -221,17 +235,16 @@ def scenario_devsearch(env_base, tmp, check):
                   game="MiniGrid-LavaGapS5-v0", level=1000, agent=None, seed=None, status="pending"),
              dict(unit_id="d-01-doorkey5-s1000", chunk_id="d-01", kind="devsearch", suite="minigrid",
                   game="MiniGrid-DoorKey-5x5-v0", level=1000, agent=None, seed=None, status="pending",
-                  params=dict(seconds_per_batch=0.4))]
+                  params=dict(seconds_per_batch=1.0))]
     m = dict(campaign="devtest", code_tag="automation-v1", repository="local/test", kernel_slug="horizon-runner",
              max_failures=3, payload_commit_limit_bytes=65536,
-             session=dict(work_seconds=8, checkpoint_reserve_seconds=5, platform_limit_seconds=600),
+             # 16 s of work, for the same reason as fixture_manifest's 12 s, with MiniGrid's import on top;
+             # DoorKey at 1 s a batch (about 23 batches) cannot finish in one session.
+             session=dict(work_seconds=16, checkpoint_reserve_seconds=5, platform_limit_seconds=600),
              kinds=dict(devsearch=base),
              chunks=[dict(chunk_id="d-01", kind="devsearch", status="pending", attempts=0, failures=0, sessions=[])],
              units=units)
-    save_manifest(src, m)
-    write_json(os.path.join(src, "jobs", "state.json"), dict(dispatch=None, halted=False, halted_at=None, halt_reason=None))
-    if os.path.exists(os.path.join(src, "jobs", "lock.json")):
-        os.remove(os.path.join(src, "jobs", "lock.json"))
+    src = make_src(tmp, "src-dev", m)
     git(src, "init", "-q", "-b", "main")
     git(src, "config", "user.name", "test")
     git(src, "config", "user.email", "test@example.invalid")
@@ -283,18 +296,7 @@ def main():
             print("FAIL:", msg)
     tmp = tempfile.mkdtemp(prefix="horizon-looptest-")
     try:
-        src = os.path.join(tmp, "src")
-        os.makedirs(src)
-        for rel in ("scripts/automation", "kaggle", "jobs"):
-            shutil.copytree(os.path.join(REPO, rel), os.path.join(src, rel),
-                            ignore=shutil.ignore_patterns("__pycache__", "test_*.py"))
-        shutil.copyfile(os.path.join(REPO, ".gitattributes"), os.path.join(src, ".gitattributes"))
-        m = load_manifest(src)
-        fresh(src, m)
-        m.update(session=dict(work_seconds=6, checkpoint_reserve_seconds=5, platform_limit_seconds=600))
-        m["kinds"]["agent"].update(sleep_seconds=1, unit_seconds_cap=2)
-        m["kinds"]["search"].update(seconds_per_batch=0.05, checkpoint_every_seconds=2)
-        save_manifest(src, m)
+        src = make_src(tmp, "src", fixture_manifest())
         git(src, "init", "-q", "-b", "main")
         git(src, "config", "user.name", "test")
         git(src, "config", "user.email", "test@example.invalid")
