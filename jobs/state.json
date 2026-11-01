@@ -1,5 +1,5 @@
 {
- "consecutive_crashes": 12,
+ "consecutive_crashes": 0,
  "dispatch": {
   "chunk_id": "d-013",
   "dispatched_at": "2026-11-01T06:00:49Z",
@@ -9,7 +9,7 @@
   "pushed_at": "2026-11-01T06:00:52Z",
   "runner": "actions-41279043766-1"
  },
- "halt_reason": "12 consecutive ticks crashed; last: RuntimeError: command failed (1): kaggle kernels status ericsom/horizon-runner Traceback (most recent call last): File \"/opt/hostedtoolcache/Python/3.11.17/x64/bin/kaggle\", line 3, in <module> from kaggle.cli import main File \"/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/kaggle/__init__.py\", line 3, in <module> from kaggle.api.kaggle_api_extended import KaggleApi File \"/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/kaggle/api/kaggle_api_extended.py\", line 245, in <module> from ..models.upload_file import UploadFile File \"/opt/hostedtoolcache/Python",
- "halted": true,
- "halted_at": "2026-11-01T13:11:37Z"
+ "halt_reason": null,
+ "halted": false,
+ "halted_at": null
 }

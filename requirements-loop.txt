@@ -1,1 +1,6 @@
 kaggle==2.2.4
+# kaggle 2.2.4 imports six (kaggle/models/upload_file.py) without declaring it; six came only through
+# python-dateutil 3.0.0. python-dateutil 4.0.0, uploaded 2026-11-01T07:02:40Z, drops six, and every tick
+# from 07:32Z on 1 November 2026 failed on import. Both are pinned to the last set that worked.
+python-dateutil==3.0.0
+six==1.17.0
