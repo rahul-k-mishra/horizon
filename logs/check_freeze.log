@@ -1,0 +1,109 @@
+[2026-11-01T16:56:53Z] interpreter: Python 3.11.9; file: requirements-loop.txt, sha256 f81ecde5ad6bb1d9123a66f5f8ffeee9a5292112e6b9b71d36c61f2a100447f2
+[2026-11-01T16:56:53Z] pins: 35
+pip 24.0 from <tmp>\tool\Lib\site-packages\pip (python 3.11)
+[2026-11-01T16:57:18Z] step 1: download the pinned files only
+[2026-11-01T16:57:35Z] wheelhouse: 35 files
+[2026-11-01T16:57:36Z] [frozen] step 2: empty environment; modules pip and setuptools present: []
+[2026-11-01T16:57:36Z] [frozen] step 3: offline install, no dependency resolution
+[2026-11-01T16:58:09Z] [frozen] installed:
+attrs==26.1.0
+bleach==6.4.0
+certifi==2026.10.23
+charset-normalizer==3.5.2
+colorama==0.4.6
+fastjsonschema==2.22.2
+idna==3.20
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+jupyter_core==5.9.1
+jupytext==1.19.6
+kaggle==2.2.4
+kagglesdk==0.1.38
+markdown-it-py==4.2.0
+mdit-py-plugins==0.6.1
+mdurl==0.1.2
+nbformat==5.11.1
+packaging==26.3
+platformdirs==4.14.2
+protobuf==7.36.2
+python-dateutil==3.0.0
+python-dotenv==1.2.4
+python-slugify==9.1.3
+PyYAML==6.0.3
+referencing==0.37.0
+requests==2.34.2
+rpds-py==2026.9.1
+six==1.17.0
+text-unidecode==1.3
+tqdm==4.70.1
+traitlets==5.16.1
+typing_extensions==4.16.0
+tzdata==2026.6
+urllib3==2.8.0
+webencodings==0.6.1
+[2026-11-01T16:58:13Z] [frozen] step 4: import and one read-only status
+Kaggle CLI 2.2.4
+ericsom/horizon-runner has status "KernelWorkerStatus.RUNNING"
+[2026-11-01T16:58:22Z] [frozen] exit code 0
+[2026-11-01T16:58:23Z] [control-without-six] step 2: empty environment; modules pip and setuptools present: []
+[2026-11-01T16:58:23Z] [control-without-six] step 3: offline install, no dependency resolution
+[2026-11-01T16:58:47Z] [control-without-six] installed:
+attrs==26.1.0
+bleach==6.4.0
+certifi==2026.10.23
+charset-normalizer==3.5.2
+colorama==0.4.6
+fastjsonschema==2.22.2
+idna==3.20
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+jupyter_core==5.9.1
+jupytext==1.19.6
+kaggle==2.2.4
+kagglesdk==0.1.38
+markdown-it-py==4.2.0
+mdit-py-plugins==0.6.1
+mdurl==0.1.2
+nbformat==5.11.1
+packaging==26.3
+platformdirs==4.14.2
+protobuf==7.36.2
+python-dateutil==3.0.0
+python-dotenv==1.2.4
+python-slugify==9.1.3
+PyYAML==6.0.3
+referencing==0.37.0
+requests==2.34.2
+rpds-py==2026.9.1
+text-unidecode==1.3
+tqdm==4.70.1
+traitlets==5.16.1
+typing_extensions==4.16.0
+tzdata==2026.6
+urllib3==2.8.0
+webencodings==0.6.1
+[2026-11-01T16:58:50Z] [control-without-six] step 4: import and one read-only status
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "<tmp>\env-control-without-six\Scripts\kaggle.exe\__main__.py", line 4, in <module>
+  File "<tmp>\env-control-without-six\Lib\site-packages\kaggle\__init__.py", line 3, in <module>
+    from kaggle.api.kaggle_api_extended import KaggleApi
+  File "<tmp>\env-control-without-six\Lib\site-packages\kaggle\api\kaggle_api_extended.py", line 39, in <module>
+    from dateutil.relativedelta import relativedelta
+  File "<tmp>\env-control-without-six\Lib\site-packages\dateutil\relativedelta.py", line 8, in <module>
+    from six import integer_types
+ModuleNotFoundError: No module named 'six'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "<tmp>\env-control-without-six\Scripts\kaggle.exe\__main__.py", line 4, in <module>
+  File "<tmp>\env-control-without-six\Lib\site-packages\kaggle\__init__.py", line 3, in <module>
+    from kaggle.api.kaggle_api_extended import KaggleApi
+  File "<tmp>\env-control-without-six\Lib\site-packages\kaggle\api\kaggle_api_extended.py", line 39, in <module>
+    from dateutil.relativedelta import relativedelta
+  File "<tmp>\env-control-without-six\Lib\site-packages\dateutil\relativedelta.py", line 8, in <module>
+    from six import integer_types
+ModuleNotFoundError: No module named 'six'
+[2026-11-01T16:58:50Z] [control-without-six] exit code 1 (must be non-zero)
+[2026-11-01T16:58:50Z] OK
