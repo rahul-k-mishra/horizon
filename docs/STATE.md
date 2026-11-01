@@ -183,3 +183,11 @@ Fourteenth amendment. The lines above are unchanged. Nothing is registered; the 
 - **The restart** (013ee76): jobs/state.json halted false, consecutive_crashes 0, halted_at and halt_reason null, the dispatch of d-013 kept. Run 41318682726 reached the chunk: COLLECT d-013 kernel version 36, partial, at 14:57:24Z (304fec5); DISPATCH d-013 attempt 2 and PUSHED as kernel version 37 at 14:57:44Z (2edd2c4). Chunks: done 12, partial 1, pending 26 at the collect.
 - **No result was lost.** The session of kernel version 36 was not cut short by the halt. It ran on Kaggle while the ticks crashed, stopped at its deadline at 14:01:59Z with 10 of 40 units done (logs/kaggle/d-013__v36.log), ended COMPLETE, and its output stayed on Kaggle until the collect. That collect committed 10 finished units of d-013 with their done markers and 15 checkpoint files, with 0 failures. Attempt 2 resumes from them. The halt cost about 55 minutes of idle time, from the end of that session to the new push, and no rows.
 - **Next:** stage D runs on; its reading comes after every chunk is done.
+
+## Amendment 1 Nov 2026 (o)
+
+Fifteenth amendment. The lines above are unchanged. Nothing is registered; the prereg tag is not created. docs/DESIGN.md and docs/PREREG.md are unchanged. No file under jobs/ or runs/ was changed by this session's work; stage D is running, chunk d-013 on kernel version 37.
+
+- **Every loop dependency pinned** (5eafa48), at the author's request after amendment (n). requirements-loop.txt now holds the full freeze of a fresh install of kaggle==2.2.4 with python-dateutil==3.0.0 and six==1.17.0: 35 packages, each with an exact version. Nothing is left to the resolver. colorama, which tqdm needs on Windows only, carries the marker sys_platform == "win32".
+- **Checked on the laptop before the push.** A fresh install from the file gives the same 35 packages as the set checked in amendment (n), and pip check finds no broken requirement. A read-only kaggle kernels status answered RUNNING for the runner notebook. pip download for manylinux2014_x86_64, CPython 3.11, binary wheels only, found a wheel for every pin, so the runner can install the file. The first tick to install it is the next one after 5eafa48.
+- **Next:** stage D runs on; its reading comes after every chunk is done.
