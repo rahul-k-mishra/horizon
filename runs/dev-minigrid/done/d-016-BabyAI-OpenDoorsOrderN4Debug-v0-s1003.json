@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-016",
+ "committed_at": "2026-11-02T18:09:27Z",
+ "kernel_version": 42,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1003.json",
+ "row_sha256": "128791fe7f0b9a58c798dcdad1e59e269c1a1cbf1f7300e11609ca2033f199fe",
+ "run_nonce": "dev-minigrid-d-016-20261102T173837Z-24e76f",
+ "unit_id": "d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1003"
+}

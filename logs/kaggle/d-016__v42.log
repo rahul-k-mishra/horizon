@@ -1,0 +1,96 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit b4abb105f5823b6fd2ac321ac14e3a858c0d3ffe Loop: d-016 pushed as kernel version 42
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1793641135.3060985
+[2026-11-02T17:39:50Z] chunk d-016 (devsearch), nonce dev-minigrid-d-016-20261102T173837Z-24e76f; work deadline 2026-11-03T01:38:55Z, checkpoint by 2026-11-03T01:53:55Z
+[2026-11-02T17:39:50Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-11-02T17:39:50Z] devsearch: 40 units to run on 4 workers, 0 resumed from the checkpoint
+[2026-11-02T17:39:50Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1000: start
+[2026-11-02T17:39:51Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1001: start
+[2026-11-02T17:39:51Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1002: start
+[2026-11-02T17:39:51Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1003: start
+[2026-11-02T17:39:56Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1000: complete, 804 states seen
+[2026-11-02T17:39:56Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1004: start
+[2026-11-02T17:39:56Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1002: complete, 803 states seen
+[2026-11-02T17:39:56Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1005: start
+[2026-11-02T17:39:56Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1003: complete, 804 states seen
+[2026-11-02T17:39:56Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1006: start
+[2026-11-02T17:39:56Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1001: complete, 803 states seen
+[2026-11-02T17:39:56Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1007: start
+[2026-11-02T17:39:58Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1005: complete, 201 states seen
+[2026-11-02T17:39:58Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1008: start
+[2026-11-02T17:39:58Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1007: complete, 201 states seen
+[2026-11-02T17:39:58Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1009: start
+[2026-11-02T17:40:00Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1006: complete, 804 states seen
+[2026-11-02T17:40:00Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1000: start
+[2026-11-02T17:40:00Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1004: complete, 804 states seen
+[2026-11-02T17:40:00Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1001: start
+[2026-11-02T17:40:00Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1000: complete, 52 states seen
+[2026-11-02T17:40:00Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1002: start
+[2026-11-02T17:40:00Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1001: complete, 51 states seen
+[2026-11-02T17:40:00Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1003: start
+[2026-11-02T17:40:00Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1002: complete, 51 states seen
+[2026-11-02T17:40:00Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1004: start
+[2026-11-02T17:40:00Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1003: complete, 52 states seen
+[2026-11-02T17:40:00Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1005: start
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1004: complete, 52 states seen
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1006: start
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1006: complete, 52 states seen
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1007: start
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1005: complete, 51 states seen
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1008: start
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1008: complete, 51 states seen
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1009: start
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1008: complete, 803 states seen
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1000: start
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1007: complete, 51 states seen
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1001: start
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2-v0-s1009: complete, 803 states seen
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1002: start
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN2Debug-v0-s1009: complete, 51 states seen
+[2026-11-02T17:40:01Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1003: start
+[2026-11-02T17:40:08Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1002: complete, 1617 states seen
+[2026-11-02T17:40:08Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1004: start
+[2026-11-02T17:40:25Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1001: complete, 5657 states seen
+[2026-11-02T17:40:25Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1005: start
+[2026-11-02T17:40:25Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1000: complete, 5657 states seen
+[2026-11-02T17:40:25Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1006: start
+[2026-11-02T17:40:25Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1003: complete, 5657 states seen
+[2026-11-02T17:40:25Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1007: start
+[2026-11-02T17:40:31Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1004: complete, 5657 states seen
+[2026-11-02T17:40:31Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1008: start
+[2026-11-02T17:40:37Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1008: complete, 1616 states seen
+[2026-11-02T17:40:37Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1009: start
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1006: complete, 5658 states seen
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1000: start
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1000: complete, 53 states seen
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1001: start
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1007: complete, 5657 states seen
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1002: start
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1005: complete, 5657 states seen
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1003: start
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1001: complete, 53 states seen
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1004: start
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1003: complete, 53 states seen
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1005: start
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1004: complete, 53 states seen
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1006: start
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1005: complete, 53 states seen
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1007: start
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1006: complete, 54 states seen
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1008: start
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1007: complete, 53 states seen
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1009: start
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1002: complete, 53 states seen
+[2026-11-02T17:40:48Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1009: complete, 53 states seen
+[2026-11-02T17:40:49Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4Debug-v0-s1008: complete, 52 states seen
+[2026-11-02T17:40:56Z] devsearch unit d-016-BabyAI-OpenDoorsOrderN4-v0-s1009: complete, 5657 states seen
+[2026-11-02T17:40:56Z] chunk d-016: done; units done 40 of 40
+[2026-11-02T17:40:56Z] wrote result.json (status done) and bundle.tar.gz
