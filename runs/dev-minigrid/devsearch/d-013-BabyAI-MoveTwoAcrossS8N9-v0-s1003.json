@@ -1,0 +1,66 @@
+{
+ "campaign": "dev-minigrid",
+ "cap_hit": "node",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "d-013",
+ "complete": false,
+ "counts": {
+  "depth_max": 20,
+  "frontier_left": 5534153,
+  "solution_length": 19,
+  "spill_files_max": 5,
+  "states_expanded": 5000000,
+  "states_seen": 10534154,
+  "successors_total": 40000000
+ },
+ "game": "BabyAI-MoveTwoAcrossS8N9-v0",
+ "level": 1003,
+ "measures": {
+  "branching": 4.1369438,
+  "eh": null,
+  "eh_horizon": 400,
+  "eh_k": null,
+  "eh_status": "not computed: capped by node"
+ },
+ "schema": "horizon.search.v2",
+ "seconds_spent": 13537.217,
+ "sessions": [
+  {
+   "ended_at": "2026-11-01T22:57:58Z",
+   "host": "e91d01ee40e3",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_m2NkYt1IMujCiLAHw5DVWYZTCKp8qS1IQz5vp2C47Gs-364581977-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "europe-west1-b",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-013-20261101T145741Z-1dc328",
+   "started_at": "2026-11-01T14:57:57Z"
+  },
+  {
+   "ended_at": "2026-11-02T00:09:51Z",
+   "host": "9458f336ae43",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_49pYX21xoMnaDY2aet6WRCLeAO8KX9YMmkMzwaoLKQ-364691317-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-central1-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-013-20261101T231027Z-1ef538",
+   "started_at": "2026-11-01T23:10:44Z"
+  }
+ ],
+ "suite": "minigrid",
+ "unit_id": "d-013-BabyAI-MoveTwoAcrossS8N9-v0-s1003",
+ "written_at": "2026-11-02T00:09:51Z"
+}

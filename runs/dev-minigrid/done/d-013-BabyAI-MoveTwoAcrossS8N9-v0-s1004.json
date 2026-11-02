@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-013",
+ "committed_at": "2026-11-02T05:19:02Z",
+ "kernel_version": 38,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-013-BabyAI-MoveTwoAcrossS8N9-v0-s1004.json",
+ "row_sha256": "2e98ab3fa6918da28aea15a31b438a1908a3bb2914f6aeb45ec44b0cac7f830c",
+ "run_nonce": "dev-minigrid-d-013-20261101T231027Z-1ef538",
+ "unit_id": "d-013-BabyAI-MoveTwoAcrossS8N9-v0-s1004"
+}
