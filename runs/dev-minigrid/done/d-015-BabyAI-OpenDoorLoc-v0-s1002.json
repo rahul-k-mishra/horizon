@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-015",
+ "committed_at": "2026-11-02T17:38:35Z",
+ "kernel_version": 41,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-015-BabyAI-OpenDoorLoc-v0-s1002.json",
+ "row_sha256": "0d4352b2dcd6c1c2e8e90ce89e3054596d7be2899c3755c05214f27acdf1fa40",
+ "run_nonce": "dev-minigrid-d-015-20261102T170745Z-3aa220",
+ "unit_id": "d-015-BabyAI-OpenDoorLoc-v0-s1002"
+}

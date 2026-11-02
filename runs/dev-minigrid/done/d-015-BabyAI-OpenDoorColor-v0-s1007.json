@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-015",
+ "committed_at": "2026-11-02T17:38:35Z",
+ "kernel_version": 41,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-015-BabyAI-OpenDoorColor-v0-s1007.json",
+ "row_sha256": "2ed894c8e95847cfcccf4426f78f77cb4b93d1c05cb89f01e1977f4c4d000fab",
+ "run_nonce": "dev-minigrid-d-015-20261102T170745Z-3aa220",
+ "unit_id": "d-015-BabyAI-OpenDoorColor-v0-s1007"
+}
