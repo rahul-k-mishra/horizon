@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-017",
+ "committed_at": "2026-11-02T18:40:17Z",
+ "kernel_version": 43,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-017-BabyAI-OpenRedDoor-v0-s1000.json",
+ "row_sha256": "1c138d3502c50eae939813c0a48375a43c3a1cbd3662fea778e7c4e958f64e1c",
+ "run_nonce": "dev-minigrid-d-017-20261102T180929Z-60a0f0",
+ "unit_id": "d-017-BabyAI-OpenRedDoor-v0-s1000"
+}
