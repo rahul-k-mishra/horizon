@@ -1,0 +1,306 @@
+{
+ "campaign": "dev-minigrid",
+ "chunk_id": "d-014",
+ "entry_hash": "525cb8d825e9d0ae546efdcd908b60174b1805dc0a72be3c85be43feeb18d0b7",
+ "kind": "devsearch",
+ "payload": {
+  "d-014-BabyAI-Open-v0-s1004__head.json.gz": {
+   "bytes": 891368,
+   "location": "git",
+   "sha256": "a1d03ef0eddba352d97eaf9c1a51695460da7561d1b730a21aa986f095713786"
+  },
+  "d-014-BabyAI-Open-v0-s1004__spill_000003.json.gz": {
+   "bytes": 2588904,
+   "location": "git",
+   "sha256": "ae7a8850f335175fa78208b61f382383a436f9709b806853cdcbaa9374d2ab70"
+  },
+  "d-014-BabyAI-Open-v0-s1004__spill_000004.json.gz": {
+   "bytes": 2590265,
+   "location": "git",
+   "sha256": "efea1e85a8466eba76274612815270d2ccd020ae705c41d41f3342b3b3d2cac0"
+  },
+  "d-014-BabyAI-Open-v0-s1004__tail.json.gz": {
+   "bytes": 706234,
+   "location": "git",
+   "sha256": "32b795485fd01c30926026cdfb6c80b3020e8153c4aadceda9b7bb69c2f1bbc9"
+  },
+  "d-014-BabyAI-Open-v0-s1004__visited.u64.gz": {
+   "bytes": 43335188,
+   "location": "git",
+   "sha256": "550f39961a5795a026107a67656d81f9d400c7f3f8da0681584facc0e6990fe9"
+  },
+  "d-014-BabyAI-Open-v0-s1005__head.json.gz": {
+   "bytes": 2368164,
+   "location": "git",
+   "sha256": "07f102bffe0bc07bc4983ce9df563778a1d6a4dde997e97dd15fb386d119e8ab"
+  },
+  "d-014-BabyAI-Open-v0-s1005__tail.json.gz": {
+   "bytes": 2522848,
+   "location": "git",
+   "sha256": "3ae9cfcaa2dfcf3c7f4b90b0d6983cc364561ccb2e229c1afb9431d41201126b"
+  },
+  "d-014-BabyAI-Open-v0-s1005__visited.u64.gz": {
+   "bytes": 38910886,
+   "location": "git",
+   "sha256": "d0eeba27b12cfe5b51e1b011b723fbbfbf88aef9c5b83322a9a9af77af7b9be4"
+  },
+  "d-014-BabyAI-Open-v0-s1006__head.json.gz": {
+   "bytes": 1314942,
+   "location": "git",
+   "sha256": "b230bd114d5ee4131d471441630d186682670e53d0006e5949b94e33c9192da4"
+  },
+  "d-014-BabyAI-Open-v0-s1006__spill_000003.json.gz": {
+   "bytes": 2461753,
+   "location": "git",
+   "sha256": "5c317cec53a129f548ed3f7c28192a08840dfa6fb2656996a20e1aaa0724c8ad"
+  },
+  "d-014-BabyAI-Open-v0-s1006__tail.json.gz": {
+   "bytes": 720231,
+   "location": "git",
+   "sha256": "f9695e302db79cd85b750eb7e6b6a31eaa9067a4d8bfc23f60882be408f182fd"
+  },
+  "d-014-BabyAI-Open-v0-s1006__visited.u64.gz": {
+   "bytes": 38439357,
+   "location": "git",
+   "sha256": "accd2416c827bb8990da13c6c17e3800115c0a30c9125c14f6c52b7de05f0eca"
+  },
+  "d-014-BabyAI-Open-v0-s1007__head.json.gz": {
+   "bytes": 385912,
+   "location": "git",
+   "sha256": "381f4f7db052c61fee11e37b2678d9b0ce8149d4334dccbfbaa55ecfc06fe58e"
+  },
+  "d-014-BabyAI-Open-v0-s1007__spill_000002.json.gz": {
+   "bytes": 2559448,
+   "location": "git",
+   "sha256": "da2537b919dc2be00ae66934a07730b12ec233e9f69ca62da950b912d2cf530c"
+  },
+  "d-014-BabyAI-Open-v0-s1007__tail.json.gz": {
+   "bytes": 1286446,
+   "location": "git",
+   "sha256": "9d81a4fc3db1b97756804152458117b194fab83b19250dd231cbb96e568828b9"
+  },
+  "d-014-BabyAI-Open-v0-s1007__visited.u64.gz": {
+   "bytes": 37171114,
+   "location": "git",
+   "sha256": "fcd69e461f8f44403c33f8c6bd395761dc1865efafbcf6b300bcf7904e40e02f"
+  }
+ },
+ "run_nonce": "dev-minigrid-d-014-20261102T051905Z-0c887c",
+ "schema": "horizon.checkpoint.v1",
+ "seq": 1,
+ "unit_in_progress": null,
+ "units_done": [
+  "d-014-BabyAI-OneRoomS16-v0-s1000",
+  "d-014-BabyAI-OneRoomS16-v0-s1001",
+  "d-014-BabyAI-OneRoomS16-v0-s1002",
+  "d-014-BabyAI-OneRoomS16-v0-s1003",
+  "d-014-BabyAI-OneRoomS16-v0-s1004",
+  "d-014-BabyAI-OneRoomS16-v0-s1005",
+  "d-014-BabyAI-OneRoomS16-v0-s1006",
+  "d-014-BabyAI-OneRoomS16-v0-s1007",
+  "d-014-BabyAI-OneRoomS16-v0-s1008",
+  "d-014-BabyAI-OneRoomS16-v0-s1009",
+  "d-014-BabyAI-OneRoomS20-v0-s1000",
+  "d-014-BabyAI-OneRoomS20-v0-s1001",
+  "d-014-BabyAI-OneRoomS20-v0-s1002",
+  "d-014-BabyAI-OneRoomS20-v0-s1003",
+  "d-014-BabyAI-OneRoomS20-v0-s1004",
+  "d-014-BabyAI-OneRoomS20-v0-s1005",
+  "d-014-BabyAI-OneRoomS20-v0-s1006",
+  "d-014-BabyAI-OneRoomS20-v0-s1007",
+  "d-014-BabyAI-OneRoomS20-v0-s1008",
+  "d-014-BabyAI-OneRoomS20-v0-s1009",
+  "d-014-BabyAI-OneRoomS8-v0-s1000",
+  "d-014-BabyAI-OneRoomS8-v0-s1001",
+  "d-014-BabyAI-OneRoomS8-v0-s1002",
+  "d-014-BabyAI-OneRoomS8-v0-s1003",
+  "d-014-BabyAI-OneRoomS8-v0-s1004",
+  "d-014-BabyAI-OneRoomS8-v0-s1005",
+  "d-014-BabyAI-OneRoomS8-v0-s1006",
+  "d-014-BabyAI-OneRoomS8-v0-s1007",
+  "d-014-BabyAI-OneRoomS8-v0-s1008",
+  "d-014-BabyAI-OneRoomS8-v0-s1009",
+  "d-014-BabyAI-Open-v0-s1000",
+  "d-014-BabyAI-Open-v0-s1001",
+  "d-014-BabyAI-Open-v0-s1002",
+  "d-014-BabyAI-Open-v0-s1003"
+ ],
+ "units_in_progress": {
+  "d-014-BabyAI-Open-v0-s1004": {
+   "counts": {
+    "depth_max": 29,
+    "frontier_left": 2615288,
+    "solution_length": 12,
+    "spill_files_max": 2,
+    "states_expanded": 3318234,
+    "states_seen": 5969726,
+    "successors_total": 26545872
+   },
+   "extra": {
+    "successors_distinct": 13406908
+   },
+   "files": {
+    "head.json.gz": "a1d03ef0eddba352d97eaf9c1a51695460da7561d1b730a21aa986f095713786",
+    "spill_000003.json.gz": "ae7a8850f335175fa78208b61f382383a436f9709b806853cdcbaa9374d2ab70",
+    "spill_000004.json.gz": "efea1e85a8466eba76274612815270d2ccd020ae705c41d41f3342b3b3d2cac0",
+    "tail.json.gz": "32b795485fd01c30926026cdfb6c80b3020e8153c4aadceda9b7bb69c2f1bbc9",
+    "visited.u64.gz": "550f39961a5795a026107a67656d81f9d400c7f3f8da0681584facc0e6990fe9"
+   },
+   "graph": null,
+   "graph_status": "more than 200000 states",
+   "seconds_spent": 14320.14326286316,
+   "sessions": [
+    {
+     "ended_at": "2026-11-02T13:19:27Z",
+     "host": "8d6d182cfee2",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_Nhbn5Oz8lYIpnPvX95JknNuhrrGONzn2o82ELgkoY-364761309-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "us-west1-a",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dev-minigrid-d-014-20261102T051905Z-0c887c",
+     "started_at": "2026-11-02T05:19:27Z"
+    }
+   ],
+   "spill_seq": 4,
+   "spills": [
+    "spill_000003.json.gz",
+    "spill_000004.json.gz"
+   ],
+   "visited_n": 5969726
+  },
+  "d-014-BabyAI-Open-v0-s1005": {
+   "counts": {
+    "depth_max": 30,
+    "frontier_left": 1900431,
+    "solution_length": 12,
+    "spill_files_max": 1,
+    "states_expanded": 3414058,
+    "states_seen": 5336744,
+    "successors_total": 27312464
+   },
+   "extra": {
+    "successors_distinct": 13472038
+   },
+   "files": {
+    "head.json.gz": "07f102bffe0bc07bc4983ce9df563778a1d6a4dde997e97dd15fb386d119e8ab",
+    "tail.json.gz": "3ae9cfcaa2dfcf3c7f4b90b0d6983cc364561ccb2e229c1afb9431d41201126b",
+    "visited.u64.gz": "d0eeba27b12cfe5b51e1b011b723fbbfbf88aef9c5b83322a9a9af77af7b9be4"
+   },
+   "graph": null,
+   "graph_status": "more than 200000 states",
+   "seconds_spent": 14319.582251787186,
+   "sessions": [
+    {
+     "ended_at": "2026-11-02T13:19:27Z",
+     "host": "8d6d182cfee2",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_Nhbn5Oz8lYIpnPvX95JknNuhrrGONzn2o82ELgkoY-364761309-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "us-west1-a",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dev-minigrid-d-014-20261102T051905Z-0c887c",
+     "started_at": "2026-11-02T05:19:27Z"
+    }
+   ],
+   "spill_seq": 2,
+   "spills": [],
+   "visited_n": 5336744
+  },
+  "d-014-BabyAI-Open-v0-s1006": {
+   "counts": {
+    "depth_max": 25,
+    "frontier_left": 1825348,
+    "solution_length": 11,
+    "spill_files_max": 1,
+    "states_expanded": 3435884,
+    "states_seen": 5269471,
+    "successors_total": 27487072
+   },
+   "extra": {
+    "successors_distinct": 13505755
+   },
+   "files": {
+    "head.json.gz": "b230bd114d5ee4131d471441630d186682670e53d0006e5949b94e33c9192da4",
+    "spill_000003.json.gz": "5c317cec53a129f548ed3f7c28192a08840dfa6fb2656996a20e1aaa0724c8ad",
+    "tail.json.gz": "f9695e302db79cd85b750eb7e6b6a31eaa9067a4d8bfc23f60882be408f182fd",
+    "visited.u64.gz": "accd2416c827bb8990da13c6c17e3800115c0a30c9125c14f6c52b7de05f0eca"
+   },
+   "graph": null,
+   "graph_status": "more than 200000 states",
+   "seconds_spent": 14319.64258313179,
+   "sessions": [
+    {
+     "ended_at": "2026-11-02T13:19:27Z",
+     "host": "8d6d182cfee2",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_Nhbn5Oz8lYIpnPvX95JknNuhrrGONzn2o82ELgkoY-364761309-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "us-west1-a",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dev-minigrid-d-014-20261102T051905Z-0c887c",
+     "started_at": "2026-11-02T05:19:27Z"
+    }
+   ],
+   "spill_seq": 3,
+   "spills": [
+    "spill_000003.json.gz"
+   ],
+   "visited_n": 5269471
+  },
+  "d-014-BabyAI-Open-v0-s1007": {
+   "counts": {
+    "depth_max": 32,
+    "frontier_left": 1649066,
+    "solution_length": 3,
+    "spill_files_max": 1,
+    "states_expanded": 3436568,
+    "states_seen": 5088633,
+    "successors_total": 27492544
+   },
+   "extra": {
+    "successors_distinct": 13455910
+   },
+   "files": {
+    "head.json.gz": "381f4f7db052c61fee11e37b2678d9b0ce8149d4334dccbfbaa55ecfc06fe58e",
+    "spill_000002.json.gz": "da2537b919dc2be00ae66934a07730b12ec233e9f69ca62da950b912d2cf530c",
+    "tail.json.gz": "9d81a4fc3db1b97756804152458117b194fab83b19250dd231cbb96e568828b9",
+    "visited.u64.gz": "fcd69e461f8f44403c33f8c6bd395761dc1865efafbcf6b300bcf7904e40e02f"
+   },
+   "graph": null,
+   "graph_status": "more than 200000 states",
+   "seconds_spent": 14319.414398431778,
+   "sessions": [
+    {
+     "ended_at": "2026-11-02T13:19:27Z",
+     "host": "8d6d182cfee2",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_Nhbn5Oz8lYIpnPvX95JknNuhrrGONzn2o82ELgkoY-364761309-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "us-west1-a",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dev-minigrid-d-014-20261102T051905Z-0c887c",
+     "started_at": "2026-11-02T05:19:27Z"
+    }
+   ],
+   "spill_seq": 2,
+   "spills": [
+    "spill_000002.json.gz"
+   ],
+   "visited_n": 5088633
+  }
+ },
+ "written_at": "2026-11-02T13:20:09Z"
+}
