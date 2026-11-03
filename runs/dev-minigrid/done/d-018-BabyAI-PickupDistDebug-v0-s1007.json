@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-018",
+ "committed_at": "2026-11-03T09:05:05Z",
+ "kernel_version": 45,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-018-BabyAI-PickupDistDebug-v0-s1007.json",
+ "row_sha256": "0ef5676360244c483fa9e8ff5867abb2d3f310dbcd7ce899c9904f76cd85fb64",
+ "run_nonce": "dev-minigrid-d-018-20261103T025517Z-a04a5e",
+ "unit_id": "d-018-BabyAI-PickupDistDebug-v0-s1007"
+}
