@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-019",
+ "committed_at": "2026-11-03T17:27:29Z",
+ "kernel_version": 46,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-019-BabyAI-PickupLoc-v0-s1008.json",
+ "row_sha256": "dd8c2f94ee9b7e8f5ee9943d1f6c74287435413bd72c0643e04bec84a67056a5",
+ "run_nonce": "dev-minigrid-d-019-20261103T090506Z-fc7847",
+ "unit_id": "d-019-BabyAI-PickupLoc-v0-s1008"
+}

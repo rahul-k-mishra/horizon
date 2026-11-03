@@ -1,0 +1,349 @@
+{
+ "campaign": "dev-minigrid",
+ "chunk_id": "d-019",
+ "entry_hash": "9bd13976407a9e756e5b91b31709acb8986e756af24847da29e63196fab1738a",
+ "kind": "devsearch",
+ "payload": {
+  "d-019-BabyAI-PutNextLocal-v0-s1002__head.json.gz": {
+   "bytes": 2032529,
+   "location": "git",
+   "sha256": "de28b46cd8ace389fc09e613a16edcdb0e90800f30fb2e3838dc341da0d18480"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1002__spill_000005.json.gz": {
+   "bytes": 2462459,
+   "location": "git",
+   "sha256": "7d6fd84f0425166935930b51a7d3c6f09bc7eaa8493b6616c452774949f3c2ff"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1002__spill_000006.json.gz": {
+   "bytes": 2466848,
+   "location": "git",
+   "sha256": "1cd724abe201d3eb5cee60e8997dd490cdb0c6cb244c4e1a7317d952dc38ff5b"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1002__spill_000007.json.gz": {
+   "bytes": 2462221,
+   "location": "git",
+   "sha256": "20ec9aa615d61417ea1a178b3244f13257a55b31f462dfcce9131d2e7fbdf874"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1002__tail.json.gz": {
+   "bytes": 696906,
+   "location": "git",
+   "sha256": "94c3a0e963b3b32669ed6f44726be5d698fb86b5cd1e321770f217d2662f3eb1"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1002__visited.u64.gz": {
+   "asset": "d-019__s1__d-019-BabyAI-PutNextLocal-v0-s1002__visited.u64.gz",
+   "bytes": 61372983,
+   "location": "release",
+   "sha256": "d50cf5ba5e607883bdfd6aa5b154e1dca053f5806dd1c83379349e651d13c298",
+   "url": "https://github.com/rahul-k-mishra/horizon/releases/download/ckpt-dev-minigrid/d-019__s1__d-019-BabyAI-PutNextLocal-v0-s1002__visited.u64.gz"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1003__head.json.gz": {
+   "bytes": 1286920,
+   "location": "git",
+   "sha256": "4911ed6d5a60c075507b79e86a948cde2e79a252facbeed97d3ce0f1507c00cb"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1003__spill_000004.json.gz": {
+   "bytes": 2428346,
+   "location": "git",
+   "sha256": "4c0e176863666e3c6e32b8494cca9fa32b8682042c83ad5606e1d539b5943059"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1003__spill_000005.json.gz": {
+   "bytes": 2426363,
+   "location": "git",
+   "sha256": "087f52931e895a2207fe057cf25ca38ecebbc9f46d4485f62eeeea5eb3b6291a"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1003__spill_000006.json.gz": {
+   "bytes": 2438101,
+   "location": "git",
+   "sha256": "004cdfa848b77aa6e0f55222865fee46d3c6b0d1ee528d881bcb45015298aeba"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1003__tail.json.gz": {
+   "bytes": 1349159,
+   "location": "git",
+   "sha256": "5cdac1a31452ce09d92bd2b60799b4563283ff873b988396b22fa04d87e12c9d"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1003__visited.u64.gz": {
+   "asset": "d-019__s1__d-019-BabyAI-PutNextLocal-v0-s1003__visited.u64.gz",
+   "bytes": 60556316,
+   "location": "release",
+   "sha256": "85db5931d6d760d617973d7f2b4f0eb7e4577b67e441424e2a359a1b05f7ed9e",
+   "url": "https://github.com/rahul-k-mishra/horizon/releases/download/ckpt-dev-minigrid/d-019__s1__d-019-BabyAI-PutNextLocal-v0-s1003__visited.u64.gz"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1004__head.json.gz": {
+   "bytes": 1916766,
+   "location": "git",
+   "sha256": "8e635374ccb56f7073c63d3664a417964ba95e79496ccd0161def3dfc2d26510"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1004__spill_000004.json.gz": {
+   "bytes": 2454193,
+   "location": "git",
+   "sha256": "a9685b8bfb97981d3de779aa429d5d3a9561b8ced5128b1a027d3eb3ec62e617"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1004__spill_000005.json.gz": {
+   "bytes": 2452254,
+   "location": "git",
+   "sha256": "cf93a23f3a646c6d0d68706764cc735c3b40fae262750cc2c4c48fc48daa645e"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1004__spill_000006.json.gz": {
+   "bytes": 2429240,
+   "location": "git",
+   "sha256": "bb44ea7e2e5c5da70b794c1d112261afbbf10a96c0f400adc4cf3d3fe5470b08"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1004__tail.json.gz": {
+   "bytes": 291512,
+   "location": "git",
+   "sha256": "8c3949fee47eccdced4bc7fb756bd89fec4bb7e25971550394f658a1b072d2fe"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1004__visited.u64.gz": {
+   "asset": "d-019__s1__d-019-BabyAI-PutNextLocal-v0-s1004__visited.u64.gz",
+   "bytes": 56930652,
+   "location": "release",
+   "sha256": "6c3cf84bd96b9543ee39808e5222de0decea04e2b59131eb854d12fae4133172",
+   "url": "https://github.com/rahul-k-mishra/horizon/releases/download/ckpt-dev-minigrid/d-019__s1__d-019-BabyAI-PutNextLocal-v0-s1004__visited.u64.gz"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1005__head.json.gz": {
+   "bytes": 797818,
+   "location": "git",
+   "sha256": "76bfbcf240da72461e7043bc8c59a138ff1d8f264a0bff90357e0f3ed913c6d0"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1005__spill_000004.json.gz": {
+   "bytes": 2444173,
+   "location": "git",
+   "sha256": "389a2a9dcba064a763ce2d516b729dfc51006dfbb13bcedbd8a8fd00cf610e48"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1005__spill_000005.json.gz": {
+   "bytes": 2421535,
+   "location": "git",
+   "sha256": "5d9c0276912cfd3804a7dbb7765465066db03eecca2ecac5c3099c7103439164"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1005__spill_000006.json.gz": {
+   "bytes": 2421675,
+   "location": "git",
+   "sha256": "400eab53db86ff95ed3cd834f7cb0f57e0d4a6f0047a2459f8a3114ed0fbf441"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1005__tail.json.gz": {
+   "bytes": 1432453,
+   "location": "git",
+   "sha256": "eff1e7337fdb4b6856a195e666f6483dcc042a951f4aac21c8d2080093a11c95"
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1005__visited.u64.gz": {
+   "asset": "d-019__s1__d-019-BabyAI-PutNextLocal-v0-s1005__visited.u64.gz",
+   "bytes": 56796532,
+   "location": "release",
+   "sha256": "84f013f42884cc799ae0f098d88083356f5fb93d0a61e62a824611714aa3e860",
+   "url": "https://github.com/rahul-k-mishra/horizon/releases/download/ckpt-dev-minigrid/d-019__s1__d-019-BabyAI-PutNextLocal-v0-s1005__visited.u64.gz"
+  }
+ },
+ "run_nonce": "dev-minigrid-d-019-20261103T090506Z-fc7847",
+ "schema": "horizon.checkpoint.v1",
+ "seq": 1,
+ "unit_in_progress": null,
+ "units_done": [
+  "d-019-BabyAI-PickupLoc-v0-s1000",
+  "d-019-BabyAI-PickupLoc-v0-s1001",
+  "d-019-BabyAI-PickupLoc-v0-s1002",
+  "d-019-BabyAI-PickupLoc-v0-s1003",
+  "d-019-BabyAI-PickupLoc-v0-s1004",
+  "d-019-BabyAI-PickupLoc-v0-s1005",
+  "d-019-BabyAI-PickupLoc-v0-s1006",
+  "d-019-BabyAI-PickupLoc-v0-s1007",
+  "d-019-BabyAI-PickupLoc-v0-s1008",
+  "d-019-BabyAI-PickupLoc-v0-s1009",
+  "d-019-BabyAI-PutNextLocal-v0-s1000",
+  "d-019-BabyAI-PutNextLocal-v0-s1001"
+ ],
+ "units_in_progress": {
+  "d-019-BabyAI-PutNextLocal-v0-s1002": {
+   "counts": {
+    "depth_max": 19,
+    "frontier_left": 4103665,
+    "solution_length": 9,
+    "spill_files_max": 3,
+    "states_expanded": 4492762,
+    "states_seen": 8599702,
+    "successors_total": 35942096
+   },
+   "extra": {
+    "successors_distinct": 18358297
+   },
+   "files": {
+    "head.json.gz": "de28b46cd8ace389fc09e613a16edcdb0e90800f30fb2e3838dc341da0d18480",
+    "spill_000005.json.gz": "7d6fd84f0425166935930b51a7d3c6f09bc7eaa8493b6616c452774949f3c2ff",
+    "spill_000006.json.gz": "1cd724abe201d3eb5cee60e8997dd490cdb0c6cb244c4e1a7317d952dc38ff5b",
+    "spill_000007.json.gz": "20ec9aa615d61417ea1a178b3244f13257a55b31f462dfcce9131d2e7fbdf874",
+    "tail.json.gz": "94c3a0e963b3b32669ed6f44726be5d698fb86b5cd1e321770f217d2662f3eb1",
+    "visited.u64.gz": "d50cf5ba5e607883bdfd6aa5b154e1dca053f5806dd1c83379349e651d13c298"
+   },
+   "graph": null,
+   "graph_status": "more than 200000 states",
+   "seconds_spent": 6955.155252933502,
+   "sessions": [
+    {
+     "ended_at": "2026-11-03T17:05:27Z",
+     "host": "ad3c495ee2c1",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_n3jkOOc5XhGubPkSVSGFZFtbApwUWImuMdcUmDYi8aY-365205076-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "us-east1-c",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dev-minigrid-d-019-20261103T090506Z-fc7847",
+     "started_at": "2026-11-03T09:05:26Z"
+    }
+   ],
+   "spill_seq": 7,
+   "spills": [
+    "spill_000005.json.gz",
+    "spill_000006.json.gz",
+    "spill_000007.json.gz"
+   ],
+   "visited_n": 8599702
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1003": {
+   "counts": {
+    "depth_max": 21,
+    "frontier_left": 4083444,
+    "solution_length": 9,
+    "spill_files_max": 3,
+    "states_expanded": 4391613,
+    "states_seen": 8479240,
+    "successors_total": 35132904
+   },
+   "extra": {
+    "successors_distinct": 17880233
+   },
+   "files": {
+    "head.json.gz": "4911ed6d5a60c075507b79e86a948cde2e79a252facbeed97d3ce0f1507c00cb",
+    "spill_000004.json.gz": "4c0e176863666e3c6e32b8494cca9fa32b8682042c83ad5606e1d539b5943059",
+    "spill_000005.json.gz": "087f52931e895a2207fe057cf25ca38ecebbc9f46d4485f62eeeea5eb3b6291a",
+    "spill_000006.json.gz": "004cdfa848b77aa6e0f55222865fee46d3c6b0d1ee528d881bcb45015298aeba",
+    "tail.json.gz": "5cdac1a31452ce09d92bd2b60799b4563283ff873b988396b22fa04d87e12c9d",
+    "visited.u64.gz": "85db5931d6d760d617973d7f2b4f0eb7e4577b67e441424e2a359a1b05f7ed9e"
+   },
+   "graph": null,
+   "graph_status": "more than 200000 states",
+   "seconds_spent": 6859.147005558014,
+   "sessions": [
+    {
+     "ended_at": "2026-11-03T17:05:26Z",
+     "host": "ad3c495ee2c1",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_n3jkOOc5XhGubPkSVSGFZFtbApwUWImuMdcUmDYi8aY-365205076-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "us-east1-c",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dev-minigrid-d-019-20261103T090506Z-fc7847",
+     "started_at": "2026-11-03T09:05:26Z"
+    }
+   ],
+   "spill_seq": 6,
+   "spills": [
+    "spill_000004.json.gz",
+    "spill_000005.json.gz",
+    "spill_000006.json.gz"
+   ],
+   "visited_n": 8479240
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1004": {
+   "counts": {
+    "depth_max": 20,
+    "frontier_left": 3901104,
+    "solution_length": 6,
+    "spill_files_max": 3,
+    "states_expanded": 4040862,
+    "states_seen": 7944202,
+    "successors_total": 32326896
+   },
+   "extra": {
+    "successors_distinct": 16436343
+   },
+   "files": {
+    "head.json.gz": "8e635374ccb56f7073c63d3664a417964ba95e79496ccd0161def3dfc2d26510",
+    "spill_000004.json.gz": "a9685b8bfb97981d3de779aa429d5d3a9561b8ced5128b1a027d3eb3ec62e617",
+    "spill_000005.json.gz": "cf93a23f3a646c6d0d68706764cc735c3b40fae262750cc2c4c48fc48daa645e",
+    "spill_000006.json.gz": "bb44ea7e2e5c5da70b794c1d112261afbbf10a96c0f400adc4cf3d3fe5470b08",
+    "tail.json.gz": "8c3949fee47eccdced4bc7fb756bd89fec4bb7e25971550394f658a1b072d2fe",
+    "visited.u64.gz": "6c3cf84bd96b9543ee39808e5222de0decea04e2b59131eb854d12fae4133172"
+   },
+   "graph": null,
+   "graph_status": "more than 200000 states",
+   "seconds_spent": 6252.817993402481,
+   "sessions": [
+    {
+     "ended_at": "2026-11-03T17:05:26Z",
+     "host": "ad3c495ee2c1",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_n3jkOOc5XhGubPkSVSGFZFtbApwUWImuMdcUmDYi8aY-365205076-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "us-east1-c",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dev-minigrid-d-019-20261103T090506Z-fc7847",
+     "started_at": "2026-11-03T09:05:26Z"
+    }
+   ],
+   "spill_seq": 6,
+   "spills": [
+    "spill_000004.json.gz",
+    "spill_000005.json.gz",
+    "spill_000006.json.gz"
+   ],
+   "visited_n": 7944202
+  },
+  "d-019-BabyAI-PutNextLocal-v0-s1005": {
+   "counts": {
+    "depth_max": 20,
+    "frontier_left": 3916594,
+    "solution_length": 7,
+    "spill_files_max": 3,
+    "states_expanded": 3997054,
+    "states_seen": 7924290,
+    "successors_total": 31976432
+   },
+   "extra": {
+    "successors_distinct": 16361356
+   },
+   "files": {
+    "head.json.gz": "76bfbcf240da72461e7043bc8c59a138ff1d8f264a0bff90357e0f3ed913c6d0",
+    "spill_000004.json.gz": "389a2a9dcba064a763ce2d516b729dfc51006dfbb13bcedbd8a8fd00cf610e48",
+    "spill_000005.json.gz": "5d9c0276912cfd3804a7dbb7765465066db03eecca2ecac5c3099c7103439164",
+    "spill_000006.json.gz": "400eab53db86ff95ed3cd834f7cb0f57e0d4a6f0047a2459f8a3114ed0fbf441",
+    "tail.json.gz": "eff1e7337fdb4b6856a195e666f6483dcc042a951f4aac21c8d2080093a11c95",
+    "visited.u64.gz": "84f013f42884cc799ae0f098d88083356f5fb93d0a61e62a824611714aa3e860"
+   },
+   "graph": null,
+   "graph_status": "more than 200000 states",
+   "seconds_spent": 6123.936748504639,
+   "sessions": [
+    {
+     "ended_at": "2026-11-03T17:05:26Z",
+     "host": "ad3c495ee2c1",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_n3jkOOc5XhGubPkSVSGFZFtbApwUWImuMdcUmDYi8aY-365205076-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "us-east1-c",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dev-minigrid-d-019-20261103T090506Z-fc7847",
+     "started_at": "2026-11-03T09:05:26Z"
+    }
+   ],
+   "spill_seq": 6,
+   "spills": [
+    "spill_000004.json.gz",
+    "spill_000005.json.gz",
+    "spill_000006.json.gz"
+   ],
+   "visited_n": 7924290
+  }
+ },
+ "written_at": "2026-11-03T17:06:28Z"
+}

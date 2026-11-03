@@ -1,0 +1,53 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit 1ff539a6f36f27f0b9d016fa50768d3e5ba3dadb Loop: d-019 pushed as kernel version 46
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1793696726.7553895
+[2026-11-03T09:06:26Z] chunk d-019 (devsearch), nonce dev-minigrid-d-019-20261103T090506Z-fc7847; work deadline 2026-11-03T17:05:26Z, checkpoint by 2026-11-03T17:20:26Z
+[2026-11-03T09:06:26Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-11-03T09:06:26Z] devsearch: 40 units to run on 4 workers, 0 resumed from the checkpoint
+[2026-11-03T09:06:26Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1000: start
+[2026-11-03T09:06:26Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1001: start
+[2026-11-03T09:06:26Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1002: start
+[2026-11-03T09:06:26Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1003: start
+[2026-11-03T11:07:19Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1001: capped, 9588053 states seen
+[2026-11-03T11:07:19Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1004: start
+[2026-11-03T11:07:40Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1003: capped, 9431773 states seen
+[2026-11-03T11:07:40Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1005: start
+[2026-11-03T11:07:45Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1000: capped, 9071024 states seen
+[2026-11-03T11:07:45Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1006: start
+[2026-11-03T11:08:00Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1002: capped, 8237662 states seen
+[2026-11-03T11:08:00Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1007: start
+[2026-11-03T13:07:31Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1004: capped, 9160067 states seen
+[2026-11-03T13:07:31Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1008: start
+[2026-11-03T13:08:57Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1007: capped, 9588378 states seen
+[2026-11-03T13:08:57Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1009: start
+[2026-11-03T13:09:05Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1005: capped, 9465120 states seen
+[2026-11-03T13:09:05Z] devsearch unit d-019-BabyAI-PutNextLocal-v0-s1000: start
+[2026-11-03T13:10:06Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1006: capped, 9176552 states seen
+[2026-11-03T13:10:06Z] devsearch unit d-019-BabyAI-PutNextLocal-v0-s1001: start
+[2026-11-03T15:09:31Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1008: capped, 8991304 states seen
+[2026-11-03T15:09:31Z] devsearch unit d-019-BabyAI-PutNextLocal-v0-s1002: start
+[2026-11-03T15:11:07Z] devsearch unit d-019-BabyAI-PickupLoc-v0-s1009: capped, 8953988 states seen
+[2026-11-03T15:11:07Z] devsearch unit d-019-BabyAI-PutNextLocal-v0-s1003: start
+[2026-11-03T15:21:14Z] devsearch unit d-019-BabyAI-PutNextLocal-v0-s1000: capped, 9639764 states seen
+[2026-11-03T15:21:14Z] devsearch unit d-019-BabyAI-PutNextLocal-v0-s1004: start
+[2026-11-03T15:23:23Z] devsearch unit d-019-BabyAI-PutNextLocal-v0-s1001: capped, 9429318 states seen
+[2026-11-03T15:23:23Z] devsearch unit d-019-BabyAI-PutNextLocal-v0-s1005: start
+[2026-11-03T17:06:22Z] devsearch unit d-019-BabyAI-PutNextLocal-v0-s1005: stopped at the deadline, 3997054 expanded
+[2026-11-03T17:06:23Z] devsearch unit d-019-BabyAI-PutNextLocal-v0-s1004: stopped at the deadline, 4040862 expanded
+[2026-11-03T17:06:26Z] devsearch unit d-019-BabyAI-PutNextLocal-v0-s1003: stopped at the deadline, 4391613 expanded
+[2026-11-03T17:06:27Z] devsearch unit d-019-BabyAI-PutNextLocal-v0-s1002: stopped at the deadline, 4492762 expanded
+Sampling rejected: unreachable object at (6, 5)
+Sampling rejected: unreachable object at (1, 6)
+Sampling rejected: unreachable object at (4, 1)
+Sampling rejected: unreachable object at (1, 1)
+[2026-11-03T17:06:29Z] checkpoint 1: 12 units done, 4 in progress, 24 payload files
+[2026-11-03T17:06:30Z] chunk d-019: partial; units done 12 of 40; stopped: deadline reached with devsearch units unfinished
+[2026-11-03T17:06:42Z] wrote result.json (status partial) and bundle.tar.gz
