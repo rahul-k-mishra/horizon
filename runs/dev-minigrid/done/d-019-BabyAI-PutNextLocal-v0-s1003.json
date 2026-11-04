@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-019",
+ "committed_at": "2026-11-04T00:38:30Z",
+ "kernel_version": 47,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-019-BabyAI-PutNextLocal-v0-s1003.json",
+ "row_sha256": "cd3b8a67ecfcc254552930cd8c77881b8de966638b150226ef0c20bcd599dcd0",
+ "run_nonce": "dev-minigrid-d-019-20261103T173043Z-e15376",
+ "unit_id": "d-019-BabyAI-PutNextLocal-v0-s1003"
+}
