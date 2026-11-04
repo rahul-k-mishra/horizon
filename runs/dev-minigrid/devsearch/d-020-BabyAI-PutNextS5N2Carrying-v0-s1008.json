@@ -1,0 +1,66 @@
+{
+ "campaign": "dev-minigrid",
+ "cap_hit": "node",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "d-020",
+ "complete": false,
+ "counts": {
+  "depth_max": 28,
+  "frontier_left": 1638232,
+  "solution_length": 2,
+  "spill_files_max": 1,
+  "states_expanded": 5000000,
+  "states_seen": 6650440,
+  "successors_total": 40000000
+ },
+ "game": "BabyAI-PutNextS5N2Carrying-v0",
+ "level": 1008,
+ "measures": {
+  "branching": 3.842097,
+  "eh": null,
+  "eh_horizon": 400,
+  "eh_k": null,
+  "eh_status": "not computed: capped by node"
+ },
+ "schema": "horizon.search.v2",
+ "seconds_spent": 6402.113,
+ "sessions": [
+  {
+   "ended_at": "2026-11-04T08:38:50Z",
+   "host": "08ac7fc92587",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_FAS1PJeIixKQxXyf0nI2ABgk1bQ8DfVW4qy1s2YvDws-365440696-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "europe-west1-b",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-020-20261104T003834Z-31f56b",
+   "started_at": "2026-11-04T00:38:50Z"
+  },
+  {
+   "ended_at": "2026-11-04T09:44:08Z",
+   "host": "9bd9e34e9cf0",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_YFeTWBZ1zegp7mZfhvbjPeU3ZxmQyyfB9IpEkbhLg5E-365556352-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-west1-c",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-020-20261104T085045Z-cafa47",
+   "started_at": "2026-11-04T08:51:04Z"
+  }
+ ],
+ "suite": "minigrid",
+ "unit_id": "d-020-BabyAI-PutNextS5N2Carrying-v0-s1008",
+ "written_at": "2026-11-04T09:44:08Z"
+}
