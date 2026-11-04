@@ -166,3 +166,4 @@ No token to manage; credentials are cached locally for you.
 2026-11-04T11:25:05Z actions-41820574060-1 COLLECT chunk d-020 kernel version 49 run dev-minigrid-d-020-20261104T085045Z-cafa47: done; chunks done 20, pending 19
 2026-11-04T11:25:07Z actions-41820574060-1 DISPATCH chunk d-021 (devsearch) attempt 1 run dev-minigrid-d-021-20261104T112507Z-8c6539
 2026-11-04T11:25:10Z actions-41820574060-1 PUSHED chunk d-021 as kernel version 50 run dev-minigrid-d-021-20261104T112507Z-8c6539
+2026-11-04T19:41:02Z actions-41899162708-1 COLLECT chunk d-021 kernel version 50 run dev-minigrid-d-021-20261104T112507Z-8c6539: partial; chunks done 20, partial 1, pending 18

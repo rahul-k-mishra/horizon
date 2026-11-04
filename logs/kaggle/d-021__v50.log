@@ -1,0 +1,73 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit 8789ef9d4178896b4a1a631317ccb48181adb402 Loop: d-021 pushed as kernel version 50
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1793791525.2280428
+[2026-11-04T11:26:50Z] chunk d-021 (devsearch), nonce dev-minigrid-d-021-20261104T112507Z-8c6539; work deadline 2026-11-04T19:25:25Z, checkpoint by 2026-11-04T19:40:25Z
+[2026-11-04T11:26:50Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-11-04T11:26:50Z] devsearch: 40 units to run on 4 workers, 0 resumed from the checkpoint
+[2026-11-04T11:26:50Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1000: start
+[2026-11-04T11:26:50Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1001: start
+[2026-11-04T11:26:50Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1002: start
+[2026-11-04T11:26:50Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1003: start
+[2026-11-04T12:43:26Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1003: capped, 8894309 states seen
+[2026-11-04T12:43:26Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1004: start
+[2026-11-04T12:43:29Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1001: capped, 8347296 states seen
+[2026-11-04T12:43:29Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1005: start
+[2026-11-04T12:43:39Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1000: capped, 8002220 states seen
+[2026-11-04T12:43:39Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1006: start
+[2026-11-04T12:43:40Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1002: capped, 8904084 states seen
+[2026-11-04T12:43:40Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1007: start
+[2026-11-04T13:58:41Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1005: capped, 8888810 states seen
+[2026-11-04T13:58:41Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1008: start
+[2026-11-04T13:59:30Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1007: capped, 9212472 states seen
+[2026-11-04T13:59:30Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1009: start
+[2026-11-04T13:59:31Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1006: capped, 8883017 states seen
+[2026-11-04T13:59:31Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1000: start
+[2026-11-04T14:00:00Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1004: capped, 9176985 states seen
+[2026-11-04T14:00:00Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1001: start
+[2026-11-04T15:15:31Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1008: capped, 9102762 states seen
+[2026-11-04T15:15:31Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1002: start
+[2026-11-04T15:15:53Z] devsearch unit d-021-BabyAI-PutNextS6N3-v0-s1009: capped, 9138588 states seen
+[2026-11-04T15:15:53Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1003: start
+[2026-11-04T15:16:48Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1000: capped, 7828480 states seen
+[2026-11-04T15:16:48Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1004: start
+[2026-11-04T15:16:51Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1001: capped, 8289753 states seen
+[2026-11-04T15:16:51Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1005: start
+[2026-11-04T16:32:29Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1002: capped, 8779200 states seen
+[2026-11-04T16:32:29Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1006: start
+[2026-11-04T16:32:40Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1003: capped, 8705269 states seen
+[2026-11-04T16:32:40Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1007: start
+[2026-11-04T16:33:03Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1005: capped, 9395007 states seen
+[2026-11-04T16:33:03Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1008: start
+[2026-11-04T16:33:59Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1004: capped, 9170128 states seen
+[2026-11-04T16:33:59Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1009: start
+[2026-11-04T17:49:07Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1007: capped, 9313868 states seen
+[2026-11-04T17:49:07Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1000: start
+[2026-11-04T17:49:12Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1006: capped, 8793320 states seen
+[2026-11-04T17:49:12Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1001: start
+[2026-11-04T17:50:11Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1008: capped, 8806359 states seen
+[2026-11-04T17:50:11Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1002: start
+[2026-11-04T17:50:53Z] devsearch unit d-021-BabyAI-PutNextS6N3Carrying-v0-s1009: capped, 8808916 states seen
+[2026-11-04T17:50:53Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1003: start
+[2026-11-04T19:16:35Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1001: capped, 9174276 states seen
+[2026-11-04T19:16:35Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1004: start
+[2026-11-04T19:16:51Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1000: capped, 9012293 states seen
+[2026-11-04T19:16:51Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1005: start
+[2026-11-04T19:17:47Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1002: capped, 9859929 states seen
+[2026-11-04T19:17:47Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1006: start
+[2026-11-04T19:18:49Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1003: capped, 9353253 states seen
+[2026-11-04T19:18:49Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1007: start
+[2026-11-04T19:25:29Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1007: stopped at the deadline, 415356 expanded
+[2026-11-04T19:25:30Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1006: stopped at the deadline, 473879 expanded
+[2026-11-04T19:25:30Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1004: stopped at the deadline, 548578 expanded
+[2026-11-04T19:25:31Z] devsearch unit d-021-BabyAI-PutNextS7N4-v0-s1005: stopped at the deadline, 534161 expanded
+[2026-11-04T19:25:31Z] checkpoint 1: 24 units done, 4 in progress, 12 payload files
+[2026-11-04T19:25:31Z] chunk d-021: partial; units done 24 of 40; stopped: deadline reached with devsearch units unfinished
+[2026-11-04T19:25:32Z] wrote result.json (status partial) and bundle.tar.gz
