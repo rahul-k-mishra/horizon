@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-021",
+ "committed_at": "2026-11-05T04:57:17Z",
+ "kernel_version": 52,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-021-BabyAI-PutNextS7N4Carrying-v0-s1007.json",
+ "row_sha256": "92ac2ba52d776253821c14424aaa55c7b483d8fd7f934adfa0da18e668d36301",
+ "run_nonce": "dev-minigrid-d-021-20261105T035508Z-7f0130",
+ "unit_id": "d-021-BabyAI-PutNextS7N4Carrying-v0-s1007"
+}
