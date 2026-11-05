@@ -1,0 +1,66 @@
+{
+ "campaign": "dev-minigrid",
+ "cap_hit": "node",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "d-021",
+ "complete": false,
+ "counts": {
+  "depth_max": 21,
+  "frontier_left": 4574276,
+  "solution_length": 12,
+  "spill_files_max": 4,
+  "states_expanded": 5000000,
+  "states_seen": 9578423,
+  "successors_total": 40000000
+ },
+ "game": "BabyAI-PutNextS7N4-v0",
+ "level": 1004,
+ "measures": {
+  "branching": 4.0805292,
+  "eh": null,
+  "eh_horizon": 400,
+  "eh_k": null,
+  "eh_status": "not computed: capped by node"
+ },
+ "schema": "horizon.search.v2",
+ "seconds_spent": 8293.646,
+ "sessions": [
+  {
+   "ended_at": "2026-11-04T19:25:25Z",
+   "host": "397c65b098ea",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_hdEDXwwg7twq8SLxMBaJ0M5HViqrJsYi6F269mt9nYU-365602125-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "asia-east1-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-021-20261104T112507Z-8c6539",
+   "started_at": "2026-11-04T11:25:25Z"
+  },
+  {
+   "ended_at": "2026-11-04T21:52:10Z",
+   "host": "76fa67e337ae",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_m2Le5ctYfSimWNKIUDW5xvSdm1wY2Saf6fEkpHWn9Vs-365732302-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-central1-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-021-20261104T194110Z-8172ff",
+   "started_at": "2026-11-04T19:41:26Z"
+  }
+ ],
+ "suite": "minigrid",
+ "unit_id": "d-021-BabyAI-PutNextS7N4-v0-s1004",
+ "written_at": "2026-11-04T21:52:10Z"
+}
