@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-022",
+ "committed_at": "2026-11-05T21:27:03Z",
+ "kernel_version": 54,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-022-BabyAI-SynthLoc-v0-s1004.json",
+ "row_sha256": "69cf847b2b871bf0e4806506986a0109bd8d61c3f3cd47f31c6d8b239c84d12a",
+ "run_nonce": "dev-minigrid-d-022-20261105T131110Z-a7a4e1",
+ "unit_id": "d-022-BabyAI-SynthLoc-v0-s1004"
+}
