@@ -4,70 +4,70 @@
  "entry_hash": "386479f7218ad050f665ccd4190d17afdf5ee062cb79086732b9d658ce414c85",
  "kind": "devsearch",
  "payload": {
-  "d-022-BabyAI-SynthLoc-v0-s1006__head.json.gz": {
-   "bytes": 382561,
+  "d-022-BabyAI-SynthS5R2-v0-s1006__head.json.gz": {
+   "bytes": 1623452,
    "location": "git",
-   "sha256": "0082d26725fde5e29a23d52cb3dfa070e1d7a344201d5e03053fca7af3f1424b"
+   "sha256": "2c8e4ec4fe5c8f89fe3c51a4e296165a24184457197f5dfa8b63c3babe983e5f"
   },
-  "d-022-BabyAI-SynthLoc-v0-s1006__tail.json.gz": {
-   "bytes": 1716317,
+  "d-022-BabyAI-SynthS5R2-v0-s1006__tail.json.gz": {
+   "bytes": 1912455,
    "location": "git",
-   "sha256": "099c35ef78646770305f4b8a3e02cb27161047c96e70860e7eeca4780017ee59"
+   "sha256": "0d465eac67c22e27b4b04b1f8bb81d23644a9a25291de67fc55a8b5021510b51"
   },
-  "d-022-BabyAI-SynthLoc-v0-s1006__visited.u64.gz": {
-   "bytes": 16025709,
+  "d-022-BabyAI-SynthS5R2-v0-s1006__visited.u64.gz": {
+   "bytes": 27614920,
    "location": "git",
-   "sha256": "ad9d431a17c188c52254db3b92c0ec1dcfa52403be210dc0ddbb3dc54796bb44"
+   "sha256": "7016d5050c8caf41dbfc0c363e6acfac4e0b966936e9cec3b92a56086232adde"
   },
-  "d-022-BabyAI-SynthLoc-v0-s1008__head.json.gz": {
-   "bytes": 274694,
+  "d-022-BabyAI-SynthS5R2-v0-s1007__head.json.gz": {
+   "bytes": 2305949,
    "location": "git",
-   "sha256": "b71cf69d79141b076bcf64ea8efe72a78029f4b85241f1f335353994dbf95b53"
+   "sha256": "4f291cb5d7714d32bc65c10e25e0abeedbcefdce6a9ffbb722073eccc950a16c"
   },
-  "d-022-BabyAI-SynthLoc-v0-s1008__tail.json.gz": {
-   "bytes": 1402230,
+  "d-022-BabyAI-SynthS5R2-v0-s1007__tail.json.gz": {
+   "bytes": 1883524,
    "location": "git",
-   "sha256": "60a3a7e4763f90beedb0e97be6412da6e8b45890346d9699264bfe68264c8519"
+   "sha256": "d575b1af420aedb489abdde2702c20f5c3f3f6ad229836817359752a4e9da88c"
   },
-  "d-022-BabyAI-SynthLoc-v0-s1008__visited.u64.gz": {
-   "bytes": 12770453,
+  "d-022-BabyAI-SynthS5R2-v0-s1007__visited.u64.gz": {
+   "bytes": 30756078,
    "location": "git",
-   "sha256": "7c7bbcb10dda7cc4a8d2c4621201abbf28cade9298a4defd57cf3550feb8b777"
+   "sha256": "4c2fa6012374a1f8d9bb18a7ca6408163da0410d9ea14f5413787799e35269fd"
   },
-  "d-022-BabyAI-SynthLoc-v0-s1009__head.json.gz": {
-   "bytes": 887491,
+  "d-022-BabyAI-SynthS5R2-v0-s1008__head.json.gz": {
+   "bytes": 1810842,
    "location": "git",
-   "sha256": "97cd65056d0eb3f9d7100a1a21ea7238c6726a9244b5c97bb12948e80f0cdb25"
+   "sha256": "a55903ab9aaf1d7a76da6d534eb24ca49703191d2cda63e4fab54bd104fa96c4"
   },
-  "d-022-BabyAI-SynthLoc-v0-s1009__tail.json.gz": {
-   "bytes": 1011373,
+  "d-022-BabyAI-SynthS5R2-v0-s1008__tail.json.gz": {
+   "bytes": 842438,
    "location": "git",
-   "sha256": "cdfab456c115e94069b2ca6ef9e9155ef677294e1ddb8f9c77a02123af56a1ac"
+   "sha256": "34e556fdb080b44ee178c3ac48f26d6ccad890ddad1870f438d8c184a9c1e4d0"
   },
-  "d-022-BabyAI-SynthLoc-v0-s1009__visited.u64.gz": {
-   "bytes": 12706454,
+  "d-022-BabyAI-SynthS5R2-v0-s1008__visited.u64.gz": {
+   "bytes": 21178859,
    "location": "git",
-   "sha256": "c9a593e4f4e608b67ec6111def0c60d5752a49a7166336fef5585ba62f589d5c"
+   "sha256": "2d15f9dd8db0110f47addc72b87a8f686b2fa3455210b8352498eca97d51d711"
   },
-  "d-022-BabyAI-SynthS5R2-v0-s1000__head.json.gz": {
-   "bytes": 551360,
+  "d-022-BabyAI-SynthS5R2-v0-s1009__head.json.gz": {
+   "bytes": 1287050,
    "location": "git",
-   "sha256": "5c7133a1b4d712e2561ce33df8ee459f6a0dea0c74ce2ba7d5c7d4bad945cfd0"
+   "sha256": "9f94e73d8a26f80a189559b566381a1023a7b7719a59ebb44c18d2311689fb2f"
   },
-  "d-022-BabyAI-SynthS5R2-v0-s1000__tail.json.gz": {
-   "bytes": 1220979,
+  "d-022-BabyAI-SynthS5R2-v0-s1009__tail.json.gz": {
+   "bytes": 2386360,
    "location": "git",
-   "sha256": "fbe827e082a945cb66147ba02343a2409a85cf4fca995009d8537b8d1e33fded"
+   "sha256": "66d3b44101a0c33684c4d4eb3b98f472cde4d5315ac40b3c2ea0635c1487e046"
   },
-  "d-022-BabyAI-SynthS5R2-v0-s1000__visited.u64.gz": {
-   "bytes": 14161291,
+  "d-022-BabyAI-SynthS5R2-v0-s1009__visited.u64.gz": {
+   "bytes": 25511332,
    "location": "git",
-   "sha256": "786c8f57212ce19be1c8101de3e0493bb19556cc6ab934ed5aed98be9e490e54"
+   "sha256": "f6b1ae126c575f520813d8eb7b06663ae322b27a4c4dec554f8eaac5132ba0cd"
   }
  },
- "run_nonce": "dev-minigrid-d-022-20261105T131110Z-a7a4e1",
+ "run_nonce": "dev-minigrid-d-022-20261105T212714Z-848ff4",
  "schema": "horizon.checkpoint.v1",
- "seq": 2,
+ "seq": 3,
  "unit_in_progress": null,
  "units_done": [
   "d-022-BabyAI-Synth-v0-s1000",
@@ -86,173 +86,182 @@
   "d-022-BabyAI-SynthLoc-v0-s1003",
   "d-022-BabyAI-SynthLoc-v0-s1004",
   "d-022-BabyAI-SynthLoc-v0-s1005",
-  "d-022-BabyAI-SynthLoc-v0-s1007"
+  "d-022-BabyAI-SynthLoc-v0-s1006",
+  "d-022-BabyAI-SynthLoc-v0-s1007",
+  "d-022-BabyAI-SynthLoc-v0-s1008",
+  "d-022-BabyAI-SynthLoc-v0-s1009",
+  "d-022-BabyAI-SynthS5R2-v0-s1000",
+  "d-022-BabyAI-SynthS5R2-v0-s1001",
+  "d-022-BabyAI-SynthS5R2-v0-s1002",
+  "d-022-BabyAI-SynthS5R2-v0-s1003",
+  "d-022-BabyAI-SynthS5R2-v0-s1004",
+  "d-022-BabyAI-SynthS5R2-v0-s1005"
  ],
  "units_in_progress": {
-  "d-022-BabyAI-SynthLoc-v0-s1006": {
+  "d-022-BabyAI-SynthS5R2-v0-s1006": {
    "counts": {
-    "depth_max": 31,
-    "frontier_left": 822387,
-    "solution_length": 10,
-    "spill_files_max": 0,
-    "states_expanded": 1295539,
-    "states_seen": 2146096,
-    "successors_total": 10364312
+    "depth_max": 28,
+    "frontier_left": 1305731,
+    "solution_length": 15,
+    "spill_files_max": 1,
+    "states_expanded": 2420101,
+    "states_seen": 3741812,
+    "successors_total": 19360808
    },
    "extra": {
-    "successors_distinct": 5117883
+    "successors_distinct": 9131043
    },
    "files": {
-    "head.json.gz": "0082d26725fde5e29a23d52cb3dfa070e1d7a344201d5e03053fca7af3f1424b",
-    "tail.json.gz": "099c35ef78646770305f4b8a3e02cb27161047c96e70860e7eeca4780017ee59",
-    "visited.u64.gz": "ad9d431a17c188c52254db3b92c0ec1dcfa52403be210dc0ddbb3dc54796bb44"
+    "head.json.gz": "2c8e4ec4fe5c8f89fe3c51a4e296165a24184457197f5dfa8b63c3babe983e5f",
+    "tail.json.gz": "0d465eac67c22e27b4b04b1f8bb81d23644a9a25291de67fc55a8b5021510b51",
+    "visited.u64.gz": "7016d5050c8caf41dbfc0c363e6acfac4e0b966936e9cec3b92a56086232adde"
    },
    "graph": null,
    "graph_status": "more than 200000 states",
-   "seconds_spent": 3659.2826364040375,
+   "seconds_spent": 6380.861352920532,
    "sessions": [
     {
-     "ended_at": "2026-11-05T21:11:27Z",
-     "host": "7c4e58e22a75",
+     "ended_at": "2026-11-06T05:27:32Z",
+     "host": "324982be431d",
      "kaggle_env": {
-      "KAGGLE_CONTAINER_NAME": "kaggle_jcwBCLOtbts4oSy1BuAvWmck3Xvigu6sfCEGz2UlRA-365967704-webtier",
+      "KAGGLE_CONTAINER_NAME": "kaggle_qcqT6AAJEOm2NhqRj7RmAicRsKuSkP3lAvg17Q9s2w-366084244-webtier",
       "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
-      "KAGGLE_GCP_ZONE": "asia-east1-a",
+      "KAGGLE_GCP_ZONE": "europe-west1-b",
       "KAGGLE_KERNEL_INTEGRATIONS": "",
       "KAGGLE_KERNEL_RUN_TYPE": "Batch",
       "KAGGLE_URL_BASE": "https://api.kaggle.com"
      },
-     "run_nonce": "dev-minigrid-d-022-20261105T131110Z-a7a4e1",
-     "started_at": "2026-11-05T13:11:27Z"
+     "run_nonce": "dev-minigrid-d-022-20261105T212714Z-848ff4",
+     "started_at": "2026-11-05T21:27:32Z"
     }
    ],
-   "spill_seq": 0,
+   "spill_seq": 1,
    "spills": [],
-   "visited_n": 2146096
+   "visited_n": 3741812
   },
-  "d-022-BabyAI-SynthLoc-v0-s1008": {
+  "d-022-BabyAI-SynthS5R2-v0-s1007": {
    "counts": {
-    "depth_max": 19,
-    "frontier_left": 677606,
-    "solution_length": 2,
-    "spill_files_max": 0,
-    "states_expanded": 1010376,
-    "states_seen": 1703834,
-    "successors_total": 8083008
+    "depth_max": 30,
+    "frontier_left": 1551783,
+    "solution_length": 23,
+    "spill_files_max": 1,
+    "states_expanded": 2627754,
+    "states_seen": 4181880,
+    "successors_total": 21022032
    },
    "extra": {
-    "successors_distinct": 4047411
+    "successors_distinct": 9959746
    },
    "files": {
-    "head.json.gz": "b71cf69d79141b076bcf64ea8efe72a78029f4b85241f1f335353994dbf95b53",
-    "tail.json.gz": "60a3a7e4763f90beedb0e97be6412da6e8b45890346d9699264bfe68264c8519",
-    "visited.u64.gz": "7c7bbcb10dda7cc4a8d2c4621201abbf28cade9298a4defd57cf3550feb8b777"
+    "head.json.gz": "4f291cb5d7714d32bc65c10e25e0abeedbcefdce6a9ffbb722073eccc950a16c",
+    "tail.json.gz": "d575b1af420aedb489abdde2702c20f5c3f3f6ad229836817359752a4e9da88c",
+    "visited.u64.gz": "4c2fa6012374a1f8d9bb18a7ca6408163da0410d9ea14f5413787799e35269fd"
    },
    "graph": null,
    "graph_status": "more than 200000 states",
-   "seconds_spent": 2681.697820663452,
+   "seconds_spent": 6167.487655639648,
    "sessions": [
     {
-     "ended_at": "2026-11-05T21:11:27Z",
-     "host": "7c4e58e22a75",
+     "ended_at": "2026-11-06T05:27:32Z",
+     "host": "324982be431d",
      "kaggle_env": {
-      "KAGGLE_CONTAINER_NAME": "kaggle_jcwBCLOtbts4oSy1BuAvWmck3Xvigu6sfCEGz2UlRA-365967704-webtier",
+      "KAGGLE_CONTAINER_NAME": "kaggle_qcqT6AAJEOm2NhqRj7RmAicRsKuSkP3lAvg17Q9s2w-366084244-webtier",
       "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
-      "KAGGLE_GCP_ZONE": "asia-east1-a",
+      "KAGGLE_GCP_ZONE": "europe-west1-b",
       "KAGGLE_KERNEL_INTEGRATIONS": "",
       "KAGGLE_KERNEL_RUN_TYPE": "Batch",
       "KAGGLE_URL_BASE": "https://api.kaggle.com"
      },
-     "run_nonce": "dev-minigrid-d-022-20261105T131110Z-a7a4e1",
-     "started_at": "2026-11-05T13:11:27Z"
+     "run_nonce": "dev-minigrid-d-022-20261105T212714Z-848ff4",
+     "started_at": "2026-11-05T21:27:32Z"
     }
    ],
-   "spill_seq": 0,
+   "spill_seq": 1,
    "spills": [],
-   "visited_n": 1703834
+   "visited_n": 4181880
   },
-  "d-022-BabyAI-SynthLoc-v0-s1009": {
+  "d-022-BabyAI-SynthS5R2-v0-s1008": {
    "counts": {
-    "depth_max": 26,
-    "frontier_left": 740915,
-    "solution_length": null,
+    "depth_max": 28,
+    "frontier_left": 970446,
+    "solution_length": 8,
     "spill_files_max": 0,
-    "states_expanded": 954208,
-    "states_seen": 1695123,
-    "successors_total": 7633664
+    "states_expanded": 1805401,
+    "states_seen": 2850905,
+    "successors_total": 14443208
    },
    "extra": {
-    "successors_distinct": 3823509
+    "successors_distinct": 6828748
    },
    "files": {
-    "head.json.gz": "97cd65056d0eb3f9d7100a1a21ea7238c6726a9244b5c97bb12948e80f0cdb25",
-    "tail.json.gz": "cdfab456c115e94069b2ca6ef9e9155ef677294e1ddb8f9c77a02123af56a1ac",
-    "visited.u64.gz": "c9a593e4f4e608b67ec6111def0c60d5752a49a7166336fef5585ba62f589d5c"
+    "head.json.gz": "a55903ab9aaf1d7a76da6d534eb24ca49703191d2cda63e4fab54bd104fa96c4",
+    "tail.json.gz": "34e556fdb080b44ee178c3ac48f26d6ccad890ddad1870f438d8c184a9c1e4d0",
+    "visited.u64.gz": "2d15f9dd8db0110f47addc72b87a8f686b2fa3455210b8352498eca97d51d711"
    },
    "graph": null,
    "graph_status": "more than 200000 states",
-   "seconds_spent": 2601.1779589653015,
+   "seconds_spent": 4728.599865198135,
    "sessions": [
     {
-     "ended_at": "2026-11-05T21:11:27Z",
-     "host": "7c4e58e22a75",
+     "ended_at": "2026-11-06T05:27:32Z",
+     "host": "324982be431d",
      "kaggle_env": {
-      "KAGGLE_CONTAINER_NAME": "kaggle_jcwBCLOtbts4oSy1BuAvWmck3Xvigu6sfCEGz2UlRA-365967704-webtier",
+      "KAGGLE_CONTAINER_NAME": "kaggle_qcqT6AAJEOm2NhqRj7RmAicRsKuSkP3lAvg17Q9s2w-366084244-webtier",
       "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
-      "KAGGLE_GCP_ZONE": "asia-east1-a",
+      "KAGGLE_GCP_ZONE": "europe-west1-b",
       "KAGGLE_KERNEL_INTEGRATIONS": "",
       "KAGGLE_KERNEL_RUN_TYPE": "Batch",
       "KAGGLE_URL_BASE": "https://api.kaggle.com"
      },
-     "run_nonce": "dev-minigrid-d-022-20261105T131110Z-a7a4e1",
-     "started_at": "2026-11-05T13:11:27Z"
+     "run_nonce": "dev-minigrid-d-022-20261105T212714Z-848ff4",
+     "started_at": "2026-11-05T21:27:32Z"
     }
    ],
    "spill_seq": 0,
    "spills": [],
-   "visited_n": 1695123
+   "visited_n": 2850905
   },
-  "d-022-BabyAI-SynthS5R2-v0-s1000": {
+  "d-022-BabyAI-SynthS5R2-v0-s1009": {
    "counts": {
-    "depth_max": 26,
-    "frontier_left": 654691,
-    "solution_length": 24,
-    "spill_files_max": 0,
-    "states_expanded": 1238049,
-    "states_seen": 1892759,
-    "successors_total": 9904392
+    "depth_max": 25,
+    "frontier_left": 1441078,
+    "solution_length": 7,
+    "spill_files_max": 1,
+    "states_expanded": 1999187,
+    "states_seen": 3449284,
+    "successors_total": 15993496
    },
    "extra": {
-    "successors_distinct": 4692914
+    "successors_distinct": 7802963
    },
    "files": {
-    "head.json.gz": "5c7133a1b4d712e2561ce33df8ee459f6a0dea0c74ce2ba7d5c7d4bad945cfd0",
-    "tail.json.gz": "fbe827e082a945cb66147ba02343a2409a85cf4fca995009d8537b8d1e33fded",
-    "visited.u64.gz": "786c8f57212ce19be1c8101de3e0493bb19556cc6ab934ed5aed98be9e490e54"
+    "head.json.gz": "9f94e73d8a26f80a189559b566381a1023a7b7719a59ebb44c18d2311689fb2f",
+    "tail.json.gz": "66d3b44101a0c33684c4d4eb3b98f472cde4d5315ac40b3c2ea0635c1487e046",
+    "visited.u64.gz": "f6b1ae126c575f520813d8eb7b06663ae322b27a4c4dec554f8eaac5132ba0cd"
    },
    "graph": null,
    "graph_status": "more than 200000 states",
-   "seconds_spent": 1780.8476786613464,
+   "seconds_spent": 4666.547592639923,
    "sessions": [
     {
-     "ended_at": "2026-11-05T21:11:27Z",
-     "host": "7c4e58e22a75",
+     "ended_at": "2026-11-06T05:27:32Z",
+     "host": "324982be431d",
      "kaggle_env": {
-      "KAGGLE_CONTAINER_NAME": "kaggle_jcwBCLOtbts4oSy1BuAvWmck3Xvigu6sfCEGz2UlRA-365967704-webtier",
+      "KAGGLE_CONTAINER_NAME": "kaggle_qcqT6AAJEOm2NhqRj7RmAicRsKuSkP3lAvg17Q9s2w-366084244-webtier",
       "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
-      "KAGGLE_GCP_ZONE": "asia-east1-a",
+      "KAGGLE_GCP_ZONE": "europe-west1-b",
       "KAGGLE_KERNEL_INTEGRATIONS": "",
       "KAGGLE_KERNEL_RUN_TYPE": "Batch",
       "KAGGLE_URL_BASE": "https://api.kaggle.com"
      },
-     "run_nonce": "dev-minigrid-d-022-20261105T131110Z-a7a4e1",
-     "started_at": "2026-11-05T13:11:27Z"
+     "run_nonce": "dev-minigrid-d-022-20261105T212714Z-848ff4",
+     "started_at": "2026-11-05T21:27:32Z"
     }
    ],
-   "spill_seq": 0,
+   "spill_seq": 1,
    "spills": [],
-   "visited_n": 1892759
+   "visited_n": 3449284
   }
  },
- "written_at": "2026-11-05T21:11:38Z"
+ "written_at": "2026-11-06T05:28:09Z"
 }

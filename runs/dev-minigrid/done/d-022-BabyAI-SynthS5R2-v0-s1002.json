@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-022",
+ "committed_at": "2026-11-06T05:43:07Z",
+ "kernel_version": 55,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-022-BabyAI-SynthS5R2-v0-s1002.json",
+ "row_sha256": "d44ad60149e0b8f001474c57efccd76748b2c7f960a4322bfd9a1af2359cdd13",
+ "run_nonce": "dev-minigrid-d-022-20261105T212714Z-848ff4",
+ "unit_id": "d-022-BabyAI-SynthS5R2-v0-s1002"
+}
