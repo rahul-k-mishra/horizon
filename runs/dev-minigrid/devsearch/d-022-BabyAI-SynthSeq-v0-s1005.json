@@ -1,0 +1,66 @@
+{
+ "campaign": "dev-minigrid",
+ "cap_hit": "time",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "d-022",
+ "complete": false,
+ "counts": {
+  "depth_max": 28,
+  "frontier_left": 1544541,
+  "solution_length": 24,
+  "spill_files_max": 1,
+  "states_expanded": 3062407,
+  "states_seen": 4606987,
+  "successors_total": 24499256
+ },
+ "game": "BabyAI-SynthSeq-v0",
+ "level": 1005,
+ "measures": {
+  "branching": 3.920477258574709,
+  "eh": null,
+  "eh_horizon": 400,
+  "eh_k": null,
+  "eh_status": "not computed: capped by time"
+ },
+ "schema": "horizon.search.v2",
+ "seconds_spent": 14400.151,
+ "sessions": [
+  {
+   "ended_at": "2026-11-06T13:43:39Z",
+   "host": "b1a9bec8d610",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_McOZzxaLwxwOoXx984tB7I9Tn5Ffsk41NLnhO3qDog-366174766-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-east1-d",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-022-20261106T054323Z-1b868c",
+   "started_at": "2026-11-06T05:43:38Z"
+  },
+  {
+   "ended_at": "2026-11-06T16:02:40Z",
+   "host": "1979cdd18a6b",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_yJ94gMLrrXoyzDUhg9KxPgbAkNtcpDDPL77yxuj0-366297616-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "europe-west1-b",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-022-20261106T140002Z-0affc4",
+   "started_at": "2026-11-06T14:00:20Z"
+  }
+ ],
+ "suite": "minigrid",
+ "unit_id": "d-022-BabyAI-SynthSeq-v0-s1005",
+ "written_at": "2026-11-06T16:02:40Z"
+}
