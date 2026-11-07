@@ -1,0 +1,77 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit ce39eeff38a937223435a7eeb67e9dea02d37f2e Loop: d-023 pushed as kernel version 59
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1794023818.3523464
+[2026-11-07T03:58:09Z] chunk d-023 (devsearch), nonce dev-minigrid-d-023-20261107T035642Z-065f9d; work deadline 2026-11-07T11:56:58Z, checkpoint by 2026-11-07T12:11:58Z
+[2026-11-07T03:58:09Z] resuming from checkpoint 1 of run dev-minigrid-d-023-20261106T194230Z-da4232: 8 units done, in progress ['d-023-BabyAI-UnblockPickup-v0-s1008', 'd-023-BabyAI-UnblockPickup-v0-s1009', 'd-023-BabyAI-Unlock-v0-s1000', 'd-023-BabyAI-Unlock-v0-s1001']
+[2026-11-07T03:58:09Z] devsearch: 32 units to run on 4 workers, 4 resumed from the checkpoint
+[2026-11-07T03:58:09Z] devsearch unit d-023-BabyAI-UnblockPickup-v0-s1008: resume
+[2026-11-07T03:58:09Z] devsearch unit d-023-BabyAI-UnblockPickup-v0-s1009: resume
+[2026-11-07T03:58:09Z] devsearch unit d-023-BabyAI-Unlock-v0-s1000: resume
+[2026-11-07T03:58:09Z] devsearch unit d-023-BabyAI-Unlock-v0-s1001: resume
+[2026-11-07T07:37:17Z] devsearch unit d-023-BabyAI-UnblockPickup-v0-s1008: capped, 5856151 states seen
+[2026-11-07T07:37:17Z] devsearch unit d-023-BabyAI-Unlock-v0-s1002: start
+[2026-11-07T07:41:14Z] devsearch unit d-023-BabyAI-UnblockPickup-v0-s1009: capped, 5373402 states seen
+[2026-11-07T07:41:14Z] devsearch unit d-023-BabyAI-Unlock-v0-s1003: start
+[2026-11-07T07:41:55Z] devsearch unit d-023-BabyAI-Unlock-v0-s1000: capped, 4933702 states seen
+[2026-11-07T07:41:55Z] devsearch unit d-023-BabyAI-Unlock-v0-s1004: start
+[2026-11-07T07:46:57Z] devsearch unit d-023-BabyAI-Unlock-v0-s1001: capped, 4720628 states seen
+[2026-11-07T07:46:57Z] devsearch unit d-023-BabyAI-Unlock-v0-s1005: start
+[2026-11-07T11:37:18Z] devsearch unit d-023-BabyAI-Unlock-v0-s1002: capped, 4417320 states seen
+[2026-11-07T11:37:18Z] devsearch unit d-023-BabyAI-Unlock-v0-s1006: start
+[2026-11-07T11:41:15Z] devsearch unit d-023-BabyAI-Unlock-v0-s1003: capped, 4337772 states seen
+[2026-11-07T11:41:15Z] devsearch unit d-023-BabyAI-Unlock-v0-s1007: start
+[2026-11-07T11:41:56Z] devsearch unit d-023-BabyAI-Unlock-v0-s1004: capped, 4749965 states seen
+[2026-11-07T11:41:56Z] devsearch unit d-023-BabyAI-Unlock-v0-s1008: start
+[2026-11-07T11:46:59Z] devsearch unit d-023-BabyAI-Unlock-v0-s1005: capped, 4767712 states seen
+[2026-11-07T11:46:59Z] devsearch unit d-023-BabyAI-Unlock-v0-s1009: start
+[2026-11-07T11:57:00Z] devsearch unit d-023-BabyAI-Unlock-v0-s1009: stopped at the deadline, 122975 expanded
+[2026-11-07T11:57:01Z] devsearch unit d-023-BabyAI-Unlock-v0-s1008: stopped at the deadline, 182788 expanded
+[2026-11-07T11:57:01Z] devsearch unit d-023-BabyAI-Unlock-v0-s1007: stopped at the deadline, 190928 expanded
+[2026-11-07T11:57:01Z] devsearch unit d-023-BabyAI-Unlock-v0-s1006: stopped at the deadline, 235038 expanded
+Sampling rejected: unreachable object at (1, 9)
+Sampling rejected: unreachable object at (8, 5)
+Sampling rejected: unreachable object at (1, 6)
+Sampling rejected: unreachable object at (1, 10)
+Sampling rejected: unreachable object at (14, 1)
+Sampling rejected: unreachable object at (1, 20)
+Sampling rejected: unreachable object at (1, 7)
+Sampling rejected: unreachable object at (18, 12)
+Sampling rejected: unreachable object at (3, 2)
+Sampling rejected: unreachable object at (8, 2)
+Sampling rejected: unreachable object at (1, 13)
+Sampling rejected: unreachable object at (17, 20)
+Sampling rejected: unreachable object at (1, 6)
+Sampling rejected: unreachable object at (1, 14)
+Sampling rejected: unreachable object at (1, 1)
+Sampling rejected: unreachable object at (2, 19)
+Sampling rejected: unreachable object at (11, 5)
+Sampling rejected: unreachable object at (9, 3)
+Sampling rejected: unreachable object at (5, 1)
+Sampling rejected: unreachable object at (1, 10)
+Sampling rejected: unreachable object at (3, 15)
+Sampling rejected: unreachable object at (1, 6)
+Sampling rejected: unreachable object at (16, 8)
+Sampling rejected: unreachable object at (15, 3)
+Sampling rejected: unreachable object at (1, 1)
+Sampling rejected: unreachable object at (2, 7)
+Sampling rejected: unreachable object at (8, 2)
+Sampling rejected: unreachable object at (1, 20)
+Sampling rejected: unreachable object at (10, 5)
+Sampling rejected: unreachable object at (1, 2)
+Sampling rejected: unreachable object at (4, 16)
+Sampling rejected: unreachable object at (2, 6)
+Sampling rejected: unreachable object at (14, 20)
+Sampling rejected: unreachable object at (1, 3)
+Sampling rejected: unreachable object at (16, 4)
+Sampling rejected: unreachable object at (3, 16)
+[2026-11-07T11:57:02Z] checkpoint 2: 16 units done, 4 in progress, 12 payload files
+[2026-11-07T11:57:02Z] chunk d-023: partial; units done 16 of 40; stopped: deadline reached with devsearch units unfinished
+[2026-11-07T11:57:02Z] wrote result.json (status partial) and bundle.tar.gz

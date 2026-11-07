@@ -1,0 +1,66 @@
+{
+ "campaign": "dev-minigrid",
+ "cap_hit": "time",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "d-023",
+ "complete": false,
+ "counts": {
+  "depth_max": 27,
+  "frontier_left": 2069385,
+  "solution_length": 2,
+  "spill_files_max": 1,
+  "states_expanded": 3259412,
+  "states_seen": 5373402,
+  "successors_total": 26075296
+ },
+ "game": "BabyAI-UnblockPickup-v0",
+ "level": 1009,
+ "measures": {
+  "branching": 3.9564393823180377,
+  "eh": null,
+  "eh_horizon": 400,
+  "eh_k": null,
+  "eh_status": "not computed: capped by time"
+ },
+ "schema": "horizon.search.v2",
+ "seconds_spent": 14400.365,
+ "sessions": [
+  {
+   "ended_at": "2026-11-07T03:42:58Z",
+   "host": "e6c23929b542",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_h9BIQojtzswN3qOZObrk81qrdzQL6sdkxelahHiF4k-366380722-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "asia-east1-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-023-20261106T194230Z-da4232",
+   "started_at": "2026-11-06T19:42:58Z"
+  },
+  {
+   "ended_at": "2026-11-07T07:41:13Z",
+   "host": "5dd1fa17ac2d",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_JzyoL1gpcnRXetT1WquKOcL7YeLYHXD5rSzj2BDgJng-366472508-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-east4-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-023-20261107T035642Z-065f9d",
+   "started_at": "2026-11-07T03:56:58Z"
+  }
+ ],
+ "suite": "minigrid",
+ "unit_id": "d-023-BabyAI-UnblockPickup-v0-s1009",
+ "written_at": "2026-11-07T07:41:13Z"
+}
