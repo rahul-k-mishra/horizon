@@ -1,0 +1,96 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit b3d605e33782f19e46454bc4a32bc71a996349af Loop: d-028 pushed as kernel version 66
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1794137341.7370555
+[2026-11-08T11:30:23Z] chunk d-028 (devsearch), nonce dev-minigrid-d-028-20261108T112844Z-c43476; work deadline 2026-11-08T19:29:01Z, checkpoint by 2026-11-08T19:44:01Z
+[2026-11-08T11:30:23Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-11-08T11:30:23Z] devsearch: 40 units to run on 4 workers, 0 resumed from the checkpoint
+[2026-11-08T11:30:23Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1000: start
+[2026-11-08T11:30:23Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1001: start
+[2026-11-08T11:30:23Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1002: start
+[2026-11-08T11:30:23Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1003: start
+[2026-11-08T11:30:25Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1001: complete, 29 states seen
+[2026-11-08T11:30:25Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1004: start
+[2026-11-08T11:30:25Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1002: complete, 28 states seen
+[2026-11-08T11:30:25Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1000: complete, 28 states seen
+[2026-11-08T11:30:25Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1005: start
+[2026-11-08T11:30:25Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1006: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1006: complete, 29 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1004: complete, 29 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1007: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1008: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1003: complete, 29 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1005: complete, 28 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1009: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1000: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1008: complete, 29 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1001: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1007: complete, 28 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1002: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1000: complete, 38 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1003: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-5x5-v0-s1009: complete, 28 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1004: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1002: complete, 38 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1005: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1003: complete, 29 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1006: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1001: complete, 53 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1007: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1004: complete, 39 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1008: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1005: complete, 28 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1009: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1006: complete, 39 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1000: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1007: complete, 28 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1001: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1008: complete, 28 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1002: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-6x6-v0-s1009: complete, 39 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1003: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1000: complete, 48 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1004: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1003: complete, 38 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1005: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1002: complete, 66 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1006: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1004: complete, 49 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1007: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1005: complete, 38 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1008: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1001: complete, 103 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1009: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1007: complete, 28 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1000: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1006: complete, 66 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1001: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1008: complete, 38 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1002: start
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToDoor-8x8-v0-s1009: complete, 49 states seen
+[2026-11-08T11:30:26Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1003: start
+[2026-11-08T11:30:38Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1000: complete, 11569 states seen
+[2026-11-08T11:30:38Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1004: start
+[2026-11-08T11:30:39Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1002: complete, 12280 states seen
+[2026-11-08T11:30:39Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1005: start
+[2026-11-08T11:30:40Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1001: complete, 12992 states seen
+[2026-11-08T11:30:40Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1006: start
+[2026-11-08T11:30:40Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1003: complete, 11568 states seen
+[2026-11-08T11:30:40Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1007: start
+[2026-11-08T11:30:49Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1004: complete, 12281 states seen
+[2026-11-08T11:30:49Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1008: start
+[2026-11-08T11:30:50Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1005: complete, 11569 states seen
+[2026-11-08T11:30:50Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1009: start
+[2026-11-08T11:30:51Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1006: complete, 12280 states seen
+[2026-11-08T11:30:51Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1007: complete, 11569 states seen
+[2026-11-08T11:30:56Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1008: complete, 11568 states seen
+[2026-11-08T11:30:56Z] devsearch unit d-028-MiniGrid-GoToObject-6x6-N2-v0-s1009: complete, 12280 states seen
+[2026-11-08T11:30:56Z] chunk d-028: done; units done 40 of 40
+[2026-11-08T11:30:56Z] wrote result.json (status done) and bundle.tar.gz

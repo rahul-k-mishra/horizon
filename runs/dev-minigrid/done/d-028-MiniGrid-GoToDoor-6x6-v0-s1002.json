@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-028",
+ "committed_at": "2026-11-08T11:59:39Z",
+ "kernel_version": 66,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-028-MiniGrid-GoToDoor-6x6-v0-s1002.json",
+ "row_sha256": "cb91fb343bda5bbafc76f00ade38037823592f205d74359c9f657a1d4e67bd8f",
+ "run_nonce": "dev-minigrid-d-028-20261108T112844Z-c43476",
+ "unit_id": "d-028-MiniGrid-GoToDoor-6x6-v0-s1002"
+}

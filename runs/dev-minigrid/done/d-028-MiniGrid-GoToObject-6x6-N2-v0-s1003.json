@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-028",
+ "committed_at": "2026-11-08T11:59:39Z",
+ "kernel_version": 66,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-028-MiniGrid-GoToObject-6x6-N2-v0-s1003.json",
+ "row_sha256": "eb568edae83cb9169de7beb8c968e475f156e8fcd32fe9c08a0eef60d9df1bf9",
+ "run_nonce": "dev-minigrid-d-028-20261108T112844Z-c43476",
+ "unit_id": "d-028-MiniGrid-GoToObject-6x6-N2-v0-s1003"
+}
