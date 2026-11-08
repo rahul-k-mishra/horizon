@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-023",
+ "committed_at": "2026-11-08T03:12:19Z",
+ "kernel_version": 61,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-023-BabyAI-UnlockLocalDist-v0-s1009.json",
+ "row_sha256": "735b5487041f514f9b2fe7924a0a50f83b9d97ec16983450f1e9e6480c7a5508",
+ "run_nonce": "dev-minigrid-d-023-20261107T202842Z-ceaef1",
+ "unit_id": "d-023-BabyAI-UnlockLocalDist-v0-s1009"
+}

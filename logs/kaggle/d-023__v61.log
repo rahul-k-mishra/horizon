@@ -1,0 +1,28 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit ed11964e1a2870a02a902b7eca8ce4a92d8795bf Loop: d-023 pushed as kernel version 61
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1794083338.7028506
+[2026-11-07T20:30:17Z] chunk d-023 (devsearch), nonce dev-minigrid-d-023-20261107T202842Z-ceaef1; work deadline 2026-11-08T04:28:58Z, checkpoint by 2026-11-08T04:43:58Z
+[2026-11-07T20:30:18Z] resuming from checkpoint 3 of run dev-minigrid-d-023-20261107T121100Z-880104: 34 units done, in progress ['d-023-BabyAI-UnlockLocalDist-v0-s1004', 'd-023-BabyAI-UnlockLocalDist-v0-s1005', 'd-023-BabyAI-UnlockLocalDist-v0-s1006', 'd-023-BabyAI-UnlockLocalDist-v0-s1007']
+[2026-11-07T20:30:18Z] devsearch: 6 units to run on 4 workers, 4 resumed from the checkpoint
+[2026-11-07T20:30:18Z] devsearch unit d-023-BabyAI-UnlockLocalDist-v0-s1004: resume
+[2026-11-07T20:30:18Z] devsearch unit d-023-BabyAI-UnlockLocalDist-v0-s1005: resume
+[2026-11-07T20:30:18Z] devsearch unit d-023-BabyAI-UnlockLocalDist-v0-s1006: resume
+[2026-11-07T20:30:18Z] devsearch unit d-023-BabyAI-UnlockLocalDist-v0-s1007: resume
+[2026-11-08T00:15:46Z] devsearch unit d-023-BabyAI-UnlockLocalDist-v0-s1004: capped, 6421333 states seen
+[2026-11-08T00:15:46Z] devsearch unit d-023-BabyAI-UnlockLocalDist-v0-s1008: start
+[2026-11-08T00:16:55Z] devsearch unit d-023-BabyAI-UnlockLocalDist-v0-s1005: capped, 7139993 states seen
+[2026-11-08T00:16:55Z] devsearch unit d-023-BabyAI-UnlockLocalDist-v0-s1009: start
+[2026-11-08T00:17:23Z] devsearch unit d-023-BabyAI-UnlockLocalDist-v0-s1006: capped, 6836256 states seen
+[2026-11-08T00:22:10Z] devsearch unit d-023-BabyAI-UnlockLocalDist-v0-s1007: capped, 6221989 states seen
+[2026-11-08T02:50:51Z] devsearch unit d-023-BabyAI-UnlockLocalDist-v0-s1009: capped, 7211856 states seen
+[2026-11-08T02:52:50Z] devsearch unit d-023-BabyAI-UnlockLocalDist-v0-s1008: capped, 7726566 states seen
+[2026-11-08T02:52:50Z] chunk d-023: done; units done 40 of 40
+[2026-11-08T02:52:50Z] wrote result.json (status done) and bundle.tar.gz
