@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-027",
+ "committed_at": "2026-11-08T11:28:43Z",
+ "kernel_version": 65,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-027-MiniGrid-Fetch-8x8-N3-v0-s1002.json",
+ "row_sha256": "579d5240957bd2f58e64b932cdced97b1b67356a3b340719c3525f807d351472",
+ "run_nonce": "dev-minigrid-d-027-20261108T105745Z-26d787",
+ "unit_id": "d-027-MiniGrid-Fetch-8x8-N3-v0-s1002"
+}

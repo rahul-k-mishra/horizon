@@ -1,0 +1,96 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit d7bc1e5ad8abcadf946317b7038d3685de7e6840 Loop: d-027 pushed as kernel version 65
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1794135481.6229532
+[2026-11-08T10:59:40Z] chunk d-027 (devsearch), nonce dev-minigrid-d-027-20261108T105745Z-26d787; work deadline 2026-11-08T18:58:01Z, checkpoint by 2026-11-08T19:13:01Z
+[2026-11-08T10:59:40Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-11-08T10:59:40Z] devsearch: 40 units to run on 4 workers, 0 resumed from the checkpoint
+[2026-11-08T10:59:40Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1000: start
+[2026-11-08T10:59:40Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1001: start
+[2026-11-08T10:59:40Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1002: start
+[2026-11-08T10:59:40Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1003: start
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1002: complete, 22 states seen
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1004: start
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1003: complete, 23 states seen
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1001: complete, 23 states seen
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1000: complete, 22 states seen
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1005: start
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1006: start
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1007: start
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1005: complete, 23 states seen
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1004: complete, 23 states seen
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1008: start
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1009: start
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1007: complete, 22 states seen
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1000: start
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1006: complete, 22 states seen
+[2026-11-08T10:59:43Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1001: start
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1008: complete, 22 states seen
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1002: start
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-5x5-v0-s1009: complete, 23 states seen
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1003: start
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1000: complete, 46 states seen
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1004: start
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1001: complete, 46 states seen
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1005: start
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1002: complete, 46 states seen
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1006: start
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1003: complete, 46 states seen
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1007: start
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1004: complete, 46 states seen
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1008: start
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1005: complete, 47 states seen
+[2026-11-08T10:59:44Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1009: start
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1006: complete, 46 states seen
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1000: start
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1007: complete, 46 states seen
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1001: start
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1008: complete, 47 states seen
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1002: start
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Empty-Random-6x6-v0-s1009: complete, 47 states seen
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1003: start
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1000: complete, 48 states seen
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1004: start
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1001: complete, 46 states seen
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1005: start
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1002: complete, 45 states seen
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1006: start
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1003: complete, 45 states seen
+[2026-11-08T10:59:45Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1007: start
+[2026-11-08T10:59:46Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1005: complete, 41 states seen
+[2026-11-08T10:59:46Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1008: start
+[2026-11-08T10:59:46Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1004: complete, 47 states seen
+[2026-11-08T10:59:46Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1009: start
+[2026-11-08T10:59:46Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1006: complete, 46 states seen
+[2026-11-08T10:59:46Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1000: start
+[2026-11-08T10:59:46Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1007: complete, 47 states seen
+[2026-11-08T10:59:46Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1001: start
+[2026-11-08T10:59:46Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1008: complete, 49 states seen
+[2026-11-08T10:59:46Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1002: start
+[2026-11-08T10:59:46Z] devsearch unit d-027-MiniGrid-Fetch-6x6-N2-v0-s1009: complete, 45 states seen
+[2026-11-08T10:59:46Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1003: start
+[2026-11-08T10:59:47Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1000: complete, 112 states seen
+[2026-11-08T10:59:47Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1004: start
+[2026-11-08T10:59:47Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1001: complete, 113 states seen
+[2026-11-08T10:59:47Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1005: start
+[2026-11-08T10:59:47Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1002: complete, 115 states seen
+[2026-11-08T10:59:47Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1006: start
+[2026-11-08T10:59:47Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1003: complete, 115 states seen
+[2026-11-08T10:59:47Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1007: start
+[2026-11-08T10:59:47Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1004: complete, 115 states seen
+[2026-11-08T10:59:47Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1008: start
+[2026-11-08T10:59:47Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1005: complete, 116 states seen
+[2026-11-08T10:59:47Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1009: start
+[2026-11-08T10:59:48Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1006: complete, 115 states seen
+[2026-11-08T10:59:48Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1007: complete, 113 states seen
+[2026-11-08T10:59:48Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1008: complete, 115 states seen
+[2026-11-08T10:59:48Z] devsearch unit d-027-MiniGrid-Fetch-8x8-N3-v0-s1009: complete, 116 states seen
+[2026-11-08T10:59:48Z] chunk d-027: done; units done 40 of 40
+[2026-11-08T10:59:48Z] wrote result.json (status done) and bundle.tar.gz
