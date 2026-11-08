@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-025",
+ "committed_at": "2026-11-08T10:26:49Z",
+ "kernel_version": 63,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-025-MiniGrid-DistShift1-v0-s1003.json",
+ "row_sha256": "ae5d102a090888e286cc817a6b410212f2fea5e6872ba42dba8a1b06169fb8b8",
+ "run_nonce": "dev-minigrid-d-025-20261108T095601Z-8db3f1",
+ "unit_id": "d-025-MiniGrid-DistShift1-v0-s1003"
+}
