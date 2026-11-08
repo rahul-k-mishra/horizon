@@ -1,0 +1,96 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit 503e4be6c4fafdd909afe3f23a15e5778bb53662 Loop: d-029 pushed as kernel version 67
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1794139198.699392
+[2026-11-08T12:01:22Z] chunk d-029 (devsearch), nonce dev-minigrid-d-029-20261108T115940Z-ffd2bb; work deadline 2026-11-08T19:59:58Z, checkpoint by 2026-11-08T20:14:58Z
+[2026-11-08T12:01:22Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-11-08T12:01:22Z] devsearch: 40 units to run on 4 workers, 0 resumed from the checkpoint
+[2026-11-08T12:01:22Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1000: start
+[2026-11-08T12:01:22Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1001: start
+[2026-11-08T12:01:22Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1002: start
+[2026-11-08T12:01:22Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1003: start
+[2026-11-08T12:04:05Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1002: complete, 152320 states seen
+[2026-11-08T12:04:05Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1004: start
+[2026-11-08T12:04:05Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1003: complete, 148128 states seen
+[2026-11-08T12:04:05Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1005: start
+[2026-11-08T12:04:07Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1000: complete, 152320 states seen
+[2026-11-08T12:04:07Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1006: start
+[2026-11-08T12:04:08Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1001: complete, 156512 states seen
+[2026-11-08T12:04:08Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1007: start
+[2026-11-08T12:06:36Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1005: complete, 148128 states seen
+[2026-11-08T12:06:36Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1008: start
+[2026-11-08T12:06:37Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1004: complete, 156512 states seen
+[2026-11-08T12:06:37Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1009: start
+[2026-11-08T12:06:40Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1007: complete, 148129 states seen
+[2026-11-08T12:06:40Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1000: start
+[2026-11-08T12:06:40Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1000: complete, 93 states seen
+[2026-11-08T12:06:40Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1001: start
+[2026-11-08T12:06:41Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1006: complete, 152320 states seen
+[2026-11-08T12:06:41Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1002: start
+[2026-11-08T12:06:41Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1001: complete, 93 states seen
+[2026-11-08T12:06:41Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1003: start
+[2026-11-08T12:06:41Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1002: complete, 93 states seen
+[2026-11-08T12:06:41Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1004: start
+[2026-11-08T12:06:42Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1003: complete, 93 states seen
+[2026-11-08T12:06:42Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1005: start
+[2026-11-08T12:06:42Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1004: complete, 93 states seen
+[2026-11-08T12:06:42Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1006: start
+[2026-11-08T12:06:42Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1005: complete, 93 states seen
+[2026-11-08T12:06:42Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1007: start
+[2026-11-08T12:06:43Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1006: complete, 93 states seen
+[2026-11-08T12:06:43Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1008: start
+[2026-11-08T12:06:43Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1007: complete, 93 states seen
+[2026-11-08T12:06:43Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1009: start
+[2026-11-08T12:06:44Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1008: complete, 93 states seen
+[2026-11-08T12:06:44Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1000: start
+[2026-11-08T12:06:44Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R1-v0-s1009: complete, 93 states seen
+[2026-11-08T12:06:44Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1001: start
+[2026-11-08T12:06:47Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1001: complete, 1006 states seen
+[2026-11-08T12:06:47Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1002: start
+[2026-11-08T12:06:49Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1000: complete, 1926 states seen
+[2026-11-08T12:06:49Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1003: start
+[2026-11-08T12:06:50Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1002: complete, 1006 states seen
+[2026-11-08T12:06:50Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1004: start
+[2026-11-08T12:06:52Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1003: complete, 1006 states seen
+[2026-11-08T12:06:52Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1005: start
+[2026-11-08T12:06:55Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1005: complete, 1201 states seen
+[2026-11-08T12:06:55Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1006: start
+[2026-11-08T12:07:01Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1006: complete, 1926 states seen
+[2026-11-08T12:07:01Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1007: start
+[2026-11-08T12:07:04Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1004: complete, 4994 states seen
+[2026-11-08T12:07:04Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1008: start
+[2026-11-08T12:07:06Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1007: complete, 1884 states seen
+[2026-11-08T12:07:06Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1009: start
+[2026-11-08T12:07:11Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1009: complete, 1884 states seen
+[2026-11-08T12:07:11Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1000: start
+[2026-11-08T12:07:17Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R2-v0-s1008: complete, 4994 states seen
+[2026-11-08T12:07:17Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1001: start
+[2026-11-08T12:08:39Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1000: complete, 30852 states seen
+[2026-11-08T12:08:39Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1002: start
+[2026-11-08T12:09:12Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1008: complete, 148128 states seen
+[2026-11-08T12:09:12Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1003: start
+[2026-11-08T12:09:14Z] devsearch unit d-029-MiniGrid-GoToObject-8x8-N2-v0-s1009: complete, 152321 states seen
+[2026-11-08T12:09:14Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1004: start
+[2026-11-08T12:10:14Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1003: complete, 22232 states seen
+[2026-11-08T12:10:14Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1005: start
+[2026-11-08T12:11:00Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1002: complete, 46196 states seen
+[2026-11-08T12:11:00Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1006: start
+[2026-11-08T12:11:05Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1005: complete, 17249 states seen
+[2026-11-08T12:11:05Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1007: start
+[2026-11-08T12:11:39Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1006: complete, 13456 states seen
+[2026-11-08T12:11:39Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1008: start
+[2026-11-08T12:11:55Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1004: complete, 53508 states seen
+[2026-11-08T12:11:55Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1009: start
+[2026-11-08T12:12:07Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1007: complete, 21712 states seen
+[2026-11-08T12:12:45Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1001: complete, 109824 states seen
+[2026-11-08T12:12:49Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1009: complete, 22530 states seen
+[2026-11-08T12:13:52Z] devsearch unit d-029-MiniGrid-KeyCorridorS3R3-v0-s1008: complete, 55911 states seen
+[2026-11-08T12:13:52Z] chunk d-029: done; units done 40 of 40
+[2026-11-08T12:13:52Z] wrote result.json (status done) and bundle.tar.gz
