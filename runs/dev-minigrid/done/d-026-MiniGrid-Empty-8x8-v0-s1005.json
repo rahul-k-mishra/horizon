@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-026",
+ "committed_at": "2026-11-08T10:57:43Z",
+ "kernel_version": 64,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-026-MiniGrid-Empty-8x8-v0-s1005.json",
+ "row_sha256": "6c0608e57d2d05f04041e5f8cf2a033c72dee7f2d76004e3b1f0d9181aba646c",
+ "run_nonce": "dev-minigrid-d-026-20261108T102651Z-750d90",
+ "unit_id": "d-026-MiniGrid-Empty-8x8-v0-s1005"
+}
