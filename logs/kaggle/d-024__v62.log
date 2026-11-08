@@ -1,0 +1,96 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit e1e54b39228a6d8e0c705e6412d3d3dabdfb0baa Loop: d-024 pushed as kernel version 62
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1794107558.5124538
+[2026-11-08T03:13:47Z] chunk d-024 (devsearch), nonce dev-minigrid-d-024-20261108T031220Z-cca85b; work deadline 2026-11-08T11:12:38Z, checkpoint by 2026-11-08T11:27:38Z
+[2026-11-08T03:13:47Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-11-08T03:13:47Z] devsearch: 40 units to run on 4 workers, 0 resumed from the checkpoint
+[2026-11-08T03:13:47Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1000: start
+[2026-11-08T03:13:47Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1001: start
+[2026-11-08T03:13:47Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1002: start
+[2026-11-08T03:13:47Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1003: start
+[2026-11-08T03:14:16Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1001: complete, 13232 states seen
+[2026-11-08T03:14:16Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1004: start
+[2026-11-08T03:14:16Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1000: complete, 13232 states seen
+[2026-11-08T03:14:16Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1005: start
+[2026-11-08T03:14:16Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1003: complete, 13233 states seen
+[2026-11-08T03:14:16Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1006: start
+[2026-11-08T03:14:16Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1002: complete, 13232 states seen
+[2026-11-08T03:14:16Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1007: start
+[2026-11-08T03:14:30Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1006: complete, 8716 states seen
+[2026-11-08T03:14:30Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1008: start
+[2026-11-08T03:14:42Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1005: complete, 13232 states seen
+[2026-11-08T03:14:42Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1009: start
+[2026-11-08T03:14:42Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1004: complete, 13232 states seen
+[2026-11-08T03:14:42Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1000: start
+[2026-11-08T03:14:42Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1007: complete, 13122 states seen
+[2026-11-08T03:14:42Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1001: start
+[2026-11-08T03:14:55Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1008: complete, 13232 states seen
+[2026-11-08T03:14:55Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1002: start
+[2026-11-08T03:15:08Z] devsearch unit d-024-BabyAI-UnlockPickup-v0-s1009: complete, 13233 states seen
+[2026-11-08T03:15:08Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1003: start
+[2026-11-08T05:14:22Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1000: capped, 7425467 states seen
+[2026-11-08T05:14:22Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1004: start
+[2026-11-08T05:14:39Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1002: capped, 8152117 states seen
+[2026-11-08T05:14:39Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1005: start
+[2026-11-08T05:14:41Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1001: capped, 6795363 states seen
+[2026-11-08T05:14:41Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1006: start
+[2026-11-08T05:15:24Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1003: capped, 7718249 states seen
+[2026-11-08T05:15:24Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1007: start
+[2026-11-08T07:14:31Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1005: capped, 7779617 states seen
+[2026-11-08T07:14:31Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1008: start
+[2026-11-08T07:14:33Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1004: capped, 7619838 states seen
+[2026-11-08T07:14:33Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1009: start
+[2026-11-08T07:14:50Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1007: capped, 7622213 states seen
+[2026-11-08T07:14:50Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1000: start
+[2026-11-08T07:15:31Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1006: capped, 7754985 states seen
+[2026-11-08T07:15:31Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1001: start
+[2026-11-08T07:43:33Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1000: complete, 1236285 states seen
+[2026-11-08T07:43:33Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1002: start
+[2026-11-08T07:50:00Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1001: complete, 1484473 states seen
+[2026-11-08T07:50:00Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1003: start
+[2026-11-08T08:17:34Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1002: complete, 1495544 states seen
+[2026-11-08T08:17:34Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1004: start
+[2026-11-08T08:24:06Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1003: complete, 1477708 states seen
+[2026-11-08T08:24:06Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1005: start
+[2026-11-08T08:51:28Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1004: complete, 1484516 states seen
+[2026-11-08T08:51:28Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1006: start
+[2026-11-08T08:57:54Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1005: complete, 1484516 states seen
+[2026-11-08T08:57:54Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1007: start
+[2026-11-08T09:14:45Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1008: capped, 7131247 states seen
+[2026-11-08T09:14:45Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1008: start
+[2026-11-08T09:16:15Z] devsearch unit d-024-BabyAI-UnlockPickupDist-v0-s1009: capped, 8232189 states seen
+[2026-11-08T09:16:15Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1009: start
+[2026-11-08T09:24:22Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1006: complete, 1477625 states seen
+[2026-11-08T09:24:22Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1000: start
+[2026-11-08T09:30:19Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1000: complete, 392529 states seen
+[2026-11-08T09:30:19Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1001: start
+[2026-11-08T09:31:34Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1007: complete, 1483685 states seen
+[2026-11-08T09:31:34Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1002: start
+[2026-11-08T09:36:17Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1001: complete, 392528 states seen
+[2026-11-08T09:36:17Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1003: start
+[2026-11-08T09:37:31Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1002: complete, 392485 states seen
+[2026-11-08T09:37:31Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1004: start
+[2026-11-08T09:42:17Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1003: complete, 392485 states seen
+[2026-11-08T09:42:17Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1005: start
+[2026-11-08T09:43:32Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1004: complete, 392485 states seen
+[2026-11-08T09:43:32Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1006: start
+[2026-11-08T09:47:07Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1006: complete, 232965 states seen
+[2026-11-08T09:47:07Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1007: start
+[2026-11-08T09:48:16Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1005: complete, 392485 states seen
+[2026-11-08T09:48:16Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1008: start
+[2026-11-08T09:48:18Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1008: complete, 1484460 states seen
+[2026-11-08T09:48:18Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1009: start
+[2026-11-08T09:50:05Z] devsearch unit d-024-BabyAI-UnlockToUnlock-v0-s1009: complete, 1484461 states seen
+[2026-11-08T09:52:29Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1007: complete, 389657 states seen
+[2026-11-08T09:53:03Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1009: complete, 392486 states seen
+[2026-11-08T09:53:05Z] devsearch unit d-024-MiniGrid-BlockedUnlockPickup-v0-s1008: complete, 392485 states seen
+[2026-11-08T09:53:05Z] chunk d-024: done; units done 40 of 40
+[2026-11-08T09:53:05Z] wrote result.json (status done) and bundle.tar.gz

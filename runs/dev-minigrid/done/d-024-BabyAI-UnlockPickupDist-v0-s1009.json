@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-024",
+ "committed_at": "2026-11-08T09:55:59Z",
+ "kernel_version": 62,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-024-BabyAI-UnlockPickupDist-v0-s1009.json",
+ "row_sha256": "6b7f40d424c0949ac3e39f77609e52e4d7a1edec5d4b9fa6c8a41b491503127f",
+ "run_nonce": "dev-minigrid-d-024-20261108T031220Z-cca85b",
+ "unit_id": "d-024-BabyAI-UnlockPickupDist-v0-s1009"
+}

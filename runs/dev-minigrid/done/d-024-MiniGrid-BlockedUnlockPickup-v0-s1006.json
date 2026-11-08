@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-024",
+ "committed_at": "2026-11-08T09:55:59Z",
+ "kernel_version": 62,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-024-MiniGrid-BlockedUnlockPickup-v0-s1006.json",
+ "row_sha256": "c63502d0fa98a014f63e8fcfa605055fce034edf134108f6706a11e8fb96ab7a",
+ "run_nonce": "dev-minigrid-d-024-20261108T031220Z-cca85b",
+ "unit_id": "d-024-MiniGrid-BlockedUnlockPickup-v0-s1006"
+}
