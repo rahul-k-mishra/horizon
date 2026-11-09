@@ -1,0 +1,342 @@
+{
+ "campaign": "dev-minigrid",
+ "chunk_id": "d-035",
+ "entry_hash": "0b88a3e382d53eb79b938840630194944a6eb16f70d96bd47e273adf1001c256",
+ "kind": "devsearch",
+ "payload": {
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1006__head.json.gz": {
+   "bytes": 1505291,
+   "location": "git",
+   "sha256": "118e26b6f47e7f9a388ec8f0dacb04b791ef390d044f0becd92568c6dbfb44f3"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1006__spill_000005.json.gz": {
+   "bytes": 2654053,
+   "location": "git",
+   "sha256": "4168272b28cbe47d3c42acf6666bccae55087883412078376e59664ab264c127"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1006__spill_000006.json.gz": {
+   "bytes": 2633854,
+   "location": "git",
+   "sha256": "5d7ecda4668d09ee48bebebc90d9ac51ccf32c2adcb6bb5d00f8386f4fd3ccdf"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1006__tail.json.gz": {
+   "bytes": 1752691,
+   "location": "git",
+   "sha256": "570d58610d136b5ee82e09b6cb8f0d83e320b476147efd46f4746214f49a3470"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1006__visited.u64.gz": {
+   "asset": "d-035__s1__d-035-MiniGrid-ObstructedMaze-1Q-v1-s1006__visited.u64.gz",
+   "bytes": 58787405,
+   "location": "release",
+   "sha256": "a6cc0dead682c512d785052b719978340fd3dae7988ebc872278b5daa8d6278e",
+   "url": "https://github.com/rahul-k-mishra/horizon/releases/download/ckpt-dev-minigrid/d-035__s1__d-035-MiniGrid-ObstructedMaze-1Q-v1-s1006__visited.u64.gz"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1007__head.json.gz": {
+   "bytes": 605993,
+   "location": "git",
+   "sha256": "e5b7aee549de8857e6a253602333302373f667593d9f675366cafe0e53b78c71"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1007__spill_000003.json.gz": {
+   "bytes": 2684645,
+   "location": "git",
+   "sha256": "d39b533ae69e6abca61282ced11bb236099e1378aef4edd7697834b5df26492c"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1007__spill_000004.json.gz": {
+   "bytes": 2688136,
+   "location": "git",
+   "sha256": "bbdf7a54e5121f2f9207336ff04d1cb70455f94889e3eac10c7510a9e3da046d"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1007__tail.json.gz": {
+   "bytes": 1347534,
+   "location": "git",
+   "sha256": "84190ebd2bf6be1f96a9f440c1495700a534ceb3a6c79b4a9d1929a825f5c7aa"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1007__visited.u64.gz": {
+   "bytes": 48815902,
+   "location": "git",
+   "sha256": "16a0176a3735b0b06e4e5cbafbc9474ec843b54d2d2eea3c61682e938db2a163"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1008__head.json.gz": {
+   "bytes": 38,
+   "location": "git",
+   "sha256": "7a107220d6bdd10805670d268f6a81cbc17c04545c3bbe493df10004521242bc"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1008__tail.json.gz": {
+   "bytes": 378511,
+   "location": "git",
+   "sha256": "796aff0ff9d50a1bc975af72a19c29684fb5c7c2b2264059da4cfb685251967a"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1008__visited.u64.gz": {
+   "bytes": 2575425,
+   "location": "git",
+   "sha256": "3981ff3cfb939a397be1ae3052e49f8349fc54f817661b5f9007db47c5eb8d64"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1009__graph_hashes.u64.gz": {
+   "bytes": 1598989,
+   "location": "git",
+   "sha256": "9418277d30e4b32544faba6569c8cd4539b67decc43a76e5bd462b48d03efeb7"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1009__graph_loss.i32.gz": {
+   "bytes": 35,
+   "location": "git",
+   "sha256": "7f7371b458b4c4a6f99a8bb4f9ff352e5218074f0712ea76ed317ec435d4182f"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1009__graph_next.i32.gz": {
+   "bytes": 1111131,
+   "location": "git",
+   "sha256": "3eb5f33912b0da1aba487c9aaf20a9da369a676a4a6f19bb670f6391f969d4d5"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1009__graph_rows.i32.gz": {
+   "bytes": 150466,
+   "location": "git",
+   "sha256": "77b16acdf217fe7e7ed937379af4c6b6accbc93b54827f8d97c845abead48b1a"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1009__graph_win.i32.gz": {
+   "bytes": 34,
+   "location": "git",
+   "sha256": "9a8156536a5455badec70bcf182c10526e29cb08a7c68148a049f3fbdfd304f7"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1009__head.json.gz": {
+   "bytes": 103091,
+   "location": "git",
+   "sha256": "653bc148e79172e7f5df1af3112fb8c02d0863cbe639eb718bce8621a9b14429"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1009__tail.json.gz": {
+   "bytes": 125601,
+   "location": "git",
+   "sha256": "d2a8db5640fe1a5cb4c75086a00f014b362e15295c7c021bc09f459ecc5d0d8b"
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1009__visited.u64.gz": {
+   "bytes": 1546256,
+   "location": "git",
+   "sha256": "b4c901d098e8655dbf91d7bbdeac03e74cd28f4c5f230f8252fd37f36a780edb"
+  }
+ },
+ "run_nonce": "dev-minigrid-d-035-20261109T111030Z-587933",
+ "schema": "horizon.checkpoint.v1",
+ "seq": 1,
+ "unit_in_progress": null,
+ "units_done": [
+  "d-035-MiniGrid-ObstructedMaze-1Dl-v0-s1000",
+  "d-035-MiniGrid-ObstructedMaze-1Dl-v0-s1001",
+  "d-035-MiniGrid-ObstructedMaze-1Dl-v0-s1002",
+  "d-035-MiniGrid-ObstructedMaze-1Dl-v0-s1003",
+  "d-035-MiniGrid-ObstructedMaze-1Dl-v0-s1004",
+  "d-035-MiniGrid-ObstructedMaze-1Dl-v0-s1005",
+  "d-035-MiniGrid-ObstructedMaze-1Dl-v0-s1006",
+  "d-035-MiniGrid-ObstructedMaze-1Dl-v0-s1007",
+  "d-035-MiniGrid-ObstructedMaze-1Dl-v0-s1008",
+  "d-035-MiniGrid-ObstructedMaze-1Dl-v0-s1009",
+  "d-035-MiniGrid-ObstructedMaze-1Dlh-v0-s1000",
+  "d-035-MiniGrid-ObstructedMaze-1Dlh-v0-s1001",
+  "d-035-MiniGrid-ObstructedMaze-1Dlh-v0-s1002",
+  "d-035-MiniGrid-ObstructedMaze-1Dlh-v0-s1003",
+  "d-035-MiniGrid-ObstructedMaze-1Dlh-v0-s1004",
+  "d-035-MiniGrid-ObstructedMaze-1Dlh-v0-s1005",
+  "d-035-MiniGrid-ObstructedMaze-1Dlh-v0-s1006",
+  "d-035-MiniGrid-ObstructedMaze-1Dlh-v0-s1007",
+  "d-035-MiniGrid-ObstructedMaze-1Dlh-v0-s1008",
+  "d-035-MiniGrid-ObstructedMaze-1Dlh-v0-s1009",
+  "d-035-MiniGrid-ObstructedMaze-1Dlhb-v0-s1000",
+  "d-035-MiniGrid-ObstructedMaze-1Dlhb-v0-s1001",
+  "d-035-MiniGrid-ObstructedMaze-1Dlhb-v0-s1002",
+  "d-035-MiniGrid-ObstructedMaze-1Dlhb-v0-s1003",
+  "d-035-MiniGrid-ObstructedMaze-1Dlhb-v0-s1004",
+  "d-035-MiniGrid-ObstructedMaze-1Dlhb-v0-s1005",
+  "d-035-MiniGrid-ObstructedMaze-1Dlhb-v0-s1006",
+  "d-035-MiniGrid-ObstructedMaze-1Dlhb-v0-s1007",
+  "d-035-MiniGrid-ObstructedMaze-1Dlhb-v0-s1008",
+  "d-035-MiniGrid-ObstructedMaze-1Dlhb-v0-s1009",
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1000",
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1001",
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1002",
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1003",
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1004",
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1005"
+ ],
+ "units_in_progress": {
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1006": {
+   "counts": {
+    "depth_max": 30,
+    "frontier_left": 3232448,
+    "solution_length": 21,
+    "spill_files_max": 2,
+    "states_expanded": 4983227,
+    "states_seen": 8218102,
+    "successors_total": 39865816
+   },
+   "extra": {
+    "successors_distinct": 19357622
+   },
+   "files": {
+    "head.json.gz": "118e26b6f47e7f9a388ec8f0dacb04b791ef390d044f0becd92568c6dbfb44f3",
+    "spill_000005.json.gz": "4168272b28cbe47d3c42acf6666bccae55087883412078376e59664ab264c127",
+    "spill_000006.json.gz": "5d7ecda4668d09ee48bebebc90d9ac51ccf32c2adcb6bb5d00f8386f4fd3ccdf",
+    "tail.json.gz": "570d58610d136b5ee82e09b6cb8f0d83e320b476147efd46f4746214f49a3470",
+    "visited.u64.gz": "a6cc0dead682c512d785052b719978340fd3dae7988ebc872278b5daa8d6278e"
+   },
+   "graph": null,
+   "graph_status": "more than 200000 states",
+   "seconds_spent": 10761.461480617523,
+   "sessions": [
+    {
+     "ended_at": "2026-11-09T19:10:47Z",
+     "host": "fdb92af7c526",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_h0vdEXmZfEGXBxSitJYLgL0ok1s77paaOSBAR9FTqE-367278086-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "us-west1-c",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dev-minigrid-d-035-20261109T111030Z-587933",
+     "started_at": "2026-11-09T11:10:47Z"
+    }
+   ],
+   "spill_seq": 6,
+   "spills": [
+    "spill_000005.json.gz",
+    "spill_000006.json.gz"
+   ],
+   "visited_n": 8218102
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1007": {
+   "counts": {
+    "depth_max": 28,
+    "frontier_left": 2730421,
+    "solution_length": 25,
+    "spill_files_max": 2,
+    "states_expanded": 4029324,
+    "states_seen": 6759819,
+    "successors_total": 32234592
+   },
+   "extra": {
+    "successors_distinct": 15610004
+   },
+   "files": {
+    "head.json.gz": "e5b7aee549de8857e6a253602333302373f667593d9f675366cafe0e53b78c71",
+    "spill_000003.json.gz": "d39b533ae69e6abca61282ced11bb236099e1378aef4edd7697834b5df26492c",
+    "spill_000004.json.gz": "bbdf7a54e5121f2f9207336ff04d1cb70455f94889e3eac10c7510a9e3da046d",
+    "tail.json.gz": "84190ebd2bf6be1f96a9f440c1495700a534ceb3a6c79b4a9d1929a825f5c7aa",
+    "visited.u64.gz": "16a0176a3735b0b06e4e5cbafbc9474ec843b54d2d2eea3c61682e938db2a163"
+   },
+   "graph": null,
+   "graph_status": "more than 200000 states",
+   "seconds_spent": 8625.963621377945,
+   "sessions": [
+    {
+     "ended_at": "2026-11-09T19:10:47Z",
+     "host": "fdb92af7c526",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_h0vdEXmZfEGXBxSitJYLgL0ok1s77paaOSBAR9FTqE-367278086-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "us-west1-c",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dev-minigrid-d-035-20261109T111030Z-587933",
+     "started_at": "2026-11-09T11:10:47Z"
+    }
+   ],
+   "spill_seq": 4,
+   "spills": [
+    "spill_000003.json.gz",
+    "spill_000004.json.gz"
+   ],
+   "visited_n": 6759819
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1008": {
+   "counts": {
+    "depth_max": 23,
+    "frontier_left": 147739,
+    "solution_length": null,
+    "spill_files_max": 0,
+    "states_expanded": 187962,
+    "states_seen": 335701,
+    "successors_total": 1503696
+   },
+   "extra": {
+    "successors_distinct": 731503
+   },
+   "files": {
+    "head.json.gz": "7a107220d6bdd10805670d268f6a81cbc17c04545c3bbe493df10004521242bc",
+    "tail.json.gz": "796aff0ff9d50a1bc975af72a19c29684fb5c7c2b2264059da4cfb685251967a",
+    "visited.u64.gz": "3981ff3cfb939a397be1ae3052e49f8349fc54f817661b5f9007db47c5eb8d64"
+   },
+   "graph": null,
+   "graph_status": "more than 200000 states",
+   "seconds_spent": 378.7791864871979,
+   "sessions": [
+    {
+     "ended_at": "2026-11-09T19:10:47Z",
+     "host": "fdb92af7c526",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_h0vdEXmZfEGXBxSitJYLgL0ok1s77paaOSBAR9FTqE-367278086-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "us-west1-c",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dev-minigrid-d-035-20261109T111030Z-587933",
+     "started_at": "2026-11-09T11:10:47Z"
+    }
+   ],
+   "spill_seq": 0,
+   "spills": [],
+   "visited_n": 335701
+  },
+  "d-035-MiniGrid-ObstructedMaze-1Q-v1-s1009": {
+   "counts": {
+    "depth_max": 19,
+    "frontier_left": 91074,
+    "solution_length": null,
+    "spill_files_max": 0,
+    "states_expanded": 108734,
+    "states_seen": 199808,
+    "successors_total": 869872
+   },
+   "extra": {
+    "successors_distinct": 426364
+   },
+   "files": {
+    "graph_hashes.u64.gz": "9418277d30e4b32544faba6569c8cd4539b67decc43a76e5bd462b48d03efeb7",
+    "graph_loss.i32.gz": "7f7371b458b4c4a6f99a8bb4f9ff352e5218074f0712ea76ed317ec435d4182f",
+    "graph_next.i32.gz": "3eb5f33912b0da1aba487c9aaf20a9da369a676a4a6f19bb670f6391f969d4d5",
+    "graph_rows.i32.gz": "77b16acdf217fe7e7ed937379af4c6b6accbc93b54827f8d97c845abead48b1a",
+    "graph_win.i32.gz": "9a8156536a5455badec70bcf182c10526e29cb08a7c68148a049f3fbdfd304f7",
+    "head.json.gz": "653bc148e79172e7f5df1af3112fb8c02d0863cbe639eb718bce8621a9b14429",
+    "tail.json.gz": "d2a8db5640fe1a5cb4c75086a00f014b362e15295c7c021bc09f459ecc5d0d8b",
+    "visited.u64.gz": "b4c901d098e8655dbf91d7bbdeac03e74cd28f4c5f230f8252fd37f36a780edb"
+   },
+   "graph": {
+    "A": 8,
+    "n": 199808
+   },
+   "graph_status": null,
+   "seconds_spent": 209.80993628501892,
+   "sessions": [
+    {
+     "ended_at": "2026-11-09T19:10:47Z",
+     "host": "fdb92af7c526",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_h0vdEXmZfEGXBxSitJYLgL0ok1s77paaOSBAR9FTqE-367278086-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "us-west1-c",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "dev-minigrid-d-035-20261109T111030Z-587933",
+     "started_at": "2026-11-09T11:10:47Z"
+    }
+   ],
+   "spill_seq": 0,
+   "spills": [],
+   "visited_n": 199808
+  }
+ },
+ "written_at": "2026-11-09T19:11:31Z"
+}
