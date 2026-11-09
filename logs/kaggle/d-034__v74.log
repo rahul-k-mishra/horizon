@@ -1,0 +1,96 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit 81fb206e3e7df0fd723a3ee43965a5af2cecd665 Loop: d-034 pushed as kernel version 74
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1794220799.9041278
+[2026-11-09T10:42:29Z] chunk d-034 (devsearch), nonce dev-minigrid-d-034-20261109T103939Z-d979ad; work deadline 2026-11-09T18:39:59Z, checkpoint by 2026-11-09T18:54:59Z
+[2026-11-09T10:42:29Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-11-09T10:42:29Z] devsearch: 40 units to run on 4 workers, 0 resumed from the checkpoint
+[2026-11-09T10:42:29Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1000: start
+[2026-11-09T10:42:29Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1001: start
+[2026-11-09T10:42:29Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1002: start
+[2026-11-09T10:42:29Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1003: start
+[2026-11-09T10:42:32Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1000: complete, 36 states seen
+[2026-11-09T10:42:32Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1004: start
+[2026-11-09T10:42:32Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1003: complete, 36 states seen
+[2026-11-09T10:42:32Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1001: complete, 36 states seen
+[2026-11-09T10:42:32Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1002: complete, 36 states seen
+[2026-11-09T10:42:32Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1005: start
+[2026-11-09T10:42:32Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1006: start
+[2026-11-09T10:42:32Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1007: start
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1005: complete, 36 states seen
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1008: start
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1004: complete, 36 states seen
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1009: start
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1006: complete, 36 states seen
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1000: start
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1007: complete, 37 states seen
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1001: start
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1008: complete, 36 states seen
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1002: start
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MemoryS9-v0-s1009: complete, 36 states seen
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1003: start
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1000: complete, 29 states seen
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1004: start
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1001: complete, 30 states seen
+[2026-11-09T10:42:33Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1005: start
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1002: complete, 38 states seen
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1006: start
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1004: complete, 22 states seen
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1007: start
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1003: complete, 39 states seen
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1008: start
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1005: complete, 29 states seen
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1009: start
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1006: complete, 22 states seen
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1000: start
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1008: complete, 21 states seen
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1001: start
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1007: complete, 39 states seen
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1002: start
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N2-S4-v0-s1009: complete, 38 states seen
+[2026-11-09T10:42:34Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1003: start
+[2026-11-09T10:42:36Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1001: complete, 469 states seen
+[2026-11-09T10:42:36Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1004: start
+[2026-11-09T10:42:37Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1003: complete, 484 states seen
+[2026-11-09T10:42:37Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1005: start
+[2026-11-09T10:42:37Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1002: complete, 601 states seen
+[2026-11-09T10:42:37Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1006: start
+[2026-11-09T10:42:37Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1000: complete, 696 states seen
+[2026-11-09T10:42:37Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1007: start
+[2026-11-09T10:42:39Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1004: complete, 505 states seen
+[2026-11-09T10:42:39Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1008: start
+[2026-11-09T10:42:39Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1005: complete, 600 states seen
+[2026-11-09T10:42:39Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1009: start
+[2026-11-09T10:42:40Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1006: complete, 552 states seen
+[2026-11-09T10:42:40Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1000: start
+[2026-11-09T10:42:41Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1007: complete, 712 states seen
+[2026-11-09T10:42:41Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1001: start
+[2026-11-09T10:42:41Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1008: complete, 404 states seen
+[2026-11-09T10:42:41Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1002: start
+[2026-11-09T10:42:42Z] devsearch unit d-034-MiniGrid-MultiRoom-N4-S5-v1-s1009: complete, 465 states seen
+[2026-11-09T10:42:42Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1003: start
+[2026-11-09T10:43:08Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1000: complete, 6528 states seen
+[2026-11-09T10:43:08Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1004: start
+[2026-11-09T10:43:31Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1002: complete, 11584 states seen
+[2026-11-09T10:43:31Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1005: start
+[2026-11-09T10:43:46Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1001: complete, 15168 states seen
+[2026-11-09T10:43:46Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1006: start
+[2026-11-09T10:43:49Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1003: complete, 15744 states seen
+[2026-11-09T10:43:49Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1007: start
+[2026-11-09T10:44:06Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1004: complete, 14288 states seen
+[2026-11-09T10:44:06Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1008: start
+[2026-11-09T10:44:19Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1005: complete, 11520 states seen
+[2026-11-09T10:44:19Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1009: start
+[2026-11-09T10:44:20Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1006: complete, 8096 states seen
+[2026-11-09T10:44:49Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1007: complete, 15136 states seen
+[2026-11-09T10:44:50Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1009: complete, 10896 states seen
+[2026-11-09T10:45:03Z] devsearch unit d-034-MiniGrid-MultiRoom-N6-v0-s1008: complete, 16849 states seen
+[2026-11-09T10:45:03Z] chunk d-034: done; units done 40 of 40
+[2026-11-09T10:45:03Z] wrote result.json (status done) and bundle.tar.gz

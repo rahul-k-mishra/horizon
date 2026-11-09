@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-034",
+ "committed_at": "2026-11-09T11:10:28Z",
+ "kernel_version": 74,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-034-MiniGrid-MemoryS9-v0-s1005.json",
+ "row_sha256": "7ca7df1aab49d804e309eb3b93873c5cb4265e49991e656f8c25cc352882237d",
+ "run_nonce": "dev-minigrid-d-034-20261109T103939Z-d979ad",
+ "unit_id": "d-034-MiniGrid-MemoryS9-v0-s1005"
+}
