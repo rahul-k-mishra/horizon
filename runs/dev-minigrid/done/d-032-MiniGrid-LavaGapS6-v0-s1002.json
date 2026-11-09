@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-032",
+ "committed_at": "2026-11-09T09:37:14Z",
+ "kernel_version": 71,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-032-MiniGrid-LavaGapS6-v0-s1002.json",
+ "row_sha256": "a191493d7a2c35934405b9b2da327a346a43d80b30edbff4519387525458770a",
+ "run_nonce": "dev-minigrid-d-032-20261109T012148Z-1e5c83",
+ "unit_id": "d-032-MiniGrid-LavaGapS6-v0-s1002"
+}

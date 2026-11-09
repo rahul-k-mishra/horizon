@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-032",
+ "committed_at": "2026-11-09T09:37:14Z",
+ "kernel_version": 71,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-032-MiniGrid-MemoryS11-v0-s1007.json",
+ "row_sha256": "4054217db378609d52f0afff93fdd103f8469039c2659c7b6014f133f466761d",
+ "run_nonce": "dev-minigrid-d-032-20261109T012148Z-1e5c83",
+ "unit_id": "d-032-MiniGrid-MemoryS11-v0-s1007"
+}

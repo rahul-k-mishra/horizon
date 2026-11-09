@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-032",
+ "committed_at": "2026-11-09T09:37:14Z",
+ "kernel_version": 71,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-032-MiniGrid-LockedRoom-v0-s1000.json",
+ "row_sha256": "8808b844f247cc4587e7112215857313298336742242683d01ff7243aa9fbc0f",
+ "run_nonce": "dev-minigrid-d-032-20261109T012148Z-1e5c83",
+ "unit_id": "d-032-MiniGrid-LockedRoom-v0-s1000"
+}
