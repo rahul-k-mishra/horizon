@@ -1,0 +1,49 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v2
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit 15d3713d4ee70a2d017e7893e370d6ea8b08afbb Loop: d-036 pushed as kernel version 77
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v2)
+code commit afa984c080a8eb46c8cb142222dd49eb8847bdf4 (tag automation-v2)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1794259801.8145523
+[2026-11-09T21:31:18Z] chunk d-036 (devsearch), nonce dev-minigrid-d-036-20261109T212944Z-05819d; work deadline 2026-11-10T05:30:01Z, checkpoint by 2026-11-10T05:45:01Z
+[2026-11-09T21:31:18Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-11-09T21:31:18Z] devsearch: 40 units to run on 4 workers, 0 resumed from the checkpoint
+[2026-11-09T21:31:18Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1000: start
+[2026-11-09T21:31:18Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1001: start
+[2026-11-09T21:31:18Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1002: start
+[2026-11-09T21:31:18Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1003: start
+[2026-11-10T00:03:19Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1003: capped, 5471989 states seen
+[2026-11-10T00:03:19Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1004: start
+[2026-11-10T00:03:36Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1000: capped, 5437630 states seen
+[2026-11-10T00:03:36Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1005: start
+[2026-11-10T00:03:40Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1002: capped, 5409129 states seen
+[2026-11-10T00:03:40Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1006: start
+[2026-11-10T00:04:01Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1001: capped, 5444905 states seen
+[2026-11-10T00:04:01Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1007: start
+[2026-11-10T02:35:18Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1004: capped, 5434213 states seen
+[2026-11-10T02:35:18Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1008: start
+[2026-11-10T02:36:06Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1005: capped, 5423935 states seen
+[2026-11-10T02:36:06Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1009: start
+[2026-11-10T02:36:06Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1006: capped, 5432717 states seen
+[2026-11-10T02:36:06Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dlh-v0-s1000: start
+[2026-11-10T02:36:39Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1007: capped, 5478878 states seen
+[2026-11-10T02:36:39Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dlh-v0-s1001: start
+[2026-11-10T05:07:19Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1008: capped, 5410892 states seen
+[2026-11-10T05:07:19Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dlh-v0-s1002: start
+[2026-11-10T05:07:26Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dl-v0-s1009: capped, 5410420 states seen
+[2026-11-10T05:07:26Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dlh-v0-s1003: start
+[2026-11-10T05:18:36Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dlh-v0-s1000: capped, 7500746 states seen
+[2026-11-10T05:18:36Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dlh-v0-s1004: start
+[2026-11-10T05:19:51Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dlh-v0-s1001: capped, 7559397 states seen
+[2026-11-10T05:19:51Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dlh-v0-s1005: start
+[2026-11-10T05:30:06Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dlh-v0-s1005: stopped at the deadline, 329670 expanded
+[2026-11-10T05:30:07Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dlh-v0-s1004: stopped at the deadline, 372867 expanded
+[2026-11-10T05:30:11Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dlh-v0-s1003: stopped at the deadline, 734025 expanded
+[2026-11-10T05:30:11Z] devsearch unit d-036-MiniGrid-ObstructedMaze-2Dlh-v0-s1002: stopped at the deadline, 747451 expanded
+[2026-11-10T05:30:11Z] checkpoint 1: 12 units done, 4 in progress, 12 payload files
+[2026-11-10T05:30:11Z] chunk d-036: partial; units done 12 of 40; stopped: deadline reached with devsearch units unfinished
+[2026-11-10T05:30:13Z] wrote result.json (status partial) and bundle.tar.gz
