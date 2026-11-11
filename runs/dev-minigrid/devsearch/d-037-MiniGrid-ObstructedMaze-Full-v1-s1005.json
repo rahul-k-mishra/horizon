@@ -1,0 +1,66 @@
+{
+ "campaign": "dev-minigrid",
+ "cap_hit": "time",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "d-037",
+ "complete": false,
+ "counts": {
+  "depth_max": 24,
+  "frontier_left": 3696324,
+  "solution_length": null,
+  "spill_files_max": 3,
+  "states_expanded": 4640183,
+  "states_seen": 8336507,
+  "successors_total": 37121464
+ },
+ "game": "MiniGrid-ObstructedMaze-Full-v1",
+ "level": 1005,
+ "measures": {
+  "branching": 3.9195913178424213,
+  "eh": null,
+  "eh_horizon": 400,
+  "eh_k": null,
+  "eh_status": "not computed: capped by time"
+ },
+ "schema": "horizon.search.v2",
+ "seconds_spent": 14400.177,
+ "sessions": [
+  {
+   "ended_at": "2026-11-11T12:59:05Z",
+   "host": "3f291df2c30f",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_8C44sktFTL8G1kAFq2WY55Q153FZW8ZI1IpUUvMGTY-368297886-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-central1-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-037-20261111T045850Z-fc999f",
+   "started_at": "2026-11-11T04:59:05Z"
+  },
+  {
+   "ended_at": "2026-11-11T13:18:50Z",
+   "host": "e1e71d481d07",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_in1h3ADGmnBabHwbw9ctt7oxxTLyEoeRggwKX0Xs-368440778-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "europe-west1-d",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-037-20261111T131432Z-cf6841",
+   "started_at": "2026-11-11T13:14:51Z"
+  }
+ ],
+ "suite": "minigrid",
+ "unit_id": "d-037-MiniGrid-ObstructedMaze-Full-v1-s1005",
+ "written_at": "2026-11-11T13:18:50Z"
+}

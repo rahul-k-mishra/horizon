@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-037",
+ "committed_at": "2026-11-11T22:57:30Z",
+ "kernel_version": 82,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-037-MiniGrid-Playground-v0-s1001.json",
+ "row_sha256": "7a7e1c0c0612fc790df23b608238af10e3462ea27ca97f13994199d84a774608",
+ "run_nonce": "dev-minigrid-d-037-20261111T131432Z-cf6841",
+ "unit_id": "d-037-MiniGrid-Playground-v0-s1001"
+}
