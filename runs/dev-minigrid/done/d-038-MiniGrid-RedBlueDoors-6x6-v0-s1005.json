@@ -1,0 +1,10 @@
+{
+ "chunk_id": "d-038",
+ "committed_at": "2026-11-12T04:07:59Z",
+ "kernel_version": 84,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid/devsearch/d-038-MiniGrid-RedBlueDoors-6x6-v0-s1005.json",
+ "row_sha256": "81f16d11240cf83ecd786b3fdb0a691c464d3a3efa85361f01caf5474cf85967",
+ "run_nonce": "dev-minigrid-d-038-20261112T033656Z-f977fa",
+ "unit_id": "d-038-MiniGrid-RedBlueDoors-6x6-v0-s1005"
+}
