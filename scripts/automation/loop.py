@@ -21,6 +21,14 @@ A tick:
        lock by committing and pushing jobs/lock.json and the dispatch (a rejected push means another
        runner acted first, and this tick stops), push the notebook, and commit the kernel version.
     4. If every chunk is done, say "manifest complete" and stop.
+Refusals and queues (added 12 November 2026; docs/AUTOMATION.md, Section 7): a push refused for a reason
+classify_refusal finds transient (a full account, a rate limit, a server or network error), or a session that
+never started and ended ERROR with such a failure message, counts neither a crash nor a failure of the chunk:
+the chunk goes back to partial or pending and the same chunk is pushed again on a later tick.  A session seen
+queued is not counted overdue while it waits and is never pushed twice; once seen running it is timed from
+then.  Either wait halts the loop with STATE-ready text after WAIT_LIMIT_SECONDS.  A refusal text that is
+genuine or cannot be classified counts a failure of the chunk, as before; a kernel status outside
+KNOWN_STATUS is a crash, with the dispatch kept.
 A tick that ends with an error is a crash: jobs/state.json counts consecutive crashes, a tick that
 reaches a chunk sets the count back to 0, and at MAX_CRASHES the loop halts with STATE-ready text.
 A chunk's failures are counted (kernel error, missing or invalid output, no progress); at the
@@ -58,6 +66,42 @@ from schema import validate_row  # noqa: E402
 
 REPO = os.path.dirname(os.path.dirname(HERE))
 RUNNING = ("queued", "running", "new_script", "cancel_requested")
+FINISHED = ("complete", "error", "cancel_acknowledged")
+# Every value of kagglesdk's KernelWorkerStatus (kaggle 2.2.4) is in RUNNING or FINISHED.  Any other status is
+# not guessed at: the tick stops with an error, which counts as a crash, and the dispatch stays in flight.
+KNOWN_STATUS = RUNNING + FINISHED
+# The longest the loop waits on a condition outside the campaign before it halts (docs/AUTOMATION.md, Section 7,
+# "Refusals and queues"): a push refused for a transient reason, or a pushed session that stays queued.  Other
+# notebooks of the account can hold every CPU slot for one Kaggle session each, at most 12 hours by Kaggle's
+# stated limit (an assumption, docs/AUTOMATION.md, Section 3); 24 hours is two such sessions back to back.
+WAIT_LIMIT_SECONDS = 24 * 3600
+# Refusal texts.  A text that matches GENUINE, or matches neither list, is a genuine fault and counts as a
+# failure of the chunk, as before.  Only a text that matches TRANSIENT and not GENUINE makes the loop wait.
+GENUINE = re.compile(r"authenticat|unauthori[sz]ed|\b40[0134]\b|permission|forbidden|not found|invalid|metadata|"
+                     r"must be|must contain|source file|bad request|see previous output", re.I)
+TRANSIENT = (
+    ("account session limit", re.compile(r"session count|sessions? limit|concurrent|maximum (?:batch|number of)|"
+                                         r"too many (?:running|active|sessions|kernels|notebooks)", re.I)),
+    ("quota", re.compile(r"quota", re.I)),
+    ("rate limit", re.compile(r"\b429\b|too many requests|rate limit", re.I)),
+    ("server error", re.compile(r"\b50[0234]\b|internal server error|bad gateway|service unavailable|"
+                                r"gateway time-?out", re.I)),
+    ("network", re.compile(r"timed? ?out|connection (?:aborted|reset|refused|error)|max retries exceeded|"
+                           r"name resolution|network is unreachable|temporar|try again later", re.I)),
+    ("queue busy", re.compile(r"\bqueue|\bbusy\b", re.I)),
+)
+
+
+def classify_refusal(text):
+    """The class of a transient refusal ("account session limit", "quota", ...), or None for a genuine
+    fault or a text that cannot be classified.  A genuine sign wins over a transient one."""
+    text = str(text or "")
+    if GENUINE.search(text):
+        return None
+    for name, rx in TRANSIENT:
+        if rx.search(text):
+            return name
+    return None
 # Consecutive crashed ticks before the loop halts (docs/AUTOMATION.md, Section 7): at the chain's shortest
 # spacing of 5 minutes, 12 crashes are an hour of continuous failure, longer than an ordinary outage of
 # GitHub, Kaggle or the package index; under the cron alone they are 6 hours.
@@ -156,11 +200,16 @@ def prepare_kernel(repo, m, dest):
 
 
 def kernel_status(ref):
+    """(status, failure message or ""); a status outside KNOWN_STATUS is an error of the tick."""
     out = kaggle("kernels", "status", ref).stdout
     mm = re.search(r'has status "(?:KernelWorkerStatus\.)?([A-Za-z_]+)"', out)
     if not mm:
         raise RuntimeError(f"cannot read the kernel status from: {out!r}")
-    return mm.group(1).lower()
+    ks = mm.group(1).lower()
+    if ks not in KNOWN_STATUS:
+        raise RuntimeError(f"kernel status {ks!r} is not one the loop knows; the dispatch is kept: {out.strip()!r}")
+    fm = re.search(r'Failure message: "(.*)"', out)
+    return ks, (fm.group(1) if fm else "")
 
 
 def kernel_push(folder):
@@ -247,6 +296,39 @@ def failure(repo, m, st, chunk, reason, version, nonce):
         say(text)
 
 
+def halt_waiting(repo, m, st, what, reason):
+    """Halt after waiting WAIT_LIMIT_SECONDS on a condition outside the campaign.  No chunk failure is counted."""
+    st["halted"] = True
+    st["halted_at"] = now_iso()
+    st["halt_reason"] = f"{what} for more than {WAIT_LIMIT_SECONDS // 3600} hours; last: {reason}"
+    text = (f"STATE-ready text: On {now_iso()} the HORIZON loop halted. {what} for more than "
+            f"{WAIT_LIMIT_SECONDS // 3600} hours, the limit of loop.WAIT_LIMIT_SECONDS, for a reason the loop "
+            f"classes as outside the campaign. Last: {reason}. No chunk failure was counted for it. Chunks of "
+            f"campaign {m['campaign']}: {counts(m)}. The loop does nothing until the cause is found and "
+            f"jobs/state.json \"halted\" is set back to false and \"deferral\" to null by hand.")
+    log_line(repo, "HALT " + text)
+    say(text)
+
+
+def defer(repo, m, st, chunk, reason, cls):
+    """A push refused, or a session not started, for a transient reason (classify_refusal): the chunk did no
+    work, so no failure is counted; it goes back to partial or pending and is tried again on a later tick.
+    jobs/state.json "deferral" holds the start of the run of refusals; a successful push clears it.  When the
+    run has lasted WAIT_LIMIT_SECONDS the loop halts."""
+    has_ck = os.path.exists(os.path.join(repo, checkpoint_reldir(m, chunk["chunk_id"]), "checkpoint.json"))
+    chunk["status"] = "partial" if has_ck else "pending"
+    df = st.get("deferral") or dict(since=now_iso(), count=0)
+    df.update(chunk_id=chunk["chunk_id"], count=int(df.get("count", 0)) + 1, last_at=now_iso(),
+              last_class=cls, last_reason=" ".join(str(reason).split())[:300])
+    st["deferral"] = df
+    waited = time.time() - epoch(df["since"])
+    log_line(repo, f"DEFERRED chunk {chunk['chunk_id']}: {reason} (transient: {cls}; refusal {df['count']}, "
+                   f"waiting since {df['since']}, halt after {WAIT_LIMIT_SECONDS // 3600} h; no failure counted)")
+    if waited >= WAIT_LIMIT_SECONDS:
+        halt_waiting(repo, m, st, f"Chunk {chunk['chunk_id']} could not be started: {df['count']} refusals "
+                                  f"since {df['since']}", f"{reason} (class {cls})")
+
+
 # ---------------------------------------------------------------- collect a finished session
 def safe_extract(tar_path, dest):
     with tarfile.open(tar_path, "r:gz") as tar:
@@ -257,7 +339,7 @@ def safe_extract(tar_path, dest):
         tar.extractall(dest)
 
 
-def collect(repo, m, st, kstatus):
+def collect(repo, m, st, kstatus, kmessage=""):
     d = st["dispatch"]
     chunk = get_chunk(m, d["chunk_id"])
     version, nonce = d.get("kernel_version"), d["nonce"]
@@ -323,7 +405,12 @@ def collect(repo, m, st, kstatus):
                 for n, info in ck["payload"].items():
                     if sha256_file(os.path.join(ckd, n)) != info["sha256"]:
                         problems.append(f"checkpoint file {n}: sha256 differs")
-    if problems:
+    not_started = kstatus == "error" and not console and res is None and classify_refusal(kmessage)
+    if problems and not_started:
+        # the notebook never ran (no console.log, no result.json) and Kaggle's failure message is transient
+        defer(repo, m, st, chunk, f"session not started (kernel status {kstatus}): {kmessage}", not_started)
+        outcome = "not started"
+    elif problems:
         failure(repo, m, st, chunk, "; ".join(problems), version, nonce)
         outcome = "failed"
     else:
@@ -440,10 +527,22 @@ def dispatch(repo, m, st):
     except RuntimeError as e:
         st["dispatch"] = None
         os.remove(lp)
+        cls = classify_refusal(e)
+        if cls:
+            c["attempts"] -= 1                   # nothing was pushed: the next try is the same attempt
+            defer(repo, m, st, c, f"kernel push refused: {str(e)[:300]}", cls)
+            save(repo, m, st)
+            commit_push(repo, f"Loop: push of {c['chunk_id']} refused ({cls}), "
+                              + ("waited too long; loop halted" if st.get("halted") else "deferred"))
+            return
         failure(repo, m, st, c, f"kernel push failed: {str(e)[:300]}", None, nonce)
         save(repo, m, st)
         commit_push(repo, f"Loop: kernel push failed for {c['chunk_id']}")
         return
+    if st.get("deferral"):
+        log_line(repo, f"DEFERRAL cleared: the push of {c['chunk_id']} succeeded after {st['deferral'].get('count')} "
+                       f"refusals since {st['deferral'].get('since')}")
+        st["deferral"] = None
     st["dispatch"].update(kernel_version=v, pushed_at=now_iso())
     save(repo, m, st)
     log_line(repo, f"PUSHED chunk {c['chunk_id']} as kernel version {v} run {nonce}")
@@ -528,15 +627,40 @@ def _tick(repo):
         return 0
     d = st.get("dispatch")
     if d:
-        ks = kernel_status(kernel_ref(m))
+        ks, kmsg = kernel_status(kernel_ref(m))
         reset = reached_chunk(repo, st)
-        started = d.get("pushed_at") or d["dispatched_at"]
+        pushed = d.get("pushed_at") or d["dispatched_at"]
+        noted = None
+        if ks == "queued" and not d.get("queued_seen_at"):
+            d["queued_seen_at"] = now_iso()
+            noted = f"QUEUED chunk {d['chunk_id']} kernel version {d.get('kernel_version')}: pushed {pushed}, not started"
+        elif ks != "queued" and d.get("queued_seen_at") and not d.get("started_seen_at"):
+            d["started_seen_at"] = now_iso()
+            noted = (f"STARTED chunk {d['chunk_id']} kernel version {d.get('kernel_version')}: {ks}, queued since "
+                     f"{d['queued_seen_at']} or earlier; overdue now counted from {d['started_seen_at']}")
+        if noted:
+            log_line(repo, noted)
+        if ks == "queued":
+            # a session that has not started has done no work and cannot be overdue; it may still start, so it
+            # is not pushed again (two sessions of one chunk); a queue that outlasts the limit halts the loop
+            if time.time() - epoch(pushed) >= WAIT_LIMIT_SECONDS:
+                halt_waiting(repo, m, st, f"Chunk {d['chunk_id']} on kernel version {d.get('kernel_version')} stayed "
+                                          f"queued on Kaggle since its push at {pushed}", f"kernel status {ks}")
+                write_json(os.path.join(repo, STATE), st)
+                commit_push(repo, f"Loop: {d['chunk_id']} queued too long; loop halted")
+                return 0
+            say(f"{d['chunk_id']} on kernel version {d.get('kernel_version')} is queued (pushed {pushed}); nothing to do")
+            if reset or noted:
+                write_json(os.path.join(repo, STATE), st)
+                commit_push(repo, f"Loop: {d['chunk_id']} queued on Kaggle" if noted else "Loop: crash count reset")
+            return 0
+        started = d.get("started_seen_at") or pushed
         overdue = time.time() - epoch(started) > float(m["session"]["platform_limit_seconds"]) + 1800
         if ks in RUNNING and not overdue:
-            say(f"{d['chunk_id']} on kernel version {d.get('kernel_version')} is {ks} (pushed {started}); nothing to do")
-            if reset:
+            say(f"{d['chunk_id']} on kernel version {d.get('kernel_version')} is {ks} (pushed {pushed}); nothing to do")
+            if reset or noted:
                 write_json(os.path.join(repo, STATE), st)
-                commit_push(repo, "Loop: crash count reset")
+                commit_push(repo, f"Loop: {d['chunk_id']} started on Kaggle" if noted else "Loop: crash count reset")
             return 0
         if ks in RUNNING:
             chunk = get_chunk(m, d["chunk_id"])
@@ -548,11 +672,11 @@ def _tick(repo):
                 os.remove(os.path.join(repo, LOCK))
             msg = f"Loop: {d['chunk_id']} overdue (kernel version {d.get('kernel_version')})"
         else:
-            msg = collect(repo, m, st, ks)
+            msg = collect(repo, m, st, ks, kmsg)
         save(repo, m, st)
         if not commit_push(repo, msg):
             return 0
-        if st.get("halted"):
+        if st.get("halted") or " not started " in msg:     # a deferred chunk is tried again on a later tick
             return 0
     dispatch(repo, m, st)
     return 0
@@ -570,6 +694,11 @@ def next_wake(repo, lo, hi):
         return None, f"manifest complete: {counts(m)}"
     if not d and select_next(m) is None:
         return None, f"no chunk can run: {counts(m)}"
+    if not d and st.get("deferral"):
+        df = st["deferral"]
+        return hi, f"push of {df.get('chunk_id')} deferred ({df.get('last_class')}), {df.get('count')} refusals since {df.get('since')}"
+    if d and d.get("queued_seen_at") and not d.get("started_seen_at"):
+        return hi, f"{d['chunk_id']} on kernel version {d.get('kernel_version')} queued since {d['queued_seen_at']}"
     if d and d.get("pushed_at"):
         end = epoch(d["pushed_at"]) + float(m["session"]["work_seconds"]) + float(m["session"]["checkpoint_reserve_seconds"])
         left = int(end - time.time())

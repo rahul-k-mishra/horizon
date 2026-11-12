@@ -30,6 +30,18 @@ STATE-ready text; a crash after the halt is not counted, and next-wake says "non
 A fourth scenario runs the kind devsearch (stage D) through the loop: three MiniGrid units on a pool of two
 workers, one slowed so that the first session ends partial with it in a checkpoint; it is resumed in a
 later session and must count the same 112 states as an uninterrupted search.  Needs gymnasium and minigrid.
+Five scenarios on refusals and queues (added 12 November 2026), with the fake Kaggle tool's refuse.json and
+status.json, each on its own repository:
+    refusal      (R1) four pushes refused for a full account, one more than max_failures: no failure, no crash,
+                 no halt, the same chunk waiting, next-wake the longest sleep; (R2) an HTTP 429 likewise; (R3)
+                 the push accepted: the deferral cleared, and the manifest completes with no failure
+    queue        (Q1) a queued session is recorded, next-wake the longest sleep; (Q2) queued past the overdue
+                 time, it is not counted overdue; (Q3) once running it is timed from then; (Q4) a queue longer
+                 than loop.WAIT_LIMIT_SECONDS halts the loop, no failure, the dispatch kept
+    notstarted   (N1) a kernel status the loop does not know is a crash, the dispatch kept; (N2) a session that
+                 never started (ERROR, no output, a full-account message) is deferred, not failed
+    bound        a refusal that lasts past loop.WAIT_LIMIT_SECONDS halts the loop, with no failure counted
+    genuine      an unclassifiable refusal and then the authentication error count failures; the third halts
 Run (working directory D:\\Research\\horizon\\repo):
     D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\automation\\test_loop.py
 Expected last line: OK
@@ -42,6 +54,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 from collections import deque
 
 sys.dont_write_bytecode = True
@@ -292,6 +305,214 @@ def scenario_devsearch(env_base, tmp, check):
                       "(an uninterrupted search sees 112, scripts/automation/test_devsearch.py)")
 
 
+def setup_repo(tmp, name, m):
+    """Source repository, bare remote and working clone for one scenario; returns the clone."""
+    src = make_src(tmp, f"src-{name}", m)
+    git(src, "init", "-q", "-b", "main")
+    git(src, "config", "user.name", "test")
+    git(src, "config", "user.email", "test@example.invalid")
+    git(src, "add", "-A")
+    git(src, "commit", "-q", "-m", "test setup")
+    git(src, "tag", "automation-v1")
+    bare = os.path.join(tmp, f"remote-{name}.git")
+    git(tmp, "clone", "-q", "--bare", src, bare)
+    work = os.path.join(tmp, f"work-{name}")
+    git(tmp, "clone", "-q", bare, work)
+    git(work, "config", "user.name", "horizon-loop")
+    git(work, "config", "user.email", "loop@example.invalid")
+    return work, bare
+
+
+class Kag:
+    """One scenario's fake Kaggle store and its loop: ticks, scripted refusals and statuses, edits of state.json."""
+    def __init__(self, env_base, tmp, name):
+        self.work, bare = setup_repo(tmp, name, fixture_manifest())
+        self.store = os.path.join(tmp, f"kaggle-{name}")
+        os.makedirs(self.store)
+        self.env = dict(env_base, FAKE_KAGGLE_STORE=self.store, FAKE_KAGGLE_REPO_URL=bare,
+                        HORIZON_RELEASE_DIR=os.path.join(tmp, f"releases-{name}"))
+        self.loop_py = os.path.join(self.work, "scripts", "automation", "loop.py")
+        self.name = name
+
+    def refuse(self, left, message="", mode="field"):
+        write_json(os.path.join(self.store, "refuse.json"), dict(left=left, message=message, mode=mode))
+
+    def statuses(self, *seq):
+        write_json(os.path.join(self.store, "status.json"), list(seq))
+
+    def tick(self, label):
+        r = subprocess.run([sys.executable, self.loop_py, "tick", "--repo", self.work], env=self.env,
+                           capture_output=True, text=True)
+        lines = [x for x in (r.stdout + r.stderr).strip().splitlines() if "Traceback" not in x and not x.startswith("  ")]
+        print(f"--- {self.name} scenario {label} (exit {r.returncode})\n" + "\n".join(lines)[-700:])
+        return r
+
+    def wake(self):
+        return subprocess.run([sys.executable, self.loop_py, "next-wake", "--repo", self.work, "--min", "300",
+                               "--max", "1800"], env=self.env, capture_output=True, text=True).stdout.strip()
+
+    def state(self):
+        return read_json(os.path.join(self.work, "jobs", "state.json"))
+
+    def chunk(self, cid):
+        return next(c for c in load_manifest(self.work)["chunks"] if c["chunk_id"] == cid)
+
+    def log(self):
+        p = os.path.join(self.work, "logs", "automation.log")
+        return open(p, encoding="utf-8").read() if os.path.exists(p) else ""
+
+    def edit_state(self, fn, msg):
+        st = self.state()
+        fn(st)
+        write_json(os.path.join(self.work, "jobs", "state.json"), st)
+        git(self.work, "commit", "-q", "--allow-empty", "-am", msg)
+        git(self.work, "push", "-q")
+
+
+def ago(hours):
+    return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(time.time() - hours * 3600))
+
+
+FULL = "Maximum batch CPU session count of 5 reached."     # the form assumed for a full account (not verified)
+
+
+def scenario_refusal(env_base, tmp, check):
+    """A push refused because the account is full, or by a busy server, is neither a failure of the chunk nor a
+    crash: the loop waits and pushes the same chunk again on a later tick."""
+    k = Kag(env_base, tmp, "refusal")
+    # (R1) four refusals in a row, more than max_failures (3), in the form kaggle 2.2.4 prints a server error
+    k.refuse(4, FULL)
+    for i in range(4):
+        r = k.tick(f"R1 tick {i + 1}, account full")
+        st, c = k.state(), k.chunk("dry-01")
+        check(r.returncode == 0 and not st.get("halted") and c["failures"] == 0 and c["status"] == "pending"
+              and c["attempts"] == 0 and not st.get("dispatch") and int(st.get("consecutive_crashes") or 0) == 0
+              and (st.get("deferral") or {}).get("count") == i + 1,
+              f"R1 refusal {i + 1}: exit {r.returncode}, halted {st.get('halted')}, failures {c['failures']}, "
+              f"status {c['status']}, attempts {c['attempts']}, deferral {st.get('deferral')}")
+    w = k.wake()
+    check(w.startswith("1800 push of dry-01 deferred"), f"R1 next-wake while deferred: {w!r}")
+    # (R2) an HTTP 429 from the push, exit code 1
+    k.refuse(1, "429 Client Error: Too Many Requests for url: https://www.kaggle.com/api/v1/kernels/push", "http")
+    r = k.tick("R2 tick, HTTP 429")
+    st, c = k.state(), k.chunk("dry-01")
+    check(r.returncode == 0 and c["failures"] == 0 and (st.get("deferral") or {}).get("last_class") == "rate limit"
+          and (st.get("deferral") or {}).get("count") == 5, f"R2: failures {c['failures']}, deferral {st.get('deferral')}")
+    # (R3) the account frees a slot: the same chunk is pushed, the deferral cleared, and the manifest completes
+    r = k.tick("R3 tick 1, push accepted")
+    st, c = k.state(), k.chunk("dry-01")
+    check(r.returncode == 0 and (st.get("dispatch") or {}).get("chunk_id") == "dry-01" and st.get("deferral") is None
+          and c["attempts"] == 1 and "DEFERRAL cleared" in k.log(),
+          f"R3: dispatch {st.get('dispatch')}, deferral {st.get('deferral')}, attempts {c['attempts']}")
+    finish(k, "R3", check)
+
+
+def finish(k, label, check):
+    """Tick until the manifest is complete; every chunk must end done with no failure."""
+    for i in range(8):
+        r = k.tick(f"{label} finish tick {i + 1}")
+        if "manifest complete" in r.stdout or k.state().get("halted"):
+            break
+    m = load_manifest(k.work)
+    check(all(c["status"] == "done" and c["failures"] == 0 for c in m["chunks"]) and not k.state().get("halted"),
+          f"{label}: end state {[(c['chunk_id'], c['status'], c['failures']) for c in m['chunks']]}, "
+          f"halted {k.state().get('halted')}")
+    msgs = [x for x in git(k.work, "log", "--format=%H%x00%B%x00").split("\x00") if x.strip()][1::2]
+    check(all(len(x.strip().splitlines()) == 1 for x in msgs), f"{label}: a commit message has more than one line")
+
+
+def push_ago(hours):
+    return lambda s: (s.get("dispatch") or {}).update(pushed_at=ago(hours))
+
+
+def scenario_queue(env_base, tmp, check):
+    """A session Kaggle keeps queued is not counted overdue while it waits and is never pushed twice; once seen
+    running it is timed from then; a queue longer than loop.WAIT_LIMIT_SECONDS halts the loop with STATE-ready
+    text, no failure counted and the dispatch kept."""
+    k = Kag(env_base, tmp, "queue")
+    k.tick("Q1 tick 1, push dry-01")
+    k.statuses("QUEUED", "QUEUED", "RUNNING")
+    r = k.tick("Q1 tick 2, queued")
+    st = k.state()
+    check(r.returncode == 0 and (st.get("dispatch") or {}).get("queued_seen_at") and "QUEUED chunk dry-01" in k.log(),
+          f"Q1: queue not recorded: {st.get('dispatch')}")
+    w = k.wake()
+    check(w.startswith("1800 dry-01"), f"Q1: next-wake while queued must be the longest sleep: {w!r}")
+    k.edit_state(push_ago(1), "test: dry-01 pushed an hour ago")
+    r = k.tick("Q2 tick, queued past the overdue time (600 s + 1800 s)")
+    st, c = k.state(), k.chunk("dry-01")
+    check(r.returncode == 0 and c["failures"] == 0 and st.get("dispatch") and c["status"] == "running",
+          f"Q2: a queued session was counted overdue: failures {c['failures']}, status {c['status']}")
+    r = k.tick("Q3 tick, running")
+    st, c = k.state(), k.chunk("dry-01")
+    check(r.returncode == 0 and c["failures"] == 0 and (st.get("dispatch") or {}).get("started_seen_at"),
+          f"Q3: start not recorded, or counted overdue from the push: failures {c['failures']}, {st.get('dispatch')}")
+    k.tick("Q4 tick 1, collect dry-01 and push dry-02")
+    k.statuses("QUEUED")
+    k.edit_state(push_ago(25), "test: dry-02 pushed 25 hours ago")
+    r = k.tick("Q4 tick 2, queued 25 h")
+    st, c = k.state(), k.chunk("dry-02")
+    check(r.returncode == 0 and st.get("halted") and c["failures"] == 0
+          and (st.get("dispatch") or {}).get("chunk_id") == "dry-02"
+          and "stayed queued" in k.log() and "STATE-ready text" in k.log(),
+          f"Q4: halted {st.get('halted')}, failures {c['failures']}, dispatch {bool(st.get('dispatch'))}")
+    k.edit_state(lambda s: s.update(halted=False, halted_at=None, halt_reason=None), "test: halt cleared by hand")
+    finish(k, "Q4", check)
+
+
+def scenario_not_started(env_base, tmp, check):
+    """A pushed session that never runs: an unknown kernel status is a crash with the dispatch kept; then ERROR
+    with a full-account failure message and no output is deferred, not counted as a failure."""
+    k = Kag(env_base, tmp, "notstarted")
+    k.refuse(1, mode="norun")
+    k.tick("N1 tick 1, push dry-01, which never runs")
+    k.statuses("WEIRD", f"ERROR|{FULL}")
+    r = k.tick("N1 tick 2, unknown status")
+    st, c = k.state(), k.chunk("dry-01")
+    check(r.returncode == 1 and st.get("consecutive_crashes") == 1
+          and (st.get("dispatch") or {}).get("chunk_id") == "dry-01" and c["failures"] == 0,
+          f"N1: unknown status: exit {r.returncode}, crashes {st.get('consecutive_crashes')}, "
+          f"failures {c['failures']}, dispatch {bool(st.get('dispatch'))}")
+    r = k.tick("N2 tick, ERROR, session never started")
+    st, c = k.state(), k.chunk("dry-01")
+    check(r.returncode == 0 and c["failures"] == 0 and c["status"] == "pending" and not st.get("dispatch")
+          and st.get("consecutive_crashes") == 0 and (st.get("deferral") or {}).get("count") == 1
+          and c["sessions"] and c["sessions"][-1]["outcome"] == "not started",
+          f"N2: not-started session: failures {c['failures']}, status {c['status']}, deferral {st.get('deferral')}")
+    finish(k, "N2", check)
+
+
+def scenario_refusal_bound(env_base, tmp, check):
+    """A refusal that persists past loop.WAIT_LIMIT_SECONDS halts the loop with STATE-ready text, without
+    counting a failure of the chunk."""
+    k = Kag(env_base, tmp, "bound")
+    k.refuse(99, FULL)
+    k.tick("tick 1, account full")
+    k.edit_state(lambda s: (s.get("deferral") or {}).update(since=ago(25)), "test: refusals began 25 hours ago")
+    r = k.tick("tick 2, account still full")
+    st, c = k.state(), k.chunk("dry-01")
+    check(r.returncode == 0 and st.get("halted") and c["failures"] == 0 and c["status"] == "pending"
+          and "could not be started" in k.log() and "STATE-ready text" in k.log(),
+          f"bound: halted {st.get('halted')}, failures {c['failures']}, status {c['status']}")
+    check(k.wake().startswith("none halted"), "bound: next-wake after the halt")
+
+
+def scenario_genuine(env_base, tmp, check):
+    """A push refused for a genuine fault still counts a failure of the chunk and halts at max_failures: an
+    unclassifiable text once, then the authentication error of the first dry run (logs/automation.log line 2)."""
+    k = Kag(env_base, tmp, "genuine")
+    k.refuse(1, "The server answered something this loop has never seen.")
+    k.tick("tick 1, unclassifiable refusal")
+    check(k.chunk("dry-01")["failures"] == 1 and not k.state().get("deferral"),
+          f"genuine: an unclassifiable refusal must count a failure: {k.chunk('dry-01')['failures']}")
+    k.refuse(2, "Authentication required to call the Kaggle API.")
+    for i in range(2):
+        k.tick(f"tick {2 + i}, authentication refused")
+    st, c = k.state(), k.chunk("dry-01")
+    check(st.get("halted") and c["status"] == "failed" and c["failures"] == 3 and "STATE-ready text" in k.log()
+          and "failed 3 times" in k.log(), f"genuine: halted {st.get('halted')}, chunk {c['status']} failures {c['failures']}")
+
+
 def main():
     fails = []
 
@@ -397,6 +618,11 @@ def main():
         scenario_halt(env, tmp, check)
         scenario_crash(env, tmp, check)
         scenario_devsearch(env, tmp, check)
+        scenario_refusal(env, tmp, check)
+        scenario_queue(env, tmp, check)
+        scenario_not_started(env, tmp, check)
+        scenario_refusal_bound(env, tmp, check)
+        scenario_genuine(env, tmp, check)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     print("OK" if not fails else f"{len(fails)} failure(s)")
