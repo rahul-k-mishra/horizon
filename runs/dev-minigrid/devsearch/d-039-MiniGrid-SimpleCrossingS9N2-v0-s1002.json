@@ -1,0 +1,52 @@
+{
+ "campaign": "dev-minigrid",
+ "cap_hit": null,
+ "capped": false,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "d-039",
+ "complete": true,
+ "counts": {
+  "depth_max": 17,
+  "frontier_left": 0,
+  "solution_length": 12,
+  "spill_files_max": 0,
+  "states_expanded": 119,
+  "states_seen": 121,
+  "successors_total": 952
+ },
+ "game": "MiniGrid-SimpleCrossingS9N2-v0",
+ "level": 1002,
+ "measures": {
+  "branching": 3.5798319327731094,
+  "eh": 15.377199417763658,
+  "eh_horizon": 400,
+  "eh_k": 1,
+  "eh_status": "ok"
+ },
+ "schema": "horizon.search.v2",
+ "seconds_spent": 0.092,
+ "sessions": [
+  {
+   "ended_at": "2026-11-12T04:09:45Z",
+   "host": "b10f79cc733c",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_GM9Mkz32GckOLStuxWhwSMMI5xqVXWff0CKcweR1gbE-368653583-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-east4-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-d-039-20261112T040801Z-62cd7b",
+   "started_at": "2026-11-12T04:08:18Z"
+  }
+ ],
+ "suite": "minigrid",
+ "unit_id": "d-039-MiniGrid-SimpleCrossingS9N2-v0-s1002",
+ "written_at": "2026-11-12T04:09:45Z"
+}
