@@ -15,6 +15,14 @@ state.  Needs gymnasium 1.3.0 and minigrid 3.1.0.  Plays no agent; reads no stud
     4. A search stopped early, saved with SearchState.save, loaded and finished gives the same counts and
        the same effective-horizon bound as an uninterrupted one.
     5. A Dynamic-Obstacles level is refused.
+    6. The schema horizon.search.v3 (stage E) with a seen cap no search reaches gives the counts and measures of
+       v2 on all six levels, with first-win counts that agree with the solution length; a v3 row does not pass
+       as v2, nor a v2 row as v3.
+    7. The seen cap on DoorKey-5x5, seed 1000: the search stops within one state's successors past the cap, as
+       capped "seen" (or complete if nothing is left), and finds the win exactly when the full search had seen
+       it by then.
+    8. A v3 search stopped early, saved, loaded and finished under a seen cap gives the counts of an
+       uninterrupted one.
 Run with warnings as errors (working directory D:\\Research\\horizon\\repo):
     D:\\Research\\horizon\\.venv\\Scripts\\python.exe -W error scripts\\automation\\test_devsearch.py
 Expected last line: OK
@@ -38,7 +46,7 @@ warnings.filterwarnings("ignore", message=".*pkg_resources.*")
 warnings.filterwarnings("ignore", category=DeprecationWarning, module="pygame.*")
 import eh  # noqa: E402
 import jobs  # noqa: E402
-from schema import SEARCH_SCHEMA_V2, validate_search_row  # noqa: E402
+from schema import SEARCH_SCHEMA_V2, SEARCH_SCHEMA_V3, validate_search_row  # noqa: E402
 
 LEVELS = [("MiniGrid-Empty-5x5-v0", 1000), ("MiniGrid-DoorKey-5x5-v0", 1000), ("MiniGrid-LavaGapS5-v0", 1000),
           ("MiniGrid-Fetch-5x5-N2-v0", 1001), ("BabyAI-GoToRedBallNoDists-v0", 1000), ("BabyAI-UnlockLocal-v0", 1002)]
@@ -199,6 +207,63 @@ def main():
             check(False, "Dynamic-Obstacles must be refused")
         except ValueError as e:
             check("excluded" in str(e), f"Dynamic-Obstacles refused for the wrong reason: {e}")
+
+        # 6. horizon.search.v3 (stage E): with a seen cap no search reaches, the same counts and measures as v2
+        #    on every level, plus first-win counts that agree with the solution length
+        p3 = dict(PARAMS, schema=SEARCH_SCHEMA_V3, seen_cap=10 ** 9)
+        for game, seed in LEVELS:
+            unit = dict(campaign="t", unit_id=f"v3-{game}-{seed}", chunk_id="c", suite="minigrid", game=game, level=seed)
+            r2 = jobs.run_search(unit, PARAMS, os.path.join(tmp, "v2"), None, time.time() + 600, lambda s: None, "n",
+                                 "2026-11-13T00:00:00Z", schema=SEARCH_SCHEMA_V2)[1]
+            st3, r3, _ = jobs.run_search(unit, p3, os.path.join(tmp, "v3"), None, time.time() + 600, lambda s: None,
+                                         "n", "2026-11-13T00:00:00Z", schema=SEARCH_SCHEMA_V3)
+            base3 = {k: v for k, v in r3["counts"].items() if k not in ("seen_at_first_win", "expanded_at_first_win")}
+            check(st3 == "complete" and r3["schema"] == SEARCH_SCHEMA_V3 and not validate_search_row(r3),
+                  f"v3 {game}: {st3} {validate_search_row(r3)}")
+            check(base3 == r2["counts"] and r3["measures"] == r2["measures"],
+                  f"v3 {game}: counts or measures differ from v2: {r3['counts']} {r2['counts']}")
+            check((r3["counts"]["seen_at_first_win"] is None) == (r3["counts"]["solution_length"] is None),
+                  f"v3 {game}: first-win count and solution length disagree: {r3['counts']}")
+            check(r3["counts"]["seen_at_first_win"] is None or r3["counts"]["seen_at_first_win"] <= r3["counts"]["states_seen"],
+                  f"v3 {game}: first win after the last state seen")
+            check(validate_search_row(dict(r3, schema=SEARCH_SCHEMA_V2)) != [], f"v3 {game}: a v3 row passes as v2")
+            check(validate_search_row(dict(r2, schema=SEARCH_SCHEMA_V3)) != [], f"v3 {game}: a v2 row passes as v3")
+
+        # 7. the seen cap on DoorKey-5x5, seed 1000, one expansion a batch: a capped search stops within one
+        #    state's successors of the cap, keeps every count it had, and finds the win exactly when the full
+        #    search had seen it by then
+        game, seed = "MiniGrid-DoorKey-5x5-v0", 1000
+        unit = dict(campaign="t", unit_id="seen", chunk_id="c", suite="minigrid", game=game, level=seed)
+        full = jobs.run_search(unit, dict(p3, batch=1), os.path.join(tmp, "f"), None, time.time() + 600,
+                               lambda s: None, "n", "x", schema=SEARCH_SCHEMA_V3)[1]["counts"]
+        s_win, n_all = full["seen_at_first_win"], full["states_seen"]
+        check(s_win is not None and 1 < s_win < n_all, f"DoorKey full search: {full}")
+        print(f"DoorKey-5x5 seed 1000 under v3: {n_all} states, first win seen at {s_win}, solution length "
+              f"{full['solution_length']}", flush=True)
+        for cap in (1, 30, s_win - 1, s_win, n_all - 1):
+            st, row, _ = jobs.run_search(unit, dict(p3, batch=1, seen_cap=cap), os.path.join(tmp, f"s{cap}"), None,
+                                         time.time() + 600, lambda s: None, "n", "x", schema=SEARCH_SCHEMA_V3)
+            c = row["counts"]
+            ok = (not validate_search_row(row) and row["caps"]["seen_cap"] == cap
+                  and cap <= c["states_seen"] < cap + 7
+                  and (c["seen_at_first_win"] == s_win if s_win <= c["states_seen"] else c["seen_at_first_win"] is None)
+                  and (c["solution_length"] == full["solution_length"] if s_win <= c["states_seen"]
+                       else c["solution_length"] is None))
+            capped_ok = (st == "capped" and row["cap_hit"] == "seen") or (st == "complete" and c["states_seen"] == n_all)
+            check(ok and capped_ok, f"seen cap {cap}: {st} {row['cap_hit']} {c} {validate_search_row(row)}")
+
+        # 8. stop, save, load, finish under v3 with a seen cap: the same row counts as an uninterrupted search
+        p8 = dict(p3, batch=5, seen_cap=60)
+        whole = jobs.run_search(unit, p8, os.path.join(tmp, "a3"), None, time.time() + 600, lambda s: None, "n",
+                                "x", schema=SEARCH_SCHEMA_V3)[1]
+        st, row, state = jobs.run_search(unit, p8, os.path.join(tmp, "b3"), None, time.time(), lambda s: None, "n",
+                                         "x", schema=SEARCH_SCHEMA_V3)
+        meta = state.save(os.path.join(tmp, "ck3"), os.path.join(tmp, "b3"))
+        state2 = jobs.SearchState.load(os.path.join(tmp, "ck3"), meta, os.path.join(tmp, "c3"))
+        st2, row2, _ = jobs.run_search(unit, p8, os.path.join(tmp, "c3"), state2, time.time() + 600, lambda s: None,
+                                       "n", "x", schema=SEARCH_SCHEMA_V3)
+        check(st == "stopped" and row2["counts"] == whole["counts"] and row2["cap_hit"] == whole["cap_hit"] == "seen",
+              f"resumed v3 search differs: {row2['counts']} {row2['cap_hit']} against {whole['counts']} {whole['cap_hit']}")
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     print("OK" if not fails else f"{len(fails)} failure(s)")

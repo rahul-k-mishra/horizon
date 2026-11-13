@@ -43,7 +43,7 @@ from common import (STATE, check_manifest, checkpoint_reldir, chunk_entry_hash, 
                     load_manifest, now_iso, read_json, row_relpath, sha256_file, unit_done, unit_params,
                     write_json)
 from jobs import SearchState, run_agent, run_search, session_entry  # noqa: E402
-from schema import SEARCH_SCHEMA_V2, validate_row  # noqa: E402
+from schema import SEARCH_SCHEMA_V2, SEARCH_SCHEMA_V3, validate_row  # noqa: E402
 
 CKPT = "horizon.checkpoint.v1"
 RESULT = "horizon.result.v1"
@@ -86,7 +86,9 @@ def devsearch_unit(args):
 
     def on_ck(st):
         st.save(os.path.join(unit_dir, "periodic"), spill_dir)
-    status, row, st = run_search(u, p, spill_dir, state, deadline, on_ck, nonce, started, schema=SEARCH_SCHEMA_V2)
+    # the kind's params name the row schema: v2 (stage D) when absent, v3 (stage E, with the seen cap) when given
+    schema = SEARCH_SCHEMA_V3 if p.get("schema") == SEARCH_SCHEMA_V3 else SEARCH_SCHEMA_V2
+    status, row, st = run_search(u, p, spill_dir, state, deadline, on_ck, nonce, started, schema=schema)
     meta = None
     if status == "stopped":
         st.sessions.append(session_entry(nonce, started))

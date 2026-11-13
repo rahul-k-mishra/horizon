@@ -30,6 +30,8 @@ STATE-ready text; a crash after the halt is not counted, and next-wake says "non
 A fourth scenario runs the kind devsearch (stage D) through the loop: three MiniGrid units on a pool of two
 workers, one slowed so that the first session ends partial with it in a checkpoint; it is resumed in a
 later session and must count the same 112 states as an uninterrupted search.  Needs gymnasium and minigrid.
+The same scenario runs a second time with the schema horizon.search.v3 of stage E (added 13 November 2026): a
+seen cap no unit reaches, every row a valid v3 row, and the resumed unit's first win at 64 states seen.
 Five scenarios on refusals and queues (added 12 November 2026), with the fake Kaggle tool's refuse.json and
 status.json, each on its own repository:
     refusal      (R1) four pushes refused for a full account, one more than max_failures: no failure, no crash,
@@ -239,14 +241,21 @@ def scenario_crash(env_base, tmp, check):
     check(len(msgs) == 2 + MAX_CRASHES, f"crash scenario: {len(msgs)} crash commits")
 
 
-def scenario_devsearch(env_base, tmp, check):
+def scenario_devsearch(env_base, tmp, check, v3=False):
     """The kind devsearch through the whole loop: three MiniGrid units on a pool of two workers, one of them
     slowed so that the first session ends at its deadline with that unit in a checkpoint; later sessions
     resume it.  Every row must be a valid horizon.search.v2 row under runs/<campaign>/devsearch/, and the
-    resumed unit must count what an uninterrupted search counts (scripts/automation/test_devsearch.py)."""
+    resumed unit must count what an uninterrupted search counts (scripts/automation/test_devsearch.py).
+    With v3 (stage E) the kind names the schema horizon.search.v3 and a seen cap no unit reaches: every row
+    must be a valid v3 row, and the resumed DoorKey unit must also record its first win where an
+    uninterrupted search sees it (64 states, scripts/automation/test_devsearch.py)."""
     base = dict(simulator="minigrid", workers=2, node_cap=5000000, time_cap_seconds=14400,
                 memory_cap_bytes=6442450944, spill_frontier_over=1000000, checkpoint_every_seconds=600,
                 checkpoint_every_nodes=250000, batch=5, eh_state_limit=200000, eh_horizon=400)
+    if v3:
+        base.update(schema="horizon.search.v3", seen_cap=1000000)
+    sfx = "dev3" if v3 else "dev"
+    campaign = "devtest3" if v3 else "devtest"
     units = [dict(unit_id="d-01-empty5-s1000", chunk_id="d-01", kind="devsearch", suite="minigrid",
                   game="MiniGrid-Empty-5x5-v0", level=1000, agent=None, seed=None, status="pending"),
              dict(unit_id="d-01-lavagap5-s1000", chunk_id="d-01", kind="devsearch", suite="minigrid",
@@ -254,7 +263,7 @@ def scenario_devsearch(env_base, tmp, check):
              dict(unit_id="d-01-doorkey5-s1000", chunk_id="d-01", kind="devsearch", suite="minigrid",
                   game="MiniGrid-DoorKey-5x5-v0", level=1000, agent=None, seed=None, status="pending",
                   params=dict(seconds_per_batch=1.0))]
-    m = dict(campaign="devtest", code_tag="automation-v1", repository="local/test", kernel_slug="horizon-runner",
+    m = dict(campaign=campaign, code_tag="automation-v1", repository="local/test", kernel_slug="horizon-runner",
              max_failures=3, payload_commit_limit_bytes=65536,
              # 16 s of work, for the same reason as fixture_manifest's 12 s, with MiniGrid's import on top;
              # DoorKey at 1 s a batch (about 23 batches) cannot finish in one session.
@@ -262,21 +271,21 @@ def scenario_devsearch(env_base, tmp, check):
              kinds=dict(devsearch=base),
              chunks=[dict(chunk_id="d-01", kind="devsearch", status="pending", attempts=0, failures=0, sessions=[])],
              units=units)
-    src = make_src(tmp, "src-dev", m)
+    src = make_src(tmp, f"src-{sfx}", m)
     git(src, "init", "-q", "-b", "main")
     git(src, "config", "user.name", "test")
     git(src, "config", "user.email", "test@example.invalid")
     git(src, "add", "-A")
     git(src, "commit", "-q", "-m", "test setup")
     git(src, "tag", "automation-v1")
-    bare = os.path.join(tmp, "remote-dev.git")
+    bare = os.path.join(tmp, f"remote-{sfx}.git")
     git(tmp, "clone", "-q", "--bare", src, bare)
-    work = os.path.join(tmp, "work-dev")
+    work = os.path.join(tmp, f"work-{sfx}")
     git(tmp, "clone", "-q", bare, work)
     git(work, "config", "user.name", "horizon-loop")
     git(work, "config", "user.email", "loop@example.invalid")
-    env = dict(env_base, FAKE_KAGGLE_STORE=os.path.join(tmp, "kaggle-dev"), FAKE_KAGGLE_REPO_URL=bare,
-               HORIZON_RELEASE_DIR=os.path.join(tmp, "releases-dev"))
+    env = dict(env_base, FAKE_KAGGLE_STORE=os.path.join(tmp, f"kaggle-{sfx}"), FAKE_KAGGLE_REPO_URL=bare,
+               HORIZON_RELEASE_DIR=os.path.join(tmp, f"releases-{sfx}"))
     outs = []
     for i in range(10):
         r = subprocess.run([sys.executable, os.path.join(work, "scripts", "automation", "loop.py"), "tick",
@@ -293,16 +302,20 @@ def scenario_devsearch(env_base, tmp, check):
     check(c["status"] == "done" and outcomes[0] == "partial" and outcomes[-1] == "done" and "failed" not in outcomes,
           f"devsearch sessions {outcomes}")
     for u in units:
-        p = os.path.join(work, "runs", "devtest", "devsearch", f"{u['unit_id']}.json")
+        p = os.path.join(work, "runs", campaign, "devsearch", f"{u['unit_id']}.json")
         check(os.path.exists(p), f"devsearch row missing: {p}")
         if os.path.exists(p):
             row = read_json(p)
-            check(not validate_search_row(row) and row["schema"] == "horizon.search.v2",
-                  f"{u['unit_id']}: {validate_search_row(row)}")
+            want = "horizon.search.v3" if v3 else "horizon.search.v2"
+            check(not validate_search_row(row) and row["schema"] == want,
+                  f"{u['unit_id']}: {row['schema']} {validate_search_row(row)}")
             if u["game"] == "MiniGrid-DoorKey-5x5-v0":
                 check(row["counts"]["states_seen"] == 112 and len(row["sessions"]) >= 2,
                       f"the resumed DoorKey unit: {row['counts']['states_seen']} states over {len(row['sessions'])} sessions "
                       "(an uninterrupted search sees 112, scripts/automation/test_devsearch.py)")
+                if v3:
+                    check(row["counts"]["seen_at_first_win"] == 64 and row["caps"]["seen_cap"] == 1000000
+                          and row["complete"], f"the resumed DoorKey unit under v3: {row['counts']} {row['caps']}")
 
 
 def setup_repo(tmp, name, m):
@@ -618,6 +631,7 @@ def main():
         scenario_halt(env, tmp, check)
         scenario_crash(env, tmp, check)
         scenario_devsearch(env, tmp, check)
+        scenario_devsearch(env, tmp, check, v3=True)
         scenario_refusal(env, tmp, check)
         scenario_queue(env, tmp, check)
         scenario_not_started(env, tmp, check)

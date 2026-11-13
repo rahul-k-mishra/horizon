@@ -7,6 +7,10 @@ fields.  The rule they enforce: no feature may be computable only after an agent
                         no agent; it holds the only fields an analysis may use as features
     horizon.search.v2   the same, plus "measures" (branching and the effective-horizon bound); written by
                         the kind devsearch under runs/<campaign>/devsearch/ (stage D, docs/DESIGN.md 2.1)
+    horizon.search.v3   v2 plus a cap on the states seen ("seen_cap" in caps, cap_hit "seen") and two
+                        counts, seen_at_first_win and expanded_at_first_win: the states seen and expanded
+                        when the first win state was seen (stage E, docs/design/STAGE_E_OPTIONS.md); a
+                        unit stopped at the seen cap is censored at that number of states, not excluded
     horizon.agent.v1    runs/<campaign>/agent/<unit_id>.json    written by an agent job; its "outcome"
                         is the only part an analysis may read, and only as the outcome; "agent_stats"
                         (what the agent did, how many states it saw, how many actions it took) is kept
@@ -20,6 +24,7 @@ import json
 
 SEARCH_SCHEMA = "horizon.search.v1"
 SEARCH_SCHEMA_V2 = "horizon.search.v2"
+SEARCH_SCHEMA_V3 = "horizon.search.v3"
 SEARCH_KINDS = ("search", "devsearch")
 MEASURE_KEYS = {"branching", "eh", "eh_k", "eh_status", "eh_horizon"}
 AGENT_SCHEMA = "horizon.agent.v1"
@@ -33,6 +38,9 @@ AGENT_KEYS = IDENTITY | {"agent", "seed", "budget", "outcome", "agent_stats", "c
 OUTCOME_KEYS = {"level1_completed", "levels"}
 SESSION_KEYS = {"run_nonce", "host", "started_at", "ended_at", "kaggle_env"}
 SEARCH_KEYS_V2 = SEARCH_KEYS | {"measures"}
+SEARCH_COUNTS_V3 = SEARCH_COUNTS | {"seen_at_first_win", "expanded_at_first_win"}
+SEARCH_CAPS_V3 = SEARCH_CAPS | {"seen_cap"}
+CAP_KINDS_V3 = CAP_KINDS + ("seen",)
 assert not (SEARCH_KEYS_V2 - IDENTITY) & (AGENT_KEYS - IDENTITY), "the two schemas must stay disjoint"
 
 
@@ -48,24 +56,28 @@ def _sessions(row, errs):
 
 def validate_search_row(row):
     errs = []
-    keys = {SEARCH_SCHEMA: SEARCH_KEYS, SEARCH_SCHEMA_V2: SEARCH_KEYS_V2}.get(row.get("schema"))
+    keys = {SEARCH_SCHEMA: SEARCH_KEYS, SEARCH_SCHEMA_V2: SEARCH_KEYS_V2,
+            SEARCH_SCHEMA_V3: SEARCH_KEYS_V2}.get(row.get("schema"))
     if keys is None:
-        return [f"schema is {row.get('schema')!r}, expected {SEARCH_SCHEMA} or {SEARCH_SCHEMA_V2}"]
+        return [f"schema is {row.get('schema')!r}, expected {SEARCH_SCHEMA}, {SEARCH_SCHEMA_V2} or {SEARCH_SCHEMA_V3}"]
+    v3 = row["schema"] == SEARCH_SCHEMA_V3
+    counts_keys, caps_keys = (SEARCH_COUNTS_V3, SEARCH_CAPS_V3) if v3 else (SEARCH_COUNTS, SEARCH_CAPS)
+    cap_kinds = CAP_KINDS_V3 if v3 else CAP_KINDS
     if set(row) != keys:
         errs.append(f"keys differ from {row['schema']}: extra {sorted(set(row) - keys)}, "
                     f"missing {sorted(keys - set(row))}")
         return errs
     if "measures" in row and (not isinstance(row["measures"], dict) or set(row["measures"]) != MEASURE_KEYS):
         errs.append(f"measures keys must be {sorted(MEASURE_KEYS)}")
-    if set(row["counts"]) != SEARCH_COUNTS:
-        errs.append(f"counts keys {sorted(row['counts'])}, expected {sorted(SEARCH_COUNTS)}")
-    if set(row["caps"]) != SEARCH_CAPS:
-        errs.append(f"caps keys {sorted(row['caps'])}, expected {sorted(SEARCH_CAPS)}")
+    if set(row["counts"]) != counts_keys:
+        errs.append(f"counts keys {sorted(row['counts'])}, expected {sorted(counts_keys)}")
+    if set(row["caps"]) != caps_keys:
+        errs.append(f"caps keys {sorted(row['caps'])}, expected {sorted(caps_keys)}")
     if not isinstance(row["complete"], bool) or not isinstance(row["capped"], bool):
         errs.append("complete and capped must be booleans")
     if row["capped"]:
-        if row["cap_hit"] not in CAP_KINDS:
-            errs.append(f"a capped row needs cap_hit in {CAP_KINDS}")
+        if row["cap_hit"] not in cap_kinds:
+            errs.append(f"a capped row needs cap_hit in {cap_kinds}")
         if row["complete"]:
             errs.append("a capped row cannot be complete")
     elif row["cap_hit"] is not None:
@@ -108,7 +120,7 @@ def load_features(paths):
             r = json.load(f)
         e = validate_search_row(r)
         if e:
-            raise ValueError(f"{p}: not a valid {SEARCH_SCHEMA} row: {e}")
+            raise ValueError(f"{p}: not a valid search row: {e}")
         out[(r["suite"], r["game"], r["level"])] = dict(r["counts"], complete=r["complete"], capped=r["capped"],
                                                       cap_hit=r["cap_hit"], measures=r.get("measures"))
     return out

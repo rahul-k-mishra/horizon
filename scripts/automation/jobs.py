@@ -26,7 +26,7 @@ import time
 from array import array
 
 from common import now_iso, sha256_file
-from schema import AGENT_SCHEMA, SEARCH_SCHEMA, SEARCH_SCHEMA_V2
+from schema import AGENT_SCHEMA, SEARCH_SCHEMA, SEARCH_SCHEMA_V2, SEARCH_SCHEMA_V3
 
 
 def rss_bytes():
@@ -224,7 +224,12 @@ def run_search(unit, p, work_dir, state, deadline, on_checkpoint, nonce, started
     Win and loss states are counted and, where the simulator says so (win_is_terminal), not expanded.
     With params eh_state_limit, the transitions are recorded while the level has at most that many states,
     and a complete search computes the effective-horizon bound (eh.py) with horizon eh_horizon; such rows
-    use the schema horizon.search.v2, whose "measures" hold the branching and the bound."""
+    use the schema horizon.search.v2, whose "measures" hold the branching and the bound.
+    With the schema horizon.search.v3 (stage E), params seen_cap stops the search once that many states have
+    been seen and the frontier is not empty (cap_hit "seen"; the check falls between expansions, so the count
+    may pass the cap by the successors of one state), and the counts record seen_at_first_win and
+    expanded_at_first_win, the states seen and expanded when the first win state was seen.  Under v1 and v2
+    none of this exists and the search is the same as before."""
     sim = make_simulator(p, unit)
     terminal_on_win = getattr(sim, "win_is_terminal", False)
     spill_over = int(p["spill_frontier_over"])
@@ -232,15 +237,21 @@ def run_search(unit, p, work_dir, state, deadline, on_checkpoint, nonce, started
     batch, pause = int(p.get("batch", 1000)), float(p.get("seconds_per_batch", 0.0))
     every_s, every_n = float(p["checkpoint_every_seconds"]), int(p["checkpoint_every_nodes"])
     eh_limit = int(p.get("eh_state_limit", 0))
+    v3 = schema == SEARCH_SCHEMA_V3
+    seen_cap = int(p.get("seen_cap", 0)) if v3 else 0
     os.makedirs(work_dir, exist_ok=True)
     if state is None:
         state = SearchState()
+        if v3:
+            state.counts.update(seen_at_first_win=None, expanded_at_first_win=None)
         rkey, rwin, rloss = sim.root_info()
         hk = h64(rkey)
         state.visited.add(hk)
         state.counts["states_seen"] = 1
         if rwin:
             state.counts["solution_length"] = 0
+            if v3:
+                state.counts.update(seen_at_first_win=1, expanded_at_first_win=0)
         if eh_limit:
             state.graph = dict(A=None, hashes=array("Q"), rows=array("i"), next=array("i"), win=array("i"),
                                loss=array("i"), index={})
@@ -270,7 +281,7 @@ def run_search(unit, p, work_dir, state, deadline, on_checkpoint, nonce, started
             else:
                 break                                        # frontier empty: complete
         for _ in range(batch):
-            if not state.head or c["states_expanded"] >= node_cap:
+            if not state.head or c["states_expanded"] >= node_cap or (seen_cap and c["states_seen"] >= seen_cap):
                 break
             enc, depth = state.head.popleft()
             pkey, kids = sim.expand(enc)
@@ -300,6 +311,8 @@ def run_search(unit, p, work_dir, state, deadline, on_checkpoint, nonce, started
                 c["depth_max"] = max(c["depth_max"], depth + 1)
                 if c["solution_length"] is None and win:
                     c["solution_length"] = depth + 1
+                    if v3:
+                        c["seen_at_first_win"], c["expanded_at_first_win"] = c["states_seen"], c["states_expanded"]
                 if (win and terminal_on_win) or loss:
                     continue
                 state.tail.append((enc2, depth + 1))
@@ -318,7 +331,9 @@ def run_search(unit, p, work_dir, state, deadline, on_checkpoint, nonce, started
             time.sleep(pause)
         spend()
         rss = rss_bytes()
-        if c["states_expanded"] >= node_cap:
+        if seen_cap and c["states_seen"] >= seen_cap and state.frontier_size(spill_over):
+            cap_hit = "seen"
+        elif c["states_expanded"] >= node_cap:
             cap_hit = "node"
         elif state.seconds_spent >= time_cap:
             cap_hit = "time"
@@ -342,7 +357,9 @@ def run_search(unit, p, work_dir, state, deadline, on_checkpoint, nonce, started
                caps=dict(node_cap=node_cap, time_cap_seconds=time_cap, memory_cap_bytes=mem_cap,
                          spill_frontier_over=spill_over),
                seconds_spent=round(state.seconds_spent, 3), sessions=sessions, written_at=now_iso())
-    if schema == SEARCH_SCHEMA_V2:
+    if v3:
+        row["caps"]["seen_cap"] = seen_cap
+    if schema in (SEARCH_SCHEMA_V2, SEARCH_SCHEMA_V3):
         row["measures"] = measures(state, cap_hit, p)
     return ("capped" if cap_hit else "complete"), row, state
 
