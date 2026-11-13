@@ -1,0 +1,44 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v3
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit fc94b1d611952d012b81c2b187416d853ba7c67e Loop: e-001 pushed as kernel version 86
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v3)
+code commit efbba6695d8a28beb30f98e34ed226a13db1c5f1 (tag automation-v3)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1794593947.8793035
+[2026-11-13T18:20:47Z] chunk e-001 (devsearch), nonce dev-minigrid-e-e-001-20261113T181847Z-462b90; work deadline 2026-11-14T02:19:07Z, checkpoint by 2026-11-14T02:34:07Z
+[2026-11-13T18:20:47Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-11-13T18:20:47Z] devsearch: 12 units to run on 4 workers, 0 resumed from the checkpoint
+[2026-11-13T18:20:47Z] devsearch unit e-001-BabyAI-GoToSeq-v0-s1005: start
+[2026-11-13T18:20:47Z] devsearch unit e-001-BabyAI-GoToSeq-v0-s1003: start
+[2026-11-13T18:20:47Z] devsearch unit e-001-BabyAI-GoToSeq-v0-s1007: start
+[2026-11-13T18:20:47Z] devsearch unit e-001-BabyAI-BossLevel-v0-s1008: start
+[2026-11-13T20:38:50Z] devsearch unit e-001-BabyAI-GoToSeq-v0-s1007: capped, 2000000 states seen
+[2026-11-13T20:38:50Z] devsearch unit e-001-BabyAI-GoToSeq-v0-s1008: start
+[2026-11-13T20:42:13Z] devsearch unit e-001-BabyAI-GoToSeq-v0-s1003: capped, 2000000 states seen
+[2026-11-13T20:42:13Z] devsearch unit e-001-BabyAI-SynthSeq-v0-s1004: start
+[2026-11-13T20:43:00Z] devsearch unit e-001-BabyAI-BossLevel-v0-s1008: capped, 2000001 states seen
+[2026-11-13T20:43:00Z] devsearch unit e-001-BabyAI-GoToSeq-v0-s1001: start
+[2026-11-13T20:56:37Z] devsearch unit e-001-BabyAI-GoToSeq-v0-s1005: capped, 2000002 states seen
+[2026-11-13T20:56:37Z] devsearch unit e-001-BabyAI-BossLevel-v0-s1006: start
+[2026-11-13T22:46:59Z] devsearch unit e-001-BabyAI-GoToSeq-v0-s1001: capped, 2000000 states seen
+[2026-11-13T22:46:59Z] devsearch unit e-001-BabyAI-GoToObjMaze-v0-s1005: start
+[2026-11-13T22:51:32Z] devsearch unit e-001-BabyAI-GoToSeq-v0-s1008: capped, 2000000 states seen
+[2026-11-13T22:51:32Z] devsearch unit e-001-MiniGrid-KeyCorridorS3R3-v0-s1006: start
+[2026-11-13T22:52:08Z] devsearch unit e-001-MiniGrid-KeyCorridorS3R3-v0-s1006: complete, 13456 states seen
+[2026-11-13T22:52:08Z] devsearch unit e-001-MiniGrid-Empty-16x16-v0-s1001: start
+[2026-11-13T22:52:10Z] devsearch unit e-001-MiniGrid-Empty-16x16-v0-s1001: complete, 727 states seen
+[2026-11-13T22:52:10Z] devsearch unit e-001-BabyAI-GoToObjS6-v1-s1002: start
+[2026-11-13T22:52:11Z] devsearch unit e-001-BabyAI-GoToObjS6-v1-s1002: complete, 43 states seen
+[2026-11-13T22:59:46Z] devsearch unit e-001-BabyAI-BossLevel-v0-s1006: capped, 2000000 states seen
+[2026-11-13T23:00:44Z] devsearch unit e-001-BabyAI-GoToObjMaze-v0-s1005: complete, 281089 states seen
+[2026-11-13T23:01:02Z] devsearch unit e-001-BabyAI-SynthSeq-v0-s1004: capped, 2000001 states seen
+Sampling rejected: unreachable object at (15, 15)
+Sampling rejected: unreachable object at (1, 7)
+Sampling rejected: unreachable object at (7, 15)
+Sampling rejected: unreachable object at (3, 3)
+[2026-11-13T23:01:02Z] chunk e-001: done; units done 12 of 12
+[2026-11-13T23:01:02Z] wrote result.json (status done) and bundle.tar.gz

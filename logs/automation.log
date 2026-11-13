@@ -279,3 +279,4 @@ No token to manage; credentials are cached locally for you.
 2026-11-13T18:18:47Z actions-43481128903-1 DISPATCH chunk e-001 (devsearch) attempt 1 run dev-minigrid-e-e-001-20261113T181847Z-462b90
 2026-11-13T18:18:51Z actions-43481128903-1 DEFERRAL cleared: the push of e-001 succeeded after 2 refusals since 2026-11-13T17:14:09Z
 2026-11-13T18:18:51Z actions-43481128903-1 PUSHED chunk e-001 as kernel version 86 run dev-minigrid-e-e-001-20261113T181847Z-462b90
+2026-11-13T23:28:31Z actions-43527266887-1 COLLECT chunk e-001 kernel version 86 run dev-minigrid-e-e-001-20261113T181847Z-462b90: done; chunks done 1, pending 27
