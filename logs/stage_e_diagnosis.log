@@ -1,0 +1,79 @@
+stage_e_diagnosis -- EXPLORATORY: development data, not evidence for any claim
+
+== 1. power of the registered contrast at the development Delta (EXPLORATORY; docs/design/sdd.json) ==
+registered alpha 0.016667 two-sided, z 2.3940; power target 0.8, z 0.8416; 26 clusters; registered d 0.51
+  N estimate 1: development Delta 0.0818, SE at 26 clusters 0.1080; power to exclude zero at the registered level if the true Delta were 0.0818: 0.0517; clusters needed for power 0.80 at that Delta: 475; one test at 95% instead: power 0.1179, smallest detectable difference 0.3025
+  N estimate 2: development Delta 0.0818, SE at 26 clusters 0.1476; power to exclude zero at the registered level if the true Delta were 0.0818: 0.0345; clusters needed for power 0.80 at that Delta: 887; one test at 95% instead: power 0.0859, smallest detectable difference 0.4134
+  R estimate 1: development Delta 0.0789, SE at 26 clusters 0.1063; power to exclude zero at the registered level if the true Delta were 0.0789: 0.0502; clusters needed for power 0.80 at that Delta: 494; one test at 95% instead: power 0.1152, smallest detectable difference 0.2977
+  R estimate 2: development Delta 0.0789, SE at 26 clusters 0.1470; power to exclude zero at the registered level if the true Delta were 0.0789: 0.0333; clusters needed for power 0.80 at that Delta: 944; one test at 95% instead: power 0.0836, smallest detectable difference 0.4119
+  I1 estimate 1: development Delta 0.0236, SE at 26 clusters 0.0992; power to exclude zero at the registered level if the true Delta were 0.0236: 0.0198; clusters needed for power 0.80 at that Delta: 4823; one test at 95% instead: power 0.0565, smallest detectable difference 0.2778
+  I1 estimate 2: development Delta 0.0236, SE at 26 clusters 0.1564; power to exclude zero at the registered level if the true Delta were 0.0236: 0.0179; clusters needed for power 0.80 at that Delta: 11993; one test at 95% instead: power 0.0526, smallest detectable difference 0.4381
+
+== 2. where the development Delta comes from (EXPLORATORY) ==
+  mechanics score per game, MiniGrid: S_M=4: 30 games, S_M=5: 31 games
+  mechanics score per game, BabyAI: S_M=4: 95 games
+  N (units where H is defined, 1416):
+    inside MiniGrid: 84900 of 471809 (18.0%) of the pairs; AUROC H 0.8545, S_M 0.8886, difference -0.0341
+    inside BabyAI: 154739 of 471809 (32.8%) of the pairs; AUROC H 0.6849, S_M 0.5000, difference 0.1849
+    across the families: 232170 of 471809 (49.2%) of the pairs; AUROC H 0.7139, S_M 0.6585, difference 0.0554
+    all between-game pairs: 471809 of 471809 (100.0%) of the pairs; AUROC H 0.7297, S_M 0.6479, difference 0.0818
+  R (units where H is defined, 1416):
+    inside MiniGrid: 84782 of 471104 (18.0%) of the pairs; AUROC H 0.8503, S_M 0.8908, difference -0.0405
+    inside BabyAI: 154496 of 471104 (32.8%) of the pairs; AUROC H 0.6856, S_M 0.5000, difference 0.1856
+    across the families: 231826 of 471104 (49.2%) of the pairs; AUROC H 0.7114, S_M 0.6598, difference 0.0516
+    all between-game pairs: 471104 of 471104 (100.0%) of the pairs; AUROC H 0.7279, S_M 0.6490, difference 0.0789
+  I1 (units where H is defined, 1416):
+    inside MiniGrid: 85202 of 475313 (17.9%) of the pairs; AUROC H 0.8701, S_M 0.8465, difference 0.0236
+    inside BabyAI: 156353 of 475313 (32.9%) of the pairs; AUROC H 0.5365, S_M 0.5000, difference 0.0365
+    across the families: 233758 of 475313 (49.2%) of the pairs; AUROC H 0.7309, S_M 0.7161, difference 0.0149
+    all between-game pairs: 475313 of 475313 (100.0%) of the pairs; AUROC H 0.6919, S_M 0.6684, difference 0.0236
+
+== 3. censoring of the search score (EXPLORATORY) ==
+  complete units 1073, largest R 4757411; node-capped units 343, fewest states seen 5176010; time- or memory-capped units 144, fewest states seen 3091281
+  every node-capped unit saw more states than any complete unit has: yes; so the registered rule 1 ranks node-capped units correctly against complete ones, and loses only the order among them
+  C    10,000: determined 1560 of 1560 (100.0%), excluded 0, at the ceiling 830 of 1560 (53.2%); AUROC of H_C: N 0.7115 (MiniGrid 0.8616, BabyAI 0.6456); R 0.7097 (MiniGrid 0.8574, BabyAI 0.6456); I1 0.7187 (MiniGrid 0.8774, BabyAI 0.5873)
+  C   100,000: determined 1560 of 1560 (100.0%), excluded 0, at the ceiling 733 of 1560 (47.0%); AUROC of H_C: N 0.6959 (MiniGrid 0.8595, BabyAI 0.6283); R 0.6947 (MiniGrid 0.8559, BabyAI 0.6283); I1 0.7082 (MiniGrid 0.8774, BabyAI 0.5721)
+  C   300,000: determined 1560 of 1560 (100.0%), excluded 0, at the ceiling 618 of 1560 (39.6%); AUROC of H_C: N 0.7116 (MiniGrid 0.8646, BabyAI 0.6589); R 0.7097 (MiniGrid 0.8608, BabyAI 0.6577); I1 0.7051 (MiniGrid 0.8774, BabyAI 0.5680)
+  C 1,000,000: determined 1560 of 1560 (100.0%), excluded 0, at the ceiling 552 of 1560 (35.4%); AUROC of H_C: N 0.7158 (MiniGrid 0.8653, BabyAI 0.6683); R 0.7149 (MiniGrid 0.8615, BabyAI 0.6693); I1 0.7031 (MiniGrid 0.8774, BabyAI 0.5643)
+  C 2,000,000: determined 1560 of 1560 (100.0%), excluded 0, at the ceiling 521 of 1560 (33.4%); AUROC of H_C: N 0.7136 (MiniGrid 0.8653, BabyAI 0.6628); R 0.7132 (MiniGrid 0.8614, BabyAI 0.6649); I1 0.7023 (MiniGrid 0.8774, BabyAI 0.5620)
+  C 3,000,000: determined 1560 of 1560 (100.0%), excluded 0, at the ceiling 517 of 1560 (33.1%); AUROC of H_C: N 0.7129 (MiniGrid 0.8653, BabyAI 0.6617); R 0.7125 (MiniGrid 0.8614, BabyAI 0.6639); I1 0.7018 (MiniGrid 0.8774, BabyAI 0.5613)
+  C 5,000,000: determined 1507 of 1560 (96.6%), excluded 53, at the ceiling 434 of 1560 (27.8%); AUROC of H_C: N 0.7145 (MiniGrid 0.8653, BabyAI 0.6596); R 0.7140 (MiniGrid 0.8613, BabyAI 0.6618); I1 0.6945 (MiniGrid 0.8774, BabyAI 0.5455)
+  the registered rule for comparison (node cap as R, time-capped units excluded): N 0.7297; R 0.7279; I1 0.6919
+  C 1,000,000, N: AUROC 0.7158 95% [0.6421, 0.7921] (2000 resamples of games, seed 20261113)
+  C 1,000,000, R: AUROC 0.7149 95% [0.6411, 0.7907] (2000 resamples of games, seed 20261113)
+  C 1,000,000, I1: AUROC 0.7031 95% [0.6199, 0.7851] (2000 resamples of games, seed 20261113)
+
+== 4. agreement of the agents (EXPLORATORY) ==
+  N and R: same outcome on 1547 of 1560 (99.2%) units; the same number of completed seeds on 147 of 156 (94.2%) games
+  N and I1: same outcome on 1169 of 1560 (74.9%) units; the same number of completed seeds on 93 of 156 (59.6%) games
+  R and I1: same outcome on 1166 of 1560 (74.7%) units; the same number of completed seeds on 91 of 156 (58.3%) games
+
+== 5. within-game variation of the outcome (EXPLORATORY) ==
+  N: games with both outcomes among their 10 seeds 24 of 156 (15.4%); within-game pairs 454 of 577424 (0.1%) of all positive-negative pairs
+  R: games with both outcomes among their 10 seeds 25 of 156 (16.0%); within-game pairs 467 of 577071 (0.1%) of all positive-negative pairs
+  I1: games with both outcomes among their 10 seeds 32 of 156 (20.5%); within-game pairs 471 of 563031 (0.1%) of all positive-negative pairs
+
+== 6. smaller claims on the confirmatory structure (EXPLORATORY) ==
+  4000 simulated studies of 26 clusters of 5 units, seed 20261114; a cluster takes 5 units of one development game and the mechanics score of one confirmatory game, each drawn with replacement; H_C with C = 1,000,000; between-game pairs; power by the normal approximation of scripts/sdd.py: P(lower end of the interval > 0.5)
+  H_C, C = 1,000,000, N, all between-game pairs: mean AUROC 0.7191, SE 0.0991 (4000 studies); power above 0.5 at 98.33% 0.4275, at 95% 0.5992; share of studies with the point at or above 0.70 0.5975; both at 98.33% 0.4550; true AUROC needed for power 0.80: 0.8206 at 98.33%, 0.7776 at 95%
+  H_C, C = 1,000,000, N, pairs of games with the same mechanics score: mean AUROC 0.7198, SE 0.1151 (4000 studies); power above 0.5 at 98.33% 0.3140, at 95% 0.4798; share of studies with the point at or above 0.70 0.5903; both at 98.33% 0.3405; true AUROC needed for power 0.80: 0.8724 at 98.33%, 0.8225 at 95%
+  H_C, C = 1,000,000, R, all between-game pairs: mean AUROC 0.7182, SE 0.0990 (4000 studies); power above 0.5 at 98.33% 0.4245, at 95% 0.5962; share of studies with the point at or above 0.70 0.5940; both at 98.33% 0.4527; true AUROC needed for power 0.80: 0.8204 at 98.33%, 0.7775 at 95%
+  H_C, C = 1,000,000, R, pairs of games with the same mechanics score: mean AUROC 0.7189, SE 0.1151 (4000 studies); power above 0.5 at 98.33% 0.3113, at 95% 0.4768; share of studies with the point at or above 0.70 0.5875; both at 98.33% 0.3405; true AUROC needed for power 0.80: 0.8724 at 98.33%, 0.8225 at 95%
+  H_C, C = 1,000,000, I1, all between-game pairs: mean AUROC 0.7044, SE 0.1070 (4000 studies); power above 0.5 at 98.33% 0.3145, at 95% 0.4804; share of studies with the point at or above 0.70 0.5377; both at 98.33% 0.3312; true AUROC needed for power 0.80: 0.8461 at 98.33%, 0.7997 at 95%
+  H_C, C = 1,000,000, I1, pairs of games with the same mechanics score: mean AUROC 0.7047, SE 0.1232 (4000 studies); power above 0.5 at 98.33% 0.2320, at 95% 0.3828; share of studies with the point at or above 0.70 0.5373; both at 98.33% 0.2497; true AUROC needed for power 0.80: 0.8986 at 98.33%, 0.8452 at 95%
+  L (time-capped units without a win excluded), N, all between-game pairs: mean AUROC 0.7873, SE 0.0802 (4000 studies); power above 0.5 at 98.33% 0.8824, at 95% 0.9475; share of studies with the point at or above 0.70 0.8628; both at 98.33% 0.8628; true AUROC needed for power 0.80: 0.7596 at 98.33%, 0.7248 at 95%
+  L (time-capped units without a win excluded), N, pairs of games with the same mechanics score: mean AUROC 0.7869, SE 0.0935 (4000 studies); power above 0.5 at 98.33% 0.7499, at 95% 0.8661; share of studies with the point at or above 0.70 0.8290; both at 98.33% 0.7615; true AUROC needed for power 0.80: 0.8026 at 98.33%, 0.7620 at 95%
+  L (time-capped units without a win excluded), R, all between-game pairs: mean AUROC 0.7885, SE 0.0793 (4000 studies); power above 0.5 at 98.33% 0.8934, at 95% 0.9534; share of studies with the point at or above 0.70 0.8712; both at 98.33% 0.8712; true AUROC needed for power 0.80: 0.7566 at 98.33%, 0.7222 at 95%
+  L (time-capped units without a win excluded), R, pairs of games with the same mechanics score: mean AUROC 0.7884, SE 0.0923 (4000 studies); power above 0.5 at 98.33% 0.7677, at 95% 0.8781; share of studies with the point at or above 0.70 0.8357; both at 98.33% 0.7817; true AUROC needed for power 0.80: 0.7985 at 98.33%, 0.7585 at 95%
+  L (time-capped units without a win excluded), I1, all between-game pairs: mean AUROC 0.7707, SE 0.0793 (4000 studies); power above 0.5 at 98.33% 0.8461, at 95% 0.9270; share of studies with the point at or above 0.70 0.8197; both at 98.33% 0.8197; true AUROC needed for power 0.80: 0.7566 at 98.33%, 0.7221 at 95%
+  L (time-capped units without a win excluded), I1, pairs of games with the same mechanics score: mean AUROC 0.7697, SE 0.0926 (4000 studies); power above 0.5 at 98.33% 0.6979, at 95% 0.8296; share of studies with the point at or above 0.70 0.7843; both at 98.33% 0.7173; true AUROC needed for power 0.80: 0.7996 at 98.33%, 0.7594 at 95%
+
+== 7. search score among games with the same development mechanics score (EXPLORATORY) ==
+  H_C (C = 1,000,000), N: AUROC over 394100 between-game pairs with equal S_M: 0.6321 95% [0.5502, 0.7216] (2000 resamples)
+  H_C (C = 1,000,000), R: AUROC over 393814 between-game pairs with equal S_M: 0.6323 95% [0.5506, 0.7215] (2000 resamples)
+  H_C (C = 1,000,000), I1: AUROC over 323414 between-game pairs with equal S_M: 0.5760 95% [0.4744, 0.6817] (2000 resamples)
+  L, N: AUROC over 358672 between-game pairs with equal S_M: 0.8277 95% [0.7676, 0.8802] (2000 resamples)
+  L, R: AUROC over 358383 between-game pairs with equal S_M: 0.8304 95% [0.7700, 0.8834] (2000 resamples)
+  L, I1: AUROC over 301776 between-game pairs with equal S_M: 0.8487 95% [0.7960, 0.8923] (2000 resamples)
+
+written docs\design\stage_e_diagnosis.json

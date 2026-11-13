@@ -1,0 +1,663 @@
+{
+ "label": "EXPLORATORY",
+ "ceiling_proposed": 1000000,
+ "power_registered": {
+  "N": {
+   "estimate 1": {
+    "se": 0.10796137013999475,
+    "power": 0.05167706023811919,
+    "clusters_for_080": 474.4295881687395,
+    "power_single_test_95": 0.1178725074140291,
+    "mdd_single_test_95": 0.30246298038050906
+   },
+   "estimate 2": {
+    "se": 0.14756476629591742,
+    "power": 0.034496359343830774,
+    "clusters_for_080": 886.339981037331,
+    "power_single_test_95": 0.08585864746733163,
+    "mdd_single_test_95": 0.41341527025028035
+   }
+  },
+  "R": {
+   "estimate 1": {
+    "se": 0.10627114558489452,
+    "power": 0.05021172921397804,
+    "clusters_for_080": 493.242167531399,
+    "power_single_test_95": 0.11522138657506426,
+    "mdd_single_test_95": 0.29772767222551794
+   },
+   "estimate 2": {
+    "se": 0.14700628744869793,
+    "power": 0.033347845102900786,
+    "clusters_for_080": 943.8463331085544,
+    "power_single_test_95": 0.08363900911137484,
+    "mdd_single_test_95": 0.4118506441586474
+   }
+  },
+  "I1": {
+   "estimate 1": {
+    "se": 0.09915678899033493,
+    "power": 0.01977577554776383,
+    "clusters_for_080": 4822.633033707488,
+    "power_single_test_95": 0.056490488448971365,
+    "mdd_single_test_95": 0.2777961958438277
+   },
+   "estimate 2": {
+    "se": 0.15636286740992345,
+    "power": 0.017907570262143846,
+    "clusters_for_080": 11992.412533454934,
+    "power_single_test_95": 0.05260410016293937,
+    "mdd_single_test_95": 0.43806390041476106
+   }
+  }
+ },
+ "delta_by_pair_type": {
+  "N": {
+   "inside MiniGrid": {
+    "pairs": 84900,
+    "H": 0.8545111896348645,
+    "S_M": 0.8885747938751473,
+    "delta": -0.03406360424028276
+   },
+   "inside BabyAI": {
+    "pairs": 154739,
+    "H": 0.6848693606653785,
+    "S_M": 0.5,
+    "delta": 0.1848693606653785
+   },
+   "across the families": {
+    "pairs": 232170,
+    "H": 0.7138992979282422,
+    "S_M": 0.6584743937631907,
+    "delta": 0.055424904165051525
+   },
+   "all between-game pairs": {
+    "pairs": 471809,
+    "H": 0.7296808666218745,
+    "S_M": 0.6479051904478296,
+    "delta": 0.08177567617404491
+   }
+  },
+  "R": {
+   "inside MiniGrid": {
+    "pairs": 84782,
+    "H": 0.850274822485905,
+    "S_M": 0.8907669080701093,
+    "delta": -0.04049208558420425
+   },
+   "inside BabyAI": {
+    "pairs": 154496,
+    "H": 0.6855517294946147,
+    "S_M": 0.5,
+    "delta": 0.18555172949461474
+   },
+   "across the families": {
+    "pairs": 231826,
+    "H": 0.711402086047294,
+    "S_M": 0.6598224530466815,
+    "delta": 0.051579633000612524
+   },
+   "all between-game pairs": {
+    "pairs": 471104,
+    "H": 0.7279167657247656,
+    "S_M": 0.648971352397772,
+    "delta": 0.07894541332699356
+   }
+  },
+  "I1": {
+   "inside MiniGrid": {
+    "pairs": 85202,
+    "H": 0.870091077674233,
+    "S_M": 0.8464707401234712,
+    "delta": 0.02362033755076176
+   },
+   "inside BabyAI": {
+    "pairs": 156353,
+    "H": 0.53650393660499,
+    "S_M": 0.5,
+    "delta": 0.03650393660498996
+   },
+   "across the families": {
+    "pairs": 233758,
+    "H": 0.7309268559792605,
+    "S_M": 0.7160524987380111,
+    "delta": 0.014874357241249414
+   },
+   "all between-game pairs": {
+    "pairs": 475313,
+    "H": 0.6919177468320875,
+    "S_M": 0.6683606381479151,
+    "delta": 0.02355710868417238
+   }
+  }
+ },
+ "censoring": {
+  "10000": {
+   "determined": 1560,
+   "excluded": 0,
+   "at_ceiling": 830,
+   "auroc": {
+    "N": {
+     "overall": 0.711530062221606,
+     "MiniGrid": 0.8616223288268644,
+     "BabyAI": 0.645566202938029
+    },
+    "R": {
+     "overall": 0.7097496722187151,
+     "MiniGrid": 0.8573923293532121,
+     "BabyAI": 0.6455577065255458
+    },
+    "I1": {
+     "overall": 0.7186744525028441,
+     "MiniGrid": 0.8773736456094481,
+     "BabyAI": 0.5872664231379082
+    }
+   }
+  },
+  "100000": {
+   "determined": 1560,
+   "excluded": 0,
+   "at_ceiling": 733,
+   "auroc": {
+    "N": {
+     "overall": 0.6959105326100143,
+     "MiniGrid": 0.8594962930658526,
+     "BabyAI": 0.6282833933261991
+    },
+    "R": {
+     "overall": 0.6946951460621155,
+     "MiniGrid": 0.855864312064788,
+     "BabyAI": 0.6282759056772637
+    },
+    "I1": {
+     "overall": 0.7081751279863481,
+     "MiniGrid": 0.8773736456094481,
+     "BabyAI": 0.572127832527146
+    }
+   }
+  },
+  "300000": {
+   "determined": 1560,
+   "excluded": 0,
+   "at_ceiling": 618,
+   "auroc": {
+    "N": {
+     "overall": 0.7115733920307815,
+     "MiniGrid": 0.8646423898822503,
+     "BabyAI": 0.6588578655511237
+    },
+    "R": {
+     "overall": 0.7097305950010753,
+     "MiniGrid": 0.860846739865971,
+     "BabyAI": 0.6576642087240748
+    },
+    "I1": {
+     "overall": 0.7050536831626849,
+     "MiniGrid": 0.8773736456094481,
+     "BabyAI": 0.5680157758464967
+    }
+   }
+  },
+  "1000000": {
+   "determined": 1560,
+   "excluded": 0,
+   "at_ceiling": 552,
+   "auroc": {
+    "N": {
+     "overall": 0.7157625179818708,
+     "MiniGrid": 0.8653292629742695,
+     "BabyAI": 0.6682580990368713
+    },
+    "R": {
+     "overall": 0.7148623665461912,
+     "MiniGrid": 0.8614524895767393,
+     "BabyAI": 0.6693037666835285
+    },
+    "I1": {
+     "overall": 0.7030876706484641,
+     "MiniGrid": 0.8773736456094481,
+     "BabyAI": 0.5642951046705337
+    }
+   }
+  },
+  "2000000": {
+   "determined": 1560,
+   "excluded": 0,
+   "at_ceiling": 521,
+   "auroc": {
+    "N": {
+     "overall": 0.7136220254086001,
+     "MiniGrid": 0.8653292629742695,
+     "BabyAI": 0.6627541589648799
+    },
+    "R": {
+     "overall": 0.7131861728326546,
+     "MiniGrid": 0.8614252035537316,
+     "BabyAI": 0.6648994124284991
+    },
+    "I1": {
+     "overall": 0.7022548705915813,
+     "MiniGrid": 0.8773736456094481,
+     "BabyAI": 0.5619593360496157
+    }
+   }
+  },
+  "3000000": {
+   "determined": 1560,
+   "excluded": 0,
+   "at_ceiling": 517,
+   "auroc": {
+    "N": {
+     "overall": 0.7128836854602493,
+     "MiniGrid": 0.8653292629742695,
+     "BabyAI": 0.6617180659597237
+    },
+    "R": {
+     "overall": 0.7124508328072646,
+     "MiniGrid": 0.8614142891445286,
+     "BabyAI": 0.6638731079030312
+    },
+    "I1": {
+     "overall": 0.7017926976678043,
+     "MiniGrid": 0.8773736456094481,
+     "BabyAI": 0.561307026875138
+    }
+   }
+  },
+  "5000000": {
+   "determined": 1507,
+   "excluded": 53,
+   "at_ceiling": 434,
+   "auroc": {
+    "N": {
+     "overall": 0.7145042765482559,
+     "MiniGrid": 0.8653292629742695,
+     "BabyAI": 0.6595870972016697
+    },
+    "R": {
+     "overall": 0.7139707720842057,
+     "MiniGrid": 0.8613433454847089,
+     "BabyAI": 0.6618382693964089
+    },
+    "I1": {
+     "overall": 0.6944988456483012,
+     "MiniGrid": 0.8773736456094481,
+     "BabyAI": 0.5454620548375195
+    }
+   }
+  }
+ },
+ "censoring_ci": {
+  "N": {
+   "ci95": [
+    0.6421382052726576,
+    0.792064423291714
+   ],
+   "resamples": 2000
+  },
+  "R": {
+   "ci95": [
+    0.6410585025081486,
+    0.7906507054103465
+   ],
+   "resamples": 2000
+  },
+  "I1": {
+   "ci95": [
+    0.6198956417317932,
+    0.7851381037346441
+   ],
+   "resamples": 2000
+  }
+ },
+ "agents": {
+  "N-R": {
+   "units_same": 1547,
+   "units": 1560,
+   "games_same_count": 147,
+   "games": 156
+  },
+  "N-I1": {
+   "units_same": 1169,
+   "units": 1560,
+   "games_same_count": 93,
+   "games": 156
+  },
+  "R-I1": {
+   "units_same": 1166,
+   "units": 1560,
+   "games_same_count": 91,
+   "games": 156
+  }
+ },
+ "within_game": {
+  "N": {
+   "games_mixed": 24,
+   "games": 156,
+   "pairs_all": 577424,
+   "pairs_within_game": 454
+  },
+  "R": {
+   "games_mixed": 25,
+   "games": 156,
+   "pairs_all": 577071,
+   "pairs_within_game": 467
+  },
+  "I1": {
+   "games_mixed": 32,
+   "games": 156,
+   "pairs_all": 563031,
+   "pairs_within_game": 471
+  }
+ },
+ "smaller_claims": {
+  "H_C N": {
+   "all between-game pairs 98.33%": {
+    "mean": 0.7191240521961199,
+    "se": 0.09909014459943336,
+    "power_above_half": 0.42754845109680306,
+    "share_point_at_least_070": 0.5975,
+    "power_above_half_and_point_070": 0.455,
+    "studies": 4000
+   },
+   "all between-game pairs 95%": {
+    "mean": 0.7191240521961199,
+    "se": 0.09909014459943336,
+    "power_above_half": 0.5992462991851065,
+    "share_point_at_least_070": 0.5975,
+    "power_above_half_and_point_070": 0.5975,
+    "studies": 4000
+   },
+   "all between-game pairs true AUROC for power 0.80": {
+    "98.33%": 0.8206161742648322,
+    "95%": 0.7776094843704491
+   },
+   "pairs of games with the same mechanics score 98.33%": {
+    "mean": 0.7197570726212625,
+    "se": 0.11509711591191288,
+    "power_above_half": 0.3139583727690962,
+    "share_point_at_least_070": 0.59025,
+    "power_above_half_and_point_070": 0.3405,
+    "studies": 4000
+   },
+   "pairs of games with the same mechanics score 95%": {
+    "mean": 0.7197570726212625,
+    "se": 0.11509711591191288,
+    "power_above_half": 0.47980407787929047,
+    "share_point_at_least_070": 0.59025,
+    "power_above_half_and_point_070": 0.507,
+    "studies": 4000
+   },
+   "pairs of games with the same mechanics score true AUROC for power 0.80": {
+    "98.33%": 0.872408347184958,
+    "95%": 0.8224543785862499
+   }
+  },
+  "H_C R": {
+   "all between-game pairs 98.33%": {
+    "mean": 0.7182296149641781,
+    "se": 0.09903660940992774,
+    "power_above_half": 0.42447626185784304,
+    "share_point_at_least_070": 0.594,
+    "power_above_half_and_point_070": 0.45275,
+    "studies": 4000
+   },
+   "all between-game pairs 95%": {
+    "mean": 0.7182296149641781,
+    "se": 0.09903660940992774,
+    "power_above_half": 0.5962144713957032,
+    "share_point_at_least_070": 0.594,
+    "power_above_half_and_point_070": 0.594,
+    "studies": 4000
+   },
+   "all between-game pairs true AUROC for power 0.80": {
+    "98.33%": 0.8204429557503451,
+    "95%": 0.7774595009748813
+   },
+   "pairs of games with the same mechanics score 98.33%": {
+    "mean": 0.7189103586926177,
+    "se": 0.11510116418837613,
+    "power_above_half": 0.31132979083100953,
+    "share_point_at_least_070": 0.5875,
+    "power_above_half_and_point_070": 0.3405,
+    "studies": 4000
+   },
+   "pairs of games with the same mechanics score 95%": {
+    "mean": 0.7189103586926177,
+    "se": 0.11510116418837613,
+    "power_above_half": 0.4768469436246968,
+    "share_point_at_least_070": 0.5875,
+    "power_above_half_and_point_070": 0.5045,
+    "studies": 4000
+   },
+   "pairs of games with the same mechanics score true AUROC for power 0.80": {
+    "98.33%": 0.8724214457924658,
+    "95%": 0.8224657201777483
+   }
+  },
+  "H_C I1": {
+   "all between-game pairs 98.33%": {
+    "mean": 0.704374272200985,
+    "se": 0.10696022655424187,
+    "power_above_half": 0.3144663533549033,
+    "share_point_at_least_070": 0.53775,
+    "power_above_half_and_point_070": 0.33125,
+    "studies": 4000
+   },
+   "all between-game pairs 95%": {
+    "mean": 0.704374272200985,
+    "se": 0.10696022655424187,
+    "power_above_half": 0.48037445530485595,
+    "share_point_at_least_070": 0.53775,
+    "power_above_half_and_point_070": 0.5035,
+    "studies": 4000
+   },
+   "all between-game pairs true AUROC for power 0.80": {
+    "98.33%": 0.8460806195706858,
+    "95%": 0.7996581896403782
+   },
+   "pairs of games with the same mechanics score 98.33%": {
+    "mean": 0.7047338588616837,
+    "se": 0.12320623902019653,
+    "power_above_half": 0.2320039835636657,
+    "share_point_at_least_070": 0.53725,
+    "power_above_half_and_point_070": 0.24975,
+    "studies": 4000
+   },
+   "pairs of games with the same mechanics score 95%": {
+    "mean": 0.7047338588616837,
+    "se": 0.12320623902019653,
+    "power_above_half": 0.382757198787974,
+    "share_point_at_least_070": 0.53725,
+    "power_above_half_and_point_070": 0.41025,
+    "studies": 4000
+   },
+   "pairs of games with the same mechanics score true AUROC for power 0.80": {
+    "98.33%": 0.8986462342940188,
+    "95%": 0.8451727780182758
+   }
+  },
+  "L N": {
+   "all between-game pairs 98.33%": {
+    "mean": 0.7873444427479334,
+    "se": 0.080242292807192,
+    "power_above_half": 0.8823822893946871,
+    "share_point_at_least_070": 0.86275,
+    "power_above_half_and_point_070": 0.86275,
+    "studies": 4000
+   },
+   "all between-game pairs 95%": {
+    "mean": 0.7873444427479334,
+    "se": 0.080242292807192,
+    "power_above_half": 0.9474907559139902,
+    "share_point_at_least_070": 0.86275,
+    "power_above_half_and_point_070": 0.86275,
+    "studies": 4000
+   },
+   "all between-game pairs true AUROC for power 0.80": {
+    "98.33%": 0.7596320455286477,
+    "95%": 0.7248056213961216
+   },
+   "pairs of games with the same mechanics score 98.33%": {
+    "mean": 0.7869028613412552,
+    "se": 0.09351042101442922,
+    "power_above_half": 0.749894579192077,
+    "share_point_at_least_070": 0.829,
+    "power_above_half_and_point_070": 0.7615,
+    "studies": 4000
+   },
+   "pairs of games with the same mechanics score 95%": {
+    "mean": 0.7869028613412552,
+    "se": 0.09351042101442922,
+    "power_above_half": 0.8661066306320835,
+    "share_point_at_least_070": 0.829,
+    "power_above_half_and_point_070": 0.829,
+    "studies": 4000
+   },
+   "pairs of games with the same mechanics score true AUROC for power 0.80": {
+    "98.33%": 0.8025624148671544,
+    "95%": 0.7619774132535451
+   }
+  },
+  "L R": {
+   "all between-game pairs 98.33%": {
+    "mean": 0.7885409480043671,
+    "se": 0.07929965927866682,
+    "power_above_half": 0.8933671047329008,
+    "share_point_at_least_070": 0.87125,
+    "power_above_half_and_point_070": 0.87125,
+    "studies": 4000
+   },
+   "all between-game pairs 95%": {
+    "mean": 0.7885409480043671,
+    "se": 0.07929965927866682,
+    "power_above_half": 0.9533899835302057,
+    "share_point_at_least_070": 0.87125,
+    "power_above_half_and_point_070": 0.87125,
+    "studies": 4000
+   },
+   "all between-game pairs true AUROC for power 0.80": {
+    "98.33%": 0.7565820595096422,
+    "95%": 0.7221647532365079
+   },
+   "pairs of games with the same mechanics score 98.33%": {
+    "mean": 0.7883655079835141,
+    "se": 0.09226595692441403,
+    "power_above_half": 0.7677304164615665,
+    "share_point_at_least_070": 0.83575,
+    "power_above_half_and_point_070": 0.78175,
+    "studies": 4000
+   },
+   "pairs of games with the same mechanics score 95%": {
+    "mean": 0.7883655079835141,
+    "se": 0.09226595692441403,
+    "power_above_half": 0.8780732155698312,
+    "share_point_at_least_070": 0.83575,
+    "power_above_half_and_point_070": 0.83575,
+    "studies": 4000
+   },
+   "pairs of games with the same mechanics score true AUROC for power 0.80": {
+    "98.33%": 0.7985358255714827,
+    "95%": 0.7584909410544862
+   }
+  },
+  "L I1": {
+   "all between-game pairs 98.33%": {
+    "mean": 0.7707091189974802,
+    "se": 0.07929330713651474,
+    "power_above_half": 0.8461458481359849,
+    "share_point_at_least_070": 0.81975,
+    "power_above_half_and_point_070": 0.81975,
+    "studies": 4000
+   },
+   "all between-game pairs 95%": {
+    "mean": 0.7707091189974802,
+    "se": 0.07929330713651474,
+    "power_above_half": 0.9270349307671708,
+    "share_point_at_least_070": 0.81975,
+    "power_above_half_and_point_070": 0.81975,
+    "studies": 4000
+   },
+   "all between-game pairs true AUROC for power 0.80": {
+    "98.33%": 0.7565615065119307,
+    "95%": 0.7221469571689512
+   },
+   "pairs of games with the same mechanics score 98.33%": {
+    "mean": 0.7696583385664035,
+    "se": 0.09258872780441156,
+    "power_above_half": 0.6979284665609935,
+    "share_point_at_least_070": 0.78425,
+    "power_above_half_and_point_070": 0.71725,
+    "studies": 4000
+   },
+   "pairs of games with the same mechanics score 95%": {
+    "mean": 0.7696583385664035,
+    "se": 0.09258872780441156,
+    "power_above_half": 0.8295700640769542,
+    "share_point_at_least_070": 0.78425,
+    "power_above_half_and_point_070": 0.78425,
+    "studies": 4000
+   },
+   "pairs of games with the same mechanics score true AUROC for power 0.80": {
+    "98.33%": 0.7995801833643514,
+    "95%": 0.7593952111807245
+   }
+  }
+ },
+ "stratified_development": {
+  "H_C N": {
+   "auroc": 0.6320806901801573,
+   "pairs": 394100,
+   "ci95": [
+    0.5502062995129976,
+    0.7216241044267442
+   ],
+   "resamples": 2000
+  },
+  "H_C R": {
+   "auroc": 0.6323213496726882,
+   "pairs": 393814,
+   "ci95": [
+    0.5505814725395324,
+    0.7214665597033932
+   ],
+   "resamples": 2000
+  },
+  "H_C I1": {
+   "auroc": 0.5759923812821955,
+   "pairs": 323414,
+   "ci95": [
+    0.4743799923582201,
+    0.6816582407972693
+   ],
+   "resamples": 2000
+  },
+  "L N": {
+   "auroc": 0.8277395503412589,
+   "pairs": 358672,
+   "ci95": [
+    0.7676337364085954,
+    0.880173876344098
+   ],
+   "resamples": 2000
+  },
+  "L R": {
+   "auroc": 0.8304258293501645,
+   "pairs": 358383,
+   "ci95": [
+    0.7699764706909418,
+    0.8833885564903824
+   ],
+   "resamples": 2000
+  },
+  "L I1": {
+   "auroc": 0.8486874370393934,
+   "pairs": 301776,
+   "ci95": [
+    0.7960012234377496,
+    0.8922601883851918
+   ],
+   "resamples": 2000
+  }
+ }
+}
