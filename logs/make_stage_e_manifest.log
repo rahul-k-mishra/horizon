@@ -1,0 +1,9 @@
+stage E: campaign dev-minigrid-e, code tag automation-v3, kind devsearch, row schema horizon.search.v3
+units: 1560 (156 games x seeds 1000 to 1009), the units of jobs/stage_d/manifest.json; stage D rows read: 1560
+caps: seen cap 2,000,000 states; node cap 5,000,000; time cap 14400 s; memory 6442450944 bytes per worker; spill at 1,000,000; checkpoints every 600 s or 250,000 expansions
+units stage D did not finish at or below the seen cap (estimated by scaling): 521; largest unit estimate 9317 s (time cap 14400 s)
+estimated work: 1889607 worker-seconds; one session's capacity 115200 worker-seconds (4 workers x 28800 s); chunks packed to at most 60% of it
+chunks: 28; units per chunk 12 to 839; estimated four-worker finishing time per chunk 5842 to 21657 s (work limit 28800 s); chunks estimated to need a second session: 0
+expected wall-clock, one session at a time, each chunk's finishing time plus 2700 s: 579570 s = 6.71 days; sessions expected 28
+sessions at most, if every unit used its whole time cap: 195
+written jobs\stage_e\manifest.json
