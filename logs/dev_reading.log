@@ -1,0 +1,388 @@
+dev_reading -- EXPLORATORY: development reading of stage D (campaign dev-minigrid); development data, not evidence for the registered claim
+stage D rows: 1560 units, 156 games, suites ['minigrid']
+
+== images (EXPLORATORY; amendment u) ==
+session entries in the rows: 1710; entries without KAGGLE_DOCKER_IMAGE: 0; distinct images: 1
+  gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e: 1710 session entries, 1560 rows, 39 chunks
+
+== capping (EXPLORATORY; docs/PREREG.md Section 7.4, read on development units) ==
+units: 1560; complete 1073 of 1560 (68.8%); capped by node 343 of 1560 (22.0%); by time 144 of 1560 (9.2%); by memory 0 of 1560 (0.0%); by any cap 487 of 1560 (31.2%)
+  overall H: capped by any cap 487 of 1560 (31.2%) (rule: void above 25%: over); excluded under rule 2 144 of 1560 (9.2%) (void above 10%: within); would be void under Section 7.4.3: yes
+  overall L: capped by any cap 487 of 1560 (31.2%) (rule: void above 25%: over); excluded under rule 2 57 of 1560 (3.7%) (void above 10%: within); would be void under Section 7.4.3: yes
+  overall b: capped by any cap 487 of 1560 (31.2%) (rule: void above 25%: over); excluded under rule 2 144 of 1560 (9.2%) (void above 10%: within); would be void under Section 7.4.3: yes
+  overall EH: EH not computed for any reason 667 of 1560 (42.8%) (rule: void above 25%: over); excluded under rule 2 144 of 1560 (9.2%) (void above 10%: within); would be void under Section 7.4.3: yes
+MiniGrid: 610 units; capped by node 72 of 610 (11.8%); by time 20 of 610 (3.3%); by memory 0 of 610 (0.0%)
+  MiniGrid H: capped by any cap 92 of 610 (15.1%) (rule: void above 25%: within); excluded under rule 2 20 of 610 (3.3%) (void above 10%: within); would be void under Section 7.4.3: no
+  MiniGrid L: capped by any cap 92 of 610 (15.1%) (rule: void above 25%: within); excluded under rule 2 15 of 610 (2.5%) (void above 10%: within); would be void under Section 7.4.3: no
+  MiniGrid b: capped by any cap 92 of 610 (15.1%) (rule: void above 25%: within); excluded under rule 2 20 of 610 (3.3%) (void above 10%: within); would be void under Section 7.4.3: no
+  MiniGrid EH: EH not computed for any reason 140 of 610 (23.0%) (rule: void above 25%: within); excluded under rule 2 20 of 610 (3.3%) (void above 10%: within); would be void under Section 7.4.3: no
+BabyAI: 950 units; capped by node 271 of 950 (28.5%); by time 124 of 950 (13.1%); by memory 0 of 950 (0.0%)
+  BabyAI H: capped by any cap 395 of 950 (41.6%) (rule: void above 25%: over); excluded under rule 2 124 of 950 (13.1%) (void above 10%: over); would be void under Section 7.4.3: yes
+  BabyAI L: capped by any cap 395 of 950 (41.6%) (rule: void above 25%: over); excluded under rule 2 42 of 950 (4.4%) (void above 10%: within); would be void under Section 7.4.3: yes
+  BabyAI b: capped by any cap 395 of 950 (41.6%) (rule: void above 25%: over); excluded under rule 2 124 of 950 (13.1%) (void above 10%: over); would be void under Section 7.4.3: yes
+  BabyAI EH: EH not computed for any reason 527 of 950 (55.5%) (rule: void above 25%: over); excluded under rule 2 124 of 950 (13.1%) (void above 10%: over); would be void under Section 7.4.3: yes
+games with every unit capped: 41 of 156 (26.3%); with at least one unit capped: 53 of 156 (34.0%)
+  MiniGrid: every unit capped 9 of 61 (14.8%); at least one 10 of 61 (16.4%)
+  BabyAI: every unit capped 32 of 95 (33.7%); at least one 43 of 95 (45.3%)
+per game (units capped by node / time / memory, of 10):
+  BabyAI-ActionObjDoor-v0: node 2, time 8, memory 0; capped 10 of 10; every unit capped
+  BabyAI-BlockedUnlockPickup-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-BossLevel-v0: node 0, time 9, memory 0; capped 9 of 10
+  BabyAI-BossLevelNoUnlock-v0: node 0, time 10, memory 0; capped 10 of 10; every unit capped
+  BabyAI-FindObjS5-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-FindObjS6-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-FindObjS7-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoTo-v0: node 0, time 10, memory 0; capped 10 of 10; every unit capped
+  BabyAI-GoToDoor-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToImpUnlock-v0: node 0, time 10, memory 0; capped 10 of 10; every unit capped
+  BabyAI-GoToLocal-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-GoToLocalS5N2-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToLocalS6N2-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToLocalS6N3-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToLocalS6N4-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToLocalS7N4-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToLocalS7N5-v0: node 8, time 0, memory 0; capped 8 of 10
+  BabyAI-GoToLocalS8N2-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToLocalS8N3-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToLocalS8N4-v0: node 5, time 0, memory 0; capped 5 of 10
+  BabyAI-GoToLocalS8N5-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-GoToLocalS8N6-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-GoToLocalS8N7-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-GoToObj-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToObjDoor-v0: node 8, time 2, memory 0; capped 10 of 10; every unit capped
+  BabyAI-GoToObjMaze-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToObjMazeOpen-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToObjMazeS4-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToObjMazeS4R2-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToObjMazeS5-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToObjMazeS6-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToObjMazeS7-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToObjS4-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToObjS6-v1: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToOpen-v0: node 0, time 10, memory 0; capped 10 of 10; every unit capped
+  BabyAI-GoToRedBall-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-GoToRedBallNoDists-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-GoToRedBlueBall-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-GoToSeq-v0: node 0, time 10, memory 0; capped 10 of 10; every unit capped
+  BabyAI-GoToSeqS5R2-v0: node 7, time 0, memory 0; capped 7 of 10
+  BabyAI-KeyCorridor-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-KeyCorridorS3R1-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-KeyCorridorS3R2-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-KeyCorridorS3R3-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-KeyCorridorS4R3-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-KeyCorridorS5R3-v0: node 2, time 0, memory 0; capped 2 of 10
+  BabyAI-KeyCorridorS6R3-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-KeyInBox-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-MiniBossLevel-v0: node 8, time 0, memory 0; capped 8 of 10
+  BabyAI-MoveTwoAcrossS5N2-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-MoveTwoAcrossS8N9-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-OneRoomS12-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-OneRoomS16-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-OneRoomS20-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-OneRoomS8-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-Open-v0: node 2, time 8, memory 0; capped 10 of 10; every unit capped
+  BabyAI-OpenDoor-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-OpenDoorColor-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-OpenDoorDebug-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-OpenDoorLoc-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-OpenDoorsOrderN2-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-OpenDoorsOrderN2Debug-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-OpenDoorsOrderN4-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-OpenDoorsOrderN4Debug-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-OpenRedBlueDoors-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-OpenRedBlueDoorsDebug-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-OpenRedDoor-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-OpenTwoDoors-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-Pickup-v0: node 0, time 10, memory 0; capped 10 of 10; every unit capped
+  BabyAI-PickupAbove-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-PickupDist-v0: node 7, time 0, memory 0; capped 7 of 10
+  BabyAI-PickupDistDebug-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-PickupLoc-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-PutNextLocal-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-PutNextLocalS5N3-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-PutNextLocalS6N4-v0: node 2, time 0, memory 0; capped 2 of 10
+  BabyAI-PutNextS4N1-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-PutNextS5N1-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-PutNextS5N2-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-PutNextS5N2Carrying-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-PutNextS6N3-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-PutNextS6N3Carrying-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-PutNextS7N4-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-PutNextS7N4Carrying-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-Synth-v0: node 8, time 2, memory 0; capped 10 of 10; every unit capped
+  BabyAI-SynthLoc-v0: node 6, time 3, memory 0; capped 9 of 10
+  BabyAI-SynthS5R2-v0: node 9, time 0, memory 0; capped 9 of 10
+  BabyAI-SynthSeq-v0: node 0, time 9, memory 0; capped 9 of 10
+  BabyAI-UnblockPickup-v0: node 5, time 5, memory 0; capped 10 of 10; every unit capped
+  BabyAI-Unlock-v0: node 0, time 10, memory 0; capped 10 of 10; every unit capped
+  BabyAI-UnlockLocal-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-UnlockLocalDist-v0: node 2, time 8, memory 0; capped 10 of 10; every unit capped
+  BabyAI-UnlockPickup-v0: node 0, time 0, memory 0; capped 0 of 10
+  BabyAI-UnlockPickupDist-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  BabyAI-UnlockToUnlock-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-BlockedUnlockPickup-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-DistShift1-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-DistShift2-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-DoorKey-16x16-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-DoorKey-5x5-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-DoorKey-6x6-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-Empty-16x16-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-Empty-6x6-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-Empty-8x8-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-Empty-Random-5x5-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-Empty-Random-6x6-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-Fetch-6x6-N2-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-Fetch-8x8-N3-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-GoToDoor-5x5-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-GoToDoor-6x6-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-GoToDoor-8x8-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-GoToObject-6x6-N2-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-GoToObject-8x8-N2-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-KeyCorridorS3R1-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-KeyCorridorS3R2-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-KeyCorridorS3R3-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-KeyCorridorS4R3-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-KeyCorridorS5R3-v0: node 2, time 0, memory 0; capped 2 of 10
+  MiniGrid-KeyCorridorS6R3-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  MiniGrid-LavaCrossingS11N5-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-LavaCrossingS9N1-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-LavaCrossingS9N2-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-LavaCrossingS9N3-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-LavaGapS5-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-LavaGapS6-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-LavaGapS7-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-LockedRoom-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  MiniGrid-MemoryS11-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-MemoryS13-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-MemoryS13Random-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-MemoryS17Random-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-MemoryS7-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-MemoryS9-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-MultiRoom-N2-S4-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-MultiRoom-N4-S5-v1: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-MultiRoom-N6-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-ObstructedMaze-1Dl-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-ObstructedMaze-1Dlh-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-ObstructedMaze-1Dlhb-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-ObstructedMaze-1Q-v1: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  MiniGrid-ObstructedMaze-2Dl-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  MiniGrid-ObstructedMaze-2Dlh-v0: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  MiniGrid-ObstructedMaze-2Dlhb-v1: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  MiniGrid-ObstructedMaze-2Q-v1: node 10, time 0, memory 0; capped 10 of 10; every unit capped
+  MiniGrid-ObstructedMaze-Full-v1: node 0, time 10, memory 0; capped 10 of 10; every unit capped
+  MiniGrid-Playground-v0: node 0, time 10, memory 0; capped 10 of 10; every unit capped
+  MiniGrid-PutNear-6x6-N2-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-PutNear-8x8-N3-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-RedBlueDoors-6x6-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-RedBlueDoors-8x8-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-SimpleCrossingS11N5-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-SimpleCrossingS9N1-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-SimpleCrossingS9N2-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-SimpleCrossingS9N3-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-Unlock-v0: node 0, time 0, memory 0; capped 0 of 10
+  MiniGrid-UnlockPickup-v0: node 0, time 0, memory 0; capped 0 of 10
+
+== units per agent (EXPLORATORY) ==
+N: 1560 units matched to a study-1 macro row (0 without one), 156 games; completed 956 of 1560 (61.3%)
+R: 1560 units matched to a study-1 macro row (0 without one), 156 games; completed 957 of 1560 (61.3%)
+I1: 1560 units matched to a study-1 macro row (0 without one), 156 games; completed 567 of 1560 (36.3%)
+
+== AUROC over between-game pairs, bootstrap of games (EXPLORATORY) ==
+10000 resamples, seed 20261024, 8 chunks; intervals 95% and 98.33%; larger score = predicted easier; H = -log10 R, L, b, EH the search quantities, S_M the mechanics score, area/actions/colours the nuisance features, B the nuisance baseline (in-sample logistic on the three)
+
+N overall: 156 games, 1560 units, completed 956 of 1560 (61.3%); resamples skipped (one class) 0; check against sdd.auroc_between: 5 of 5 equal
+  H        AUROC 0.7297  95% [0.6448, 0.8083]  98.33% [0.6244, 0.8263], units 1416
+  L        AUROC 0.7996  95% [0.7362, 0.8574]  98.33% [0.7198, 0.8695], units 1503
+  b        AUROC 0.5848  95% [0.4922, 0.6762]  98.33% [0.4693, 0.6951], units 1416
+  EH       AUROC 0.5164  95% [0.3684, 0.6630]  98.33% [0.3378, 0.6954], units 893
+  S_M      AUROC 0.6366  95% [0.5864, 0.6869]  98.33% [0.5767, 0.6979], units 1560
+  S_M|H    AUROC 0.6479  95% [0.5934, 0.7022]  98.33% [0.5825, 0.7138], units 1416
+  area     AUROC 0.4617  95% [0.3797, 0.5454]  98.33% [0.3645, 0.5645], units 1560
+  actions  AUROC 0.5000  95% [0.5000, 0.5000]  98.33% [0.5000, 0.5000], units 1560
+  colours  AUROC 0.4625  95% [0.3809, 0.5470]  98.33% [0.3642, 0.5674], units 1560
+  B        AUROC 0.5401  95% [0.4931, 0.6458]  98.33% [0.4812, 0.6617], units 1560
+  Delta    AUROC 0.0818  95% [-0.0059, 0.1668]  98.33% [-0.0264, 0.1803]
+  reading of H: AUROC above 0.5 with the 95% interval above 0.5: yes; with the 98.33% interval above 0.5: yes; 95% interval below 0.5: no; point at or above the registered floor 0.70: yes
+
+N MiniGrid: 61 games, 610 units, completed 341 of 610 (55.9%); resamples skipped (one class) 0; check against sdd.auroc_between: 5 of 5 equal
+  H        AUROC 0.8545  95% [0.7279, 0.9584]  98.33% [0.6955, 0.9757], units 590
+  L        AUROC 0.8515  95% [0.7490, 0.9336]  98.33% [0.7234, 0.9487], units 595
+  b        AUROC 0.6953  95% [0.5590, 0.8227]  98.33% [0.5270, 0.8478], units 590
+  EH       AUROC 0.5339  95% [0.2950, 0.7658]  98.33% [0.2456, 0.8219], units 470
+  S_M      AUROC 0.8914  95% [0.8099, 0.9600]  98.33% [0.7915, 0.9722], units 610
+  S_M|H    AUROC 0.8886  95% [0.8039, 0.9595]  98.33% [0.7848, 0.9714], units 590
+  area     AUROC 0.5410  95% [0.3900, 0.6894]  98.33% [0.3551, 0.7204], units 610
+  actions  AUROC 0.5000  95% [0.5000, 0.5000]  98.33% [0.5000, 0.5000], units 610
+  colours  AUROC 0.7847  95% [0.6573, 0.8918]  98.33% [0.6291, 0.9121], units 610
+  B        AUROC 0.7754  95% [0.6663, 0.8994]  98.33% [0.6337, 0.9191], units 610
+  Delta    AUROC -0.0341  95% [-0.1825, 0.1049]  98.33% [-0.2187, 0.1375]
+  reading of H: AUROC above 0.5 with the 95% interval above 0.5: yes; with the 98.33% interval above 0.5: yes; 95% interval below 0.5: no; point at or above the registered floor 0.70: yes
+
+N BabyAI: 95 games, 950 units, completed 615 of 950 (64.7%); resamples skipped (one class) 0; check against sdd.auroc_between: 5 of 5 equal
+  H        AUROC 0.6849  95% [0.5733, 0.7890]  98.33% [0.5454, 0.8110], units 826
+  L        AUROC 0.7722  95% [0.6953, 0.8426]  98.33% [0.6767, 0.8579], units 908
+  b        AUROC 0.5372  95% [0.4080, 0.6682]  98.33% [0.3793, 0.6925], units 826
+  EH       AUROC 0.5336  95% [0.3631, 0.7176]  98.33% [0.3214, 0.7684], units 423
+  S_M      AUROC 0.5000  95% [0.5000, 0.5000]  98.33% [0.5000, 0.5000], units 950
+  S_M|H    AUROC 0.5000  95% [0.5000, 0.5000]  98.33% [0.5000, 0.5000], units 826
+  area     AUROC 0.4268  95% [0.3294, 0.5307]  98.33% [0.3087, 0.5545], units 950
+  actions  AUROC 0.5000  95% [0.5000, 0.5000]  98.33% [0.5000, 0.5000], units 950
+  colours  AUROC 0.2878  95% [0.1991, 0.3875]  98.33% [0.1814, 0.4097], units 950
+  B        AUROC 0.7015  95% [0.6257, 0.8174]  98.33% [0.6049, 0.8369], units 950
+  Delta    AUROC 0.1849  95% [0.0733, 0.2890]  98.33% [0.0454, 0.3110]
+  reading of H: AUROC above 0.5 with the 95% interval above 0.5: yes; with the 98.33% interval above 0.5: yes; 95% interval below 0.5: no; point at or above the registered floor 0.70: no
+
+R overall: 156 games, 1560 units, completed 957 of 1560 (61.3%); resamples skipped (one class) 0; check against sdd.auroc_between: 5 of 5 equal
+  H        AUROC 0.7279  95% [0.6429, 0.8064]  98.33% [0.6225, 0.8244], units 1416
+  L        AUROC 0.8007  95% [0.7376, 0.8576]  98.33% [0.7217, 0.8706], units 1503
+  b        AUROC 0.5849  95% [0.4920, 0.6762]  98.33% [0.4688, 0.6956], units 1416
+  EH       AUROC 0.5155  95% [0.3694, 0.6611]  98.33% [0.3387, 0.6929], units 893
+  S_M      AUROC 0.6377  95% [0.5894, 0.6869]  98.33% [0.5801, 0.6978], units 1560
+  S_M|H    AUROC 0.6490  95% [0.5969, 0.7017]  98.33% [0.5865, 0.7132], units 1416
+  area     AUROC 0.4600  95% [0.3786, 0.5435]  98.33% [0.3630, 0.5627], units 1560
+  actions  AUROC 0.5000  95% [0.5000, 0.5000]  98.33% [0.5000, 0.5000], units 1560
+  colours  AUROC 0.4600  95% [0.3790, 0.5442]  98.33% [0.3609, 0.5643], units 1560
+  B        AUROC 0.5466  95% [0.4958, 0.6464]  98.33% [0.4813, 0.6626], units 1560
+  Delta    AUROC 0.0789  95% [-0.0075, 0.1627]  98.33% [-0.0276, 0.1760]
+  reading of H: AUROC above 0.5 with the 95% interval above 0.5: yes; with the 98.33% interval above 0.5: yes; 95% interval below 0.5: no; point at or above the registered floor 0.70: yes
+
+R MiniGrid: 61 games, 610 units, completed 342 of 610 (56.1%); resamples skipped (one class) 0; check against sdd.auroc_between: 5 of 5 equal
+  H        AUROC 0.8503  95% [0.7238, 0.9544]  98.33% [0.6928, 0.9705], units 590
+  L        AUROC 0.8485  95% [0.7473, 0.9300]  98.33% [0.7220, 0.9456], units 595
+  b        AUROC 0.6942  95% [0.5583, 0.8213]  98.33% [0.5266, 0.8470], units 590
+  EH       AUROC 0.5331  95% [0.2997, 0.7645]  98.33% [0.2504, 0.8206], units 470
+  S_M      AUROC 0.8935  95% [0.8160, 0.9573]  98.33% [0.7980, 0.9705], units 610
+  S_M|H    AUROC 0.8908  95% [0.8102, 0.9571]  98.33% [0.7927, 0.9700], units 590
+  area     AUROC 0.5361  95% [0.3867, 0.6814]  98.33% [0.3529, 0.7125], units 610
+  actions  AUROC 0.5000  95% [0.5000, 0.5000]  98.33% [0.5000, 0.5000], units 610
+  colours  AUROC 0.7790  95% [0.6527, 0.8853]  98.33% [0.6252, 0.9055], units 610
+  B        AUROC 0.7608  95% [0.6619, 0.8918]  98.33% [0.6276, 0.9121], units 610
+  Delta    AUROC -0.0405  95% [-0.1847, 0.0951]  98.33% [-0.2196, 0.1231]
+  reading of H: AUROC above 0.5 with the 95% interval above 0.5: yes; with the 98.33% interval above 0.5: yes; 95% interval below 0.5: no; point at or above the registered floor 0.70: yes
+
+R BabyAI: 95 games, 950 units, completed 615 of 950 (64.7%); resamples skipped (one class) 0; check against sdd.auroc_between: 5 of 5 equal
+  H        AUROC 0.6856  95% [0.5736, 0.7889]  98.33% [0.5459, 0.8122], units 826
+  L        AUROC 0.7765  95% [0.7005, 0.8470]  98.33% [0.6830, 0.8622], units 908
+  b        AUROC 0.5384  95% [0.4093, 0.6700]  98.33% [0.3809, 0.6945], units 826
+  EH       AUROC 0.5336  95% [0.3631, 0.7176]  98.33% [0.3214, 0.7684], units 423
+  S_M      AUROC 0.5000  95% [0.5000, 0.5000]  98.33% [0.5000, 0.5000], units 950
+  S_M|H    AUROC 0.5000  95% [0.5000, 0.5000]  98.33% [0.5000, 0.5000], units 826
+  area     AUROC 0.4275  95% [0.3301, 0.5327]  98.33% [0.3089, 0.5543], units 950
+  actions  AUROC 0.5000  95% [0.5000, 0.5000]  98.33% [0.5000, 0.5000], units 950
+  colours  AUROC 0.2867  95% [0.1967, 0.3865]  98.33% [0.1808, 0.4108], units 950
+  B        AUROC 0.7029  95% [0.6271, 0.8165]  98.33% [0.6043, 0.8381], units 950
+  Delta    AUROC 0.1856  95% [0.0736, 0.2889]  98.33% [0.0459, 0.3122]
+  reading of H: AUROC above 0.5 with the 95% interval above 0.5: yes; with the 98.33% interval above 0.5: yes; 95% interval below 0.5: no; point at or above the registered floor 0.70: no
+
+I1 overall: 156 games, 1560 units, completed 567 of 1560 (36.3%); resamples skipped (one class) 0; check against sdd.auroc_between: 5 of 5 equal
+  H        AUROC 0.6919  95% [0.6008, 0.7769]  98.33% [0.5770, 0.7969], units 1416
+  L        AUROC 0.7769  95% [0.7135, 0.8345]  98.33% [0.6983, 0.8459], units 1503
+  b        AUROC 0.5188  95% [0.4239, 0.6105]  98.33% [0.4065, 0.6310], units 1416
+  EH       AUROC 0.6631  95% [0.5584, 0.7606]  98.33% [0.5348, 0.7785], units 893
+  S_M      AUROC 0.6668  95% [0.6000, 0.7328]  98.33% [0.5856, 0.7466], units 1560
+  S_M|H    AUROC 0.6684  95% [0.5994, 0.7366]  98.33% [0.5839, 0.7520], units 1416
+  area     AUROC 0.6722  95% [0.5931, 0.7466]  98.33% [0.5775, 0.7622], units 1560
+  actions  AUROC 0.5000  95% [0.5000, 0.5000]  98.33% [0.5000, 0.5000], units 1560
+  colours  AUROC 0.3911  95% [0.2946, 0.4892]  98.33% [0.2740, 0.5128], units 1560
+  B        AUROC 0.7522  95% [0.6724, 0.8265]  98.33% [0.6551, 0.8410], units 1560
+  Delta    AUROC 0.0236  95% [-0.0560, 0.1023]  98.33% [-0.0721, 0.1198]
+  reading of H: AUROC above 0.5 with the 95% interval above 0.5: yes; with the 98.33% interval above 0.5: yes; 95% interval below 0.5: no; point at or above the registered floor 0.70: no
+
+I1 MiniGrid: 61 games, 610 units, completed 253 of 610 (41.5%); resamples skipped (one class) 0; check against sdd.auroc_between: 5 of 5 equal
+  H        AUROC 0.8701  95% [0.7686, 0.9554]  98.33% [0.7415, 0.9683], units 590
+  L        AUROC 0.8194  95% [0.7142, 0.9068]  98.33% [0.6893, 0.9211], units 595
+  b        AUROC 0.6232  95% [0.4828, 0.7589]  98.33% [0.4501, 0.7905], units 590
+  EH       AUROC 0.5854  95% [0.4075, 0.7588]  98.33% [0.3668, 0.7981], units 470
+  S_M      AUROC 0.8529  95% [0.7635, 0.9309]  98.33% [0.7436, 0.9461], units 610
+  S_M|H    AUROC 0.8465  95% [0.7541, 0.9274]  98.33% [0.7329, 0.9432], units 590
+  area     AUROC 0.5921  95% [0.4471, 0.7315]  98.33% [0.4175, 0.7590], units 610
+  actions  AUROC 0.5000  95% [0.5000, 0.5000]  98.33% [0.5000, 0.5000], units 610
+  colours  AUROC 0.6346  95% [0.4800, 0.7776]  98.33% [0.4440, 0.8079], units 610
+  B        AUROC 0.5796  95% [0.4840, 0.7858]  98.33% [0.4544, 0.8145], units 610
+  Delta    AUROC 0.0236  95% [-0.0995, 0.1430]  98.33% [-0.1299, 0.1693]
+  reading of H: AUROC above 0.5 with the 95% interval above 0.5: yes; with the 98.33% interval above 0.5: yes; 95% interval below 0.5: no; point at or above the registered floor 0.70: yes
+
+I1 BabyAI: 95 games, 950 units, completed 314 of 950 (33.1%); resamples skipped (one class) 0; check against sdd.auroc_between: 5 of 5 equal
+  H        AUROC 0.5365  95% [0.4114, 0.6618]  98.33% [0.3861, 0.6874], units 826
+  L        AUROC 0.8173  95% [0.7566, 0.8689]  98.33% [0.7403, 0.8786], units 908
+  b        AUROC 0.4104  95% [0.2922, 0.5310]  98.33% [0.2691, 0.5565], units 826
+  EH       AUROC 0.6878  95% [0.5600, 0.7997]  98.33% [0.5283, 0.8232], units 423
+  S_M      AUROC 0.5000  95% [0.5000, 0.5000]  98.33% [0.5000, 0.5000], units 950
+  S_M|H    AUROC 0.5000  95% [0.5000, 0.5000]  98.33% [0.5000, 0.5000], units 826
+  area     AUROC 0.6995  95% [0.5983, 0.7922]  98.33% [0.5767, 0.8113], units 950
+  actions  AUROC 0.5000  95% [0.5000, 0.5000]  98.33% [0.5000, 0.5000], units 950
+  colours  AUROC 0.1817  95% [0.1030, 0.2738]  98.33% [0.0887, 0.2965], units 950
+  B        AUROC 0.8675  95% [0.7879, 0.9398]  98.33% [0.7669, 0.9521], units 950
+  Delta    AUROC 0.0365  95% [-0.0886, 0.1618]  98.33% [-0.1139, 0.1874]
+  reading of H: AUROC above 0.5 with the 95% interval above 0.5: no; with the 98.33% interval above 0.5: no; 95% interval below 0.5: no; point at or above the registered floor 0.70: no
+
+== finer families (study 1's family()), point values only (EXPLORATORY) ==
+  BabyAI-ActionObjDoor: 1 games, capped 10 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 5/10 H n/a S_M n/a B n/a
+  BabyAI-BlockedUnlockPickup: 1 games, capped 0 of 10; N completed 0/10 H n/a S_M n/a B n/a; R completed 0/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-BossLevel: 1 games, capped 9 of 10; N completed 4/10 H n/a S_M n/a B n/a; R completed 4/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-BossLevelNoUnlock: 1 games, capped 10 of 10; N completed 3/10 H n/a S_M n/a B n/a; R completed 3/10 H n/a S_M n/a B n/a; I1 completed 1/10 H n/a S_M n/a B n/a
+  BabyAI-FindObj: 3 games, capped 0 of 30; N completed 29/30 H 1.0000 S_M 0.5000 B 1.0000; R completed 30/30 H n/a S_M n/a B n/a; I1 completed 3/30 H 0.3333 S_M 0.5000 B 0.9444
+  BabyAI-GoTo: 1 games, capped 10 of 10; N completed 8/10 H n/a S_M n/a B n/a; R completed 7/10 H n/a S_M n/a B n/a; I1 completed 2/10 H n/a S_M n/a B n/a
+  BabyAI-GoToDoor: 1 games, capped 0 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 10/10 H n/a S_M n/a B n/a
+  BabyAI-GoToImpUnlock: 1 games, capped 10 of 10; N completed 3/10 H n/a S_M n/a B n/a; R completed 3/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-GoToLocal: 13 games, capped 53 of 130; N completed 130/130 H n/a S_M n/a B n/a; R completed 130/130 H n/a S_M n/a B n/a; I1 completed 128/130 H 0.8193 S_M 0.5000 B 0.9979
+  BabyAI-GoToObj: 3 games, capped 0 of 30; N completed 30/30 H n/a S_M n/a B n/a; R completed 30/30 H n/a S_M n/a B n/a; I1 completed 29/30 H 0.5000 S_M 0.5000 B 1.0000
+  BabyAI-GoToObjDoor: 1 games, capped 10 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 10/10 H n/a S_M n/a B n/a
+  BabyAI-GoToObjMaze: 6 games, capped 0 of 60; N completed 50/60 H 0.8188 S_M 0.5000 B 0.9817; R completed 51/60 H 0.7753 S_M 0.5000 B 0.9697; I1 completed 8/60 H 0.7219 S_M 0.5000 B 0.9326
+  BabyAI-GoToObjMazeOpen: 1 games, capped 0 of 10; N completed 7/10 H n/a S_M n/a B n/a; R completed 7/10 H n/a S_M n/a B n/a; I1 completed 7/10 H n/a S_M n/a B n/a
+  BabyAI-GoToOpen: 1 games, capped 10 of 10; N completed 9/10 H n/a S_M n/a B n/a; R completed 9/10 H n/a S_M n/a B n/a; I1 completed 6/10 H n/a S_M n/a B n/a
+  BabyAI-GoToRedBall: 1 games, capped 10 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 10/10 H n/a S_M n/a B n/a
+  BabyAI-GoToRedBallNoDists: 1 games, capped 0 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 10/10 H n/a S_M n/a B n/a
+  BabyAI-GoToRedBlueBall: 1 games, capped 10 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 10/10 H n/a S_M n/a B n/a
+  BabyAI-GoToSeq: 2 games, capped 17 of 20; N completed 13/20 H n/a S_M 0.5000 B 1.0000; R completed 12/20 H n/a S_M 0.5000 B 1.0000; I1 completed 4/20 H n/a S_M 0.5000 B 1.0000
+  BabyAI-KeyCorridor: 7 games, capped 22 of 70; N completed 0/70 H n/a S_M n/a B n/a; R completed 0/70 H n/a S_M n/a B n/a; I1 completed 0/70 H n/a S_M n/a B n/a
+  BabyAI-KeyInBox: 1 games, capped 0 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-MiniBossLevel: 1 games, capped 8 of 10; N completed 5/10 H n/a S_M n/a B n/a; R completed 5/10 H n/a S_M n/a B n/a; I1 completed 1/10 H n/a S_M n/a B n/a
+  BabyAI-MoveTwoAcross: 2 games, capped 20 of 20; N completed 0/20 H n/a S_M n/a B n/a; R completed 0/20 H n/a S_M n/a B n/a; I1 completed 0/20 H n/a S_M n/a B n/a
+  BabyAI-OneRoom: 4 games, capped 0 of 40; N completed 40/40 H n/a S_M n/a B n/a; R completed 40/40 H n/a S_M n/a B n/a; I1 completed 30/40 H 0.5000 S_M 0.5000 B 0.9744
+  BabyAI-Open: 1 games, capped 10 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-OpenDoor: 2 games, capped 0 of 20; N completed 20/20 H n/a S_M n/a B n/a; R completed 20/20 H n/a S_M n/a B n/a; I1 completed 0/20 H n/a S_M n/a B n/a
+  BabyAI-OpenDoorColor: 1 games, capped 0 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-OpenDoorLoc: 1 games, capped 0 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-OpenDoorsOrder: 4 games, capped 0 of 40; N completed 25/40 H 0.0680 S_M 0.5000 B 0.9527; R completed 25/40 H 0.0680 S_M 0.5000 B 0.9527; I1 completed 0/40 H n/a S_M n/a B n/a
+  BabyAI-OpenRedBlueDoors: 2 games, capped 0 of 20; N completed 20/20 H n/a S_M n/a B n/a; R completed 20/20 H n/a S_M n/a B n/a; I1 completed 0/20 H n/a S_M n/a B n/a
+  BabyAI-OpenRedDoor: 1 games, capped 0 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-OpenTwoDoors: 1 games, capped 0 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-Pickup: 1 games, capped 10 of 10; N completed 6/10 H n/a S_M n/a B n/a; R completed 6/10 H n/a S_M n/a B n/a; I1 completed 2/10 H n/a S_M n/a B n/a
+  BabyAI-PickupAbove: 1 games, capped 0 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-PickupDist: 2 games, capped 7 of 20; N completed 20/20 H n/a S_M n/a B n/a; R completed 20/20 H n/a S_M n/a B n/a; I1 completed 20/20 H n/a S_M n/a B n/a
+  BabyAI-PickupLoc: 1 games, capped 10 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 8/10 H n/a S_M n/a B n/a
+  BabyAI-PutNext: 8 games, capped 60 of 80; N completed 0/80 H n/a S_M n/a B n/a; R completed 0/80 H n/a S_M n/a B n/a; I1 completed 0/80 H n/a S_M n/a B n/a
+  BabyAI-PutNextLocal: 3 games, capped 12 of 30; N completed 0/30 H n/a S_M n/a B n/a; R completed 0/30 H n/a S_M n/a B n/a; I1 completed 0/30 H n/a S_M n/a B n/a
+  BabyAI-Synth: 2 games, capped 19 of 20; N completed 14/20 H 0.5500 S_M 0.5000 B 1.0000; R completed 14/20 H 0.5500 S_M 0.5000 B 1.0000; I1 completed 6/20 H 0.4583 S_M 0.5000 B 1.0000
+  BabyAI-SynthLoc: 1 games, capped 9 of 10; N completed 5/10 H n/a S_M n/a B n/a; R completed 5/10 H n/a S_M n/a B n/a; I1 completed 3/10 H n/a S_M n/a B n/a
+  BabyAI-SynthSeq: 1 games, capped 9 of 10; N completed 4/10 H n/a S_M n/a B n/a; R completed 4/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-UnblockPickup: 1 games, capped 10 of 10; N completed 6/10 H n/a S_M n/a B n/a; R completed 5/10 H n/a S_M n/a B n/a; I1 completed 1/10 H n/a S_M n/a B n/a
+  BabyAI-Unlock: 1 games, capped 10 of 10; N completed 6/10 H n/a S_M n/a B n/a; R completed 7/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-UnlockLocal: 1 games, capped 0 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-UnlockLocalDist: 1 games, capped 10 of 10; N completed 8/10 H n/a S_M n/a B n/a; R completed 8/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-UnlockPickup: 1 games, capped 0 of 10; N completed 0/10 H n/a S_M n/a B n/a; R completed 0/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-UnlockPickupDist: 1 games, capped 10 of 10; N completed 0/10 H n/a S_M n/a B n/a; R completed 0/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  BabyAI-UnlockToUnlock: 1 games, capped 0 of 10; N completed 0/10 H n/a S_M n/a B n/a; R completed 0/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  MiniGrid-BlockedUnlockPickup: 1 games, capped 0 of 10; N completed 0/10 H n/a S_M n/a B n/a; R completed 0/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  MiniGrid-DistShift: 2 games, capped 0 of 20; N completed 20/20 H n/a S_M n/a B n/a; R completed 20/20 H n/a S_M n/a B n/a; I1 completed 20/20 H n/a S_M n/a B n/a
+  MiniGrid-DoorKey: 3 games, capped 0 of 30; N completed 30/30 H n/a S_M n/a B n/a; R completed 30/30 H n/a S_M n/a B n/a; I1 completed 0/30 H n/a S_M n/a B n/a
+  MiniGrid-Empty: 5 games, capped 0 of 50; N completed 50/50 H n/a S_M n/a B n/a; R completed 50/50 H n/a S_M n/a B n/a; I1 completed 47/50 H 0.7586 S_M 0.5000 B 0.8017
+  MiniGrid-Fetch: 2 games, capped 0 of 20; N completed 20/20 H n/a S_M n/a B n/a; R completed 20/20 H n/a S_M n/a B n/a; I1 completed 20/20 H n/a S_M n/a B n/a
+  MiniGrid-GoToDoor: 3 games, capped 0 of 30; N completed 0/30 H n/a S_M n/a B n/a; R completed 0/30 H n/a S_M n/a B n/a; I1 completed 0/30 H n/a S_M n/a B n/a
+  MiniGrid-GoToObject: 2 games, capped 0 of 20; N completed 0/20 H n/a S_M n/a B n/a; R completed 0/20 H n/a S_M n/a B n/a; I1 completed 0/20 H n/a S_M n/a B n/a
+  MiniGrid-KeyCorridor: 6 games, capped 12 of 60; N completed 0/60 H n/a S_M n/a B n/a; R completed 0/60 H n/a S_M n/a B n/a; I1 completed 0/60 H n/a S_M n/a B n/a
+  MiniGrid-LavaCrossing: 4 games, capped 0 of 40; N completed 40/40 H n/a S_M n/a B n/a; R completed 39/40 H 0.6667 S_M 0.5000 B 1.0000; I1 completed 40/40 H n/a S_M n/a B n/a
+  MiniGrid-LavaGap: 3 games, capped 0 of 30; N completed 30/30 H n/a S_M n/a B n/a; R completed 30/30 H n/a S_M n/a B n/a; I1 completed 30/30 H n/a S_M n/a B n/a
+  MiniGrid-LockedRoom: 1 games, capped 10 of 10; N completed 0/10 H n/a S_M n/a B n/a; R completed 1/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  MiniGrid-Memory: 6 games, capped 0 of 60; N completed 60/60 H n/a S_M n/a B n/a; R completed 60/60 H n/a S_M n/a B n/a; I1 completed 60/60 H n/a S_M n/a B n/a
+  MiniGrid-MultiRoom: 3 games, capped 0 of 30; N completed 21/30 H 1.0000 S_M 0.5000 B 1.0000; R completed 22/30 H 1.0000 S_M 0.5000 B 1.0000; I1 completed 0/30 H n/a S_M n/a B n/a
+  MiniGrid-ObstructedMaze: 9 games, capped 60 of 90; N completed 0/90 H n/a S_M n/a B n/a; R completed 0/90 H n/a S_M n/a B n/a; I1 completed 0/90 H n/a S_M n/a B n/a
+  MiniGrid-Playground: 1 games, capped 10 of 10; N completed 0/10 H n/a S_M n/a B n/a; R completed 0/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  MiniGrid-PutNear: 2 games, capped 0 of 20; N completed 0/20 H n/a S_M n/a B n/a; R completed 0/20 H n/a S_M n/a B n/a; I1 completed 0/20 H n/a S_M n/a B n/a
+  MiniGrid-RedBlueDoors: 2 games, capped 0 of 20; N completed 20/20 H n/a S_M n/a B n/a; R completed 20/20 H n/a S_M n/a B n/a; I1 completed 0/20 H n/a S_M n/a B n/a
+  MiniGrid-SimpleCrossing: 4 games, capped 0 of 40; N completed 40/40 H n/a S_M n/a B n/a; R completed 40/40 H n/a S_M n/a B n/a; I1 completed 36/40 H 0.2591 S_M 0.5000 B 0.5000
+  MiniGrid-Unlock: 1 games, capped 0 of 10; N completed 10/10 H n/a S_M n/a B n/a; R completed 10/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+  MiniGrid-UnlockPickup: 1 games, capped 0 of 10; N completed 0/10 H n/a S_M n/a B n/a; R completed 0/10 H n/a S_M n/a B n/a; I1 completed 0/10 H n/a S_M n/a B n/a
+
+written docs\design\dev_reading.json

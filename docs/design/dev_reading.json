@@ -1,0 +1,4339 @@
+{
+ "label": "EXPLORATORY",
+ "n_boot": 10000,
+ "seed": 20261024,
+ "node_cap": 5000000,
+ "images": {
+  "session_entries": 1710,
+  "missing": 0,
+  "by_image": {
+   "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e": 1710
+  }
+ },
+ "caps": {
+  "time": 144,
+  "node": 343,
+  "none": 1073
+ },
+ "void_rule": {
+  "overall": {
+   "H": {
+    "units": 1560,
+    "capped_or_not_computed": 487,
+    "excluded": 144,
+    "void": true,
+    "over_25": true,
+    "over_10": false
+   },
+   "L": {
+    "units": 1560,
+    "capped_or_not_computed": 487,
+    "excluded": 57,
+    "void": true,
+    "over_25": true,
+    "over_10": false
+   },
+   "b": {
+    "units": 1560,
+    "capped_or_not_computed": 487,
+    "excluded": 144,
+    "void": true,
+    "over_25": true,
+    "over_10": false
+   },
+   "EH": {
+    "units": 1560,
+    "capped_or_not_computed": 667,
+    "excluded": 144,
+    "void": true,
+    "over_25": true,
+    "over_10": false
+   }
+  },
+  "MiniGrid": {
+   "H": {
+    "units": 610,
+    "capped_or_not_computed": 92,
+    "excluded": 20,
+    "void": false,
+    "over_25": false,
+    "over_10": false
+   },
+   "L": {
+    "units": 610,
+    "capped_or_not_computed": 92,
+    "excluded": 15,
+    "void": false,
+    "over_25": false,
+    "over_10": false
+   },
+   "b": {
+    "units": 610,
+    "capped_or_not_computed": 92,
+    "excluded": 20,
+    "void": false,
+    "over_25": false,
+    "over_10": false
+   },
+   "EH": {
+    "units": 610,
+    "capped_or_not_computed": 140,
+    "excluded": 20,
+    "void": false,
+    "over_25": false,
+    "over_10": false
+   }
+  },
+  "BabyAI": {
+   "H": {
+    "units": 950,
+    "capped_or_not_computed": 395,
+    "excluded": 124,
+    "void": true,
+    "over_25": true,
+    "over_10": true
+   },
+   "L": {
+    "units": 950,
+    "capped_or_not_computed": 395,
+    "excluded": 42,
+    "void": true,
+    "over_25": true,
+    "over_10": false
+   },
+   "b": {
+    "units": 950,
+    "capped_or_not_computed": 395,
+    "excluded": 124,
+    "void": true,
+    "over_25": true,
+    "over_10": true
+   },
+   "EH": {
+    "units": 950,
+    "capped_or_not_computed": 527,
+    "excluded": 124,
+    "void": true,
+    "over_25": true,
+    "over_10": true
+   }
+  }
+ },
+ "per_game_caps": {
+  "BabyAI-ActionObjDoor-v0": {
+   "units": 10,
+   "node": 2,
+   "time": 8,
+   "memory": 0
+  },
+  "BabyAI-BlockedUnlockPickup-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-BossLevel-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 9,
+   "memory": 0
+  },
+  "BabyAI-BossLevelNoUnlock-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 10,
+   "memory": 0
+  },
+  "BabyAI-FindObjS5-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-FindObjS6-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-FindObjS7-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoTo-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 10,
+   "memory": 0
+  },
+  "BabyAI-GoToDoor-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToImpUnlock-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 10,
+   "memory": 0
+  },
+  "BabyAI-GoToLocal-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToLocalS5N2-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToLocalS6N2-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToLocalS6N3-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToLocalS6N4-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToLocalS7N4-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToLocalS7N5-v0": {
+   "units": 10,
+   "node": 8,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToLocalS8N2-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToLocalS8N3-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToLocalS8N4-v0": {
+   "units": 10,
+   "node": 5,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToLocalS8N5-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToLocalS8N6-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToLocalS8N7-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToObj-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToObjDoor-v0": {
+   "units": 10,
+   "node": 8,
+   "time": 2,
+   "memory": 0
+  },
+  "BabyAI-GoToObjMaze-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToObjMazeOpen-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToObjMazeS4-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToObjMazeS4R2-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToObjMazeS5-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToObjMazeS6-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToObjMazeS7-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToObjS4-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToObjS6-v1": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToOpen-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 10,
+   "memory": 0
+  },
+  "BabyAI-GoToRedBall-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToRedBallNoDists-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToRedBlueBall-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-GoToSeq-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 10,
+   "memory": 0
+  },
+  "BabyAI-GoToSeqS5R2-v0": {
+   "units": 10,
+   "node": 7,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-KeyCorridor-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-KeyCorridorS3R1-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-KeyCorridorS3R2-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-KeyCorridorS3R3-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-KeyCorridorS4R3-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-KeyCorridorS5R3-v0": {
+   "units": 10,
+   "node": 2,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-KeyCorridorS6R3-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-KeyInBox-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-MiniBossLevel-v0": {
+   "units": 10,
+   "node": 8,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-MoveTwoAcrossS5N2-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-MoveTwoAcrossS8N9-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-OneRoomS12-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-OneRoomS16-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-OneRoomS20-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-OneRoomS8-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-Open-v0": {
+   "units": 10,
+   "node": 2,
+   "time": 8,
+   "memory": 0
+  },
+  "BabyAI-OpenDoor-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-OpenDoorColor-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-OpenDoorDebug-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-OpenDoorLoc-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-OpenDoorsOrderN2-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-OpenDoorsOrderN2Debug-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-OpenDoorsOrderN4-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-OpenDoorsOrderN4Debug-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-OpenRedBlueDoors-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-OpenRedBlueDoorsDebug-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-OpenRedDoor-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-OpenTwoDoors-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-Pickup-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 10,
+   "memory": 0
+  },
+  "BabyAI-PickupAbove-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-PickupDist-v0": {
+   "units": 10,
+   "node": 7,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-PickupDistDebug-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-PickupLoc-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-PutNextLocal-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-PutNextLocalS5N3-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-PutNextLocalS6N4-v0": {
+   "units": 10,
+   "node": 2,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-PutNextS4N1-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-PutNextS5N1-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-PutNextS5N2-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-PutNextS5N2Carrying-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-PutNextS6N3-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-PutNextS6N3Carrying-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-PutNextS7N4-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-PutNextS7N4Carrying-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-Synth-v0": {
+   "units": 10,
+   "node": 8,
+   "time": 2,
+   "memory": 0
+  },
+  "BabyAI-SynthLoc-v0": {
+   "units": 10,
+   "node": 6,
+   "time": 3,
+   "memory": 0
+  },
+  "BabyAI-SynthS5R2-v0": {
+   "units": 10,
+   "node": 9,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-SynthSeq-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 9,
+   "memory": 0
+  },
+  "BabyAI-UnblockPickup-v0": {
+   "units": 10,
+   "node": 5,
+   "time": 5,
+   "memory": 0
+  },
+  "BabyAI-Unlock-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 10,
+   "memory": 0
+  },
+  "BabyAI-UnlockLocal-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-UnlockLocalDist-v0": {
+   "units": 10,
+   "node": 2,
+   "time": 8,
+   "memory": 0
+  },
+  "BabyAI-UnlockPickup-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-UnlockPickupDist-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "BabyAI-UnlockToUnlock-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-BlockedUnlockPickup-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-DistShift1-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-DistShift2-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-DoorKey-16x16-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-DoorKey-5x5-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-DoorKey-6x6-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-Empty-16x16-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-Empty-6x6-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-Empty-8x8-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-Empty-Random-5x5-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-Empty-Random-6x6-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-Fetch-6x6-N2-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-Fetch-8x8-N3-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-GoToDoor-5x5-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-GoToDoor-6x6-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-GoToDoor-8x8-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-GoToObject-6x6-N2-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-GoToObject-8x8-N2-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-KeyCorridorS3R1-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-KeyCorridorS3R2-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-KeyCorridorS3R3-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-KeyCorridorS4R3-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-KeyCorridorS5R3-v0": {
+   "units": 10,
+   "node": 2,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-KeyCorridorS6R3-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-LavaCrossingS11N5-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-LavaCrossingS9N1-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-LavaCrossingS9N2-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-LavaCrossingS9N3-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-LavaGapS5-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-LavaGapS6-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-LavaGapS7-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-LockedRoom-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-MemoryS11-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-MemoryS13-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-MemoryS13Random-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-MemoryS17Random-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-MemoryS7-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-MemoryS9-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-MultiRoom-N2-S4-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-MultiRoom-N4-S5-v1": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-MultiRoom-N6-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-ObstructedMaze-1Dl-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-ObstructedMaze-1Dlh-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-ObstructedMaze-1Dlhb-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-ObstructedMaze-1Q-v1": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-ObstructedMaze-2Dl-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-ObstructedMaze-2Dlh-v0": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-ObstructedMaze-2Dlhb-v1": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-ObstructedMaze-2Q-v1": {
+   "units": 10,
+   "node": 10,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-ObstructedMaze-Full-v1": {
+   "units": 10,
+   "node": 0,
+   "time": 10,
+   "memory": 0
+  },
+  "MiniGrid-Playground-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 10,
+   "memory": 0
+  },
+  "MiniGrid-PutNear-6x6-N2-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-PutNear-8x8-N3-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-RedBlueDoors-6x6-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-RedBlueDoors-8x8-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-SimpleCrossingS11N5-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-SimpleCrossingS9N1-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-SimpleCrossingS9N2-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-SimpleCrossingS9N3-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-Unlock-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  },
+  "MiniGrid-UnlockPickup-v0": {
+   "units": 10,
+   "node": 0,
+   "time": 0,
+   "memory": 0
+  }
+ },
+ "games_all_capped": [
+  "BabyAI-ActionObjDoor-v0",
+  "BabyAI-BossLevelNoUnlock-v0",
+  "BabyAI-GoTo-v0",
+  "BabyAI-GoToImpUnlock-v0",
+  "BabyAI-GoToLocal-v0",
+  "BabyAI-GoToLocalS8N5-v0",
+  "BabyAI-GoToLocalS8N6-v0",
+  "BabyAI-GoToLocalS8N7-v0",
+  "BabyAI-GoToObjDoor-v0",
+  "BabyAI-GoToOpen-v0",
+  "BabyAI-GoToRedBall-v0",
+  "BabyAI-GoToRedBlueBall-v0",
+  "BabyAI-GoToSeq-v0",
+  "BabyAI-KeyCorridor-v0",
+  "BabyAI-KeyCorridorS6R3-v0",
+  "BabyAI-MoveTwoAcrossS5N2-v0",
+  "BabyAI-MoveTwoAcrossS8N9-v0",
+  "BabyAI-Open-v0",
+  "BabyAI-Pickup-v0",
+  "BabyAI-PickupLoc-v0",
+  "BabyAI-PutNextLocal-v0",
+  "BabyAI-PutNextS5N2-v0",
+  "BabyAI-PutNextS5N2Carrying-v0",
+  "BabyAI-PutNextS6N3-v0",
+  "BabyAI-PutNextS6N3Carrying-v0",
+  "BabyAI-PutNextS7N4-v0",
+  "BabyAI-PutNextS7N4Carrying-v0",
+  "BabyAI-Synth-v0",
+  "BabyAI-UnblockPickup-v0",
+  "BabyAI-Unlock-v0",
+  "BabyAI-UnlockLocalDist-v0",
+  "BabyAI-UnlockPickupDist-v0",
+  "MiniGrid-KeyCorridorS6R3-v0",
+  "MiniGrid-LockedRoom-v0",
+  "MiniGrid-ObstructedMaze-1Q-v1",
+  "MiniGrid-ObstructedMaze-2Dl-v0",
+  "MiniGrid-ObstructedMaze-2Dlh-v0",
+  "MiniGrid-ObstructedMaze-2Dlhb-v1",
+  "MiniGrid-ObstructedMaze-2Q-v1",
+  "MiniGrid-ObstructedMaze-Full-v1",
+  "MiniGrid-Playground-v0"
+ ],
+ "lines": {
+  "N overall": {
+   "games": 156,
+   "units": 1560,
+   "completed": 956,
+   "skipped": 0,
+   "check_mismatches": 0,
+   "scores": {
+    "H": {
+     "auroc": 0.7296808666218745,
+     "ci": {
+      "95%": [
+       0.6447668758703338,
+       0.8082792614802458
+      ],
+      "98.33%": [
+       0.6243691747577874,
+       0.8262540946139789
+      ]
+     },
+     "resamples": 10000,
+     "units": 1416
+    },
+    "L": {
+     "auroc": 0.7995786159371789,
+     "ci": {
+      "95%": [
+       0.7361791760879708,
+       0.8573839868790608
+      ],
+      "98.33%": [
+       0.7198093397647426,
+       0.8695201917999406
+      ]
+     },
+     "resamples": 10000,
+     "units": 1503
+    },
+    "b": {
+     "auroc": 0.5847885479081577,
+     "ci": {
+      "95%": [
+       0.49217143038743716,
+       0.676192342510922
+      ],
+      "98.33%": [
+       0.4693031447158527,
+       0.6950680587785649
+      ]
+     },
+     "resamples": 10000,
+     "units": 1416
+    },
+    "EH": {
+     "auroc": 0.5164436884629223,
+     "ci": {
+      "95%": [
+       0.3684163495881014,
+       0.6630408280645705
+      ],
+      "98.33%": [
+       0.33777416198057475,
+       0.6954117688165404
+      ]
+     },
+     "resamples": 10000,
+     "units": 893
+    },
+    "S_M": {
+     "auroc": 0.6365755585212403,
+     "ci": {
+      "95%": [
+       0.5864200580132948,
+       0.6868841683788234
+      ],
+      "98.33%": [
+       0.576684307803973,
+       0.6979350726342783
+      ]
+     },
+     "resamples": 10000,
+     "units": 1560
+    },
+    "S_M|H": {
+     "auroc": 0.6479051904478296,
+     "ci": {
+      "95%": [
+       0.593387583611642,
+       0.7022486295725984
+      ],
+      "98.33%": [
+       0.5824971429123711,
+       0.7138028115523144
+      ]
+     },
+     "resamples": 10000,
+     "units": 1416
+    },
+    "area": {
+     "auroc": 0.4616704508033347,
+     "ci": {
+      "95%": [
+       0.3796654324680187,
+       0.5453866579534122
+      ],
+      "98.33%": [
+       0.3645119442085973,
+       0.5645486193828365
+      ]
+     },
+     "resamples": 10000,
+     "units": 1560
+    },
+    "actions": {
+     "auroc": 0.5,
+     "ci": {
+      "95%": [
+       0.5,
+       0.5
+      ],
+      "98.33%": [
+       0.5,
+       0.5
+      ]
+     },
+     "resamples": 10000,
+     "units": 1560
+    },
+    "colours": {
+     "auroc": 0.4624746520616323,
+     "ci": {
+      "95%": [
+       0.38089418962233257,
+       0.546983868154634
+      ],
+      "98.33%": [
+       0.3641723031477724,
+       0.5673947727128263
+      ]
+     },
+     "resamples": 10000,
+     "units": 1560
+    },
+    "B": {
+     "auroc": 0.5400514758133005,
+     "ci": {
+      "95%": [
+       0.49306364948905373,
+       0.6457712202734623
+      ],
+      "98.33%": [
+       0.48118505951848317,
+       0.6617311591450522
+      ]
+     },
+     "resamples": 10000,
+     "units": 1560
+    },
+    "Delta": {
+     "auroc": 0.08177567617404491,
+     "ci": {
+      "95%": [
+       -0.0059058097340197145,
+       0.16681524049750018
+      ],
+      "98.33%": [
+       -0.026408418180083725,
+       0.18034628561431207
+      ]
+     },
+     "resamples": 10000
+    }
+   }
+  },
+  "N MiniGrid": {
+   "games": 61,
+   "units": 610,
+   "completed": 341,
+   "skipped": 0,
+   "check_mismatches": 0,
+   "scores": {
+    "H": {
+     "auroc": 0.8545111896348645,
+     "ci": {
+      "95%": [
+       0.7279095923777495,
+       0.9583564120489724
+      ],
+      "98.33%": [
+       0.6954663023798958,
+       0.9757077213382293
+      ]
+     },
+     "resamples": 10000,
+     "units": 590
+    },
+    "L": {
+     "auroc": 0.8515328214306334,
+     "ci": {
+      "95%": [
+       0.7489878054511278,
+       0.9335552578177102
+      ],
+      "98.33%": [
+       0.7233554555770504,
+       0.9487384763537646
+      ]
+     },
+     "resamples": 10000,
+     "units": 595
+    },
+    "b": {
+     "auroc": 0.6952650176678445,
+     "ci": {
+      "95%": [
+       0.5589701822785024,
+       0.8227025638025998
+      ],
+      "98.33%": [
+       0.5269709990251027,
+       0.8477672584299799
+      ]
+     },
+     "resamples": 10000,
+     "units": 590
+    },
+    "EH": {
+     "auroc": 0.5339130434782609,
+     "ci": {
+      "95%": [
+       0.2949990854177301,
+       0.7658169597187267
+      ],
+      "98.33%": [
+       0.2455724597726143,
+       0.8218940476190478
+      ]
+     },
+     "resamples": 10000,
+     "units": 470
+    },
+    "S_M": {
+     "auroc": 0.891408634976014,
+     "ci": {
+      "95%": [
+       0.809887111793136,
+       0.9600074441687343
+      ],
+      "98.33%": [
+       0.7914941606171259,
+       0.9722222222222222
+      ]
+     },
+     "resamples": 10000,
+     "units": 610
+    },
+    "S_M|H": {
+     "auroc": 0.8885747938751473,
+     "ci": {
+      "95%": [
+       0.8039385304966317,
+       0.9594594594594594
+      ],
+      "98.33%": [
+       0.784833886630999,
+       0.9714285714285714
+      ]
+     },
+     "resamples": 10000,
+     "units": 590
+    },
+    "area": {
+     "auroc": 0.540994330571304,
+     "ci": {
+      "95%": [
+       0.38997526166643814,
+       0.6894455508009655
+      ],
+      "98.33%": [
+       0.3551406956515941,
+       0.720391765397245
+      ]
+     },
+     "resamples": 10000,
+     "units": 610
+    },
+    "actions": {
+     "auroc": 0.5,
+     "ci": {
+      "95%": [
+       0.5,
+       0.5
+      ],
+      "98.33%": [
+       0.5,
+       0.5
+      ]
+     },
+     "resamples": 10000,
+     "units": 610
+    },
+    "colours": {
+     "auroc": 0.7847143480157,
+     "ci": {
+      "95%": [
+       0.6573273920472197,
+       0.8918214235753174
+      ],
+      "98.33%": [
+       0.6291103955465358,
+       0.9120694096351993
+      ]
+     },
+     "resamples": 10000,
+     "units": 610
+    },
+    "B": {
+     "auroc": 0.7754034016572177,
+     "ci": {
+      "95%": [
+       0.6662673177501708,
+       0.8993523143523143
+      ],
+      "98.33%": [
+       0.6337217984093491,
+       0.9191128407271838
+      ]
+     },
+     "resamples": 10000,
+     "units": 610
+    },
+    "Delta": {
+     "auroc": -0.03406360424028276,
+     "ci": {
+      "95%": [
+       -0.18251803766843863,
+       0.10485502128657187
+      ],
+      "98.33%": [
+       -0.21871431267093225,
+       0.137515993546103
+      ]
+     },
+     "resamples": 10000
+    }
+   }
+  },
+  "N BabyAI": {
+   "games": 95,
+   "units": 950,
+   "completed": 615,
+   "skipped": 0,
+   "check_mismatches": 0,
+   "scores": {
+    "H": {
+     "auroc": 0.6848693606653785,
+     "ci": {
+      "95%": [
+       0.5733114332376371,
+       0.7890362008580861
+      ],
+      "98.33%": [
+       0.5454352768631746,
+       0.8110084735961056
+      ]
+     },
+     "resamples": 10000,
+     "units": 826
+    },
+    "L": {
+     "auroc": 0.7722062960194055,
+     "ci": {
+      "95%": [
+       0.6952503537270274,
+       0.8425667238978516
+      ],
+      "98.33%": [
+       0.6766921526284079,
+       0.8579105107221373
+      ]
+     },
+     "resamples": 10000,
+     "units": 908
+    },
+    "b": {
+     "auroc": 0.5371625769844707,
+     "ci": {
+      "95%": [
+       0.4079724107715778,
+       0.6682292161025636
+      ],
+      "98.33%": [
+       0.3792830356108685,
+       0.6924606671885474
+      ]
+     },
+     "resamples": 10000,
+     "units": 826
+    },
+    "EH": {
+     "auroc": 0.5336250575771534,
+     "ci": {
+      "95%": [
+       0.36305886580495367,
+       0.7176212112098899
+      ],
+      "98.33%": [
+       0.3214446492399402,
+       0.7684002757375419
+      ]
+     },
+     "resamples": 10000,
+     "units": 423
+    },
+    "S_M": {
+     "auroc": 0.5,
+     "ci": {
+      "95%": [
+       0.5,
+       0.5
+      ],
+      "98.33%": [
+       0.5,
+       0.5
+      ]
+     },
+     "resamples": 10000,
+     "units": 950
+    },
+    "S_M|H": {
+     "auroc": 0.5,
+     "ci": {
+      "95%": [
+       0.5,
+       0.5
+      ],
+      "98.33%": [
+       0.5,
+       0.5
+      ]
+     },
+     "resamples": 10000,
+     "units": 826
+    },
+    "area": {
+     "auroc": 0.4268168109738301,
+     "ci": {
+      "95%": [
+       0.3294330816737044,
+       0.5307454982944275
+      ],
+      "98.33%": [
+       0.30874333842364,
+       0.5544916923631497
+      ]
+     },
+     "resamples": 10000,
+     "units": 950
+    },
+    "actions": {
+     "auroc": 0.5,
+     "ci": {
+      "95%": [
+       0.5,
+       0.5
+      ],
+      "98.33%": [
+       0.5,
+       0.5
+      ]
+     },
+     "resamples": 10000,
+     "units": 950
+    },
+    "colours": {
+     "auroc": 0.2878417161202452,
+     "ci": {
+      "95%": [
+       0.19909292515560273,
+       0.38749146822911196
+      ],
+      "98.33%": [
+       0.18144623487374079,
+       0.4096578564470767
+      ]
+     },
+     "resamples": 10000,
+     "units": 950
+    },
+    "B": {
+     "auroc": 0.7015346823620975,
+     "ci": {
+      "95%": [
+       0.6257184143215386,
+       0.8173903959085448
+      ],
+      "98.33%": [
+       0.6049129224904798,
+       0.836913797501495
+      ]
+     },
+     "resamples": 10000,
+     "units": 950
+    },
+    "Delta": {
+     "auroc": 0.1848693606653785,
+     "ci": {
+      "95%": [
+       0.07331143323763709,
+       0.2890362008580861
+      ],
+      "98.33%": [
+       0.045435276863174605,
+       0.3110084735961056
+      ]
+     },
+     "resamples": 10000
+    }
+   }
+  },
+  "R overall": {
+   "games": 156,
+   "units": 1560,
+   "completed": 957,
+   "skipped": 0,
+   "check_mismatches": 0,
+   "scores": {
+    "H": {
+     "auroc": 0.7279167657247656,
+     "ci": {
+      "95%": [
+       0.6428748461493679,
+       0.8063840880210295
+      ],
+      "98.33%": [
+       0.622506828772804,
+       0.8244137660586688
+      ]
+     },
+     "resamples": 10000,
+     "units": 1416
+    },
+    "L": {
+     "auroc": 0.80066093217285,
+     "ci": {
+      "95%": [
+       0.737574343088258,
+       0.8575530379153163
+      ],
+      "98.33%": [
+       0.7217094547713592,
+       0.8706087936891667
+      ]
+     },
+     "resamples": 10000,
+     "units": 1503
+    },
+    "b": {
+     "auroc": 0.5849218007064257,
+     "ci": {
+      "95%": [
+       0.49200769131472155,
+       0.6762319013822907
+      ],
+      "98.33%": [
+       0.46881431719196837,
+       0.6955671711511859
+      ]
+     },
+     "resamples": 10000,
+     "units": 1416
+    },
+    "EH": {
+     "auroc": 0.5155195990552149,
+     "ci": {
+      "95%": [
+       0.36936562575516324,
+       0.6611244291580933
+      ],
+      "98.33%": [
+       0.33867213594820983,
+       0.692906519257464
+      ]
+     },
+     "resamples": 10000,
+     "units": 893
+    },
+    "S_M": {
+     "auroc": 0.6377461828221795,
+     "ci": {
+      "95%": [
+       0.5894201854529435,
+       0.6869403839032551
+      ],
+      "98.33%": [
+       0.5800953765482593,
+       0.6977568976590388
+      ]
+     },
+     "resamples": 10000,
+     "units": 1560
+    },
+    "S_M|H": {
+     "auroc": 0.648971352397772,
+     "ci": {
+      "95%": [
+       0.5969033694149811,
+       0.701708733265272
+      ],
+      "98.33%": [
+       0.5864843023384512,
+       0.7131551667670543
+      ]
+     },
+     "resamples": 10000,
+     "units": 1416
+    },
+    "area": {
+     "auroc": 0.4599725288065986,
+     "ci": {
+      "95%": [
+       0.37858034621226655,
+       0.5435056895391593
+      ],
+      "98.33%": [
+       0.36299755091523916,
+       0.5626663690716636
+      ]
+     },
+     "resamples": 10000,
+     "units": 1560
+    },
+    "actions": {
+     "auroc": 0.5,
+     "ci": {
+      "95%": [
+       0.5,
+       0.5
+      ],
+      "98.33%": [
+       0.5,
+       0.5
+      ]
+     },
+     "resamples": 10000,
+     "units": 1560
+    },
+    "colours": {
+     "auroc": 0.46002455758198,
+     "ci": {
+      "95%": [
+       0.3789772020456298,
+       0.5441569789688994
+      ],
+      "98.33%": [
+       0.3608689642063563,
+       0.5642934278222316
+      ]
+     },
+     "resamples": 10000,
+     "units": 1560
+    },
+    "B": {
+     "auroc": 0.5465718239901215,
+     "ci": {
+      "95%": [
+       0.4957500211702123,
+       0.6464052254748267
+      ],
+      "98.33%": [
+       0.481320433749871,
+       0.6625877344406764
+      ]
+     },
+     "resamples": 10000,
+     "units": 1560
+    },
+    "Delta": {
+     "auroc": 0.07894541332699356,
+     "ci": {
+      "95%": [
+       -0.00752443181519226,
+       0.1626791335252011
+      ],
+      "98.33%": [
+       -0.02760873997111125,
+       0.17595578416764918
+      ]
+     },
+     "resamples": 10000
+    }
+   }
+  },
+  "R MiniGrid": {
+   "games": 61,
+   "units": 610,
+   "completed": 342,
+   "skipped": 0,
+   "check_mismatches": 0,
+   "scores": {
+    "H": {
+     "auroc": 0.850274822485905,
+     "ci": {
+      "95%": [
+       0.7237978028659067,
+       0.954423905499305
+      ],
+      "98.33%": [
+       0.692770707261852,
+       0.9704949011144473
+      ]
+     },
+     "resamples": 10000,
+     "units": 590
+    },
+    "L": {
+     "auroc": 0.8485293437543356,
+     "ci": {
+      "95%": [
+       0.7472621285446068,
+       0.9299642137730083
+      ],
+      "98.33%": [
+       0.7220144162635806,
+       0.9455820019109971
+      ]
+     },
+     "resamples": 10000,
+     "units": 595
+    },
+    "b": {
+     "auroc": 0.6941921634309169,
+     "ci": {
+      "95%": [
+       0.5582779445596785,
+       0.8213133988248172
+      ],
+      "98.33%": [
+       0.5266366212778693,
+       0.8470443588744948
+      ]
+     },
+     "resamples": 10000,
+     "units": 590
+    },
+    "EH": {
+     "auroc": 0.5331093423799582,
+     "ci": {
+      "95%": [
+       0.2996610744960561,
+       0.7645457479285269
+      ],
+      "98.33%": [
+       0.2503570276497696,
+       0.8206193939267967
+      ]
+     },
+     "resamples": 10000,
+     "units": 470
+    },
+    "S_M": {
+     "auroc": 0.8934644517692257,
+     "ci": {
+      "95%": [
+       0.8160407437462475,
+       0.9573211875843455
+      ],
+      "98.33%": [
+       0.7980320137849726,
+       0.9705373903493334
+      ]
+     },
+     "resamples": 10000,
+     "units": 610
+    },
+    "S_M|H": {
+     "auroc": 0.8907669080701093,
+     "ci": {
+      "95%": [
+       0.8102312588029351,
+       0.9571428571428572
+      ],
+      "98.33%": [
+       0.792713639080469,
+       0.9699614599863976
+      ]
+     },
+     "resamples": 10000,
+     "units": 590
+    },
+    "area": {
+     "auroc": 0.5360721224160137,
+     "ci": {
+      "95%": [
+       0.38665602649790914,
+       0.6813898153822728
+      ],
+      "98.33%": [
+       0.3529165515868435,
+       0.7124527926375045
+      ]
+     },
+     "resamples": 10000,
+     "units": 610
+    },
+    "actions": {
+     "auroc": 0.5,
+     "ci": {
+      "95%": [
+       0.5,
+       0.5
+      ],
+      "98.33%": [
+       0.5,
+       0.5
+      ]
+     },
+     "resamples": 10000,
+     "units": 610
+    },
+    "colours": {
+     "auroc": 0.779048700093864,
+     "ci": {
+      "95%": [
+       0.6526663157520775,
+       0.8852825183352627
+      ],
+      "98.33%": [
+       0.625195463995828,
+       0.9055041892529553
+      ]
+     },
+     "resamples": 10000,
+     "units": 610
+    },
+    "B": {
+     "auroc": 0.760799807906398,
+     "ci": {
+      "95%": [
+       0.6618618926988787,
+       0.8917791207154588
+      ],
+      "98.33%": [
+       0.6275926626781771,
+       0.9121081791243941
+      ]
+     },
+     "resamples": 10000,
+     "units": 610
+    },
+    "Delta": {
+     "auroc": -0.04049208558420425,
+     "ci": {
+      "95%": [
+       -0.18465686831907246,
+       0.09514699070997033
+      ],
+      "98.33%": [
+       -0.21963594141090134,
+       0.12305031060512014
+      ]
+     },
+     "resamples": 10000
+    }
+   }
+  },
+  "R BabyAI": {
+   "games": 95,
+   "units": 950,
+   "completed": 615,
+   "skipped": 0,
+   "check_mismatches": 0,
+   "scores": {
+    "H": {
+     "auroc": 0.6855517294946147,
+     "ci": {
+      "95%": [
+       0.5735767645731993,
+       0.7889022477343243
+      ],
+      "98.33%": [
+       0.5459031751955306,
+       0.8122056041381542
+      ]
+     },
+     "resamples": 10000,
+     "units": 826
+    },
+    "L": {
+     "auroc": 0.7765360123913605,
+     "ci": {
+      "95%": [
+       0.7004957528050421,
+       0.846981346663378
+      ],
+      "98.33%": [
+       0.6829756570266007,
+       0.8622077870497749
+      ]
+     },
+     "resamples": 10000,
+     "units": 908
+    },
+    "b": {
+     "auroc": 0.5383925797431649,
+     "ci": {
+      "95%": [
+       0.40927582231173776,
+       0.6700184954710041
+      ],
+      "98.33%": [
+       0.38085407973797314,
+       0.694485998260284
+      ]
+     },
+     "resamples": 10000,
+     "units": 826
+    },
+    "EH": {
+     "auroc": 0.5336250575771534,
+     "ci": {
+      "95%": [
+       0.36305886580495367,
+       0.7176212112098899
+      ],
+      "98.33%": [
+       0.3214446492399402,
+       0.7684002757375419
+      ]
+     },
+     "resamples": 10000,
+     "units": 423
+    },
+    "S_M": {
+     "auroc": 0.5,
+     "ci": {
+      "95%": [
+       0.5,
+       0.5
+      ],
+      "98.33%": [
+       0.5,
+       0.5
+      ]
+     },
+     "resamples": 10000,
+     "units": 950
+    },
+    "S_M|H": {
+     "auroc": 0.5,
+     "ci": {
+      "95%": [
+       0.5,
+       0.5
+      ],
+      "98.33%": [
+       0.5,
+       0.5
+      ]
+     },
+     "resamples": 10000,
+     "units": 826
+    },
+    "area": {
+     "auroc": 0.4275263628934978,
+     "ci": {
+      "95%": [
+       0.3300559341499211,
+       0.532659617985334
+      ],
+      "98.33%": [
+       0.3088597125665947,
+       0.5543241272355118
+      ]
+     },
+     "resamples": 10000,
+     "units": 950
+    },
+    "actions": {
+     "auroc": 0.5,
+     "ci": {
+      "95%": [
+       0.5,
+       0.5
+      ],
+      "98.33%": [
+       0.5,
+       0.5
+      ]
+     },
+     "resamples": 10000,
+     "units": 950
+    },
+    "colours": {
+     "auroc": 0.2866624187711584,
+     "ci": {
+      "95%": [
+       0.1967151153834571,
+       0.3865372365214685
+      ],
+      "98.33%": [
+       0.1808117984488478,
+       0.41084911225634574
+      ]
+     },
+     "resamples": 10000,
+     "units": 950
+    },
+    "B": {
+     "auroc": 0.7029188878944707,
+     "ci": {
+      "95%": [
+       0.6270681414233683,
+       0.816536884847057
+      ],
+      "98.33%": [
+       0.6043039249066565,
+       0.8380968356797556
+      ]
+     },
+     "resamples": 10000,
+     "units": 950
+    },
+    "Delta": {
+     "auroc": 0.18555172949461474,
+     "ci": {
+      "95%": [
+       0.07357676457319927,
+       0.28890224773432427
+      ],
+      "98.33%": [
+       0.045903175195530575,
+       0.3122056041381542
+      ]
+     },
+     "resamples": 10000
+    }
+   }
+  },
+  "I1 overall": {
+   "games": 156,
+   "units": 1560,
+   "completed": 567,
+   "skipped": 0,
+   "check_mismatches": 0,
+   "scores": {
+    "H": {
+     "auroc": 0.6919177468320875,
+     "ci": {
+      "95%": [
+       0.6008046598115676,
+       0.7769269032846303
+      ],
+      "98.33%": [
+       0.5769911013903662,
+       0.7968560548596287
+      ]
+     },
+     "resamples": 10000,
+     "units": 1416
+    },
+    "L": {
+     "auroc": 0.7769013722013319,
+     "ci": {
+      "95%": [
+       0.7135306665264814,
+       0.8344888320420877
+      ],
+      "98.33%": [
+       0.6983218009422051,
+       0.8459094198537461
+      ]
+     },
+     "resamples": 10000,
+     "units": 1503
+    },
+    "b": {
+     "auroc": 0.5187844641320561,
+     "ci": {
+      "95%": [
+       0.4238893218516079,
+       0.6104541238186303
+      ],
+      "98.33%": [
+       0.4065176207371974,
+       0.6310112932933054
+      ]
+     },
+     "resamples": 10000,
+     "units": 1416
+    },
+    "EH": {
+     "auroc": 0.6630535008612828,
+     "ci": {
+      "95%": [
+       0.558386804248813,
+       0.760636567300866
+      ],
+      "98.33%": [
+       0.534812940886955,
+       0.7784623127982414
+      ]
+     },
+     "resamples": 10000,
+     "units": 893
+    },
+    "S_M": {
+     "auroc": 0.6668355375426621,
+     "ci": {
+      "95%": [
+       0.5999515587630515,
+       0.7328100414999429
+      ],
+      "98.33%": [
+       0.5856245456459328,
+       0.7466042046290255
+      ]
+     },
+     "resamples": 10000,
+     "units": 1560
+    },
+    "S_M|H": {
+     "auroc": 0.6683606381479151,
+     "ci": {
+      "95%": [
+       0.5994292831705156,
+       0.7366344087805203
+      ],
+      "98.33%": [
+       0.583867132933929,
+       0.7519684671881498
+      ]
+     },
+     "resamples": 10000,
+     "units": 1416
+    },
+    "area": {
+     "auroc": 0.6721505261660978,
+     "ci": {
+      "95%": [
+       0.5931281067363016,
+       0.7465801798345089
+      ],
+      "98.33%": [
+       0.5774802609613099,
+       0.7622394390036101
+      ]
+     },
+     "resamples": 10000,
+     "units": 1560
+    },
+    "actions": {
+     "auroc": 0.5,
+     "ci": {
+      "95%": [
+       0.5,
+       0.5
+      ],
+      "98.33%": [
+       0.5,
+       0.5
+      ]
+     },
+     "resamples": 10000,
+     "units": 1560
+    },
+    "colours": {
+     "auroc": 0.3910702858361775,
+     "ci": {
+      "95%": [
+       0.29460518262941343,
+       0.48915064307116296
+      ],
+      "98.33%": [
+       0.27402657711064127,
+       0.5128289251995439
+      ]
+     },
+     "resamples": 10000,
+     "units": 1560
+    },
+    "B": {
+     "auroc": 0.7522353171217292,
+     "ci": {
+      "95%": [
+       0.6724062934780295,
+       0.8265094445623928
+      ],
+      "98.33%": [
+       0.6550535427484574,
+       0.8409983213551185
+      ]
+     },
+     "resamples": 10000,
+     "units": 1560
+    },
+    "Delta": {
+     "auroc": 0.02355710868417238,
+     "ci": {
+      "95%": [
+       -0.055979862671198644,
+       0.10230129285516688
+      ],
+      "98.33%": [
+       -0.07205615837015454,
+       0.11983988441198072
+      ]
+     },
+     "resamples": 10000
+    }
+   }
+  },
+  "I1 MiniGrid": {
+   "games": 61,
+   "units": 610,
+   "completed": 253,
+   "skipped": 0,
+   "check_mismatches": 0,
+   "scores": {
+    "H": {
+     "auroc": 0.870091077674233,
+     "ci": {
+      "95%": [
+       0.7685675980479268,
+       0.9553859458238781
+      ],
+      "98.33%": [
+       0.7415217301120332,
+       0.968341547959455
+      ]
+     },
+     "resamples": 10000,
+     "units": 590
+    },
+    "L": {
+     "auroc": 0.8194166560653198,
+     "ci": {
+      "95%": [
+       0.714223619652006,
+       0.9068176474967427
+      ],
+      "98.33%": [
+       0.6893498875299132,
+       0.9210567883173344
+      ]
+     },
+     "resamples": 10000,
+     "units": 595
+    },
+    "b": {
+     "auroc": 0.6232248069294148,
+     "ci": {
+      "95%": [
+       0.48283753560785875,
+       0.7589188528552778
+      ],
+      "98.33%": [
+       0.4501132225023023,
+       0.7905172849882477
+      ]
+     },
+     "resamples": 10000,
+     "units": 590
+    },
+    "EH": {
+     "auroc": 0.5853542905072755,
+     "ci": {
+      "95%": [
+       0.4074713564546362,
+       0.7587591341190728
+      ],
+      "98.33%": [
+       0.3667501757429624,
+       0.7980845212592317
+      ]
+     },
+     "resamples": 10000,
+     "units": 470
+    },
+    "S_M": {
+     "auroc": 0.8528616693625224,
+     "ci": {
+      "95%": [
+       0.763518483479758,
+       0.9309368333368258
+      ],
+      "98.33%": [
+       0.7436214109692222,
+       0.9461032979844889
+      ]
+     },
+     "resamples": 10000,
+     "units": 610
+    },
+    "S_M|H": {
+     "auroc": 0.8464707401234712,
+     "ci": {
+      "95%": [
+       0.7541113310117019,
+       0.9273730940653632
+      ],
+      "98.33%": [
+       0.7329221462922427,
+       0.9432205394129991
+      ]
+     },
+     "resamples": 10000,
+     "units": 590
+    },
+    "area": {
+     "auroc": 0.5921207152511577,
+     "ci": {
+      "95%": [
+       0.447078097630381,
+       0.7314799284599234
+      ],
+      "98.33%": [
+       0.41750998622351143,
+       0.7589522055893931
+      ]
+     },
+     "resamples": 10000,
+     "units": 610
+    },
+    "actions": {
+     "auroc": 0.5,
+     "ci": {
+      "95%": [
+       0.5,
+       0.5
+      ],
+      "98.33%": [
+       0.5,
+       0.5
+      ]
+     },
+     "resamples": 10000,
+     "units": 610
+    },
+    "colours": {
+     "auroc": 0.6346081407458288,
+     "ci": {
+      "95%": [
+       0.4800130325562764,
+       0.777621477156167
+      ],
+      "98.33%": [
+       0.4440276354449928,
+       0.807904518951224
+      ]
+     },
+     "resamples": 10000,
+     "units": 610
+    },
+    "B": {
+     "auroc": 0.5796126830781503,
+     "ci": {
+      "95%": [
+       0.4839501226143125,
+       0.7858486555728499
+      ],
+      "98.33%": [
+       0.4543829375533289,
+       0.8144870597051154
+      ]
+     },
+     "resamples": 10000,
+     "units": 610
+    },
+    "Delta": {
+     "auroc": 0.02362033755076176,
+     "ci": {
+      "95%": [
+       -0.09954833147952029,
+       0.14301801711670648
+      ],
+      "98.33%": [
+       -0.12994296919068188,
+       0.16925686844440674
+      ]
+     },
+     "resamples": 10000
+    }
+   }
+  },
+  "I1 BabyAI": {
+   "games": 95,
+   "units": 950,
+   "completed": 314,
+   "skipped": 0,
+   "check_mismatches": 0,
+   "scores": {
+    "H": {
+     "auroc": 0.53650393660499,
+     "ci": {
+      "95%": [
+       0.41142060750387016,
+       0.661842086070712
+      ],
+      "98.33%": [
+       0.3860962060592556,
+       0.6874410066839844
+      ]
+     },
+     "resamples": 10000,
+     "units": 826
+    },
+    "L": {
+     "auroc": 0.8172647499851133,
+     "ci": {
+      "95%": [
+       0.7565962670119746,
+       0.8688826727396567
+      ],
+      "98.33%": [
+       0.7403347309034477,
+       0.8786374475974372
+      ]
+     },
+     "resamples": 10000,
+     "units": 908
+    },
+    "b": {
+     "auroc": 0.4103982654634065,
+     "ci": {
+      "95%": [
+       0.29219488835514457,
+       0.5309635339466263
+      ],
+      "98.33%": [
+       0.26908365377390564,
+       0.5564994108410245
+      ]
+     },
+     "resamples": 10000,
+     "units": 826
+    },
+    "EH": {
+     "auroc": 0.6877792699304114,
+     "ci": {
+      "95%": [
+       0.5599825411847118,
+       0.799669941329659
+      ],
+      "98.33%": [
+       0.5283059964132332,
+       0.8232266761925044
+      ]
+     },
+     "resamples": 10000,
+     "units": 423
+    },
+    "S_M": {
+     "auroc": 0.5,
+     "ci": {
+      "95%": [
+       0.5,
+       0.5
+      ],
+      "98.33%": [
+       0.5,
+       0.5
+      ]
+     },
+     "resamples": 10000,
+     "units": 950
+    },
+    "S_M|H": {
+     "auroc": 0.5,
+     "ci": {
+      "95%": [
+       0.5,
+       0.5
+      ],
+      "98.33%": [
+       0.5,
+       0.5
+      ]
+     },
+     "resamples": 10000,
+     "units": 826
+    },
+    "area": {
+     "auroc": 0.6994560745037433,
+     "ci": {
+      "95%": [
+       0.5982646145274454,
+       0.7922144441908436
+      ],
+      "98.33%": [
+       0.5766644862124818,
+       0.8113316733522161
+      ]
+     },
+     "resamples": 10000,
+     "units": 950
+    },
+    "actions": {
+     "auroc": 0.5,
+     "ci": {
+      "95%": [
+       0.5,
+       0.5
+      ],
+      "98.33%": [
+       0.5,
+       0.5
+      ]
+     },
+     "resamples": 10000,
+     "units": 950
+    },
+    "colours": {
+     "auroc": 0.18168566726210786,
+     "ci": {
+      "95%": [
+       0.10299299142580497,
+       0.27384764390179184
+      ],
+      "98.33%": [
+       0.08872899206292281,
+       0.2965137743471018
+      ]
+     },
+     "resamples": 10000,
+     "units": 950
+    },
+    "B": {
+     "auroc": 0.8674532846275816,
+     "ci": {
+      "95%": [
+       0.7879026795104599,
+       0.939779763711623
+      ],
+      "98.33%": [
+       0.7669487604339694,
+       0.9521450881508553
+      ]
+     },
+     "resamples": 10000,
+     "units": 950
+    },
+    "Delta": {
+     "auroc": 0.03650393660498996,
+     "ci": {
+      "95%": [
+       -0.08857939249612981,
+       0.16184208607071202
+      ],
+      "98.33%": [
+       -0.11390379394074443,
+       0.18744100668398445
+      ]
+     },
+     "resamples": 10000
+    }
+   }
+  }
+ },
+ "finer_families": {
+  "BabyAI-ActionObjDoor": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 5,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "BabyAI-BlockedUnlockPickup": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "BabyAI-BossLevel": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 4,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 4,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 9
+  },
+  "BabyAI-BossLevelNoUnlock": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 3,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 3,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 1,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "BabyAI-FindObj": {
+   "games": 3,
+   "N": {
+    "units": 30,
+    "completed": 29,
+    "H": 1.0,
+    "S_M": 0.5,
+    "B": 1.0
+   },
+   "R": {
+    "units": 30,
+    "completed": 30,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 30,
+    "completed": 3,
+    "H": 0.3333333333333333,
+    "S_M": 0.5,
+    "B": 0.9444444444444444
+   },
+   "capped": 0
+  },
+  "BabyAI-GoTo": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 8,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 7,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 2,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "BabyAI-GoToDoor": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "BabyAI-GoToImpUnlock": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 3,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 3,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "BabyAI-GoToLocal": {
+   "games": 13,
+   "N": {
+    "units": 130,
+    "completed": 130,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 130,
+    "completed": 130,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 130,
+    "completed": 128,
+    "H": 0.819327731092437,
+    "S_M": 0.5,
+    "B": 0.9978991596638656
+   },
+   "capped": 53
+  },
+  "BabyAI-GoToObj": {
+   "games": 3,
+   "N": {
+    "units": 30,
+    "completed": 30,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 30,
+    "completed": 30,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 30,
+    "completed": 29,
+    "H": 0.5,
+    "S_M": 0.5,
+    "B": 1.0
+   },
+   "capped": 0
+  },
+  "BabyAI-GoToObjDoor": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "BabyAI-GoToObjMaze": {
+   "games": 6,
+   "N": {
+    "units": 60,
+    "completed": 50,
+    "H": 0.8188073394495413,
+    "S_M": 0.5,
+    "B": 0.981651376146789
+   },
+   "R": {
+    "units": 60,
+    "completed": 51,
+    "H": 0.7752525252525253,
+    "S_M": 0.5,
+    "B": 0.9696969696969697
+   },
+   "I1": {
+    "units": 60,
+    "completed": 8,
+    "H": 0.7219101123595506,
+    "S_M": 0.5,
+    "B": 0.9325842696629213
+   },
+   "capped": 0
+  },
+  "BabyAI-GoToObjMazeOpen": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 7,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 7,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 7,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "BabyAI-GoToOpen": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 9,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 9,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 6,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "BabyAI-GoToRedBall": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "BabyAI-GoToRedBallNoDists": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "BabyAI-GoToRedBlueBall": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "BabyAI-GoToSeq": {
+   "games": 2,
+   "N": {
+    "units": 20,
+    "completed": 13,
+    "H": null,
+    "S_M": 0.5,
+    "B": 1.0
+   },
+   "R": {
+    "units": 20,
+    "completed": 12,
+    "H": null,
+    "S_M": 0.5,
+    "B": 1.0
+   },
+   "I1": {
+    "units": 20,
+    "completed": 4,
+    "H": null,
+    "S_M": 0.5,
+    "B": 1.0
+   },
+   "capped": 17
+  },
+  "BabyAI-KeyCorridor": {
+   "games": 7,
+   "N": {
+    "units": 70,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 70,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 70,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 22
+  },
+  "BabyAI-KeyInBox": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "BabyAI-MiniBossLevel": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 5,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 5,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 1,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 8
+  },
+  "BabyAI-MoveTwoAcross": {
+   "games": 2,
+   "N": {
+    "units": 20,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 20,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 20,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 20
+  },
+  "BabyAI-OneRoom": {
+   "games": 4,
+   "N": {
+    "units": 40,
+    "completed": 40,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 40,
+    "completed": 40,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 40,
+    "completed": 30,
+    "H": 0.5,
+    "S_M": 0.5,
+    "B": 0.9743589743589743
+   },
+   "capped": 0
+  },
+  "BabyAI-Open": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "BabyAI-OpenDoor": {
+   "games": 2,
+   "N": {
+    "units": 20,
+    "completed": 20,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 20,
+    "completed": 20,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 20,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "BabyAI-OpenDoorColor": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "BabyAI-OpenDoorLoc": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "BabyAI-OpenDoorsOrder": {
+   "games": 4,
+   "N": {
+    "units": 40,
+    "completed": 25,
+    "H": 0.06804733727810651,
+    "S_M": 0.5,
+    "B": 0.9526627218934911
+   },
+   "R": {
+    "units": 40,
+    "completed": 25,
+    "H": 0.06804733727810651,
+    "S_M": 0.5,
+    "B": 0.9526627218934911
+   },
+   "I1": {
+    "units": 40,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "BabyAI-OpenRedBlueDoors": {
+   "games": 2,
+   "N": {
+    "units": 20,
+    "completed": 20,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 20,
+    "completed": 20,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 20,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "BabyAI-OpenRedDoor": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "BabyAI-OpenTwoDoors": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "BabyAI-Pickup": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 6,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 6,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 2,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "BabyAI-PickupAbove": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "BabyAI-PickupDist": {
+   "games": 2,
+   "N": {
+    "units": 20,
+    "completed": 20,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 20,
+    "completed": 20,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 20,
+    "completed": 20,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 7
+  },
+  "BabyAI-PickupLoc": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 8,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "BabyAI-PutNext": {
+   "games": 8,
+   "N": {
+    "units": 80,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 80,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 80,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 60
+  },
+  "BabyAI-PutNextLocal": {
+   "games": 3,
+   "N": {
+    "units": 30,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 30,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 30,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 12
+  },
+  "BabyAI-Synth": {
+   "games": 2,
+   "N": {
+    "units": 20,
+    "completed": 14,
+    "H": 0.55,
+    "S_M": 0.5,
+    "B": 1.0
+   },
+   "R": {
+    "units": 20,
+    "completed": 14,
+    "H": 0.55,
+    "S_M": 0.5,
+    "B": 1.0
+   },
+   "I1": {
+    "units": 20,
+    "completed": 6,
+    "H": 0.4583333333333333,
+    "S_M": 0.5,
+    "B": 1.0
+   },
+   "capped": 19
+  },
+  "BabyAI-SynthLoc": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 5,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 5,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 3,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 9
+  },
+  "BabyAI-SynthSeq": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 4,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 4,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 9
+  },
+  "BabyAI-UnblockPickup": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 6,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 5,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 1,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "BabyAI-Unlock": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 6,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 7,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "BabyAI-UnlockLocal": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "BabyAI-UnlockLocalDist": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 8,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 8,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "BabyAI-UnlockPickup": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "BabyAI-UnlockPickupDist": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "BabyAI-UnlockToUnlock": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "MiniGrid-BlockedUnlockPickup": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "MiniGrid-DistShift": {
+   "games": 2,
+   "N": {
+    "units": 20,
+    "completed": 20,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 20,
+    "completed": 20,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 20,
+    "completed": 20,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "MiniGrid-DoorKey": {
+   "games": 3,
+   "N": {
+    "units": 30,
+    "completed": 30,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 30,
+    "completed": 30,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 30,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "MiniGrid-Empty": {
+   "games": 5,
+   "N": {
+    "units": 50,
+    "completed": 50,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 50,
+    "completed": 50,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 50,
+    "completed": 47,
+    "H": 0.7586206896551724,
+    "S_M": 0.5,
+    "B": 0.8017241379310345
+   },
+   "capped": 0
+  },
+  "MiniGrid-Fetch": {
+   "games": 2,
+   "N": {
+    "units": 20,
+    "completed": 20,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 20,
+    "completed": 20,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 20,
+    "completed": 20,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "MiniGrid-GoToDoor": {
+   "games": 3,
+   "N": {
+    "units": 30,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 30,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 30,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "MiniGrid-GoToObject": {
+   "games": 2,
+   "N": {
+    "units": 20,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 20,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 20,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "MiniGrid-KeyCorridor": {
+   "games": 6,
+   "N": {
+    "units": 60,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 60,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 60,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 12
+  },
+  "MiniGrid-LavaCrossing": {
+   "games": 4,
+   "N": {
+    "units": 40,
+    "completed": 40,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 40,
+    "completed": 39,
+    "H": 0.6666666666666666,
+    "S_M": 0.5,
+    "B": 1.0
+   },
+   "I1": {
+    "units": 40,
+    "completed": 40,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "MiniGrid-LavaGap": {
+   "games": 3,
+   "N": {
+    "units": 30,
+    "completed": 30,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 30,
+    "completed": 30,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 30,
+    "completed": 30,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "MiniGrid-LockedRoom": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 1,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "MiniGrid-Memory": {
+   "games": 6,
+   "N": {
+    "units": 60,
+    "completed": 60,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 60,
+    "completed": 60,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 60,
+    "completed": 60,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "MiniGrid-MultiRoom": {
+   "games": 3,
+   "N": {
+    "units": 30,
+    "completed": 21,
+    "H": 1.0,
+    "S_M": 0.5,
+    "B": 1.0
+   },
+   "R": {
+    "units": 30,
+    "completed": 22,
+    "H": 1.0,
+    "S_M": 0.5,
+    "B": 1.0
+   },
+   "I1": {
+    "units": 30,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "MiniGrid-ObstructedMaze": {
+   "games": 9,
+   "N": {
+    "units": 90,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 90,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 90,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 60
+  },
+  "MiniGrid-Playground": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 10
+  },
+  "MiniGrid-PutNear": {
+   "games": 2,
+   "N": {
+    "units": 20,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 20,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 20,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "MiniGrid-RedBlueDoors": {
+   "games": 2,
+   "N": {
+    "units": 20,
+    "completed": 20,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 20,
+    "completed": 20,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 20,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "MiniGrid-SimpleCrossing": {
+   "games": 4,
+   "N": {
+    "units": 40,
+    "completed": 40,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 40,
+    "completed": 40,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 40,
+    "completed": 36,
+    "H": 0.2590909090909091,
+    "S_M": 0.5,
+    "B": 0.5
+   },
+   "capped": 0
+  },
+  "MiniGrid-Unlock": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 10,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  },
+  "MiniGrid-UnlockPickup": {
+   "games": 1,
+   "N": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "R": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "I1": {
+    "units": 10,
+    "completed": 0,
+    "H": null,
+    "S_M": null,
+    "B": null
+   },
+   "capped": 0
+  }
+ }
+}
