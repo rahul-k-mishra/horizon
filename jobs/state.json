@@ -2,21 +2,13 @@
  "consecutive_crashes": 0,
  "deferral": {
   "chunk_id": "e-001",
-  "count": 1,
-  "last_at": "2026-11-13T17:14:09Z",
+  "count": 2,
+  "last_at": "2026-11-13T17:47:04Z",
   "last_class": "account session limit",
   "last_reason": "kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 reached.",
   "since": "2026-11-13T17:14:09Z"
  },
- "dispatch": {
-  "chunk_id": "e-001",
-  "dispatched_at": "2026-11-13T17:47:01Z",
-  "entry_hash": "1fe49e92c7a8ebecc3d315e3df407f2951fdbec79190423e919363a00c645ed5",
-  "kernel_version": null,
-  "nonce": "dev-minigrid-e-e-001-20261113T174701Z-a16a72",
-  "pushed_at": null,
-  "runner": "actions-43475720804-1"
- },
+ "dispatch": null,
  "halt_reason": null,
  "halted": false,
  "halted_at": null

@@ -8,7 +8,7 @@
  "repository": "rahul-k-mishra/horizon",
  "session": {"checkpoint_reserve_seconds": 900, "platform_limit_seconds": 32400, "work_seconds": 28800},
  "chunks": [
-  {"attempts": 1, "chunk_id": "e-001", "failures": 0, "kind": "devsearch", "sessions": [], "status": "running"},
+  {"attempts": 0, "chunk_id": "e-001", "failures": 0, "kind": "devsearch", "sessions": [], "status": "pending"},
   {"attempts": 0, "chunk_id": "e-002", "failures": 0, "kind": "devsearch", "sessions": [], "status": "pending"},
   {"attempts": 0, "chunk_id": "e-003", "failures": 0, "kind": "devsearch", "sessions": [], "status": "pending"},
   {"attempts": 0, "chunk_id": "e-004", "failures": 0, "kind": "devsearch", "sessions": [], "status": "pending"},
