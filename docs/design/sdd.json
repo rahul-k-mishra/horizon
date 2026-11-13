@@ -1,0 +1,87 @@
+{
+ "n_clusters": 26,
+ "sims": 4000,
+ "seed": 20261026,
+ "alpha": 0.016666666666666666,
+ "power": 0.8,
+ "agents": {
+  "N": {
+   "games": 147,
+   "delta_development": 0.0817756761740448,
+   "se": 0.10796137013999475,
+   "mdd": 0.3493199207913211,
+   "skipped": 0,
+   "used": 4000,
+   "se_confirmatory_structure": 0.14756476629591742,
+   "mdd_confirmatory_structure": 0.4774607103192345,
+   "skipped_confirmatory_structure": 0
+  },
+  "R": {
+   "games": 147,
+   "delta_development": 0.07894541332699356,
+   "se": 0.10627114558489452,
+   "mdd": 0.34385102847417526,
+   "skipped": 0,
+   "used": 4000,
+   "se_confirmatory_structure": 0.14700628744869793,
+   "mdd_confirmatory_structure": 0.47565369558404386,
+   "skipped_confirmatory_structure": 0
+  },
+  "I1": {
+   "games": 147,
+   "delta_development": 0.023557108684172157,
+   "se": 0.09915678899033493,
+   "mdd": 0.32083180892490315,
+   "skipped": 0,
+   "used": 4000,
+   "se_confirmatory_structure": 0.15636286740992345,
+   "mdd_confirmatory_structure": 0.5059278553755946,
+   "skipped_confirmatory_structure": 0
+  }
+ },
+ "registered_mdd": 0.51,
+ "info": {
+  "search_rows": 1416,
+  "dropped_time_memory": 144,
+  "units": {
+   "N": 1416,
+   "R": 1416,
+   "I1": 1416
+  }
+ },
+ "confirmatory_sm": {
+  "chipschallenge": 4,
+  "clusters": 3,
+  "colourescape": 4,
+  "cookmepasta": 3,
+  "doorkoban": 4,
+  "escape": 4,
+  "garbagecollector": 3,
+  "glow": 2,
+  "grow": 2,
+  "hungrybirds": 5,
+  "iceandfire": 5,
+  "islands": 3,
+  "labyrinth": 5,
+  "lasers": 3,
+  "modality": 3,
+  "painter": 3,
+  "racebet": 4,
+  "racebet2": 4,
+  "realsokoban": 3,
+  "roadfighter": 3,
+  "sokoban": 3,
+  "tercio": 3,
+  "thecitadel": 4,
+  "thesnowman": 3,
+  "wrapsokoban": 2,
+  "zenpuzzle": 3
+ },
+ "confirmatory_holds": {
+  "A1": 26,
+  "A2": 7,
+  "A3": 19,
+  "A4": 26,
+  "A5": 10
+ }
+}

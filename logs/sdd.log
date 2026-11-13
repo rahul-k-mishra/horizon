@@ -1,4 +1,9 @@
 sdd: smallest detectable difference, 26 clusters, 4000 simulated studies, seed 20261026, alpha 0.016667 two-sided, power 0.8
 mechanics score in the confirmatory suite (26 games, constant over each game's levels): S_M=2: 3 games, S_M=3: 13 games, S_M=4: 7 games, S_M=5: 3 games
 predicates holding, of the confirmatory games: A1 26, A2 7, A3 19, A4 26, A5 10
-waiting: no development search rows under runs\dev-minigrid\devsearch; stage D has not run
+development: 1416 search units used, 144 dropped (time or memory cap); units per agent {'N': 1416, 'R': 1416, 'I1': 1416}
+N: 147 games; development Delta (EXPLORATORY) 0.0818; estimate 1, development data: 4000 studies used, 0 skipped, SE 0.1080, MDD 0.3493; estimate 2, confirmatory structure: 4000 used, 0 skipped, SE 0.1476, MDD 0.4775
+R: 147 games; development Delta (EXPLORATORY) 0.0789; estimate 1, development data: 4000 studies used, 0 skipped, SE 0.1063, MDD 0.3439; estimate 2, confirmatory structure: 4000 used, 0 skipped, SE 0.1470, MDD 0.4757
+I1: 147 games; development Delta (EXPLORATORY) 0.0236; estimate 1, development data: 4000 studies used, 0 skipped, SE 0.0992, MDD 0.3208; estimate 2, confirmatory structure: 4000 used, 0 skipped, SE 0.1564, MDD 0.5059
+registered smallest detectable difference (largest of the two estimates over N, R, I1, rounded up): 0.51; read it with the mechanics score's variation above
+written docs\design\sdd.json
