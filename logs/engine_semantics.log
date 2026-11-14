@@ -1,0 +1,32 @@
+== pilot games: bait, labyrinthdual, rivers, watergame; levels 0 to 4; seed 20261114
+check 1 and 3: 50 random sequences of 200 actions per level; check 2: a breadth-first search of up to 3000 expansions per level, up to 500 merges compared
+
+== per level: game level | registered key holds the tick | check 1: sequences agreeing, decisions compared, games ended (tick at the end: game loop, forward model) | check 3: replayed identically | check 2, merges compared and differing: registered key | extended key | registered key, other tick rule
+bait           0 | no  | 50/50, 8577, 14 (14 with the forward model +1) | 50/50 | 119, 0 | 119, 0 | 500, 0
+bait           1 | no  | 50/50, 3041, 48 (48 with the forward model +1) | 50/50 | 500, 0 | 500, 0 | 500, 0
+bait           2 | no  | 50/50, 8776, 16 (16 with the forward model +1) | 50/50 | 500, 0 | 500, 0 | 500, 0
+bait           3 | no  | 50/50, 1430, 50 (50 with the forward model +1) | 50/50 | 500, 0 | 500, 0 | 500, 0
+bait           4 | no  | 50/50, 2797, 47 (47 with the forward model +1) | 50/50 | 500, 0 | 500, 0 | 500, 0
+labyrinthdual  0 | yes | 50/50, 9634, 10 (10 with the forward model +1) | 50/50 | 500, 0 | 500, 0 | 463, 0
+labyrinthdual  1 | yes | 50/50, 9818, 7 (7 with the forward model +1) | 50/50 | 500, 0 | 500, 0 | 389, 0
+labyrinthdual  2 | yes | 50/50, 7927, 25 (25 with the forward model +1) | 50/50 | 500, 0 | 500, 0 | 410, 0
+labyrinthdual  3 | yes | 50/50, 1198, 48 (48 with the forward model +1) | 50/50 | 500, 0 | 500, 0 | 427, 0
+labyrinthdual  4 | yes | 50/50, 1576, 47 (47 with the forward model +1) | 50/50 | 500, 0 | 500, 0 | 470, 0
+rivers         0 | yes | 50/50, 10050, 0 (none ended) | 50/50 | 500, 14 | 500, 0 | 500, 12
+rivers         1 | yes | 50/50, 10050, 0 (none ended) | 50/50 | 500, 0 | 500, 0 | 500, 0
+rivers         2 | yes | 50/50, 10050, 0 (none ended) | 50/50 | 500, 6 | 500, 0 | 500, 4
+rivers         3 | yes | 50/50, 10050, 0 (none ended) | 50/50 | 500, 10 | 500, 0 | 500, 10
+rivers         4 | yes | 50/50, 10050, 0 (none ended) | 50/50 | 500, 17 | 500, 0 | 500, 16
+watergame      0 | no  | 50/50, 2688, 50 (50 with the forward model +1) | 50/50 | 388, 0 | 388, 0 | 500, 0
+watergame      1 | no  | 50/50, 724, 50 (50 with the forward model +1) | 50/50 | 500, 0 | 500, 0 | 500, 0
+watergame      2 | no  | 50/50, 5031, 43 (43 with the forward model +1) | 50/50 | 500, 0 | 500, 0 | 500, 0
+watergame      3 | no  | 50/50, 1660, 50 (50 with the forward model +1) | 50/50 | 500, 0 | 500, 0 | 500, 0
+watergame      4 | no  | 50/50, 526, 50 (50 with the forward model +1) | 50/50 | 500, 0 | 500, 0 | 500, 0
+
+== totals
+check 1: 1000 of 1000 sequences agree, 115653 decisions compared before any end; 555 sequences ended the game; tick at the end, forward model minus game loop: +1 in 555
+check 2, registered key: 9507 merges compared, 47 with different successors
+check 2, extended key: 9507 merges compared, 0 with different successors
+check 2, registered key under the other tick rule (information only): 9659 merges compared, 42 with different successors
+check 3: 1000 of 1000 sequences replayed identically
+wall time 506 s

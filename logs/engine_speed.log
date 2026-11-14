@@ -1,0 +1,166 @@
+== the machine and the engine
+python 3.11.9, Windows 10, processor Intel64 Family 6 Model 142 Stepping 11, GenuineIntel, 8 logical CPUs
+JPype 1.7.1; JVM OpenJDK 64-Bit Server VM 21.0.13; options -Xss16m -XX:+UseSerialGC -Djava.awt.headless=true
+GVGAI source: 348 Java files (vendored src/ and the bridge), digest 537e34252e97662e; JDK ready in 0.0 s, build 0.3 s (0 when the classes were already built), JVM start 1.5 s
+walk: 300 expansions untimed, then 1500 timed, per level; restart at a terminal state or at 300 actions; seed 20261114
+
+== per level: game level | actions | key bytes | load s | expansions/s | successors/s | bound for 2,000,000 states (s, capped at 14,400)
+bait             0 | 4 |   1880 |  0.17 |     1395 |     5581 |    1434
+bait             1 | 4 |   6516 |  0.02 |     1185 |     4741 |    1687
+bait             2 | 4 |   8240 |  0.01 |      921 |     3684 |    2172
+bait             3 | 4 |  11568 |  0.02 |      591 |     2366 |    3382
+bait             4 | 4 |   4340 |  0.01 |     1634 |     6536 |    1224
+chipschallenge   0 | 4 |  12604 |  0.04 |      674 |     2695 |    2969
+chipschallenge   1 | 4 |   9460 |  0.02 |      971 |     3883 |    2060
+chipschallenge   2 | 4 |  10132 |  0.02 |      671 |     2683 |    2982
+chipschallenge   3 | 4 |   4960 |  0.02 |     1599 |     6395 |    1251
+chipschallenge   4 | 4 |  19120 |  0.02 |      383 |     1530 |    5227
+clusters         0 | 4 |   7460 |  0.01 |     1080 |     4319 |    1852
+clusters         1 | 4 |   7788 |  0.01 |     1119 |     4476 |    1787
+clusters         2 | 4 |   8100 |  0.06 |     1070 |     4278 |    1870
+clusters         3 | 4 |   7684 |  0.01 |     1011 |     4042 |    1979
+clusters         4 | 4 |   7528 |  0.01 |     1191 |     4765 |    1679
+colourescape     0 | 4 |  11532 |  0.01 |      657 |     2630 |    3042
+colourescape     1 | 4 |  12596 |  0.01 |      518 |     2073 |    3859
+colourescape     2 | 4 |  13428 |  0.01 |      472 |     1888 |    4237
+colourescape     3 | 4 |  13412 |  0.01 |      513 |     2052 |    3899
+colourescape     4 | 4 |  13532 |  0.01 |      441 |     1764 |    4536
+cookmepasta      0 | 4 |   8336 |  0.01 |     1072 |     4287 |    1866
+cookmepasta      1 | 4 |   8456 |  0.01 |      894 |     3575 |    2238
+cookmepasta      2 | 4 |   8456 |  0.01 |     1026 |     4105 |    1949
+cookmepasta      3 | 4 |   8456 |  0.00 |     1102 |     4410 |    1814
+cookmepasta      4 | 4 |   8456 |  0.01 |      824 |     3295 |    2428
+doorkoban        0 | 4 |  11008 |  0.01 |      566 |     2264 |    3534
+doorkoban        1 | 4 |  11008 |  0.01 |      689 |     2757 |    2902
+doorkoban        2 | 4 |  11060 |  0.01 |      746 |     2984 |    2681
+doorkoban        3 | 4 |  11008 |  0.01 |      773 |     3092 |    2587
+doorkoban        4 | 4 |  11008 |  0.01 |      727 |     2909 |    2750
+escape           0 | 4 |   7808 |  0.00 |      954 |     3814 |    2097
+escape           1 | 4 |   8224 |  0.00 |      925 |     3699 |    2163
+escape           2 | 4 |   7964 |  0.00 |     1060 |     4241 |    1886
+escape           3 | 4 |   7548 |  0.00 |     1281 |     5126 |    1561
+escape           4 | 4 |   7496 |  0.00 |     1065 |     4261 |    1878
+garbagecollector 0 | 4 |  90316 |  0.01 |       99 |      396 |   14400 (time cap)
+garbagecollector 1 | 4 |  90316 |  0.04 |       94 |      377 |   14400 (time cap)
+garbagecollector 2 | 4 |  90316 |  0.01 |       97 |      389 |   14400 (time cap)
+garbagecollector 3 | 4 |  90316 |  0.01 |       99 |      395 |   14400 (time cap)
+garbagecollector 4 | 4 |  90316 |  0.00 |      103 |      414 |   14400 (time cap)
+glow             0 | 5 |   6048 |  0.00 |     1068 |     5341 |    1872
+glow             1 | 5 |   5736 |  0.00 |     1284 |     6421 |    1557
+glow             2 | 5 |  10728 |  0.01 |      751 |     3754 |    2664
+glow             3 | 5 |  10728 |  0.00 |      743 |     3715 |    2692
+glow             4 | 5 |  14316 |  0.01 |      570 |     2851 |    3507
+grow             0 | 5 |   2956 |  0.01 |     1892 |     9460 |    1057
+grow             1 | 5 |   3476 |  0.00 |     2318 |    11588 |     863
+grow             2 | 5 |   3424 |  0.01 |     2113 |    10566 |     946
+grow             3 | 5 |   3944 |  0.00 |     2313 |    11567 |     865
+grow             4 | 5 |   2852 |  0.00 |     2264 |    11319 |     883
+hungrybirds      0 | 4 |  14620 |  0.01 |      668 |     2671 |    2995
+hungrybirds      1 | 4 |  11604 |  0.00 |      747 |     2988 |    2678
+hungrybirds      2 | 4 |  19716 |  0.01 |      450 |     1798 |    4449
+hungrybirds      3 | 4 |  19248 |  0.00 |      506 |     2026 |    3949
+hungrybirds      4 | 4 |  18676 |  0.00 |      513 |     2053 |    3897
+iceandfire       0 | 4 |  19800 |  0.01 |      438 |     1751 |    4568
+iceandfire       1 | 4 |  20788 |  0.01 |      425 |     1701 |    4703
+iceandfire       2 | 4 |  20892 |  0.01 |      419 |     1676 |    4772
+iceandfire       3 | 4 |  20216 |  0.01 |      456 |     1825 |    4383
+iceandfire       4 | 4 |  19644 |  0.01 |      439 |     1757 |    4553
+islands          0 | 5 |   8856 |  0.01 |      567 |     2833 |    3530
+islands          1 | 5 |   8804 |  0.01 |      732 |     3660 |    2732
+islands          2 | 5 |   8848 |  0.00 |      757 |     3786 |    2641
+islands          3 | 5 |   8856 |  0.01 |      772 |     3859 |    2592
+islands          4 | 5 |   8960 |  0.01 |      852 |     4260 |    2348
+labyrinth        0 | 4 |  18824 |  0.00 |      494 |     1976 |    4048
+labyrinth        1 | 4 |  19656 |  0.00 |      455 |     1821 |    4392
+labyrinth        2 | 4 |  19500 |  0.00 |      477 |     1909 |    4192
+labyrinth        3 | 4 |  18980 |  0.00 |      507 |     2026 |    3949
+labyrinth        4 | 4 |  18460 |  0.01 |      496 |     1986 |    4028
+labyrinthdual    0 | 4 |  19272 |  0.01 |      490 |     1960 |    4082
+labyrinthdual    1 | 4 |  19836 |  0.01 |      471 |     1882 |    4251
+labyrinthdual    2 | 4 |  19740 |  0.01 |      614 |     2455 |    3258
+labyrinthdual    3 | 4 |  19636 |  0.00 |      561 |     2244 |    3566
+labyrinthdual    4 | 4 |  18952 |  0.00 |      587 |     2348 |    3407
+lasers           0 | 5 |  16932 |  0.01 |      278 |     1389 |    7197
+lasers           1 | 5 |  16672 |  0.01 |      336 |     1681 |    5950
+lasers           2 | 5 |  17036 |  0.01 |      255 |     1275 |    7843
+lasers           3 | 5 |  16456 |  0.00 |      406 |     2028 |    4930
+lasers           4 | 5 |  16664 |  0.00 |      323 |     1615 |    6191
+modality         0 | 4 |   2044 |  0.00 |     4436 |    17744 |     451
+modality         1 | 4 |   2772 |  0.00 |     3504 |    14017 |     571
+modality         2 | 4 |   3552 |  0.00 |     3234 |    12935 |     618
+modality         3 | 4 |   7660 |  0.00 |     1462 |     5849 |    1368
+modality         4 | 4 |   2408 |  0.00 |     3826 |    15304 |     523
+painter          0 | 4 |    712 |  0.00 |     4274 |    17096 |     468
+painter          1 | 4 |   2168 |  0.00 |     2987 |    11950 |     669
+painter          2 | 4 |   1188 |  0.00 |     4001 |    16002 |     500
+painter          3 | 4 |   1344 |  0.00 |     4476 |    17902 |     447
+painter          4 | 4 |    512 |  0.00 |     5265 |    21059 |     380
+racebet          0 | 4 |  18784 |  0.01 |      733 |     2932 |    2728
+racebet          1 | 4 |  18844 |  0.01 |      691 |     2762 |    2896
+racebet          2 | 4 |  18896 |  0.01 |      646 |     2585 |    3094
+racebet          3 | 4 |  18948 |  0.01 |      575 |     2301 |    3477
+racebet          4 | 4 |  18948 |  0.01 |      706 |     2823 |    2834
+racebet2         0 | 4 |  26124 |  0.01 |      466 |     1863 |    4294
+racebet2         1 | 4 |  26184 |  0.01 |      457 |     1830 |    4372
+racebet2         2 | 4 |  26184 |  0.01 |      461 |     1842 |    4342
+racebet2         3 | 4 |  26288 |  0.00 |      448 |     1792 |    4463
+racebet2         4 | 4 |  26236 |  0.01 |      409 |     1637 |    4888
+realsokoban      0 | 4 |   4948 |  0.00 |     2525 |    10101 |     792
+realsokoban      1 | 4 |   6456 |  0.00 |     1943 |     7770 |    1030
+realsokoban      2 | 4 |   5000 |  0.00 |     2345 |     9381 |     853
+realsokoban      3 | 4 |   4012 |  0.00 |     2813 |    11253 |     711
+realsokoban      4 | 4 |   8900 |  0.00 |     1261 |     5044 |    1586
+rivers           0 | 5 |  28200 |  0.01 |      346 |     1730 |    5780
+rivers           1 | 5 |  28200 |  0.00 |      269 |     1347 |    7426
+rivers           2 | 5 |  26224 |  0.00 |      372 |     1858 |    5383
+rivers           3 | 5 |  26224 |  0.00 |      282 |     1410 |    7095
+rivers           4 | 5 |  26224 |  0.00 |      353 |     1767 |    5660
+roadfighter      0 | 4 |   9072 |  0.00 |     1172 |     4689 |    1706
+roadfighter      1 | 4 |   9332 |  0.00 |     1442 |     5767 |    1387
+roadfighter      2 | 4 |   9332 |  0.00 |     1234 |     4937 |    1620
+roadfighter      3 | 4 |   9436 |  0.00 |     1321 |     5284 |    1514
+roadfighter      4 | 4 |   9488 |  0.00 |     1427 |     5709 |    1401
+sokoban          0 | 4 |   9256 |  0.00 |     1206 |     4823 |    1659
+sokoban          1 | 4 |   9412 |  0.00 |     1365 |     5460 |    1465
+sokoban          2 | 4 |   8216 |  0.00 |     1521 |     6085 |    1315
+sokoban          3 | 4 |   4524 |  0.00 |     2733 |    10934 |     732
+sokoban          4 | 4 |   6188 |  0.00 |     2068 |     8270 |     967
+tercio           0 | 4 |   5224 |  0.00 |     2007 |     8028 |     996
+tercio           1 | 4 |   7512 |  0.00 |     1335 |     5338 |    1499
+tercio           2 | 4 |   5224 |  0.00 |     1985 |     7939 |    1008
+tercio           3 | 4 |   7668 |  0.00 |     1386 |     5545 |    1443
+tercio           4 | 4 |   5224 |  0.00 |     1893 |     7574 |    1056
+thecitadel       0 | 4 |   6188 |  0.00 |     1329 |     5315 |    1505
+thecitadel       1 | 4 |   8032 |  0.00 |     1058 |     4230 |    1891
+thecitadel       2 | 4 |  10216 |  0.00 |      850 |     3402 |    2352
+thecitadel       3 | 4 |  10268 |  0.00 |      934 |     3737 |    2140
+thecitadel       4 | 4 |   8120 |  0.00 |      951 |     3804 |    2103
+thesnowman       0 | 4 |   8336 |  0.00 |     1383 |     5532 |    1446
+thesnowman       1 | 4 |   8456 |  0.01 |     1363 |     5450 |    1468
+thesnowman       2 | 4 |   8456 |  0.00 |     1235 |     4940 |    1619
+thesnowman       3 | 4 |   8456 |  0.00 |     1266 |     5065 |    1579
+thesnowman       4 | 4 |   8456 |  0.00 |     1221 |     4885 |    1638
+watergame        0 | 4 |   2504 |  0.00 |     3494 |    13977 |     572
+watergame        1 | 4 |   3076 |  0.00 |     3427 |    13710 |     584
+watergame        2 | 4 |   3908 |  0.00 |     2786 |    11144 |     718
+watergame        3 | 4 |   3700 |  0.00 |     2640 |    10560 |     758
+watergame        4 | 4 |   4220 |  0.00 |     2758 |    11031 |     725
+wrapsokoban      0 | 4 |   3908 |  0.00 |     3099 |    12395 |     645
+wrapsokoban      1 | 4 |   4480 |  0.00 |     2167 |     8668 |     923
+wrapsokoban      2 | 4 |   4012 |  0.00 |     2665 |    10658 |     751
+wrapsokoban      3 | 4 |   2972 |  0.00 |     3770 |    15081 |     530
+wrapsokoban      4 | 4 |   7080 |  0.00 |     1455 |     5820 |    1375
+zenpuzzle        0 | 4 |   9456 |  0.00 |     1171 |     4683 |    1708
+zenpuzzle        1 | 4 |   9456 |  0.00 |     1314 |     5255 |    1522
+zenpuzzle        2 | 4 |   9456 |  0.00 |     1136 |     4543 |    1761
+zenpuzzle        3 | 4 |   8520 |  0.00 |     1262 |     5047 |    1585
+zenpuzzle        4 | 4 |   9456 |  0.00 |     1177 |     4706 |    1700
+
+== the estimate (upper bounds for a search of 2,000,000 states; expanded <= seen)
+the smallest confirmatory level 0 by key size: painter, 4274 expansions/s, 468 s for 2,000,000 states
+confirmatory: 130 levels; expansions/s median 1026, slowest 94 (garbagecollector 1), fastest 5265; levels whose bound reaches the time cap: 5; sum of the bounds 372346 worker-seconds, 3.23 sessions of 115200 worker-seconds, so at least 4 sessions if packed perfectly
+pilot: 20 levels; expansions/s median 614, slowest 269 (rivers 1), fastest 3494; levels whose bound reaches the time cap: 0; sum of the bounds 63163 worker-seconds, 0.55 sessions of 115200 worker-seconds, so at least 1 sessions if packed perfectly
+charged at the whole time cap instead, 130 confirmatory levels need 17 chunks at most (logs/design_budget.log)
+games whose state key holds the tick: 19 of 30
+
+wall time of this script: 430 s
