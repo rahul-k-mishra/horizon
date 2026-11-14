@@ -1,0 +1,70 @@
+== the suite: 30 deterministic games (docs/design/vgdl_scan.json)
+
+== PyPI
+griddly: version 1.6.7, uploaded 2023-03-15T21:27:00, licence None, wheel CPython 3.11 Linux x86_64: yes, 3.13: no
+gvgai: not on PyPI (HTTP 404)
+gvgai-gym: not on PyPI (HTTP 404)
+gym-gvgai: not on PyPI (HTTP 404)
+gym-vgdl: not on PyPI (HTTP 404)
+install-jdk: version 1.1.0, uploaded 2023-07-21T01:18:35, licence MIT, wheel CPython 3.11 Linux x86_64: yes, 3.13: yes
+jdk4py: version 25.0.5.0, uploaded 2026-11-13T16:59:55, licence GPL-2.0-only WITH Classpath-exception-2., wheel CPython 3.11 Linux x86_64: no, 3.13: no
+JPype1: version 1.7.1, uploaded 2026-05-06T23:53:48, licence Apache-2.0, wheel CPython 3.11 Linux x86_64: yes, 3.13: yes
+py-vgdl: not on PyPI (HTTP 404)
+py4j: version 0.10.9.9, uploaded 2025-01-15T03:53:15, licence BSD License, wheel CPython 3.11 Linux x86_64: yes, 3.13: yes
+pyvgdl: not on PyPI (HTTP 404)
+vgdl: not on PyPI (HTTP 404)
+
+== source repositories
+Bam4d/Griddly: last push 2026-11-13T17:30:10Z, archived False, licence MIT
+EndingCredits/gym_vgdl: last push 2019-11-01T11:12:03Z, archived False, licence None
+GAIGResearch/GVGAI: last push 2022-04-23T20:41:33Z, archived False, licence NOASSERTION
+jpype-project/jpype: last push 2026-11-12T22:59:17Z, archived False, licence Apache-2.0
+py4j/py4j: last push 2026-06-11T17:33:19Z, archived False, licence NOASSERTION
+rubenrtorrado/GVGAI_GYM: last push 2020-01-22T23:50:20Z, archived False, licence Apache-2.0
+rubenvereecken/py-vgdl: last push 2022-10-04T21:44:08Z, archived False, licence BSD-3-Clause
+schaul/py-vgdl: last push 2019-06-23T20:30:16Z, archived False, licence BSD-3-Clause
+shepardxia/VGDLx: last push 2026-03-20T18:55:25Z, archived False, licence None
+tsividis/vgdl: last push 2026-04-20T17:48:08Z, archived False, licence BSD-3-Clause
+
+== VGDL interpreted in Python or JAX (or, for Griddly, in C++ from GDY files): files named after a game of the suite
+schaul/py-vgdl: 66 files; games of the suite named by a file: 1 of 30: sokoban
+rubenvereecken/py-vgdl: 736 files; games of the suite named by a file: 1 of 30: sokoban
+tsividis/vgdl: 296 files; games of the suite named by a file: 1 of 30: sokoban
+shepardxia/VGDLx: 1498 files; games of the suite named by a file: 30 of 30: bait, chipschallenge, clusters, colourescape, cookmepasta, doorkoban, escape, garbagecollector, glow, grow, hungrybirds, iceandfire, islands, labyrinth, labyrinthdual, lasers, modality, painter, racebet, racebet2, realsokoban, rivers, roadfighter, sokoban, tercio, thecitadel, thesnowman, watergame, wrapsokoban, zenpuzzle
+EndingCredits/gym_vgdl: 694 files; games of the suite named by a file: 1 of 30: sokoban
+Bam4d/Griddly: 4495 files; games of the suite named by a file: 6 of 30: bait, clusters, cookmepasta, labyrinth, sokoban, zenpuzzle
+
+== GVGAI's Java over a socket: Python files that define or call copy or advance
+GAIGResearch/GVGAI at e58ff6597319: 15 Python files; lines with copy( or advance(: 9
+   clients/GVGAI-PythonClient/src/ercumentilhan/Agent.py:180: self.previous_state_features = np.copy(state_features)
+   clients/GVGAI-PythonClient/src/ercumentilhan/Agent.py:181: self.previous_state_features_extended = np.copy(state_features_extended)
+   clients/GVGAI-PythonClient/src/ercumentilhan/Agent.py:390: features[f_start:f_end] = np.copy(features_single)
+   clients/GVGAI-PythonClient/src/ercumentilhan/Agent.py:412: extended_state_features[partition_start:partition_end] = np.copy(state_features)
+   clients/GVGAI-PythonClient/src/utils/ClientComm.py:261: self.player.init(self.sso, ect.copy())
+   clients/GVGAI-PythonClient/src/utils/ClientComm.py:276: action = str(self.player.act(self.sso, ect.copy()))
+   clients/GVGAI-PythonClient/src/utils/ClientComm.py:302: ect = self.global_ect.copy()
+   clients/GVGAI-PythonClient/src/utils/ClientComm.py:306: nextLevel = self.player.result(self.sso, ect.copy())
+   clients/GVGAI-PythonClient/src/utils/ElapsedCpuTimer.py:19: def copy(self):
+rubenrtorrado/GVGAI_GYM at master: 27 Python files; lines with copy( or advance(: 11
+   gym_gvgai/envs/gvgai/clients/GVGAI-PythonClient/src/ercumentilhan/Agent.py:180: self.previous_state_features = np.copy(state_features)
+   gym_gvgai/envs/gvgai/clients/GVGAI-PythonClient/src/ercumentilhan/Agent.py:181: self.previous_state_features_extended = np.copy(state_features_extended)
+   gym_gvgai/envs/gvgai/clients/GVGAI-PythonClient/src/ercumentilhan/Agent.py:390: features[f_start:f_end] = np.copy(features_single)
+   gym_gvgai/envs/gvgai/clients/GVGAI-PythonClient/src/ercumentilhan/Agent.py:412: extended_state_features[partition_start:partition_end] = np.copy(state_features)
+   gym_gvgai/envs/gvgai/clients/GVGAI-PythonClient/src/utils/ClientComm.py:261: self.player.init(self.sso, ect.copy())
+   gym_gvgai/envs/gvgai/clients/GVGAI-PythonClient/src/utils/ClientComm.py:276: action = str(self.player.act(self.sso, ect.copy()))
+   gym_gvgai/envs/gvgai/clients/GVGAI-PythonClient/src/utils/ClientComm.py:302: ect = self.global_ect.copy()
+   gym_gvgai/envs/gvgai/clients/GVGAI-PythonClient/src/utils/ClientComm.py:306: nextLevel = self.player.result(self.sso, ect.copy())
+   gym_gvgai/envs/gvgai/clients/GVGAI-PythonClient/src/utils/ClientCommGYM.py:333: #self.player.init(self.sso, ect.copy())
+   gym_gvgai/envs/gvgai/clients/GVGAI-PythonClient/src/utils/ClientCommGYM.py:351: #action = str(self.player.act(self.sso, ect.copy()))
+   gym_gvgai/envs/gvgai/clients/GVGAI-PythonClient/src/utils/ElapsedCpuTimer.py:19: def copy(self):
+
+== VGDLx: the first lines of its README (its own claim, not checked here)
+   # VGDLx
+   JAX-compiled [VGDL](https://en.wikipedia.org/wiki/Video_Game_Description_Language) game engine for GPU-accelerated RL. 67/68 supported GVGAI games match exactly over 40-step validation trajectories.
+   ## Install
+
+== the JDK (Adoptium API)
+Temurin jdk-21.0.13+9 linux: OpenJDK21U-jdk_x64_linux_hotspot_21.0.13_9.tar.gz, sha256 d7f5d5cf865a2902b70ff549b97586a7d3f234e016f041ab447ea740c7d66d1c, updated 2026-10-22T12:07:52Z
+Temurin jdk-21.0.13+9 windows: OpenJDK21U-jdk_x64_windows_hotspot_21.0.13_9.zip, sha256 a4dbaa05fca4bd89d84584e58c459bd732efebb1722af80ab13c6516832004f9, updated 2026-10-29T16:08:25Z
+
+raw records: docs\design\engine_evidence.json

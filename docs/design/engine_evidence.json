@@ -1,0 +1,1265 @@
+{
+ "pypi": {
+  "JPype1": {
+   "files": [
+    {
+     "filename": "jpype1-1.7.1-1-cp310-cp310-macosx_11_0_universal2.whl",
+     "upload_time": "2026-05-19T20:19:30"
+    },
+    {
+     "filename": "jpype1-1.7.1-1-cp311-cp311-macosx_11_0_universal2.whl",
+     "upload_time": "2026-05-19T20:19:33"
+    },
+    {
+     "filename": "jpype1-1.7.1-1-cp312-cp312-macosx_11_0_universal2.whl",
+     "upload_time": "2026-05-19T20:19:36"
+    },
+    {
+     "filename": "jpype1-1.7.1-1-cp313-cp313-macosx_11_0_universal2.whl",
+     "upload_time": "2026-05-19T20:19:38"
+    },
+    {
+     "filename": "jpype1-1.7.1-1-cp314-cp314-macosx_11_0_universal2.whl",
+     "upload_time": "2026-05-19T20:19:41"
+    },
+    {
+     "filename": "jpype1-1.7.1-1-cp38-cp38-macosx_11_0_universal2.whl",
+     "upload_time": "2026-05-19T20:19:43"
+    },
+    {
+     "filename": "jpype1-1.7.1-1-cp39-cp39-macosx_11_0_universal2.whl",
+     "upload_time": "2026-05-19T20:19:46"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp310-cp310-macosx_14_0_x86_64.whl",
+     "upload_time": "2026-05-06T23:53:48"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp310-cp310-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl",
+     "upload_time": "2026-05-06T23:53:51"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp310-cp310-manylinux_2_24_i686.manylinux_2_28_i686.whl",
+     "upload_time": "2026-05-06T23:53:53"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+     "upload_time": "2026-05-06T23:53:56"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp310-cp310-win_amd64.whl",
+     "upload_time": "2026-05-06T23:53:58"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp311-cp311-macosx_14_0_x86_64.whl",
+     "upload_time": "2026-05-06T23:54:01"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp311-cp311-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl",
+     "upload_time": "2026-05-06T23:54:04"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp311-cp311-manylinux_2_24_i686.manylinux_2_28_i686.whl",
+     "upload_time": "2026-05-06T23:54:06"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+     "upload_time": "2026-05-06T23:54:09"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp311-cp311-win_amd64.whl",
+     "upload_time": "2026-05-06T23:54:11"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp312-cp312-macosx_14_0_x86_64.whl",
+     "upload_time": "2026-05-06T23:54:14"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl",
+     "upload_time": "2026-05-06T23:54:15"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp312-cp312-manylinux_2_24_i686.manylinux_2_28_i686.whl",
+     "upload_time": "2026-05-06T23:54:18"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+     "upload_time": "2026-05-06T23:54:21"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp312-cp312-win_amd64.whl",
+     "upload_time": "2026-05-06T23:54:23"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp313-cp313-macosx_14_0_x86_64.whl",
+     "upload_time": "2026-05-06T23:54:25"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp313-cp313-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl",
+     "upload_time": "2026-05-06T23:54:27"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp313-cp313-manylinux_2_24_i686.manylinux_2_28_i686.whl",
+     "upload_time": "2026-05-06T23:54:30"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+     "upload_time": "2026-05-06T23:54:33"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp313-cp313t-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl",
+     "upload_time": "2026-05-06T23:54:35"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp313-cp313t-manylinux_2_24_i686.manylinux_2_28_i686.whl",
+     "upload_time": "2026-05-06T23:54:37"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp313-cp313t-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+     "upload_time": "2026-05-06T23:54:40"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp313-cp313-win_amd64.whl",
+     "upload_time": "2026-05-06T23:54:42"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp314-cp314-macosx_14_0_x86_64.whl",
+     "upload_time": "2026-05-06T23:54:44"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp314-cp314-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl",
+     "upload_time": "2026-05-06T23:54:46"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp314-cp314-manylinux_2_24_i686.manylinux_2_28_i686.whl",
+     "upload_time": "2026-05-06T23:54:49"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+     "upload_time": "2026-05-06T23:54:52"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp314-cp314t-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl",
+     "upload_time": "2026-05-06T23:54:54"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp314-cp314t-manylinux_2_24_i686.manylinux_2_28_i686.whl",
+     "upload_time": "2026-05-06T23:54:57"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp314-cp314t-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+     "upload_time": "2026-05-06T23:54:59"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp314-cp314-win_amd64.whl",
+     "upload_time": "2026-05-06T23:55:01"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp38-cp38-macosx_14_0_x86_64.whl",
+     "upload_time": "2026-05-06T23:55:03"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp38-cp38-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+     "upload_time": "2026-05-28T06:38:16"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp38-cp38-win_amd64.whl",
+     "upload_time": "2026-05-06T23:55:05"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp39-cp39-macosx_14_0_x86_64.whl",
+     "upload_time": "2026-05-06T23:55:06"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp39-cp39-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+     "upload_time": "2026-05-28T06:38:18"
+    },
+    {
+     "filename": "jpype1-1.7.1-cp39-cp39-win_amd64.whl",
+     "upload_time": "2026-05-06T23:55:08"
+    },
+    {
+     "filename": "jpype1-1.7.1.tar.gz",
+     "upload_time": "2026-05-06T23:55:10"
+    }
+   ],
+   "license": "Apache-2.0",
+   "requires_python": ">=3.8",
+   "status": 200,
+   "version": "1.7.1"
+  },
+  "griddly": {
+   "files": [
+    {
+     "filename": "griddly-1.6.7-cp310-cp310-manylinux2014_x86_64.whl",
+     "upload_time": "2023-03-15T22:08:18"
+    },
+    {
+     "filename": "griddly-1.6.7-cp310-cp310-manylinux_2_28_x86_64.whl",
+     "upload_time": "2023-03-15T22:07:00"
+    },
+    {
+     "filename": "griddly-1.6.7-cp310-cp310-win_amd64.whl",
+     "upload_time": "2023-03-15T21:27:00"
+    },
+    {
+     "filename": "griddly-1.6.7-cp311-cp311-manylinux_2_28_x86_64.whl",
+     "upload_time": "2023-03-15T22:06:55"
+    },
+    {
+     "filename": "griddly-1.6.7-cp311-cp311-win_amd64.whl",
+     "upload_time": "2023-03-15T21:44:41"
+    },
+    {
+     "filename": "griddly-1.6.7-cp38-cp38-manylinux2014_x86_64.whl",
+     "upload_time": "2023-03-15T22:06:34"
+    },
+    {
+     "filename": "griddly-1.6.7-cp38-cp38-manylinux_2_28_x86_64.whl",
+     "upload_time": "2023-03-15T22:06:29"
+    },
+    {
+     "filename": "griddly-1.6.7-cp38-cp38-win_amd64.whl",
+     "upload_time": "2023-03-15T21:33:38"
+    },
+    {
+     "filename": "griddly-1.6.7-cp39-cp39-manylinux2014_x86_64.whl",
+     "upload_time": "2023-03-15T22:07:13"
+    },
+    {
+     "filename": "griddly-1.6.7-cp39-cp39-manylinux_2_28_x86_64.whl",
+     "upload_time": "2023-03-15T22:06:54"
+    },
+    {
+     "filename": "griddly-1.6.7-cp39-cp39-win_amd64.whl",
+     "upload_time": "2023-03-15T21:29:08"
+    }
+   ],
+   "license": null,
+   "requires_python": "",
+   "status": 200,
+   "version": "1.6.7"
+  },
+  "gvgai": {
+   "status": 404
+  },
+  "gvgai-gym": {
+   "status": 404
+  },
+  "gym-gvgai": {
+   "status": 404
+  },
+  "gym-vgdl": {
+   "status": 404
+  },
+  "install-jdk": {
+   "files": [
+    {
+     "filename": "install_jdk-1.1.0-py3-none-any.whl",
+     "upload_time": "2023-07-21T01:18:35"
+    },
+    {
+     "filename": "install_jdk-1.1.0.tar.gz",
+     "upload_time": "2023-07-21T01:18:36"
+    }
+   ],
+   "license": "MIT",
+   "requires_python": ">=3.6,<4.0",
+   "status": 200,
+   "version": "1.1.0"
+  },
+  "jdk4py": {
+   "files": [
+    {
+     "filename": "jdk4py-25.0.5.0-py3-none-macosx_11_0_arm64.whl",
+     "upload_time": "2026-11-13T16:59:55"
+    },
+    {
+     "filename": "jdk4py-25.0.5.0-py3-none-macosx_11_0_x86_64.whl",
+     "upload_time": "2026-11-13T16:59:58"
+    },
+    {
+     "filename": "jdk4py-25.0.5.0-py3-none-manylinux_2_17_aarch64.whl",
+     "upload_time": "2026-11-13T17:00:01"
+    },
+    {
+     "filename": "jdk4py-25.0.5.0-py3-none-manylinux_2_17_x86_64.whl",
+     "upload_time": "2026-11-13T17:00:04"
+    },
+    {
+     "filename": "jdk4py-25.0.5.0-py3-none-win_amd64.whl",
+     "upload_time": "2026-11-13T17:00:08"
+    }
+   ],
+   "license": "GPL-2.0-only WITH Classpath-exception-2.0",
+   "requires_python": ">=3.10",
+   "status": 200,
+   "version": "25.0.5.0"
+  },
+  "py-vgdl": {
+   "status": 404
+  },
+  "py4j": {
+   "files": [
+    {
+     "filename": "py4j-0.10.9.9-py2.py3-none-any.whl",
+     "upload_time": "2025-01-15T03:53:15"
+    },
+    {
+     "filename": "py4j-0.10.9.9.tar.gz",
+     "upload_time": "2025-01-15T03:53:18"
+    }
+   ],
+   "license": "BSD License",
+   "requires_python": null,
+   "status": 200,
+   "version": "0.10.9.9"
+  },
+  "pyvgdl": {
+   "status": 404
+  },
+  "vgdl": {
+   "status": 404
+  }
+ },
+ "repos": {
+  "Bam4d/Griddly": {
+   "archived": false,
+   "default_branch": "develop",
+   "license": "MIT",
+   "pushed_at": "2026-11-13T17:30:10Z",
+   "suite_files": [
+    "resources/games/Single-Player/GVGAI/bait.yaml",
+    "resources/games/Single-Player/GVGAI/clusters.yaml",
+    "resources/games/Single-Player/GVGAI/cookmepasta.yaml",
+    "resources/games/Single-Player/GVGAI/labyrinth.yaml",
+    "resources/games/Single-Player/GVGAI/sokoban.yaml",
+    "resources/games/Single-Player/GVGAI/zenpuzzle.yaml"
+   ],
+   "tree_files": 4495,
+   "tree_truncated": false
+  },
+  "EndingCredits/gym_vgdl": {
+   "archived": false,
+   "default_branch": "master",
+   "license": null,
+   "pushed_at": "2019-11-01T11:12:03Z",
+   "suite_files": [
+    "gym_vgdl/vgdl/sample_games/sokoban.txt",
+    "gym_vgdl/vgdl/sample_games/sokoban_lvl0.txt"
+   ],
+   "tree_files": 694,
+   "tree_truncated": false
+  },
+  "GAIGResearch/GVGAI": {
+   "archived": false,
+   "default_branch": "master",
+   "license": "NOASSERTION",
+   "pushed_at": "2022-04-23T20:41:33Z",
+   "suite_files": [
+    "examples/2player/sokoban.txt",
+    "examples/2player/sokoban_lvl0.txt",
+    "examples/2player/sokoban_lvl1.txt",
+    "examples/2player/sokoban_lvl2.txt",
+    "examples/2player/sokoban_lvl3.txt",
+    "examples/2player/sokoban_lvl4.txt",
+    "examples/gridphysics/bait.txt",
+    "examples/gridphysics/bait_lvl0.txt",
+    "examples/gridphysics/bait_lvl1.txt",
+    "examples/gridphysics/bait_lvl2.txt",
+    "examples/gridphysics/bait_lvl3.txt",
+    "examples/gridphysics/bait_lvl4.txt",
+    "examples/gridphysics/chipschallenge.txt",
+    "examples/gridphysics/chipschallenge_lvl0.txt",
+    "examples/gridphysics/chipschallenge_lvl1.txt",
+    "examples/gridphysics/chipschallenge_lvl2.txt",
+    "examples/gridphysics/chipschallenge_lvl3.txt",
+    "examples/gridphysics/chipschallenge_lvl4.txt",
+    "examples/gridphysics/clusters.txt",
+    "examples/gridphysics/clusters_lvl0.txt",
+    "examples/gridphysics/clusters_lvl1.txt",
+    "examples/gridphysics/clusters_lvl2.txt",
+    "examples/gridphysics/clusters_lvl3.txt",
+    "examples/gridphysics/clusters_lvl4.txt",
+    "examples/gridphysics/colourescape.txt",
+    "examples/gridphysics/colourescape_lvl0.txt",
+    "examples/gridphysics/colourescape_lvl1.txt",
+    "examples/gridphysics/colourescape_lvl2.txt",
+    "examples/gridphysics/colourescape_lvl3.txt",
+    "examples/gridphysics/colourescape_lvl4.txt",
+    "examples/gridphysics/cookmepasta.txt",
+    "examples/gridphysics/cookmepasta_lvl0.txt",
+    "examples/gridphysics/cookmepasta_lvl1.txt",
+    "examples/gridphysics/cookmepasta_lvl2.txt",
+    "examples/gridphysics/cookmepasta_lvl3.txt",
+    "examples/gridphysics/cookmepasta_lvl4.txt",
+    "examples/gridphysics/doorkoban.txt",
+    "examples/gridphysics/doorkoban_lvl0.txt",
+    "examples/gridphysics/doorkoban_lvl1.txt",
+    "examples/gridphysics/doorkoban_lvl2.txt",
+    "examples/gridphysics/doorkoban_lvl3.txt",
+    "examples/gridphysics/doorkoban_lvl4.txt",
+    "examples/gridphysics/escape.txt",
+    "examples/gridphysics/escape_lvl0.txt",
+    "examples/gridphysics/escape_lvl1.txt",
+    "examples/gridphysics/escape_lvl2.txt",
+    "examples/gridphysics/escape_lvl3.txt",
+    "examples/gridphysics/escape_lvl4.txt",
+    "examples/gridphysics/garbagecollector.txt",
+    "examples/gridphysics/garbagecollector_lvl0.txt",
+    "examples/gridphysics/garbagecollector_lvl1.txt",
+    "examples/gridphysics/garbagecollector_lvl2.txt",
+    "examples/gridphysics/garbagecollector_lvl3.txt",
+    "examples/gridphysics/garbagecollector_lvl4.txt",
+    "examples/gridphysics/glow.txt",
+    "examples/gridphysics/glow_lvl0.txt",
+    "examples/gridphysics/glow_lvl1.txt",
+    "examples/gridphysics/glow_lvl2.txt",
+    "examples/gridphysics/glow_lvl3.txt",
+    "examples/gridphysics/glow_lvl4.txt",
+    "examples/gridphysics/grow.txt",
+    "examples/gridphysics/grow_lvl0.txt",
+    "examples/gridphysics/grow_lvl1.txt",
+    "examples/gridphysics/grow_lvl2.txt",
+    "examples/gridphysics/grow_lvl3.txt",
+    "examples/gridphysics/grow_lvl4.txt",
+    "examples/gridphysics/hungrybirds.txt",
+    "examples/gridphysics/hungrybirds_lvl0.txt",
+    "examples/gridphysics/hungrybirds_lvl1.txt",
+    "examples/gridphysics/hungrybirds_lvl2.txt",
+    "examples/gridphysics/hungrybirds_lvl3.txt",
+    "examples/gridphysics/hungrybirds_lvl4.txt",
+    "examples/gridphysics/iceandfire.txt",
+    "examples/gridphysics/iceandfire_lvl0.txt",
+    "examples/gridphysics/iceandfire_lvl1.txt",
+    "examples/gridphysics/iceandfire_lvl2.txt",
+    "examples/gridphysics/iceandfire_lvl3.txt",
+    "examples/gridphysics/iceandfire_lvl4.txt",
+    "examples/gridphysics/islands.txt",
+    "examples/gridphysics/islands_lvl0.txt",
+    "examples/gridphysics/islands_lvl1.txt",
+    "examples/gridphysics/islands_lvl2.txt",
+    "examples/gridphysics/islands_lvl3.txt",
+    "examples/gridphysics/islands_lvl4.txt",
+    "examples/gridphysics/labyrinth.txt",
+    "examples/gridphysics/labyrinth_lvl0.txt",
+    "examples/gridphysics/labyrinth_lvl1.txt",
+    "examples/gridphysics/labyrinth_lvl2.txt",
+    "examples/gridphysics/labyrinth_lvl3.txt",
+    "examples/gridphysics/labyrinth_lvl4.txt",
+    "examples/gridphysics/labyrinthdual.txt",
+    "examples/gridphysics/labyrinthdual_lvl0.txt",
+    "examples/gridphysics/labyrinthdual_lvl1.txt",
+    "examples/gridphysics/labyrinthdual_lvl2.txt",
+    "examples/gridphysics/labyrinthdual_lvl3.txt",
+    "examples/gridphysics/labyrinthdual_lvl4.txt",
+    "examples/gridphysics/lasers.txt",
+    "examples/gridphysics/lasers_lvl0.txt",
+    "examples/gridphysics/lasers_lvl1.txt",
+    "examples/gridphysics/lasers_lvl2.txt",
+    "examples/gridphysics/lasers_lvl3.txt",
+    "examples/gridphysics/lasers_lvl4.txt",
+    "examples/gridphysics/modality.txt",
+    "examples/gridphysics/modality_lvl0.txt",
+    "examples/gridphysics/modality_lvl1.txt",
+    "examples/gridphysics/modality_lvl2.txt",
+    "examples/gridphysics/modality_lvl3.txt",
+    "examples/gridphysics/modality_lvl4.txt",
+    "examples/gridphysics/painter.txt",
+    "examples/gridphysics/painter_lvl0.txt",
+    "examples/gridphysics/painter_lvl1.txt",
+    "examples/gridphysics/painter_lvl2.txt",
+    "examples/gridphysics/painter_lvl3.txt",
+    "examples/gridphysics/painter_lvl4.txt",
+    "examples/gridphysics/racebet.txt",
+    "examples/gridphysics/racebet2.txt",
+    "examples/gridphysics/racebet2_lvl0.txt",
+    "examples/gridphysics/racebet2_lvl1.txt",
+    "examples/gridphysics/racebet2_lvl2.txt",
+    "examples/gridphysics/racebet2_lvl3.txt",
+    "examples/gridphysics/racebet2_lvl4.txt",
+    "examples/gridphysics/racebet_lvl0.txt",
+    "examples/gridphysics/racebet_lvl1.txt",
+    "examples/gridphysics/racebet_lvl2.txt",
+    "examples/gridphysics/racebet_lvl3.txt",
+    "examples/gridphysics/racebet_lvl4.txt",
+    "examples/gridphysics/realsokoban.txt",
+    "examples/gridphysics/realsokoban_lvl0.txt",
+    "examples/gridphysics/realsokoban_lvl1.txt",
+    "examples/gridphysics/realsokoban_lvl2.txt",
+    "examples/gridphysics/realsokoban_lvl3.txt",
+    "examples/gridphysics/realsokoban_lvl4.txt",
+    "examples/gridphysics/rivers.txt",
+    "examples/gridphysics/rivers_lvl0.txt",
+    "examples/gridphysics/rivers_lvl1.txt",
+    "examples/gridphysics/rivers_lvl2.txt",
+    "examples/gridphysics/rivers_lvl3.txt",
+    "examples/gridphysics/rivers_lvl4.txt",
+    "examples/gridphysics/roadfighter.txt",
+    "examples/gridphysics/roadfighter_lvl0.txt",
+    "examples/gridphysics/roadfighter_lvl1.txt",
+    "examples/gridphysics/roadfighter_lvl2.txt",
+    "examples/gridphysics/roadfighter_lvl3.txt",
+    "examples/gridphysics/roadfighter_lvl4.txt",
+    "examples/gridphysics/sokoban.txt",
+    "examples/gridphysics/sokoban_lvl0.txt",
+    "examples/gridphysics/sokoban_lvl1.txt",
+    "examples/gridphysics/sokoban_lvl2.txt",
+    "examples/gridphysics/sokoban_lvl3.txt",
+    "examples/gridphysics/sokoban_lvl4.txt",
+    "examples/gridphysics/tercio.txt",
+    "examples/gridphysics/tercio_lvl0.txt",
+    "examples/gridphysics/tercio_lvl1.txt",
+    "examples/gridphysics/tercio_lvl2.txt",
+    "examples/gridphysics/tercio_lvl3.txt",
+    "examples/gridphysics/tercio_lvl4.txt",
+    "examples/gridphysics/thecitadel.txt",
+    "examples/gridphysics/thecitadel_lvl0.txt",
+    "examples/gridphysics/thecitadel_lvl1.txt",
+    "examples/gridphysics/thecitadel_lvl2.txt",
+    "examples/gridphysics/thecitadel_lvl3.txt",
+    "examples/gridphysics/thecitadel_lvl4.txt",
+    "examples/gridphysics/thesnowman.txt",
+    "examples/gridphysics/thesnowman_lvl0.txt",
+    "examples/gridphysics/thesnowman_lvl1.txt",
+    "examples/gridphysics/thesnowman_lvl2.txt",
+    "examples/gridphysics/thesnowman_lvl3.txt",
+    "examples/gridphysics/thesnowman_lvl4.txt",
+    "examples/gridphysics/watergame.txt",
+    "examples/gridphysics/watergame_lvl0.txt",
+    "examples/gridphysics/watergame_lvl1.txt",
+    "examples/gridphysics/watergame_lvl2.txt",
+    "examples/gridphysics/watergame_lvl3.txt",
+    "examples/gridphysics/watergame_lvl4.txt",
+    "examples/gridphysics/wrapsokoban.txt",
+    "examples/gridphysics/wrapsokoban_lvl0.txt",
+    "examples/gridphysics/wrapsokoban_lvl1.txt",
+    "examples/gridphysics/wrapsokoban_lvl2.txt",
+    "examples/gridphysics/wrapsokoban_lvl3.txt",
+    "examples/gridphysics/wrapsokoban_lvl4.txt",
+    "examples/gridphysics/zenpuzzle.txt",
+    "examples/gridphysics/zenpuzzle_lvl0.txt",
+    "examples/gridphysics/zenpuzzle_lvl1.txt",
+    "examples/gridphysics/zenpuzzle_lvl2.txt",
+    "examples/gridphysics/zenpuzzle_lvl3.txt",
+    "examples/gridphysics/zenpuzzle_lvl4.txt"
+   ],
+   "tree_files": 2604,
+   "tree_truncated": false
+  },
+  "jpype-project/jpype": {
+   "archived": false,
+   "default_branch": "master",
+   "license": "Apache-2.0",
+   "pushed_at": "2026-11-12T22:59:17Z"
+  },
+  "py4j/py4j": {
+   "archived": false,
+   "default_branch": "master",
+   "license": "NOASSERTION",
+   "pushed_at": "2026-06-11T17:33:19Z"
+  },
+  "rubenrtorrado/GVGAI_GYM": {
+   "archived": false,
+   "default_branch": "master",
+   "license": "Apache-2.0",
+   "pushed_at": "2020-01-22T23:50:20Z",
+   "suite_files": [
+    "gym_gvgai/envs/games/bait_v0/bait.txt",
+    "gym_gvgai/envs/games/bait_v0/bait_lvl0.txt",
+    "gym_gvgai/envs/games/bait_v0/bait_lvl1.txt",
+    "gym_gvgai/envs/games/bait_v0/bait_lvl2.txt",
+    "gym_gvgai/envs/games/bait_v0/bait_lvl3.txt",
+    "gym_gvgai/envs/games/bait_v0/bait_lvl4.txt",
+    "gym_gvgai/envs/games/chipschallenge_v0/chipschallenge.txt",
+    "gym_gvgai/envs/games/chipschallenge_v0/chipschallenge_lvl0.txt",
+    "gym_gvgai/envs/games/chipschallenge_v0/chipschallenge_lvl1.txt",
+    "gym_gvgai/envs/games/chipschallenge_v0/chipschallenge_lvl2.txt",
+    "gym_gvgai/envs/games/chipschallenge_v0/chipschallenge_lvl3.txt",
+    "gym_gvgai/envs/games/chipschallenge_v0/chipschallenge_lvl4.txt",
+    "gym_gvgai/envs/games/clusters_v0/clusters.txt",
+    "gym_gvgai/envs/games/clusters_v0/clusters_lvl0.txt",
+    "gym_gvgai/envs/games/clusters_v0/clusters_lvl1.txt",
+    "gym_gvgai/envs/games/clusters_v0/clusters_lvl2.txt",
+    "gym_gvgai/envs/games/clusters_v0/clusters_lvl3.txt",
+    "gym_gvgai/envs/games/clusters_v0/clusters_lvl4.txt",
+    "gym_gvgai/envs/games/colourescape_v0/colourescape.txt",
+    "gym_gvgai/envs/games/colourescape_v0/colourescape_lvl0.txt",
+    "gym_gvgai/envs/games/colourescape_v0/colourescape_lvl1.txt",
+    "gym_gvgai/envs/games/colourescape_v0/colourescape_lvl2.txt",
+    "gym_gvgai/envs/games/colourescape_v0/colourescape_lvl3.txt",
+    "gym_gvgai/envs/games/colourescape_v0/colourescape_lvl4.txt",
+    "gym_gvgai/envs/games/cookmepasta_v0/cookmepasta.txt",
+    "gym_gvgai/envs/games/cookmepasta_v0/cookmepasta_lvl0.txt",
+    "gym_gvgai/envs/games/cookmepasta_v0/cookmepasta_lvl1.txt",
+    "gym_gvgai/envs/games/cookmepasta_v0/cookmepasta_lvl2.txt",
+    "gym_gvgai/envs/games/cookmepasta_v0/cookmepasta_lvl3.txt",
+    "gym_gvgai/envs/games/cookmepasta_v0/cookmepasta_lvl4.txt",
+    "gym_gvgai/envs/games/doorkoban_v0/doorkoban.txt",
+    "gym_gvgai/envs/games/doorkoban_v0/doorkoban_lvl0.txt",
+    "gym_gvgai/envs/games/doorkoban_v0/doorkoban_lvl1.txt",
+    "gym_gvgai/envs/games/doorkoban_v0/doorkoban_lvl2.txt",
+    "gym_gvgai/envs/games/doorkoban_v0/doorkoban_lvl3.txt",
+    "gym_gvgai/envs/games/doorkoban_v0/doorkoban_lvl4.txt",
+    "gym_gvgai/envs/games/escape_v0/escape.txt",
+    "gym_gvgai/envs/games/escape_v0/escape_lvl0.txt",
+    "gym_gvgai/envs/games/escape_v0/escape_lvl1.txt",
+    "gym_gvgai/envs/games/escape_v0/escape_lvl2.txt",
+    "gym_gvgai/envs/games/escape_v0/escape_lvl3.txt",
+    "gym_gvgai/envs/games/escape_v0/escape_lvl4.txt",
+    "gym_gvgai/envs/games/garbagecollector_v0/garbagecollector.txt",
+    "gym_gvgai/envs/games/garbagecollector_v0/garbagecollector_lvl0.txt",
+    "gym_gvgai/envs/games/garbagecollector_v0/garbagecollector_lvl1.txt",
+    "gym_gvgai/envs/games/garbagecollector_v0/garbagecollector_lvl2.txt",
+    "gym_gvgai/envs/games/garbagecollector_v0/garbagecollector_lvl3.txt",
+    "gym_gvgai/envs/games/garbagecollector_v0/garbagecollector_lvl4.txt",
+    "gym_gvgai/envs/games/hungrybirds_v0/hungrybirds.txt",
+    "gym_gvgai/envs/games/hungrybirds_v0/hungrybirds_lvl0.txt",
+    "gym_gvgai/envs/games/hungrybirds_v0/hungrybirds_lvl1.txt",
+    "gym_gvgai/envs/games/hungrybirds_v0/hungrybirds_lvl2.txt",
+    "gym_gvgai/envs/games/hungrybirds_v0/hungrybirds_lvl3.txt",
+    "gym_gvgai/envs/games/hungrybirds_v0/hungrybirds_lvl4.txt",
+    "gym_gvgai/envs/games/iceandfire_v0/iceandfire.txt",
+    "gym_gvgai/envs/games/iceandfire_v0/iceandfire_lvl0.txt",
+    "gym_gvgai/envs/games/iceandfire_v0/iceandfire_lvl1.txt",
+    "gym_gvgai/envs/games/iceandfire_v0/iceandfire_lvl2.txt",
+    "gym_gvgai/envs/games/iceandfire_v0/iceandfire_lvl3.txt",
+    "gym_gvgai/envs/games/iceandfire_v0/iceandfire_lvl4.txt",
+    "gym_gvgai/envs/games/islands_v0/islands.txt",
+    "gym_gvgai/envs/games/islands_v0/islands_lvl0.txt",
+    "gym_gvgai/envs/games/islands_v0/islands_lvl1.txt",
+    "gym_gvgai/envs/games/islands_v0/islands_lvl2.txt",
+    "gym_gvgai/envs/games/islands_v0/islands_lvl3.txt",
+    "gym_gvgai/envs/games/islands_v0/islands_lvl4.txt",
+    "gym_gvgai/envs/games/labyrinth_v0/labyrinth.txt",
+    "gym_gvgai/envs/games/labyrinth_v0/labyrinth_lvl0.txt",
+    "gym_gvgai/envs/games/labyrinth_v0/labyrinth_lvl1.txt",
+    "gym_gvgai/envs/games/labyrinth_v0/labyrinth_lvl2.txt",
+    "gym_gvgai/envs/games/labyrinth_v0/labyrinth_lvl3.txt",
+    "gym_gvgai/envs/games/labyrinth_v0/labyrinth_lvl4.txt",
+    "gym_gvgai/envs/games/labyrinthdual_v0/labyrinthdual.txt",
+    "gym_gvgai/envs/games/labyrinthdual_v0/labyrinthdual_lvl0.txt",
+    "gym_gvgai/envs/games/labyrinthdual_v0/labyrinthdual_lvl1.txt",
+    "gym_gvgai/envs/games/labyrinthdual_v0/labyrinthdual_lvl2.txt",
+    "gym_gvgai/envs/games/labyrinthdual_v0/labyrinthdual_lvl3.txt",
+    "gym_gvgai/envs/games/labyrinthdual_v0/labyrinthdual_lvl4.txt",
+    "gym_gvgai/envs/games/lasers_v0/lasers.txt",
+    "gym_gvgai/envs/games/lasers_v0/lasers_lvl0.txt",
+    "gym_gvgai/envs/games/lasers_v0/lasers_lvl1.txt",
+    "gym_gvgai/envs/games/lasers_v0/lasers_lvl2.txt",
+    "gym_gvgai/envs/games/lasers_v0/lasers_lvl3.txt",
+    "gym_gvgai/envs/games/lasers_v0/lasers_lvl4.txt",
+    "gym_gvgai/envs/games/modality_v0/modality.txt",
+    "gym_gvgai/envs/games/modality_v0/modality_lvl0.txt",
+    "gym_gvgai/envs/games/modality_v0/modality_lvl1.txt",
+    "gym_gvgai/envs/games/modality_v0/modality_lvl2.txt",
+    "gym_gvgai/envs/games/modality_v0/modality_lvl3.txt",
+    "gym_gvgai/envs/games/modality_v0/modality_lvl4.txt",
+    "gym_gvgai/envs/games/painter_v0/painter.txt",
+    "gym_gvgai/envs/games/painter_v0/painter_lvl0.txt",
+    "gym_gvgai/envs/games/painter_v0/painter_lvl1.txt",
+    "gym_gvgai/envs/games/painter_v0/painter_lvl2.txt",
+    "gym_gvgai/envs/games/painter_v0/painter_lvl3.txt",
+    "gym_gvgai/envs/games/painter_v0/painter_lvl4.txt",
+    "gym_gvgai/envs/games/racebet2_v0/racebet2.txt",
+    "gym_gvgai/envs/games/racebet2_v0/racebet2_lvl0.txt",
+    "gym_gvgai/envs/games/racebet2_v0/racebet2_lvl1.txt",
+    "gym_gvgai/envs/games/racebet2_v0/racebet2_lvl2.txt",
+    "gym_gvgai/envs/games/racebet2_v0/racebet2_lvl3.txt",
+    "gym_gvgai/envs/games/racebet2_v0/racebet2_lvl4.txt",
+    "gym_gvgai/envs/games/racebet_v0/racebet.txt",
+    "gym_gvgai/envs/games/racebet_v0/racebet_lvl0.txt",
+    "gym_gvgai/envs/games/racebet_v0/racebet_lvl1.txt",
+    "gym_gvgai/envs/games/racebet_v0/racebet_lvl2.txt",
+    "gym_gvgai/envs/games/racebet_v0/racebet_lvl3.txt",
+    "gym_gvgai/envs/games/racebet_v0/racebet_lvl4.txt",
+    "gym_gvgai/envs/games/realsokoban_v0/realsokoban.txt",
+    "gym_gvgai/envs/games/realsokoban_v0/realsokoban_lvl0.txt",
+    "gym_gvgai/envs/games/realsokoban_v0/realsokoban_lvl1.txt",
+    "gym_gvgai/envs/games/realsokoban_v0/realsokoban_lvl2.txt",
+    "gym_gvgai/envs/games/realsokoban_v0/realsokoban_lvl3.txt",
+    "gym_gvgai/envs/games/realsokoban_v0/realsokoban_lvl4.txt",
+    "gym_gvgai/envs/games/rivers_v0/rivers.txt",
+    "gym_gvgai/envs/games/rivers_v0/rivers_lvl0.txt",
+    "gym_gvgai/envs/games/rivers_v0/rivers_lvl1.txt",
+    "gym_gvgai/envs/games/rivers_v0/rivers_lvl2.txt",
+    "gym_gvgai/envs/games/rivers_v0/rivers_lvl3.txt",
+    "gym_gvgai/envs/games/rivers_v0/rivers_lvl4.txt",
+    "gym_gvgai/envs/games/roadfighter_v0/roadfighter.txt",
+    "gym_gvgai/envs/games/roadfighter_v0/roadfighter_lvl0.txt",
+    "gym_gvgai/envs/games/roadfighter_v0/roadfighter_lvl1.txt",
+    "gym_gvgai/envs/games/roadfighter_v0/roadfighter_lvl2.txt",
+    "gym_gvgai/envs/games/roadfighter_v0/roadfighter_lvl3.txt",
+    "gym_gvgai/envs/games/roadfighter_v0/roadfighter_lvl4.txt",
+    "gym_gvgai/envs/games/sokoban_v0/sokoban.txt",
+    "gym_gvgai/envs/games/sokoban_v0/sokoban_lvl0.txt",
+    "gym_gvgai/envs/games/sokoban_v0/sokoban_lvl1.txt",
+    "gym_gvgai/envs/games/sokoban_v0/sokoban_lvl2.txt",
+    "gym_gvgai/envs/games/sokoban_v0/sokoban_lvl3.txt",
+    "gym_gvgai/envs/games/sokoban_v0/sokoban_lvl4.txt",
+    "gym_gvgai/envs/games/tercio_v0/tercio.txt",
+    "gym_gvgai/envs/games/tercio_v0/tercio_lvl0.txt",
+    "gym_gvgai/envs/games/tercio_v0/tercio_lvl1.txt",
+    "gym_gvgai/envs/games/tercio_v0/tercio_lvl2.txt",
+    "gym_gvgai/envs/games/tercio_v0/tercio_lvl3.txt",
+    "gym_gvgai/envs/games/tercio_v0/tercio_lvl4.txt",
+    "gym_gvgai/envs/games/thecitadel_v0/thecitadel.txt",
+    "gym_gvgai/envs/games/thecitadel_v0/thecitadel_lvl0.txt",
+    "gym_gvgai/envs/games/thecitadel_v0/thecitadel_lvl1.txt",
+    "gym_gvgai/envs/games/thecitadel_v0/thecitadel_lvl2.txt",
+    "gym_gvgai/envs/games/thecitadel_v0/thecitadel_lvl3.txt",
+    "gym_gvgai/envs/games/thecitadel_v0/thecitadel_lvl4.txt",
+    "gym_gvgai/envs/games/thesnowman_v0/thesnowman.txt",
+    "gym_gvgai/envs/games/thesnowman_v0/thesnowman_lvl0.txt",
+    "gym_gvgai/envs/games/thesnowman_v0/thesnowman_lvl1.txt",
+    "gym_gvgai/envs/games/thesnowman_v0/thesnowman_lvl2.txt",
+    "gym_gvgai/envs/games/thesnowman_v0/thesnowman_lvl3.txt",
+    "gym_gvgai/envs/games/thesnowman_v0/thesnowman_lvl4.txt",
+    "gym_gvgai/envs/games/watergame_v0/watergame.txt",
+    "gym_gvgai/envs/games/watergame_v0/watergame_lvl0.txt",
+    "gym_gvgai/envs/games/watergame_v0/watergame_lvl1.txt",
+    "gym_gvgai/envs/games/watergame_v0/watergame_lvl2.txt",
+    "gym_gvgai/envs/games/watergame_v0/watergame_lvl3.txt",
+    "gym_gvgai/envs/games/watergame_v0/watergame_lvl4.txt",
+    "gym_gvgai/envs/games/wrapsokoban_v0/wrapsokoban.txt",
+    "gym_gvgai/envs/games/wrapsokoban_v0/wrapsokoban_lvl0.txt",
+    "gym_gvgai/envs/games/wrapsokoban_v0/wrapsokoban_lvl1.txt",
+    "gym_gvgai/envs/games/wrapsokoban_v0/wrapsokoban_lvl2.txt",
+    "gym_gvgai/envs/games/wrapsokoban_v0/wrapsokoban_lvl3.txt",
+    "gym_gvgai/envs/games/wrapsokoban_v0/wrapsokoban_lvl4.txt",
+    "gym_gvgai/envs/games/zenpuzzle_v0/zenpuzzle.txt",
+    "gym_gvgai/envs/games/zenpuzzle_v0/zenpuzzle_lvl0.txt",
+    "gym_gvgai/envs/games/zenpuzzle_v0/zenpuzzle_lvl1.txt",
+    "gym_gvgai/envs/games/zenpuzzle_v0/zenpuzzle_lvl2.txt",
+    "gym_gvgai/envs/games/zenpuzzle_v0/zenpuzzle_lvl3.txt",
+    "gym_gvgai/envs/games/zenpuzzle_v0/zenpuzzle_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/bait.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/bait_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/bait_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/bait_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/bait_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/bait_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/chipschallenge.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/chipschallenge_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/chipschallenge_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/chipschallenge_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/chipschallenge_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/chipschallenge_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/clusters.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/clusters_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/clusters_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/clusters_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/clusters_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/clusters_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/colourescape.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/colourescape_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/colourescape_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/colourescape_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/colourescape_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/colourescape_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/cookmepasta.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/cookmepasta_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/cookmepasta_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/cookmepasta_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/cookmepasta_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/cookmepasta_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/doorkoban.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/doorkoban_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/doorkoban_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/doorkoban_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/doorkoban_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/doorkoban_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/escape.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/escape_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/escape_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/escape_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/escape_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/escape_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/garbagecollector.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/garbagecollector_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/garbagecollector_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/garbagecollector_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/garbagecollector_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/garbagecollector_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/hungrybirds.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/hungrybirds_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/hungrybirds_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/hungrybirds_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/hungrybirds_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/hungrybirds_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/iceandfire.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/iceandfire_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/iceandfire_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/iceandfire_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/iceandfire_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/iceandfire_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/islands.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/islands_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/islands_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/islands_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/islands_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/islands_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/labyrinth.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/labyrinth_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/labyrinth_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/labyrinth_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/labyrinth_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/labyrinth_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/labyrinthdual.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/labyrinthdual_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/labyrinthdual_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/labyrinthdual_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/labyrinthdual_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/labyrinthdual_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/lasers.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/lasers_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/lasers_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/lasers_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/lasers_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/lasers_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/modality.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/modality_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/modality_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/modality_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/modality_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/modality_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/painter.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/painter_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/painter_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/painter_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/painter_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/painter_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/racebet.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/racebet2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/racebet2_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/racebet2_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/racebet2_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/racebet2_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/racebet2_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/racebet_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/racebet_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/racebet_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/racebet_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/racebet_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/realsokoban.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/realsokoban_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/realsokoban_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/realsokoban_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/realsokoban_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/realsokoban_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/rivers.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/rivers_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/rivers_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/rivers_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/rivers_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/rivers_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/roadfighter.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/roadfighter_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/roadfighter_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/roadfighter_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/roadfighter_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/roadfighter_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/sokoban.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/sokoban_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/sokoban_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/sokoban_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/sokoban_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/sokoban_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/tercio.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/tercio_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/tercio_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/tercio_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/tercio_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/tercio_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/thecitadel.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/thecitadel_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/thecitadel_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/thecitadel_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/thecitadel_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/thecitadel_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/thesnowman.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/thesnowman_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/thesnowman_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/thesnowman_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/thesnowman_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/thesnowman_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/watergame.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/watergame_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/watergame_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/watergame_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/watergame_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/watergame_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/wrapsokoban.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/wrapsokoban_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/wrapsokoban_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/wrapsokoban_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/wrapsokoban_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/wrapsokoban_lvl4.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/zenpuzzle.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/zenpuzzle_lvl0.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/zenpuzzle_lvl1.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/zenpuzzle_lvl2.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/zenpuzzle_lvl3.txt",
+    "gym_gvgai/envs/gvgai/examples/gridphysics/zenpuzzle_lvl4.txt"
+   ],
+   "tree_files": 2528,
+   "tree_truncated": false
+  },
+  "rubenvereecken/py-vgdl": {
+   "archived": false,
+   "default_branch": "master",
+   "license": "BSD-3-Clause",
+   "pushed_at": "2022-10-04T21:44:08Z",
+   "suite_files": [
+    "vgdl/games/sokoban.txt",
+    "vgdl/games/sokoban_lvl0.txt"
+   ],
+   "tree_files": 736,
+   "tree_truncated": false
+  },
+  "schaul/py-vgdl": {
+   "archived": false,
+   "default_branch": "master",
+   "license": "BSD-3-Clause",
+   "pushed_at": "2019-06-23T20:30:16Z",
+   "suite_files": [
+    "examples/gridphysics/sokoban.py"
+   ],
+   "tree_files": 66,
+   "tree_truncated": false
+  },
+  "shepardxia/VGDLx": {
+   "archived": false,
+   "default_branch": "main",
+   "license": null,
+   "pushed_at": "2026-03-20T18:55:25Z",
+   "suite_files": [
+    "vgdl_jax/games/gridphysics/bait.txt",
+    "vgdl_jax/games/gridphysics/bait_lvl0.txt",
+    "vgdl_jax/games/gridphysics/bait_lvl1.txt",
+    "vgdl_jax/games/gridphysics/bait_lvl2.txt",
+    "vgdl_jax/games/gridphysics/bait_lvl3.txt",
+    "vgdl_jax/games/gridphysics/bait_lvl4.txt",
+    "vgdl_jax/games/gridphysics/chipschallenge.txt",
+    "vgdl_jax/games/gridphysics/chipschallenge_lvl0.txt",
+    "vgdl_jax/games/gridphysics/chipschallenge_lvl1.txt",
+    "vgdl_jax/games/gridphysics/chipschallenge_lvl2.txt",
+    "vgdl_jax/games/gridphysics/chipschallenge_lvl3.txt",
+    "vgdl_jax/games/gridphysics/chipschallenge_lvl4.txt",
+    "vgdl_jax/games/gridphysics/clusters.txt",
+    "vgdl_jax/games/gridphysics/clusters_lvl0.txt",
+    "vgdl_jax/games/gridphysics/clusters_lvl1.txt",
+    "vgdl_jax/games/gridphysics/clusters_lvl2.txt",
+    "vgdl_jax/games/gridphysics/clusters_lvl3.txt",
+    "vgdl_jax/games/gridphysics/clusters_lvl4.txt",
+    "vgdl_jax/games/gridphysics/colourescape.txt",
+    "vgdl_jax/games/gridphysics/colourescape_lvl0.txt",
+    "vgdl_jax/games/gridphysics/colourescape_lvl1.txt",
+    "vgdl_jax/games/gridphysics/colourescape_lvl2.txt",
+    "vgdl_jax/games/gridphysics/colourescape_lvl3.txt",
+    "vgdl_jax/games/gridphysics/colourescape_lvl4.txt",
+    "vgdl_jax/games/gridphysics/cookmepasta.txt",
+    "vgdl_jax/games/gridphysics/cookmepasta_lvl0.txt",
+    "vgdl_jax/games/gridphysics/cookmepasta_lvl1.txt",
+    "vgdl_jax/games/gridphysics/cookmepasta_lvl2.txt",
+    "vgdl_jax/games/gridphysics/cookmepasta_lvl3.txt",
+    "vgdl_jax/games/gridphysics/cookmepasta_lvl4.txt",
+    "vgdl_jax/games/gridphysics/doorkoban.txt",
+    "vgdl_jax/games/gridphysics/doorkoban_lvl0.txt",
+    "vgdl_jax/games/gridphysics/doorkoban_lvl1.txt",
+    "vgdl_jax/games/gridphysics/doorkoban_lvl2.txt",
+    "vgdl_jax/games/gridphysics/doorkoban_lvl3.txt",
+    "vgdl_jax/games/gridphysics/doorkoban_lvl4.txt",
+    "vgdl_jax/games/gridphysics/escape.txt",
+    "vgdl_jax/games/gridphysics/escape_lvl0.txt",
+    "vgdl_jax/games/gridphysics/escape_lvl1.txt",
+    "vgdl_jax/games/gridphysics/escape_lvl2.txt",
+    "vgdl_jax/games/gridphysics/escape_lvl3.txt",
+    "vgdl_jax/games/gridphysics/escape_lvl4.txt",
+    "vgdl_jax/games/gridphysics/garbagecollector.txt",
+    "vgdl_jax/games/gridphysics/garbagecollector_lvl0.txt",
+    "vgdl_jax/games/gridphysics/garbagecollector_lvl1.txt",
+    "vgdl_jax/games/gridphysics/garbagecollector_lvl2.txt",
+    "vgdl_jax/games/gridphysics/garbagecollector_lvl3.txt",
+    "vgdl_jax/games/gridphysics/garbagecollector_lvl4.txt",
+    "vgdl_jax/games/gridphysics/glow.txt",
+    "vgdl_jax/games/gridphysics/glow_lvl0.txt",
+    "vgdl_jax/games/gridphysics/glow_lvl1.txt",
+    "vgdl_jax/games/gridphysics/glow_lvl2.txt",
+    "vgdl_jax/games/gridphysics/glow_lvl3.txt",
+    "vgdl_jax/games/gridphysics/glow_lvl4.txt",
+    "vgdl_jax/games/gridphysics/grow.txt",
+    "vgdl_jax/games/gridphysics/grow_lvl0.txt",
+    "vgdl_jax/games/gridphysics/grow_lvl1.txt",
+    "vgdl_jax/games/gridphysics/grow_lvl2.txt",
+    "vgdl_jax/games/gridphysics/grow_lvl3.txt",
+    "vgdl_jax/games/gridphysics/grow_lvl4.txt",
+    "vgdl_jax/games/gridphysics/hungrybirds.txt",
+    "vgdl_jax/games/gridphysics/hungrybirds_lvl0.txt",
+    "vgdl_jax/games/gridphysics/hungrybirds_lvl1.txt",
+    "vgdl_jax/games/gridphysics/hungrybirds_lvl2.txt",
+    "vgdl_jax/games/gridphysics/hungrybirds_lvl3.txt",
+    "vgdl_jax/games/gridphysics/hungrybirds_lvl4.txt",
+    "vgdl_jax/games/gridphysics/iceandfire.txt",
+    "vgdl_jax/games/gridphysics/iceandfire_lvl0.txt",
+    "vgdl_jax/games/gridphysics/iceandfire_lvl1.txt",
+    "vgdl_jax/games/gridphysics/iceandfire_lvl2.txt",
+    "vgdl_jax/games/gridphysics/iceandfire_lvl3.txt",
+    "vgdl_jax/games/gridphysics/iceandfire_lvl4.txt",
+    "vgdl_jax/games/gridphysics/islands.txt",
+    "vgdl_jax/games/gridphysics/islands_lvl0.txt",
+    "vgdl_jax/games/gridphysics/islands_lvl1.txt",
+    "vgdl_jax/games/gridphysics/islands_lvl2.txt",
+    "vgdl_jax/games/gridphysics/islands_lvl3.txt",
+    "vgdl_jax/games/gridphysics/islands_lvl4.txt",
+    "vgdl_jax/games/gridphysics/labyrinth.txt",
+    "vgdl_jax/games/gridphysics/labyrinth_lvl0.txt",
+    "vgdl_jax/games/gridphysics/labyrinth_lvl1.txt",
+    "vgdl_jax/games/gridphysics/labyrinth_lvl2.txt",
+    "vgdl_jax/games/gridphysics/labyrinth_lvl3.txt",
+    "vgdl_jax/games/gridphysics/labyrinth_lvl4.txt",
+    "vgdl_jax/games/gridphysics/labyrinthdual.txt",
+    "vgdl_jax/games/gridphysics/labyrinthdual_lvl0.txt",
+    "vgdl_jax/games/gridphysics/labyrinthdual_lvl1.txt",
+    "vgdl_jax/games/gridphysics/labyrinthdual_lvl2.txt",
+    "vgdl_jax/games/gridphysics/labyrinthdual_lvl3.txt",
+    "vgdl_jax/games/gridphysics/labyrinthdual_lvl4.txt",
+    "vgdl_jax/games/gridphysics/lasers.txt",
+    "vgdl_jax/games/gridphysics/lasers_lvl0.txt",
+    "vgdl_jax/games/gridphysics/lasers_lvl1.txt",
+    "vgdl_jax/games/gridphysics/lasers_lvl2.txt",
+    "vgdl_jax/games/gridphysics/lasers_lvl3.txt",
+    "vgdl_jax/games/gridphysics/lasers_lvl4.txt",
+    "vgdl_jax/games/gridphysics/modality.txt",
+    "vgdl_jax/games/gridphysics/modality_lvl0.txt",
+    "vgdl_jax/games/gridphysics/modality_lvl1.txt",
+    "vgdl_jax/games/gridphysics/modality_lvl2.txt",
+    "vgdl_jax/games/gridphysics/modality_lvl3.txt",
+    "vgdl_jax/games/gridphysics/modality_lvl4.txt",
+    "vgdl_jax/games/gridphysics/painter.txt",
+    "vgdl_jax/games/gridphysics/painter_lvl0.txt",
+    "vgdl_jax/games/gridphysics/painter_lvl1.txt",
+    "vgdl_jax/games/gridphysics/painter_lvl2.txt",
+    "vgdl_jax/games/gridphysics/painter_lvl3.txt",
+    "vgdl_jax/games/gridphysics/painter_lvl4.txt",
+    "vgdl_jax/games/gridphysics/racebet.txt",
+    "vgdl_jax/games/gridphysics/racebet2.txt",
+    "vgdl_jax/games/gridphysics/racebet2_lvl0.txt",
+    "vgdl_jax/games/gridphysics/racebet2_lvl1.txt",
+    "vgdl_jax/games/gridphysics/racebet2_lvl2.txt",
+    "vgdl_jax/games/gridphysics/racebet2_lvl3.txt",
+    "vgdl_jax/games/gridphysics/racebet2_lvl4.txt",
+    "vgdl_jax/games/gridphysics/racebet_lvl0.txt",
+    "vgdl_jax/games/gridphysics/racebet_lvl1.txt",
+    "vgdl_jax/games/gridphysics/racebet_lvl2.txt",
+    "vgdl_jax/games/gridphysics/racebet_lvl3.txt",
+    "vgdl_jax/games/gridphysics/racebet_lvl4.txt",
+    "vgdl_jax/games/gridphysics/realsokoban.txt",
+    "vgdl_jax/games/gridphysics/realsokoban_lvl0.txt",
+    "vgdl_jax/games/gridphysics/realsokoban_lvl1.txt",
+    "vgdl_jax/games/gridphysics/realsokoban_lvl2.txt",
+    "vgdl_jax/games/gridphysics/realsokoban_lvl3.txt",
+    "vgdl_jax/games/gridphysics/realsokoban_lvl4.txt",
+    "vgdl_jax/games/gridphysics/rivers.txt",
+    "vgdl_jax/games/gridphysics/rivers_lvl0.txt",
+    "vgdl_jax/games/gridphysics/rivers_lvl1.txt",
+    "vgdl_jax/games/gridphysics/rivers_lvl2.txt",
+    "vgdl_jax/games/gridphysics/rivers_lvl3.txt",
+    "vgdl_jax/games/gridphysics/rivers_lvl4.txt",
+    "vgdl_jax/games/gridphysics/roadfighter.txt",
+    "vgdl_jax/games/gridphysics/roadfighter_lvl0.txt",
+    "vgdl_jax/games/gridphysics/roadfighter_lvl1.txt",
+    "vgdl_jax/games/gridphysics/roadfighter_lvl2.txt",
+    "vgdl_jax/games/gridphysics/roadfighter_lvl3.txt",
+    "vgdl_jax/games/gridphysics/roadfighter_lvl4.txt",
+    "vgdl_jax/games/gridphysics/sokoban.txt",
+    "vgdl_jax/games/gridphysics/sokoban_lvl0.txt",
+    "vgdl_jax/games/gridphysics/sokoban_lvl1.txt",
+    "vgdl_jax/games/gridphysics/sokoban_lvl2.txt",
+    "vgdl_jax/games/gridphysics/sokoban_lvl3.txt",
+    "vgdl_jax/games/gridphysics/sokoban_lvl4.txt",
+    "vgdl_jax/games/gridphysics/tercio.txt",
+    "vgdl_jax/games/gridphysics/tercio_lvl0.txt",
+    "vgdl_jax/games/gridphysics/tercio_lvl1.txt",
+    "vgdl_jax/games/gridphysics/tercio_lvl2.txt",
+    "vgdl_jax/games/gridphysics/tercio_lvl3.txt",
+    "vgdl_jax/games/gridphysics/tercio_lvl4.txt",
+    "vgdl_jax/games/gridphysics/thecitadel.txt",
+    "vgdl_jax/games/gridphysics/thecitadel_lvl0.txt",
+    "vgdl_jax/games/gridphysics/thecitadel_lvl1.txt",
+    "vgdl_jax/games/gridphysics/thecitadel_lvl2.txt",
+    "vgdl_jax/games/gridphysics/thecitadel_lvl3.txt",
+    "vgdl_jax/games/gridphysics/thecitadel_lvl4.txt",
+    "vgdl_jax/games/gridphysics/thesnowman.txt",
+    "vgdl_jax/games/gridphysics/thesnowman_lvl0.txt",
+    "vgdl_jax/games/gridphysics/thesnowman_lvl1.txt",
+    "vgdl_jax/games/gridphysics/thesnowman_lvl2.txt",
+    "vgdl_jax/games/gridphysics/thesnowman_lvl3.txt",
+    "vgdl_jax/games/gridphysics/thesnowman_lvl4.txt",
+    "vgdl_jax/games/gridphysics/watergame.txt",
+    "vgdl_jax/games/gridphysics/watergame_lvl0.txt",
+    "vgdl_jax/games/gridphysics/watergame_lvl1.txt",
+    "vgdl_jax/games/gridphysics/watergame_lvl2.txt",
+    "vgdl_jax/games/gridphysics/watergame_lvl3.txt",
+    "vgdl_jax/games/gridphysics/watergame_lvl4.txt",
+    "vgdl_jax/games/gridphysics/wrapsokoban.txt",
+    "vgdl_jax/games/gridphysics/wrapsokoban_lvl0.txt",
+    "vgdl_jax/games/gridphysics/wrapsokoban_lvl1.txt",
+    "vgdl_jax/games/gridphysics/wrapsokoban_lvl2.txt",
+    "vgdl_jax/games/gridphysics/wrapsokoban_lvl3.txt",
+    "vgdl_jax/games/gridphysics/wrapsokoban_lvl4.txt",
+    "vgdl_jax/games/gridphysics/zenpuzzle.txt",
+    "vgdl_jax/games/gridphysics/zenpuzzle_lvl0.txt",
+    "vgdl_jax/games/gridphysics/zenpuzzle_lvl1.txt",
+    "vgdl_jax/games/gridphysics/zenpuzzle_lvl2.txt",
+    "vgdl_jax/games/gridphysics/zenpuzzle_lvl3.txt",
+    "vgdl_jax/games/gridphysics/zenpuzzle_lvl4.txt"
+   ],
+   "tree_files": 1498,
+   "tree_truncated": false
+  },
+  "tsividis/vgdl": {
+   "archived": false,
+   "default_branch": "master",
+   "license": "BSD-3-Clause",
+   "pushed_at": "2026-04-20T17:48:08Z",
+   "suite_files": [
+    "examples/gridphysics/sokoban.py"
+   ],
+   "tree_files": 296,
+   "tree_truncated": false
+  }
+ },
+ "socket_files": {
+  "GAIGResearch/GVGAI": {
+   "lines": {
+    "clients/GVGAI-PythonClient/src/ercumentilhan/Agent.py": [
+     [
+      180,
+      "self.previous_state_features = np.copy(state_features)"
+     ],
+     [
+      181,
+      "self.previous_state_features_extended = np.copy(state_features_extended)"
+     ],
+     [
+      390,
+      "features[f_start:f_end] = np.copy(features_single)"
+     ],
+     [
+      412,
+      "extended_state_features[partition_start:partition_end] = np.copy(state_features)"
+     ]
+    ],
+    "clients/GVGAI-PythonClient/src/utils/ClientComm.py": [
+     [
+      261,
+      "self.player.init(self.sso, ect.copy())"
+     ],
+     [
+      276,
+      "action = str(self.player.act(self.sso, ect.copy()))"
+     ],
+     [
+      302,
+      "ect = self.global_ect.copy()"
+     ],
+     [
+      306,
+      "nextLevel = self.player.result(self.sso, ect.copy())"
+     ]
+    ],
+    "clients/GVGAI-PythonClient/src/utils/ElapsedCpuTimer.py": [
+     [
+      19,
+      "def copy(self):"
+     ]
+    ]
+   },
+   "python_files": 15,
+   "ref": "e58ff6597319155218759cc178931e05b81b524c"
+  },
+  "rubenrtorrado/GVGAI_GYM": {
+   "lines": {
+    "gym_gvgai/envs/gvgai/clients/GVGAI-PythonClient/src/ercumentilhan/Agent.py": [
+     [
+      180,
+      "self.previous_state_features = np.copy(state_features)"
+     ],
+     [
+      181,
+      "self.previous_state_features_extended = np.copy(state_features_extended)"
+     ],
+     [
+      390,
+      "features[f_start:f_end] = np.copy(features_single)"
+     ],
+     [
+      412,
+      "extended_state_features[partition_start:partition_end] = np.copy(state_features)"
+     ]
+    ],
+    "gym_gvgai/envs/gvgai/clients/GVGAI-PythonClient/src/utils/ClientComm.py": [
+     [
+      261,
+      "self.player.init(self.sso, ect.copy())"
+     ],
+     [
+      276,
+      "action = str(self.player.act(self.sso, ect.copy()))"
+     ],
+     [
+      302,
+      "ect = self.global_ect.copy()"
+     ],
+     [
+      306,
+      "nextLevel = self.player.result(self.sso, ect.copy())"
+     ]
+    ],
+    "gym_gvgai/envs/gvgai/clients/GVGAI-PythonClient/src/utils/ClientCommGYM.py": [
+     [
+      333,
+      "#self.player.init(self.sso, ect.copy())"
+     ],
+     [
+      351,
+      "#action = str(self.player.act(self.sso, ect.copy()))"
+     ]
+    ],
+    "gym_gvgai/envs/gvgai/clients/GVGAI-PythonClient/src/utils/ElapsedCpuTimer.py": [
+     [
+      19,
+      "def copy(self):"
+     ]
+    ]
+   },
+   "python_files": 27,
+   "ref": "master"
+  }
+ },
+ "temurin": {
+  "linux": {
+   "link": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.13_9.tar.gz",
+   "name": "OpenJDK21U-jdk_x64_linux_hotspot_21.0.13_9.tar.gz",
+   "release": "jdk-21.0.13+9",
+   "sha256": "d7f5d5cf865a2902b70ff549b97586a7d3f234e016f041ab447ea740c7d66d1c",
+   "updated_at": "2026-10-22T12:07:52Z"
+  },
+  "windows": {
+   "link": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_x64_windows_hotspot_21.0.13_9.zip",
+   "name": "OpenJDK21U-jdk_x64_windows_hotspot_21.0.13_9.zip",
+   "release": "jdk-21.0.13+9",
+   "sha256": "a4dbaa05fca4bd89d84584e58c459bd732efebb1722af80ab13c6516832004f9",
+   "updated_at": "2026-10-29T16:08:25Z"
+  }
+ },
+ "vgdlx_readme_head": [
+  "# VGDLx",
+  "",
+  "JAX-compiled [VGDL](https://en.wikipedia.org/wiki/Video_Game_Description_Language) game engine for GPU-accelerated RL. 67/68 supported GVGAI games match exactly over 40-step validation trajectories.",
+  "",
+  "## Install",
+  ""
+ ]
+}

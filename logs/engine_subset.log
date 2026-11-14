@@ -1,0 +1,112 @@
+== the 30 deterministic games (docs/design/vgdl_scan.json): bait, chipschallenge, clusters, colourescape, cookmepasta, doorkoban, escape, garbagecollector, glow, grow, hungrybirds, iceandfire, islands, labyrinth, labyrinthdual, lasers, modality, painter, racebet, racebet2, realsokoban, rivers, roadfighter, sokoban, tercio, thecitadel, thesnowman, watergame, wrapsokoban, zenpuzzle
+
+== sprite classes: 13
+Immovable                    games 30   src/ontology/sprites/Immovable.java  (59 lines)
+MovingAvatar                 games 23   src/ontology/avatar/MovingAvatar.java  (282 lines)
+Passive                      games 17   src/ontology/sprites/Passive.java  (51 lines)
+Door                         games 10   src/ontology/sprites/Door.java  (53 lines)
+Resource                     games  8   src/ontology/sprites/Resource.java  (76 lines)
+ShootAvatar                  games  5   src/ontology/avatar/oriented/ShootAvatar.java  (177 lines)
+Flicker                      games  4   src/ontology/sprites/Flicker.java  (71 lines)
+Missile                      games  4   src/ontology/sprites/missile/Missile.java  (51 lines)
+SpawnPoint                   games  4   src/ontology/sprites/producer/SpawnPoint.java  (134 lines)
+Spreader                     games  3   src/ontology/sprites/Spreader.java  (98 lines)
+OrientedFlicker              games  2   src/ontology/sprites/OrientedFlicker.java  (58 lines)
+OngoingTurningAvatar         games  1   src/ontology/avatar/oriented/OngoingTurningAvatar.java  (103 lines)
+OrientedAvatar               games  1   src/ontology/avatar/oriented/OrientedAvatar.java  (82 lines)
+lines of the Java files above: 1295; names with no Java file: none
+
+== interaction effects: 19
+stepBack                     games 29   src/ontology/effects/unary/StepBack.java  (46 lines)
+killSprite                   games 21   src/ontology/effects/unary/KillSprite.java  (35 lines)
+transformTo                  games 19   src/ontology/effects/unary/TransformTo.java  (126 lines)
+bounceForward                games 16   src/ontology/effects/binary/BounceForward.java  (50 lines)
+undoAll                      games 16   src/ontology/effects/unary/UndoAll.java  (59 lines)
+collectResource              games  5   src/ontology/effects/binary/CollectResource.java  (56 lines)
+killBoth                     games  4   src/ontology/effects/binary/KillBoth.java  (36 lines)
+killIfOtherHasMore           games  4   src/ontology/effects/binary/KillIfOtherHasMore.java  (54 lines)
+changeResource               games  3   src/ontology/effects/binary/ChangeResource.java  (53 lines)
+killIfHasLess                games  3   src/ontology/effects/unary/KillIfHasLess.java  (50 lines)
+addHealthPoints              games  2   src/ontology/effects/unary/AddHealthPoints.java  (50 lines)
+spawn                        games  2   src/ontology/effects/unary/Spawn.java  (48 lines)
+spawnIfHasMore               games  2   src/ontology/effects/unary/SpawnIfHasMore.java  (68 lines)
+subtractHealthPoints         games  2   src/ontology/effects/unary/SubtractHealthPoints.java  (81 lines)
+killAll                      games  1   src/ontology/effects/unary/KillAll.java  (56 lines)
+killIfFrontal                games  1   src/ontology/effects/binary/KillIfFrontal.java  (57 lines)
+killIfNotFrontal             games  1   src/ontology/effects/binary/KillIfNotFrontal.java  (57 lines)
+shieldFrom                   games  1   src/ontology/effects/unary/ShieldFrom.java  (49 lines)
+wrapAround                   games  1   src/ontology/effects/unary/WrapAround.java  (52 lines)
+lines of the Java files above: 1083; names with no Java file: none
+
+== termination classes: 4
+SpriteCounter                games 25   src/core/termination/SpriteCounter.java  (57 lines)
+Timeout                      games 14   src/core/termination/Timeout.java  (99 lines)
+MultiSpriteCounter           games  6   src/core/termination/MultiSpriteCounter.java  (87 lines)
+SpriteCounterMore            games  1   src/core/termination/SpriteCounterMore.java  (57 lines)
+lines of the Java files above: 300; names with no Java file: none
+
+== sprite parameters: 22
+img (30), color (24), hidden (24), autotiling (21), shrinkfactor (16), limit (9), frameRate (7), portal (6), stype (6), invisible (5), speed (5), orientation (4), singleton (4), spreadprob (3), healthPoints (2), limitHealthPoints (2), rotateInPlace (2), total (2), value (2), cooldown (1), prob (1), spawnBehind (1)
+
+== effect parameters: 11
+scoreChange (25), stype (21), killSecond (7), limit (6), resource (6), value (5), repeating (3), timer (3), ftype (1), pixelPerfect (1), repeat (1)
+
+== termination parameters: 5
+limit (30), win (30), stype (26), stype1 (6), stype2 (3)
+
+== game parameters: 2
+key_handler (21), square_size (17)
+
+== GVGAI core files an interpreter must also match
+core/game/Game.java                           2313 lines
+core/game/ForwardModel.java                   1094 lines
+core/game/StateObservation.java                490 lines
+core/vgdl/VGDLSprite.java                     1260 lines
+core/vgdl/VGDLParser.java                      624 lines
+core/vgdl/VGDLFactory.java                     456 lines
+core/vgdl/VGDLRegistry.java                    133 lines
+core/vgdl/SpriteGroup.java                     186 lines
+core/vgdl/Node.java                            162 lines
+ontology/physics/GridPhysics.java              103 lines
+ontology/Types.java                            238 lines
+ontology/effects/Effect.java                   350 lines
+ontology/effects/TimeEffect.java               144 lines
+core/termination/Termination.java               88 lines
+tools/Vector2d.java                            306 lines
+tools/Direction.java                            62 lines
+lines: classes 1295, effects 1083, terminations 300, core 8009; together 10687
+(lines of Java source, comments and blank lines included; the classes' parent classes are counted only where a game names them)
+
+== what the registered key leaves out, per game (P pilot, C confirmatory)
+P bait               key holds the tick: no  | nothing
+C chipschallenge     key holds the tick: yes | nothing
+C clusters           key holds the tick: yes | nothing
+C colourescape       key holds the tick: yes | nothing
+C cookmepasta        key holds the tick: yes | nothing
+C doorkoban          key holds the tick: yes | nothing
+C escape             key holds the tick: yes | nothing
+C garbagecollector   key holds the tick: yes | nothing
+C glow               key holds the tick: yes | light Flicker (age); spark Spreader (age)
+C grow               key holds the tick: yes | water Flicker (age)
+C hungrybirds        key holds the tick: no  | nothing
+C iceandfire         key holds the tick: yes | nothing
+C islands            key holds the tick: yes | fireStart Spreader (age); shovel OrientedFlicker (age); spark SpawnPoint (counter, first tick)
+C labyrinth          key holds the tick: yes | nothing
+P labyrinthdual      key holds the tick: yes | nothing
+C lasers             key holds the tick: no  | lasercannon SpawnPoint (counter, first tick); lcdown SpawnPoint (counter, first tick); lcleft SpawnPoint (counter, first tick); lcright SpawnPoint (counter, first tick); lcswap SpawnPoint (counter, first tick); lcup SpawnPoint (counter, first tick)
+C modality           key holds the tick: no  | nothing
+C painter            key holds the tick: yes | preground Flicker (age); prepaint Flicker (age)
+C racebet            key holds the tick: no  | nothing
+C racebet2           key holds the tick: no  | nothing
+C realsokoban        key holds the tick: no  | nothing
+P rivers             key holds the tick: yes | shovel OrientedFlicker (age); waterOn SpawnPoint (counter, first tick); waterStart Spreader (age)
+C roadfighter        key holds the tick: yes | fastPortal SpawnPoint (counter, first tick); fastPortal cooldown 100 (ticks since last move); fuelPortal SpawnPoint (counter, first tick); fuelPortal cooldown 25 (ticks since last move); portal SpawnPoint (counter, first tick); slowPortal SpawnPoint (counter, first tick); slowPortal cooldown 50 (ticks since last move); treePortal SpawnPoint (counter, first tick); treePortal cooldown 2 (ticks since last move)
+C sokoban            key holds the tick: no  | nothing
+C tercio             key holds the tick: yes | nothing
+C thecitadel         key holds the tick: no  | nothing
+C thesnowman         key holds the tick: yes | nothing
+P watergame          key holds the tick: no  | nothing
+C wrapsokoban        key holds the tick: no  | nothing
+C zenpuzzle          key holds the tick: yes | isincenter Flicker (age)
+games with something left out: pilot 1 (rivers), confirmatory 7 (glow, grow, islands, lasers, painter, roadfighter, zenpuzzle)
+(a sprite listed under a parent name with no class of its own inherits the parent's class; parents that are never placed are listed too)
