@@ -1,0 +1,32 @@
+== 1. the frozen copies
+ok   9 study-1 files have their registered blob hashes
+ok   I1's files match PROVENANCE.md's sha256 (6 of 7 listed are copied; agents/swarm.py, not loaded by the adapter, is not)
+ok   one changed byte in g_motion.py is refused
+== 2. the frame contract on bait level 0
+ok   the canvas is 64 x 64
+ok   row 0 and the canvas outside the level are 0
+ok   level cells hold indices from 1, the first cell 1
+ok   indices are given in order of first appearance
+ok   key map 1 up, 2 down, 3 left, 4 right (['left', 'right', 'down', 'up'])
+ok   the palette keeps its indices across steps
+   bait level 0: grid 6 x 5, 6 indices after 4 steps, actions ['left', 'right', 'down', 'up']
+== 3. N, R, I1 and Rand on bait level 0, 2,000 actions each
+   N: level1_completed True, levels 8, actions 2000, first level end 53, 3.767 s
+ok   N: the row passes horizon.agent.v2 with level 0 ([])
+ok   N: without level it is a valid v1 row, with level it is not
+ok   N: 2,000 actions played, or the row says it was cut
+   R: level1_completed True, levels 7, actions 2000, first level end 42, 0.775 s
+ok   R: the row passes horizon.agent.v2 with level 0 ([])
+ok   R: without level it is a valid v1 row, with level it is not
+ok   R: 2,000 actions played, or the row says it was cut
+   I1: level1_completed False, levels 0, actions 2000, first level end None, 31.593 s
+ok   I1: the row passes horizon.agent.v2 with level 0 ([])
+ok   I1: without level it is a valid v1 row, with level it is not
+ok   I1: 2,000 actions played, or the row says it was cut
+   Rand: level1_completed False, levels 0, actions 2000, first level end None, 0.292 s
+ok   Rand: the row passes horizon.agent.v2 with level 0 ([])
+ok   Rand: without level it is a valid v1 row, with level it is not
+ok   Rand: 2,000 actions played, or the row says it was cut
+== 4. a level wider than the canvas
+ok   garbagecollector level 0 is refused: garbagecollector level 0: grid 25 x 69 does not fit rows 1..62 and columns 0..63 of the canvas
+OK
