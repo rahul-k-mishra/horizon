@@ -14,6 +14,9 @@ files and PyPI only:
        by a pinned package;
     5. the pins equal the versions the probe found installed on stage D's image (logs/envprobe.log).
 The import of these exact versions on that image is in logs/envprobe.log ("imported").
+Since 14 November 2026 the probe log read is logs/envprobe_v4.log, the probe of the pins of code tag automation-v4
+(JPype1 and packaging added; the JDK and GVGAI build checked there); modules that scripts/automation imports from
+scripts/ or from the copies under third_party/study1/scripts come with the clone and count as local.
 Run (working directory D:\\Research\\horizon\\repo):
     D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\automation\\check_runner_freeze.py > logs\\check_runner_freeze.log
 Expected last line: OK
@@ -37,9 +40,13 @@ from packaging.utils import canonicalize_name
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
 REQ = os.path.join(REPO, "kaggle", "requirements-runner.txt")
-PROBE_LOG = os.path.join(REPO, "logs", "envprobe.log")
+# the probe of the pins of code tag automation-v4 (14 November 2026); logs/envprobe.log is the probe of 1 November
+PROBE_LOG = os.path.join(REPO, "logs", "envprobe_v4.log")
 # the module a distribution provides, where the names differ
-PROVIDES = {"numpy": "numpy", "gymnasium": "gymnasium", "minigrid": "minigrid"}
+PROVIDES = {"numpy": "numpy", "gymnasium": "gymnasium", "minigrid": "minigrid", "JPype1": "jpype"}
+# modules of this repository that scripts/automation imports from outside its folder (scripts/ and the copies of
+# study 1 under third_party/study1/scripts); they come with the clone, not from pip
+REPO_MODULES = ("scripts", os.path.join("third_party", "study1", "scripts"))
 
 
 def main():
@@ -102,6 +109,8 @@ def main():
 
     d = os.path.join(REPO, "scripts", "automation")
     local = {f[:-3] for f in os.listdir(d) if f.endswith(".py")}
+    for rel in REPO_MODULES:
+        local |= {f[:-3] for f in os.listdir(os.path.join(REPO, rel)) if f.endswith(".py")}
     mods = {}
     for f in sorted(os.listdir(d)):
         if not f.endswith(".py") or f.startswith("test_") or f in ("check_runner_freeze.py", "envprobe.py"):
@@ -119,7 +128,7 @@ def main():
               f"step 4: module {mod} (imported by {', '.join(sorted(files))}) comes from a pinned package")
 
     probe = {canonicalize_name(k): v for k, v in probe_tree.items()}
-    check(probe == pins, f"step 5: the pins equal the versions on stage D's image: "
+    check(probe == pins, f"step 5: the pins equal the versions the probe found on the image: "
                          f"{sorted(pins.items())} against {sorted(probe.items())}")
     print("OK" if not fails else f"{len(fails)} failure(s)")
     return 0 if not fails else 1
