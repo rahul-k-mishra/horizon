@@ -1,0 +1,35 @@
+power_primary -- EXPLORATORY: development data, not evidence for any claim
+confirmatory structure: 25 games (scripts/suite.py), S_M 2: 3 games, 3: 12 games, 4: 7 games, 5: 3 games
+4000 simulated studies of 25 clusters of 5 units each, seed 20261114, 8 chunks; between-game pairs; normal approximation of scripts/sdd.py
+
+== L (stage D, uncensored; time-capped units without a win excluded)
+  N: same-S_M pairs: mean AUROC 0.7866, SE 0.0933 (4000 studies); power above 0.5 at 98.33% 0.7513, at 95% 0.8670; point at or above 0.70 and lower end above 0.5 at 98.33% 0.7602 | all between-game pairs: mean 0.7868, power at 98.33% 0.8662
+  R: same-S_M pairs: mean AUROC 0.7885, SE 0.0925 (4000 studies); power above 0.5 at 98.33% 0.7656, at 95% 0.8766; point at or above 0.70 and lower end above 0.5 at 98.33% 0.7732 | all between-game pairs: mean 0.7886, power at 98.33% 0.8769
+  I1: same-S_M pairs: mean AUROC 0.7706, SE 0.0937 (4000 studies); power above 0.5 at 98.33% 0.6892, at 95% 0.8232; point at or above 0.70 and lower end above 0.5 at 98.33% 0.7143 | all between-game pairs: mean 0.7710, power at 98.33% 0.8312
+
+== H_C, C = 10,000
+  N: same-S_M pairs: mean AUROC 0.7138, SE 0.1060 (4000 studies); power above 0.5 at 98.33% 0.3530, at 95% 0.5227; point at or above 0.70 and lower end above 0.5 at 98.33% 0.3787 | all between-game pairs: mean 0.7134, power at 98.33% 0.4498
+  R: same-S_M pairs: mean AUROC 0.7120, SE 0.1062 (4000 studies); power above 0.5 at 98.33% 0.3451, at 95% 0.5141; point at or above 0.70 and lower end above 0.5 at 98.33% 0.3695 | all between-game pairs: mean 0.7115, power at 98.33% 0.4397
+  I1: same-S_M pairs: mean AUROC 0.7201, SE 0.1134 (4000 studies); power above 0.5 at 98.33% 0.3253, at 95% 0.4925; point at or above 0.70 and lower end above 0.5 at 98.33% 0.3422 | all between-game pairs: mean 0.7201, power at 98.33% 0.4107
+
+== H_C, C = 100,000
+  N: same-S_M pairs: mean AUROC 0.6983, SE 0.1116 (4000 studies); power above 0.5 at 98.33% 0.2684, at 95% 0.4271; point at or above 0.70 and lower end above 0.5 at 98.33% 0.2878 | all between-game pairs: mean 0.6982, power at 98.33% 0.3510
+  R: same-S_M pairs: mean AUROC 0.6970, SE 0.1117 (4000 studies); power above 0.5 at 98.33% 0.2640, at 95% 0.4219; point at or above 0.70 and lower end above 0.5 at 98.33% 0.2850 | all between-game pairs: mean 0.6969, power at 98.33% 0.3448
+  I1: same-S_M pairs: mean AUROC 0.7094, SE 0.1188 (4000 studies); power above 0.5 at 98.33% 0.2637, at 95% 0.4216; point at or above 0.70 and lower end above 0.5 at 98.33% 0.2785 | all between-game pairs: mean 0.7096, power at 98.33% 0.3369
+
+== H_C, C = 300,000
+  N: same-S_M pairs: mean AUROC 0.7147, SE 0.1136 (4000 studies); power above 0.5 at 98.33% 0.3073, at 95% 0.4723; point at or above 0.70 and lower end above 0.5 at 98.33% 0.3362 | all between-game pairs: mean 0.7145, power at 98.33% 0.4001
+  R: same-S_M pairs: mean AUROC 0.7129, SE 0.1138 (4000 studies); power above 0.5 at 98.33% 0.3005, at 95% 0.4646; point at or above 0.70 and lower end above 0.5 at 98.33% 0.3282 | all between-game pairs: mean 0.7126, power at 98.33% 0.3914
+  I1: same-S_M pairs: mean AUROC 0.7064, SE 0.1220 (4000 studies); power above 0.5 at 98.33% 0.2412, at 95% 0.3942; point at or above 0.70 and lower end above 0.5 at 98.33% 0.2580 | all between-game pairs: mean 0.7067, power at 98.33% 0.3098
+
+== H_C, C = 1,000,000
+  N: same-S_M pairs: mean AUROC 0.7193, SE 0.1154 (4000 studies); power above 0.5 at 98.33% 0.3107, at 95% 0.4762; point at or above 0.70 and lower end above 0.5 at 98.33% 0.3430 | all between-game pairs: mean 0.7190, power at 98.33% 0.4067
+  R: same-S_M pairs: mean AUROC 0.7183, SE 0.1153 (4000 studies); power above 0.5 at 98.33% 0.3080, at 95% 0.4731; point at or above 0.70 and lower end above 0.5 at 98.33% 0.3402 | all between-game pairs: mean 0.7180, power at 98.33% 0.4028
+  I1: same-S_M pairs: mean AUROC 0.7045, SE 0.1240 (4000 studies); power above 0.5 at 98.33% 0.2282, at 95% 0.3780; point at or above 0.70 and lower end above 0.5 at 98.33% 0.2397 | all between-game pairs: mean 0.7047, power at 98.33% 0.2932
+
+== H_C, C = 2,000,000
+  N: same-S_M pairs: mean AUROC 0.7171, SE 0.1161 (4000 studies); power above 0.5 at 98.33% 0.3000, at 95% 0.4639; point at or above 0.70 and lower end above 0.5 at 98.33% 0.3310 | all between-game pairs: mean 0.7168, power at 98.33% 0.3955
+  R: same-S_M pairs: mean AUROC 0.7166, SE 0.1160 (4000 studies); power above 0.5 at 98.33% 0.2991, at 95% 0.4629; point at or above 0.70 and lower end above 0.5 at 98.33% 0.3310 | all between-game pairs: mean 0.7163, power at 98.33% 0.3937
+  I1: same-S_M pairs: mean AUROC 0.7038, SE 0.1246 (4000 studies); power above 0.5 at 98.33% 0.2241, at 95% 0.3728; point at or above 0.70 and lower end above 0.5 at 98.33% 0.2357 | all between-game pairs: mean 0.7039, power at 98.33% 0.2882
+
+written docs\design\power_primary.json

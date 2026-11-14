@@ -2,7 +2,8 @@
 design_budget.py -- the session arithmetic and the compute budget of docs/DESIGN.md (Sections 9 and 10).
 
 Reads only committed files: docs/design/params_v0.json (the design values) and docs/design/vgdl_scan.json
-(the number of deterministic GVGAI games and their level files, from scripts/vgdl_scan.py).  Runs no
+(the number of deterministic GVGAI games and their level files, from scripts/vgdl_scan.py), and the confirmatory
+games of scripts/suite.py (the pilot draw and the fit rule).  Runs no
 experiment.  Prints:
     1. the latest end of a session after the notebook starts, and its margin to the commonly stated
        12-hour limit and to the 9-hour design limit;
@@ -52,7 +53,13 @@ def main():
     lv = p["suite"]["levels_per_game_used"]
     n_games = len(det)
     n_pilot = p["suite"]["pilot_games"]
-    n_conf = n_games - n_pilot
+    # the confirmatory games of scripts/suite.py: the deterministic games minus the pilot minus the games the fit
+    # rule removes (docs/PREREG.md, Section 4, decided 14 November 2026; logs/fit_rule.log)
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import suite  # noqa: PLC0415
+    conf_games = suite.confirmatory()
+    n_conf = len(conf_games)
+    n_unfit = n_games - n_pilot - n_conf
     levels = lambda n: n * lv  # noqa: E731
     agents = p["agents"]
     seeds = p["seeds"]
@@ -63,7 +70,8 @@ def main():
     print(f"\n== 2. the budget (one session at a time; a chunk holds work for {w} workers x {s['work_seconds']} s "
           f"= {capacity} worker-seconds; a session with the loop's largest gap takes at most {hm(per_session)})")
     print(f"deterministic GVGAI games {n_games} (docs/design/vgdl_scan.json), {lv} levels each; pilot {n_pilot} games, "
-          f"confirmatory {n_conf} games = {levels(n_conf)} level units")
+          f"confirmatory {n_conf} games = {levels(n_conf)} level units (removed by the fit rule: {n_unfit} game(s), "
+          f"{', '.join(g for g in suite.deterministic() if not suite.fits(g)) or 'none'})")
     rows = []
 
     def stage(label, units, cap):

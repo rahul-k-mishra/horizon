@@ -1,5 +1,5 @@
 {
- "n_clusters": 26,
+ "n_clusters": 25,
  "sims": 4000,
  "seed": 20261026,
  "alpha": 0.016666666666666666,
@@ -8,34 +8,34 @@
   "N": {
    "games": 147,
    "delta_development": 0.0817756761740448,
-   "se": 0.10796137013999475,
-   "mdd": 0.3493199207913211,
+   "se": 0.1077923707489412,
+   "mdd": 0.3487731061869857,
    "skipped": 0,
    "used": 4000,
-   "se_confirmatory_structure": 0.14756476629591742,
-   "mdd_confirmatory_structure": 0.4774607103192345,
+   "se_confirmatory_structure": 0.1501588206262607,
+   "mdd_confirmatory_structure": 0.4858540351911667,
    "skipped_confirmatory_structure": 0
   },
   "R": {
    "games": 147,
    "delta_development": 0.07894541332699356,
-   "se": 0.10627114558489452,
-   "mdd": 0.34385102847417526,
+   "se": 0.10620315544748822,
+   "mdd": 0.343631039515323,
    "skipped": 0,
    "used": 4000,
-   "se_confirmatory_structure": 0.14700628744869793,
-   "mdd_confirmatory_structure": 0.47565369558404386,
+   "se_confirmatory_structure": 0.14980414257371694,
+   "mdd_confirmatory_structure": 0.48470643851783485,
    "skipped_confirmatory_structure": 0
   },
   "I1": {
    "games": 147,
    "delta_development": 0.023557108684172157,
-   "se": 0.09915678899033493,
-   "mdd": 0.32083180892490315,
+   "se": 0.0999166263512101,
+   "mdd": 0.3232903394749602,
    "skipped": 0,
    "used": 4000,
-   "se_confirmatory_structure": 0.15636286740992345,
-   "mdd_confirmatory_structure": 0.5059278553755946,
+   "se_confirmatory_structure": 0.15732758409483277,
+   "mdd_confirmatory_structure": 0.5090492936782172,
    "skipped_confirmatory_structure": 0
   }
  },
@@ -56,7 +56,6 @@
   "cookmepasta": 3,
   "doorkoban": 4,
   "escape": 4,
-  "garbagecollector": 3,
   "glow": 2,
   "grow": 2,
   "hungrybirds": 5,
@@ -78,10 +77,10 @@
   "zenpuzzle": 3
  },
  "confirmatory_holds": {
-  "A1": 26,
-  "A2": 7,
+  "A1": 25,
+  "A2": 6,
   "A3": 19,
-  "A4": 26,
+  "A4": 25,
   "A5": 10
  }
 }

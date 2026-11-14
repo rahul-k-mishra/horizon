@@ -22,7 +22,9 @@ Sections:
      then sits at the ceiling.  Per C: units determined, units at the ceiling, and AUROC of H_C per agent.
   4  the agents: agreement of N, R and I1 per unit and per game.
   5  within-game variation of the outcome.
-  6  power of smaller claims on the confirmatory structure (26 clusters of 5 units, between-game pairs):
+  6  power of smaller claims on the confirmatory structure (26 clusters of 5 units when logs/stage_e_diagnosis.log was
+     written; sdd.N_CLUSTERS, one per confirmatory game, which is 25 since the fit rule of 14 November 2026; the
+     25-game values are in logs/power_primary.log), between-game pairs:
      AUROC of H_C, and of L (the fewest actions to a win), above one half, over all between-game pairs and over
      pairs of games with the same mechanics score; and the true AUROC at which power would be 0.80.
   7  the stratified reading on development data: AUROC of H_C and of L over between-game pairs whose games have
@@ -256,7 +258,7 @@ def main(argv=None):
             pw95 = ND.cdf(abs(d) / se - 1.959964) + ND.cdf(-abs(d) / se - 1.959964)
             mdd95 = (1.959964 + z_b) * se
             row[lab] = dict(se=se, power=pw, clusters_for_080=need, power_single_test_95=pw95, mdd_single_test_95=mdd95)
-            print(f"  {ag} {lab}: development Delta {d:.4f}, SE at 26 clusters {se:.4f}; power to exclude zero at the "
+            print(f"  {ag} {lab}: development Delta {d:.4f}, SE at {S['n_clusters']} clusters {se:.4f}; power to exclude zero at the "
                   f"registered level if the true Delta were {d:.4f}: {pw:.4f}; clusters needed for power 0.80 at that "
                   f"Delta: {math.ceil(need)}; one test at 95% instead: power {pw95:.4f}, smallest detectable "
                   f"difference {mdd95:.4f}")

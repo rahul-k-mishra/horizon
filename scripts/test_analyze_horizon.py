@@ -259,6 +259,16 @@ def part5():
         check(False, "the confirmatory campaign is refused before the tag")
     except SystemExit as e:
         check("does not exist" in str(e), "the confirmatory campaign is refused before the tag")
+    check(A.L_C_VOID_RULE is None, "the void rule of L_C is open in the script (docs/PREREG.md, Section 7.4, rule 5)")
+    saved = (A.tag_refusal, A.prereg_c, A.C)
+    try:                       # past the tag and with C fixed, an open void rule still stops the analysis
+        A.tag_refusal, A.prereg_c, A.C = (lambda *_a, **_k: None), (lambda *_a, **_k: 1000), 1000
+        A.main(["--campaign", A.CONFIRMATORY_CAMPAIGN])
+        check(False, "an open void rule of L_C stops the analysis")
+    except SystemExit as e:
+        check("void rule of L_C is not fixed" in str(e), "an open void rule of L_C stops the analysis")
+    finally:
+        A.tag_refusal, A.prereg_c, A.C = saved
     import shutil  # noqa: PLC0415
     import subprocess  # noqa: PLC0415
     with tempfile.TemporaryDirectory() as tmp:

@@ -1,0 +1,58 @@
+== 1. the frame
+canvas 64 x 64 (study 1, env_frame.CANVAS); grid placed at row offset 1, column 0; the frozen agent code reads rows 1 to 62 only (study 1, g_motion.py:30-31); so the largest grid it can present at one cell per level cell is 62 rows x 64 columns
+rule: a game is eligible only if every one of its levels 0 to 4 has at most 62 rows and at most 64 columns
+
+== 2. the 30 deterministic games (rows x columns per level, as GVGAI reads the level file)
+bait              pilot        6x5  9x13  10x13  11x13  9x7  | fits
+chipschallenge    confirmatory 14x15  11x12  13x12  7x10  13x21  | fits
+clusters          confirmatory 10x13  10x13  10x13  10x13  10x13  | fits
+colourescape      confirmatory 11x18  11x18  11x18  11x18  11x18  | fits
+cookmepasta       confirmatory 11x14  11x14  11x14  11x14  11x14  | fits
+doorkoban         confirmatory 13x15  13x15  13x15  13x15  13x15  | fits
+escape            confirmatory 9x13  9x13  9x13  9x13  9x13  | fits
+garbagecollector  confirmatory 25x69  25x69  25x69  25x69  25x69  | DOES NOT FIT
+glow              confirmatory 7x14  7x14  9x19  9x19  12x19  | fits
+grow              confirmatory 6x9  7x9  7x9  8x9  7x7  | fits
+hungrybirds       confirmatory 11x16  9x16  14x16  14x16  14x16  | fits
+iceandfire        confirmatory 14x16  14x16  14x16  14x16  14x16  | fits
+islands           confirmatory 10x16  10x16  10x16  10x16  10x16  | fits
+labyrinth         confirmatory 14x16  14x16  14x16  14x16  14x16  | fits
+labyrinthdual     pilot        14x16  14x16  14x16  14x16  14x16  | fits
+lasers            confirmatory 10x31  11x28  11x28  11x28  11x28  | fits
+modality          confirmatory 5x7  7x7  8x8  11x13  6x7  | fits
+painter           confirmatory 3x4  5x8  3x7  4x6  2x4  | fits
+racebet           confirmatory 10x35  10x35  10x35  10x35  10x35  | fits
+racebet2          confirmatory 14x35  14x35  14x35  14x35  14x35  | fits
+realsokoban       confirmatory 7x8  7x12  8x7  7x6  12x8  | fits
+rivers            pilot        15x20  15x20  14x20  14x20  14x20  | fits
+roadfighter       confirmatory 15x10  15x10  15x10  15x10  15x10  | fits
+sokoban           confirmatory 9x13  9x13  9x11  7x7  8x9  | fits
+tercio            confirmatory 8x12  10x14  8x12  11x13  8x12  | fits
+thecitadel        confirmatory 9x10  9x16  11x14  11x15  11x11  | fits
+thesnowman        confirmatory 11x14  11x14  11x14  11x14  11x14  | fits
+watergame         pilot        6x7  7x7  9x7  8x7  8x8  | fits
+wrapsokoban       confirmatory 7x8  6x11  8x7  7x6  12x8  | fits
+zenpuzzle         confirmatory 12x12  12x12  12x12  11x12  12x12  | fits
+
+removed by the rule: 1 game(s)
+  garbagecollector (confirmatory): level 0 25 rows x 69 columns; level 1 25 rows x 69 columns; level 2 25 rows x 69 columns; level 3 25 rows x 69 columns; level 4 25 rows x 69 columns; the frame holds 62 rows x 64 columns
+games other than garbagecollector that fail the rule: 0
+confirmatory games after the rule: 25, 125 levels: chipschallenge, clusters, colourescape, cookmepasta, doorkoban, escape, glow, grow, hungrybirds, iceandfire, islands, labyrinth, lasers, modality, painter, racebet, racebet2, realsokoban, roadfighter, sokoban, tercio, thecitadel, thesnowman, wrapsokoban, zenpuzzle
+
+== 3. the pilot draw (seed 20261024)
+as made on the 30 deterministic games (logs/draw_pilot.log), and as used: bait, labyrinthdual, rivers, watergame; every pilot game fits: True
+the same seed on the 29 games that fit would draw: bait, lasers, rivers, watergame; a different pilot
+the draw stands as made on the 30 games: it was drawn on 24 October 2026, before the rule; the pilot games have been used since (logs/engine_semantics.log, logs/engine_speed.log, jobs/pilot_search/manifest.json); the rule is applied to the confirmatory games after the draw, and it removes no pilot game
+
+== 4. the coincidence (logs/engine_speed.log, laptop, 14 November 2026); recorded, not used by the rule
+  garbagecollector: slowest level 94 expansions per second, rank 1 of 26 confirmatory games from the slowest; levels whose bound reaches the time cap: 5 of 5
+  the slowest game that fits: lasers, 255 expansions per second; games that fit with a level whose bound reaches the time cap: 0
+  the laptop bound for 2,000,000 states, summed over the levels of all 26 games before the rule (per-level bounds as printed in logs/engine_speed.log, each rounded to the second): 372343 worker-seconds, 3.23 sessions of 115200 worker-seconds
+  the laptop bound for 2,000,000 states, summed over the levels of the 25 games after the rule (per-level bounds as printed in logs/engine_speed.log, each rounded to the second): 300343 worker-seconds, 2.61 sessions of 115200 worker-seconds
+  the rule's reason is the frame: a grid wider than 64 columns or taller than 62 rows cannot be presented to the agents at one cell per level cell; the speed of a game plays no part in it
+
+== 5. the mechanics score of the confirmatory games (docs/truth/gvgai.json, level 0)
+before the rule (26 games): S_M=2: 3 games, S_M=3: 13 games, S_M=4: 7 games, S_M=5: 3 games
+after the rule (25 games): S_M=2: 3 games, S_M=3: 12 games, S_M=4: 7 games, S_M=5: 3 games
+  garbagecollector: S_M = 3
+the study is void below 20 confirmatory games (PREREG Section 7.6): 25 remain

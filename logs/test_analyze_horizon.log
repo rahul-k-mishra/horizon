@@ -53,6 +53,8 @@ ok    campaign gvgai-pilot-search is refused
 ok    campaign dev-minigrid-e is refused
 ok    this repository has no tag prereg-v1 yet: refused
 ok    the confirmatory campaign is refused before the tag
+ok    the void rule of L_C is open in the script (docs/PREREG.md, Section 7.4, rule 5)
+ok    an open void rule of L_C stops the analysis
 ok    no tag: refused
 ok    a lightweight tag is not enough
 ok    an annotated tag holding the same script: allowed

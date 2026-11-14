@@ -3,8 +3,9 @@ analyze_horizon.py -- the registered analysis of HORIZON (docs/PREREG.md, Sectio
 Section 7), as adopted on 14 November 2026 (option E).  Frozen at the tag; the only permitted later change is a
 crash fix, logged in docs/PREREG.md, Section 13.
 
-Units: the 130 confirmatory (game, level) pairs, levels 0 to 4 of the 26 confirmatory games (the deterministic
-games of docs/truth/gvgai.json minus the pilot drawn by scripts/draw_pilot.py).  Games are the clusters.
+Units: the 125 confirmatory (game, level) pairs, levels 0 to 4 of the 25 confirmatory games of scripts/suite.py
+(the deterministic games minus the pilot drawn by scripts/draw_pilot.py minus the games the fit rule of
+docs/PREREG.md, Section 4, removes; decided 14 November 2026: garbagecollector).  Games are the clusters.
 
 Per unit (all larger = predicted easier):
     Y (per agent)   1 if the agent completed the level in at least 5 of its 10 seeds (Section 7.1).
@@ -65,6 +66,9 @@ sys.path.insert(0, HERE)
 sys.dont_write_bytecode = True
 
 C = None             # the ceiling; entered when the author fixes it (docs/PREREG.md, Section 6)
+# the void rule of L_C (docs/PREREG.md, Section 7.4, rule 5; decided 14 November 2026): its form and threshold are
+# fixed by the author after the pilot search; until they are entered here, with synthetic tests, nothing is analysed
+L_C_VOID_RULE = None
 CONFIRMATORY_CAMPAIGN = "gvgai-confirmatory"
 TAG = "prereg-v1"
 SEARCH_KIND, AGENT_KIND = "gvgaisearch", "gvgaiagent"
@@ -433,13 +437,13 @@ def prereg_c(path=os.path.join(REPO, "docs", "PREREG.md")):
 
 
 def confirmatory_games():
-    import draw_pilot  # noqa: PLC0415 -- the registered draw
+    import suite  # noqa: PLC0415 -- the registered game lists, with the pilot draw and the fit rule
     with open(os.path.join(REPO, "docs", "truth", "gvgai.json"), encoding="utf-8") as f:
         t = json.load(f)["games"]
     games = sorted(g for g, v in t.items() if v["deterministic"])
-    idx = np.random.default_rng(draw_pilot.SEED).choice(len(games), draw_pilot.N_PILOT, replace=False)
-    pilot = {games[i] for i in idx}
-    return [g for g in games if g not in pilot], t
+    if games != suite.deterministic():
+        raise SystemExit("the deterministic games of docs/truth/gvgai.json differ from docs/design/vgdl_scan.json")
+    return suite.confirmatory(), t
 
 
 def load(campaign):
@@ -511,6 +515,9 @@ def main(argv=None, repo=REPO):
         raise SystemExit("the ceiling C is not fixed yet (docs/PREREG.md, Section 6); nothing is analysed")
     if stated != C:
         raise SystemExit(f"C in this script ({C}) differs from docs/PREREG.md, Section 6 ({stated})")
+    if L_C_VOID_RULE is None:
+        raise SystemExit("the threshold of the void rule of L_C is not fixed yet (docs/PREREG.md, Section 7.4, rule 5); "
+                         "nothing is analysed")
     rows, truth, features, outcomes = load(a.campaign)
     res = analyze(rows, truth, features, outcomes, C, workers=a.workers)
     os.makedirs(os.path.join(REPO, "docs", "tables"), exist_ok=True)

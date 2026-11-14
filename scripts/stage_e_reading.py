@@ -25,7 +25,8 @@ Sections:
   3  per C: units determined and units at the ceiling for H_C and L_C; AUROC of each per agent over
      between-game pairs, overall, MiniGrid and BabyAI, and over pairs of games with the same mechanics score;
      95% bootstrap intervals of games (2,000 resamples) at every C.
-  4  power on the confirmatory structure (26 clusters of 5 units, as scripts/stage_e_diagnosis.py, Section 6) for
+  4  power on the confirmatory structure (sdd.N_CLUSTERS clusters of 5 units, one per confirmatory game: 25 since the
+     fit rule of 14 November 2026; as scripts/stage_e_diagnosis.py, Section 6) for
      H_C and L_C at every C, all between-game pairs and pairs of games with the same mechanics score.
 Run (working directory D:\\Research\\horizon\\repo), once every chunk of dev-minigrid-e is done:
     D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\stage_e_reading.py --workers 4 > logs\\stage_e_reading.log

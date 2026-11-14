@@ -7,7 +7,7 @@ first-level completion and AUROC_M that of the mechanics score S_M (the number o
 over pairs of units from different games only (docs/PREREG.md, Section 7.2, as changed on 25 October 2026):
 within-game pairs are excluded from both.
 Its registered interval is a two-sided 98.33% interval (Bonferroni over the three evidence agents) from
-a bootstrap of 26 game clusters.  This script estimates how large a true Delta must be for that interval
+a bootstrap of N_CLUSTERS game clusters (the confirmatory games: 25 since the fit rule of 14 November 2026).  This script estimates how large a true Delta must be for that interval
 to exclude zero with probability 0.80:
     1. Development units: study 1's confirmatory MiniGrid/BabyAI games in the macro condition (the condition
        study 1 tested), one unit per (game, seed), seeds 1000 to 1009.  Per unit: R from the stage-D search
@@ -15,12 +15,12 @@ to exclude zero with probability 0.80:
        applies: node-capped R = the node cap, time- or memory-capped units dropped); S_M from study 1's
        truth table; Y = the row's level1_completed for that agent and seed.  Study 1's rows and truth tables
        are read, never written, through study 1's own parsers (as scripts/oracle_v2.py does).
-    2. For each evidence agent (N, R, I1): SIMS simulated studies, each drawing 26 games with replacement,
+    2. For each evidence agent (N, R, I1): SIMS simulated studies, each drawing N_CLUSTERS games with replacement,
        each game with all its units, and computing Delta on them (draws with one outcome class are
        skipped and counted).  SE = the standard deviation of Delta over the simulated studies.
     3. MDD = (z(1 - alpha/2) + z(0.80)) x SE with alpha = 0.05 / 3: the true difference at which a normal
        estimate with that SE clears zero at the registered level with probability 0.80.
-    4. A second estimate on the confirmatory structure: each simulated study has 26 clusters of 5 units;
+    4. A second estimate on the confirmatory structure: each simulated study has N_CLUSTERS clusters of 5 units;
        a cluster takes the mechanics score of a confirmatory GVGAI game drawn with replacement (its actual
        S_M from docs/truth/gvgai.json, constant over its 5 units) and the search scores and outcomes of 5
        units drawn from one development game drawn with replacement.  The mechanics score has no relation
@@ -56,7 +56,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 sys.dont_write_bytecode = True
-N_CLUSTERS, SIMS, SEED, ALPHA, POWER = 26, 4000, 20261026, 0.05 / 3, 0.80
+import suite  # noqa: E402 -- the registered game lists (pilot draw and fit rule)
+
+# the number of clusters is the number of confirmatory games: 26 until 14 November 2026, 25 after the fit rule of
+# docs/PREREG.md, Section 4 (logs/fit_rule.log); the console of the 26-game run is logs/sdd.log at commit 4706b97
+N_CLUSTERS, SIMS, SEED, ALPHA, POWER = len(suite.confirmatory()), 4000, 20261026, 0.05 / 3, 0.80
 LEVELS_PER_GAME = 5
 AGENTS = ("N", "R", "I1")
 DEV_ROWS = os.path.join(REPO, "runs", "dev-minigrid", "devsearch")
@@ -65,15 +69,12 @@ PRED = ("A1", "A2", "A3", "A4", "A5")
 
 
 def confirmatory_mechanics():
-    """{game: S_M} for the 26 confirmatory games (the deterministic games of docs/truth/gvgai.json minus
-    the pilot drawn by scripts/draw_pilot.py), and per predicate the number of games where it holds."""
-    import draw_pilot  # noqa: PLC0415 -- the registered draw, not a copy of it
+    """{game: S_M} for the confirmatory games of scripts/suite.py (the deterministic games minus the pilot drawn
+    by scripts/draw_pilot.py minus the games the fit rule removes), and per predicate the number of games where it
+    holds."""
     with open(TRUTH, encoding="utf-8") as f:
         t = json.load(f)["games"]
-    games = sorted(g for g, v in t.items() if v["deterministic"])
-    idx = np.random.default_rng(draw_pilot.SEED).choice(len(games), draw_pilot.N_PILOT, replace=False)
-    pilot = {games[i] for i in idx}
-    conf = [g for g in games if g not in pilot]
+    conf = suite.confirmatory()
     sm = {g: sum(t[g]["levels"]["0"][p]["verdict"] == "holds" for p in PRED) for g in conf}
     holds = {p: sum(t[g]["levels"]["0"][p]["verdict"] == "holds" for g in conf) for p in PRED}
     return sm, holds
