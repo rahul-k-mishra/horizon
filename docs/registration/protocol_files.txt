@@ -1,0 +1,61 @@
+# The protocol files of HORIZON's registration (docs/PREREG.md, Section 0).  scripts/zenodo_deposit.py reads
+# this list at the tagged commit, takes each file as stored in git at that commit, and writes its SHA-256 and
+# git blob hash into the Zenodo deposit.  One path per line, relative to the repository root; a line that
+# starts with # is a comment.  The script stops if a listed path is missing at the tag.
+#
+# Files that are named by docs/PREREG.md but do not exist yet are listed as comments under "to be added";
+# each is moved into the list when it is committed, before the tag.
+
+# the registration and its record
+docs/PREREG.md
+docs/DESIGN.md
+docs/DECISIONS_BEFORE_TAG.md
+docs/STATE.md
+docs/design/params_v0.json
+
+# suite, draws and truth tables
+scripts/vgdl_scan.py
+docs/design/vgdl_scan.json
+scripts/draw_pilot.py
+logs/draw_pilot.log
+scripts/truth_vgdl.py
+scripts/test_truth_vgdl.py
+docs/truth/gvgai.json
+logs/truth_vgdl.log
+scripts/draw_handcheck.py
+docs/truth/HANDCHECK.md
+docs/truth/PREDICATE_QUESTIONS.md
+
+# development data behind registered numbers
+scripts/sdd.py
+logs/sdd.log
+docs/design/sdd.json
+scripts/dev_reading.py
+logs/dev_reading.log
+scripts/stage_e_diagnosis.py
+logs/stage_e_diagnosis.log
+scripts/stage_e_reading.py
+scripts/design_budget.py
+logs/design_budget.log
+
+# the code the confirmatory sessions run
+scripts/automation/common.py
+scripts/automation/jobs.py
+scripts/automation/runner.py
+scripts/automation/schema.py
+kaggle/runner.ipynb
+kaggle/kernel-metadata.json
+kaggle/requirements-runner.txt
+requirements-loop.txt
+
+# to be added before the tag (docs/PREREG.md, header and Sections 3, 5, 6, 7.8, 8, 11):
+# logs/stage_e_reading.log
+# docs/truth/handcheck_answers.json
+# docs/truth/HANDCHECK_RESULT.md
+# scripts/analyze_horizon.py
+# scripts/test_analyze_horizon.py
+# the GVGAI adapter and its tests
+# the GVGAI search job and its tests
+# the copies of study 1's agents (scripts/g_nav.py, scripts/g_agent.py, I1 and its adapter) and their check
+# the pilot search's rows and log
+# logs/design_budget.log rerun with C

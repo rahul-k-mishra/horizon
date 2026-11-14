@@ -1,0 +1,24 @@
+ok    annotated tag on its own day returns 0 (got 0)
+ok    docs/PREREG.md written as committed at the tag
+ok    scripts/a.py written as committed at the tag
+ok    data/b.bin written as committed at the tag
+ok    docs/registration/protocol_files.txt written as committed at the tag
+ok    docs/PREREG.md: SHA-256 and blob hash in SHA256SUMS.txt
+ok    docs/PREREG.md: SHA-256 in the description
+ok    scripts/a.py: SHA-256 and blob hash in SHA256SUMS.txt
+ok    scripts/a.py: SHA-256 in the description
+ok    data/b.bin: SHA-256 and blob hash in SHA256SUMS.txt
+ok    data/b.bin: SHA-256 in the description
+ok    docs/registration/protocol_files.txt: SHA-256 and blob hash in SHA256SUMS.txt
+ok    docs/registration/protocol_files.txt: SHA-256 in the description
+ok    description names the tag and the commit
+ok    comment lines of the list are not files
+ok    protocol.zip holds exactly the listed files
+ok    protocol.zip entries equal the tagged files
+ok    protocol.zip is the same on a second run
+ok    the zip's SHA-256 is in SHA256SUMS.txt
+ok    a tag date other than today returns 2 with a warning
+ok    a lightweight tag stops the script
+ok    a listed file missing at the tag stops it
+ok    an unknown tag stops the script
+OK
