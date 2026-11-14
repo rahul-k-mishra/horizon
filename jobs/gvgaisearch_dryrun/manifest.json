@@ -1,0 +1,85 @@
+{
+ "campaign": "gvgaisearch-dryrun",
+ "chunks": [
+  {
+   "attempts": 0,
+   "chunk_id": "gd-01",
+   "failures": 0,
+   "kind": "gvgaisearch",
+   "sessions": [],
+   "status": "pending"
+  }
+ ],
+ "code_tag": "automation-v4",
+ "kernel_slug": "horizon-runner",
+ "kinds": {
+  "gvgaisearch": {
+   "batch": 200,
+   "checkpoint_every_nodes": 250000,
+   "checkpoint_every_seconds": 600,
+   "eh_horizon": 0,
+   "eh_state_limit": 0,
+   "games_dir": "scripts/automation/gvgai_testgames",
+   "key_form": "registered",
+   "memory_cap_bytes": 6442450944,
+   "node_cap": 5000000,
+   "schema": "horizon.search.v3",
+   "seen_cap": 2000000,
+   "simulator": "gvgai",
+   "spill_frontier_over": 1000000,
+   "time_cap_seconds": 14400,
+   "with_tick": {
+    "boxroom": false,
+    "corridor": false
+   },
+   "workers": 4
+  }
+ },
+ "max_failures": 3,
+ "payload_commit_limit_bytes": 65536,
+ "repository": "rahul-k-mishra/horizon",
+ "session": {
+  "checkpoint_reserve_seconds": 300,
+  "platform_limit_seconds": 3600,
+  "work_seconds": 180
+ },
+ "units": [
+  {
+   "agent": null,
+   "chunk_id": "gd-01",
+   "game": "corridor",
+   "kind": "gvgaisearch",
+   "level": 0,
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "gd-01-corridor-l0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "gd-01",
+   "game": "corridor",
+   "kind": "gvgaisearch",
+   "level": 1,
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "gd-01-corridor-l1"
+  },
+  {
+   "agent": null,
+   "chunk_id": "gd-01",
+   "game": "boxroom",
+   "kind": "gvgaisearch",
+   "level": 0,
+   "params": {
+    "batch": 5,
+    "seconds_per_batch": 0.5
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "gd-01-boxroom-l0"
+  }
+ ]
+}
