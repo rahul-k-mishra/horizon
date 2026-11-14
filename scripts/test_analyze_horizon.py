@@ -16,6 +16,9 @@ Censored scores (part 2), C = 1,000:
     time cap at seen 300, no win                 L_C, H_C, b missing (excluded)
     time cap at seen 300, win at seen 100, L 4   L_C -4;   H_C, b missing
     complete, R 50, no win                       L_C beyond C (INF), H_C -log10 50
+Part 4 also records, for the author, that under the drafted rules a ceiling beyond which every level lies gives
+AUROC_L 0.5, "not shown", not void.  Part 5 checks the refusals: any campaign but the confirmatory one, and any run
+before the annotated tag prereg-v1 holds this script.
 Run: D:\\Research\\horizon\\.venv\\Scripts\\python.exe -W error scripts\\test_analyze_horizon.py > logs\\test_analyze_horizon.log
 """
 import itertools
@@ -204,6 +207,22 @@ def part4():
     res = A.analyze(rows, truth, feats, outc, 1000, workers=1, n_boot=50)
     check(not any("L_C void" in r for r in res["agents"]["N"]["void"]), "13 of 130 excluded (10.0%): not void")
 
+    # every level beyond C: no win among the first C states on any level.  docs/PREREG.md Section 7.4 as drafted
+    # censors such levels (rule 1) and says the share at the ceiling "is not a reason to void" (rule 3); no rule of
+    # Section 7.6 voids a score that takes one value.  So L_C ties on every pair: AUROC_L is exactly 0.5, the
+    # verdict is "not shown" and the outcome Refute, and nothing is void.  This test records that behaviour; it is
+    # a point for the author (docs/DESIGN_gvgai_draft.md), not a rule this script adds.
+    rows, truth, feats, outc = synthetic()
+    beyond = {k: row(False, 2000) for k in rows}
+    res = A.analyze(beyond, truth, feats, outc, 1000, workers=1, n_boot=50)
+    nb = res["agents"]["N"]
+    check(close(nb["lines"]["L_same"]["point"], 0.5) and nb["verdict"] == "not shown" and not nb["void"]
+          and res["outcome"] == "Refute",
+          f"every level beyond C: AUROC_L 0.5, not shown, not void, Refute under the drafted rules "
+          f"(got {nb['lines']['L_same']['point']}, {nb['verdict']}, void {nb['void']}, {res['outcome']})")
+    check(res["counts"]["L"]["beyond_C"] == 130 and res["counts"]["L"]["excluded"] == 0,
+          "every level beyond C: 130 counted beyond C, 0 excluded")
+
     rows, truth, feats, outc = synthetic()
     one = {k: {p: i < 3 for i, p in enumerate(A.PRED)} for k in truth}
     res = A.analyze(rows, one, feats, outc, 1000, workers=1, n_boot=50)
@@ -227,11 +246,39 @@ def part5():
             f.write("x\n- **C = [open; fixed before the tag by the rule below].**\n")
         check(A.prereg_c(p) is None, "an open C reads as None")
     check(A.prereg_c() is None and A.C is None, "C is open in docs/PREREG.md and in the script")
+    for camp in ("none", "gvgai-pilot-search", "dev-minigrid-e"):
+        try:
+            A.main(["--campaign", camp])
+            check(False, f"campaign {camp} is refused")
+        except SystemExit as e:
+            check("not the confirmatory campaign" in str(e), f"campaign {camp} is refused")
+    check(A.tag_refusal() is not None and "does not exist" in A.tag_refusal(),
+          "this repository has no tag prereg-v1 yet: refused")
     try:
-        A.main(["--campaign", "none"])
-        check(False, "the script refuses to run while C is open")
+        A.main(["--campaign", A.CONFIRMATORY_CAMPAIGN])
+        check(False, "the confirmatory campaign is refused before the tag")
     except SystemExit as e:
-        check("not fixed" in str(e), "the script refuses to run while C is open")
+        check("does not exist" in str(e), "the confirmatory campaign is refused before the tag")
+    import shutil  # noqa: PLC0415
+    import subprocess  # noqa: PLC0415
+    with tempfile.TemporaryDirectory() as tmp:
+        def git(*args):
+            subprocess.run(["git", *args], cwd=tmp, capture_output=True, check=True)
+        script = os.path.join(tmp, "scripts", "analyze_horizon.py")
+        os.makedirs(os.path.dirname(script))
+        shutil.copyfile(os.path.join(HERE, "analyze_horizon.py"), script)
+        git("init", "-q")
+        git("-c", "user.name=t", "-c", "user.email=t@t", "add", ".")
+        git("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-q", "-m", "x")
+        check("does not exist" in (A.tag_refusal(tmp, "prereg-v1", script) or ""), "no tag: refused")
+        git("-c", "user.name=t", "-c", "user.email=t@t", "tag", "prereg-v1")
+        check("does not exist" in (A.tag_refusal(tmp, "prereg-v1", script) or ""), "a lightweight tag is not enough")
+        git("tag", "-d", "prereg-v1")
+        git("-c", "user.name=t", "-c", "user.email=t@t", "tag", "-a", "prereg-v1", "-m", "v1")
+        check(A.tag_refusal(tmp, "prereg-v1", script) is None, "an annotated tag holding the same script: allowed")
+        with open(script, "a", encoding="utf-8") as f:
+            f.write("# changed\n")
+        check("differs" in (A.tag_refusal(tmp, "prereg-v1", script) or ""), "a script changed after the tag: refused")
     with open(os.path.join(REPO, "docs", "design", "dev_reading.json"), encoding="utf-8") as f:
         sup = A.supplement(json.load(f))
     check("AUROC 0.5164" in sup and "667 of 1560" in sup and "(42.8%)" in sup and "EXPLORATORY" in sup,

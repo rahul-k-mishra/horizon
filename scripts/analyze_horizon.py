@@ -26,16 +26,19 @@ between them are within-game and excluded; a resample with no eligible pair for 
 Verdict per evidence agent (Section 7.5): "shown" if the lower end of AUROC_L's 98.33% interval is above 0.5 and
 AUROC_L >= 0.70; else "not shown"; "void" first by Section 7.6.  Outcome by Section 10.
 The ceiling C is the constant below; the script stops unless docs/PREREG.md, Section 6, states the same value.
+It also stops on any campaign other than CONFIRMATORY_CAMPAIGN (the pilot, stage D and stage E are development
+data and never enter it), and stops unless the annotated tag prereg-v1 exists in the repository and holds this
+file as it is now (the analysis is frozen at the tag, docs/PREREG.md Section 11).
 
 Inputs, read-only (docs/PREREG.md, Section 9: features only from search rows, the truth table and the features
 file; outcomes only from agent rows):
     docs/truth/gvgai.json                 the truth table
     docs/truth/gvgai_features.json        {game: {level: {area, actions, colours}}}, written before the tag by the
                                           GVGAI adapter work (not yet built)
-    runs/<campaign>/search/*.json         the confirmatory search rows, suite "gvgai", level 0..4, with the
-                                          counts of horizon.search.v3 and measures.branching
-    runs/<campaign>/agent/*.json          the confirmatory agent rows; each must carry the level it played as
-                                          "level" (the GVGAI agent schema, not yet built)
+    runs/<campaign>/gvgaisearch/*.json    the confirmatory search rows of the kind gvgaisearch, suite "gvgai",
+                                          level 0..4, schema horizon.search.v3 (counts and measures.branching)
+    runs/<campaign>/gvgaiagent/*.json     the confirmatory agent rows of the kind gvgaiagent, schema
+                                          horizon.agent.v2, which carries the level played
     docs/design/dev_reading.json          the development values of the effective-horizon bound, for the
                                           supplement (decision 6 of 14 November 2026)
 Outputs: docs/tables/horizon.md, docs/tables/horizon.json, docs/tables/horizon_supplement.md (exploratory).
@@ -62,6 +65,9 @@ sys.path.insert(0, HERE)
 sys.dont_write_bytecode = True
 
 C = None             # the ceiling; entered when the author fixes it (docs/PREREG.md, Section 6)
+CONFIRMATORY_CAMPAIGN = "gvgai-confirmatory"
+TAG = "prereg-v1"
+SEARCH_KIND, AGENT_KIND = "gvgaisearch", "gvgaiagent"
 AGENTS = ("N", "R", "I1")
 REFERENCE = ("Rand",)
 SEEDS = tuple(range(1000, 1010))
@@ -446,7 +452,7 @@ def load(campaign):
         fe = json.load(f)
     features = {(g, lv): fe[g][str(lv)] for g in conf for lv in LEVELS}
     rows = {}
-    for p in sorted(glob.glob(os.path.join(REPO, "runs", campaign, "search", "*.json"))):
+    for p in sorted(glob.glob(os.path.join(REPO, "runs", campaign, SEARCH_KIND, "*.json"))):
         with open(p, encoding="utf-8") as f:
             r = json.load(f)
         e = schema.validate_search_row(r)
@@ -455,11 +461,13 @@ def load(campaign):
         if r["game"] in conf:
             rows[(r["game"], int(r["level"]))] = r
     outcomes = {}
-    for p in sorted(glob.glob(os.path.join(REPO, "runs", campaign, "agent", "*.json"))):
+    for p in sorted(glob.glob(os.path.join(REPO, "runs", campaign, AGENT_KIND, "*.json"))):
         with open(p, encoding="utf-8") as f:
             r = json.load(f)
-        if "level" not in r:
-            raise ValueError(f"{p}: an agent row of the confirmatory campaign must carry its level")
+        e = schema.validate_agent_row(r)
+        if e or r.get("schema") != schema.AGENT_SCHEMA_V2:
+            raise ValueError(f"{p}: not a horizon.agent.v2 row (an agent row of the confirmatory campaign must "
+                             f"carry its level): {e}")
         if r["game"] in conf:
             outcomes[(r["agent"], r["game"], int(r["level"]), int(r["seed"]))] = bool(r["outcome"]["level1_completed"])
     missing = [k for k in truth if k not in rows]
@@ -468,11 +476,36 @@ def load(campaign):
     return rows, truth, features, outcomes
 
 
-def main(argv=None):
+def tag_refusal(repo=REPO, tag=TAG, script=os.path.abspath(__file__)):
+    """None if the annotated tag exists and holds this script byte for byte, else the reason to refuse."""
+    import subprocess  # noqa: PLC0415
+
+    def git(*args):
+        return subprocess.run(["git", *args], cwd=repo, capture_output=True, text=True)
+    r = git("cat-file", "-t", f"refs/tags/{tag}")
+    if r.returncode or r.stdout.strip() != "tag":
+        return f"the annotated tag {tag} does not exist: the registration comes first (docs/PREREG.md, Section 0)"
+    rel = os.path.relpath(script, repo).replace(os.sep, "/")
+    at_tag = git("rev-parse", f"{tag}:{rel}")
+    if at_tag.returncode:
+        return f"{rel} is not in the tag {tag}"
+    now = git("hash-object", script).stdout.strip()       # with the repository's line-ending filters
+    if now != at_tag.stdout.strip():
+        return f"{rel} differs from its version at the tag {tag} (blob {now} against {at_tag.stdout.strip()})"
+    return None
+
+
+def main(argv=None, repo=REPO):
     ap = argparse.ArgumentParser()
     ap.add_argument("--campaign", required=True)
     ap.add_argument("--workers", type=int, default=4)
     a = ap.parse_args(argv)
+    if a.campaign != CONFIRMATORY_CAMPAIGN:
+        raise SystemExit(f"campaign {a.campaign!r} is not the confirmatory campaign {CONFIRMATORY_CAMPAIGN!r}; "
+                         "development and pilot data never enter this analysis (docs/PREREG.md, Sections 4 and 9)")
+    why = tag_refusal(repo)
+    if why:
+        raise SystemExit(why)
     stated = prereg_c()
     if C is None or stated is None:
         raise SystemExit("the ceiling C is not fixed yet (docs/PREREG.md, Section 6); nothing is analysed")

@@ -40,12 +40,22 @@ ok    no relation: N not shown, Refute (got not shown, Refute)
 ok    every level completed: N void, study Void
 ok    14 of 130 levels excluded (10.8%): L_C void
 ok    13 of 130 excluded (10.0%): not void
+ok    every level beyond C: AUROC_L 0.5, not shown, not void, Refute under the drafted rules (got 0.5, not shown, void [], Refute)
+ok    every level beyond C: 130 counted beyond C, 0 excluded
 ok    one value of S_M: void
 ok    two draws of one game form no eligible pair
 == 5. the ceiling in docs/PREREG.md and the supplement
 ok    a fixed C is read
 ok    an open C reads as None
 ok    C is open in docs/PREREG.md and in the script
-ok    the script refuses to run while C is open
+ok    campaign none is refused
+ok    campaign gvgai-pilot-search is refused
+ok    campaign dev-minigrid-e is refused
+ok    this repository has no tag prereg-v1 yet: refused
+ok    the confirmatory campaign is refused before the tag
+ok    no tag: refused
+ok    a lightweight tag is not enough
+ok    an annotated tag holding the same script: allowed
+ok    a script changed after the tag: refused
 ok    the supplement gives the development EH AUROC and the share not computed, labelled exploratory
 OK
