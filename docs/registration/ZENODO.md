@@ -5,6 +5,9 @@ Written 14 November 2026. The registration of HORIZON is the annotated git tag `
 ## On the day of the tag, in this order
 
 1. Check that every file in docs/registration/protocol_files.txt that is still under "to be added" has been committed and moved into the list, and that the list is committed.
+1a. (added 14 November 2026) Check that no tracked file names a writing or coding aid (rule R2, docs/RULES.md):
+   `D:\Research\horizon\.venv\Scripts\python.exe scripts\check_no_aid.py > logs\check_no_aid.log`
+   It must end with "clean" and return 0. If it does not, remove the mention, commit, and run it again before the tag. scripts/zenodo_deposit.py in step 3 runs the same check on the tagged commit and stops if it finds a hit.
 2. Create the annotated tag and push it:
    `git tag -a prereg-v1 -m "HORIZON registration v1"` and `git push origin prereg-v1`.
 3. Write the deposit files from the tag (working directory D:\Research\horizon\repo):

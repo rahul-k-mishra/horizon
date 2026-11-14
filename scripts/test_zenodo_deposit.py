@@ -1,6 +1,6 @@
 """
 test_zenodo_deposit.py -- tests scripts/zenodo_deposit.py on a git repository it makes in a temporary folder.
-It reads no file of this repository other than the script under test.
+It reads no file of this repository other than the script under test and scripts/check_no_aid.py, which it imports.
 
 Checks:
     1. on an annotated tag, every listed file is written byte for byte as committed, its SHA-256 and git blob
@@ -9,7 +9,8 @@ Checks:
     2. the files are taken from the tag, not the working tree or a later commit;
     3. protocol.zip is the same on a second run;
     4. a listed file missing at the tag stops the script; a lightweight tag stops it; a tag date other than
-       today returns 2 with a warning.
+       today returns 2 with a warning;
+    5. a file at the tag that scripts/check_no_aid.py finds stops it (added 14 November 2026).
 Run: D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\test_zenodo_deposit.py > logs\\test_zenodo_deposit.log
 """
 import hashlib
@@ -126,6 +127,17 @@ def main():
 
         code, _ = run(["--tag", "nosuchtag", "--repo", repo, "--out", os.path.join(tmp, "o5")])
         check(isinstance(code, tuple) and "no tag" in code[1], "an unknown tag stops the script")
+
+        # added 14 November 2026: a file at the tag that names a writing aid stops the script, even when it
+        # is not a listed protocol file; the planted text is built from check_no_aid.patterns()
+        write(repo, Z.LIST_PATH, listing)
+        write(repo, "docs/notes.md", ("made " + Z.check_no_aid.patterns()[12] + "\n").encode())
+        git(repo, "add", "-A")
+        git(repo, "commit", "-q", "-m", "four")
+        git(repo, "tag", "-a", "prereg-v1.2", "-m", "v1.2")
+        code, _ = run(["--tag", "prereg-v1.2", "--repo", repo, "--out", os.path.join(tmp, "o6"), "--today", day])
+        check(isinstance(code, tuple) and "check_no_aid" in code[1] and "docs/notes.md" in code[1],
+              "a file at the tag that names a writing aid stops the script")
 
     print("OK" if not FAILS else f"{len(FAILS)} failure(s)")
     return 0 if not FAILS else 1

@@ -55,12 +55,12 @@ This file states no result of HORIZON and proposes no fix as a result.
 
 ## 4. What its automation lacked
 
-- **Every run was manual.** The rule was "You write scripts; RKM runs them and pastes the console output" (CLAUDE.md, "Rules that bind every task", rule 1). Commands went to the author as PowerShell blocks (CLAUDE.md, "Non-negotiable rules", rule 5).
+- **Every run was manual.** The author ran every script by hand and pasted its console output into the record (study 1's project rules, "Rules that bind every task", rule 1). Commands went to the author as PowerShell blocks (study 1's project rules, "Non-negotiable rules", rule 5).
 - **Long blocks on one machine.** The suite-B confirmatory block, 9,660 runs, started on 28 September 2026 and had finished by 13 October 2026, on one machine with 8 workers (docs/STATE.md, amendments (i) and (j)). Blocks had to run one at a time with no other Python job, because the caps were measured on an idle machine (docs/STATE.md, amendment (h)).
 - **Console text as the record.** Logs were captured with Tee-Object and are UTF-16. Eight workers shared one console pipe, so 261 "done" lines were merged with BabyAI notices from other workers (docs/STATE.md, amendments (h) and (j)). PowerShell 5.1 wrapped a library's stderr notice in an error record (docs/STATE.md, amendment (h)).
 - **Hand moves of output.** The ARC runner wrote its rows into scripts/, and the author moved the file to runs/ (docs/PREREG.md v1, Section 9.2).
 - **An unregistered clock.** The ARC runner's 900 s default cut eight rows before the budget, found after the run and re-run under a new cap (docs/STATE.md, amendment (e); docs/PREREG.md v1.1, D12).
-- **Kaggle as a lab bench only.** Kaggle CPU sessions (4 vCPUs, 31 GB RAM) were listed as a machine, and notebooks were built by hand-run builder scripts in their own folders (CLAUDE.md, "Machines" and "Non-negotiable rules", rule 7; scripts/build_kaggle_navrun.py exists). Nothing scheduled them, collected their output or committed it.
+- **Kaggle as a lab bench only.** Kaggle CPU sessions (4 vCPUs, 31 GB RAM) were listed as a machine, and notebooks were built by hand-run builder scripts in their own folders (study 1's project rules, "Machines" and "Non-negotiable rules", rule 7; scripts/build_kaggle_navrun.py exists). Nothing scheduled them, collected their output or committed it.
 
 ## 5. What its number pipeline got right
 

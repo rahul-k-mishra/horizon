@@ -1,0 +1,27 @@
+searched 4221 tracked files (commit b9e5180), 20 patterns, allow-list not used
+third_party (vendored, not changed, not counted): 12 hit(s) in 1 file(s)
+  skipped  third_party/gvgai/examples/gridphysics/plaqueattack.txt  12 hit(s): #19 x12
+  HIT  .<#12>/settings.json  2 hit(s): #04 x1, #12 x1
+  HIT  .gitignore  1 hit(s): #12 x1
+  HIT  <#12>.md  8 hit(s): #02 x1, #03 x1, #05 x1, #11 x1, #12 x2, #19 x2
+  HIT  docs/LESSONS_FROM_STUDY1.md  3 hit(s): #12 x3
+  HIT  docs/STATE.md  2 hit(s): #12 x2
+  HIT  docs/truth/gvgai.json  20 hit(s): #19 x20
+  HIT  logs/envprobe.log  2 hit(s): #16 x1, #19 x1
+  HIT  logs/envprobe_pin.log  2 hit(s): #16 x1, #19 x1
+  HIT  scripts/automation/check_runner_freeze.py  1 hit(s): #19 x1
+  HIT  scripts/automation/test_devsearch.py  1 hit(s): #07 x1
+  HIT  scripts/suite_evidence.py  1 hit(s): #19 x1
+files with a counted hit: 11
+hits: 43
+NOT CLEAN
+searched 4221 tracked files (commit b9e5180), 20 patterns, 10 allowed terms, 5 allowed terms by path
+third_party (vendored, not changed, not counted): 0 hit(s) in 0 file(s)
+  HIT  .<#12>/settings.json  2 hit(s): #04 x1, #12 x1
+  HIT  .gitignore  1 hit(s): #12 x1
+  HIT  <#12>.md  8 hit(s): #02 x1, #03 x1, #05 x1, #11 x1, #12 x2, #19 x2
+  HIT  docs/LESSONS_FROM_STUDY1.md  3 hit(s): #12 x3
+  HIT  docs/STATE.md  2 hit(s): #12 x2
+files with a counted hit: 5
+hits: 16
+NOT CLEAN

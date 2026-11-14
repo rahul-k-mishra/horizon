@@ -11,6 +11,8 @@ What it does, for a given tag:
     2. reads docs/registration/protocol_files.txt as stored at that commit, and takes every listed file as
        stored in git at that commit (git cat-file), never from the working tree; it stops if a listed file is
        missing at the tag;
+    2a. runs scripts/check_no_aid.py on every file of the tagged commit and stops if it finds a hit (rule R2,
+       docs/RULES.md; added 14 November 2026);
     3. writes, into the output folder (default: a folder named after the tag under the system's temporary
        folder, which is outside the repository):
          protocol/<path>          each listed file, byte for byte as stored in git;
@@ -41,7 +43,10 @@ import sys
 import tempfile
 import zipfile
 
-REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import check_no_aid  # noqa: E402
+
+REPO =os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LIST_PATH = "docs/registration/protocol_files.txt"
 REPO_URL = "https://github.com/rahul-k-mishra/horizon"
 AUTHOR = {"name": "Mishra, Rahul Kumar",
@@ -92,6 +97,10 @@ def build(repo, tag, out):
                                  capture_output=True).returncode != 0]
     if missing:
         raise SystemExit("listed files missing at the tag: " + ", ".join(missing))
+    hits, _, _ = check_no_aid.scan(repo, info["commit"])
+    if hits:
+        raise SystemExit(f"scripts/check_no_aid.py finds {len(hits)} hit(s) in the files at the tag "
+                         f"(rule R2, docs/RULES.md); first: {hits[0][0]} {hits[0][1]}")
     os.makedirs(out, exist_ok=True)
     rows = []
     zbuf = io.BytesIO()

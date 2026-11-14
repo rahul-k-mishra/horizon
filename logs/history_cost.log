@@ -1,0 +1,48 @@
+before: b9e5180956833ff883a5fae32d40579f2576ac84  at: b9e5180956833ff883a5fae32d40579f2576ac84
+
+1. commits up to --before: 369
+   275 commits: author horizon-loop, committer horizon-loop
+   94 commits: author Rahul Kumar Mishra, committer Rahul Kumar Mishra
+
+2. commit messages with a pattern: 0
+   tags: 5
+   tag messages with a pattern: 0 (annotated tags: 3)
+
+3. commits whose tree holds a path with a pattern: 369 of 369
+   first (oldest): 69adf284392d4e836508fec5b5d459f3bf1dafb5  last: b9e5180956833ff883a5fae32d40579f2576ac84
+   root commit(s): 69adf284392d4e836508fec5b5d459f3bf1dafb5
+
+4. tags
+   automation-v1: annotated, commit 59ddd885b1f7714624bad9bf1d3753dc0efd84af
+   automation-v2: annotated, commit afa984c080a8eb46c8cb142222dd49eb8847bdf4
+   automation-v3: annotated, commit efbba6695d8a28beb30f98e34ed226a13db1c5f1
+   ckpt-dev-minigrid: lightweight, commit 78d4ed069744b4143be3c192229fd0fe81c7fb69
+   ckpt-dryrun: lightweight, commit 9cf6558e65089e03a13fb89369a5d169b4a5a939
+
+5. tracked files at --at, outside third_party/ and runs/, that name a commit of the history: 101
+   docs/DRYRUN.md: 8
+   docs/DRYRUN_DEVSEARCH.md: 4
+   docs/STATE.md: 60
+   docs/truth/DEFAULT_MAPPING.md: 1
+   docs/truth/PREDICATE_QUESTIONS.md: 1
+   logs/devsearch_dryrun_report.log: 2
+   logs/dryrun_report.log: 15
+   logs/envprobe.log: 1
+   logs/envprobe_pin.log: 1
+   logs/test_loop_oldcode.log: 1
+   logs/truth_diff.log: 1
+   logs/truth_diff_a4clause.log: 1
+   logs/truth_diff_q1.log: 1
+   logs/truth_diff_q4.log: 1
+   requirements-loop.txt: 1
+   scripts/truth_diff.py: 1
+   logs/kaggle/: 85 session consoles, naming 88 distinct commits
+   (file, commit) citations in all: 270
+   files under runs/: 3159; of them naming a commit: 0
+
+6. devsearch rows: 1575
+   row fields: campaign, cap_hit, capped, caps, chunk_id, complete, counts, game, level, measures, schema, seconds_spent, sessions, suite, unit_id, written_at
+   session fields: ended_at, host, kaggle_env, run_nonce, started_at
+   dev-minigrid: 1560 rows
+   dev-minigrid-e: 12 rows
+   devsearch-dryrun: 3 rows

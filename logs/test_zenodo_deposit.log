@@ -21,4 +21,5 @@ ok    a tag date other than today returns 2 with a warning
 ok    a lightweight tag stops the script
 ok    a listed file missing at the tag stops it
 ok    an unknown tag stops the script
+ok    a file at the tag that names a writing aid stops the script
 OK

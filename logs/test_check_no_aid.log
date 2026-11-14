@@ -1,0 +1,66 @@
+ok    clean repository with GVGAI, ARC-AGI-3, cited titles with AI, AAAI, tblCellMar, fullmatch, fullMolar returns 0
+ok    clean repository: 5 files read, no hit
+ok    pattern #00 (lower case) found once, on line 2
+ok    pattern #01 (lower case) found once, on line 2
+ok    pattern #02 (lower case) found once, on line 2
+ok    pattern #03 (lower case) found once, on line 2
+ok    pattern #04 (lower case) found once, on line 2
+ok    pattern #05 (lower case) found once, on line 2
+ok    pattern #06 (lower case) found once, on line 2
+ok    pattern #07 (lower case) found once, on line 2
+ok    pattern #08 (lower case) found once, on line 2
+ok    pattern #09 (lower case) found once, on line 2
+ok    pattern #10 (lower case) found once, on line 2
+ok    pattern #11 (lower case) found once, on line 2
+ok    pattern #12 (lower case) found once, on line 2
+ok    pattern #13 (lower case) found once, on line 2
+ok    pattern #14 (lower case) found once, on line 2
+ok    pattern #15 (lower case) found once, on line 2
+ok    pattern #16 (lower case) found once, on line 2
+ok    pattern #17 (lower case) found once, on line 2
+ok    pattern #18 (lower case) found once, on line 2
+ok    pattern #19 (lower case) found once, on line 2
+ok    lower case: 20 hits for 20 planted patterns, none elsewhere
+ok    lower case: the check returns 1
+ok    pattern #00 (upper case) found once, on line 2
+ok    pattern #01 (upper case) found once, on line 2
+ok    pattern #02 (upper case) found once, on line 2
+ok    pattern #03 (upper case) found once, on line 2
+ok    pattern #04 (upper case) found once, on line 2
+ok    pattern #05 (upper case) found once, on line 2
+ok    pattern #06 (upper case) found once, on line 2
+ok    pattern #07 (upper case) found once, on line 2
+ok    pattern #08 (upper case) found once, on line 2
+ok    pattern #09 (upper case) found once, on line 2
+ok    pattern #10 (upper case) found once, on line 2
+ok    pattern #11 (upper case) found once, on line 2
+ok    pattern #12 (upper case) found once, on line 2
+ok    pattern #13 (upper case) found once, on line 2
+ok    pattern #14 (upper case) found once, on line 2
+ok    pattern #15 (upper case) found once, on line 2
+ok    pattern #16 (upper case) found once, on line 2
+ok    pattern #17 (upper case) found once, on line 2
+ok    pattern #18 (upper case) found once, on line 2
+ok    pattern #19 (upper case) found once, on line 2
+ok    upper case: 20 hits for 20 planted patterns, none elsewhere
+ok    upper case: the check returns 1
+ok    hit found in docs/<pattern #12>-notes/a.txt
+ok    hit found in docs/report.docx
+ok    hit found in docs/plot_text.png
+ok    hit found in docs/plot_ztxt.png
+ok    hit found in runs/rows.json.gz
+ok    hit found in docs/info.pdf
+ok    hit found in docs/stream.pdf
+ok    hit found in kaggle/nb.ipynb
+ok    hit found in logs/utf16.log
+ok    hit found in docs/bundle.zip
+ok    a directory name is searched
+ok    docx docProps/app.xml is searched
+ok    a PNG zTXt chunk is decompressed and searched
+ok    a PDF Flate stream is decompressed and searched
+ok    a gzip file is decompressed and searched
+ok    a zip member's name is searched
+ok    a term allowed in logs/envprobe.log is a hit in logs/other.log
+ok    a hit under third_party/ is reported apart and does not count
+ok    --rev reads the commit: working tree 0, HEAD 0, first commit 1
+OK

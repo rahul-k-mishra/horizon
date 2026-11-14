@@ -8,7 +8,6 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ipynb_checkpoints/
-# local editor and tool settings
+# local editor settings
 .vscode/
 .idea/
-.claude/settings.local.json
