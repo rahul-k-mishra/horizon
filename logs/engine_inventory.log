@@ -1,0 +1,106 @@
+== upstream GVGAI at commit e58ff6597319155218759cc178931e05b81b524c: 2604 files (GitHub's tree record, docs\design\gvgai_upstream_tree.json)
+vendored at f29827c: 836 files; 698 equal to the upstream blob; 138 differ; 0 not in upstream: none
+   of the 138 that differ, 137 are equal to upstream once carriage returns are removed from both (line endings only); the others: README.md
+vendored now (index): 1074 files; 936 equal to the upstream blob; 138 differ; 0 not in upstream: none
+   of the 138 that differ, 137 are equal to upstream once carriage returns are removed from both (line endings only); the others: README.md
+
+== per top folder: upstream files / vendored at --before / vendored now
+.gitignore                           1     0     0
+.idea                                2     0     0
+LICENSE.txt                          1     1     1
+README.md                            1     1     1
+README_CODE_STRUCTURE.txt            1     0     0
+actionsFile_aliens_lvl0.txt          1     0     0
+clients                              1     0     0
+clients/GVGAI-JavaClient           102     0     0
+clients/GVGAI-PythonClient          21     0     0
+doc                                  1     0     0
+doc/javadoc                        232     0     0
+examples                             4     4     4
+examples/2player                   360     0     0
+examples/contphysics                72     0     0
+examples/gameDesign                 25     0     0
+examples/gridphysics               716   716   716
+gson-2.6.2.jar                       1     0     0
+gvgai.iml                            1     0     0
+learningTrack2017.iml                1     0     0
+logs                                 3     0     0
+sources.txt                          1     0     0
+sprites/newset                     358     0     0
+sprites/oryx                       345     0     0
+src                                  1     0     1
+src/core                            55     0    55
+src/ontology                       114   114   114
+src/testing                          2     0     2
+src/tools                           90     0    90
+src/tracks                          90     0    90
+test_level.txt                       1     0     0
+
+== engine source (src/): upstream files not vendored at --before, by folder
+src                                                 1
+src/core/competition                                6
+src/core/content                                   10
+src/core/game                                      12
+src/core/generator                                  2
+src/core/logging                                    2
+src/core/optimization                               2
+src/core/optimization/ucbOptimization               3
+src/core/player                                     4
+src/core/termination                                7
+src/core/vgdl                                       7
+src/testing                                         2
+src/tools                                          19
+src/tools/com/google/gson                          26
+src/tools/com/google/gson/annotations               6
+src/tools/com/google/gson/internal                 13
+src/tools/com/google/gson/internal/bind            14
+src/tools/com/google/gson/internal/bind/util        1
+src/tools/com/google/gson/reflect                   2
+src/tools/com/google/gson/stream                    5
+src/tools/pathfinder                                4
+src/tracks                                          3
+src/tracks/gameDesign                               2
+src/tracks/levelGeneration                          2
+src/tracks/levelGeneration/constraints              9
+src/tracks/levelGeneration/constructiveLevelGenerator    3
+src/tracks/levelGeneration/geneticLevelGenerator    3
+src/tracks/levelGeneration/randomLevelGenerator     1
+src/tracks/multiPlayer                              1
+src/tracks/multiPlayer/advanced/sampleMCTS          3
+src/tracks/multiPlayer/advanced/sampleRHEA          2
+src/tracks/multiPlayer/advanced/sampleRS            2
+src/tracks/multiPlayer/deprecated/sampleGA          1
+src/tracks/multiPlayer/deprecated/sampleMCTS        3
+src/tracks/multiPlayer/simple/doNothing             1
+src/tracks/multiPlayer/simple/sampleOneStepLookAhead    1
+src/tracks/multiPlayer/simple/sampleRandom          1
+src/tracks/multiPlayer/tools/heuristics             3
+src/tracks/multiPlayer/tools/human                  1
+src/tracks/multiPlayer/tools/replayer               1
+src/tracks/ruleGeneration                           2
+src/tracks/ruleGeneration/constructiveRuleGenerator    1
+src/tracks/ruleGeneration/geneticRuleGenerator      3
+src/tracks/ruleGeneration/randomRuleGenerator       1
+src/tracks/singleLearning                           2
+src/tracks/singleLearning/utils                     7
+src/tracks/singlePlayer                             1
+src/tracks/singlePlayer/advanced/olets              3
+src/tracks/singlePlayer/advanced/sampleMCTS         3
+src/tracks/singlePlayer/advanced/sampleRHEA         2
+src/tracks/singlePlayer/advanced/sampleRS           2
+src/tracks/singlePlayer/deprecated/sampleGA         1
+src/tracks/singlePlayer/deprecated/sampleMCTS       3
+src/tracks/singlePlayer/simple/doNothing            1
+src/tracks/singlePlayer/simple/greedyTreeSearch     2
+src/tracks/singlePlayer/simple/sampleRandom         1
+src/tracks/singlePlayer/simple/sampleonesteplookahead    1
+src/tracks/singlePlayer/simple/simpleRandom         1
+src/tracks/singlePlayer/tools/Heuristics            3
+src/tracks/singlePlayer/tools/human                 1
+src/tracks/singlePlayer/tools/repeatOLETS           1
+src/tracks/singlePlayer/tools/replayer              1
+src/tracks/singlePlayer/tools/ucbOptimizerAgent     4
+total 238 of 352 src/ files
+
+== now: 347 of 347 upstream Java source files under src/ vendored, each equal to its upstream blob
+upstream folders or files not vendored now: .gitignore, .idea, README_CODE_STRUCTURE.txt, actionsFile_aliens_lvl0.txt, clients, clients/GVGAI-JavaClient, clients/GVGAI-PythonClient, doc, doc/javadoc, examples/2player, examples/contphysics, examples/gameDesign, gson-2.6.2.jar, gvgai.iml, learningTrack2017.iml, logs, sources.txt, sprites/newset, sprites/oryx, test_level.txt

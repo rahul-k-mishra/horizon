@@ -4,3 +4,7 @@ runs/** -text
 jobs/** -text
 # shell scripts run in Git Bash on Windows, which cannot run them with CRLF line endings
 *.sh text eol=lf
+# GVGAI files are vendored byte for byte from the upstream commit; git must not rewrite their line endings
+third_party/gvgai/** -text
+# study 1 files and their vendored external code are copied byte for byte; git must not rewrite their line endings
+third_party/study1/** -text
