@@ -1,0 +1,11 @@
+1. corridor level 0: complete {'states_seen': 4, 'states_expanded': 3, 'solution_length': 3, 'seen_at_first_win': 4, 'expanded_at_first_win': 3} branching 1.6666666666666667
+1. corridor level 1 (boxed in): complete 1 1 None
+2. corridor: search (4, 3, 3, 4, 3, 5), independent (4, 3, 3, 4, 3, 5)
+2. boxroom: search (2900, 2756, 2, 9, 3, 8247), independent (2900, 2756, 2, 9, 3, 8247)
+3. seen cap 20: capped, cap_hit seen, seen 21, expanded 8 (independent: seen 21, expanded 8), first win 9
+3. seen cap 100: capped, cap_hit seen, seen 100, expanded 55 (independent: seen 100, expanded 55), first win 9
+3. seen cap 300: capped, cap_hit seen, seen 300, expanded 184 (independent: seen 300, expanded 184), first win 9
+4. stopped after 1 expansions (stopped); resumed: complete, counts equal: True
+5. v3 errors []; as v2: 2 errors
+6. left first and right first give equal keys: True; one dot painted differs: True
+OK

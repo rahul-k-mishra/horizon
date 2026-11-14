@@ -1,212 +1,216 @@
 --- tick 1 (exit 0)
-[2026-11-13T16:48:51Z] commit: Loop: dispatch dry-01 (attempt 1)
-[2026-11-13T16:48:53Z] commit: Loop: dry-01 pushed as kernel version 1
+[2026-11-14T02:53:37Z] commit: Loop: dispatch dry-01 (attempt 1)
+[2026-11-14T02:53:39Z] commit: Loop: dry-01 pushed as kernel version 1
     next-wake: 15 dry-01 on kernel version 1, session due to end in 15 s
 --- tick 2 (exit 0)
-[2026-11-13T16:48:54Z] commit: Loop: dry-01 done (kernel version 1)
-[2026-11-13T16:48:55Z] commit: Loop: dispatch dry-02 (attempt 1)
-[2026-11-13T16:49:08Z] commit: Loop: dry-02 pushed as kernel version 2
-    next-wake: 16 dry-02 on kernel version 2, session due to end in 16 s
+[2026-11-14T02:53:41Z] commit: Loop: dry-01 done (kernel version 1)
+[2026-11-14T02:53:41Z] commit: Loop: dispatch dry-02 (attempt 1)
+[2026-11-14T02:53:55Z] commit: Loop: dry-02 pushed as kernel version 2
+    next-wake: 15 dry-02 on kernel version 2, session due to end in 15 s
 --- tick 3 (exit 0)
-[2026-11-13T16:49:10Z] commit: Loop: dry-02 partial (kernel version 2)
-[2026-11-13T16:49:10Z] commit: Loop: dispatch dry-02 (attempt 2)
-[2026-11-13T16:49:19Z] commit: Loop: dry-02 pushed as kernel version 3
-    next-wake: 16 dry-02 on kernel version 3, session due to end in 16 s
+[2026-11-14T02:53:56Z] commit: Loop: dry-02 partial (kernel version 2)
+[2026-11-14T02:53:57Z] commit: Loop: dispatch dry-02 (attempt 2)
+[2026-11-14T02:54:07Z] commit: Loop: dry-02 pushed as kernel version 3
+    next-wake: 15 dry-02 on kernel version 3, session due to end in 15 s
 --- tick 4 (exit 0)
-[2026-11-13T16:49:20Z] commit: Loop: dry-02 done (kernel version 3)
-[2026-11-13T16:49:21Z] commit: Loop: dispatch dry-03 (attempt 1)
-[2026-11-13T16:49:23Z] commit: Loop: dry-03 pushed as kernel version 4
+[2026-11-14T02:54:09Z] commit: Loop: dry-02 done (kernel version 3)
+[2026-11-14T02:54:10Z] commit: Loop: dispatch dry-03 (attempt 1)
+[2026-11-14T02:54:13Z] commit: Loop: dry-03 pushed as kernel version 4
     next-wake: 15 dry-03 on kernel version 4, session due to end in 15 s
 --- tick 5 (exit 0)
-[2026-11-13T16:49:25Z] commit: Loop: dry-03 done (kernel version 4)
-[2026-11-13T16:49:25Z] manifest complete: 3 of 3 chunks done; nothing to do
+[2026-11-14T02:54:15Z] commit: Loop: dry-03 done (kernel version 4)
+[2026-11-14T02:54:16Z] manifest complete: 3 of 3 chunks done; nothing to do
     next-wake: none manifest complete: done 3
 --- halt scenario tick 1 (exit 0)
-[2026-11-13T16:49:27Z] commit: Loop: dispatch dry-01 (attempt 1)
-[2026-11-13T16:49:29Z] commit: Loop: dry-01 pushed as kernel version 1
+[2026-11-14T02:54:20Z] commit: Loop: dispatch dry-01 (attempt 1)
+[2026-11-14T02:54:23Z] commit: Loop: dry-01 pushed as kernel version 1
 --- halt scenario tick 2 (exit 0)
-[2026-11-13T16:49:30Z] commit: Loop: dry-01 failed (kernel version 1)
-[2026-11-13T16:49:30Z] commit: Loop: dispatch dry-01 (attempt 2)
-[2026-11-13T16:49:31Z] commit: Loop: dry-01 pushed as kernel version 2
+[2026-11-14T02:54:25Z] commit: Loop: dry-01 failed (kernel version 1)
+[2026-11-14T02:54:25Z] commit: Loop: dispatch dry-01 (attempt 2)
+[2026-11-14T02:54:28Z] commit: Loop: dry-01 pushed as kernel version 2
 --- halt scenario tick 3 (exit 0)
-[2026-11-13T16:49:33Z] commit: Loop: dry-01 failed (kernel version 2)
-[2026-11-13T16:49:33Z] commit: Loop: dispatch dry-01 (attempt 3)
-[2026-11-13T16:49:34Z] commit: Loop: dry-01 pushed as kernel version 3
+[2026-11-14T02:54:30Z] commit: Loop: dry-01 failed (kernel version 2)
+[2026-11-14T02:54:31Z] commit: Loop: dispatch dry-01 (attempt 3)
+[2026-11-14T02:54:34Z] commit: Loop: dry-01 pushed as kernel version 3
 --- halt scenario tick 4 (exit 0)
-[2026-11-13T16:49:35Z] STATE-ready text: On 2026-11-13T16:49:35Z the HORIZON loop halted. Chunk dry-01 (agent) failed 3 times, the registered maximum of 3. Last failure: session status failed: NotImplementedError('agent implementation not_written is not written yet') (kernel version 3, run dryrun-dry-01-20261113T164933Z-0ad331). Chunks of campaign dryrun: failed 1, pending 2. The loop does nothing until the cause is found and jobs/state.json "halted" is set back to false by hand.
-[2026-11-13T16:49:35Z] commit: Loop: dry-01 failed (kernel version 3)
+[2026-11-14T02:54:35Z] STATE-ready text: On 2026-11-14T02:54:35Z the HORIZON loop halted. Chunk dry-01 (agent) failed 3 times, the registered maximum of 3. Last failure: session status failed: NotImplementedError('agent implementation not_written is not written yet') (kernel version 3, run dryrun-dry-01-20261114T025431Z-f18d9d). Chunks of campaign dryrun: failed 1, pending 2. The loop does nothing until the cause is found and jobs/state.json "halted" is set back to false by hand.
+[2026-11-14T02:54:35Z] commit: Loop: dry-01 failed (kernel version 3)
 --- halt scenario tick 5 (exit 0)
-[2026-11-13T16:49:36Z] loop halted since 2026-11-13T16:49:35Z: chunk dry-01 failed 3 times; last: session status failed: NotImplementedError('agent implementation not_written is not written yet'); nothing done
+[2026-11-14T02:54:37Z] loop halted since 2026-11-14T02:54:35Z: chunk dry-01 failed 3 times; last: session status failed: NotImplementedError('agent implementation not_written is not written yet'); nothing done
 --- halt scenario tick 6 (exit 0)
-[2026-11-13T16:49:37Z] loop halted since 2026-11-13T16:49:35Z: chunk dry-01 failed 3 times; last: session status failed: NotImplementedError('agent implementation not_written is not written yet'); nothing done
+[2026-11-14T02:54:37Z] loop halted since 2026-11-14T02:54:35Z: chunk dry-01 failed 3 times; last: session status failed: NotImplementedError('agent implementation not_written is not written yet'); nothing done
 --- crash scenario tick 1, broken manifest (exit 1)
-[2026-11-13T16:49:39Z] commit: Loop: tick crashed (1 of 12)
+[2026-11-14T02:54:41Z] commit: Loop: tick crashed (1 of 12)
 RuntimeError: manifest check failed: ['chunk dry-03: unknown kind nonsense', 'unit dry-03-sleep-seed1: kind agent in a nonsense chunk']
 --- crash scenario tick 2, broken manifest (exit 1)
-[2026-11-13T16:49:40Z] commit: Loop: tick crashed (2 of 12)
+[2026-11-14T02:54:42Z] commit: Loop: tick crashed (2 of 12)
 RuntimeError: manifest check failed: ['chunk dry-03: unknown kind nonsense', 'unit dry-03-sleep-seed1: kind agent in a nonsense chunk']
 --- crash scenario tick 3, manifest repaired (exit 0)
-[2026-11-13T16:49:41Z] commit: Loop: dispatch dry-01 (attempt 1)
-[2026-11-13T16:49:44Z] commit: Loop: dry-01 pushed as kernel version 1
+[2026-11-14T02:54:44Z] commit: Loop: dispatch dry-01 (attempt 1)
+[2026-11-14T02:54:48Z] commit: Loop: dry-01 pushed as kernel version 1
 --- crash scenario tick 4, broken manifest (exit 1)
-[2026-11-13T16:49:45Z] commit: Loop: tick crashed (1 of 12)
+[2026-11-14T02:54:50Z] commit: Loop: tick crashed (1 of 12)
 RuntimeError: manifest check failed: ['chunk dry-03: unknown kind nonsense', 'unit dry-03-sleep-seed1: kind agent in a nonsense chunk']
 --- crash scenario tick 5, broken manifest (exit 1)
-[2026-11-13T16:49:46Z] commit: Loop: tick crashed (2 of 12)
+[2026-11-14T02:54:52Z] commit: Loop: tick crashed (2 of 12)
 RuntimeError: manifest check failed: ['chunk dry-03: unknown kind nonsense', 'unit dry-03-sleep-seed1: kind agent in a nonsense chunk']
 --- crash scenario tick 6, broken manifest (exit 1)
-[2026-11-13T16:49:48Z] commit: Loop: tick crashed (3 of 12)
+[2026-11-14T02:54:54Z] commit: Loop: tick crashed (3 of 12)
 RuntimeError: manifest check failed: ['chunk dry-03: unknown kind nonsense', 'unit dry-03-sleep-seed1: kind agent in a nonsense chunk']
 --- crash scenario tick 7, broken manifest (exit 1)
-[2026-11-13T16:49:49Z] commit: Loop: tick crashed (4 of 12)
+[2026-11-14T02:54:56Z] commit: Loop: tick crashed (4 of 12)
 RuntimeError: manifest check failed: ['chunk dry-03: unknown kind nonsense', 'unit dry-03-sleep-seed1: kind agent in a nonsense chunk']
 --- crash scenario tick 8, broken manifest (exit 1)
-[2026-11-13T16:49:50Z] commit: Loop: tick crashed (5 of 12)
+[2026-11-14T02:54:57Z] commit: Loop: tick crashed (5 of 12)
 RuntimeError: manifest check failed: ['chunk dry-03: unknown kind nonsense', 'unit dry-03-sleep-seed1: kind agent in a nonsense chunk']
 --- crash scenario tick 9, broken manifest (exit 1)
-[2026-11-13T16:49:51Z] commit: Loop: tick crashed (6 of 12)
+[2026-11-14T02:54:59Z] commit: Loop: tick crashed (6 of 12)
 RuntimeError: manifest check failed: ['chunk dry-03: unknown kind nonsense', 'unit dry-03-sleep-seed1: kind agent in a nonsense chunk']
 --- crash scenario tick 10, broken manifest (exit 1)
-[2026-11-13T16:49:52Z] commit: Loop: tick crashed (7 of 12)
+[2026-11-14T02:55:01Z] commit: Loop: tick crashed (7 of 12)
 RuntimeError: manifest check failed: ['chunk dry-03: unknown kind nonsense', 'unit dry-03-sleep-seed1: kind agent in a nonsense chunk']
 --- crash scenario tick 11, broken manifest (exit 1)
-[2026-11-13T16:49:53Z] commit: Loop: tick crashed (8 of 12)
+[2026-11-14T02:55:02Z] commit: Loop: tick crashed (8 of 12)
 RuntimeError: manifest check failed: ['chunk dry-03: unknown kind nonsense', 'unit dry-03-sleep-seed1: kind agent in a nonsense chunk']
 --- crash scenario tick 12, broken manifest (exit 1)
-[2026-11-13T16:49:55Z] commit: Loop: tick crashed (9 of 12)
+[2026-11-14T02:55:04Z] commit: Loop: tick crashed (9 of 12)
 RuntimeError: manifest check failed: ['chunk dry-03: unknown kind nonsense', 'unit dry-03-sleep-seed1: kind agent in a nonsense chunk']
 --- crash scenario tick 13, broken manifest (exit 1)
-[2026-11-13T16:49:56Z] commit: Loop: tick crashed (10 of 12)
+[2026-11-14T02:55:06Z] commit: Loop: tick crashed (10 of 12)
 RuntimeError: manifest check failed: ['chunk dry-03: unknown kind nonsense', 'unit dry-03-sleep-seed1: kind agent in a nonsense chunk']
 --- crash scenario tick 14, broken manifest (exit 1)
-[2026-11-13T16:49:57Z] commit: Loop: tick crashed (11 of 12)
+[2026-11-14T02:55:07Z] commit: Loop: tick crashed (11 of 12)
 RuntimeError: manifest check failed: ['chunk dry-03: unknown kind nonsense', 'unit dry-03-sleep-seed1: kind agent in a nonsense chunk']
 --- crash scenario tick 15, broken manifest (exit 1)
 maximum of 12, without a tick reaching a chunk in between. Last crash: RuntimeError: manifest check failed: ['chunk dry-03: unknown kind nonsense', 'unit dry-03-sleep-seed1: kind agent in a nonsense chunk']. Chunks of the campaign: pending 2, running 1. The loop does nothing until the cause is found and jobs/state.json "halted" is set back to false and "consecutive_crashes" to 0 by hand.
-[2026-11-13T16:49:58Z] commit: Loop: tick crashed (12 of 12); loop halted
+[2026-11-14T02:55:09Z] commit: Loop: tick crashed (12 of 12); loop halted
 RuntimeError: manifest check failed: ['chunk dry-03: unknown kind nonsense', 'unit dry-03-sleep-seed1: kind agent in a nonsense chunk']
 --- devsearch tick 1 (exit 0)
-[2026-11-13T16:50:01Z] commit: Loop: dispatch d-01 (attempt 1)
-[2026-11-13T16:50:19Z] commit: Loop: d-01 pushed as kernel version 1
+[2026-11-14T02:55:12Z] commit: Loop: dispatch d-01 (attempt 1)
+[2026-11-14T02:55:30Z] commit: Loop: d-01 pushed as kernel version 1
 --- devsearch tick 2 (exit 0)
-[2026-11-13T16:50:20Z] commit: Loop: d-01 partial (kernel version 1)
-[2026-11-13T16:50:21Z] commit: Loop: dispatch d-01 (attempt 2)
-[2026-11-13T16:50:35Z] commit: Loop: d-01 pushed as kernel version 2
+[2026-11-14T02:55:32Z] commit: Loop: d-01 partial (kernel version 1)
+[2026-11-14T02:55:32Z] commit: Loop: dispatch d-01 (attempt 2)
+[2026-11-14T02:55:50Z] commit: Loop: d-01 pushed as kernel version 2
 --- devsearch tick 3 (exit 0)
-[2026-11-13T16:50:36Z] commit: Loop: d-01 done (kernel version 2)
-[2026-11-13T16:50:37Z] manifest complete: 1 of 1 chunks done; nothing to do
+[2026-11-14T02:55:52Z] commit: Loop: d-01 partial (kernel version 2)
+[2026-11-14T02:55:53Z] commit: Loop: dispatch d-01 (attempt 3)
+[2026-11-14T02:55:57Z] commit: Loop: d-01 pushed as kernel version 3
+--- devsearch tick 4 (exit 0)
+[2026-11-14T02:55:59Z] commit: Loop: d-01 done (kernel version 3)
+[2026-11-14T02:55:59Z] manifest complete: 1 of 1 chunks done; nothing to do
 --- devsearch tick 1 (exit 0)
-[2026-11-13T16:50:38Z] commit: Loop: dispatch d-01 (attempt 1)
-[2026-11-13T16:50:55Z] commit: Loop: d-01 pushed as kernel version 1
+[2026-11-14T02:56:02Z] commit: Loop: dispatch d-01 (attempt 1)
+[2026-11-14T02:56:19Z] commit: Loop: d-01 pushed as kernel version 1
 --- devsearch tick 2 (exit 0)
-[2026-11-13T16:50:57Z] commit: Loop: d-01 partial (kernel version 1)
-[2026-11-13T16:50:57Z] commit: Loop: dispatch d-01 (attempt 2)
-[2026-11-13T16:51:12Z] commit: Loop: d-01 pushed as kernel version 2
+[2026-11-14T02:56:21Z] commit: Loop: d-01 partial (kernel version 1)
+[2026-11-14T02:56:22Z] commit: Loop: dispatch d-01 (attempt 2)
+[2026-11-14T02:56:38Z] commit: Loop: d-01 pushed as kernel version 2
 --- devsearch tick 3 (exit 0)
-[2026-11-13T16:51:13Z] commit: Loop: d-01 done (kernel version 2)
-[2026-11-13T16:51:13Z] manifest complete: 1 of 1 chunks done; nothing to do
+[2026-11-14T02:56:40Z] commit: Loop: d-01 done (kernel version 2)
+[2026-11-14T02:56:40Z] manifest complete: 1 of 1 chunks done; nothing to do
 --- refusal scenario R1 tick 1, account full (exit 0)
-[2026-11-13T16:51:14Z] commit: Loop: dispatch dry-01 (attempt 1)
-[2026-11-13T16:51:15Z] commit: Loop: push of dry-01 refused (account session limit), deferred
+[2026-11-14T02:56:42Z] commit: Loop: dispatch dry-01 (attempt 1)
+[2026-11-14T02:56:43Z] commit: Loop: push of dry-01 refused (account session limit), deferred
 --- refusal scenario R1 tick 2, account full (exit 0)
-[2026-11-13T16:51:16Z] commit: Loop: dispatch dry-01 (attempt 1)
-[2026-11-13T16:51:16Z] commit: Loop: push of dry-01 refused (account session limit), deferred
+[2026-11-14T02:56:44Z] commit: Loop: dispatch dry-01 (attempt 1)
+[2026-11-14T02:56:45Z] commit: Loop: push of dry-01 refused (account session limit), deferred
 --- refusal scenario R1 tick 3, account full (exit 0)
-[2026-11-13T16:51:17Z] commit: Loop: dispatch dry-01 (attempt 1)
-[2026-11-13T16:51:18Z] commit: Loop: push of dry-01 refused (account session limit), deferred
+[2026-11-14T02:56:46Z] commit: Loop: dispatch dry-01 (attempt 1)
+[2026-11-14T02:56:47Z] commit: Loop: push of dry-01 refused (account session limit), deferred
 --- refusal scenario R1 tick 4, account full (exit 0)
-[2026-11-13T16:51:19Z] commit: Loop: dispatch dry-01 (attempt 1)
-[2026-11-13T16:51:19Z] commit: Loop: push of dry-01 refused (account session limit), deferred
+[2026-11-14T02:56:48Z] commit: Loop: dispatch dry-01 (attempt 1)
+[2026-11-14T02:56:48Z] commit: Loop: push of dry-01 refused (account session limit), deferred
 --- refusal scenario R2 tick, HTTP 429 (exit 0)
-[2026-11-13T16:51:20Z] commit: Loop: dispatch dry-01 (attempt 1)
-[2026-11-13T16:51:21Z] commit: Loop: push of dry-01 refused (rate limit), deferred
+[2026-11-14T02:56:50Z] commit: Loop: dispatch dry-01 (attempt 1)
+[2026-11-14T02:56:51Z] commit: Loop: push of dry-01 refused (rate limit), deferred
 --- refusal scenario R3 tick 1, push accepted (exit 0)
-[2026-11-13T16:51:22Z] commit: Loop: dispatch dry-01 (attempt 1)
-[2026-11-13T16:51:24Z] commit: Loop: dry-01 pushed as kernel version 1
+[2026-11-14T02:56:52Z] commit: Loop: dispatch dry-01 (attempt 1)
+[2026-11-14T02:56:55Z] commit: Loop: dry-01 pushed as kernel version 1
 --- refusal scenario R3 finish tick 1 (exit 0)
-[2026-11-13T16:51:26Z] commit: Loop: dry-01 done (kernel version 1)
-[2026-11-13T16:51:26Z] commit: Loop: dispatch dry-02 (attempt 1)
-[2026-11-13T16:51:39Z] commit: Loop: dry-02 pushed as kernel version 2
+[2026-11-14T02:56:56Z] commit: Loop: dry-01 done (kernel version 1)
+[2026-11-14T02:56:57Z] commit: Loop: dispatch dry-02 (attempt 1)
+[2026-11-14T02:57:10Z] commit: Loop: dry-02 pushed as kernel version 2
 --- refusal scenario R3 finish tick 2 (exit 0)
-[2026-11-13T16:51:40Z] commit: Loop: dry-02 partial (kernel version 2)
-[2026-11-13T16:51:41Z] commit: Loop: dispatch dry-02 (attempt 2)
-[2026-11-13T16:51:50Z] commit: Loop: dry-02 pushed as kernel version 3
+[2026-11-14T02:57:11Z] commit: Loop: dry-02 partial (kernel version 2)
+[2026-11-14T02:57:12Z] commit: Loop: dispatch dry-02 (attempt 2)
+[2026-11-14T02:57:22Z] commit: Loop: dry-02 pushed as kernel version 3
 --- refusal scenario R3 finish tick 3 (exit 0)
-[2026-11-13T16:51:51Z] commit: Loop: dry-02 done (kernel version 3)
-[2026-11-13T16:51:51Z] commit: Loop: dispatch dry-03 (attempt 1)
-[2026-11-13T16:51:54Z] commit: Loop: dry-03 pushed as kernel version 4
+[2026-11-14T02:57:23Z] commit: Loop: dry-02 done (kernel version 3)
+[2026-11-14T02:57:24Z] commit: Loop: dispatch dry-03 (attempt 1)
+[2026-11-14T02:57:27Z] commit: Loop: dry-03 pushed as kernel version 4
 --- refusal scenario R3 finish tick 4 (exit 0)
-[2026-11-13T16:51:55Z] commit: Loop: dry-03 done (kernel version 4)
-[2026-11-13T16:51:55Z] manifest complete: 3 of 3 chunks done; nothing to do
+[2026-11-14T02:57:28Z] commit: Loop: dry-03 done (kernel version 4)
+[2026-11-14T02:57:29Z] manifest complete: 3 of 3 chunks done; nothing to do
 --- queue scenario Q1 tick 1, push dry-01 (exit 0)
-[2026-11-13T16:51:57Z] commit: Loop: dispatch dry-01 (attempt 1)
-[2026-11-13T16:51:59Z] commit: Loop: dry-01 pushed as kernel version 1
+[2026-11-14T02:57:31Z] commit: Loop: dispatch dry-01 (attempt 1)
+[2026-11-14T02:57:34Z] commit: Loop: dry-01 pushed as kernel version 1
 --- queue scenario Q1 tick 2, queued (exit 0)
-[2026-11-13T16:52:00Z] dry-01 on kernel version 1 is queued (pushed 2026-11-13T16:51:59Z); nothing to do
-[2026-11-13T16:52:00Z] commit: Loop: dry-01 queued on Kaggle
+[2026-11-14T02:57:35Z] dry-01 on kernel version 1 is queued (pushed 2026-11-14T02:57:33Z); nothing to do
+[2026-11-14T02:57:35Z] commit: Loop: dry-01 queued on Kaggle
 --- queue scenario Q2 tick, queued past the overdue time (600 s + 1800 s) (exit 0)
-[2026-11-13T16:52:02Z] dry-01 on kernel version 1 is queued (pushed 2026-11-13T15:52:01Z); nothing to do
+[2026-11-14T02:57:37Z] dry-01 on kernel version 1 is queued (pushed 2026-11-14T01:57:35Z); nothing to do
 --- queue scenario Q3 tick, running (exit 0)
-[2026-11-13T16:52:02Z] dry-01 on kernel version 1 is running (pushed 2026-11-13T15:52:01Z); nothing to do
-[2026-11-13T16:52:03Z] commit: Loop: dry-01 started on Kaggle
+[2026-11-14T02:57:37Z] dry-01 on kernel version 1 is running (pushed 2026-11-14T01:57:35Z); nothing to do
+[2026-11-14T02:57:37Z] commit: Loop: dry-01 started on Kaggle
 --- queue scenario Q4 tick 1, collect dry-01 and push dry-02 (exit 0)
-[2026-11-13T16:52:04Z] commit: Loop: dry-01 done (kernel version 1)
-[2026-11-13T16:52:04Z] commit: Loop: dispatch dry-02 (attempt 1)
-[2026-11-13T16:52:17Z] commit: Loop: dry-02 pushed as kernel version 2
+[2026-11-14T02:57:39Z] commit: Loop: dry-01 done (kernel version 1)
+[2026-11-14T02:57:40Z] commit: Loop: dispatch dry-02 (attempt 1)
+[2026-11-14T02:57:53Z] commit: Loop: dry-02 pushed as kernel version 2
 --- queue scenario Q4 tick 2, queued 25 h (exit 0)
-[2026-11-13T16:52:18Z] STATE-ready text: On 2026-11-13T16:52:18Z the HORIZON loop halted. Chunk dry-02 on kernel version 2 stayed queued on Kaggle since its push at 2026-11-12T15:52:17Z for more than 24 hours, the limit of loop.WAIT_LIMIT_SECONDS, for a reason the loop classes as outside the campaign. Last: kernel status queued. No chunk failure was counted for it. Chunks of campaign dryrun: done 1, pending 1, running 1. The loop does nothing until the cause is found and jobs/state.json "halted" is set back to false and "deferral" to null by hand.
-[2026-11-13T16:52:18Z] commit: Loop: dry-02 queued too long; loop halted
+[2026-11-14T02:57:54Z] STATE-ready text: On 2026-11-14T02:57:54Z the HORIZON loop halted. Chunk dry-02 on kernel version 2 stayed queued on Kaggle since its push at 2026-11-13T01:57:53Z for more than 24 hours, the limit of loop.WAIT_LIMIT_SECONDS, for a reason the loop classes as outside the campaign. Last: kernel status queued. No chunk failure was counted for it. Chunks of campaign dryrun: done 1, pending 1, running 1. The loop does nothing until the cause is found and jobs/state.json "halted" is set back to false and "deferral" to null by hand.
+[2026-11-14T02:57:54Z] commit: Loop: dry-02 queued too long; loop halted
 --- queue scenario Q4 finish tick 1 (exit 0)
-[2026-11-13T16:52:20Z] commit: Loop: dry-02 partial (kernel version 2)
-[2026-11-13T16:52:20Z] commit: Loop: dispatch dry-02 (attempt 2)
-[2026-11-13T16:52:29Z] commit: Loop: dry-02 pushed as kernel version 3
+[2026-11-14T02:57:56Z] commit: Loop: dry-02 partial (kernel version 2)
+[2026-11-14T02:57:57Z] commit: Loop: dispatch dry-02 (attempt 2)
+[2026-11-14T02:58:06Z] commit: Loop: dry-02 pushed as kernel version 3
 --- queue scenario Q4 finish tick 2 (exit 0)
-[2026-11-13T16:52:30Z] commit: Loop: dry-02 done (kernel version 3)
-[2026-11-13T16:52:31Z] commit: Loop: dispatch dry-03 (attempt 1)
-[2026-11-13T16:52:33Z] commit: Loop: dry-03 pushed as kernel version 4
+[2026-11-14T02:58:08Z] commit: Loop: dry-02 done (kernel version 3)
+[2026-11-14T02:58:08Z] commit: Loop: dispatch dry-03 (attempt 1)
+[2026-11-14T02:58:11Z] commit: Loop: dry-03 pushed as kernel version 4
 --- queue scenario Q4 finish tick 3 (exit 0)
-[2026-11-13T16:52:35Z] commit: Loop: dry-03 done (kernel version 4)
-[2026-11-13T16:52:35Z] manifest complete: 3 of 3 chunks done; nothing to do
+[2026-11-14T02:58:13Z] commit: Loop: dry-03 done (kernel version 4)
+[2026-11-14T02:58:13Z] manifest complete: 3 of 3 chunks done; nothing to do
 --- notstarted scenario N1 tick 1, push dry-01, which never runs (exit 0)
-[2026-11-13T16:52:36Z] commit: Loop: dispatch dry-01 (attempt 1)
-[2026-11-13T16:52:37Z] commit: Loop: dry-01 pushed as kernel version 1
+[2026-11-14T02:58:15Z] commit: Loop: dispatch dry-01 (attempt 1)
+[2026-11-14T02:58:16Z] commit: Loop: dry-01 pushed as kernel version 1
 --- notstarted scenario N1 tick 2, unknown status (exit 1)
-[2026-11-13T16:52:38Z] commit: Loop: tick crashed (1 of 12)
+[2026-11-14T02:58:17Z] commit: Loop: tick crashed (1 of 12)
 RuntimeError: kernel status 'weird' is not one the loop knows; the dispatch is kept: 'tester/horizon-runner has status "KernelWorkerStatus.WEIRD"'
 --- notstarted scenario N2 tick, ERROR, session never started (exit 0)
-[2026-11-13T16:52:39Z] commit: Loop: dry-01 not started (kernel version 1)
+[2026-11-14T02:58:19Z] commit: Loop: dry-01 not started (kernel version 1)
 --- notstarted scenario N2 finish tick 1 (exit 0)
-[2026-11-13T16:52:40Z] commit: Loop: dispatch dry-01 (attempt 2)
-[2026-11-13T16:52:43Z] commit: Loop: dry-01 pushed as kernel version 2
+[2026-11-14T02:58:20Z] commit: Loop: dispatch dry-01 (attempt 2)
+[2026-11-14T02:58:23Z] commit: Loop: dry-01 pushed as kernel version 2
 --- notstarted scenario N2 finish tick 2 (exit 0)
-[2026-11-13T16:52:44Z] commit: Loop: dry-01 done (kernel version 2)
-[2026-11-13T16:52:44Z] commit: Loop: dispatch dry-02 (attempt 1)
-[2026-11-13T16:52:57Z] commit: Loop: dry-02 pushed as kernel version 3
+[2026-11-14T02:58:24Z] commit: Loop: dry-01 done (kernel version 2)
+[2026-11-14T02:58:25Z] commit: Loop: dispatch dry-02 (attempt 1)
+[2026-11-14T02:58:38Z] commit: Loop: dry-02 pushed as kernel version 3
 --- notstarted scenario N2 finish tick 3 (exit 0)
-[2026-11-13T16:52:59Z] commit: Loop: dry-02 partial (kernel version 3)
-[2026-11-13T16:52:59Z] commit: Loop: dispatch dry-02 (attempt 2)
-[2026-11-13T16:53:08Z] commit: Loop: dry-02 pushed as kernel version 4
+[2026-11-14T02:58:39Z] commit: Loop: dry-02 partial (kernel version 3)
+[2026-11-14T02:58:40Z] commit: Loop: dispatch dry-02 (attempt 2)
+[2026-11-14T02:58:50Z] commit: Loop: dry-02 pushed as kernel version 4
 --- notstarted scenario N2 finish tick 4 (exit 0)
-[2026-11-13T16:53:09Z] commit: Loop: dry-02 done (kernel version 4)
-[2026-11-13T16:53:09Z] commit: Loop: dispatch dry-03 (attempt 1)
-[2026-11-13T16:53:12Z] commit: Loop: dry-03 pushed as kernel version 5
+[2026-11-14T02:58:51Z] commit: Loop: dry-02 done (kernel version 4)
+[2026-11-14T02:58:52Z] commit: Loop: dispatch dry-03 (attempt 1)
+[2026-11-14T02:58:55Z] commit: Loop: dry-03 pushed as kernel version 5
 --- notstarted scenario N2 finish tick 5 (exit 0)
-[2026-11-13T16:53:13Z] commit: Loop: dry-03 done (kernel version 5)
-[2026-11-13T16:53:13Z] manifest complete: 3 of 3 chunks done; nothing to do
+[2026-11-14T02:58:56Z] commit: Loop: dry-03 done (kernel version 5)
+[2026-11-14T02:58:57Z] manifest complete: 3 of 3 chunks done; nothing to do
 --- bound scenario tick 1, account full (exit 0)
-[2026-11-13T16:53:15Z] commit: Loop: dispatch dry-01 (attempt 1)
-[2026-11-13T16:53:15Z] commit: Loop: push of dry-01 refused (account session limit), deferred
+[2026-11-14T02:58:59Z] commit: Loop: dispatch dry-01 (attempt 1)
+[2026-11-14T02:59:00Z] commit: Loop: push of dry-01 refused (account session limit), deferred
 --- bound scenario tick 2, account still full (exit 0)
-On 2026-11-13T16:53:17Z the HORIZON loop halted. Chunk dry-01 could not be started: 2 refusals since 2026-11-12T15:53:16Z for more than 24 hours, the limit of loop.WAIT_LIMIT_SECONDS, for a reason the loop classes as outside the campaign. Last: kernel push refused: kernel push failed: Kernel push error: Maximum batch CPU session count of 5 reached.  (class account session limit). No chunk failure was counted for it. Chunks of campaign dryrun: pending 3. The loop does nothing until the cause is found and jobs/state.json "halted" is set back to false and "deferral" to null by hand.
-[2026-11-13T16:53:17Z] commit: Loop: push of dry-01 refused (account session limit), waited too long; loop halted
+On 2026-11-14T02:59:02Z the HORIZON loop halted. Chunk dry-01 could not be started: 2 refusals since 2026-11-13T01:59:00Z for more than 24 hours, the limit of loop.WAIT_LIMIT_SECONDS, for a reason the loop classes as outside the campaign. Last: kernel push refused: kernel push failed: Kernel push error: Maximum batch CPU session count of 5 reached.  (class account session limit). No chunk failure was counted for it. Chunks of campaign dryrun: pending 3. The loop does nothing until the cause is found and jobs/state.json "halted" is set back to false and "deferral" to null by hand.
+[2026-11-14T02:59:02Z] commit: Loop: push of dry-01 refused (account session limit), waited too long; loop halted
 --- genuine scenario tick 1, unclassifiable refusal (exit 0)
-[2026-11-13T16:53:19Z] commit: Loop: dispatch dry-01 (attempt 1)
-[2026-11-13T16:53:20Z] commit: Loop: kernel push failed for dry-01
+[2026-11-14T02:59:05Z] commit: Loop: dispatch dry-01 (attempt 1)
+[2026-11-14T02:59:05Z] commit: Loop: kernel push failed for dry-01
 --- genuine scenario tick 2, authentication refused (exit 0)
-[2026-11-13T16:53:21Z] commit: Loop: dispatch dry-01 (attempt 2)
-[2026-11-13T16:53:22Z] commit: Loop: kernel push failed for dry-01
+[2026-11-14T02:59:06Z] commit: Loop: dispatch dry-01 (attempt 2)
+[2026-11-14T02:59:07Z] commit: Loop: kernel push failed for dry-01
 --- genuine scenario tick 3, authentication refused (exit 0)
-[2026-11-13T16:53:22Z] commit: Loop: dispatch dry-01 (attempt 3)
-[2026-11-13T16:53:23Z] STATE-ready text: On 2026-11-13T16:53:23Z the HORIZON loop halted. Chunk dry-01 (agent) failed 3 times, the registered maximum of 3. Last failure: kernel push failed: kernel push failed: Kernel push error: Authentication required to call the Kaggle API.  (kernel version None, run dryrun-dry-01-20261113T165322Z-60e2c4). Chunks of campaign dryrun: failed 1, pending 2. The loop does nothing until the cause is found and jobs/state.json "halted" is set back to false by hand.
-[2026-11-13T16:53:23Z] commit: Loop: kernel push failed for dry-01
+[2026-11-14T02:59:08Z] commit: Loop: dispatch dry-01 (attempt 3)
+[2026-11-14T02:59:09Z] STATE-ready text: On 2026-11-14T02:59:09Z the HORIZON loop halted. Chunk dry-01 (agent) failed 3 times, the registered maximum of 3. Last failure: kernel push failed: kernel push failed: Kernel push error: Authentication required to call the Kaggle API.  (kernel version None, run dryrun-dry-01-20261114T025908Z-01db81). Chunks of campaign dryrun: failed 1, pending 2. The loop does nothing until the cause is found and jobs/state.json "halted" is set back to false by hand.
+[2026-11-14T02:59:09Z] commit: Loop: kernel push failed for dry-01
 OK

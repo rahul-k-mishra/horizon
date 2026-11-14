@@ -12,7 +12,8 @@ agent   runs one agent on one game and seed.  The seed is the smallest resumable
 
 A simulator is reached through a small interface (root_enc, root_info, expand; see DummyGraph): the dry run
 uses DummyGraph, a deterministic integer graph slowed down by a sleep per batch, and the dummy agent, a
-sleep; stage D's kind devsearch uses sim_minigrid.MiniGridSim.
+sleep; stage D's kind devsearch uses sim_minigrid.MiniGridSim; the kind gvgaisearch uses sim_gvgai.GVGAISim,
+GVGAI's own forward model through JPype.
 """
 from __future__ import annotations
 
@@ -26,7 +27,7 @@ import time
 from array import array
 
 from common import now_iso, sha256_file
-from schema import AGENT_SCHEMA, SEARCH_SCHEMA, SEARCH_SCHEMA_V2, SEARCH_SCHEMA_V3
+from schema import AGENT_SCHEMA, AGENT_SCHEMA_V2, SEARCH_SCHEMA, SEARCH_SCHEMA_V2, SEARCH_SCHEMA_V3
 
 
 def rss_bytes():
@@ -103,6 +104,9 @@ def make_simulator(p, unit):
     if p["simulator"] == "minigrid":
         from sim_minigrid import MiniGridSim  # noqa: PLC0415 -- needs gymnasium and minigrid
         return MiniGridSim(p, unit)
+    if p["simulator"] == "gvgai":
+        from sim_gvgai import GVGAISim  # noqa: PLC0415 -- needs JPype and a JDK
+        return GVGAISim(p, unit)
     raise ValueError(f"unknown simulator {p['simulator']}")
 
 
@@ -395,9 +399,22 @@ def measures(state, cap_hit, p):
 
 # ---------------------------------------------------------------- agent
 def run_agent(unit, p, nonce, started):
-    """The dry run's dummy agent: it sleeps for params.sleep_seconds and records a row.  Real agents
-    plug in here (Phase 3); each gets params.unit_seconds_cap as its own wall-clock cap."""
+    """One agent unit.  agent_impl "dummy_sleep" (the dry run): sleeps for params.sleep_seconds.  agent_impl
+    "gvgai" (the kind gvgaiagent): study 1's agent unit["agent"] on GVGAI level unit["level"] of unit["game"],
+    seed unit["seed"], through agents_gvgai.run_unit, params.budget actions within params.unit_seconds_cap
+    seconds; the row is horizon.agent.v2, which carries the level."""
     t0 = time.time()
+    if p.get("agent_impl") == "gvgai":
+        from agents_gvgai import run_unit  # noqa: PLC0415 -- needs JPype and a JDK
+        r = run_unit(unit["agent"], unit["game"], unit["level"], unit["seed"], int(p["budget"]),
+                     float(p["unit_seconds_cap"]), cache=p.get("gvgai_cache"), games_dir=p.get("games_dir"))
+        stats = dict(r["agent_stats"], actions=r["actions"], first_level_end=r["first_level_end"])
+        return dict(schema=AGENT_SCHEMA_V2, campaign=unit["campaign"], unit_id=unit["unit_id"],
+                    chunk_id=unit["chunk_id"], suite=unit["suite"], game=unit["game"], level=int(unit["level"]),
+                    agent=unit["agent"], seed=unit["seed"], budget=int(p["budget"]),
+                    outcome=dict(level1_completed=bool(r["level1_completed"]), levels=int(r["levels"])),
+                    agent_stats=stats, cut_by_cap=bool(r["cut_by_cap"]), seconds=round(time.time() - t0, 3),
+                    sessions=[session_entry(nonce, started)], written_at=now_iso())
     if p.get("agent_impl", "dummy_sleep") != "dummy_sleep":
         raise NotImplementedError(f"agent implementation {p.get('agent_impl')} is not written yet")
     sleep = float(p["sleep_seconds"])

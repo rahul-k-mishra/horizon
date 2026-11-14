@@ -23,7 +23,7 @@ MANIFEST = "jobs/manifest.json"
 STATE = "jobs/state.json"
 LOCK = "jobs/lock.json"
 AUTOLOG = "logs/automation.log"
-KINDS = ("search", "agent", "devsearch")
+KINDS = ("search", "agent", "devsearch", "gvgaisearch", "gvgaiagent")
 CHUNK_STATUS = ("pending", "running", "partial", "done", "failed")
 
 

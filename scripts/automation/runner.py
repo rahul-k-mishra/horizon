@@ -74,6 +74,12 @@ def fetch_checkpoint(state_repo, m, chunk_id, dest):
     return ck
 
 
+def agent_unit(args):
+    """One agent unit in a worker process (the kind gvgaiagent).  Returns (unit_id, row)."""
+    from jobs import run_agent  # noqa: PLC0415
+    return args["unit"]["unit_id"], run_agent(args["unit"], args["params"], args["nonce"], args["started"])
+
+
 def devsearch_unit(args):
     """One unit of the kind devsearch, in a worker process.  Returns (unit_id, status, row, meta, counts):
     meta is the saved state of a unit stopped by the deadline (files in args['final_dir'])."""
@@ -220,6 +226,45 @@ class Session:
             return "deadline reached with devsearch units unfinished"
         return None
 
+    def run_agent_pool(self, m, chunk, units, done, deadline, nonce):
+        """The kind gvgaiagent: agent units on a worker pool.  A unit starts only if its own wall-clock cap
+        fits before the deadline, so no unit is cut by the session (the seed is the resumable unit).  Returns
+        the stop reason, or None."""
+        kp = unit_params(m, units[0]) if units else {}
+        workers = int(kp.get("workers", 4))
+        queue = [u for u in units if u["unit_id"] not in done]
+        self.say(f"agents: {len(queue)} units to run on {workers} workers")
+
+        def fits(u):
+            return deadline - time.time() >= float(unit_params(m, u)["unit_seconds_cap"])
+        with cf.ProcessPoolExecutor(max_workers=workers) as ex:
+            pending = set()
+
+            def fill():
+                while queue and len(pending) < workers and fits(queue[0]):
+                    u = queue.pop(0)
+                    pending.add(ex.submit(agent_unit, dict(unit=u, params=unit_params(m, u), nonce=nonce,
+                                                           started=self.started)))
+            fill()
+            while pending:
+                fin, pending = cf.wait(pending, return_when=cf.FIRST_COMPLETED)
+                for f in fin:
+                    uid, row = f.result()
+                    errs = validate_row(row, chunk["kind"])
+                    if errs:
+                        raise ValueError(f"row of {uid} fails its schema: {errs}")
+                    u = next(x for x in units if x["unit_id"] == uid)
+                    rel = row_relpath(m, u)
+                    write_json(os.path.join(self.stage, rel), row)
+                    self.result["rows"].append(dict(unit_id=uid, path=rel, sha256=sha256_file(os.path.join(self.stage, rel))))
+                    done.add(uid)
+                    self.say(f"agent unit {uid}: level1_completed {row['outcome']['level1_completed']}")
+                fill()
+        if queue:
+            self.write_checkpoint(m, chunk, done, None, nonce)
+            return f"deadline: {len(queue)} agent units do not fit before it"
+        return None
+
     def run(self):
         st = read_json(os.path.join(self.state_repo, STATE))
         d = st.get("dispatch")
@@ -267,8 +312,11 @@ class Session:
             self.say(f"no checkpoint: starting the chunk; {len(done)} units already have done-markers")
         start_done = set(done)
         stop_reason = None
-        if chunk["kind"] == "devsearch":
+        if chunk["kind"] in ("devsearch", "gvgaisearch"):
             stop_reason = self.run_pool(m, chunk, units, done, ck, ck_dir, deadline, nonce)
+            units_loop = []
+        elif chunk["kind"] == "gvgaiagent":
+            stop_reason = self.run_agent_pool(m, chunk, units, done, deadline, nonce)
             units_loop = []
         else:
             units_loop = units

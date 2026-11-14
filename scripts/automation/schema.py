@@ -10,7 +10,11 @@ fields.  The rule they enforce: no feature may be computable only after an agent
     horizon.search.v3   v2 plus a cap on the states seen ("seen_cap" in caps, cap_hit "seen") and two
                         counts, seen_at_first_win and expanded_at_first_win: the states seen and expanded
                         when the first win state was seen (stage E, docs/design/STAGE_E_OPTIONS.md); a
-                        unit stopped at the seen cap is censored at that number of states, not excluded
+                        unit stopped at the seen cap is censored at that number of states, not excluded.
+                        The kind gvgaisearch (GVGAI levels, docs/DESIGN.md Section 5) writes the same schema,
+                        unchanged, under runs/<campaign>/gvgaisearch/
+    horizon.agent.v2    v1 plus "level", the level the agent played; written by the kind gvgaiagent under
+                        runs/<campaign>/gvgaiagent/ (a GVGAI unit is a (game, level) pair, docs/PREREG.md Section 4)
     horizon.agent.v1    runs/<campaign>/agent/<unit_id>.json    written by an agent job; its "outcome"
                         is the only part an analysis may read, and only as the outcome; "agent_stats"
                         (what the agent did, how many states it saw, how many actions it took) is kept
@@ -25,9 +29,10 @@ import json
 SEARCH_SCHEMA = "horizon.search.v1"
 SEARCH_SCHEMA_V2 = "horizon.search.v2"
 SEARCH_SCHEMA_V3 = "horizon.search.v3"
-SEARCH_KINDS = ("search", "devsearch")
+SEARCH_KINDS = ("search", "devsearch", "gvgaisearch")
 MEASURE_KEYS = {"branching", "eh", "eh_k", "eh_status", "eh_horizon"}
 AGENT_SCHEMA = "horizon.agent.v1"
+AGENT_SCHEMA_V2 = "horizon.agent.v2"
 IDENTITY = {"schema", "campaign", "unit_id", "chunk_id", "suite", "game", "sessions", "written_at"}
 SEARCH_KEYS = IDENTITY | {"level", "complete", "capped", "cap_hit", "counts", "caps", "seconds_spent"}
 SEARCH_COUNTS = {"states_seen", "states_expanded", "depth_max", "frontier_left", "solution_length",
@@ -38,10 +43,11 @@ AGENT_KEYS = IDENTITY | {"agent", "seed", "budget", "outcome", "agent_stats", "c
 OUTCOME_KEYS = {"level1_completed", "levels"}
 SESSION_KEYS = {"run_nonce", "host", "started_at", "ended_at", "kaggle_env"}
 SEARCH_KEYS_V2 = SEARCH_KEYS | {"measures"}
+AGENT_KEYS_V2 = AGENT_KEYS | {"level"}
 SEARCH_COUNTS_V3 = SEARCH_COUNTS | {"seen_at_first_win", "expanded_at_first_win"}
 SEARCH_CAPS_V3 = SEARCH_CAPS | {"seen_cap"}
 CAP_KINDS_V3 = CAP_KINDS + ("seen",)
-assert not (SEARCH_KEYS_V2 - IDENTITY) & (AGENT_KEYS - IDENTITY), "the two schemas must stay disjoint"
+assert not (SEARCH_KEYS_V2 - IDENTITY - {"level"}) & (AGENT_KEYS_V2 - IDENTITY), "the two schemas must stay disjoint"
 
 
 def _sessions(row, errs):
@@ -90,12 +96,15 @@ def validate_search_row(row):
 
 def validate_agent_row(row):
     errs = []
-    if row.get("schema") != AGENT_SCHEMA:
-        return [f"schema is {row.get('schema')!r}, expected {AGENT_SCHEMA}"]
-    if set(row) != AGENT_KEYS:
-        errs.append(f"keys differ from {AGENT_SCHEMA}: extra {sorted(set(row) - AGENT_KEYS)}, "
-                    f"missing {sorted(AGENT_KEYS - set(row))}")
+    keys = {AGENT_SCHEMA: AGENT_KEYS, AGENT_SCHEMA_V2: AGENT_KEYS_V2}.get(row.get("schema"))
+    if keys is None:
+        return [f"schema is {row.get('schema')!r}, expected {AGENT_SCHEMA} or {AGENT_SCHEMA_V2}"]
+    if set(row) != keys:
+        errs.append(f"keys differ from {row['schema']}: extra {sorted(set(row) - keys)}, "
+                    f"missing {sorted(keys - set(row))}")
         return errs
+    if row["schema"] == AGENT_SCHEMA_V2 and (not isinstance(row["level"], int) or isinstance(row["level"], bool)):
+        errs.append("level must be an integer")
     if set(row["outcome"]) != OUTCOME_KEYS:
         errs.append(f"outcome keys {sorted(row['outcome'])}, expected {sorted(OUTCOME_KEYS)}")
     elif not isinstance(row["outcome"]["level1_completed"], bool):

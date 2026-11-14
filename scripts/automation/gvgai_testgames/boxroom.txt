@@ -1,0 +1,20 @@
+BasicGame square_size=10
+    SpriteSet
+        floor > Immovable hidden=True
+        goal > Immovable
+        box > Passive
+        avatar > MovingAvatar
+        wall > Immovable
+    LevelMapping
+        A > avatar floor
+        g > goal floor
+        1 > box floor
+        . > floor
+        w > wall
+    InteractionSet
+        avatar wall > stepBack
+        box avatar > bounceForward
+        box wall box > undoAll
+        goal avatar > killSprite scoreChange=1
+    TerminationSet
+        SpriteCounter stype=goal limit=0 win=True
