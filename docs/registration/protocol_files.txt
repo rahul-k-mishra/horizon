@@ -18,6 +18,9 @@ scripts/vgdl_scan.py
 docs/design/vgdl_scan.json
 scripts/draw_pilot.py
 logs/draw_pilot.log
+scripts/suite.py
+scripts/fit_rule.py
+logs/fit_rule.log
 scripts/truth_vgdl.py
 scripts/test_truth_vgdl.py
 docs/truth/gvgai.json
@@ -35,8 +38,23 @@ logs/dev_reading.log
 scripts/stage_e_diagnosis.py
 logs/stage_e_diagnosis.log
 scripts/stage_e_reading.py
+scripts/power_primary.py
+logs/power_primary.log
+docs/design/power_primary.json
 scripts/design_budget.py
 logs/design_budget.log
+
+# the state key and the copies of study 1's agents
+scripts/engine_semantics.py
+logs/engine_semantics.log
+logs/engine_merge_rerun.log
+scripts/engine_subset.py
+logs/engine_subset.log
+scripts/automation/gvgai_java/core/game/HorizonBridge.java
+scripts/automation/sim_gvgai.py
+scripts/automation/agents_gvgai.py
+scripts/check_agent_copies.py
+logs/check_agent_copies.log
 
 # the registered analysis
 scripts/analyze_horizon.py
@@ -58,8 +76,8 @@ requirements-loop.txt
 # docs/truth/handcheck_answers.json
 # docs/truth/HANDCHECK_RESULT.md
 # docs/truth/gvgai_features.json (grid area, action count, colour count per level, read by scripts/analyze_horizon.py)
-# the GVGAI adapter and its tests
-# the GVGAI search job and its tests
-# the copies of study 1's agents (scripts/g_nav.py, scripts/g_agent.py, I1 and its adapter) and their check
+# the tests of the GVGAI adapter and search job, and the logs of their final runs
+# the copies of study 1's files under third_party/study1 (listed one by one at the tag)
+# the threshold of the void rule of L_C, entered in docs/PREREG.md, Section 7.4, rule 5, after the pilot search
 # the pilot search's rows and log
 # logs/design_budget.log rerun with C

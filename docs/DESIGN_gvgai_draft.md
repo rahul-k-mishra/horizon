@@ -1,6 +1,6 @@
 # DESIGN_gvgai_draft.md: the GVGAI frame contract and the search state, as built (draft, not adopted)
 
-Written 14 November 2026, beside docs/DESIGN.md, because parts of it change what docs/PREREG.md (draft v0) and docs/DESIGN.md now say. Nothing here is registered or adopted. Each point the author must decide is marked **For the author**. The engine decision and its evidence are in docs/design/ENGINE.md.
+Written 14 November 2026, beside docs/DESIGN.md, because parts of it change what docs/PREREG.md (draft v0) and docs/DESIGN.md now say. **Decided the same day:** the author adopted the extended key (Section 3), the fit rule (Section 2, option 1), the principle of a void rule for L_C with its threshold left open until the pilot (Section 5), and horizon.agent.v2 (Section 1); the registered text is in docs/PREREG.md, marked [decided 14 Nov 2026, GVGAI n], and docs/STATE.md, amendment (ab). The rest of this file is kept as it was written; it is not registered. Each point the author must decide is marked **For the author**. The engine decision and its evidence are in docs/design/ENGINE.md.
 
 ## 1. The frame contract as built
 
