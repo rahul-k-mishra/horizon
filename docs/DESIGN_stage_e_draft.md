@@ -1,6 +1,6 @@
 # DESIGN, stage E draft: the changes option E would make to docs/DESIGN.md
 
-**Status: not adopted.** Written 13 November 2026 beside docs/DESIGN.md, which is unchanged. If the author adopts option E (docs/design/STAGE_E_OPTIONS.md), docs/DESIGN.md changes in the sections below, by the same text as docs/PREREG_stage_e_draft.md, so that the two documents stay in step. Each change is marked with its date and reason when adopted.
+**Status: adopted 14 November 2026** into docs/DESIGN.md, with the author's answers of that day (docs/DECISIONS_BEFORE_TAG.md); where an answer differed from this draft, the answer was followed. This file is kept unchanged below as the record of the draft. Written 13 November 2026 beside docs/DESIGN.md. If the author adopts option E (docs/design/STAGE_E_OPTIONS.md), docs/DESIGN.md changes in the sections below, by the same text as docs/PREREG_stage_e_draft.md, so that the two documents stay in step. Each change is marked with its date and reason when adopted.
 
 | DESIGN section | change | the text to use |
 |---|---|---|
