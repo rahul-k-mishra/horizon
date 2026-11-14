@@ -9,7 +9,12 @@ make_gvgai_manifests.py -- writes two manifests of the kind gvgaisearch, neither
                                             and must resume from a checkpoint); sessions of 180 s of work.
     jobs/pilot_search/manifest.json         the pilot search of docs/PREREG.md, Section 8 (decision 10 of 14 November
                                             2026): the 20 levels of the 4 pilot games of logs/draw_pilot.log, seen cap
-                                            2,000,000, the other caps of Section 6, the registered state key.
+                                            2,000,000, the other caps of Section 6, the registered state key (the
+                                            extended key, decided 14 November 2026); and the same 20 levels again
+                                            under the v0 key that decision replaced (unit params key_form "v0", unit
+                                            ids ending "-v0"), only so that the effect of the key on the states seen
+                                            can be measured on pilot levels (PREREG Section 6).  G3 and the pilot's
+                                            counts are read from the extended-key units alone.
 
 Both name the code tag CODE_TAG, which does not exist yet: it is cut on the commit that holds the GVGAI code when a
 manifest is installed as jobs/manifest.json, after stage E's campaign is done (the loop runs one manifest at a
@@ -35,7 +40,7 @@ from common import check_manifest  # noqa: E402
 CODE_TAG = "automation-v4"
 SEEN_CAP = 2_000_000
 LOAD = 0.60
-BASE = dict(simulator="gvgai", key_form="registered", workers=4, schema="horizon.search.v3", seen_cap=SEEN_CAP,
+BASE = dict(simulator="gvgai", key_form="extended", workers=4, schema="horizon.search.v3", seen_cap=SEEN_CAP,
             node_cap=5_000_000, time_cap_seconds=14400, memory_cap_bytes=6442450944, spill_frontier_over=1_000_000,
             checkpoint_every_seconds=600, checkpoint_every_nodes=250000, batch=200, eh_state_limit=0, eh_horizon=0)
 SESSION = dict(work_seconds=28800, checkpoint_reserve_seconds=900, platform_limit_seconds=32400)
@@ -46,8 +51,8 @@ def manifest(campaign, kind, session, units_spec, payload_limit):
     chunks, units = [], []
     for cid, specs in units_spec:
         chunks.append(dict(chunk_id=cid, kind="gvgaisearch", status="pending", attempts=0, failures=0, sessions=[]))
-        for game, level, params in specs:
-            u = dict(unit_id=f"{cid}-{game}-l{level}", chunk_id=cid, kind="gvgaisearch", suite="gvgai", game=game,
+        for game, level, params, *suffix in specs:
+            u = dict(unit_id=f"{cid}-{game}-l{level}{suffix[0] if suffix else ''}", chunk_id=cid, kind="gvgaisearch", suite="gvgai", game=game,
                      level=level, agent=None, seed=None, status="pending")
             if params:
                 u["params"] = params
@@ -100,23 +105,31 @@ def main():
         raise SystemExit(f"logs/engine_speed.log gives bounds for {len(bound)} of the 20 pilot levels")
     cap = BASE["workers"] * SESSION["work_seconds"]
     bins = []
-    for k in sorted(bound, key=lambda x: (-bound[x], x)):
+    # every pilot level twice: under the registered (extended) key, and under the v0 key for the measurement only
+    items = {(g, lv, form): t for (g, lv), t in bound.items() for form in ("extended", "v0")}
+    for k in sorted(items, key=lambda x: (-items[x], x)):
         for b in bins:
-            if b[0] + bound[k] <= LOAD * cap:
-                b[0] += bound[k]
+            if b[0] + items[k] <= LOAD * cap:
+                b[0] += items[k]
                 b[1].append(k)
                 break
         else:
-            bins.append([bound[k], [k]])
-    spec = [(f"p-{i + 1:02d}", [(g, lv, None) for g, lv in keys]) for i, (_l, keys) in enumerate(bins)]
+            bins.append([items[k], [k]])
+    spec = [(f"p-{i + 1:02d}", [(g, lv, None) if f == "extended" else (g, lv, dict(key_form="v0"), "-v0")
+                                for g, lv, f in keys]) for i, (_l, keys) in enumerate(bins)]
     pil = manifest("gvgai-pilot-search", dict(BASE), SESSION, spec, 50_000_000)
     print(f"\npilot search: campaign {pil['campaign']}, code tag {CODE_TAG}, games {', '.join(pilot)}, "
           f"{len(pil['units'])} units; seen cap {SEEN_CAP:,}, time cap {BASE['time_cap_seconds']} s, "
-          f"{BASE['memory_cap_bytes']} bytes per worker, key form {BASE['key_form']}")
+          f"{BASE['memory_cap_bytes']} bytes per worker; key form {BASE['key_form']} on "
+          f"{sum(1 for u in pil['units'] if 'params' not in u)} units, v0 on "
+          f"{sum(1 for u in pil['units'] if u.get('params', {}).get('key_form') == 'v0')} (ids ending -v0, for the "
+          f"measurement of the key's effect only)")
     for (load, keys), (cid, _s) in zip(bins, spec):
         print(f"chunk {cid}: {len(keys)} units, sum of the laptop bounds {load:.0f} worker-seconds ({load / cap:.0%} of a "
-              f"session), four-worker finishing time by the bounds {lpt([bound[k] for k in keys], 4):.0f} s of "
+              f"session), four-worker finishing time by the bounds {lpt([items[k] for k in keys], 4):.0f} s of "
               f"{SESSION['work_seconds']} s")
+    print("every unit is charged the bound of its level as logs/engine_speed.log measured it, under the v0 key; the "
+          "extended key adds six numbers per sprite to each key, and its speed is not measured")
     print("the bounds are the laptop's (logs/engine_speed.log); a Kaggle session's speed is not known until it runs, "
           "and a chunk that overruns resumes from its checkpoint")
     print(f"written {write(pil, 'pilot_search')}")

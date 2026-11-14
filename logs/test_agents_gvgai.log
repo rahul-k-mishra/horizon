@@ -11,19 +11,19 @@ ok   key map 1 up, 2 down, 3 left, 4 right (['left', 'right', 'down', 'up'])
 ok   the palette keeps its indices across steps
    bait level 0: grid 6 x 5, 6 indices after 4 steps, actions ['left', 'right', 'down', 'up']
 == 3. N, R, I1 and Rand on bait level 0, 2,000 actions each
-   N: level1_completed True, levels 8, actions 2000, first level end 53, 3.767 s
+   N: level1_completed True, levels 8, actions 2000, first level end 53, 3.971 s
 ok   N: the row passes horizon.agent.v2 with level 0 ([])
 ok   N: without level it is a valid v1 row, with level it is not
 ok   N: 2,000 actions played, or the row says it was cut
-   R: level1_completed True, levels 7, actions 2000, first level end 42, 0.775 s
+   R: level1_completed True, levels 7, actions 2000, first level end 42, 0.772 s
 ok   R: the row passes horizon.agent.v2 with level 0 ([])
 ok   R: without level it is a valid v1 row, with level it is not
 ok   R: 2,000 actions played, or the row says it was cut
-   I1: level1_completed False, levels 0, actions 2000, first level end None, 31.593 s
+   I1: level1_completed False, levels 0, actions 2000, first level end None, 32.676 s
 ok   I1: the row passes horizon.agent.v2 with level 0 ([])
 ok   I1: without level it is a valid v1 row, with level it is not
 ok   I1: 2,000 actions played, or the row says it was cut
-   Rand: level1_completed False, levels 0, actions 2000, first level end None, 0.292 s
+   Rand: level1_completed False, levels 0, actions 2000, first level end None, 0.316 s
 ok   Rand: the row passes horizon.agent.v2 with level 0 ([])
 ok   Rand: without level it is a valid v1 row, with level it is not
 ok   Rand: 2,000 actions played, or the row says it was cut

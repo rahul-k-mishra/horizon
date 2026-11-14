@@ -1,7 +1,9 @@
 dry run: campaign gvgaisearch-dryrun, code tag automation-v4, 3 units in 1 chunk, sessions of 180 s of work; boxroom level 0 slowed to 0.5 s per 5 expansions, so that its 2,756 expansions (logs/test_gvgaisearch.log) take about 276 s and need a second session
 written jobs\gvgaisearch_dryrun\manifest.json
 
-pilot search: campaign gvgai-pilot-search, code tag automation-v4, games bait, labyrinthdual, rivers, watergame, 20 units; seen cap 2,000,000, time cap 14400 s, 6442450944 bytes per worker, key form registered
-chunk p-01: 20 units, sum of the laptop bounds 63164 worker-seconds (55% of a session), four-worker finishing time by the bounds 16097 s of 28800 s
+pilot search: campaign gvgai-pilot-search, code tag automation-v4, games bait, labyrinthdual, rivers, watergame, 40 units; seen cap 2,000,000, time cap 14400 s, 6442450944 bytes per worker; key form extended on 20 units, v0 on 20 (ids ending -v0, for the measurement of the key's effect only)
+chunk p-01: 12 units, sum of the laptop bounds 69111 worker-seconds (60% of a session), four-worker finishing time by the bounds 18258 s of 28800 s
+chunk p-02: 28 units, sum of the laptop bounds 57217 worker-seconds (50% of a session), four-worker finishing time by the bounds 14597 s of 28800 s
+every unit is charged the bound of its level as logs/engine_speed.log measured it, under the v0 key; the extended key adds six numbers per sprite to each key, and its speed is not measured
 the bounds are the laptop's (logs/engine_speed.log); a Kaggle session's speed is not known until it runs, and a chunk that overruns resumes from its checkpoint
 written jobs\pilot_search\manifest.json

@@ -23,6 +23,12 @@ level is played here.  Nothing printed is a search quantity of a level (no state
 
 Run (working directory D:\\Research\\horizon\\repo):
     D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\engine_semantics.py --cache D:\\Research\\horizon\\gvgai-cache > logs\\engine_semantics.log
+
+Names since 14 November 2026: the key called "registered" above and in logs/engine_semantics.log is the key of
+docs/PREREG.md v0, now called "v0"; the extended key is the registered state (PREREG Section 6, decided that day)
+and the default of the search.  --merge-only repeats check 2 alone, with the v0 key and the extended key, at a
+larger walk and number of merges (the re-run asked for by that decision):
+    D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\engine_semantics.py --cache D:\\Research\\horizon\\gvgai-cache --merge-only --walk 30000 --merges 5000 > logs\\engine_merge_rerun.log
 """
 from __future__ import annotations
 
@@ -71,7 +77,7 @@ def loop_vs_model(bridge, gf, lf, seq):
     return ok, n_before, end_ticks, (None if ok else (diff, len(gk), len(fk), gs, fs))
 
 
-def merge_check(bridge, cache, game, level, tick, walk, merges, form="registered"):
+def merge_check(bridge, cache, game, level, tick, walk, merges, form="v0"):
     """BFS with the key `form` and tick rule `tick`; at a merge, both paths' successors are compared."""
     sim = sim_gvgai.GVGAISim(dict(with_tick={game: tick}, gvgai_cache=cache, key_form=form), dict(game=game, level=level))
     first = {}
@@ -99,6 +105,33 @@ def merge_check(bridge, cache, game, level, tick, walk, merges, form="registered
     return len(pending), bad
 
 
+def merge_only(a):
+    """Check 2 alone on the 20 pilot levels, with the v0 key and the extended (registered) key."""
+    sim_gvgai.start_jvm(a.cache)
+    games = pilot_games()
+    print(f"== check 2 alone (--merge-only); pilot games: {', '.join(games)}; levels 0 to 4")
+    print(f"a breadth-first search of up to {a.walk} expansions per level; up to {a.merges} merges compared per level "
+          f"and key form; a merge is a successor whose key was already seen through another path, and both "
+          f"paths' states are expanded and their successors' keys and statuses compared")
+    print("nothing printed is a search quantity of a level (no state count, win or solution length)")
+    print("\n== per level: game level | tick in the key | v0 key: merges compared, differing | extended key: merges "
+          "compared, differing")
+    tot = collections.Counter()
+    t0 = time.time()
+    for g in games:
+        tick = sim_gvgai.with_tick(g)
+        for lv in range(5):
+            c0 = merge_check(None, a.cache, g, lv, tick, a.walk, a.merges, form="v0")
+            c1 = merge_check(None, a.cache, g, lv, tick, a.walk, a.merges, form="extended")
+            tot.update(v0=c0[0], v0_bad=c0[1], ext=c1[0], ext_bad=c1[1])
+            print(f"{g:14s} {lv} | {'yes' if tick else 'no '} | {c0[0]}, {c0[1]} | {c1[0]}, {c1[1]}", flush=True)
+    print("\n== totals")
+    print(f"v0 key: {tot['v0']} merges compared, {tot['v0_bad']} with different successors")
+    print(f"extended key: {tot['ext']} merges compared, {tot['ext_bad']} with different successors")
+    print(f"wall time {time.time() - t0:.0f} s")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--cache", required=True)
@@ -107,7 +140,10 @@ def main():
     ap.add_argument("--walk", type=int, default=3000)
     ap.add_argument("--merges", type=int, default=500)
     ap.add_argument("--seed", type=int, default=20261114)
+    ap.add_argument("--merge-only", action="store_true", help="check 2 alone, v0 key and extended key")
     a = ap.parse_args()
+    if a.merge_only:
+        return merge_only(a)
     bridge = sim_gvgai.start_jvm(a.cache)
     games = pilot_games()
     print(f"== pilot games: {', '.join(games)}; levels 0 to 4; seed {a.seed}")
@@ -170,4 +206,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

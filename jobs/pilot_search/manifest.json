@@ -8,6 +8,14 @@
    "kind": "gvgaisearch",
    "sessions": [],
    "status": "pending"
+  },
+  {
+   "attempts": 0,
+   "chunk_id": "p-02",
+   "failures": 0,
+   "kind": "gvgaisearch",
+   "sessions": [],
+   "status": "pending"
   }
  ],
  "code_tag": "automation-v4",
@@ -19,7 +27,7 @@
    "checkpoint_every_seconds": 600,
    "eh_horizon": 0,
    "eh_state_limit": 0,
-   "key_form": "registered",
+   "key_form": "extended",
    "memory_cap_bytes": 6442450944,
    "node_cap": 5000000,
    "schema": "horizon.search.v3",
@@ -55,11 +63,39 @@
    "chunk_id": "p-01",
    "game": "rivers",
    "kind": "gvgaisearch",
+   "level": 1,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-01-rivers-l1-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-01",
+   "game": "rivers",
+   "kind": "gvgaisearch",
    "level": 3,
    "seed": null,
    "status": "pending",
    "suite": "gvgai",
    "unit_id": "p-01-rivers-l3"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-01",
+   "game": "rivers",
+   "kind": "gvgaisearch",
+   "level": 3,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-01-rivers-l3-v0"
   },
   {
    "agent": null,
@@ -77,11 +113,39 @@
    "chunk_id": "p-01",
    "game": "rivers",
    "kind": "gvgaisearch",
+   "level": 0,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-01-rivers-l0-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-01",
+   "game": "rivers",
+   "kind": "gvgaisearch",
    "level": 4,
    "seed": null,
    "status": "pending",
    "suite": "gvgai",
    "unit_id": "p-01-rivers-l4"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-01",
+   "game": "rivers",
+   "kind": "gvgaisearch",
+   "level": 4,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-01-rivers-l4-v0"
   },
   {
    "agent": null,
@@ -97,6 +161,20 @@
   {
    "agent": null,
    "chunk_id": "p-01",
+   "game": "rivers",
+   "kind": "gvgaisearch",
+   "level": 2,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-01-rivers-l2-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-01",
    "game": "labyrinthdual",
    "kind": "gvgaisearch",
    "level": 1,
@@ -104,61 +182,6 @@
    "status": "pending",
    "suite": "gvgai",
    "unit_id": "p-01-labyrinthdual-l1"
-  },
-  {
-   "agent": null,
-   "chunk_id": "p-01",
-   "game": "labyrinthdual",
-   "kind": "gvgaisearch",
-   "level": 0,
-   "seed": null,
-   "status": "pending",
-   "suite": "gvgai",
-   "unit_id": "p-01-labyrinthdual-l0"
-  },
-  {
-   "agent": null,
-   "chunk_id": "p-01",
-   "game": "labyrinthdual",
-   "kind": "gvgaisearch",
-   "level": 3,
-   "seed": null,
-   "status": "pending",
-   "suite": "gvgai",
-   "unit_id": "p-01-labyrinthdual-l3"
-  },
-  {
-   "agent": null,
-   "chunk_id": "p-01",
-   "game": "labyrinthdual",
-   "kind": "gvgaisearch",
-   "level": 4,
-   "seed": null,
-   "status": "pending",
-   "suite": "gvgai",
-   "unit_id": "p-01-labyrinthdual-l4"
-  },
-  {
-   "agent": null,
-   "chunk_id": "p-01",
-   "game": "bait",
-   "kind": "gvgaisearch",
-   "level": 3,
-   "seed": null,
-   "status": "pending",
-   "suite": "gvgai",
-   "unit_id": "p-01-bait-l3"
-  },
-  {
-   "agent": null,
-   "chunk_id": "p-01",
-   "game": "labyrinthdual",
-   "kind": "gvgaisearch",
-   "level": 2,
-   "seed": null,
-   "status": "pending",
-   "suite": "gvgai",
-   "unit_id": "p-01-labyrinthdual-l2"
   },
   {
    "agent": null,
@@ -173,91 +196,356 @@
   },
   {
    "agent": null,
-   "chunk_id": "p-01",
+   "chunk_id": "p-02",
+   "game": "labyrinthdual",
+   "kind": "gvgaisearch",
+   "level": 1,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-labyrinthdual-l1-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
+   "game": "labyrinthdual",
+   "kind": "gvgaisearch",
+   "level": 0,
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-labyrinthdual-l0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
+   "game": "labyrinthdual",
+   "kind": "gvgaisearch",
+   "level": 0,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-labyrinthdual-l0-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
+   "game": "labyrinthdual",
+   "kind": "gvgaisearch",
+   "level": 3,
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-labyrinthdual-l3"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
+   "game": "labyrinthdual",
+   "kind": "gvgaisearch",
+   "level": 3,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-labyrinthdual-l3-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
+   "game": "labyrinthdual",
+   "kind": "gvgaisearch",
+   "level": 4,
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-labyrinthdual-l4"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
+   "game": "labyrinthdual",
+   "kind": "gvgaisearch",
+   "level": 4,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-labyrinthdual-l4-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
+   "game": "bait",
+   "kind": "gvgaisearch",
+   "level": 3,
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-bait-l3"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
+   "game": "bait",
+   "kind": "gvgaisearch",
+   "level": 3,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-bait-l3-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
+   "game": "labyrinthdual",
+   "kind": "gvgaisearch",
+   "level": 2,
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-labyrinthdual-l2"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
+   "game": "labyrinthdual",
+   "kind": "gvgaisearch",
+   "level": 2,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-labyrinthdual-l2-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
+   "game": "bait",
+   "kind": "gvgaisearch",
+   "level": 2,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-bait-l2-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
    "game": "bait",
    "kind": "gvgaisearch",
    "level": 1,
    "seed": null,
    "status": "pending",
    "suite": "gvgai",
-   "unit_id": "p-01-bait-l1"
+   "unit_id": "p-02-bait-l1"
   },
   {
    "agent": null,
-   "chunk_id": "p-01",
+   "chunk_id": "p-02",
+   "game": "bait",
+   "kind": "gvgaisearch",
+   "level": 1,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-bait-l1-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
    "game": "bait",
    "kind": "gvgaisearch",
    "level": 0,
    "seed": null,
    "status": "pending",
    "suite": "gvgai",
-   "unit_id": "p-01-bait-l0"
+   "unit_id": "p-02-bait-l0"
   },
   {
    "agent": null,
-   "chunk_id": "p-01",
+   "chunk_id": "p-02",
+   "game": "bait",
+   "kind": "gvgaisearch",
+   "level": 0,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-bait-l0-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
    "game": "bait",
    "kind": "gvgaisearch",
    "level": 4,
    "seed": null,
    "status": "pending",
    "suite": "gvgai",
-   "unit_id": "p-01-bait-l4"
+   "unit_id": "p-02-bait-l4"
   },
   {
    "agent": null,
-   "chunk_id": "p-01",
+   "chunk_id": "p-02",
+   "game": "bait",
+   "kind": "gvgaisearch",
+   "level": 4,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-bait-l4-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
    "game": "watergame",
    "kind": "gvgaisearch",
    "level": 3,
    "seed": null,
    "status": "pending",
    "suite": "gvgai",
-   "unit_id": "p-01-watergame-l3"
+   "unit_id": "p-02-watergame-l3"
   },
   {
    "agent": null,
-   "chunk_id": "p-01",
+   "chunk_id": "p-02",
+   "game": "watergame",
+   "kind": "gvgaisearch",
+   "level": 3,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-watergame-l3-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
    "game": "watergame",
    "kind": "gvgaisearch",
    "level": 4,
    "seed": null,
    "status": "pending",
    "suite": "gvgai",
-   "unit_id": "p-01-watergame-l4"
+   "unit_id": "p-02-watergame-l4"
   },
   {
    "agent": null,
-   "chunk_id": "p-01",
+   "chunk_id": "p-02",
+   "game": "watergame",
+   "kind": "gvgaisearch",
+   "level": 4,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-watergame-l4-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
    "game": "watergame",
    "kind": "gvgaisearch",
    "level": 2,
    "seed": null,
    "status": "pending",
    "suite": "gvgai",
-   "unit_id": "p-01-watergame-l2"
+   "unit_id": "p-02-watergame-l2"
   },
   {
    "agent": null,
-   "chunk_id": "p-01",
+   "chunk_id": "p-02",
+   "game": "watergame",
+   "kind": "gvgaisearch",
+   "level": 2,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-watergame-l2-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
    "game": "watergame",
    "kind": "gvgaisearch",
    "level": 1,
    "seed": null,
    "status": "pending",
    "suite": "gvgai",
-   "unit_id": "p-01-watergame-l1"
+   "unit_id": "p-02-watergame-l1"
   },
   {
    "agent": null,
-   "chunk_id": "p-01",
+   "chunk_id": "p-02",
+   "game": "watergame",
+   "kind": "gvgaisearch",
+   "level": 1,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-watergame-l1-v0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
    "game": "watergame",
    "kind": "gvgaisearch",
    "level": 0,
    "seed": null,
    "status": "pending",
    "suite": "gvgai",
-   "unit_id": "p-01-watergame-l0"
+   "unit_id": "p-02-watergame-l0"
+  },
+  {
+   "agent": null,
+   "chunk_id": "p-02",
+   "game": "watergame",
+   "kind": "gvgaisearch",
+   "level": 0,
+   "params": {
+    "key_form": "v0"
+   },
+   "seed": null,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "p-02-watergame-l0-v0"
   }
  ]
 }

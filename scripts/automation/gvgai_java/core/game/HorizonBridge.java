@@ -25,9 +25,9 @@ import ontology.Types;
  *   load        parses a description and builds a level, as GVGAI's ArcadeMachine does, and returns the
  *               level start as a StateObservation.
  *   key         the canonical serialization of a state (docs/PREREG.md, Section 6): for every sprite its
- *               type, position, orientation and resources, the avatar's health points, and the game tick
- *               only when withTick is set.  Sprites of one type are sorted, so the order in which GVGAI
- *               created them does not enter the key.
+ *               type, position in pixels, orientation, resources and health points, and the counters of the
+ *               form EXTENDED below; the game tick only when withTick is set.  Sprites of one type are sorted,
+ *               so the order in which GVGAI created them does not enter the key.
  *   status      0 running, 1 win, 2 loss by a termination, 3 loss by GVGAI's own limit of game ticks.
  *   Expander    the search's successor function: a frontier entry is the action sequence from the level
  *               start; consecutive entries share prefixes, so a stack of copies along the last sequence
@@ -79,12 +79,14 @@ public class HorizonBridge {
     }
 
     // ------------------------------------------------------------------ the state key
-    /** Key forms.  REGISTERED is docs/PREREG.md, Section 6.  EXTENDED adds, per sprite, the counters GVGAI keeps
-     *  that change over time and decide later transitions: the age of a Flicker (and of OrientedFlicker and
-     *  Spreader, its subclasses), the counter and first tick of a SpawnPoint, the health points of every sprite,
-     *  and the ticks since the last move of a sprite whose cooldown exceeds 1.  It is offered for the author's
-     *  decision (docs/design/ENGINE.md, Section 3) and is not the registered key. */
-    public static final int REGISTERED = 0, EXTENDED = 1;
+    /** Key forms.  EXTENDED is the registered state of docs/PREREG.md, Section 6, as decided on 14 November 2026,
+     *  and the default.  V0 is the key of PREREG v0, which that decision replaced; it is kept only so that the
+     *  check of scripts/engine_semantics.py can be repeated.  EXTENDED adds to V0, per sprite, the counters GVGAI
+     *  keeps that change over time and decide later transitions: the health points of every sprite (V0: the
+     *  avatar's only), the age of a Flicker (and of OrientedFlicker and Spreader, its subclasses), the counter
+     *  and first tick of a SpawnPoint (and of Bomber, BomberRandomMissile and RandomBomber, its subclasses), the
+     *  ticks since the last move of a sprite whose cooldown exceeds 1, and the cooldown. */
+    public static final int V0 = 0, EXTENDED = 1;
 
     private static long[] spriteRecord(VGDLSprite sp, boolean isAvatar, int form) {
         Map<Integer, Integer> res = sp.resources;
@@ -144,7 +146,7 @@ public class HorizonBridge {
     }
 
     public static byte[] key(StateObservation so, boolean withTick) {
-        return key(so, withTick, REGISTERED);
+        return key(so, withTick, EXTENDED);
     }
 
     public static byte[] key(StateObservation so, boolean withTick, int form) {
@@ -187,7 +189,7 @@ public class HorizonBridge {
         public long advances = 0, copies = 0;
 
         public Expander(StateObservation root, boolean withTick) {
-            this(root, withTick, REGISTERED);
+            this(root, withTick, EXTENDED);
         }
 
         public Expander(StateObservation root, boolean withTick, int form) {

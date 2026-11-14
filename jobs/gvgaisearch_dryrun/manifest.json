@@ -20,7 +20,7 @@
    "eh_horizon": 0,
    "eh_state_limit": 0,
    "games_dir": "scripts/automation/gvgai_testgames",
-   "key_form": "registered",
+   "key_form": "extended",
    "memory_cap_bytes": 6442450944,
    "node_cap": 5000000,
    "schema": "horizon.search.v3",
