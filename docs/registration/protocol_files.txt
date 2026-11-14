@@ -38,6 +38,11 @@ scripts/stage_e_reading.py
 scripts/design_budget.py
 logs/design_budget.log
 
+# the registered analysis
+scripts/analyze_horizon.py
+scripts/test_analyze_horizon.py
+logs/test_analyze_horizon.log
+
 # the code the confirmatory sessions run
 scripts/automation/common.py
 scripts/automation/jobs.py
@@ -52,8 +57,7 @@ requirements-loop.txt
 # logs/stage_e_reading.log
 # docs/truth/handcheck_answers.json
 # docs/truth/HANDCHECK_RESULT.md
-# scripts/analyze_horizon.py
-# scripts/test_analyze_horizon.py
+# docs/truth/gvgai_features.json (grid area, action count, colour count per level, read by scripts/analyze_horizon.py)
 # the GVGAI adapter and its tests
 # the GVGAI search job and its tests
 # the copies of study 1's agents (scripts/g_nav.py, scripts/g_agent.py, I1 and its adapter) and their check

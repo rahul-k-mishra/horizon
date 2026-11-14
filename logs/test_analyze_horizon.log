@@ -1,0 +1,51 @@
+== 1. the AUROC over eligible pairs
+ok    hand-worked same-S_M AUROC 0.833333 on 3 pairs (got 0.8333333333333334, 3)
+ok    hand-worked all-pairs AUROC 0.928571 on 7 pairs (got 0.9285714285714286, 7)
+ok    no between-game pair gives None
+ok    equals brute-force pair counting on 300 random cases with ties, nan and INF (0 differ)
+== 2. censoring at C
+ok    complete level with a win
+ok    first win after C is beyond C, and H_C sits at the ceiling
+ok    time-capped below C without a win is excluded
+ok    time-capped below C with a win enters L_C only
+ok    complete without a win is beyond C
+ok    censor counts {'L': {'units': 5, 'complete': 2, 'excluded': 1, 'beyond_C': 1}, 'H': {'units': 5, 'complete': 2, 'excluded': 2, 'at_ceiling': 1}, 'b': {'units': 5, 'complete': 2, 'excluded': 2}}
+== 3. outcome, verdict and outcome table
+ok    Y needs 5 of 10 seeds
+ok    nine seeds raise
+ok    lower end above 0.5 and point at 0.75: shown
+ok    point exactly at the floor: shown
+ok    point below the floor: not shown
+ok    lower end at 0.5: not shown
+ok    {'N': 'shown', 'R': 'shown', 'I1': 'not shown'}, 26 games: Support (got ('Support', 'IEEE Transactions on Games'))
+ok    {'N': 'shown', 'R': 'shown', 'I1': 'shown'}, 26 games: Support (got ('Support', 'JAIR'))
+ok    {'N': 'shown', 'R': 'not shown', 'I1': 'not shown'}, 26 games: Refute (got ('Refute', 'this repository and a preprint on Zenodo'))
+ok    {'N': 'shown', 'R': 'shown', 'I1': 'void'}, 26 games: Refute (got ('Refute', 'this repository and a preprint on Zenodo'))
+ok    {'N': 'not shown', 'R': 'shown', 'I1': 'shown'}, 26 games: Refute (got ('Refute', 'this repository and a preprint on Zenodo'))
+ok    {'N': 'void', 'R': 'shown', 'I1': 'shown'}, 26 games: Void (got ('Void', 'this repository and a preprint on Zenodo, reported as void'))
+ok    {'N': 'shown', 'R': 'void', 'I1': 'void'}, 26 games: Void (got ('Void', 'this repository and a preprint on Zenodo, reported as void'))
+ok    {'N': 'shown', 'R': 'shown', 'I1': 'shown'}, 19 games: Void (got ('Void', 'this repository and a preprint on Zenodo, reported as void'))
+== 4. the whole analysis on synthetic data (200 resamples)
+ok    130 levels of 26 games
+ok    strong relation: all shown, Support, JAIR (Support, JAIR)
+ok    the point of AUROC_L equals a direct computation, and its pair count
+ok    same-S_M pairs are a subset of between-game pairs
+ok    resamples used plus skipped equal 200
+ok    Delta is H_all minus S_M|H_all
+ok    L-B_same is L_same minus B_same on the same pairs
+ok    two workers give the same result as one
+ok    agreement counted over 130 levels
+ok    the report states the outcome
+ok    no relation: N not shown, Refute (got not shown, Refute)
+ok    every level completed: N void, study Void
+ok    14 of 130 levels excluded (10.8%): L_C void
+ok    13 of 130 excluded (10.0%): not void
+ok    one value of S_M: void
+ok    two draws of one game form no eligible pair
+== 5. the ceiling in docs/PREREG.md and the supplement
+ok    a fixed C is read
+ok    an open C reads as None
+ok    C is open in docs/PREREG.md and in the script
+ok    the script refuses to run while C is open
+ok    the supplement gives the development EH AUROC and the share not computed, labelled exploratory
+OK

@@ -218,7 +218,7 @@ Run after the tag of v1, before any confirmatory unit, on the 4 pilot games (20 
 
 ## 11. Analysis code
 
-scripts/analyze_horizon.py reads the truth table, the search rows and the agent rows, and writes docs/tables/horizon.md and .json: every line of Sections 7.2 to 7.7 with its interval, the counts of Section 7.4, and the verdicts. **[decided 14 Nov 2026]** It takes C from this file's Section 6 and reads L_C and H_C from the search rows; the supplement it writes beside the tables holds the exploratory quantities of Section 6, labelled exploratory. Its synthetic tests, with expected values computed by hand in the docstring, pass before the tag. The script is frozen at the tag; the only permitted change is a crash fix, logged in Section 13.
+scripts/analyze_horizon.py reads the truth table, the search rows and the agent rows, and writes docs/tables/horizon.md and .json: every line of Sections 7.2 to 7.7 with its interval, the counts of Section 7.4, and the verdicts. **[decided 14 Nov 2026]** C is written into it as a constant, and it stops unless this file's Section 6 states the same value; it reads L_C and H_C from the search rows; the supplement it writes beside the tables holds the exploratory quantities of Section 6, labelled exploratory. Its synthetic tests, with expected values computed by hand in the docstring, pass before the tag. The script is frozen at the tag; the only permitted change is a crash fix, logged in Section 13.
 
 ## 12. Amendment rules
 
