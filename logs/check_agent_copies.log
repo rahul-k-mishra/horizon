@@ -1,0 +1,128 @@
+copies: 12 files of third_party/study1/scripts have study 1's blob hashes
+this machine: Python 3.11.9, numpy 2.4.3, minigrid 3.1.0, gymnasium 1.3.0, pillow 13.0.0, pygame-ce 2.5.8
+study 1 (docs/PREREG.md v1, Section 3.2 of its repository): Python 3.11.9, minigrid 3.1.0, gymnasium 1.3.0
+sample: 12 of the 1670 units with a committed row for all of nav, hash_state, i1 (numpy default_rng(20261114), 6 MiniGrid and 6 BabyAI); suite minigrid, condition macro
+  MiniGrid-BlockedUnlockPickup-v0 seed 1009
+  MiniGrid-Dynamic-Obstacles-Random-5x5-v0 seed 1007
+  MiniGrid-GoToObject-8x8-N2-v0 seed 1009
+  MiniGrid-ObstructedMaze-1Dlh-v0 seed 1009
+  MiniGrid-SimpleCrossingS9N1-v0 seed 1001
+  MiniGrid-SimpleCrossingS9N2-v0 seed 1000
+  BabyAI-BlockedUnlockPickup-v0 seed 1000
+  BabyAI-GoToImpUnlock-v0 seed 1004
+  BabyAI-KeyInBox-v0 seed 1004
+  BabyAI-PickupDistDebug-v0 seed 1000
+  BabyAI-SynthSeq-v0 seed 1000
+  BabyAI-UnblockPickup-v0 seed 1005
+conditions from the committed rows: budget [20000], wall-clock cap [3300.0] s; 36 runs, 6 workers
+  ran MiniGrid-Dynamic-Obstacles-Random-5x5-v0 seed 1007 i1: levels 29 actions 20000
+  ran MiniGrid-BlockedUnlockPickup-v0 seed 1009 i1: levels 0 actions 20000
+  ran MiniGrid-GoToObject-8x8-N2-v0 seed 1009 i1: levels 0 actions 20000
+  ran MiniGrid-ObstructedMaze-1Dlh-v0 seed 1009 i1: levels 0 actions 20000
+  ran MiniGrid-SimpleCrossingS9N2-v0 seed 1000 i1: levels 5 actions 20000
+  ran MiniGrid-SimpleCrossingS9N1-v0 seed 1001 i1: levels 8 actions 20000
+  ran BabyAI-BlockedUnlockPickup-v0 seed 1000 i1: levels 0 actions 20000
+  ran MiniGrid-BlockedUnlockPickup-v0 seed 1009 nav: levels 0 actions 20000
+  ran MiniGrid-BlockedUnlockPickup-v0 seed 1009 hash_state: levels 0 actions 20000
+  ran BabyAI-PickupDistDebug-v0 seed 1000 i1: levels 6 actions 20000
+  ran MiniGrid-Dynamic-Obstacles-Random-5x5-v0 seed 1007 nav: levels 29 actions 20000
+  ran MiniGrid-Dynamic-Obstacles-Random-5x5-v0 seed 1007 hash_state: levels 3 actions 20000
+  ran MiniGrid-GoToObject-8x8-N2-v0 seed 1009 nav: levels 0 actions 20000
+  ran MiniGrid-GoToObject-8x8-N2-v0 seed 1009 hash_state: levels 0 actions 20000
+  ran BabyAI-GoToImpUnlock-v0 seed 1004 i1: levels 0 actions 20000
+  ran BabyAI-KeyInBox-v0 seed 1004 i1: levels 0 actions 20000
+  ran MiniGrid-ObstructedMaze-1Dlh-v0 seed 1009 nav: levels 0 actions 20000
+  ran MiniGrid-ObstructedMaze-1Dlh-v0 seed 1009 hash_state: levels 0 actions 20000
+  ran BabyAI-SynthSeq-v0 seed 1000 i1: levels 0 actions 20000
+  ran BabyAI-UnblockPickup-v0 seed 1005 i1: levels 0 actions 20000
+  ran MiniGrid-SimpleCrossingS9N1-v0 seed 1001 hash_state: levels 37 actions 20000
+  ran MiniGrid-SimpleCrossingS9N1-v0 seed 1001 nav: levels 40 actions 20000
+  ran MiniGrid-SimpleCrossingS9N2-v0 seed 1000 hash_state: levels 51 actions 20000
+  ran MiniGrid-SimpleCrossingS9N2-v0 seed 1000 nav: levels 41 actions 20000
+  ran BabyAI-BlockedUnlockPickup-v0 seed 1000 nav: levels 0 actions 20000
+  ran BabyAI-BlockedUnlockPickup-v0 seed 1000 hash_state: levels 0 actions 20000
+  ran BabyAI-PickupDistDebug-v0 seed 1000 hash_state: levels 16 actions 20000
+  ran BabyAI-PickupDistDebug-v0 seed 1000 nav: levels 20 actions 20000
+  ran BabyAI-GoToImpUnlock-v0 seed 1004 hash_state: levels 1 actions 20000
+  ran BabyAI-GoToImpUnlock-v0 seed 1004 nav: levels 1 actions 20000
+  ran BabyAI-KeyInBox-v0 seed 1004 hash_state: levels 5 actions 20000
+  ran BabyAI-KeyInBox-v0 seed 1004 nav: levels 12 actions 20000
+  ran BabyAI-SynthSeq-v0 seed 1000 hash_state: levels 0 actions 20000
+  ran BabyAI-SynthSeq-v0 seed 1000 nav: levels 0 actions 20000
+  ran BabyAI-UnblockPickup-v0 seed 1005 nav: levels 0 actions 20000
+  ran BabyAI-UnblockPickup-v0 seed 1005 hash_state: levels 0 actions 20000
+Sampling rejected: unreachable object at (1, 11)
+Sampling rejected: unreachable object at (9, 8)
+Sampling rejected: unreachable object at (1, 5)
+Sampling rejected: unreachable object at (1, 3)
+Sampling rejected: unreachable object at (1, 4)
+Sampling rejected: unreachable object at (1, 11)
+Sampling rejected: unreachable object at (9, 8)
+Sampling rejected: unreachable object at (1, 5)
+Sampling rejected: unreachable object at (1, 3)
+Sampling rejected: unreachable object at (1, 4)
+Sampling rejected: unreachable object at (1, 11)
+Sampling rejected: unreachable object at (9, 8)
+Sampling rejected: unreachable object at (1, 5)
+Sampling rejected: unreachable object at (1, 3)
+Sampling rejected: unreachable object at (1, 4)
+Sampling rejected: unreachable object at (1, 11)
+Sampling rejected: unreachable object at (9, 8)
+Sampling rejected: unreachable object at (1, 5)
+Sampling rejected: unreachable object at (1, 3)
+Sampling rejected: unreachable object at (1, 4)
+Sampling rejected: unreachable object at (1, 11)
+Sampling rejected: unreachable object at (9, 8)
+Sampling rejected: unreachable object at (1, 5)
+Sampling rejected: unreachable object at (1, 3)
+Sampling rejected: unreachable object at (1, 4)
+Sampling rejected: unreachable object at (1, 11)
+Sampling rejected: unreachable object at (9, 8)
+Sampling rejected: unreachable object at (1, 5)
+Sampling rejected: unreachable object at (1, 3)
+Sampling rejected: unreachable object at (1, 4)
+wall time 2424 s
+
+== comparison per (unit, agent): committed row of study 1 against the new row; wall-clock fields left out: seconds, agent_seconds, play_seconds, game_seconds, sec_per_action, env_sec_per_action
+MiniGrid-BlockedUnlockPickup-v0 seed 1009 nav: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+MiniGrid-BlockedUnlockPickup-v0 seed 1009 hash_state: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+MiniGrid-BlockedUnlockPickup-v0 seed 1009 i1: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+MiniGrid-Dynamic-Obstacles-Random-5x5-v0 seed 1007 nav: identical; outcome same (levels 29 / 29, level1_completed True / True, level1_actions 31 / 31)
+MiniGrid-Dynamic-Obstacles-Random-5x5-v0 seed 1007 hash_state: identical; outcome same (levels 3 / 3, level1_completed True / True, level1_actions 4 / 4)
+MiniGrid-Dynamic-Obstacles-Random-5x5-v0 seed 1007 i1: identical; outcome same (levels 29 / 29, level1_completed True / True, level1_actions 31 / 31)
+MiniGrid-GoToObject-8x8-N2-v0 seed 1009 nav: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+MiniGrid-GoToObject-8x8-N2-v0 seed 1009 hash_state: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+MiniGrid-GoToObject-8x8-N2-v0 seed 1009 i1: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+MiniGrid-ObstructedMaze-1Dlh-v0 seed 1009 nav: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+MiniGrid-ObstructedMaze-1Dlh-v0 seed 1009 hash_state: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+MiniGrid-ObstructedMaze-1Dlh-v0 seed 1009 i1: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+MiniGrid-SimpleCrossingS9N1-v0 seed 1001 nav: identical; outcome same (levels 40 / 40, level1_completed True / True, level1_actions 355 / 355)
+MiniGrid-SimpleCrossingS9N1-v0 seed 1001 hash_state: identical; outcome same (levels 37 / 37, level1_completed True / True, level1_actions 363 / 363)
+MiniGrid-SimpleCrossingS9N1-v0 seed 1001 i1: identical; outcome same (levels 8 / 8, level1_completed True / True, level1_actions 492 / 492)
+MiniGrid-SimpleCrossingS9N2-v0 seed 1000 nav: identical; outcome same (levels 41 / 41, level1_completed True / True, level1_actions 147 / 147)
+MiniGrid-SimpleCrossingS9N2-v0 seed 1000 hash_state: identical; outcome same (levels 51 / 51, level1_completed True / True, level1_actions 69 / 69)
+MiniGrid-SimpleCrossingS9N2-v0 seed 1000 i1: identical; outcome same (levels 5 / 5, level1_completed True / True, level1_actions 31 / 31)
+BabyAI-BlockedUnlockPickup-v0 seed 1000 nav: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+BabyAI-BlockedUnlockPickup-v0 seed 1000 hash_state: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+BabyAI-BlockedUnlockPickup-v0 seed 1000 i1: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+BabyAI-GoToImpUnlock-v0 seed 1004 nav: identical; outcome same (levels 1 / 1, level1_completed True / True, level1_actions 1238 / 1238)
+BabyAI-GoToImpUnlock-v0 seed 1004 hash_state: identical; outcome same (levels 1 / 1, level1_completed True / True, level1_actions 168 / 168)
+BabyAI-GoToImpUnlock-v0 seed 1004 i1: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+BabyAI-KeyInBox-v0 seed 1004 nav: identical; outcome same (levels 12 / 12, level1_completed True / True, level1_actions 2455 / 2455)
+BabyAI-KeyInBox-v0 seed 1004 hash_state: identical; outcome same (levels 5 / 5, level1_completed True / True, level1_actions 2876 / 2876)
+BabyAI-KeyInBox-v0 seed 1004 i1: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+BabyAI-PickupDistDebug-v0 seed 1000 nav: identical; outcome same (levels 20 / 20, level1_completed True / True, level1_actions 90 / 90)
+BabyAI-PickupDistDebug-v0 seed 1000 hash_state: identical; outcome same (levels 16 / 16, level1_completed True / True, level1_actions 153 / 153)
+BabyAI-PickupDistDebug-v0 seed 1000 i1: identical; outcome same (levels 6 / 6, level1_completed True / True, level1_actions 93 / 93)
+BabyAI-SynthSeq-v0 seed 1000 nav: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+BabyAI-SynthSeq-v0 seed 1000 hash_state: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+BabyAI-SynthSeq-v0 seed 1000 i1: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+BabyAI-UnblockPickup-v0 seed 1005 nav: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+BabyAI-UnblockPickup-v0 seed 1005 hash_state: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+BabyAI-UnblockPickup-v0 seed 1005 i1: identical; outcome same (levels 0 / 0, level1_completed False / False, level1_actions None / None)
+
+== totals
+units compared: 12; runs compared: 36 (12 per agent for N, R and I1)
+identical in every field but wall-clock time: 36 of 36
+same outcome (levels, level1_completed, level1_actions, actions, state): 36 of 36
+fields that differ anywhere: none
