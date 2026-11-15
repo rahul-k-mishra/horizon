@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-007",
+ "committed_at": "2026-11-15T09:14:44Z",
+ "kernel_version": 92,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-007-BabyAI-BossLevel-v0-s1003.json",
+ "row_sha256": "77e5e15d0cd8e153afac9686d5a3a5be918fc7adef90c52fe3dfa84e3e652d57",
+ "run_nonce": "dev-minigrid-e-e-007-20261115T040421Z-c8052c",
+ "unit_id": "e-007-BabyAI-BossLevel-v0-s1003"
+}
