@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-008",
+ "committed_at": "2026-11-15T12:50:52Z",
+ "kernel_version": 93,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-008-BabyAI-SynthSeq-v0-s1002.json",
+ "row_sha256": "6b19f337b43073d2a48ee383bceeef61cc103123b71f3d870815b57b153025c9",
+ "run_nonce": "dev-minigrid-e-e-008-20261115T091450Z-1b6aa1",
+ "unit_id": "e-008-BabyAI-SynthSeq-v0-s1002"
+}
