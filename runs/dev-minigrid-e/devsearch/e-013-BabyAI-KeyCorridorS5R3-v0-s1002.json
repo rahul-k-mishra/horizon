@@ -1,0 +1,55 @@
+{
+ "campaign": "dev-minigrid-e",
+ "cap_hit": "seen",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "seen_cap": 2000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "e-013",
+ "complete": false,
+ "counts": {
+  "depth_max": 39,
+  "expanded_at_first_win": 36787,
+  "frontier_left": 312146,
+  "seen_at_first_win": 53860,
+  "solution_length": 25,
+  "spill_files_max": 0,
+  "states_expanded": 1683526,
+  "states_seen": 2000003,
+  "successors_total": 13468208
+ },
+ "game": "BabyAI-KeyCorridorS5R3-v0",
+ "level": 1002,
+ "measures": {
+  "branching": 3.7532933854303407,
+  "eh": null,
+  "eh_horizon": 400,
+  "eh_k": null,
+  "eh_status": "not computed: capped by seen"
+ },
+ "schema": "horizon.search.v3",
+ "seconds_spent": 1971.402,
+ "sessions": [
+  {
+   "ended_at": "2026-11-16T10:08:55Z",
+   "host": "2bc3f92cbe34",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_4hMPexrWc6yAcoUB03OMqFSqDetlEuq3hCp2UCQicIs-370210172-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "asia-east1-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "dev-minigrid-e-e-013-20261116T090043Z-5b6ed8",
+   "started_at": "2026-11-16T09:01:01Z"
+  }
+ ],
+ "suite": "minigrid",
+ "unit_id": "e-013-BabyAI-KeyCorridorS5R3-v0-s1002",
+ "written_at": "2026-11-16T10:08:55Z"
+}
