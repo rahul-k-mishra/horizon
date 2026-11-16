@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-014",
+ "committed_at": "2026-11-16T18:23:46Z",
+ "kernel_version": 99,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-014-BabyAI-ActionObjDoor-v0-s1007.json",
+ "row_sha256": "e8502987752a01dbca0f0f3479a0e6422af290b418f31c8c3b60da31ccf05f7a",
+ "run_nonce": "dev-minigrid-e-e-014-20261116T123900Z-a8fd31",
+ "unit_id": "e-014-BabyAI-ActionObjDoor-v0-s1007"
+}
