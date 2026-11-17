@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-015",
+ "committed_at": "2026-11-17T00:07:38Z",
+ "kernel_version": 100,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-015-BabyAI-UnblockPickup-v0-s1000.json",
+ "row_sha256": "6bf6eaf82b8de5b9103670a76b78f52aa405785ddd53c92e8e742fdf8cf32dc4",
+ "run_nonce": "dev-minigrid-e-e-015-20261116T182347Z-e58c1e",
+ "unit_id": "e-015-BabyAI-UnblockPickup-v0-s1000"
+}
