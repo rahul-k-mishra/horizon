@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-024",
+ "committed_at": "2026-11-18T20:08:51Z",
+ "kernel_version": 109,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-024-MiniGrid-LavaCrossingS9N3-v0-s1005.json",
+ "row_sha256": "15f4a2362ef79dcfcdc06988363f83842bb9137b3c57915d49af9c03ebdc9a45",
+ "run_nonce": "dev-minigrid-e-e-024-20261118T145852Z-d89b8e",
+ "unit_id": "e-024-MiniGrid-LavaCrossingS9N3-v0-s1005"
+}

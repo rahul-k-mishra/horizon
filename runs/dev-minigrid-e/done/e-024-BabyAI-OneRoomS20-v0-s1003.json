@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-024",
+ "committed_at": "2026-11-18T20:08:51Z",
+ "kernel_version": 109,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-024-BabyAI-OneRoomS20-v0-s1003.json",
+ "row_sha256": "2b3c0e0b70800563eca58967045b3a811f80de697cea57be3f061229cd3c611a",
+ "run_nonce": "dev-minigrid-e-e-024-20261118T145852Z-d89b8e",
+ "unit_id": "e-024-BabyAI-OneRoomS20-v0-s1003"
+}
