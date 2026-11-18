@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-023",
+ "committed_at": "2026-11-18T14:58:51Z",
+ "kernel_version": 108,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-023-MiniGrid-ObstructedMaze-1Dlhb-v0-s1006.json",
+ "row_sha256": "231b8844f74a8ac07e0f6fcf51416c81323dcf7a55302fffc2c713ba750938fa",
+ "run_nonce": "dev-minigrid-e-e-023-20261118T101340Z-2cacb6",
+ "unit_id": "e-023-MiniGrid-ObstructedMaze-1Dlhb-v0-s1006"
+}
