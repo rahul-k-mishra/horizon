@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-020",
+ "committed_at": "2026-11-18T00:56:25Z",
+ "kernel_version": 105,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-020-BabyAI-GoToLocalS8N6-v0-s1002.json",
+ "row_sha256": "cabfad83f1b1da0edbdd80efd9fe96cf4d4cedefe07d10e7ec2153ca8cb17be3",
+ "run_nonce": "dev-minigrid-e-e-020-20261117T194704Z-9c4a5a",
+ "unit_id": "e-020-BabyAI-GoToLocalS8N6-v0-s1002"
+}
