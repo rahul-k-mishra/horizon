@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-022",
+ "committed_at": "2026-11-18T10:13:39Z",
+ "kernel_version": 107,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-022-BabyAI-MoveTwoAcrossS5N2-v0-s1005.json",
+ "row_sha256": "bdf8d3353c9830b951c4635d4dcfad001666cc4c6ec5ee0534e1fa45e95c094b",
+ "run_nonce": "dev-minigrid-e-e-022-20261118T043300Z-d6c206",
+ "unit_id": "e-022-BabyAI-MoveTwoAcrossS5N2-v0-s1005"
+}
