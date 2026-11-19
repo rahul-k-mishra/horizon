@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-026",
+ "committed_at": "2026-11-19T06:58:04Z",
+ "kernel_version": 111,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-026-BabyAI-GoToSeqS5R2-v0-s1005.json",
+ "row_sha256": "d3390c42a1b4421a1f817a352a3182f224ea14e55253422136f5e1c74cb00644",
+ "run_nonce": "dev-minigrid-e-e-026-20261119T011829Z-d3931a",
+ "unit_id": "e-026-BabyAI-GoToSeqS5R2-v0-s1005"
+}
