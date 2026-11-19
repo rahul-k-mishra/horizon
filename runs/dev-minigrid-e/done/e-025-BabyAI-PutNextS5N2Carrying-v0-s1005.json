@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-025",
+ "committed_at": "2026-11-19T01:18:28Z",
+ "kernel_version": 110,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-025-BabyAI-PutNextS5N2Carrying-v0-s1005.json",
+ "row_sha256": "38259c45cae69e6f8932dffb964d5fb019eec036a793de17634105644e79110b",
+ "run_nonce": "dev-minigrid-e-e-025-20261118T200853Z-552d97",
+ "unit_id": "e-025-BabyAI-PutNextS5N2Carrying-v0-s1005"
+}
