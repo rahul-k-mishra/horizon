@@ -1,7 +1,15 @@
 {
  "consecutive_crashes": 0,
  "deferral": null,
- "dispatch": null,
+ "dispatch": {
+  "chunk_id": "e-026",
+  "dispatched_at": "2026-11-19T01:18:29Z",
+  "entry_hash": "291d685f94c86b5543717cb8c53e7838eb3ed0b376b5861f758caffb83683972",
+  "kernel_version": null,
+  "nonce": "dev-minigrid-e-e-026-20261119T011829Z-d3931a",
+  "pushed_at": null,
+  "runner": "actions-44435808580-1"
+ },
  "halt_reason": null,
  "halted": false,
  "halted_at": null
