@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-027",
+ "committed_at": "2026-11-19T13:39:36Z",
+ "kernel_version": 112,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-027-BabyAI-FindObjS5-v0-s1005.json",
+ "row_sha256": "d6b527e25adf4de3fda1220db7b8be9e4ae3820b76c7a462ef60621b753099e2",
+ "run_nonce": "dev-minigrid-e-e-027-20261119T065806Z-326081",
+ "unit_id": "e-027-BabyAI-FindObjS5-v0-s1005"
+}

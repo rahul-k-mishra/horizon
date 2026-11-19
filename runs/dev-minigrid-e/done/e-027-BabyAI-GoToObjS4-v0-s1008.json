@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-027",
+ "committed_at": "2026-11-19T13:39:36Z",
+ "kernel_version": 112,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-027-BabyAI-GoToObjS4-v0-s1008.json",
+ "row_sha256": "75269f7155d2f11e5cdffb6b47434ef6795c625576a41e7e2f74925ca6ee3626",
+ "run_nonce": "dev-minigrid-e-e-027-20261119T065806Z-326081",
+ "unit_id": "e-027-BabyAI-GoToObjS4-v0-s1008"
+}

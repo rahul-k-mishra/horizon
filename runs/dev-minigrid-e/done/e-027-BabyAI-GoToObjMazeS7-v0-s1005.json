@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-027",
+ "committed_at": "2026-11-19T13:39:36Z",
+ "kernel_version": 112,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-027-BabyAI-GoToObjMazeS7-v0-s1005.json",
+ "row_sha256": "481a18f65a3469c8fe440c186fa5987aebee1c985a3a7b60bbcb74d29f72c13c",
+ "run_nonce": "dev-minigrid-e-e-027-20261119T065806Z-326081",
+ "unit_id": "e-027-BabyAI-GoToObjMazeS7-v0-s1005"
+}
