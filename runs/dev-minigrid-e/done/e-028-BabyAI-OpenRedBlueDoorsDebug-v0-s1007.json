@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-028",
+ "committed_at": "2026-11-19T16:13:59Z",
+ "kernel_version": 113,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-028-BabyAI-OpenRedBlueDoorsDebug-v0-s1007.json",
+ "row_sha256": "cc6c48ea0ae683bde756a40bc8e944d41a3a7362883f1b3f92ace5bf87e84851",
+ "run_nonce": "dev-minigrid-e-e-028-20261119T133937Z-d39c44",
+ "unit_id": "e-028-BabyAI-OpenRedBlueDoorsDebug-v0-s1007"
+}

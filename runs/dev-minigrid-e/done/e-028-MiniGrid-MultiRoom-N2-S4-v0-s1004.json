@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-028",
+ "committed_at": "2026-11-19T16:13:59Z",
+ "kernel_version": 113,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-028-MiniGrid-MultiRoom-N2-S4-v0-s1004.json",
+ "row_sha256": "f482cc3f19d8e03e539419a0fe215cf3408084f0a186b8ee4e5d78524bb4d745",
+ "run_nonce": "dev-minigrid-e-e-028-20261119T133937Z-d39c44",
+ "unit_id": "e-028-MiniGrid-MultiRoom-N2-S4-v0-s1004"
+}

@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-028",
+ "committed_at": "2026-11-19T16:13:59Z",
+ "kernel_version": 113,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-028-MiniGrid-KeyCorridorS3R2-v0-s1002.json",
+ "row_sha256": "0c7630bf34f30b8ac5e5bb458634370cc90a06397af79ed54e8578648528d064",
+ "run_nonce": "dev-minigrid-e-e-028-20261119T133937Z-d39c44",
+ "unit_id": "e-028-MiniGrid-KeyCorridorS3R2-v0-s1002"
+}

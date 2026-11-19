@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-028",
+ "committed_at": "2026-11-19T16:13:59Z",
+ "kernel_version": 113,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-028-MiniGrid-MemoryS17Random-v0-s1009.json",
+ "row_sha256": "a709b4b909960cd6e942556e8864eab77c9dfc22bf24e9b6015aa3dc3f94e834",
+ "run_nonce": "dev-minigrid-e-e-028-20261119T133937Z-d39c44",
+ "unit_id": "e-028-MiniGrid-MemoryS17Random-v0-s1009"
+}

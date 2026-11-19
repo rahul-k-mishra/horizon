@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-028",
+ "committed_at": "2026-11-19T16:13:59Z",
+ "kernel_version": 113,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-028-MiniGrid-DoorKey-5x5-v0-s1008.json",
+ "row_sha256": "072baa942d4515a3be6e49b11a341148a8c35adbd7d8faafd5bd63e5d00e332b",
+ "run_nonce": "dev-minigrid-e-e-028-20261119T133937Z-d39c44",
+ "unit_id": "e-028-MiniGrid-DoorKey-5x5-v0-s1008"
+}

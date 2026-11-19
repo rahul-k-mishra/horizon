@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-028",
+ "committed_at": "2026-11-19T16:13:59Z",
+ "kernel_version": 113,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-028-MiniGrid-PutNear-8x8-N3-v0-s1000.json",
+ "row_sha256": "b4c4825e6dee2ae677c142fa18e958b4fb5c2abfcd86a64fab420e2f7f9b70d5",
+ "run_nonce": "dev-minigrid-e-e-028-20261119T133937Z-d39c44",
+ "unit_id": "e-028-MiniGrid-PutNear-8x8-N3-v0-s1000"
+}

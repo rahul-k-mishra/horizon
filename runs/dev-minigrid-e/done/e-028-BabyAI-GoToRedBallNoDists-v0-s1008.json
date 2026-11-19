@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-028",
+ "committed_at": "2026-11-19T16:13:59Z",
+ "kernel_version": 113,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-028-BabyAI-GoToRedBallNoDists-v0-s1008.json",
+ "row_sha256": "672e366e31c98490b4fd73e32f182ba84c6dbe9a333b236d1bd0d62e58a9258a",
+ "run_nonce": "dev-minigrid-e-e-028-20261119T133937Z-d39c44",
+ "unit_id": "e-028-BabyAI-GoToRedBallNoDists-v0-s1008"
+}

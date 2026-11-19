@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-028",
+ "committed_at": "2026-11-19T16:13:59Z",
+ "kernel_version": 113,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-028-MiniGrid-Unlock-v0-s1003.json",
+ "row_sha256": "ed28b703bb3e0615764c9084e11e38ed87dc3ec8f4320246145ff84d75ed4ad3",
+ "run_nonce": "dev-minigrid-e-e-028-20261119T133937Z-d39c44",
+ "unit_id": "e-028-MiniGrid-Unlock-v0-s1003"
+}

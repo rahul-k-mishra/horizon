@@ -1,0 +1,10 @@
+{
+ "chunk_id": "e-028",
+ "committed_at": "2026-11-19T16:13:59Z",
+ "kernel_version": 113,
+ "kind": "devsearch",
+ "row_path": "runs/dev-minigrid-e/devsearch/e-028-MiniGrid-SimpleCrossingS11N5-v0-s1002.json",
+ "row_sha256": "d59e5479a5ce352af2ce554ec6b21c9686bf89f8fab5c7ac9e0262c6d0cf7d96",
+ "run_nonce": "dev-minigrid-e-e-028-20261119T133937Z-d39c44",
+ "unit_id": "e-028-MiniGrid-SimpleCrossingS11N5-v0-s1002"
+}
