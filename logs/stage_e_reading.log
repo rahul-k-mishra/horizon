@@ -1,0 +1,53 @@
+stage_e_reading -- EXPLORATORY: development reading of stage E (campaign dev-minigrid-e); development data, not evidence for any claim
+
+== 1. the rows (EXPLORATORY) ==
+rows 1560 of 1560 units; schemas {'horizon.search.v3': 1560}; seen caps [2000000]; stopped by {'seen': 521, 'none': 1039}; units missing 0; seconds per unit median 29, largest 9347, sum 1715349
+
+== 2. agreement with stage D (EXPLORATORY) ==
+units stage D finished with at most 2,000,000 states: 1039; the same states seen, states expanded and solution length in stage E: 1039; different: 0
+
+== 3. censored scores per ceiling (EXPLORATORY) ==
+  C    10,000 H_C: determined 1560 of 1560 (100.0%), excluded 0, at the ceiling 830 of 1560 (53.2%); AUROC with 95%: N 0.7115 [0.6410, 0.7842] (MiniGrid 0.8616, BabyAI 0.6456; same S_M 0.6272 [0.5519, 0.7083]); R 0.7097 [0.6395, 0.7819] (MiniGrid 0.8574, BabyAI 0.6456; same S_M 0.6268 [0.5514, 0.7072]); I1 0.7187 [0.6401, 0.7945] (MiniGrid 0.8774, BabyAI 0.5873; same S_M 0.5995 [0.5095, 0.6946])
+  C    10,000 L_C: determined 1560 of 1560 (100.0%), excluded 0, beyond C 378 of 1560 (24.2%); AUROC with 95%: N 0.8081 [0.7479, 0.8633] (MiniGrid 0.8799, BabyAI 0.7708; same S_M 0.8242 [0.7644, 0.8757]); R 0.8091 [0.7483, 0.8640] (MiniGrid 0.8778, BabyAI 0.7744; same S_M 0.8263 [0.7667, 0.8788]); I1 0.7889 [0.7302, 0.8410] (MiniGrid 0.8424, BabyAI 0.8173; same S_M 0.8480 [0.7954, 0.8918])
+  C   100,000 H_C: determined 1560 of 1560 (100.0%), excluded 0, at the ceiling 733 of 1560 (47.0%); AUROC with 95%: N 0.6959 [0.6215, 0.7694] (MiniGrid 0.8595, BabyAI 0.6283; same S_M 0.6085 [0.5312, 0.6940]); R 0.6947 [0.6205, 0.7684] (MiniGrid 0.8559, BabyAI 0.6283; same S_M 0.6080 [0.5305, 0.6942]); I1 0.7082 [0.6260, 0.7869] (MiniGrid 0.8774, BabyAI 0.5721; same S_M 0.5832 [0.4913, 0.6839])
+  C   100,000 L_C: determined 1560 of 1560 (100.0%), excluded 0, beyond C 243 of 1560 (15.6%); AUROC with 95%: N 0.7990 [0.7354, 0.8541] (MiniGrid 0.8703, BabyAI 0.7618; same S_M 0.8167 [0.7566, 0.8691]); R 0.8005 [0.7370, 0.8549] (MiniGrid 0.8683, BabyAI 0.7661; same S_M 0.8194 [0.7584, 0.8710]); I1 0.7836 [0.7231, 0.8374] (MiniGrid 0.8326, BabyAI 0.8150; same S_M 0.8458 [0.7940, 0.8901])
+  C   300,000 H_C: determined 1560 of 1560 (100.0%), excluded 0, at the ceiling 618 of 1560 (39.6%); AUROC with 95%: N 0.7116 [0.6368, 0.7866] (MiniGrid 0.8646, BabyAI 0.6589; same S_M 0.6268 [0.5455, 0.7165]); R 0.7097 [0.6357, 0.7846] (MiniGrid 0.8608, BabyAI 0.6577; same S_M 0.6256 [0.5448, 0.7130]); I1 0.7051 [0.6235, 0.7864] (MiniGrid 0.8774, BabyAI 0.5680; same S_M 0.5794 [0.4807, 0.6826])
+  C   300,000 L_C: determined 1560 of 1560 (100.0%), excluded 0, beyond C 187 of 1560 (12.0%); AUROC with 95%: N 0.7977 [0.7335, 0.8524] (MiniGrid 0.8660, BabyAI 0.7620; same S_M 0.8161 [0.7568, 0.8683]); R 0.7991 [0.7367, 0.8532] (MiniGrid 0.8636, BabyAI 0.7663; same S_M 0.8189 [0.7581, 0.8708]); I1 0.7828 [0.7215, 0.8366] (MiniGrid 0.8298, BabyAI 0.8151; same S_M 0.8457 [0.7934, 0.8901])
+  C 1,000,000 H_C: determined 1560 of 1560 (100.0%), excluded 0, at the ceiling 552 of 1560 (35.4%); AUROC with 95%: N 0.7158 [0.6421, 0.7921] (MiniGrid 0.8653, BabyAI 0.6683; same S_M 0.6321 [0.5502, 0.7216]); R 0.7149 [0.6411, 0.7907] (MiniGrid 0.8615, BabyAI 0.6693; same S_M 0.6323 [0.5506, 0.7215]); I1 0.7031 [0.6199, 0.7851] (MiniGrid 0.8774, BabyAI 0.5643; same S_M 0.5760 [0.4744, 0.6817])
+  C 1,000,000 L_C: determined 1560 of 1560 (100.0%), excluded 0, beyond C 162 of 1560 (10.4%); AUROC with 95%: N 0.7966 [0.7325, 0.8513] (MiniGrid 0.8628, BabyAI 0.7621; same S_M 0.8155 [0.7565, 0.8673]); R 0.7976 [0.7357, 0.8525] (MiniGrid 0.8602, BabyAI 0.7659; same S_M 0.8179 [0.7574, 0.8695]); I1 0.7827 [0.7215, 0.8370] (MiniGrid 0.8283, BabyAI 0.8157; same S_M 0.8460 [0.7943, 0.8896])
+  C 2,000,000 H_C: determined 1560 of 1560 (100.0%), excluded 0, at the ceiling 521 of 1560 (33.4%); AUROC with 95%: N 0.7136 [0.6399, 0.7902] (MiniGrid 0.8653, BabyAI 0.6628; same S_M 0.6288 [0.5467, 0.7205]); R 0.7132 [0.6405, 0.7902] (MiniGrid 0.8614, BabyAI 0.6649; same S_M 0.6298 [0.5475, 0.7194]); I1 0.7023 [0.6169, 0.7849] (MiniGrid 0.8774, BabyAI 0.5620; same S_M 0.5745 [0.4725, 0.6825])
+  C 2,000,000 L_C: determined 1560 of 1560 (100.0%), excluded 0, beyond C 147 of 1560 (9.4%); AUROC with 95%: N 0.7972 [0.7347, 0.8524] (MiniGrid 0.8612, BabyAI 0.7636; same S_M 0.8165 [0.7575, 0.8683]); R 0.7982 [0.7360, 0.8521] (MiniGrid 0.8586, BabyAI 0.7675; same S_M 0.8189 [0.7585, 0.8710]); I1 0.7826 [0.7211, 0.8369] (MiniGrid 0.8276, BabyAI 0.8158; same S_M 0.8460 [0.7943, 0.8898])
+
+== 4. power on the confirmatory structure (EXPLORATORY; method of scripts/stage_e_diagnosis.py, Section 6) ==
+  C    10,000 H_C N: all pairs mean 0.7134 SE 0.0941 power 98.33% 0.4498 95% 0.6209; same S_M mean 0.7138 SE 0.1060 power 98.33% 0.3530 95% 0.5227
+  C    10,000 H_C R: all pairs mean 0.7115 SE 0.0943 power 98.33% 0.4397 95% 0.6111; same S_M mean 0.7120 SE 0.1062 power 98.33% 0.3451 95% 0.5141
+  C    10,000 H_C I1: all pairs mean 0.7201 SE 0.1015 power 98.33% 0.4107 95% 0.5824; same S_M mean 0.7201 SE 0.1134 power 98.33% 0.3253 95% 0.4925
+  C    10,000 L_C N: all pairs mean 0.8090 SE 0.0778 power 98.33% 0.9429 95% 0.9780; same S_M mean 0.8095 SE 0.0906 power 98.33% 0.8471 95% 0.9276
+  C    10,000 L_C R: all pairs mean 0.8105 SE 0.0778 power 98.33% 0.9448 95% 0.9788; same S_M mean 0.8110 SE 0.0904 power 98.33% 0.8524 95% 0.9307
+  C    10,000 L_C I1: all pairs mean 0.7877 SE 0.0769 power 98.33% 0.9109 95% 0.9625; same S_M mean 0.7875 SE 0.0900 power 98.33% 0.7880 95% 0.8913
+  C   100,000 H_C N: all pairs mean 0.6982 SE 0.0985 power 98.33% 0.3510 95% 0.5205; same S_M mean 0.6983 SE 0.1116 power 98.33% 0.2684 95% 0.4271
+  C   100,000 H_C R: all pairs mean 0.6969 SE 0.0987 power 98.33% 0.3448 95% 0.5138; same S_M mean 0.6970 SE 0.1117 power 98.33% 0.2640 95% 0.4219
+  C   100,000 H_C I1: all pairs mean 0.7096 SE 0.1062 power 98.33% 0.3369 95% 0.5053; same S_M mean 0.7094 SE 0.1188 power 98.33% 0.2637 95% 0.4216
+  C   100,000 L_C N: all pairs mean 0.8001 SE 0.0785 power 98.33% 0.9239 95% 0.9690; same S_M mean 0.8005 SE 0.0918 power 98.33% 0.8109 95% 0.9058
+  C   100,000 L_C R: all pairs mean 0.8020 SE 0.0782 power 98.33% 0.9292 95% 0.9716; same S_M mean 0.8024 SE 0.0912 power 98.33% 0.8218 95% 0.9125
+  C   100,000 L_C I1: all pairs mean 0.7823 SE 0.0791 power 98.33% 0.8801 95% 0.9462; same S_M mean 0.7822 SE 0.0926 power 98.33% 0.7435 95% 0.8617
+  C   300,000 H_C N: all pairs mean 0.7145 SE 0.1002 power 98.33% 0.4001 95% 0.5718; same S_M mean 0.7147 SE 0.1136 power 98.33% 0.3073 95% 0.4723
+  C   300,000 H_C R: all pairs mean 0.7126 SE 0.1004 power 98.33% 0.3914 95% 0.5629; same S_M mean 0.7129 SE 0.1138 power 98.33% 0.3005 95% 0.4646
+  C   300,000 H_C I1: all pairs mean 0.7067 SE 0.1089 power 98.33% 0.3098 95% 0.4752; same S_M mean 0.7064 SE 0.1220 power 98.33% 0.2412 95% 0.3942
+  C   300,000 L_C N: all pairs mean 0.7986 SE 0.0783 power 98.33% 0.9222 95% 0.9681; same S_M mean 0.7991 SE 0.0918 power 98.33% 0.8059 95% 0.9027
+  C   300,000 L_C R: all pairs mean 0.8005 SE 0.0780 power 98.33% 0.9277 95% 0.9708; same S_M mean 0.8010 SE 0.0912 power 98.33% 0.8174 95% 0.9098
+  C   300,000 L_C I1: all pairs mean 0.7815 SE 0.0795 power 98.33% 0.8741 95% 0.9429; same S_M mean 0.7814 SE 0.0930 power 98.33% 0.7362 95% 0.8567
+  C 1,000,000 H_C N: all pairs mean 0.7190 SE 0.1015 power 98.33% 0.4067 95% 0.5785; same S_M mean 0.7193 SE 0.1154 power 98.33% 0.3107 95% 0.4762
+  C 1,000,000 H_C R: all pairs mean 0.7180 SE 0.1015 power 98.33% 0.4028 95% 0.5745; same S_M mean 0.7183 SE 0.1153 power 98.33% 0.3080 95% 0.4731
+  C 1,000,000 H_C I1: all pairs mean 0.7047 SE 0.1107 power 98.33% 0.2932 95% 0.4562; same S_M mean 0.7045 SE 0.1240 power 98.33% 0.2282 95% 0.3780
+  C 1,000,000 L_C N: all pairs mean 0.7975 SE 0.0784 power 98.33% 0.9194 95% 0.9667; same S_M mean 0.7980 SE 0.0921 power 98.33% 0.8003 95% 0.8991
+  C 1,000,000 L_C R: all pairs mean 0.7990 SE 0.0781 power 98.33% 0.9244 95% 0.9692; same S_M mean 0.7995 SE 0.0914 power 98.33% 0.8109 95% 0.9058
+  C 1,000,000 L_C I1: all pairs mean 0.7813 SE 0.0796 power 98.33% 0.8730 95% 0.9423; same S_M mean 0.7812 SE 0.0930 power 98.33% 0.7354 95% 0.8562
+  C 2,000,000 H_C N: all pairs mean 0.7168 SE 0.1019 power 98.33% 0.3955 95% 0.5671; same S_M mean 0.7171 SE 0.1161 power 98.33% 0.3000 95% 0.4639
+  C 2,000,000 H_C R: all pairs mean 0.7163 SE 0.1018 power 98.33% 0.3937 95% 0.5653; same S_M mean 0.7166 SE 0.1160 power 98.33% 0.2991 95% 0.4629
+  C 2,000,000 H_C I1: all pairs mean 0.7039 SE 0.1111 power 98.33% 0.2882 95% 0.4504; same S_M mean 0.7038 SE 0.1246 power 98.33% 0.2241 95% 0.3728
+  C 2,000,000 L_C N: all pairs mean 0.7981 SE 0.0783 power 98.33% 0.9209 95% 0.9675; same S_M mean 0.7985 SE 0.0920 power 98.33% 0.8022 95% 0.9004
+  C 2,000,000 L_C R: all pairs mean 0.7995 SE 0.0780 power 98.33% 0.9260 95% 0.9700; same S_M mean 0.8000 SE 0.0914 power 98.33% 0.8130 95% 0.9071
+  C 2,000,000 L_C I1: all pairs mean 0.7812 SE 0.0797 power 98.33% 0.8713 95% 0.9414; same S_M mean 0.7811 SE 0.0932 power 98.33% 0.7330 95% 0.8545
+
+written docs\design\stage_e_reading.json
