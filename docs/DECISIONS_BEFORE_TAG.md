@@ -35,6 +35,27 @@ To be chosen when the stage E reading is committed (logs/stage_e_reading.log pri
 Recommended now: **1,000,000, to confirm or change after the stage E reading**.
 Answer: **Deferred.** C is fixed when the stage E reading is committed, with its effect on the development counts known; the registration records the date it was fixed and that it was fixed before any confirmatory game. (Rahul Kumar Mishra, 14 November 2026)
 
+**4a. What each candidate C would mean (written 23 November 2026, for the author; no value is entered).**
+*EXPLORATORY throughout:* every figure in this item is development data from MiniGrid/BabyAI, or a simulation built on it, and none is evidence for the claim. Sources: logs/stage_e_reading.log (Section 3, the 1,560 stage E units; Section 4, power on the confirmatory structure of 25 clusters of 5, 98.33% interval and the 0.5 bound as in scripts/stage_e_diagnosis.py, Section 6).
+
+*EXPLORATORY.* Stage E saw 1,560 of 1,560 units, all under schema horizon.search.v3 and seen cap 2,000,000; 521 stopped at the seen cap and 1,039 completed. On the 1,039 units stage D finished with at most 2,000,000 states, stage E gave the same states seen, states expanded and solution length on all 1,039.
+
+| C | units determined | H_C at the ceiling | L_C beyond C | N: AUROC L_C, same S_M [95%] | N: AUROC L_C, all pairs | N: AUROC H_C, same S_M | power of the primary test (L_C, same S_M, 98.33%): N / R / I1 |
+|---|---|---|---|---|---|---|---|
+| 10,000 | 1,560 (100%) | 830 (53.2%) | 378 (24.2%) | 0.8242 [0.7644, 0.8757] | 0.8081 | 0.6272 | 0.8471 / 0.8524 / 0.7880 |
+| 100,000 | 1,560 (100%) | 733 (47.0%) | 243 (15.6%) | 0.8167 [0.7566, 0.8691] | 0.7990 | 0.6085 | 0.8109 / 0.8218 / 0.7435 |
+| 300,000 | 1,560 (100%) | 618 (39.6%) | 187 (12.0%) | 0.8161 [0.7568, 0.8683] | 0.7977 | 0.6268 | 0.8059 / 0.8174 / 0.7362 |
+| 1,000,000 | 1,560 (100%) | 552 (35.4%) | 162 (10.4%) | 0.8155 [0.7565, 0.8673] | 0.7966 | 0.6321 | 0.8003 / 0.8109 / 0.7354 |
+| 2,000,000 | 1,560 (100%) | 521 (33.4%) | 147 (9.4%) | 0.8165 [0.7575, 0.8683] | 0.7972 | 0.6288 | 0.8022 / 0.8130 / 0.7330 |
+
+*EXPLORATORY.* Per family, for N, L_C ranks MiniGrid at 0.8799 to 0.8612 and BabyAI at 0.7708 to 0.7636 as C rises from 10,000 to 2,000,000; R and I1 and their intervals are in the log. At every C no unit is excluded, so the void rule of decision 5 (more than 10% of levels that neither reach C nor complete) voids nothing on the development data.
+
+*EXPLORATORY.* What the table says. Every candidate determines every development unit. The primary AUROC and its power move little with C: for N, same-mechanics AUROC 0.8155 to 0.8242 and power 0.8003 to 0.8471, highest at 10,000. The cost of a small C is the share of levels beyond C, all tied with one another: 24.2% at 10,000 against 10.4% at 1,000,000. On MiniGrid that tie costs nothing, because the levels beyond a small C are mostly the levels the agents fail. Whether the same holds on GVGAI is not known: a box-pushing level can need many states before any win is seen, and the void rule of L_C (PREREG Section 7.4, rule 5, threshold open) is about exactly that.
+
+*The pilot counts.* How many of the 20 GVGAI pilot levels show a win within each candidate C, under the registered (extended) key, is read from the pilot search's rows once they are committed (campaign gvgai-pilot-search). They are not in yet; this paragraph is completed then, by a script whose console is committed, and no count is written here before it.
+
+*Recommendation: C = 1,000,000.* Reasons: on the development data its primary AUROC and power differ from the best candidate's by less than the width of one bootstrap interval (0.8155 against 0.8242 for N; power 0.8003 against 0.8471), while it leaves 10.4% of development levels beyond C rather than 24.2%, which keeps L_C able to rank GVGAI levels whose first win lies deep; and it is half the seen cap, so the confirmatory search costs at most what amendment (aa) measured for 2,000,000 states (logs/engine_speed.log), with room for Kaggle being slower than the laptop. *What would make it wrong:* (1) the pilot shows wins on markedly more pilot levels within 2,000,000 than within 1,000,000, which would argue for 2,000,000; (2) the pilot shows that most pilot levels with a win have it within 100,000 states and that the search at 1,000,000 runs into the time cap on Kaggle, which would argue for a smaller C; (3) the pilot shows that the extended key raises the states seen per level enough that few levels show a win even within 2,000,000, in which case no candidate rescues L_C and the void rule decides.
+
 **5. Replace the 25% capped-share void rule by censoring at C, with a score void only if more than 10% of levels cannot reach C or complete?**
 Counts: under v0 every search measure is void on the development data; under censoring at C of 3,000,000 or less, 0 of 1,560 units are excluded for the state count (Section 3).
 Recommended: **yes**.
