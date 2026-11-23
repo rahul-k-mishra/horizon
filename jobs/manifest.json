@@ -8,7 +8,7 @@
  "repository": "rahul-k-mishra/horizon",
  "session": {"checkpoint_reserve_seconds": 300, "platform_limit_seconds": 3600, "work_seconds": 180},
  "chunks": [
-  {"attempts": 1, "chunk_id": "gd-01", "failures": 0, "kind": "gvgaisearch", "sessions": [], "status": "running"}
+  {"attempts": 1, "chunk_id": "gd-01", "failures": 1, "kind": "gvgaisearch", "sessions": [{"ended_at": "2026-11-23T17:46:27Z", "kernel_status": "complete", "kernel_version": 114, "outcome": "failed", "run_nonce": "gvgaisearch-dryrun-gd-01-20261123T174310Z-0aa074", "units_done_this_session": []}], "status": "pending"}
  ],
  "units": [
   {"agent": null, "chunk_id": "gd-01", "game": "corridor", "kind": "gvgaisearch", "level": 0, "seed": null, "status": "pending", "suite": "gvgai", "unit_id": "gd-01-corridor-l0"},

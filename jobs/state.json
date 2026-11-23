@@ -1,15 +1,7 @@
 {
  "consecutive_crashes": 0,
  "deferral": null,
- "dispatch": {
-  "chunk_id": "gd-01",
-  "dispatched_at": "2026-11-23T17:43:10Z",
-  "entry_hash": "37172a73be7b45bb9f5a687f3d97423cb6c6277075794161d40520db4f07391e",
-  "kernel_version": 114,
-  "nonce": "gvgaisearch-dryrun-gd-01-20261123T174310Z-0aa074",
-  "pushed_at": "2026-11-23T17:43:13Z",
-  "runner": "actions-45230543278-1"
- },
+ "dispatch": null,
  "halt_reason": null,
  "halted": false,
  "halted_at": null

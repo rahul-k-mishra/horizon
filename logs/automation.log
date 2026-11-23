@@ -393,3 +393,5 @@ No token to manage; credentials are cached locally for you.
 2026-11-19T16:13:59Z actions-44563576652-1 COLLECT chunk e-028 kernel version 113 run dev-minigrid-e-e-028-20261119T133937Z-d39c44: done; chunks done 28
 2026-11-23T17:43:10Z actions-45230543278-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 1 run gvgaisearch-dryrun-gd-01-20261123T174310Z-0aa074
 2026-11-23T17:43:13Z actions-45230543278-1 PUSHED chunk gd-01 as kernel version 114 run gvgaisearch-dryrun-gd-01-20261123T174310Z-0aa074
+2026-11-23T17:52:08Z actions-45232105560-1 FAILURE chunk gd-01 kernel version 114 run gvgaisearch-dryrun-gd-01-20261123T174310Z-0aa074: session status failed: FileNotFoundError(2, 'No such file or directory') (failure 1 of at most 3)
+2026-11-23T17:52:08Z actions-45232105560-1 COLLECT chunk gd-01 kernel version 114 run gvgaisearch-dryrun-gd-01-20261123T174310Z-0aa074: failed; chunks pending 1
