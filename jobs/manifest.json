@@ -8,11 +8,11 @@
  "repository": "rahul-k-mishra/horizon",
  "session": {"checkpoint_reserve_seconds": 300, "platform_limit_seconds": 3600, "work_seconds": 180},
  "chunks": [
-  {"attempts": 2, "chunk_id": "gd-01", "failures": 1, "kind": "gvgaisearch", "sessions": [{"ended_at": "2026-11-24T00:41:18Z", "kernel_status": "complete", "kernel_version": 117, "outcome": "failed", "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T003729Z-93beaf", "units_done_this_session": []}], "status": "running"}
+  {"attempts": 2, "chunk_id": "gd-01", "failures": 1, "kind": "gvgaisearch", "sessions": [{"ended_at": "2026-11-24T00:41:18Z", "kernel_status": "complete", "kernel_version": 117, "outcome": "failed", "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T003729Z-93beaf", "units_done_this_session": []}, {"ended_at": "2026-11-24T00:49:45Z", "kernel_status": "complete", "kernel_version": 118, "outcome": "partial", "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T004627Z-bf0503", "units_done_this_session": ["gd-01-corridor-l0", "gd-01-corridor-l1"]}], "status": "partial"}
  ],
  "units": [
-  {"agent": null, "chunk_id": "gd-01", "game": "corridor", "kind": "gvgaisearch", "level": 0, "seed": null, "status": "pending", "suite": "gvgai", "unit_id": "gd-01-corridor-l0"},
-  {"agent": null, "chunk_id": "gd-01", "game": "corridor", "kind": "gvgaisearch", "level": 1, "seed": null, "status": "pending", "suite": "gvgai", "unit_id": "gd-01-corridor-l1"},
+  {"agent": null, "chunk_id": "gd-01", "game": "corridor", "kind": "gvgaisearch", "level": 0, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "gd-01-corridor-l0"},
+  {"agent": null, "chunk_id": "gd-01", "game": "corridor", "kind": "gvgaisearch", "level": 1, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "gd-01-corridor-l1"},
   {"agent": null, "chunk_id": "gd-01", "game": "boxroom", "kind": "gvgaisearch", "level": 0, "params": {"batch": 5, "seconds_per_batch": 0.5}, "seed": null, "status": "pending", "suite": "gvgai", "unit_id": "gd-01-boxroom-l0"}
  ]
 }

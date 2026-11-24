@@ -1,0 +1,10 @@
+{
+ "chunk_id": "gd-01",
+ "committed_at": "2026-11-24T00:55:35Z",
+ "kernel_version": 118,
+ "kind": "gvgaisearch",
+ "row_path": "runs/gvgaisearch-dryrun/gvgaisearch/gd-01-corridor-l0.json",
+ "row_sha256": "0eeb1264f2609a92b73015da824c6938b238a7f18cb956185754a6df681beb2e",
+ "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T004627Z-bf0503",
+ "unit_id": "gd-01-corridor-l0"
+}
