@@ -28,6 +28,7 @@ limit cannot be lifted without changing GVGAI's source.
 """
 from __future__ import annotations
 
+import contextlib
 import hashlib
 import os
 import shutil
@@ -35,6 +36,7 @@ import struct
 import subprocess
 import sys
 import tarfile
+import time
 import urllib.request
 import zipfile
 
@@ -98,7 +100,48 @@ def is_pinned_jdk(home):
     return all(line in text for line in JDK_RELEASE)
 
 
+@contextlib.contextmanager
+def setup_lock(cache_dir):
+    """An exclusive lock on cache_dir/setup.lock, so that the worker processes of one session, which share
+    cache_dir, download the JDK and compile GVGAI one at a time.  Without it two workers wrote the same .part
+    file and folder, and the dry run of 23 November 2026 failed with FileNotFoundError (docs/STATE.md,
+    amendment ac).  Not re-entrant: ensure_jdk and build take it in turn, never one inside the other."""
+    os.makedirs(cache_dir, exist_ok=True)
+    f = open(os.path.join(cache_dir, "setup.lock"), "a+b")
+    try:
+        if os.name == "nt":
+            import msvcrt  # noqa: PLC0415
+            f.seek(0)
+            while True:
+                try:
+                    msvcrt.locking(f.fileno(), msvcrt.LK_LOCK, 1)
+                    break
+                except OSError:          # LK_LOCK gives up after about 10 s; keep waiting
+                    time.sleep(0.5)
+        else:
+            import fcntl  # noqa: PLC0415
+            fcntl.flock(f.fileno(), fcntl.LOCK_EX)
+        yield
+    finally:
+        try:
+            if os.name == "nt":
+                import msvcrt  # noqa: PLC0415
+                f.seek(0)
+                msvcrt.locking(f.fileno(), msvcrt.LK_UNLCK, 1)
+            else:
+                import fcntl  # noqa: PLC0415
+                fcntl.flock(f.fileno(), fcntl.LOCK_UN)
+        finally:
+            f.close()
+
+
 def ensure_jdk(cache_dir):
+    """ensure_jdk_unlocked under setup_lock."""
+    with setup_lock(cache_dir):
+        return ensure_jdk_unlocked(cache_dir)
+
+
+def ensure_jdk_unlocked(cache_dir):
     """The JDK home: JAVA_HOME if it is the pinned Temurin, else the pinned Temurin, downloaded into cache_dir once
     and checked by its sha256.  A JDK of another build, such as one an image provides, is never used."""
     home = os.environ.get("JAVA_HOME")
@@ -145,6 +188,12 @@ def source_digest(files):
 
 
 def build(jdk_home, cache_dir):
+    """build_unlocked under setup_lock."""
+    with setup_lock(cache_dir):
+        return build_unlocked(jdk_home, cache_dir)
+
+
+def build_unlocked(jdk_home, cache_dir):
     """Compiles GVGAI and the bridge into cache_dir/classes-<digest>; returns that folder."""
     files = java_sources()
     out = os.path.join(cache_dir, "classes-" + source_digest(files)[:16])

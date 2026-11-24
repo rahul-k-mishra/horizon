@@ -10,7 +10,7 @@
    "status": "pending"
   }
  ],
- "code_tag": "automation-v4",
+ "code_tag": "automation-v5",
  "kernel_slug": "horizon-runner",
  "kinds": {
   "gvgaisearch": {

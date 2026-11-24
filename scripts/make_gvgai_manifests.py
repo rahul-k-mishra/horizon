@@ -16,7 +16,7 @@ make_gvgai_manifests.py -- writes two manifests of the kind gvgaisearch, neither
                                             can be measured on pilot levels (PREREG Section 6).  G3 and the pilot's
                                             counts are read from the extended-key units alone.
 
-Both name the code tag CODE_TAG, which does not exist yet: it is cut on the commit that holds the GVGAI code when a
+Both name the code tag CODE_TAG; it is cut on the commit that holds the GVGAI code when a
 manifest is installed as jobs/manifest.json, after stage E's campaign is done (the loop runs one manifest at a
 time; docs/STATE.md).  The pilot's chunking uses the per-level upper bounds of logs/engine_speed.log (seconds for
 2,000,000 states on the laptop), packed longest first to at most LOAD of a session (4 workers x 28,800 s).
@@ -37,7 +37,7 @@ sys.path.insert(0, os.path.join(HERE, "automation"))
 sys.dont_write_bytecode = True
 from common import check_manifest  # noqa: E402
 
-CODE_TAG = "automation-v4"
+CODE_TAG = "automation-v5"   # automation-v4 (6c78f30) failed the dry run on 23 November 2026: workers raced on the GVGAI set-up (docs/STATE.md, amendment ac)
 SEEN_CAP = 2_000_000
 LOAD = 0.60
 BASE = dict(simulator="gvgai", key_form="extended", workers=4, schema="horizon.search.v3", seen_cap=SEEN_CAP,

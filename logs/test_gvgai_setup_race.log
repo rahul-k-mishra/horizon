@@ -1,0 +1,4 @@
+platform nt; 3 workers on one empty cache folder; JDK archive copied from a local file
+control (no lock): [('error', 'PermissionError', None), ('ok', 'jdk-21.0.13+9', 'classes-78dcf1c323900f82'), ('error', 'PermissionError', None)]
+locked: [('ok', 'jdk-21.0.13+9', 'classes-78dcf1c323900f82'), ('ok', 'jdk-21.0.13+9', 'classes-78dcf1c323900f82'), ('ok', 'jdk-21.0.13+9', 'classes-78dcf1c323900f82')]
+OK
