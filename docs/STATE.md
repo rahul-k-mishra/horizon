@@ -493,3 +493,32 @@ Thirty-second amendment. The lines above are unchanged. Nothing is registered an
 - **The aid check** (run in this session after these commits): clean. No file this session wrote has a word of the forbidden list.
 - **What remains before the tag**: items 1 and 3 to 7 of amendment (ad), unchanged.
 - **Next:** the author's two values, C and the void threshold.
+
+## Amendment 24 Nov 2026 (ag)
+
+Thirty-third amendment. The lines above are unchanged. Nothing was tagged; the prereg tag is not created. No file under jobs/ or runs/ was changed and no experiment was run. **Two registered values were fixed by the author on 24 November 2026, before any confirmatory game was played:**
+
+- **C = 1,000,000** states (PREREG Section 6; DECISIONS item 4a).
+- **The void rule of L_C: form (a) with X = 50%**: L_C is void if fewer than 50% of the confirmatory levels show a win within C (PREREG Section 7.4, rule 5; DECISIONS item 5a). A level counts if a win state is among the first C states its search saw, including a level stopped by time or memory after seeing a win; the share is over every confirmatory level. The rule reads the search rows only, so when it holds all three evidence agents are void and the outcome is Void.
+
+What was written (6876acd, 27f7df2, db50648):
+- **docs/PREREG.md.** Section 6: the C line, with the development counts at that C and the pilot's counts (exploratory). Section 7.4, rule 5: the threshold and what counts as a win within C; the list of candidate forms now says (a) was adopted. Section 7.8: the power at C = 1,000,000 from logs/stage_e_reading.log, Section 4, 0.8003 for N, 0.8109 for R and 0.7354 for I1 at 98.33%. The share of simulated studies that also reach 0.70 is not printed by that script and is not entered. Section 9.2 (stage E; earlier amendments said 9.1, but stage E is 9.2): what it showed, exploratory. Each replaced placeholder is quoted beside its entry. docs/DESIGN.md gains a dated note, and DECISIONS items 4a and 5a carry the author's answers.
+- **scripts/analyze_horizon.py.** C = 1_000_000; L_C_VOID_RULE = form (a), min_win_percent 50, compared in integers. The levels with a win within C are counted and reported, and fewer than 50% adds an "L_C void" reason for every evidence agent. scripts/test_analyze_horizon.py, run with warnings as errors, prints OK (logs/test_analyze_horizon.log). It checks:
+  - every level beyond C: Refute without the rule (the drafted behaviour PREREG 7.4 still describes), every agent void and the outcome Void with it;
+  - 64 of 130 levels with a win: void; 65 of 130 (50.0%): not void;
+  - a win seen before a time cap counts as a win;
+  - C in the script equals PREREG Section 6;
+  - an open rule, or a different C, still stops the analysis.
+- **scripts/design_budget.py**, rerun (logs/design_budget.log; sections 1 to 4 unchanged). New section 5, C = 1,000,000:
+  - the bound that charges every unit its whole time cap stays 16 chunks;
+  - EXPLORATORY projection, from the pilot's Kaggle/laptop ratio: at the median ratio, 3.36 chunks of work and 0 of 125 levels reaching the time cap; at the lowest ratio, 10.73 chunks and 39 of 125.
+- **Checks.** The aid check is clean, and no line this session added has a word of the forbidden list.
+
+What remains before the tag (amendment (ad)'s items 2 and the value part of 1 are done):
+  1. Section 7.8's share of simulated studies with AUROC_L at or above 0.70 at C = 1,000,000, if the author wants it entered; it needs a script that prints it.
+  2. PREREG Section 3 still names Python 3.11 while the image runs 3.13.15.
+  3. The kind gvgaiagent: pins for I1's modules, an image probe and a dry run through the loop (rule R8).
+  4. The hand check of the truth tables by the author (gate G4).
+  5. docker_image in kaggle/kernel-metadata.json, the confirmatory code tag and the protocol list. If the search code differs from automation-v5, the pilot search runs again under the tagged code.
+  6. scripts/check_no_aid.py on the day; the tag prereg-v1 and the Zenodo deposit the same day.
+- **Next:** item 3, the gvgaiagent kind, or the author's hand check.
