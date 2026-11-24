@@ -65,10 +65,11 @@ REPO = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 sys.dont_write_bytecode = True
 
-C = None             # the ceiling; entered when the author fixes it (docs/PREREG.md, Section 6)
-# the void rule of L_C (docs/PREREG.md, Section 7.4, rule 5; decided 14 November 2026): its form and threshold are
-# fixed by the author after the pilot search; until they are entered here, with synthetic tests, nothing is analysed
-L_C_VOID_RULE = None
+C = 1_000_000        # the ceiling, fixed by the author on 24 November 2026 (docs/PREREG.md, Section 6)
+# the void rule of L_C (docs/PREREG.md, Section 7.4, rule 5; decided 14 November 2026), its form and threshold
+# fixed by the author on 24 November 2026: form (a), L_C is void if fewer than 50% of the confirmatory levels show
+# a win within C.  The comparison is made in integers: void when wins * 100 < 50 * levels.
+L_C_VOID_RULE = dict(form="a", min_win_percent=50)
 CONFIRMATORY_CAMPAIGN = "gvgai-confirmatory"
 TAG = "prereg-v1"
 SEARCH_KIND, AGENT_KIND = "gvgaisearch", "gvgaiagent"
@@ -267,6 +268,11 @@ def void_reasons(units, y_of, c_counts, blocks, games):
         reasons.append(f"completed share {share:.4f} outside [{BAND[0]:.2f}, {BAND[1]:.2f}]")
     if c_counts["L"]["excluded"] / len(units) > EXCLUDED_MAX:
         reasons.append(f"L_C void: {c_counts['L']['excluded']} of {len(units)} levels excluded, over 10%")
+    if L_C_VOID_RULE is not None:
+        wins, pct = c_counts["L"]["win_within_C"], L_C_VOID_RULE["min_win_percent"]
+        if wins * 100 < pct * c_counts["L"]["units"]:
+            reasons.append(f"L_C void: {wins} of {c_counts['L']['units']} levels show a win within C, fewer than "
+                           f"{pct}% (Section 7.4, rule 5)")
     sm = [units[k]["S_M"] for k in units]
     common = [v for v in sorted(set(sm)) if sm.count(v) / len(sm) >= 0.10]
     if len(common) < 2:
@@ -283,6 +289,7 @@ def censor_counts(rows, c):
         out[q] = dict(units=len(vals), complete=sum(bool(r["complete"]) for r in rows.values()),
                       excluded=sum(math.isnan(v) for v in vals.values()))
     out["L"]["beyond_C"] = sum(v == INF for v in out_vals(rows, c, l_c))
+    out["L"]["win_within_C"] = sum((not math.isnan(v)) and v != INF for v in out_vals(rows, c, l_c))
     out["H"]["at_ceiling"] = sum((not r["complete"]) and r["counts"]["states_seen"] >= c for r in rows.values())
     return out
 
@@ -389,7 +396,7 @@ def report(res):
             out.append(f"\n{a} void: " + "; ".join(res["agents"][a]["void"]))
     c = res["counts"]
     out += ["", "## Censoring at C (Section 7.4)", "",
-            f"L_C: complete {c['L']['complete']}, beyond C {c['L']['beyond_C']}, excluded {c['L']['excluded']} of "
+            f"L_C: win within C {c['L']['win_within_C']}, complete {c['L']['complete']}, beyond C {c['L']['beyond_C']}, excluded {c['L']['excluded']} of "
             f"{c['L']['units']}. H_C: at the ceiling {c['H']['at_ceiling']}, excluded {c['H']['excluded']}. "
             f"b: excluded {c['b']['excluded']}.", "",
             "## Secondary, registered, outside the outcome table (Section 7.7)", "",

@@ -1,6 +1,6 @@
 """
 test_analyze_horizon.py -- synthetic tests of scripts/analyze_horizon.py.  No confirmatory row exists; every
-row here is made up in memory.  The only committed files read are docs/PREREG.md (the ceiling, still open) and
+row here is made up in memory.  The only committed files read are docs/PREREG.md (the ceiling) and
 docs/design/dev_reading.json (the supplement), both read-only.
 
 Hand-worked AUROC (part 1).  Four games, scores and outcomes:
@@ -16,8 +16,9 @@ Censored scores (part 2), C = 1,000:
     time cap at seen 300, no win                 L_C, H_C, b missing (excluded)
     time cap at seen 300, win at seen 100, L 4   L_C -4;   H_C, b missing
     complete, R 50, no win                       L_C beyond C (INF), H_C -log10 50
-Part 4 also records, for the author, that under the drafted rules a ceiling beyond which every level lies gives
-AUROC_L 0.5, "not shown", not void.  Part 5 checks the refusals: any campaign but the confirmatory one, and any run
+Part 4 also records that under the drafted rules, without the void rule of Section 7.4, rule 5, a ceiling beyond
+which every level lies gives AUROC_L 0.5, "not shown", not void; and that under the rule fixed on 24 November 2026
+(form (a), 50%) the same data are void, as is 64 of 130 levels with a win, while 65 of 130 is not.  Part 5 checks the refusals: any campaign but the confirmatory one, and any run
 before the annotated tag prereg-v1 holds this script.
 Run: D:\\Research\\horizon\\.venv\\Scripts\\python.exe -W error scripts\\test_analyze_horizon.py > logs\\test_analyze_horizon.log
 """
@@ -214,7 +215,12 @@ def part4():
     # a point for the author (docs/DESIGN_gvgai_draft.md), not a rule this script adds.
     rows, truth, feats, outc = synthetic()
     beyond = {k: row(False, 2000) for k in rows}
-    res = A.analyze(beyond, truth, feats, outc, 1000, workers=1, n_boot=50)
+    saved = A.L_C_VOID_RULE
+    try:
+        A.L_C_VOID_RULE = None
+        res = A.analyze(beyond, truth, feats, outc, 1000, workers=1, n_boot=50)
+    finally:
+        A.L_C_VOID_RULE = saved
     nb = res["agents"]["N"]
     check(close(nb["lines"]["L_same"]["point"], 0.5) and nb["verdict"] == "not shown" and not nb["void"]
           and res["outcome"] == "Refute",
@@ -222,6 +228,28 @@ def part4():
           f"(got {nb['lines']['L_same']['point']}, {nb['verdict']}, void {nb['void']}, {res['outcome']})")
     check(res["counts"]["L"]["beyond_C"] == 130 and res["counts"]["L"]["excluded"] == 0,
           "every level beyond C: 130 counted beyond C, 0 excluded")
+
+    # the void rule of L_C as fixed on 24 November 2026 (Section 7.4, rule 5): form (a), fewer than 50% of the
+    # levels with a win within C
+    check(A.L_C_VOID_RULE == dict(form="a", min_win_percent=50), "the void rule in the script: form (a), 50%")
+    res = A.analyze(beyond, truth, feats, outc, 1000, workers=1, n_boot=50)
+    check(all(any("fewer than 50%" in r for r in res["agents"][a]["void"]) for a in A.AGENTS)
+          and res["outcome"] == "Void" and res["counts"]["L"]["win_within_C"] == 0,
+          f"every level beyond C under the fixed rule: every evidence agent void, outcome Void ({res['outcome']})")
+    keys = sorted(rows)
+    for wins, void in ((64, True), (65, False)):
+        part = {k: (row(True, 600, 100, 7) if i < wins else row(False, 2000)) for i, k in enumerate(keys)}
+        res = A.analyze(part, truth, feats, outc, 1000, workers=1, n_boot=50)
+        got = any("fewer than 50%" in r for r in res["agents"]["N"]["void"])
+        check(res["counts"]["L"]["win_within_C"] == wins and got == void,
+              f"{wins} of 130 levels with a win within C ({100 * wins / 130:.1f}%): "
+              f"{'void' if void else 'not void'} by rule 5 (got {res['counts']['L']['win_within_C']}, {got})")
+    part = {k: row(False, 300) for k in keys}          # time cap before C without a win: excluded, not a win
+    for k in keys[:70]:
+        part[k] = row(False, 300, 100, 4)               # time cap, but a win was seen: enters L_C with its length
+    res = A.analyze(part, truth, feats, outc, 1000, workers=1, n_boot=50)
+    check(res["counts"]["L"]["win_within_C"] == 70 and not any("fewer than 50%" in r for r in res["agents"]["N"]["void"]),
+          "a win seen before a time cap counts as a win within C (70 of 130): not void by rule 5")
 
     rows, truth, feats, outc = synthetic()
     one = {k: {p: i < 3 for i, p in enumerate(A.PRED)} for k in truth}
@@ -245,7 +273,7 @@ def part5():
         with open(p, "w", encoding="utf-8") as f:
             f.write("x\n- **C = [open; fixed before the tag by the rule below].**\n")
         check(A.prereg_c(p) is None, "an open C reads as None")
-    check(A.prereg_c() is None and A.C is None, "C is open in docs/PREREG.md and in the script")
+    check(A.C == 1_000_000 and A.prereg_c() == A.C, "C = 1,000,000 in the script and in docs/PREREG.md, Section 6")
     for camp in ("none", "gvgai-pilot-search", "dev-minigrid-e"):
         try:
             A.main(["--campaign", camp])
@@ -259,16 +287,24 @@ def part5():
         check(False, "the confirmatory campaign is refused before the tag")
     except SystemExit as e:
         check("does not exist" in str(e), "the confirmatory campaign is refused before the tag")
-    check(A.L_C_VOID_RULE is None, "the void rule of L_C is open in the script (docs/PREREG.md, Section 7.4, rule 5)")
-    saved = (A.tag_refusal, A.prereg_c, A.C)
-    try:                       # past the tag and with C fixed, an open void rule still stops the analysis
-        A.tag_refusal, A.prereg_c, A.C = (lambda *_a, **_k: None), (lambda *_a, **_k: 1000), 1000
+    check(A.L_C_VOID_RULE is not None, "the void rule of L_C is fixed in the script (docs/PREREG.md, Section 7.4, rule 5)")
+    saved = (A.tag_refusal, A.prereg_c, A.C, A.L_C_VOID_RULE)
+    try:                       # past the tag and with C fixed, an open void rule would still stop the analysis
+        A.tag_refusal, A.prereg_c, A.C, A.L_C_VOID_RULE = (lambda *_a, **_k: None), (lambda *_a, **_k: 1000), 1000, None
         A.main(["--campaign", A.CONFIRMATORY_CAMPAIGN])
         check(False, "an open void rule of L_C stops the analysis")
     except SystemExit as e:
         check("void rule of L_C is not fixed" in str(e), "an open void rule of L_C stops the analysis")
     finally:
-        A.tag_refusal, A.prereg_c, A.C = saved
+        A.tag_refusal, A.prereg_c, A.C, A.L_C_VOID_RULE = saved
+    try:                       # a C in the script that differs from docs/PREREG.md stops the analysis
+        A.tag_refusal, A.prereg_c = (lambda *_a, **_k: None), (lambda *_a, **_k: 300_000)
+        A.main(["--campaign", A.CONFIRMATORY_CAMPAIGN])
+        check(False, "a C that differs from docs/PREREG.md stops the analysis")
+    except SystemExit as e:
+        check("differs from docs/PREREG.md" in str(e), "a C that differs from docs/PREREG.md stops the analysis")
+    finally:
+        A.tag_refusal, A.prereg_c, A.C, A.L_C_VOID_RULE = saved
     import shutil  # noqa: PLC0415
     import subprocess  # noqa: PLC0415
     with tempfile.TemporaryDirectory() as tmp:

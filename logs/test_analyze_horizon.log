@@ -9,7 +9,7 @@ ok    first win after C is beyond C, and H_C sits at the ceiling
 ok    time-capped below C without a win is excluded
 ok    time-capped below C with a win enters L_C only
 ok    complete without a win is beyond C
-ok    censor counts {'L': {'units': 5, 'complete': 2, 'excluded': 1, 'beyond_C': 1}, 'H': {'units': 5, 'complete': 2, 'excluded': 2, 'at_ceiling': 1}, 'b': {'units': 5, 'complete': 2, 'excluded': 2}}
+ok    censor counts {'L': {'units': 5, 'complete': 2, 'excluded': 1, 'beyond_C': 1, 'win_within_C': 3}, 'H': {'units': 5, 'complete': 2, 'excluded': 2, 'at_ceiling': 1}, 'b': {'units': 5, 'complete': 2, 'excluded': 2}}
 == 3. outcome, verdict and outcome table
 ok    Y needs 5 of 10 seeds
 ok    nine seeds raise
@@ -42,19 +42,25 @@ ok    14 of 130 levels excluded (10.8%): L_C void
 ok    13 of 130 excluded (10.0%): not void
 ok    every level beyond C: AUROC_L 0.5, not shown, not void, Refute under the drafted rules (got 0.5, not shown, void [], Refute)
 ok    every level beyond C: 130 counted beyond C, 0 excluded
+ok    the void rule in the script: form (a), 50%
+ok    every level beyond C under the fixed rule: every evidence agent void, outcome Void (Void)
+ok    64 of 130 levels with a win within C (49.2%): void by rule 5 (got 64, True)
+ok    65 of 130 levels with a win within C (50.0%): not void by rule 5 (got 65, False)
+ok    a win seen before a time cap counts as a win within C (70 of 130): not void by rule 5
 ok    one value of S_M: void
 ok    two draws of one game form no eligible pair
 == 5. the ceiling in docs/PREREG.md and the supplement
 ok    a fixed C is read
 ok    an open C reads as None
-ok    C is open in docs/PREREG.md and in the script
+ok    C = 1,000,000 in the script and in docs/PREREG.md, Section 6
 ok    campaign none is refused
 ok    campaign gvgai-pilot-search is refused
 ok    campaign dev-minigrid-e is refused
 ok    this repository has no tag prereg-v1 yet: refused
 ok    the confirmatory campaign is refused before the tag
-ok    the void rule of L_C is open in the script (docs/PREREG.md, Section 7.4, rule 5)
+ok    the void rule of L_C is fixed in the script (docs/PREREG.md, Section 7.4, rule 5)
 ok    an open void rule of L_C stops the analysis
+ok    a C that differs from docs/PREREG.md stops the analysis
 ok    no tag: refused
 ok    a lightweight tag is not enough
 ok    an annotated tag holding the same script: allowed
