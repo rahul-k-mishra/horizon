@@ -1,0 +1,72 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v5
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit 09746058ded5b4fb3d6cb94086c8e166e92a2bff Loop: p-02 pushed as kernel version 124
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v5)
+code commit d776f171c16337f39b3ecea643037c219234a9f4 (tag automation-v5)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1795500932.2510118
+[2026-11-24T06:17:11Z] chunk p-02 (gvgaisearch), nonce gvgai-pilot-search-p-02-20261124T061514Z-5c8c64; work deadline 2026-11-24T14:15:32Z, checkpoint by 2026-11-24T14:30:32Z
+[2026-11-24T06:17:11Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-11-24T06:17:11Z] devsearch: 28 units to run on 4 workers, 0 resumed from the checkpoint
+[2026-11-24T06:17:11Z] devsearch unit p-02-labyrinthdual-l1-v0: start
+[2026-11-24T06:17:11Z] devsearch unit p-02-labyrinthdual-l0: start
+[2026-11-24T06:17:11Z] devsearch unit p-02-labyrinthdual-l0-v0: start
+[2026-11-24T06:17:11Z] devsearch unit p-02-labyrinthdual-l3: start
+[2026-11-24T06:34:55Z] devsearch unit p-02-labyrinthdual-l1-v0: complete, 138983 states seen
+[2026-11-24T06:34:55Z] devsearch unit p-02-labyrinthdual-l3-v0: start
+[2026-11-24T06:37:40Z] devsearch unit p-02-labyrinthdual-l3: complete, 149767 states seen
+[2026-11-24T06:37:40Z] devsearch unit p-02-labyrinthdual-l4: start
+[2026-11-24T06:40:42Z] devsearch unit p-02-labyrinthdual-l0-v0: complete, 155352 states seen
+[2026-11-24T06:40:42Z] devsearch unit p-02-labyrinthdual-l4-v0: start
+[2026-11-24T06:43:28Z] devsearch unit p-02-labyrinthdual-l0: complete, 155352 states seen
+[2026-11-24T06:43:28Z] devsearch unit p-02-bait-l3: start
+[2026-11-24T06:52:20Z] devsearch unit p-02-labyrinthdual-l3-v0: complete, 149767 states seen
+[2026-11-24T06:52:20Z] devsearch unit p-02-bait-l3-v0: start
+[2026-11-24T07:20:25Z] devsearch unit p-02-labyrinthdual-l4-v0: complete, 159300 states seen
+[2026-11-24T07:20:25Z] devsearch unit p-02-labyrinthdual-l2: start
+[2026-11-24T07:21:46Z] devsearch unit p-02-labyrinthdual-l4: complete, 159300 states seen
+[2026-11-24T07:21:46Z] devsearch unit p-02-labyrinthdual-l2-v0: start
+[2026-11-24T07:33:09Z] devsearch unit p-02-bait-l3-v0: capped, 2000001 states seen
+[2026-11-24T07:33:09Z] devsearch unit p-02-bait-l2-v0: start
+[2026-11-24T07:35:22Z] devsearch unit p-02-bait-l3: capped, 2000001 states seen
+[2026-11-24T07:35:22Z] devsearch unit p-02-bait-l1: start
+[2026-11-24T07:35:29Z] devsearch unit p-02-bait-l1: complete, 4796 states seen
+[2026-11-24T07:35:29Z] devsearch unit p-02-bait-l1-v0: start
+[2026-11-24T07:35:37Z] devsearch unit p-02-bait-l1-v0: complete, 4796 states seen
+[2026-11-24T07:35:37Z] devsearch unit p-02-bait-l0: start
+[2026-11-24T07:35:37Z] devsearch unit p-02-bait-l0: complete, 42 states seen
+[2026-11-24T07:35:37Z] devsearch unit p-02-bait-l0-v0: start
+[2026-11-24T07:35:37Z] devsearch unit p-02-bait-l0-v0: complete, 42 states seen
+[2026-11-24T07:35:37Z] devsearch unit p-02-bait-l4: start
+[2026-11-24T07:50:27Z] devsearch unit p-02-labyrinthdual-l2: complete, 139649 states seen
+[2026-11-24T07:50:27Z] devsearch unit p-02-bait-l4-v0: start
+[2026-11-24T07:50:53Z] devsearch unit p-02-labyrinthdual-l2-v0: complete, 139649 states seen
+[2026-11-24T07:50:53Z] devsearch unit p-02-watergame-l3: start
+[2026-11-24T07:51:14Z] devsearch unit p-02-watergame-l3: complete, 28825 states seen
+[2026-11-24T07:51:14Z] devsearch unit p-02-watergame-l3-v0: start
+[2026-11-24T07:51:31Z] devsearch unit p-02-watergame-l3-v0: complete, 28825 states seen
+[2026-11-24T07:51:31Z] devsearch unit p-02-watergame-l4: start
+[2026-11-24T07:52:49Z] devsearch unit p-02-watergame-l4: complete, 113126 states seen
+[2026-11-24T07:52:49Z] devsearch unit p-02-watergame-l4-v0: start
+[2026-11-24T07:53:53Z] devsearch unit p-02-watergame-l4-v0: complete, 113126 states seen
+[2026-11-24T07:53:53Z] devsearch unit p-02-watergame-l2: start
+[2026-11-24T07:54:56Z] devsearch unit p-02-watergame-l2: complete, 80544 states seen
+[2026-11-24T07:54:56Z] devsearch unit p-02-watergame-l2-v0: start
+[2026-11-24T07:55:48Z] devsearch unit p-02-watergame-l2-v0: complete, 80544 states seen
+[2026-11-24T07:55:48Z] devsearch unit p-02-watergame-l1: start
+[2026-11-24T08:12:57Z] devsearch unit p-02-watergame-l1: complete, 1131198 states seen
+[2026-11-24T08:12:57Z] devsearch unit p-02-watergame-l1-v0: start
+[2026-11-24T08:14:49Z] devsearch unit p-02-bait-l4: capped, 2000001 states seen
+[2026-11-24T08:14:49Z] devsearch unit p-02-watergame-l0: start
+[2026-11-24T08:14:49Z] devsearch unit p-02-watergame-l0: complete, 153 states seen
+[2026-11-24T08:14:49Z] devsearch unit p-02-watergame-l0-v0: start
+[2026-11-24T08:14:49Z] devsearch unit p-02-watergame-l0-v0: complete, 153 states seen
+[2026-11-24T08:15:06Z] devsearch unit p-02-bait-l4-v0: capped, 2000001 states seen
+[2026-11-24T08:24:39Z] devsearch unit p-02-watergame-l1-v0: complete, 1131198 states seen
+[2026-11-24T08:45:46Z] devsearch unit p-02-bait-l2-v0: capped, 2000000 states seen
+[2026-11-24T08:45:46Z] chunk p-02: done; units done 28 of 28
+[2026-11-24T08:45:46Z] wrote result.json (status done) and bundle.tar.gz

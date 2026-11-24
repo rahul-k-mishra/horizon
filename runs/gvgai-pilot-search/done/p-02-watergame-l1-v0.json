@@ -1,0 +1,10 @@
+{
+ "chunk_id": "p-02",
+ "committed_at": "2026-11-24T08:50:18Z",
+ "kernel_version": 124,
+ "kind": "gvgaisearch",
+ "row_path": "runs/gvgai-pilot-search/gvgaisearch/p-02-watergame-l1-v0.json",
+ "row_sha256": "fe576d664e1dae8fc0daf5bc466a7d3b6cdfc06692328dcd7a2a30a81b70d610",
+ "run_nonce": "gvgai-pilot-search-p-02-20261124T061514Z-5c8c64",
+ "unit_id": "p-02-watergame-l1-v0"
+}

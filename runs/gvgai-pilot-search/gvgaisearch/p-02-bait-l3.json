@@ -1,0 +1,55 @@
+{
+ "campaign": "gvgai-pilot-search",
+ "cap_hit": "seen",
+ "capped": true,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "seen_cap": 2000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "p-02",
+ "complete": false,
+ "counts": {
+  "depth_max": 21,
+  "expanded_at_first_win": null,
+  "frontier_left": 890846,
+  "seen_at_first_win": null,
+  "solution_length": null,
+  "spill_files_max": 0,
+  "states_expanded": 800682,
+  "states_seen": 2000001,
+  "successors_total": 3202728
+ },
+ "game": "bait",
+ "level": 3,
+ "measures": {
+  "branching": 3.6312880769144305,
+  "eh": null,
+  "eh_horizon": null,
+  "eh_k": null,
+  "eh_status": "not computed: capped by seen"
+ },
+ "schema": "horizon.search.v3",
+ "seconds_spent": 3112.841,
+ "sessions": [
+  {
+   "ended_at": "2026-11-24T07:35:21Z",
+   "host": "bfe272470d94",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_g3DID68BkPPnzRyEHnWOS2t0TflE0kcgIWZ7LuoZ6I-373359244-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-west1-c",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "gvgai-pilot-search-p-02-20261124T061514Z-5c8c64",
+   "started_at": "2026-11-24T06:15:32Z"
+  }
+ ],
+ "suite": "gvgai",
+ "unit_id": "p-02-bait-l3",
+ "written_at": "2026-11-24T07:35:21Z"
+}
