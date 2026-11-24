@@ -1,0 +1,92 @@
+pilot_margins -- EXPLORATORY: the margin of form (a) and the cost of agents on the pilot levels; the pilot games are excluded from every confirmatory analysis, so nothing here is evidence for the claim, and no value is adopted
+
+== 1. the pilot's levels with a win within C, per game, of 5 (extended key; EXPLORATORY) ==
+           C |          bait | labyrinthdual |        rivers |     watergame | pilot share
+      10,000 |             2 |             5 |             0 |             1 | 40.0%
+     100,000 |             2 |             5 |             0 |             3 | 50.0%
+     300,000 |             3 |             5 |             0 |             4 | 60.0%
+   1,000,000 |             3 |             5 |             0 |             5 | 65.0%
+   2,000,000 |             3 |             5 |             0 |             5 | 65.0%
+  excluded under PREREG 7.4 rule 2 at any C: 0
+
+== 2. form (a): the share of suites of 25 games drawn from the pilot's four that would have fewer than X% of their 125 levels with a win within C, per cent (EXPLORATORY) ==
+  games drawn with replacement, equally likely, each with all 5 of its levels (clusters as in PREREG 7.3); 'fewer than X%' is the wording of form (a); exact = every multinomial draw; resampled = 10,000 draws, numpy default_rng([20261124, C])
+
+  C = 10,000; per-game wins {'bait': 2, 'labyrinthdual': 5, 'rivers': 0, 'watergame': 1}; expected share 40.0%
+                                        X=10%    X=25%    X=40%    X=50%    X=60%
+  exact, pool of 4                       0.00     1.96    48.80    90.59    99.41
+  resampled, pool of 4                   0.00     2.06    48.59    90.06    99.47
+  exact, bait left out                   0.00     3.95    49.05    87.42    98.61
+  exact, labyrinthdual left out          0.09    94.46   100.00   100.00   100.00
+  exact, rivers left out                 0.00     0.00     1.82    31.82    82.10
+  exact, watergame left out              0.00     0.35    19.70    65.87    94.09
+  two-level: pool of 4 redrawn first     4.35    25.40    51.26    70.28    82.72
+
+  C = 100,000; per-game wins {'bait': 2, 'labyrinthdual': 5, 'rivers': 0, 'watergame': 3}; expected share 50.0%
+                                        X=10%    X=25%    X=40%    X=50%    X=60%
+  exact, pool of 4                       0.00     0.02     7.49    50.00    90.80
+  resampled, pool of 4                   0.00     0.04     7.43    49.93    90.85
+  exact, bait left out                   0.00     0.03     4.90    34.13    77.50
+  exact, labyrinthdual left out          0.00     5.37    89.62    99.98   100.00
+  exact, rivers left out                 0.00     0.00     0.00     0.02     7.67
+  exact, watergame left out              0.00     0.35    19.70    65.87    94.09
+  two-level: pool of 4 redrawn first     1.51    10.52    30.38    49.90    68.44
+
+  C = 300,000; per-game wins {'bait': 3, 'labyrinthdual': 5, 'rivers': 0, 'watergame': 4}; expected share 60.0%
+                                        X=10%    X=25%    X=40%    X=50%    X=60%
+  exact, pool of 4                       0.00     0.00     0.44     9.41    46.97
+  resampled, pool of 4                   0.00     0.00     0.46     9.51    47.07
+  exact, bait left out                   0.00     0.01     1.11    12.58    47.37
+  exact, labyrinthdual left out          0.00     0.11    15.09    68.18    97.50
+  exact, rivers left out                 0.00     0.00     0.00     0.00     0.00
+  exact, watergame left out              0.00     0.03     4.90    34.13    77.50
+  two-level: pool of 4 redrawn first     0.90     4.78    16.21    29.86    46.26
+
+  C = 1,000,000; per-game wins {'bait': 3, 'labyrinthdual': 5, 'rivers': 0, 'watergame': 5}; expected share 65.0%
+                                        X=10%    X=25%    X=40%    X=50%    X=60%
+  exact, pool of 4                       0.00     0.00     0.15     3.71    25.15
+  resampled, pool of 4                   0.00     0.00     0.17     3.57    25.55
+  exact, bait left out                   0.00     0.00     0.16     4.15    17.80
+  exact, labyrinthdual left out          0.00     0.03     4.90    34.13    77.50
+  exact, rivers left out                 0.00     0.00     0.00     0.00     0.00
+  exact, watergame left out              0.00     0.03     4.90    34.13    77.50
+  two-level: pool of 4 redrawn first     0.76     4.30    13.08    24.89    38.10
+
+  C = 2,000,000; per-game wins {'bait': 3, 'labyrinthdual': 5, 'rivers': 0, 'watergame': 5}; expected share 65.0%
+                                        X=10%    X=25%    X=40%    X=50%    X=60%
+  exact, pool of 4                       0.00     0.00     0.15     3.71    25.15
+  resampled, pool of 4                   0.00     0.00     0.07     3.53    24.81
+  exact, bait left out                   0.00     0.00     0.16     4.15    17.80
+  exact, labyrinthdual left out          0.00     0.03     4.90    34.13    77.50
+  exact, rivers left out                 0.00     0.00     0.00     0.00     0.00
+  exact, watergame left out              0.00     0.03     4.90    34.13    77.50
+  two-level: pool of 4 redrawn first     0.64     4.36    12.81    24.31    37.20
+
+  the pool holds four games, so a suite drawn from it can only be made of copies of those four; the resampling treats them as the whole population of GVGAI games and carries no uncertainty about what the other 25 games are like, except in the two checks above, which are themselves drawn from the four
+
+== 3. the three evidence agents on the 20 pilot levels under the registered conditions: cost, as bounds (EXPLORATORY) ==
+  units: 3 agents (N, R, I1) x 20 levels x 10 seeds = 600, 20,000 actions each; a chunk holds 115200 worker-seconds; one session with the loop's largest gap at most 32460 s
+  unit cap   300 s:  384 units per chunk,  2 chunks (Kaggle sessions) at most, 0.8 days at most
+  unit cap   600 s:  192 units per chunk,  4 chunks (Kaggle sessions) at most, 1.5 days at most
+  unit cap  1200 s:   96 units per chunk,  7 chunks (Kaggle sessions) at most, 2.6 days at most
+  unit cap  1800 s:   64 units per chunk, 10 chunks (Kaggle sessions) at most, 3.8 days at most
+  for comparison, the registered pilot agents of gate G1 (after the tag): 4 agents x 20 levels x 2 seeds = 160 units, 3 chunks at most at 1800 s
+  engine time alone for 20,000 actions (laptop successors/s of logs/engine_speed.log x Kaggle/laptop ratio over 16 pilot levels; the agents' own computation is not measured on GVGAI and is not in this): at the median ratio 0.388, 4 to 38 s per unit; at the lowest ratio 0.099, 14 to 150 s per unit
+  not runnable now: the kind gvgaiagent has no pins, image probe or dry run (rule R8; docs/STATE.md, amendment (ad), item 4), and no agent unit cap is fixed (gate G3 sets it from the pilot's times)
+
+== 4. what such a run could show on the pilot (EXPLORATORY) ==
+  S_M of the pilot games (docs/truth/gvgai.json, level 0): {'bait': 4, 'labyrinthdual': 5, 'rivers': 1, 'watergame': 4}
+  games that share S_M with another pilot game, so that their levels can enter a same-S_M between-game pair of PREREG 7.2: bait, watergame
+  C    10,000: beyond C 12 levels in 3 game(s) (bait 2, bait 3, bait 4, rivers 0, rivers 1, rivers 2, rivers 3, rivers 4, watergame 1, watergame 2, watergame 3, watergame 4); of them in a game that shares S_M: 7
+  C   100,000: beyond C 10 levels in 3 game(s) (bait 2, bait 3, bait 4, rivers 0, rivers 1, rivers 2, rivers 3, rivers 4, watergame 1, watergame 4); of them in a game that shares S_M: 5
+  C   300,000: beyond C 8 levels in 3 game(s) (bait 3, bait 4, rivers 0, rivers 1, rivers 2, rivers 3, rivers 4, watergame 1); of them in a game that shares S_M: 3
+  C 1,000,000: beyond C 7 levels in 2 game(s) (bait 3, bait 4, rivers 0, rivers 1, rivers 2, rivers 3, rivers 4); of them in a game that shares S_M: 2
+  C 2,000,000: beyond C 7 levels in 2 game(s) (bait 3, bait 4, rivers 0, rivers 1, rivers 2, rivers 3, rivers 4); of them in a game that shares S_M: 2
+
+== 5. development data of stage E (MiniGrid/BabyAI macro, one unit per (game, seed)): agents' completion on units beyond C against units with a win within C (EXPLORATORY) ==
+  C    10,000: N: beyond C completed 69 of 378 (18.3%) [19 of 54 games], win within C completed 887 of 1182 (75.0%); R: beyond C completed 69 of 378 (18.3%) [20 of 54 games], win within C completed 888 of 1182 (75.1%); I1: beyond C completed 16 of 378 (4.2%) [8 of 54 games], win within C completed 551 of 1182 (46.6%)
+  C   100,000: N: beyond C completed 48 of 243 (19.8%) [15 of 38 games], win within C completed 908 of 1317 (68.9%); R: beyond C completed 47 of 243 (19.3%) [15 of 38 games], win within C completed 910 of 1317 (69.1%); I1: beyond C completed 11 of 243 (4.5%) [6 of 38 games], win within C completed 556 of 1317 (42.2%)
+  C   300,000: N: beyond C completed 39 of 187 (20.9%) [13 of 29 games], win within C completed 917 of 1373 (66.8%); R: beyond C completed 38 of 187 (20.3%) [13 of 29 games], win within C completed 919 of 1373 (66.9%); I1: beyond C completed 9 of 187 (4.8%) [6 of 29 games], win within C completed 558 of 1373 (40.6%)
+  C 1,000,000: N: beyond C completed 35 of 162 (21.6%) [13 of 26 games], win within C completed 921 of 1398 (65.9%); R: beyond C completed 35 of 162 (21.6%) [13 of 26 games], win within C completed 922 of 1398 (66.0%); I1: beyond C completed 7 of 162 (4.3%) [6 of 26 games], win within C completed 560 of 1398 (40.1%)
+  C 2,000,000: N: beyond C completed 29 of 147 (19.7%) [13 of 25 games], win within C completed 927 of 1413 (65.6%); R: beyond C completed 29 of 147 (19.7%) [13 of 25 games], win within C completed 928 of 1413 (65.7%); I1: beyond C completed 6 of 147 (4.1%) [5 of 25 games], win within C completed 561 of 1413 (39.7%)
+  a unit beyond C that an agent completes ties, under L_C, with every uncompleted unit beyond C; a unit beyond C that the agent fails is ranked last, which is where a failed unit belongs, and costs nothing
