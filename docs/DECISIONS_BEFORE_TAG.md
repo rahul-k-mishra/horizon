@@ -79,6 +79,28 @@ Counts: under v0 every search measure is void on the development data; under cen
 Recommended: **yes**.
 Answer: **Yes.** Censoring at C replaces the 25 per cent capped-share void rule; a score is void only if more than 10 per cent of levels cannot reach C or complete. (Rahul Kumar Mishra, 14 November 2026)
 
+**5a. The form and threshold of the L_C void rule (PREREG Section 7.4, rule 5; written 24 November 2026, for the author; none adopted, no value entered).**
+*EXPLORATORY throughout:* the pilot figures are from games excluded from every confirmatory analysis, the development figures from MiniGrid/BabyAI; none is evidence for the claim. Source: logs/pilot_reading.log, Sections 7 and 8. A void rule voids the score, not a level: for each form, the table says whether L_C would have been void had the pilot, or the development data, been the suite. The values of X and G shown are examples printed by the script so that the forms can be compared, not proposals.
+
+| C | (a) levels with a win within C: pilot / development | (a) void at X = 10%, 25%, 50%, 75%: pilot | (a) same: development | (b) games with a win within C: pilot / development | (c) eligible same-S_M pairs not tied by censoring, development, N / R / I1 |
+|---|---|---|---|---|---|
+| 10,000 | 8 of 20 (40.0%) / 1,182 of 1,560 (75.8%) | no, no, **void**, **void** | no at every X | 3 of 4 / 136 of 156 (87.2%) | 95.5% / 95.6% / 98.3% |
+| 100,000 | 10 of 20 (50.0%) / 1,317 (84.4%) | no, no, no, **void** | no at every X | 3 of 4 / 146 (93.6%) | 97.9% / 97.9% / 99.3% |
+| 300,000 | 12 of 20 (60.0%) / 1,373 (88.0%) | no, no, no, **void** | no at every X | 3 of 4 / 148 (94.9%) | 98.6% / 98.6% / 99.5% |
+| 1,000,000 | 13 of 20 (65.0%) / 1,398 (89.6%) | no, no, no, **void** | no at every X | 3 of 4 / 149 (95.5%) | 98.9% / 98.9% / 99.7% |
+| 2,000,000 | 13 of 20 (65.0%) / 1,413 (90.6%) | no, no, no, **void** | no at every X | 3 of 4 / 149 (95.5%) | 99.1% / 99.1% / 99.7% |
+
+*EXPLORATORY.* What each form would do.
+- *(a) A share of levels.* On the pilot it voids L_C at 10,000 for any X above 40%, and at every C for X = 75%; at X = 50% it voids at 10,000 only (100,000 sits exactly at 50.0%, which is not fewer than 50%). On the development data it voids nothing at any C for any X up to 75%.
+- *(b) A number of games.* On the pilot 3 of 4 games (bait, labyrinthdual, watergame) have a level with a win within C at every candidate; scaled to the 25 confirmatory games, that clears G = 5, 8 and 13 at every C. On the development data 87.2% to 95.5% of the 156 games have one. It voids nothing on either set at any of the values shown.
+- *(c) A number of pairs the score can order.* It cannot be computed on the pilot: it needs the agents' outcomes, and no pilot agent row exists. On the development data, 95.5% to 99.7% of the eligible same-S_M between-game pairs have at least one unit with a win within C, for every agent and every C, so it would void nothing at any threshold below 95%.
+
+*Recommendation: form (a), with X = 50%: "L_C is void if fewer than 50% of the confirmatory levels show a win within C."* Reasons. (1) It is read from the search rows alone, so whether L_C is void is known when the confirmatory search is done and before any agent unit runs; form (c) waits for the agents and can void the score for one agent and not another, although the score's resolution does not depend on the agent. (2) It measures what the rule is about, the share of levels the score tells apart from "beyond C"; form (b) counts a game with one level of five showing a win as fully resolved. On the pilot the wins come by game (labyrinthdual 5 of 5, watergame 5 of 5 at 1,000,000, rivers 0 of 5), so (a) and (b) agree there, and (a) is the simpler to state and to check. (3) At X = 50%, when L_C is not void, at least as many levels carry a length as sit in the one tie at the bottom, so the score still orders levels by how far the first win lies and does not reduce to "a win seen within C, or not". It mirrors the rule for S_M in Section 7.6 in kind. (4) It separates the cases the pilot and the development data show: void at 10,000 on the pilot (40.0%), where the score has too little resolution; not void at 1,000,000 on the pilot (65.0%) or anywhere on the development data (75.8% to 90.6%).
+*What would make it wrong.* (1) Wins on the confirmatory levels packed into the games of one S_M group: half the levels could show a win while most eligible pairs, which come only from inside the four S_M groups, are tied; form (a) would let that through and form (c) would catch it. (2) A share below 50% that still ranks completion well: on the development data the levels beyond C were mostly levels the agents failed, so ties there cost little (item 4a); if the same holds on GVGAI, X = 50% would void a score that could have ranked, and the pilot has no agent outcomes to test it. (3) A confirmatory suite in which a game like rivers is common: at 1,000,000 the pilot stands at 65.0% with one such game in four; with more of them L_C would be void, and the study would give no primary verdict rather than a Refute.
+
+The form, the value and the date are the author's to enter on PREREG Section 7.4, rule 5:
+Answer: **[open]**
+
 **6. Drop the effective-horizon bound?**
 Counts: AUROC 0.5164 for N on the 893 units where it exists; missing on 42.8% (logs/dev_reading.log).
 Recommended: **drop**.
