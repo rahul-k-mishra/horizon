@@ -1,0 +1,10 @@
+{
+ "chunk_id": "p-01",
+ "committed_at": "2026-11-24T06:15:13Z",
+ "kernel_version": 123,
+ "kind": "gvgaisearch",
+ "row_path": "runs/gvgai-pilot-search/gvgaisearch/p-01-rivers-l2-v0.json",
+ "row_sha256": "9e7155811b9f5691d84a4a45c8d7656ff95ddd1d4c25d940bc3560b692a77828",
+ "run_nonce": "gvgai-pilot-search-p-01-20261124T013655Z-7af03c",
+ "unit_id": "p-01-rivers-l2-v0"
+}
