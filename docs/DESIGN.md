@@ -269,7 +269,7 @@ Two decisions remain the author's, after stage D has run and before the tag: whe
 1. Path E, the smaller claim on pairs of games with the same mechanics score; option F, a much larger suite, is the next study after this one, not registered and not designed here (Section 1).
 2. The primary search score is L_C (Section 5).
 3. The primary test compares between-game pairs whose games have the same mechanics score (Section 7).
-4. The ceiling C is deferred: fixed when the stage E reading is committed, with its effect on the development counts known; the registration records the date and that it was fixed before any confirmatory game (Sections 2.2 and 5).
+4. The ceiling C is deferred: fixed when the stage E reading is committed, with its effect on the development counts known; the registration records the date and that it was fixed before any confirmatory game (Sections 2.2 and 5). **Fixed 24 November 2026 by the author: C = 1,000,000; and the void rule of L_C, form (a) at 50%: L_C is void if fewer than 50% of the confirmatory levels show a win within C** (docs/PREREG.md, Section 6 and Section 7.4, rule 5, which govern). The confirmatory search budget at that C is in logs/design_budget.log, section 5.
 5. Censoring at C replaces the 25% capped-share rule; a score is void only if more than 10% of levels cannot reach C or complete (Section 5).
 6. The effective-horizon bound is dropped from every registered verdict, not deleted: the supplement reports it as exploratory with its development AUROC and the share of units where it could not be computed (Section 5).
 7. The v0 contrast is a registered secondary estimate with d beside it (Sections 7 and 7.1).
