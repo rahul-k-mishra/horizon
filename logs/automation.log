@@ -431,3 +431,5 @@ No token to manage; credentials are cached locally for you.
 2026-11-24T00:28:06Z actions-45297295410-1 COLLECT chunk gd-01 kernel version 116 run gvgaisearch-dryrun-gd-01-20261124T001921Z-6858f7: failed; chunks failed 1
 2026-11-24T00:37:29Z actions-45298567385-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 1 run gvgaisearch-dryrun-gd-01-20261124T003729Z-93beaf
 2026-11-24T00:37:31Z actions-45298567385-1 PUSHED chunk gd-01 as kernel version 117 run gvgaisearch-dryrun-gd-01-20261124T003729Z-93beaf
+2026-11-24T00:46:26Z actions-45299752541-1 FAILURE chunk gd-01 kernel version 117 run gvgaisearch-dryrun-gd-01-20261124T003729Z-93beaf: a partial session made no progress (failure 1 of at most 3)
+2026-11-24T00:46:26Z actions-45299752541-1 COLLECT chunk gd-01 kernel version 117 run gvgaisearch-dryrun-gd-01-20261124T003729Z-93beaf: failed; chunks pending 1
