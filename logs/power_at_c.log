@@ -1,0 +1,9 @@
+power_at_c -- EXPLORATORY: the power of the primary test at C = 1,000,000 (docs/PREREG.md, Section 7.8); development data, not evidence for any claim
+structure: 25 clusters of 5 units; 4000 simulated studies in 8 chunks, seed 20261114; S_M of the 25 confirmatory games; stage E rows 1560
+L_C on same-S_M between-game pairs, per evidence agent:
+  agent | units | studies | mean AUROC_L | SE | power 98.33% (log) | power 95% (log) | point >= 0.70 | point >= 0.70 and lower end of 98.33% > 0.5
+  N     |  1560 |    4000 | 0.7980 | 0.0921 | 0.8003 (0.8003) | 0.8991 (0.8991) | 0.8510 | 0.8047
+  R     |  1560 |    4000 | 0.7995 | 0.0914 | 0.8109 (0.8109) | 0.9058 (0.9058) | 0.8615 | 0.8155
+  I1    |  1560 |    4000 | 0.7812 | 0.0930 | 0.7354 (0.7354) | 0.8562 (0.8562) | 0.8173 | 0.7500
+the power above one half equals logs/stage_e_reading.log, Section 4, at this C for every agent
+the last column is the share of simulated studies that would give the verdict 'shown' (Section 7.5: the point at or above 0.70 and the lower end of the 98.33% interval above 0.5, the interval taken as the point minus z times the SE over the studies, as scripts/stage_e_diagnosis.power_summary does)
