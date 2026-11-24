@@ -1,0 +1,111 @@
+{
+ "campaign": "gvgaisearch-dryrun",
+ "cap_hit": null,
+ "capped": false,
+ "caps": {
+  "memory_cap_bytes": 6442450944,
+  "node_cap": 5000000,
+  "seen_cap": 2000000,
+  "spill_frontier_over": 1000000,
+  "time_cap_seconds": 14400.0
+ },
+ "chunk_id": "gd-01",
+ "complete": true,
+ "counts": {
+  "depth_max": 22,
+  "expanded_at_first_win": 3,
+  "frontier_left": 0,
+  "seen_at_first_win": 9,
+  "solution_length": 2,
+  "spill_files_max": 0,
+  "states_expanded": 2756,
+  "states_seen": 2900,
+  "successors_total": 11024
+ },
+ "game": "boxroom",
+ "level": 0,
+ "measures": {
+  "branching": 2.9923802612481856,
+  "eh": null,
+  "eh_horizon": null,
+  "eh_k": null,
+  "eh_status": "not computed: not recorded"
+ },
+ "schema": "horizon.search.v3",
+ "seconds_spent": 283.684,
+ "sessions": [
+  {
+   "ended_at": "2026-11-24T00:49:45Z",
+   "host": "67e384c99dd0",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_pjLhZp4HE2RSS1mEmnAz1KVbj49UsfetTpPTIXExrU-373270212-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "europe-west4-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T004627Z-bf0503",
+   "started_at": "2026-11-24T00:46:44Z"
+  },
+  {
+   "ended_at": "2026-11-24T00:58:55Z",
+   "host": "345cf3f5c291",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_IjcbyuXbh8jgL1o4iRwy9U8BvhBGFDzUMrQg4fT7k0-373272285-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-west1-b",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T005536Z-63a018",
+   "started_at": "2026-11-24T00:55:54Z"
+  },
+  {
+   "ended_at": "2026-11-24T01:07:49Z",
+   "host": "99b7e38314d5",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_rVMjgcfHRM5TdtrsdPGelNUCW3te9DlKIVDbUtfQWMI-373274250-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "europe-west4-c",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T010431Z-327219",
+   "started_at": "2026-11-24T01:04:49Z"
+  },
+  {
+   "ended_at": "2026-11-24T01:16:45Z",
+   "host": "825da12d4911",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_grNeF4vUDeY4SGSe7EjTtaHXalLD9G7JzUiSvRQaQ0k-373276221-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-west1-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T011327Z-cccc9e",
+   "started_at": "2026-11-24T01:13:45Z"
+  },
+  {
+   "ended_at": "2026-11-24T01:26:32Z",
+   "host": "ee0e276347aa",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_aEFva9yKEbiCoz62jQTv5Rl6dqJhHyHtAW8Pixtq9w-373278594-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-east4-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T012356Z-cd2e71",
+   "started_at": "2026-11-24T01:24:17Z"
+  }
+ ],
+ "suite": "gvgai",
+ "unit_id": "gd-01-boxroom-l0",
+ "written_at": "2026-11-24T01:26:32Z"
+}

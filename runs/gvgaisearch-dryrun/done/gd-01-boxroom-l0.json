@@ -1,0 +1,10 @@
+{
+ "chunk_id": "gd-01",
+ "committed_at": "2026-11-24T01:32:40Z",
+ "kernel_version": 122,
+ "kind": "gvgaisearch",
+ "row_path": "runs/gvgaisearch-dryrun/gvgaisearch/gd-01-boxroom-l0.json",
+ "row_sha256": "2fdd2dfa1956cb1a1e5c74cc37155dac8dcdfd1c6e6d5ca48c1d25b16e307e44",
+ "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T012356Z-cd2e71",
+ "unit_id": "gd-01-boxroom-l0"
+}
