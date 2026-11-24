@@ -1,0 +1,193 @@
+gvgaisearch dry run -- campaign gvgaisearch-dryrun, code tag automation-v5 at d776f17, state commit 4fcb0e4, workers 4, key form extended, session work 180 s
+
+== sessions
+attempt under automation-v4: chunk gd-01 failed, attempts 3, failures 3
+   kernel version 114  run gvgaisearch-dryrun-gd-01-20261123T174310Z-0aa074  outcome failed  units done this session []  ended 2026-11-23T17:46:27Z
+   kernel version 115  run gvgaisearch-dryrun-gd-01-20261124T001024Z-42ef80  outcome failed  units done this session []  ended 2026-11-24T00:13:03Z
+   kernel version 116  run gvgaisearch-dryrun-gd-01-20261124T001921Z-6858f7  outcome failed  units done this session []  ended 2026-11-24T00:22:38Z
+attempt under automation-v5: chunk gd-01 done, attempts 6, failures 1
+   kernel version 117  run gvgaisearch-dryrun-gd-01-20261124T003729Z-93beaf  outcome failed  units done this session []  ended 2026-11-24T00:41:18Z
+   kernel version 118  run gvgaisearch-dryrun-gd-01-20261124T004627Z-bf0503  outcome partial  units done this session ['gd-01-corridor-l0', 'gd-01-corridor-l1']  ended 2026-11-24T00:49:45Z
+   kernel version 119  run gvgaisearch-dryrun-gd-01-20261124T005536Z-63a018  outcome partial  units done this session []  ended 2026-11-24T00:58:55Z
+   kernel version 120  run gvgaisearch-dryrun-gd-01-20261124T010431Z-327219  outcome partial  units done this session []  ended 2026-11-24T01:07:49Z
+   kernel version 121  run gvgaisearch-dryrun-gd-01-20261124T011327Z-cccc9e  outcome partial  units done this session []  ended 2026-11-24T01:16:45Z
+   kernel version 122  run gvgaisearch-dryrun-gd-01-20261124T012356Z-cd2e71  outcome done  units done this session ['gd-01-boxroom-l0']  ended 2026-11-24T01:26:32Z
+
+== rows
+gd-01-corridor-l0 (corridor, level 0): schema horizon.search.v3 ok; complete True; cap hit None; states_seen 4, states_expanded 3, solution_length 3, seen_at_first_win 4, expanded_at_first_win 3; seconds 0.015
+   session: run gvgaisearch-dryrun-gd-01-20261124T004627Z-bf0503  2026-11-24T00:46:44Z to 2026-11-24T00:48:23Z
+   laptop (logs/test_gvgaisearch.log): states_seen 4, states_expanded 3, solution_length 3, seen_at_first_win 4, expanded_at_first_win 3: same
+gd-01-corridor-l1 (corridor, level 1): schema horizon.search.v3 ok; complete True; cap hit None; states_seen 1, states_expanded 1, solution_length None, seen_at_first_win None, expanded_at_first_win None; seconds 0.008
+   session: run gvgaisearch-dryrun-gd-01-20261124T004627Z-bf0503  2026-11-24T00:46:44Z to 2026-11-24T00:48:23Z
+   laptop (logs/test_gvgaisearch.log): states_seen 1, states_expanded 1, solution_length None: same
+gd-01-boxroom-l0 (boxroom, level 0): schema horizon.search.v3 ok; complete True; cap hit None; states_seen 2900, states_expanded 2756, solution_length 2, seen_at_first_win 9, expanded_at_first_win 3; seconds 283.684
+   session: run gvgaisearch-dryrun-gd-01-20261124T004627Z-bf0503  2026-11-24T00:46:44Z to 2026-11-24T00:49:45Z
+   session: run gvgaisearch-dryrun-gd-01-20261124T005536Z-63a018  2026-11-24T00:55:54Z to 2026-11-24T00:58:55Z
+   session: run gvgaisearch-dryrun-gd-01-20261124T010431Z-327219  2026-11-24T01:04:49Z to 2026-11-24T01:07:49Z
+   session: run gvgaisearch-dryrun-gd-01-20261124T011327Z-cccc9e  2026-11-24T01:13:45Z to 2026-11-24T01:16:45Z
+   session: run gvgaisearch-dryrun-gd-01-20261124T012356Z-cd2e71  2026-11-24T01:24:17Z to 2026-11-24T01:26:32Z
+   laptop (logs/test_gvgaisearch.log): states_seen 2900, states_expanded 2756, solution_length 2, seen_at_first_win 9, expanded_at_first_win 3: same
+
+== checkpoint commits
+dd502b1 2026-11-24T00:55:35Z Loop: gd-01 partial (kernel version 118)
+   seq 1, run gvgaisearch-dryrun-gd-01-20261124T004627Z-bf0503, units done ['gd-01-corridor-l0', 'gd-01-corridor-l1'], in progress gd-01-boxroom-l0 (784 expanded)
+66037e0 2026-11-24T01:04:30Z Loop: gd-01 partial (kernel version 119)
+   seq 2, run gvgaisearch-dryrun-gd-01-20261124T005536Z-63a018, units done ['gd-01-corridor-l0', 'gd-01-corridor-l1'], in progress gd-01-boxroom-l0 (1158 expanded)
+a75cad8 2026-11-24T01:13:25Z Loop: gd-01 partial (kernel version 120)
+   seq 3, run gvgaisearch-dryrun-gd-01-20261124T010431Z-327219, units done ['gd-01-corridor-l0', 'gd-01-corridor-l1'], in progress gd-01-boxroom-l0 (1896 expanded)
+3980966 2026-11-24T01:23:54Z Loop: gd-01 partial (kernel version 121)
+   seq 4, run gvgaisearch-dryrun-gd-01-20261124T011327Z-cccc9e, units done ['gd-01-corridor-l0', 'gd-01-corridor-l1'], in progress gd-01-boxroom-l0 (2418 expanded)
+4fcb0e4 2026-11-24T01:32:40Z Loop: gd-01 done (kernel version 122)
+   (checkpoint removed: the chunk is done)
+
+== runner lines of every session console (logs/kaggle/)
+-- gd-01__v114.log
+   code commit 6c78f30dc5f01c7d9f061cb93ced41b72ba75486 (tag automation-v4)
+   [2026-11-23T17:45:31Z] chunk gd-01 (gvgaisearch), nonce gvgaisearch-dryrun-gd-01-20261123T174310Z-0aa074; work deadline 2026-11-23T17:46:27Z, checkpoint by 2026-11-23T17:51:27Z
+   [2026-11-23T17:45:31Z] no checkpoint: starting the chunk; 0 units already have done-markers
+   [2026-11-23T17:45:31Z] devsearch: 3 units to run on 4 workers, 0 resumed from the checkpoint
+   [2026-11-23T17:45:31Z] devsearch unit gd-01-corridor-l0: start
+   [2026-11-23T17:45:31Z] devsearch unit gd-01-corridor-l1: start
+   [2026-11-23T17:45:31Z] devsearch unit gd-01-boxroom-l0: start
+   [2026-11-23T17:46:27Z] FAILED: FileNotFoundError(2, 'No such file or directory')
+   [2026-11-23T17:46:27Z] wrote result.json (status failed) and bundle.tar.gz
+-- gd-01__v115.log
+   code commit 6c78f30dc5f01c7d9f061cb93ced41b72ba75486 (tag automation-v4)
+   [2026-11-24T00:12:51Z] chunk gd-01 (gvgaisearch), nonce gvgaisearch-dryrun-gd-01-20261124T001024Z-42ef80; work deadline 2026-11-24T00:13:42Z, checkpoint by 2026-11-24T00:18:42Z
+   [2026-11-24T00:12:51Z] no checkpoint: starting the chunk; 0 units already have done-markers
+   [2026-11-24T00:12:51Z] devsearch: 3 units to run on 4 workers, 0 resumed from the checkpoint
+   [2026-11-24T00:12:51Z] devsearch unit gd-01-corridor-l0: start
+   [2026-11-24T00:12:51Z] devsearch unit gd-01-corridor-l1: start
+   [2026-11-24T00:12:51Z] devsearch unit gd-01-boxroom-l0: start
+   [2026-11-24T00:13:03Z] FAILED: FileNotFoundError(2, 'No such file or directory')
+   [2026-11-24T00:13:03Z] wrote result.json (status failed) and bundle.tar.gz
+-- gd-01__v116.log
+   code commit 6c78f30dc5f01c7d9f061cb93ced41b72ba75486 (tag automation-v4)
+   [2026-11-24T00:21:18Z] chunk gd-01 (gvgaisearch), nonce gvgaisearch-dryrun-gd-01-20261124T001921Z-6858f7; work deadline 2026-11-24T00:22:38Z, checkpoint by 2026-11-24T00:27:38Z
+   [2026-11-24T00:21:18Z] no checkpoint: starting the chunk; 0 units already have done-markers
+   [2026-11-24T00:21:18Z] devsearch: 3 units to run on 4 workers, 0 resumed from the checkpoint
+   [2026-11-24T00:21:18Z] devsearch unit gd-01-corridor-l0: start
+   [2026-11-24T00:21:18Z] devsearch unit gd-01-corridor-l1: start
+   [2026-11-24T00:21:18Z] devsearch unit gd-01-boxroom-l0: start
+   [2026-11-24T00:22:38Z] FAILED: FileNotFoundError(2, 'No such file or directory')
+   [2026-11-24T00:22:38Z] wrote result.json (status failed) and bundle.tar.gz
+-- gd-01__v117.log
+   code commit d776f171c16337f39b3ecea643037c219234a9f4 (tag automation-v5)
+   [2026-11-24T00:41:18Z] chunk gd-01 (gvgaisearch), nonce gvgaisearch-dryrun-gd-01-20261124T003729Z-93beaf; work deadline 2026-11-24T00:40:46Z, checkpoint by 2026-11-24T00:45:46Z
+   [2026-11-24T00:41:18Z] no checkpoint: starting the chunk; 0 units already have done-markers
+   [2026-11-24T00:41:18Z] devsearch: 3 units to run on 4 workers, 0 resumed from the checkpoint
+   [2026-11-24T00:41:18Z] checkpoint 1: 0 units done, 0 in progress, 0 payload files
+   [2026-11-24T00:41:18Z] chunk gd-01: partial; units done 0 of 3; stopped: deadline reached with devsearch units unfinished
+   [2026-11-24T00:41:18Z] wrote result.json (status partial) and bundle.tar.gz
+-- gd-01__v118.log
+   code commit d776f171c16337f39b3ecea643037c219234a9f4 (tag automation-v5)
+   [2026-11-24T00:48:12Z] chunk gd-01 (gvgaisearch), nonce gvgaisearch-dryrun-gd-01-20261124T004627Z-bf0503; work deadline 2026-11-24T00:49:44Z, checkpoint by 2026-11-24T00:54:44Z
+   [2026-11-24T00:48:12Z] no checkpoint: starting the chunk; 0 units already have done-markers
+   [2026-11-24T00:48:12Z] devsearch: 3 units to run on 4 workers, 0 resumed from the checkpoint
+   [2026-11-24T00:48:12Z] devsearch unit gd-01-corridor-l0: start
+   [2026-11-24T00:48:12Z] devsearch unit gd-01-corridor-l1: start
+   [2026-11-24T00:48:12Z] devsearch unit gd-01-boxroom-l0: start
+   [2026-11-24T00:48:23Z] devsearch unit gd-01-corridor-l0: complete, 4 states seen
+   [2026-11-24T00:48:23Z] devsearch unit gd-01-corridor-l1: complete, 1 states seen
+   [2026-11-24T00:49:45Z] devsearch unit gd-01-boxroom-l0: stopped at the deadline, 784 expanded
+   [2026-11-24T00:49:45Z] checkpoint 1: 2 units done, 1 in progress, 3 payload files
+   [2026-11-24T00:49:45Z] chunk gd-01: partial; units done 2 of 3; stopped: deadline reached with devsearch units unfinished
+   [2026-11-24T00:49:45Z] wrote result.json (status partial) and bundle.tar.gz
+-- gd-01__v119.log
+   code commit d776f171c16337f39b3ecea643037c219234a9f4 (tag automation-v5)
+   [2026-11-24T00:58:04Z] chunk gd-01 (gvgaisearch), nonce gvgaisearch-dryrun-gd-01-20261124T005536Z-63a018; work deadline 2026-11-24T00:58:54Z, checkpoint by 2026-11-24T01:03:54Z
+   [2026-11-24T00:58:04Z] resuming from checkpoint 1 of run gvgaisearch-dryrun-gd-01-20261124T004627Z-bf0503: 2 units done, in progress ['gd-01-boxroom-l0']
+   [2026-11-24T00:58:04Z] devsearch: 1 units to run on 4 workers, 1 resumed from the checkpoint
+   [2026-11-24T00:58:04Z] devsearch unit gd-01-boxroom-l0: resume
+   [2026-11-24T00:58:55Z] devsearch unit gd-01-boxroom-l0: stopped at the deadline, 1158 expanded
+   [2026-11-24T00:58:55Z] checkpoint 2: 2 units done, 1 in progress, 3 payload files
+   [2026-11-24T00:58:55Z] chunk gd-01: partial; units done 2 of 3; stopped: deadline reached with devsearch units unfinished
+   [2026-11-24T00:58:55Z] wrote result.json (status partial) and bundle.tar.gz
+-- gd-01__v120.log
+   code commit d776f171c16337f39b3ecea643037c219234a9f4 (tag automation-v5)
+   [2026-11-24T01:06:23Z] chunk gd-01 (gvgaisearch), nonce gvgaisearch-dryrun-gd-01-20261124T010431Z-327219; work deadline 2026-11-24T01:07:49Z, checkpoint by 2026-11-24T01:12:49Z
+   [2026-11-24T01:06:23Z] resuming from checkpoint 2 of run gvgaisearch-dryrun-gd-01-20261124T005536Z-63a018: 2 units done, in progress ['gd-01-boxroom-l0']
+   [2026-11-24T01:06:23Z] devsearch: 1 units to run on 4 workers, 1 resumed from the checkpoint
+   [2026-11-24T01:06:23Z] devsearch unit gd-01-boxroom-l0: resume
+   [2026-11-24T01:07:49Z] devsearch unit gd-01-boxroom-l0: stopped at the deadline, 1896 expanded
+   [2026-11-24T01:07:49Z] checkpoint 3: 2 units done, 1 in progress, 3 payload files
+   [2026-11-24T01:07:49Z] chunk gd-01: partial; units done 2 of 3; stopped: deadline reached with devsearch units unfinished
+   [2026-11-24T01:07:49Z] wrote result.json (status partial) and bundle.tar.gz
+-- gd-01__v121.log
+   code commit d776f171c16337f39b3ecea643037c219234a9f4 (tag automation-v5)
+   [2026-11-24T01:15:39Z] chunk gd-01 (gvgaisearch), nonce gvgaisearch-dryrun-gd-01-20261124T011327Z-cccc9e; work deadline 2026-11-24T01:16:45Z, checkpoint by 2026-11-24T01:21:45Z
+   [2026-11-24T01:15:39Z] resuming from checkpoint 3 of run gvgaisearch-dryrun-gd-01-20261124T010431Z-327219: 2 units done, in progress ['gd-01-boxroom-l0']
+   [2026-11-24T01:15:39Z] devsearch: 1 units to run on 4 workers, 1 resumed from the checkpoint
+   [2026-11-24T01:15:39Z] devsearch unit gd-01-boxroom-l0: resume
+   [2026-11-24T01:16:45Z] devsearch unit gd-01-boxroom-l0: stopped at the deadline, 2418 expanded
+   [2026-11-24T01:16:45Z] checkpoint 4: 2 units done, 1 in progress, 3 payload files
+   [2026-11-24T01:16:45Z] chunk gd-01: partial; units done 2 of 3; stopped: deadline reached with devsearch units unfinished
+   [2026-11-24T01:16:45Z] wrote result.json (status partial) and bundle.tar.gz
+-- gd-01__v122.log
+   code commit d776f171c16337f39b3ecea643037c219234a9f4 (tag automation-v5)
+   [2026-11-24T01:25:42Z] chunk gd-01 (gvgaisearch), nonce gvgaisearch-dryrun-gd-01-20261124T012356Z-cd2e71; work deadline 2026-11-24T01:27:17Z, checkpoint by 2026-11-24T01:32:17Z
+   [2026-11-24T01:25:42Z] resuming from checkpoint 4 of run gvgaisearch-dryrun-gd-01-20261124T011327Z-cccc9e: 2 units done, in progress ['gd-01-boxroom-l0']
+   [2026-11-24T01:25:42Z] devsearch: 1 units to run on 4 workers, 1 resumed from the checkpoint
+   [2026-11-24T01:25:42Z] devsearch unit gd-01-boxroom-l0: resume
+   [2026-11-24T01:26:32Z] devsearch unit gd-01-boxroom-l0: complete, 2900 states seen
+   [2026-11-24T01:26:32Z] chunk gd-01: done; units done 3 of 3
+   [2026-11-24T01:26:32Z] wrote result.json (status done) and bundle.tar.gz
+
+== automation.log lines of this campaign
+2026-11-23T17:43:10Z actions-45230543278-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 1 run gvgaisearch-dryrun-gd-01-20261123T174310Z-0aa074
+2026-11-23T17:43:13Z actions-45230543278-1 PUSHED chunk gd-01 as kernel version 114 run gvgaisearch-dryrun-gd-01-20261123T174310Z-0aa074
+2026-11-23T17:52:08Z actions-45232105560-1 FAILURE chunk gd-01 kernel version 114 run gvgaisearch-dryrun-gd-01-20261123T174310Z-0aa074: session status failed: FileNotFoundError(2, 'No such file or directory') (failure 1 of at most 3)
+2026-11-23T17:52:08Z actions-45232105560-1 COLLECT chunk gd-01 kernel version 114 run gvgaisearch-dryrun-gd-01-20261123T174310Z-0aa074: failed; chunks pending 1
+2026-11-23T17:58:10Z actions-45233162700-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 2 run gvgaisearch-dryrun-gd-01-20261123T175810Z-c346f7
+2026-11-23T17:58:12Z actions-45233162700-1 DEFERRED chunk gd-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 
+2026-11-23T18:29:13Z actions-45238737513-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 2 run gvgaisearch-dryrun-gd-01-20261123T182913Z-58d3c0
+2026-11-23T18:29:16Z actions-45238737513-1 DEFERRED chunk gd-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 
+2026-11-23T19:00:05Z actions-45244137925-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 2 run gvgaisearch-dryrun-gd-01-20261123T190005Z-32ea88
+2026-11-23T19:00:07Z actions-45244137925-1 DEFERRED chunk gd-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 
+2026-11-23T19:31:37Z actions-45249594888-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 2 run gvgaisearch-dryrun-gd-01-20261123T193137Z-23bc68
+2026-11-23T19:31:41Z actions-45249594888-1 DEFERRED chunk gd-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 
+2026-11-23T20:02:33Z actions-45255044751-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 2 run gvgaisearch-dryrun-gd-01-20261123T200233Z-19dfec
+2026-11-23T20:02:36Z actions-45255044751-1 DEFERRED chunk gd-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 
+2026-11-23T20:33:28Z actions-45260451224-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 2 run gvgaisearch-dryrun-gd-01-20261123T203328Z-480995
+2026-11-23T20:33:31Z actions-45260451224-1 DEFERRED chunk gd-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 
+2026-11-23T21:04:24Z actions-45265728178-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 2 run gvgaisearch-dryrun-gd-01-20261123T210424Z-7fc663
+2026-11-23T21:04:27Z actions-45265728178-1 DEFERRED chunk gd-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 
+2026-11-23T21:35:15Z actions-45271049782-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 2 run gvgaisearch-dryrun-gd-01-20261123T213515Z-922e6e
+2026-11-23T21:35:18Z actions-45271049782-1 DEFERRED chunk gd-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 
+2026-11-23T22:06:58Z actions-45276198339-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 2 run gvgaisearch-dryrun-gd-01-20261123T220658Z-08248b
+2026-11-23T22:07:02Z actions-45276198339-1 DEFERRED chunk gd-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 
+2026-11-23T22:37:52Z actions-45281391199-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 2 run gvgaisearch-dryrun-gd-01-20261123T223752Z-432317
+2026-11-23T22:37:55Z actions-45281391199-1 DEFERRED chunk gd-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 
+2026-11-23T23:08:45Z actions-45286079690-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 2 run gvgaisearch-dryrun-gd-01-20261123T230845Z-105418
+2026-11-23T23:08:48Z actions-45286079690-1 DEFERRED chunk gd-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 
+2026-11-23T23:39:37Z actions-45290620228-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 2 run gvgaisearch-dryrun-gd-01-20261123T233937Z-10ce36
+2026-11-23T23:39:40Z actions-45290620228-1 DEFERRED chunk gd-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 
+2026-11-24T00:10:24Z actions-45294860813-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 2 run gvgaisearch-dryrun-gd-01-20261124T001024Z-42ef80
+2026-11-24T00:10:28Z actions-45294860813-1 DEFERRAL cleared: the push of gd-01 succeeded after 12 refusals since 2026-11-23T17:58:12Z
+2026-11-24T00:10:28Z actions-45294860813-1 PUSHED chunk gd-01 as kernel version 115 run gvgaisearch-dryrun-gd-01-20261124T001024Z-42ef80
+2026-11-24T00:19:20Z actions-45296085966-1 FAILURE chunk gd-01 kernel version 115 run gvgaisearch-dryrun-gd-01-20261124T001024Z-42ef80: session status failed: FileNotFoundError(2, 'No such file or directory') (failure 2 of at most 3)
+2026-11-24T00:19:20Z actions-45296085966-1 COLLECT chunk gd-01 kernel version 115 run gvgaisearch-dryrun-gd-01-20261124T001024Z-42ef80: failed; chunks pending 1
+2026-11-24T00:19:21Z actions-45296085966-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 3 run gvgaisearch-dryrun-gd-01-20261124T001921Z-6858f7
+2026-11-24T00:19:24Z actions-45296085966-1 PUSHED chunk gd-01 as kernel version 116 run gvgaisearch-dryrun-gd-01-20261124T001921Z-6858f7
+2026-11-24T00:28:06Z actions-45297295410-1 FAILURE chunk gd-01 kernel version 116 run gvgaisearch-dryrun-gd-01-20261124T001921Z-6858f7: session status failed: FileNotFoundError(2, 'No such file or directory') (failure 3 of at most 3)
+2026-11-24T00:28:06Z actions-45297295410-1 HALT STATE-ready text: On 2026-11-24T00:28:06Z the HORIZON loop halted. Chunk gd-01 (gvgaisearch) failed 3 times, the registered maximum of 3. Last failure: session status failed: FileNotFoundError(2, 'No such file or directory') (kernel version 116, run gv
+2026-11-24T00:28:06Z actions-45297295410-1 COLLECT chunk gd-01 kernel version 116 run gvgaisearch-dryrun-gd-01-20261124T001921Z-6858f7: failed; chunks failed 1
+2026-11-24T00:37:29Z actions-45298567385-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 1 run gvgaisearch-dryrun-gd-01-20261124T003729Z-93beaf
+2026-11-24T00:37:31Z actions-45298567385-1 PUSHED chunk gd-01 as kernel version 117 run gvgaisearch-dryrun-gd-01-20261124T003729Z-93beaf
+2026-11-24T00:46:26Z actions-45299752541-1 FAILURE chunk gd-01 kernel version 117 run gvgaisearch-dryrun-gd-01-20261124T003729Z-93beaf: a partial session made no progress (failure 1 of at most 3)
+2026-11-24T00:46:26Z actions-45299752541-1 COLLECT chunk gd-01 kernel version 117 run gvgaisearch-dryrun-gd-01-20261124T003729Z-93beaf: failed; chunks pending 1
+2026-11-24T00:46:27Z actions-45299752541-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 2 run gvgaisearch-dryrun-gd-01-20261124T004627Z-bf0503
+2026-11-24T00:46:30Z actions-45299752541-1 PUSHED chunk gd-01 as kernel version 118 run gvgaisearch-dryrun-gd-01-20261124T004627Z-bf0503
+2026-11-24T00:55:35Z actions-45300932363-1 COLLECT chunk gd-01 kernel version 118 run gvgaisearch-dryrun-gd-01-20261124T004627Z-bf0503: partial; chunks partial 1
+2026-11-24T00:55:36Z actions-45300932363-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 3 run gvgaisearch-dryrun-gd-01-20261124T005536Z-63a018
+2026-11-24T00:55:39Z actions-45300932363-1 PUSHED chunk gd-01 as kernel version 119 run gvgaisearch-dryrun-gd-01-20261124T005536Z-63a018
+2026-11-24T01:04:30Z actions-45302112911-1 COLLECT chunk gd-01 kernel version 119 run gvgaisearch-dryrun-gd-01-20261124T005536Z-63a018: partial; chunks partial 1
+2026-11-24T01:04:31Z actions-45302112911-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 4 run gvgaisearch-dryrun-gd-01-20261124T010431Z-327219
+2026-11-24T01:04:34Z actions-45302112911-1 PUSHED chunk gd-01 as kernel version 120 run gvgaisearch-dryrun-gd-01-20261124T010431Z-327219
+2026-11-24T01:13:25Z actions-45303283708-1 COLLECT chunk gd-01 kernel version 120 run gvgaisearch-dryrun-gd-01-20261124T010431Z-327219: partial; chunks partial 1
+2026-11-24T01:13:27Z actions-45303283708-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 5 run gvgaisearch-dryrun-gd-01-20261124T011327Z-cccc9e
+2026-11-24T01:13:29Z actions-45303283708-1 PUSHED chunk gd-01 as kernel version 121 run gvgaisearch-dryrun-gd-01-20261124T011327Z-cccc9e
+2026-11-24T01:23:54Z actions-45304447782-1 COLLECT chunk gd-01 kernel version 121 run gvgaisearch-dryrun-gd-01-20261124T011327Z-cccc9e: partial; chunks partial 1
+2026-11-24T01:23:56Z actions-45304447782-1 DISPATCH chunk gd-01 (gvgaisearch) attempt 6 run gvgaisearch-dryrun-gd-01-20261124T012356Z-cd2e71
+2026-11-24T01:23:59Z actions-45304447782-1 PUSHED chunk gd-01 as kernel version 122 run gvgaisearch-dryrun-gd-01-20261124T012356Z-cd2e71
+2026-11-24T01:32:40Z actions-45305724096-1 COLLECT chunk gd-01 kernel version 122 run gvgaisearch-dryrun-gd-01-20261124T012356Z-cd2e71: done; chunks done 1
