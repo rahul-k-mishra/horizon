@@ -5,24 +5,24 @@
  "kind": "gvgaisearch",
  "payload": {
   "gd-01-boxroom-l0__head.json.gz": {
-   "bytes": 110,
+   "bytes": 430,
    "location": "git",
-   "sha256": "21f3fbfefd86247cef1fb016420e1711d56c8bcd912b27074ebac8f3643c398b"
+   "sha256": "0ca17f930e37b8442c7a41e6bfbcdf10b47faa435b997e53794b7b3947008a76"
   },
   "gd-01-boxroom-l0__tail.json.gz": {
-   "bytes": 796,
+   "bytes": 155,
    "location": "git",
-   "sha256": "423ec04522c41ec13252fe6bc31a76dcbc046f026a602be7887923853df72a95"
+   "sha256": "31e7f7da722f541f61f3f96db6c88b75f14682a2bec81fd31d80669c8c8a6c26"
   },
   "gd-01-boxroom-l0__visited.u64.gz": {
-   "bytes": 18288,
+   "bytes": 21616,
    "location": "git",
-   "sha256": "6b1a033bb3239ad872c22a902af788bc2901875309c760f9b5f4a7a5e3c9a417"
+   "sha256": "05a01a65fcfcfd16b80df5dc0fdc2814016211a5a65aa3672f56365a228374fb"
   }
  },
- "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T010431Z-327219",
+ "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T011327Z-cccc9e",
  "schema": "horizon.checkpoint.v1",
- "seq": 3,
+ "seq": 4,
  "unit_in_progress": null,
  "units_done": [
   "gd-01-corridor-l0",
@@ -31,27 +31,27 @@
  "units_in_progress": {
   "gd-01-boxroom-l0": {
    "counts": {
-    "depth_max": 15,
+    "depth_max": 18,
     "expanded_at_first_win": 3,
-    "frontier_left": 266,
+    "frontier_left": 141,
     "seen_at_first_win": 9,
     "solution_length": 2,
     "spill_files_max": 0,
-    "states_expanded": 1896,
-    "states_seen": 2281,
-    "successors_total": 7584
+    "states_expanded": 2418,
+    "states_seen": 2697,
+    "successors_total": 9672
    },
    "extra": {
-    "successors_distinct": 5752
+    "successors_distinct": 7300
    },
    "files": {
-    "head.json.gz": "21f3fbfefd86247cef1fb016420e1711d56c8bcd912b27074ebac8f3643c398b",
-    "tail.json.gz": "423ec04522c41ec13252fe6bc31a76dcbc046f026a602be7887923853df72a95",
-    "visited.u64.gz": "6b1a033bb3239ad872c22a902af788bc2901875309c760f9b5f4a7a5e3c9a417"
+    "head.json.gz": "0ca17f930e37b8442c7a41e6bfbcdf10b47faa435b997e53794b7b3947008a76",
+    "tail.json.gz": "31e7f7da722f541f61f3f96db6c88b75f14682a2bec81fd31d80669c8c8a6c26",
+    "visited.u64.gz": "05a01a65fcfcfd16b80df5dc0fdc2814016211a5a65aa3672f56365a228374fb"
    },
    "graph": null,
    "graph_status": null,
-   "seconds_spent": 194.6112461090088,
+   "seconds_spent": 247.69203543663025,
    "sessions": [
     {
      "ended_at": "2026-11-24T00:49:45Z",
@@ -94,12 +94,26 @@
      },
      "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T010431Z-327219",
      "started_at": "2026-11-24T01:04:49Z"
+    },
+    {
+     "ended_at": "2026-11-24T01:16:45Z",
+     "host": "825da12d4911",
+     "kaggle_env": {
+      "KAGGLE_CONTAINER_NAME": "kaggle_grNeF4vUDeY4SGSe7EjTtaHXalLD9G7JzUiSvRQaQ0k-373276221-webtier",
+      "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "KAGGLE_GCP_ZONE": "us-west1-a",
+      "KAGGLE_KERNEL_INTEGRATIONS": "",
+      "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+      "KAGGLE_URL_BASE": "https://api.kaggle.com"
+     },
+     "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T011327Z-cccc9e",
+     "started_at": "2026-11-24T01:13:45Z"
     }
    ],
    "spill_seq": 0,
    "spills": [],
-   "visited_n": 2281
+   "visited_n": 2697
   }
  },
- "written_at": "2026-11-24T01:07:49Z"
+ "written_at": "2026-11-24T01:16:45Z"
 }

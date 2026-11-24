@@ -1,0 +1,19 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code automation-v5
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit e02859309c8c9031a39b85dde109718f9d8d9687 Loop: gd-01 pushed as kernel version 121
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag automation-v5)
+code commit d776f171c16337f39b3ecea643037c219234a9f4 (tag automation-v5)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1795482825.119785
+[2026-11-24T01:15:39Z] chunk gd-01 (gvgaisearch), nonce gvgaisearch-dryrun-gd-01-20261124T011327Z-cccc9e; work deadline 2026-11-24T01:16:45Z, checkpoint by 2026-11-24T01:21:45Z
+[2026-11-24T01:15:39Z] resuming from checkpoint 3 of run gvgaisearch-dryrun-gd-01-20261124T010431Z-327219: 2 units done, in progress ['gd-01-boxroom-l0']
+[2026-11-24T01:15:39Z] devsearch: 1 units to run on 4 workers, 1 resumed from the checkpoint
+[2026-11-24T01:15:39Z] devsearch unit gd-01-boxroom-l0: resume
+[2026-11-24T01:16:45Z] devsearch unit gd-01-boxroom-l0: stopped at the deadline, 2418 expanded
+[2026-11-24T01:16:45Z] checkpoint 4: 2 units done, 1 in progress, 3 payload files
+[2026-11-24T01:16:45Z] chunk gd-01: partial; units done 2 of 3; stopped: deadline reached with devsearch units unfinished
+[2026-11-24T01:16:45Z] wrote result.json (status partial) and bundle.tar.gz
