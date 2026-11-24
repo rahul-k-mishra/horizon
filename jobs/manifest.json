@@ -8,7 +8,7 @@
  "repository": "rahul-k-mishra/horizon",
  "session": {"checkpoint_reserve_seconds": 300, "platform_limit_seconds": 3600, "work_seconds": 180},
  "chunks": [
-  {"attempts": 3, "chunk_id": "gd-01", "failures": 2, "kind": "gvgaisearch", "sessions": [{"ended_at": "2026-11-23T17:46:27Z", "kernel_status": "complete", "kernel_version": 114, "outcome": "failed", "run_nonce": "gvgaisearch-dryrun-gd-01-20261123T174310Z-0aa074", "units_done_this_session": []}, {"ended_at": "2026-11-24T00:13:03Z", "kernel_status": "complete", "kernel_version": 115, "outcome": "failed", "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T001024Z-42ef80", "units_done_this_session": []}], "status": "running"}
+  {"attempts": 3, "chunk_id": "gd-01", "failures": 3, "kind": "gvgaisearch", "sessions": [{"ended_at": "2026-11-23T17:46:27Z", "kernel_status": "complete", "kernel_version": 114, "outcome": "failed", "run_nonce": "gvgaisearch-dryrun-gd-01-20261123T174310Z-0aa074", "units_done_this_session": []}, {"ended_at": "2026-11-24T00:13:03Z", "kernel_status": "complete", "kernel_version": 115, "outcome": "failed", "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T001024Z-42ef80", "units_done_this_session": []}, {"ended_at": "2026-11-24T00:22:38Z", "kernel_status": "complete", "kernel_version": 116, "outcome": "failed", "run_nonce": "gvgaisearch-dryrun-gd-01-20261124T001921Z-6858f7", "units_done_this_session": []}], "status": "failed"}
  ],
  "units": [
   {"agent": null, "chunk_id": "gd-01", "game": "corridor", "kind": "gvgaisearch", "level": 0, "seed": null, "status": "pending", "suite": "gvgai", "unit_id": "gd-01-corridor-l0"},
