@@ -522,3 +522,14 @@ What remains before the tag (amendment (ad)'s items 2 and the value part of 1 ar
   5. docker_image in kaggle/kernel-metadata.json, the confirmatory code tag and the protocol list. If the search code differs from automation-v5, the pilot search runs again under the tagged code.
   6. scripts/check_no_aid.py on the day; the tag prereg-v1 and the Zenodo deposit the same day.
 - **Next:** item 3, the gvgaiagent kind, or the author's hand check.
+
+## Amendment 24 Nov 2026 (ah)
+
+Thirty-fourth amendment. The lines above are unchanged. Nothing was tagged; no file under jobs/ or runs/ was changed and no experiment was run. The work followed three requests of the author of 24 November 2026.
+
+- **The 0.70 share of Section 7.8** (f372c4f). scripts/power_at_c.py repeats the simulation of scripts/stage_e_reading.py, Section 4, for L_C at C = 1,000,000 with the same seeds. It reproduces the logged power exactly and stops if it does not (console logs/power_at_c.log, run in this session). *Exploratory, development data:* the share of the 4,000 simulated studies with AUROC_L at or above 0.70 and the lower end of the 98.33% interval above 0.5 is 0.8047 for N, 0.8155 for R and 0.7500 for I1. This is entered in PREREG Section 7.8 (55acdda), with the note that the simulation does not apply the void rule. Item 1 of amendment (ag)'s list is done.
+- **DECISIONS corrected** (fef9770). Two passages said the ties beyond C cost nothing (item 4a) or cost little (item 5a, "What would make it wrong", point 2). The counts of logs/pilot_margins.log, Section 5, show that is too strong: at 1,000,000, N and R completed 21.6% of the units beyond C, and at 10,000 N completed 18.3%. Both passages now say the ties cost something, give those counts, and quote the first wording with the date of the correction. Item 4a's passage also now names the void rule as fixed.
+- **PREREG Section 7.4, rule 5** (55acdda): a new point, decided 24 November 2026, says a void L_C is a possible registered outcome. If fewer than 50% of the confirmatory levels show a win within C, N, R and I1 are void and the outcome is Void. That outcome means the primary score had too little resolution on this suite at C = 1,000,000. It is a finding about the instrument, not about the hypothesis, is evidence neither way, and is never reported as a Refute.
+- **Checks.** scripts/test_analyze_horizon.py, rerun unchanged: OK. The aid check is clean, and no line added has a word of the forbidden list.
+- **What remains before the tag**: items 2 to 6 of amendment (ag), unchanged.
+- **Next:** the gvgaiagent kind, or the author's hand check.
