@@ -14,7 +14,14 @@ experiment.  Prints:
        registered cap is set by the pilot (docs/PREREG.md, Section 9);
     4. what excluding within-game pairs from both AUROCs costs (docs/PREREG.md, Section 7.2): the most
        within-game pairs a game of 5 levels can hold, and their largest share of all pairs when the share
-       of completed units is at the edges of the void band and at one half.
+       of completed units is at the edges of the void band and at one half;
+    5. [added 24 November 2026] the confirmatory search at the ceiling C fixed on that day (the constant C of
+       scripts/analyze_horizon.py, which stops unless docs/PREREG.md, Section 6, states the same): the bound of
+       section 2, which charges every unit its whole time cap and so holds at any C, and, beside it, a projection
+       that charges each level min(time cap, C / its expansions per second on Kaggle), the speed taken as the
+       laptop's (logs/engine_speed.log) times the median and the lowest Kaggle/laptop ratio of the pilot search's
+       rows (runs/gvgai-pilot-search; the levels that ran at least 60 s).  The projection is not a bound: the
+       ratio is measured on four games only.
 Run (working directory D:\\Research\\horizon\\repo):
     D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\design_budget.py > logs\\design_budget.log
 """
@@ -105,6 +112,27 @@ def main():
               f"at most {n_conf * within_max}, {100 * n_conf * within_max / total:.1f}% of them")
     print("the bootstrap still resamples the games with replacement; pairs between two draws of the same game are "
           "within-game and excluded")
+
+    # ---- 5. the confirmatory search at the C fixed on 24 November 2026
+    import analyze_horizon  # noqa: PLC0415
+    import pilot_reading  # noqa: PLC0415
+    c = analyze_horizon.C
+    print(f"\n== 5. the confirmatory search at C = {c:,} (fixed 24 November 2026; docs/PREREG.md, Section 6)")
+    print(f"bound, every unit charged its whole time cap of {cap_s} s: {con_s} chunks at most (section 2); it does "
+          f"not depend on C")
+    lap = pilot_reading.laptop_speed()
+    ext, _ = pilot_reading.read_pilot()
+    ratios = sorted(r["counts"]["states_expanded"] / r["seconds_spent"] / lap[k] for k, r in ext.items()
+                    if r["seconds_spent"] >= pilot_reading.MIN_SECONDS_FOR_SPEED)
+    med = ratios[len(ratios) // 2] if len(ratios) % 2 else (ratios[len(ratios) // 2 - 1] + ratios[len(ratios) // 2]) / 2
+    lv = [(g, l) for g in conf_games for l in range(p['suite']['levels_per_game_used'])]
+    print(f"projection (not a bound), {len(lv)} confirmatory levels, Kaggle/laptop ratio over {len(ratios)} pilot levels:")
+    for name, rv in (("median", med), ("lowest", ratios[0])):
+        b = [min(cap_s, c / (lap[k] * rv)) for k in lv]
+        at = sum(x >= cap_s for x in b)
+        print(f"  {name} ratio {rv:.3f}: {sum(b):,.0f} worker-seconds = {sum(b) / capacity:.2f} chunks of work "
+              f"({math.ceil(sum(b) / capacity)} sessions if packed full); levels whose projection reaches the time "
+              f"cap: {at} of {len(lv)}")
     return 0
 
 

@@ -28,3 +28,9 @@ completed share 0.10 (12 of 125 units): 1356 pairs in all; within-game pairs rem
 completed share 0.50 (62 of 125 units): 3906 pairs in all; within-game pairs removed at most 150, 3.8% of them
 completed share 0.90 (112 of 125 units): 1456 pairs in all; within-game pairs removed at most 150, 10.3% of them
 the bootstrap still resamples the games with replacement; pairs between two draws of the same game are within-game and excluded
+
+== 5. the confirmatory search at C = 1,000,000 (fixed 24 November 2026; docs/PREREG.md, Section 6)
+bound, every unit charged its whole time cap of 14400 s: 16 chunks at most (section 2); it does not depend on C
+projection (not a bound), 125 confirmatory levels, Kaggle/laptop ratio over 16 pilot levels:
+  median ratio 0.388: 386,597 worker-seconds = 3.36 chunks of work (4 sessions if packed full); levels whose projection reaches the time cap: 0 of 125
+  lowest ratio 0.099: 1,236,291 worker-seconds = 10.73 chunks of work (11 sessions if packed full); levels whose projection reaches the time cap: 39 of 125
