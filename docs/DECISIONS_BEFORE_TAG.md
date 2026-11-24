@@ -135,6 +135,16 @@ The stage E reading prints it for every C (Section 4 of its log).
 Recommended: **yes**.
 Answer: **Yes**: state the power of the primary test in the registration. (Rahul Kumar Mishra, 14 November 2026)
 
+## Is the claim testable? (24 November 2026; EXPLORATORY)
+
+*EXPLORATORY: the pilot games are excluded from every confirmatory analysis, so nothing here is evidence for the claim; it is evidence about whether the claim can be tested. Source: logs/pilot_reading.log.*
+
+*EXPLORATORY.* On this evidence L_C ranks GVGAI levels; it does not tie on most of them. At 1,000,000, 13 of the 20 pilot levels show a win, with solution lengths from 9 to 100 actions, and 7 sit beyond C; at 10,000 the split is 8 and 12, which is the one candidate at which most pilot levels tie. No pilot level is beyond every candidate ceiling because of a time or memory cap; the 7 levels beyond 2,000,000 are every level of rivers and levels 3 and 4 of bait.
+
+*EXPLORATORY.* What limits that answer. Four games is a small sample, and the wins come by game: one game in four, rivers, shows no win on any level at any candidate, and a box-pushing game, bait, loses two levels of five. The pilot's share with a win at 1,000,000, 65.0%, is well below the development data's 89.6%. If the confirmatory games resemble rivers more often than one in four, L_C will lack resolution there, and the void rule of item 5a, once fixed, decides; the pilot cannot say how often they will.
+
+*EXPLORATORY.* The author's options, if the pilot is judged too thin a basis, all before the tag: (1) keep L_C as decided, with a void threshold, so that a suite like rivers gives "void" and not a false Refute (item 5a); (2) drop L_C for H_C as the primary score, which ties only at the ceiling, at a power for N of 0.3107 at 1,000,000 on development data against 0.8003 for L_C (logs/power_primary.log; logs/stage_e_reading.log); (3) raise the ceiling beyond 2,000,000, which no pilot count supports, since the pilot gains no level between 1,000,000 and 2,000,000, and whose cost is not measured: the seen cap and the time cap would both have to rise, and on Kaggle the rivers searches already took 5,322 to 6,932 s to see 2,000,000 states; (4) stop, and report what is known. The pilot counts call for none of (2) to (4).
+
 ## Still open from earlier sessions
 
 **13. The hand check of the truth tables (gate G4): made by you, or the generator's automated checks alone?** (docs/STATE.md, amendment h). G4 as drafted requires the hand check. Recommended: **by you**, with scripts/handcheck_app.py. Answer: **By the author**, with scripts/handcheck_app.py, as gate G4 requires. Gate G4 stands as drafted. (Rahul Kumar Mishra, 14 November 2026)
