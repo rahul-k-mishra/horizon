@@ -2,7 +2,7 @@
  "consecutive_crashes": 0,
  "deferral": null,
  "dispatch": null,
- "halt_reason": "chunk gd-01 failed 3 times; last: session status failed: FileNotFoundError(2, 'No such file or directory')",
- "halted": true,
- "halted_at": "2026-11-24T00:28:06Z"
+ "halt_reason": null,
+ "halted": false,
+ "halted_at": null
 }
