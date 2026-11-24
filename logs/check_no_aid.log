@@ -1,4 +1,12 @@
-searched 4227 tracked files (working tree), 20 patterns, 10 allowed terms, 5 allowed terms by path
-third_party (vendored, not changed, not counted): 0 hit(s) in 0 file(s)
+searched 7676 tracked files (working tree), 20 patterns, 10 allowed terms, 7 allowed terms by path
+third_party (vendored, not changed, not counted): 41 hit(s) in 7 file(s)
+  skipped  third_party/gvgai/src/core/game/StateObservationMulti.java  1 hit(s): #07 x1
+  skipped  third_party/gvgai/src/tools/com/google/gson/InstanceCreator.java  1 hit(s): #07 x1
+  skipped  third_party/study1/external/rudakov_just_explore/agents/heuristic_agent.py  2 hit(s): #16 x1, #19 x1
+  skipped  third_party/study1/scripts/e1_rudakov_adapter.py  3 hit(s): #16 x1, #19 x2
+  skipped  third_party/study1/scripts/g_agent.py  1 hit(s): #07 x1
+  skipped  third_party/study1/scripts/g_census_table.py  32 hit(s): #07 x2, #12 x30
+  skipped  third_party/study1/scripts/run_suite.py  1 hit(s): #07 x1
+files with a counted hit: 0
 hits: 0
 clean

@@ -66,6 +66,7 @@ ALLOW_PATH_TERMS_ROT13 = {
     # (amendments s and t); committed consoles, not changed
     "logs/envprobe.log": ["yvgryyz==", "bcranv=="],
     "logs/envprobe_pin.log": ["yvgryyz==", "bcranv=="],
+    "logs/envprobe_v4.log": ["yvgryyz==", "bcranv=="],     # the probe of 23 November 2026, same image
     # a docstring that says a test's reference code uses plain loops and dictionaries
     "scripts/automation/test_devsearch.py": ["jevggra jvgu cynva ybbcf"],
 }
