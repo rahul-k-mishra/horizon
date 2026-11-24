@@ -1,0 +1,194 @@
+﻿pilot_reading -- EXPLORATORY: the GVGAI pilot search (campaign gvgai-pilot-search); the pilot games are excluded from every confirmatory analysis, so nothing here is evidence for the claim
+
+== 1. the rows (EXPLORATORY) ==
+manifest campaign gvgai-pilot-search, code tag automation-v5, key form of the kind extended, seen cap 2,000,000, time cap 14,400 s, memory cap 6,442,450,944 bytes per worker, 4 workers
+chunk p-01: status done, kernel version 123, outcome done, ended 2026-11-24T06:03:43Z, units done 12
+chunk p-02: status done, kernel version 124, outcome done, ended 2026-11-24T08:45:46Z, units done 28
+rows 40: extended key 20, key of v0 20; schemas {'horizon.search.v3': 40}; campaigns ['gvgai-pilot-search']
+pilot games (scripts/suite.py): bait, labyrinthdual, rivers, watergame; extended-key levels missing []; v0 levels missing []
+stopped by (extended): {'seen cap': 8, 'complete': 12}; (v0): {'seen cap': 8, 'complete': 12}
+sessions per row: {1: 40}; images ['gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e']
+
+== 2. per level, registered (extended) key (EXPLORATORY) ==
+game          level | states seen | states expanded | stopped by | seen at first win | expanded at first win | solution length | seconds | deepest layer
+bait              0 |          42 |              40 | complete   |                41 |                    37 |               9 |       0 | 10
+bait              1 |       4,796 |           4,597 | complete   |             4,356 |                 4,026 |              38 |       7 | 47
+bait              2 |   2,000,000 |       1,581,791 | seen cap   |           211,672 |               161,054 |              53 |    2619 | 74
+bait              3 |   2,000,001 |         800,682 | seen cap   |                 - |                     - |               - |    3113 | 21
+bait              4 |   2,000,001 |       1,274,003 | seen cap   |                 - |                     - |               - |    2351 | 24
+labyrinthdual     0 |     155,352 |         151,322 | complete   |             6,072 |                 5,774 |              68 |    1565 | 1001
+labyrinthdual     1 |     138,983 |         128,386 | complete   |             2,028 |                 1,862 |              49 |     666 | 1001
+labyrinthdual     2 |     139,649 |         133,800 | complete   |             3,499 |                 3,257 |              68 |    1801 | 1001
+labyrinthdual     3 |     149,767 |         141,795 | complete   |             4,876 |                 4,480 |              54 |    1216 | 1001
+labyrinthdual     4 |     159,300 |         153,435 | complete   |             8,833 |                 8,374 |             100 |    2646 | 1001
+rivers            0 |   2,000,000 |         861,606 | seen cap   |                 - |                     - |               - |    6932 | 14
+rivers            1 |   2,000,000 |         761,631 | seen cap   |                 - |                     - |               - |    6122 | 13
+rivers            2 |   2,000,002 |         807,621 | seen cap   |                 - |                     - |               - |    5322 | 13
+rivers            3 |   2,000,002 |         891,516 | seen cap   |                 - |                     - |               - |    6807 | 14
+rivers            4 |   2,000,002 |         908,630 | seen cap   |                 - |                     - |               - |    6843 | 14
+watergame         0 |         153 |             135 | complete   |               124 |                   104 |              16 |       0 | 22
+watergame         1 |   1,131,198 |       1,067,956 | complete   |           637,344 |               567,540 |              42 |    1029 | 88
+watergame         2 |      80,544 |          72,267 | complete   |            73,999 |                65,581 |              54 |      62 | 83
+watergame         3 |      28,825 |          24,958 | complete   |            23,730 |                19,837 |              49 |      21 | 73
+watergame         4 |     113,126 |          85,892 | complete   |           102,279 |                76,462 |              49 |      78 | 71
+seconds: sum 49,200, largest 6,932; levels with a win at any count: 13 of 20
+
+== 3. per candidate ceiling, the 20 pilot levels, extended key (EXPLORATORY) ==
+C          | win within C | beyond C (of which: complete without a win / at or past C without a win) | excluded (PREREG 7.4 rule 2)
+    10,000 | 8 of 20 (40.0%) | 12 of 20 (60.0%) (4 / 8) | 0 of 20 (0.0%)
+   100,000 | 10 of 20 (50.0%) | 10 of 20 (50.0%) (2 / 8) | 0 of 20 (0.0%)
+   300,000 | 12 of 20 (60.0%) | 8 of 20 (40.0%) (1 / 7) | 0 of 20 (0.0%)
+ 1,000,000 | 13 of 20 (65.0%) | 7 of 20 (35.0%) (0 / 7) | 0 of 20 (0.0%)
+ 2,000,000 | 13 of 20 (65.0%) | 7 of 20 (35.0%) (0 / 7) | 0 of 20 (0.0%)
+
+== 4. per candidate ceiling and game, extended key (EXPLORATORY) ==
+bait          C 10,000: win 2, beyond 3, excluded 0; C 100,000: win 2, beyond 3, excluded 0; C 300,000: win 3, beyond 2, excluded 0; C 1,000,000: win 3, beyond 2, excluded 0; C 2,000,000: win 3, beyond 2, excluded 0
+labyrinthdual C 10,000: win 5, beyond 0, excluded 0; C 100,000: win 5, beyond 0, excluded 0; C 300,000: win 5, beyond 0, excluded 0; C 1,000,000: win 5, beyond 0, excluded 0; C 2,000,000: win 5, beyond 0, excluded 0
+rivers        C 10,000: win 0, beyond 5, excluded 0; C 100,000: win 0, beyond 5, excluded 0; C 300,000: win 0, beyond 5, excluded 0; C 1,000,000: win 0, beyond 5, excluded 0; C 2,000,000: win 0, beyond 5, excluded 0
+watergame     C 10,000: win 1, beyond 4, excluded 0; C 100,000: win 3, beyond 2, excluded 0; C 300,000: win 4, beyond 1, excluded 0; C 1,000,000: win 5, beyond 0, excluded 0; C 2,000,000: win 5, beyond 0, excluded 0
+C    10,000: games with at least one level with a win within C: 3 of 4 (bait, labyrinthdual, watergame)
+C   100,000: games with at least one level with a win within C: 3 of 4 (bait, labyrinthdual, watergame)
+C   300,000: games with at least one level with a win within C: 3 of 4 (bait, labyrinthdual, watergame)
+C 1,000,000: games with at least one level with a win within C: 3 of 4 (bait, labyrinthdual, watergame)
+C 2,000,000: games with at least one level with a win within C: 3 of 4 (bait, labyrinthdual, watergame)
+
+== 5. speed: Kaggle against the laptop (EXPLORATORY) ==
+laptop figures read from logs/engine_speed.log: 150 levels (a timed random walk of 1,500 expansions per level, one process; restarts at 300 actions)
+Kaggle: expansions per second = states expanded / seconds spent, over the whole search of the level, 4 workers in one session
+game          level | Kaggle expanded/s | Kaggle seen/s | laptop expanded/s | Kaggle / laptop | deepest layer | used
+bait              0 |             1,250 |         1,312 |             1,395 |           0.896 |            10 | no, under 60 s
+bait              1 |               655 |           683 |             1,185 |           0.552 |            47 | no, under 60 s
+bait              2 |               604 |           764 |               921 |           0.656 |            74 | yes
+bait              3 |               257 |           643 |               591 |           0.435 |            21 | yes
+bait              4 |               542 |           851 |             1,634 |           0.332 |            24 | yes
+labyrinthdual     0 |                97 |            99 |               490 |           0.197 |          1001 | yes
+labyrinthdual     1 |               193 |           209 |               471 |           0.409 |          1001 | yes
+labyrinthdual     2 |                74 |            78 |               614 |           0.121 |          1001 | yes
+labyrinthdual     3 |               117 |           123 |               561 |           0.208 |          1001 | yes
+labyrinthdual     4 |                58 |            60 |               587 |           0.099 |          1001 | yes
+rivers            0 |               124 |           289 |               346 |           0.359 |            14 | yes
+rivers            1 |               124 |           327 |               269 |           0.462 |            13 | yes
+rivers            2 |               152 |           376 |               372 |           0.408 |            13 | yes
+rivers            3 |               131 |           294 |               282 |           0.464 |            14 | yes
+rivers            4 |               133 |           292 |               353 |           0.376 |            14 | yes
+watergame         0 |             1,688 |         1,912 |             3,494 |           0.483 |            22 | no, under 60 s
+watergame         1 |             1,038 |         1,100 |             3,427 |           0.303 |            88 | yes
+watergame         2 |             1,158 |         1,291 |             2,786 |           0.416 |            83 | yes
+watergame         3 |             1,176 |         1,358 |             2,640 |           0.446 |            73 | no, under 60 s
+watergame         4 |             1,105 |         1,456 |             2,758 |           0.401 |            71 | yes
+ratio Kaggle / laptop over the 16 levels that ran at least 60 s: median 0.388, lowest 0.099 (labyrinthdual 4), highest 0.656 (bait 2)
+  bait: median 0.435 over 3 levels
+  labyrinthdual: median 0.197 over 5 levels
+  rivers: median 0.408 over 5 levels
+  watergame: median 0.401 over 3 levels
+registered budget (logs/design_budget.log): confirmatory search 125 units, 16 chunks at most (each chunk 115,200 worker-seconds, every unit charged at the time cap of 14,400 s)
+projection, per confirmatory level: Kaggle expansions/s taken as the laptop's times the ratio; time to see C states bounded above by C / (expansions/s), since a search expands at most as many states as it sees (the method of logs/engine_speed.log); a bound at or over the time cap means the search may stop by time before C and, without completing or a win, be excluded (PREREG 7.4 rule 2)
+  confirmatory, 25 games after the fit rule: 125 levels
+    median ratio 0.388, C    10,000: bound reaches the time cap on 0 of 125 (0.0%) (more than 10% is more than 12.5); sum 3,866 worker-seconds = 0.03 chunks of work against 16 budgeted
+    median ratio 0.388, C   100,000: bound reaches the time cap on 0 of 125 (0.0%) (more than 10% is more than 12.5); sum 38,660 worker-seconds = 0.34 chunks of work against 16 budgeted
+    median ratio 0.388, C   300,000: bound reaches the time cap on 0 of 125 (0.0%) (more than 10% is more than 12.5); sum 115,979 worker-seconds = 1.01 chunks of work against 16 budgeted
+    median ratio 0.388, C 1,000,000: bound reaches the time cap on 0 of 125 (0.0%) (more than 10% is more than 12.5); sum 386,597 worker-seconds = 3.36 chunks of work against 16 budgeted
+    median ratio 0.388, C 2,000,000: bound reaches the time cap on 4 of 125 (3.2%) (more than 10% is more than 12.5); sum 760,820 worker-seconds = 6.60 chunks of work against 16 budgeted; games at the cap: lasers
+    lowest ratio 0.099, C    10,000: bound reaches the time cap on 0 of 125 (0.0%) (more than 10% is more than 12.5); sum 15,202 worker-seconds = 0.13 chunks of work against 16 budgeted
+    lowest ratio 0.099, C   100,000: bound reaches the time cap on 0 of 125 (0.0%) (more than 10% is more than 12.5); sum 152,018 worker-seconds = 1.32 chunks of work against 16 budgeted
+    lowest ratio 0.099, C   300,000: bound reaches the time cap on 0 of 125 (0.0%) (more than 10% is more than 12.5); sum 456,053 worker-seconds = 3.96 chunks of work against 16 budgeted
+    lowest ratio 0.099, C 1,000,000: bound reaches the time cap on 39 of 125 (31.2%) (more than 10% is more than 12.5); sum 1,236,291 worker-seconds = 10.73 chunks of work against 16 budgeted; games at the cap: chipschallenge, colourescape, doorkoban, glow, hungrybirds, iceandfire, islands, labyrinth, lasers, racebet, racebet2; at least 13 would void every search quantity if all were excluded
+    lowest ratio 0.099, C 2,000,000: bound reaches the time cap on 92 of 125 (73.6%) (more than 10% is more than 12.5); sum 1,611,600 worker-seconds = 13.99 chunks of work against 16 budgeted; games at the cap: chipschallenge, clusters, colourescape, cookmepasta, doorkoban, escape, glow, hungrybirds, iceandfire, islands, labyrinth, lasers, racebet, racebet2, realsokoban, roadfighter, sokoban, tercio, thecitadel, thesnowman, zenpuzzle; at least 13 would void every search quantity if all were excluded
+    C    10,000: the bounds of more than 10% of the levels (13 or more) reach the time cap when Kaggle runs at a ratio of 0.002 or less; pilot levels (of 16) at or below that ratio: 0
+    C   100,000: the bounds of more than 10% of the levels (13 or more) reach the time cap when Kaggle runs at a ratio of 0.016 or less; pilot levels (of 16) at or below that ratio: 0
+    C   300,000: the bounds of more than 10% of the levels (13 or more) reach the time cap when Kaggle runs at a ratio of 0.047 or less; pilot levels (of 16) at or below that ratio: 0
+    C 1,000,000: the bounds of more than 10% of the levels (13 or more) reach the time cap when Kaggle runs at a ratio of 0.155 or less; pilot levels (of 16) at or below that ratio: 2
+    C 2,000,000: the bounds of more than 10% of the levels (13 or more) reach the time cap when Kaggle runs at a ratio of 0.310 or less; pilot levels (of 16) at or below that ratio: 5
+  the 26 games of v0 (garbagecollector included), as in logs/engine_speed.log: 130 levels
+    median ratio 0.388, C    10,000: bound reaches the time cap on 0 of 130 (0.0%) (more than 10% is more than 13.0); sum 5,175 worker-seconds = 0.04 chunks of work against 16 budgeted
+    median ratio 0.388, C   100,000: bound reaches the time cap on 0 of 130 (0.0%) (more than 10% is more than 13.0); sum 51,752 worker-seconds = 0.45 chunks of work against 16 budgeted
+    median ratio 0.388, C   300,000: bound reaches the time cap on 0 of 130 (0.0%) (more than 10% is more than 13.0); sum 155,257 worker-seconds = 1.35 chunks of work against 16 budgeted
+    median ratio 0.388, C 1,000,000: bound reaches the time cap on 5 of 130 (3.8%) (more than 10% is more than 13.0); sum 458,597 worker-seconds = 3.98 chunks of work against 16 budgeted; games at the cap: garbagecollector
+    median ratio 0.388, C 2,000,000: bound reaches the time cap on 9 of 130 (6.9%) (more than 10% is more than 13.0); sum 832,820 worker-seconds = 7.23 chunks of work against 16 budgeted; games at the cap: garbagecollector, lasers
+    lowest ratio 0.099, C    10,000: bound reaches the time cap on 0 of 130 (0.0%) (more than 10% is more than 13.0); sum 20,350 worker-seconds = 0.18 chunks of work against 16 budgeted
+    lowest ratio 0.099, C   100,000: bound reaches the time cap on 0 of 130 (0.0%) (more than 10% is more than 13.0); sum 203,500 worker-seconds = 1.77 chunks of work against 16 budgeted
+    lowest ratio 0.099, C   300,000: bound reaches the time cap on 5 of 130 (3.8%) (more than 10% is more than 13.0); sum 528,053 worker-seconds = 4.58 chunks of work against 16 budgeted; games at the cap: garbagecollector
+    lowest ratio 0.099, C 1,000,000: bound reaches the time cap on 44 of 130 (33.8%) (more than 10% is more than 13.0); sum 1,308,291 worker-seconds = 11.36 chunks of work against 16 budgeted; games at the cap: chipschallenge, colourescape, doorkoban, garbagecollector, glow, hungrybirds, iceandfire, islands, labyrinth, lasers, racebet, racebet2; at least 13 would void every search quantity if all were excluded
+    lowest ratio 0.099, C 2,000,000: bound reaches the time cap on 97 of 130 (74.6%) (more than 10% is more than 13.0); sum 1,683,600 worker-seconds = 14.61 chunks of work against 16 budgeted; games at the cap: chipschallenge, clusters, colourescape, cookmepasta, doorkoban, escape, garbagecollector, glow, hungrybirds, iceandfire, islands, labyrinth, lasers, racebet, racebet2, realsokoban, roadfighter, sokoban, tercio, thecitadel, thesnowman, zenpuzzle; at least 13 would void every search quantity if all were excluded
+    C    10,000: the bounds of more than 10% of the levels (14 or more) reach the time cap when Kaggle runs at a ratio of 0.002 or less; pilot levels (of 16) at or below that ratio: 0
+    C   100,000: the bounds of more than 10% of the levels (14 or more) reach the time cap when Kaggle runs at a ratio of 0.016 or less; pilot levels (of 16) at or below that ratio: 0
+    C   300,000: the bounds of more than 10% of the levels (14 or more) reach the time cap when Kaggle runs at a ratio of 0.049 or less; pilot levels (of 16) at or below that ratio: 0
+    C 1,000,000: the bounds of more than 10% of the levels (14 or more) reach the time cap when Kaggle runs at a ratio of 0.163 or less; pilot levels (of 16) at or below that ratio: 2
+    C 2,000,000: the bounds of more than 10% of the levels (14 or more) reach the time cap when Kaggle runs at a ratio of 0.327 or less; pilot levels (of 16) at or below that ratio: 5
+
+== 6. the extended key against the key of v0, measured (EXPLORATORY) ==
+game          level | seen ext / v0 | expanded ext / v0 | stopped ext / v0 | first win seen ext / v0 | solution ext / v0 | seconds ext / v0 | counts equal
+bait              0 | 42 / 42 | 40 / 40 | complete / complete | 41 / 41 | 9 / 9 | 0 / 0 | yes
+bait              1 | 4,796 / 4,796 | 4,597 / 4,597 | complete / complete | 4,356 / 4,356 | 38 / 38 | 7 / 9 | yes
+bait              2 | 2,000,000 / 2,000,000 | 1,581,791 / 1,581,791 | seen cap / seen cap | 211,672 / 211,672 | 53 / 53 | 2619 / 4356 | yes
+bait              3 | 2,000,001 / 2,000,001 | 800,682 / 800,682 | seen cap / seen cap | - / - | - / - | 3113 / 2449 | yes
+bait              4 | 2,000,001 / 2,000,001 | 1,274,003 / 1,274,003 | seen cap / seen cap | - / - | - / - | 2351 / 1479 | yes
+labyrinthdual     0 | 155,352 / 155,352 | 151,322 / 151,322 | complete / complete | 6,072 / 6,072 | 68 / 68 | 1565 / 1399 | yes
+labyrinthdual     1 | 138,983 / 138,983 | 128,386 / 128,386 | complete / complete | 2,028 / 2,028 | 49 / 49 | 666 / 1052 | yes
+labyrinthdual     2 | 139,649 / 139,649 | 133,800 / 133,800 | complete / complete | 3,499 / 3,499 | 68 / 68 | 1801 / 1747 | yes
+labyrinthdual     3 | 149,767 / 149,767 | 141,795 / 141,795 | complete / complete | 4,876 / 4,876 | 54 / 54 | 1216 / 1044 | yes
+labyrinthdual     4 | 159,300 / 159,300 | 153,435 / 153,435 | complete / complete | 8,833 / 8,833 | 100 / 100 | 2646 / 2383 | yes
+rivers            0 | 2,000,000 / 2,000,001 | 861,606 / 861,614 | seen cap / seen cap | - / - | - / - | 6932 / 5309 | no
+rivers            1 | 2,000,000 / 2,000,001 | 761,631 / 793,500 | seen cap / seen cap | - / - | - / - | 6122 / 5052 | no
+rivers            2 | 2,000,002 / 2,000,001 | 807,621 / 808,058 | seen cap / seen cap | - / - | - / - | 5322 / 3875 | no
+rivers            3 | 2,000,002 / 2,000,002 | 891,516 / 892,472 | seen cap / seen cap | - / - | - / - | 6807 / 5166 | no
+rivers            4 | 2,000,002 / 2,000,002 | 908,630 / 909,325 | seen cap / seen cap | - / - | - / - | 6843 / 5175 | no
+watergame         0 | 153 / 153 | 135 / 135 | complete / complete | 124 / 124 | 16 / 16 | 0 / 0 | yes
+watergame         1 | 1,131,198 / 1,131,198 | 1,067,956 / 1,067,956 | complete / complete | 637,344 / 637,344 | 42 / 42 | 1029 / 702 | yes
+watergame         2 | 80,544 / 80,544 | 72,267 / 72,267 | complete / complete | 73,999 / 73,999 | 54 / 54 | 62 / 53 | yes
+watergame         3 | 28,825 / 28,825 | 24,958 / 24,958 | complete / complete | 23,730 / 23,730 | 49 / 49 | 21 / 17 | yes
+watergame         4 | 113,126 / 113,126 | 85,892 / 85,892 | complete / complete | 102,279 / 102,279 | 49 / 49 | 78 / 64 | yes
+levels with every count equal under both keys: 15 of 20
+  rivers 0: expanded 861,606 against 861,614 (-0.00%), seen 2,000,000 against 2,000,001; both stopped at the seen cap, so R under either key is only known to be at least the cap
+  rivers 1: expanded 761,631 against 793,500 (-4.02%), seen 2,000,000 against 2,000,001; both stopped at the seen cap, so R under either key is only known to be at least the cap
+  rivers 2: expanded 807,621 against 808,058 (-0.05%), seen 2,000,002 against 2,000,001; both stopped at the seen cap, so R under either key is only known to be at least the cap
+  rivers 3: expanded 891,516 against 892,472 (-0.11%), seen 2,000,002 against 2,000,002; both stopped at the seen cap, so R under either key is only known to be at least the cap
+  rivers 4: expanded 908,630 against 909,325 (-0.08%), seen 2,000,002 against 2,000,002; both stopped at the seen cap, so R under either key is only known to be at least the cap
+per C, levels with a win within C / beyond C / excluded, extended key against key of v0:
+  C    10,000: extended 8 / 12 / 0; v0 8 / 12 / 0
+  C   100,000: extended 10 / 10 / 0; v0 10 / 10 / 0
+  C   300,000: extended 12 / 8 / 0; v0 12 / 8 / 0
+  C 1,000,000: extended 13 / 7 / 0; v0 13 / 7 / 0
+  C 2,000,000: extended 13 / 7 / 0; v0 13 / 7 / 0
+seconds over the 20 levels: extended 49,200, v0 41,331, ratio 1.190
+
+== 7. candidate forms of the L_C void threshold (PREREG 7.4 rule 5) on the pilot, extended key (EXPLORATORY; none adopted) ==
+C    10,000: (a) levels with a win 8 of 20 (40.0%); X 10%: not void, X 25%: not void, X 50%: void, X 75%: void
+             (b) games with a win 3 of 4 (75%); scaled to 25 games, G 5 of 25 (20%): not void, G 8 of 25 (32%): not void, G 13 of 25 (52%): not void
+C   100,000: (a) levels with a win 10 of 20 (50.0%); X 10%: not void, X 25%: not void, X 50%: not void, X 75%: void
+             (b) games with a win 3 of 4 (75%); scaled to 25 games, G 5 of 25 (20%): not void, G 8 of 25 (32%): not void, G 13 of 25 (52%): not void
+C   300,000: (a) levels with a win 12 of 20 (60.0%); X 10%: not void, X 25%: not void, X 50%: not void, X 75%: void
+             (b) games with a win 3 of 4 (75%); scaled to 25 games, G 5 of 25 (20%): not void, G 8 of 25 (32%): not void, G 13 of 25 (52%): not void
+C 1,000,000: (a) levels with a win 13 of 20 (65.0%); X 10%: not void, X 25%: not void, X 50%: not void, X 75%: void
+             (b) games with a win 3 of 4 (75%); scaled to 25 games, G 5 of 25 (20%): not void, G 8 of 25 (32%): not void, G 13 of 25 (52%): not void
+C 2,000,000: (a) levels with a win 13 of 20 (65.0%); X 10%: not void, X 25%: not void, X 50%: not void, X 75%: void
+             (b) games with a win 3 of 4 (75%); scaled to 25 games, G 5 of 25 (20%): not void, G 8 of 25 (32%): not void, G 13 of 25 (52%): not void
+(c) pairs the score can order: needs the agents' outcomes on the pilot levels; no pilot agent row exists, so it cannot be computed here
+
+== 8. the same forms on the development data of stage E (EXPLORATORY; MiniGrid/BabyAI, one unit per (game, seed)) ==
+stage E rows 1560, games 156
+C    10,000: (a) units with a win 1182 of 1560 (75.8%), excluded 0; X 10%: not void, X 25%: not void, X 50%: not void, X 75%: not void
+             (b) games with at least one unit with a win 136 of 156 (87.2%)
+             (c) N: eligible same-S_M between-game pairs 394,100; with at least one unit with a win, so not tied by censoring, 376503 of 394100 (95.5%)
+             (c) R: eligible same-S_M between-game pairs 393,814; with at least one unit with a win, so not tied by censoring, 376468 of 393814 (95.6%)
+             (c) I1: eligible same-S_M between-game pairs 323,414; with at least one unit with a win, so not tied by censoring, 318002 of 323414 (98.3%)
+C   100,000: (a) units with a win 1317 of 1560 (84.4%), excluded 0; X 10%: not void, X 25%: not void, X 50%: not void, X 75%: not void
+             (b) games with at least one unit with a win 146 of 156 (93.6%)
+             (c) N: eligible same-S_M between-game pairs 394,100; with at least one unit with a win, so not tied by censoring, 385640 of 394100 (97.9%)
+             (c) R: eligible same-S_M between-game pairs 393,814; with at least one unit with a win, so not tied by censoring, 385493 of 393814 (97.9%)
+             (c) I1: eligible same-S_M between-game pairs 323,414; with at least one unit with a win, so not tied by censoring, 321023 of 323414 (99.3%)
+C   300,000: (a) units with a win 1373 of 1560 (88.0%), excluded 0; X 10%: not void, X 25%: not void, X 50%: not void, X 75%: not void
+             (b) games with at least one unit with a win 148 of 156 (94.9%)
+             (c) N: eligible same-S_M between-game pairs 394,100; with at least one unit with a win, so not tied by censoring, 388470 of 394100 (98.6%)
+             (c) R: eligible same-S_M between-game pairs 393,814; with at least one unit with a win, so not tied by censoring, 388291 of 393814 (98.6%)
+             (c) I1: eligible same-S_M between-game pairs 323,414; with at least one unit with a win, so not tied by censoring, 321846 of 323414 (99.5%)
+C 1,000,000: (a) units with a win 1398 of 1560 (89.6%), excluded 0; X 10%: not void, X 25%: not void, X 50%: not void, X 75%: not void
+             (b) games with at least one unit with a win 149 of 156 (95.5%)
+             (c) N: eligible same-S_M between-game pairs 394,100; with at least one unit with a win, so not tied by censoring, 389741 of 394100 (98.9%)
+             (c) R: eligible same-S_M between-game pairs 393,814; with at least one unit with a win, so not tied by censoring, 389455 of 393814 (98.9%)
+             (c) I1: eligible same-S_M between-game pairs 323,414; with at least one unit with a win, so not tied by censoring, 322350 of 323414 (99.7%)
+C 2,000,000: (a) units with a win 1413 of 1560 (90.6%), excluded 0; X 10%: not void, X 25%: not void, X 50%: not void, X 75%: not void
+             (b) games with at least one unit with a win 149 of 156 (95.5%)
+             (c) N: eligible same-S_M between-game pairs 394,100; with at least one unit with a win, so not tied by censoring, 390748 of 394100 (99.1%)
+             (c) R: eligible same-S_M between-game pairs 393,814; with at least one unit with a win, so not tied by censoring, 390462 of 393814 (99.1%)
+             (c) I1: eligible same-S_M between-game pairs 323,414; with at least one unit with a win, so not tied by censoring, 322577 of 323414 (99.7%)
