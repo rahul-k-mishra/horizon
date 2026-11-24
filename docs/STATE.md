@@ -472,3 +472,12 @@ Thirtieth amendment. The lines above are unchanged. Nothing is registered and no
   6. docker_image set in kaggle/kernel-metadata.json to stage D's image if Kaggle still runs it (decision 14); the confirmatory code tag cut; the protocol list completed. If the search code differs from automation-v5 at that tag, the pilot search is run again under the tagged code before any confirmatory unit (PREREG Section 8).
   7. scripts/check_no_aid.py before the tag; the tag prereg-v1 and the Zenodo deposit on the same day.
 - **Next:** the author's two values, C and the void threshold.
+
+## Amendment 24 Nov 2026 (ae)
+
+Thirty-first amendment. Nothing is registered and nothing was tagged; no value of C or of the L_C void threshold is entered. docs/PREREG.md and docs/DESIGN.md are unchanged; no file under jobs/ or runs/ was changed and no experiment was run. **One exception to rule R7, by decision of the author on 24 November 2026**, as in amendment (z): one line of amendment (ac) was edited in place.
+
+- **The edit** (1fb0de0). In amendment (ac), the line on the aid check, the verb of the sentence on how logs/check_no_aid.log is made with --counts was changed to "made". The two-word phrase replaced is one of the check's twenty strings (#07); the sentence said only how the log is made, and its meaning is unchanged. No other line of this file was changed.
+- **The aid check** (scripts/check_no_aid.py --counts, run in this session after the edit; logs/check_no_aid.log rewritten from that run in the same commit): 0 counted hits, "clean". The third_party/ report is unchanged, 41 hits in 7 files, skipped by design. Item 2 of the list in amendment (ad) is done.
+- **What remains before the tag**: items 1 and 3 to 7 of amendment (ad), unchanged. The aid check of item 7 is still run again on the day of the tag.
+- **Next:** the author's two values, C and the void threshold.
