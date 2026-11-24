@@ -5,9 +5,9 @@
   "chunk_id": "gd-01",
   "dispatched_at": "2026-11-24T00:37:29Z",
   "entry_hash": "f79c7b9cdff369d0bb2b49201cb7f4e12e7892ba040aceeeb081b0015f0ec3fc",
-  "kernel_version": null,
+  "kernel_version": 117,
   "nonce": "gvgaisearch-dryrun-gd-01-20261124T003729Z-93beaf",
-  "pushed_at": null,
+  "pushed_at": "2026-11-24T00:37:31Z",
   "runner": "actions-45298567385-1"
  },
  "halt_reason": null,
