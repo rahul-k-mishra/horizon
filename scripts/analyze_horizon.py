@@ -34,8 +34,8 @@ file as it is now (the analysis is frozen at the tag, docs/PREREG.md Section 11)
 Inputs, read-only (docs/PREREG.md, Section 9: features only from search rows, the truth table and the features
 file; outcomes only from agent rows):
     docs/truth/gvgai.json                 the truth table
-    docs/truth/gvgai_features.json        {game: {level: {area, actions, colours}}}, written before the tag by the
-                                          GVGAI adapter work (not yet built)
+    docs/truth/gvgai_features.json        {game: {level: {area, actions, colours}}}, written before the tag by
+                                          scripts/gvgai_features.py from each level's start (logs/gvgai_features.log)
     runs/<campaign>/gvgaisearch/*.json    the confirmatory search rows of the kind gvgaisearch, suite "gvgai",
                                           level 0..4, schema horizon.search.v3 (counts and measures.branching)
     runs/<campaign>/gvgaiagent/*.json     the confirmatory agent rows of the kind gvgaiagent, schema

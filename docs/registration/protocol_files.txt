@@ -180,6 +180,9 @@ logs/pilot_margins.log
 
 # the registered analysis
 scripts/analyze_horizon.py
+scripts/gvgai_features.py
+docs/truth/gvgai_features.json
+logs/gvgai_features.log
 scripts/test_analyze_horizon.py
 logs/test_analyze_horizon.log
 
@@ -247,8 +250,6 @@ logs/automation.log
 # to be added before the tag (docs/PREREG.md, header and Sections 3, 5, 8, 11):
 # docs/truth/handcheck_answers.json (the author's 100 answers; 1 entered at 25 November 2026)
 # docs/truth/HANDCHECK_RESULT.md (written by scripts/handcheck_report.py from the answers)
-# docs/truth/gvgai_features.json (grid area, action count, colour count per level, read by scripts/analyze_horizon.py),
-#   with the script that writes it and its console
 #
 # left out, and why (the author's decision, docs/STATE.md, amendment ai):
 # third_party/gvgai (the GVGAI source and descriptions at commit e58ff6597319155218759cc178931e05b81b524c, each file

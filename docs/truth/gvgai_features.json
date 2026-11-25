@@ -1,0 +1,677 @@
+{
+ "chipschallenge": {
+  "0": {
+   "actions": 4,
+   "area": 210,
+   "colours": 14
+  },
+  "1": {
+   "actions": 4,
+   "area": 132,
+   "colours": 11
+  },
+  "2": {
+   "actions": 4,
+   "area": 156,
+   "colours": 17
+  },
+  "3": {
+   "actions": 4,
+   "area": 70,
+   "colours": 14
+  },
+  "4": {
+   "actions": 4,
+   "area": 273,
+   "colours": 16
+  }
+ },
+ "clusters": {
+  "0": {
+   "actions": 4,
+   "area": 130,
+   "colours": 8
+  },
+  "1": {
+   "actions": 4,
+   "area": 130,
+   "colours": 10
+  },
+  "2": {
+   "actions": 4,
+   "area": 130,
+   "colours": 10
+  },
+  "3": {
+   "actions": 4,
+   "area": 130,
+   "colours": 10
+  },
+  "4": {
+   "actions": 4,
+   "area": 130,
+   "colours": 10
+  }
+ },
+ "colourescape": {
+  "0": {
+   "actions": 4,
+   "area": 198,
+   "colours": 10
+  },
+  "1": {
+   "actions": 4,
+   "area": 198,
+   "colours": 13
+  },
+  "2": {
+   "actions": 4,
+   "area": 198,
+   "colours": 13
+  },
+  "3": {
+   "actions": 4,
+   "area": 198,
+   "colours": 11
+  },
+  "4": {
+   "actions": 4,
+   "area": 198,
+   "colours": 13
+  }
+ },
+ "cookmepasta": {
+  "0": {
+   "actions": 4,
+   "area": 154,
+   "colours": 7
+  },
+  "1": {
+   "actions": 4,
+   "area": 154,
+   "colours": 9
+  },
+  "2": {
+   "actions": 4,
+   "area": 154,
+   "colours": 9
+  },
+  "3": {
+   "actions": 4,
+   "area": 154,
+   "colours": 9
+  },
+  "4": {
+   "actions": 4,
+   "area": 154,
+   "colours": 9
+  }
+ },
+ "doorkoban": {
+  "0": {
+   "actions": 4,
+   "area": 195,
+   "colours": 16
+  },
+  "1": {
+   "actions": 4,
+   "area": 195,
+   "colours": 16
+  },
+  "2": {
+   "actions": 4,
+   "area": 195,
+   "colours": 16
+  },
+  "3": {
+   "actions": 4,
+   "area": 195,
+   "colours": 16
+  },
+  "4": {
+   "actions": 4,
+   "area": 195,
+   "colours": 16
+  }
+ },
+ "escape": {
+  "0": {
+   "actions": 4,
+   "area": 117,
+   "colours": 6
+  },
+  "1": {
+   "actions": 4,
+   "area": 117,
+   "colours": 6
+  },
+  "2": {
+   "actions": 4,
+   "area": 117,
+   "colours": 6
+  },
+  "3": {
+   "actions": 4,
+   "area": 117,
+   "colours": 6
+  },
+  "4": {
+   "actions": 4,
+   "area": 117,
+   "colours": 6
+  }
+ },
+ "glow": {
+  "0": {
+   "actions": 5,
+   "area": 98,
+   "colours": 5
+  },
+  "1": {
+   "actions": 5,
+   "area": 98,
+   "colours": 5
+  },
+  "2": {
+   "actions": 5,
+   "area": 171,
+   "colours": 5
+  },
+  "3": {
+   "actions": 5,
+   "area": 171,
+   "colours": 5
+  },
+  "4": {
+   "actions": 5,
+   "area": 228,
+   "colours": 5
+  }
+ },
+ "grow": {
+  "0": {
+   "actions": 5,
+   "area": 54,
+   "colours": 4
+  },
+  "1": {
+   "actions": 5,
+   "area": 63,
+   "colours": 4
+  },
+  "2": {
+   "actions": 5,
+   "area": 63,
+   "colours": 4
+  },
+  "3": {
+   "actions": 5,
+   "area": 72,
+   "colours": 4
+  },
+  "4": {
+   "actions": 5,
+   "area": 49,
+   "colours": 4
+  }
+ },
+ "hungrybirds": {
+  "0": {
+   "actions": 4,
+   "area": 176,
+   "colours": 5
+  },
+  "1": {
+   "actions": 4,
+   "area": 144,
+   "colours": 5
+  },
+  "2": {
+   "actions": 4,
+   "area": 224,
+   "colours": 5
+  },
+  "3": {
+   "actions": 4,
+   "area": 224,
+   "colours": 5
+  },
+  "4": {
+   "actions": 4,
+   "area": 224,
+   "colours": 5
+  }
+ },
+ "iceandfire": {
+  "0": {
+   "actions": 4,
+   "area": 224,
+   "colours": 10
+  },
+  "1": {
+   "actions": 4,
+   "area": 224,
+   "colours": 10
+  },
+  "2": {
+   "actions": 4,
+   "area": 224,
+   "colours": 10
+  },
+  "3": {
+   "actions": 4,
+   "area": 224,
+   "colours": 10
+  },
+  "4": {
+   "actions": 4,
+   "area": 224,
+   "colours": 10
+  }
+ },
+ "islands": {
+  "0": {
+   "actions": 5,
+   "area": 160,
+   "colours": 7
+  },
+  "1": {
+   "actions": 5,
+   "area": 160,
+   "colours": 7
+  },
+  "2": {
+   "actions": 5,
+   "area": 160,
+   "colours": 6
+  },
+  "3": {
+   "actions": 5,
+   "area": 160,
+   "colours": 7
+  },
+  "4": {
+   "actions": 5,
+   "area": 160,
+   "colours": 7
+  }
+ },
+ "labyrinth": {
+  "0": {
+   "actions": 4,
+   "area": 224,
+   "colours": 5
+  },
+  "1": {
+   "actions": 4,
+   "area": 224,
+   "colours": 5
+  },
+  "2": {
+   "actions": 4,
+   "area": 224,
+   "colours": 5
+  },
+  "3": {
+   "actions": 4,
+   "area": 224,
+   "colours": 5
+  },
+  "4": {
+   "actions": 4,
+   "area": 224,
+   "colours": 5
+  }
+ },
+ "lasers": {
+  "0": {
+   "actions": 5,
+   "area": 310,
+   "colours": 9
+  },
+  "1": {
+   "actions": 5,
+   "area": 308,
+   "colours": 9
+  },
+  "2": {
+   "actions": 5,
+   "area": 308,
+   "colours": 9
+  },
+  "3": {
+   "actions": 5,
+   "area": 308,
+   "colours": 8
+  },
+  "4": {
+   "actions": 5,
+   "area": 308,
+   "colours": 8
+  }
+ },
+ "modality": {
+  "0": {
+   "actions": 4,
+   "area": 35,
+   "colours": 7
+  },
+  "1": {
+   "actions": 4,
+   "area": 49,
+   "colours": 7
+  },
+  "2": {
+   "actions": 4,
+   "area": 64,
+   "colours": 7
+  },
+  "3": {
+   "actions": 4,
+   "area": 143,
+   "colours": 7
+  },
+  "4": {
+   "actions": 4,
+   "area": 42,
+   "colours": 7
+  }
+ },
+ "painter": {
+  "0": {
+   "actions": 4,
+   "area": 12,
+   "colours": 3
+  },
+  "1": {
+   "actions": 4,
+   "area": 40,
+   "colours": 3
+  },
+  "2": {
+   "actions": 4,
+   "area": 21,
+   "colours": 4
+  },
+  "3": {
+   "actions": 4,
+   "area": 24,
+   "colours": 4
+  },
+  "4": {
+   "actions": 4,
+   "area": 8,
+   "colours": 4
+  }
+ },
+ "racebet": {
+  "0": {
+   "actions": 4,
+   "area": 350,
+   "colours": 13
+  },
+  "1": {
+   "actions": 4,
+   "area": 350,
+   "colours": 14
+  },
+  "2": {
+   "actions": 4,
+   "area": 350,
+   "colours": 14
+  },
+  "3": {
+   "actions": 4,
+   "area": 350,
+   "colours": 14
+  },
+  "4": {
+   "actions": 4,
+   "area": 350,
+   "colours": 14
+  }
+ },
+ "racebet2": {
+  "0": {
+   "actions": 4,
+   "area": 490,
+   "colours": 14
+  },
+  "1": {
+   "actions": 4,
+   "area": 490,
+   "colours": 15
+  },
+  "2": {
+   "actions": 4,
+   "area": 490,
+   "colours": 15
+  },
+  "3": {
+   "actions": 4,
+   "area": 490,
+   "colours": 15
+  },
+  "4": {
+   "actions": 4,
+   "area": 490,
+   "colours": 15
+  }
+ },
+ "realsokoban": {
+  "0": {
+   "actions": 4,
+   "area": 56,
+   "colours": 5
+  },
+  "1": {
+   "actions": 4,
+   "area": 84,
+   "colours": 5
+  },
+  "2": {
+   "actions": 4,
+   "area": 56,
+   "colours": 5
+  },
+  "3": {
+   "actions": 4,
+   "area": 42,
+   "colours": 5
+  },
+  "4": {
+   "actions": 4,
+   "area": 96,
+   "colours": 5
+  }
+ },
+ "roadfighter": {
+  "0": {
+   "actions": 4,
+   "area": 150,
+   "colours": 3
+  },
+  "1": {
+   "actions": 4,
+   "area": 150,
+   "colours": 3
+  },
+  "2": {
+   "actions": 4,
+   "area": 150,
+   "colours": 3
+  },
+  "3": {
+   "actions": 4,
+   "area": 150,
+   "colours": 3
+  },
+  "4": {
+   "actions": 4,
+   "area": 150,
+   "colours": 3
+  }
+ },
+ "sokoban": {
+  "0": {
+   "actions": 4,
+   "area": 117,
+   "colours": 5
+  },
+  "1": {
+   "actions": 4,
+   "area": 117,
+   "colours": 5
+  },
+  "2": {
+   "actions": 4,
+   "area": 99,
+   "colours": 5
+  },
+  "3": {
+   "actions": 4,
+   "area": 49,
+   "colours": 5
+  },
+  "4": {
+   "actions": 4,
+   "area": 72,
+   "colours": 5
+  }
+ },
+ "tercio": {
+  "0": {
+   "actions": 4,
+   "area": 96,
+   "colours": 8
+  },
+  "1": {
+   "actions": 4,
+   "area": 140,
+   "colours": 8
+  },
+  "2": {
+   "actions": 4,
+   "area": 96,
+   "colours": 8
+  },
+  "3": {
+   "actions": 4,
+   "area": 143,
+   "colours": 8
+  },
+  "4": {
+   "actions": 4,
+   "area": 96,
+   "colours": 8
+  }
+ },
+ "thecitadel": {
+  "0": {
+   "actions": 4,
+   "area": 90,
+   "colours": 5
+  },
+  "1": {
+   "actions": 4,
+   "area": 144,
+   "colours": 8
+  },
+  "2": {
+   "actions": 4,
+   "area": 154,
+   "colours": 8
+  },
+  "3": {
+   "actions": 4,
+   "area": 165,
+   "colours": 8
+  },
+  "4": {
+   "actions": 4,
+   "area": 121,
+   "colours": 6
+  }
+ },
+ "thesnowman": {
+  "0": {
+   "actions": 4,
+   "area": 154,
+   "colours": 7
+  },
+  "1": {
+   "actions": 4,
+   "area": 154,
+   "colours": 9
+  },
+  "2": {
+   "actions": 4,
+   "area": 154,
+   "colours": 9
+  },
+  "3": {
+   "actions": 4,
+   "area": 154,
+   "colours": 9
+  },
+  "4": {
+   "actions": 4,
+   "area": 154,
+   "colours": 9
+  }
+ },
+ "wrapsokoban": {
+  "0": {
+   "actions": 4,
+   "area": 56,
+   "colours": 5
+  },
+  "1": {
+   "actions": 4,
+   "area": 66,
+   "colours": 5
+  },
+  "2": {
+   "actions": 4,
+   "area": 56,
+   "colours": 5
+  },
+  "3": {
+   "actions": 4,
+   "area": 42,
+   "colours": 5
+  },
+  "4": {
+   "actions": 4,
+   "area": 96,
+   "colours": 5
+  }
+ },
+ "zenpuzzle": {
+  "0": {
+   "actions": 4,
+   "area": 144,
+   "colours": 4
+  },
+  "1": {
+   "actions": 4,
+   "area": 144,
+   "colours": 4
+  },
+  "2": {
+   "actions": 4,
+   "area": 144,
+   "colours": 4
+  },
+  "3": {
+   "actions": 4,
+   "area": 132,
+   "colours": 4
+  },
+  "4": {
+   "actions": 4,
+   "area": 144,
+   "colours": 4
+  }
+ }
+}

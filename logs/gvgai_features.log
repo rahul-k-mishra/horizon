@@ -1,0 +1,137 @@
+== 1. the synthetic test levels against the values worked out by hand
+  allwin level 0: grid 5 x 5, actions ['left', 'right', 'down', 'up']; got {'area': 25, 'actions': 4, 'colours': 3}, by hand {'area': 25, 'actions': 4, 'colours': 3}: same
+  corridor level 0: grid 3 x 6, actions ['left', 'right', 'down', 'up']; got {'area': 18, 'actions': 4, 'colours': 4}, by hand {'area': 18, 'actions': 4, 'colours': 4}: same
+  corridor level 1: grid 5 x 5, actions ['left', 'right', 'down', 'up']; got {'area': 25, 'actions': 4, 'colours': 4}, by hand {'area': 25, 'actions': 4, 'colours': 4}: same
+
+== 2. the confirmatory games (25, scripts/suite.py confirmatory()), levels 0 to 4, at the level's start
+  chipschallenge level 0: grid 14 x 15 (the level file's size too), area 210, actions 4 ['left', 'right', 'down', 'up'], colours 14
+  chipschallenge level 1: grid 11 x 12 (the level file's size too), area 132, actions 4 ['left', 'right', 'down', 'up'], colours 11
+  chipschallenge level 2: grid 13 x 12 (the level file's size too), area 156, actions 4 ['left', 'right', 'down', 'up'], colours 17
+  chipschallenge level 3: grid 7 x 10 (the level file's size too), area 70, actions 4 ['left', 'right', 'down', 'up'], colours 14
+  chipschallenge level 4: grid 13 x 21 (the level file's size too), area 273, actions 4 ['left', 'right', 'down', 'up'], colours 16
+  clusters level 0: grid 10 x 13 (the level file's size too), area 130, actions 4 ['left', 'right', 'down', 'up'], colours 8
+  clusters level 1: grid 10 x 13 (the level file's size too), area 130, actions 4 ['left', 'right', 'down', 'up'], colours 10
+  clusters level 2: grid 10 x 13 (the level file's size too), area 130, actions 4 ['left', 'right', 'down', 'up'], colours 10
+  clusters level 3: grid 10 x 13 (the level file's size too), area 130, actions 4 ['left', 'right', 'down', 'up'], colours 10
+  clusters level 4: grid 10 x 13 (the level file's size too), area 130, actions 4 ['left', 'right', 'down', 'up'], colours 10
+  colourescape level 0: grid 11 x 18 (the level file's size too), area 198, actions 4 ['left', 'right', 'down', 'up'], colours 10
+  colourescape level 1: grid 11 x 18 (the level file's size too), area 198, actions 4 ['left', 'right', 'down', 'up'], colours 13
+  colourescape level 2: grid 11 x 18 (the level file's size too), area 198, actions 4 ['left', 'right', 'down', 'up'], colours 13
+  colourescape level 3: grid 11 x 18 (the level file's size too), area 198, actions 4 ['left', 'right', 'down', 'up'], colours 11
+  colourescape level 4: grid 11 x 18 (the level file's size too), area 198, actions 4 ['left', 'right', 'down', 'up'], colours 13
+  cookmepasta level 0: grid 11 x 14 (the level file's size too), area 154, actions 4 ['left', 'right', 'down', 'up'], colours 7
+  cookmepasta level 1: grid 11 x 14 (the level file's size too), area 154, actions 4 ['left', 'right', 'down', 'up'], colours 9
+  cookmepasta level 2: grid 11 x 14 (the level file's size too), area 154, actions 4 ['left', 'right', 'down', 'up'], colours 9
+  cookmepasta level 3: grid 11 x 14 (the level file's size too), area 154, actions 4 ['left', 'right', 'down', 'up'], colours 9
+  cookmepasta level 4: grid 11 x 14 (the level file's size too), area 154, actions 4 ['left', 'right', 'down', 'up'], colours 9
+  doorkoban level 0: grid 13 x 15 (the level file's size too), area 195, actions 4 ['left', 'right', 'down', 'up'], colours 16
+  doorkoban level 1: grid 13 x 15 (the level file's size too), area 195, actions 4 ['left', 'right', 'down', 'up'], colours 16
+  doorkoban level 2: grid 13 x 15 (the level file's size too), area 195, actions 4 ['left', 'right', 'down', 'up'], colours 16
+  doorkoban level 3: grid 13 x 15 (the level file's size too), area 195, actions 4 ['left', 'right', 'down', 'up'], colours 16
+  doorkoban level 4: grid 13 x 15 (the level file's size too), area 195, actions 4 ['left', 'right', 'down', 'up'], colours 16
+  escape level 0: grid 9 x 13 (the level file's size too), area 117, actions 4 ['left', 'right', 'down', 'up'], colours 6
+  escape level 1: grid 9 x 13 (the level file's size too), area 117, actions 4 ['left', 'right', 'down', 'up'], colours 6
+  escape level 2: grid 9 x 13 (the level file's size too), area 117, actions 4 ['left', 'right', 'down', 'up'], colours 6
+  escape level 3: grid 9 x 13 (the level file's size too), area 117, actions 4 ['left', 'right', 'down', 'up'], colours 6
+  escape level 4: grid 9 x 13 (the level file's size too), area 117, actions 4 ['left', 'right', 'down', 'up'], colours 6
+  glow level 0: grid 7 x 14 (the level file's size too), area 98, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 5
+  glow level 1: grid 7 x 14 (the level file's size too), area 98, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 5
+  glow level 2: grid 9 x 19 (the level file's size too), area 171, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 5
+  glow level 3: grid 9 x 19 (the level file's size too), area 171, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 5
+  glow level 4: grid 12 x 19 (the level file's size too), area 228, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 5
+  grow level 0: grid 6 x 9 (the level file's size too), area 54, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 4
+  grow level 1: grid 7 x 9 (the level file's size too), area 63, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 4
+  grow level 2: grid 7 x 9 (the level file's size too), area 63, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 4
+  grow level 3: grid 8 x 9 (the level file's size too), area 72, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 4
+  grow level 4: grid 7 x 7 (the level file's size too), area 49, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 4
+  hungrybirds level 0: grid 11 x 16 (the level file's size too), area 176, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  hungrybirds level 1: grid 9 x 16 (the level file's size too), area 144, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  hungrybirds level 2: grid 14 x 16 (the level file's size too), area 224, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  hungrybirds level 3: grid 14 x 16 (the level file's size too), area 224, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  hungrybirds level 4: grid 14 x 16 (the level file's size too), area 224, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  iceandfire level 0: grid 14 x 16 (the level file's size too), area 224, actions 4 ['left', 'right', 'down', 'up'], colours 10
+  iceandfire level 1: grid 14 x 16 (the level file's size too), area 224, actions 4 ['left', 'right', 'down', 'up'], colours 10
+  iceandfire level 2: grid 14 x 16 (the level file's size too), area 224, actions 4 ['left', 'right', 'down', 'up'], colours 10
+  iceandfire level 3: grid 14 x 16 (the level file's size too), area 224, actions 4 ['left', 'right', 'down', 'up'], colours 10
+  iceandfire level 4: grid 14 x 16 (the level file's size too), area 224, actions 4 ['left', 'right', 'down', 'up'], colours 10
+  islands level 0: grid 10 x 16 (the level file's size too), area 160, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 7
+  islands level 1: grid 10 x 16 (the level file's size too), area 160, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 7
+  islands level 2: grid 10 x 16 (the level file's size too), area 160, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 6
+  islands level 3: grid 10 x 16 (the level file's size too), area 160, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 7
+  islands level 4: grid 10 x 16 (the level file's size too), area 160, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 7
+  labyrinth level 0: grid 14 x 16 (the level file's size too), area 224, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  labyrinth level 1: grid 14 x 16 (the level file's size too), area 224, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  labyrinth level 2: grid 14 x 16 (the level file's size too), area 224, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  labyrinth level 3: grid 14 x 16 (the level file's size too), area 224, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  labyrinth level 4: grid 14 x 16 (the level file's size too), area 224, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  lasers level 0: grid 10 x 31 (the level file's size too), area 310, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 9
+  lasers level 1: grid 11 x 28 (the level file's size too), area 308, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 9
+  lasers level 2: grid 11 x 28 (the level file's size too), area 308, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 9
+  lasers level 3: grid 11 x 28 (the level file's size too), area 308, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 8
+  lasers level 4: grid 11 x 28 (the level file's size too), area 308, actions 5 ['use', 'left', 'right', 'down', 'up'], colours 8
+  modality level 0: grid 5 x 7 (the level file's size too), area 35, actions 4 ['left', 'right', 'down', 'up'], colours 7
+  modality level 1: grid 7 x 7 (the level file's size too), area 49, actions 4 ['left', 'right', 'down', 'up'], colours 7
+  modality level 2: grid 8 x 8 (the level file's size too), area 64, actions 4 ['left', 'right', 'down', 'up'], colours 7
+  modality level 3: grid 11 x 13 (the level file's size too), area 143, actions 4 ['left', 'right', 'down', 'up'], colours 7
+  modality level 4: grid 6 x 7 (the level file's size too), area 42, actions 4 ['left', 'right', 'down', 'up'], colours 7
+  painter level 0: grid 3 x 4 (the level file's size too), area 12, actions 4 ['left', 'right', 'down', 'up'], colours 3
+  painter level 1: grid 5 x 8 (the level file's size too), area 40, actions 4 ['left', 'right', 'down', 'up'], colours 3
+  painter level 2: grid 3 x 7 (the level file's size too), area 21, actions 4 ['left', 'right', 'down', 'up'], colours 4
+  painter level 3: grid 4 x 6 (the level file's size too), area 24, actions 4 ['left', 'right', 'down', 'up'], colours 4
+  painter level 4: grid 2 x 4 (the level file's size too), area 8, actions 4 ['left', 'right', 'down', 'up'], colours 4
+  racebet level 0: grid 10 x 35 (the level file's size too), area 350, actions 4 ['left', 'right', 'down', 'up'], colours 13
+  racebet level 1: grid 10 x 35 (the level file's size too), area 350, actions 4 ['left', 'right', 'down', 'up'], colours 14
+  racebet level 2: grid 10 x 35 (the level file's size too), area 350, actions 4 ['left', 'right', 'down', 'up'], colours 14
+  racebet level 3: grid 10 x 35 (the level file's size too), area 350, actions 4 ['left', 'right', 'down', 'up'], colours 14
+  racebet level 4: grid 10 x 35 (the level file's size too), area 350, actions 4 ['left', 'right', 'down', 'up'], colours 14
+  racebet2 level 0: grid 14 x 35 (the level file's size too), area 490, actions 4 ['left', 'right', 'down', 'up'], colours 14
+  racebet2 level 1: grid 14 x 35 (the level file's size too), area 490, actions 4 ['left', 'right', 'down', 'up'], colours 15
+  racebet2 level 2: grid 14 x 35 (the level file's size too), area 490, actions 4 ['left', 'right', 'down', 'up'], colours 15
+  racebet2 level 3: grid 14 x 35 (the level file's size too), area 490, actions 4 ['left', 'right', 'down', 'up'], colours 15
+  racebet2 level 4: grid 14 x 35 (the level file's size too), area 490, actions 4 ['left', 'right', 'down', 'up'], colours 15
+  realsokoban level 0: grid 7 x 8 (the level file's size too), area 56, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  realsokoban level 1: grid 7 x 12 (the level file's size too), area 84, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  realsokoban level 2: grid 8 x 7 (the level file's size too), area 56, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  realsokoban level 3: grid 7 x 6 (the level file's size too), area 42, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  realsokoban level 4: grid 12 x 8 (the level file's size too), area 96, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  roadfighter level 0: grid 15 x 10 (the level file's size too), area 150, actions 4 ['left', 'right', 'down', 'up'], colours 3
+  roadfighter level 1: grid 15 x 10 (the level file's size too), area 150, actions 4 ['left', 'right', 'down', 'up'], colours 3
+  roadfighter level 2: grid 15 x 10 (the level file's size too), area 150, actions 4 ['left', 'right', 'down', 'up'], colours 3
+  roadfighter level 3: grid 15 x 10 (the level file's size too), area 150, actions 4 ['left', 'right', 'down', 'up'], colours 3
+  roadfighter level 4: grid 15 x 10 (the level file's size too), area 150, actions 4 ['left', 'right', 'down', 'up'], colours 3
+  sokoban level 0: grid 9 x 13 (the level file's size too), area 117, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  sokoban level 1: grid 9 x 13 (the level file's size too), area 117, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  sokoban level 2: grid 9 x 11 (the level file's size too), area 99, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  sokoban level 3: grid 7 x 7 (the level file's size too), area 49, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  sokoban level 4: grid 8 x 9 (the level file's size too), area 72, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  tercio level 0: grid 8 x 12 (the level file's size too), area 96, actions 4 ['left', 'right', 'down', 'up'], colours 8
+  tercio level 1: grid 10 x 14 (the level file's size too), area 140, actions 4 ['left', 'right', 'down', 'up'], colours 8
+  tercio level 2: grid 8 x 12 (the level file's size too), area 96, actions 4 ['left', 'right', 'down', 'up'], colours 8
+  tercio level 3: grid 11 x 13 (the level file's size too), area 143, actions 4 ['left', 'right', 'down', 'up'], colours 8
+  tercio level 4: grid 8 x 12 (the level file's size too), area 96, actions 4 ['left', 'right', 'down', 'up'], colours 8
+  thecitadel level 0: grid 9 x 10 (the level file's size too), area 90, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  thecitadel level 1: grid 9 x 16 (the level file's size too), area 144, actions 4 ['left', 'right', 'down', 'up'], colours 8
+  thecitadel level 2: grid 11 x 14 (the level file's size too), area 154, actions 4 ['left', 'right', 'down', 'up'], colours 8
+  thecitadel level 3: grid 11 x 15 (the level file's size too), area 165, actions 4 ['left', 'right', 'down', 'up'], colours 8
+  thecitadel level 4: grid 11 x 11 (the level file's size too), area 121, actions 4 ['left', 'right', 'down', 'up'], colours 6
+  thesnowman level 0: grid 11 x 14 (the level file's size too), area 154, actions 4 ['left', 'right', 'down', 'up'], colours 7
+  thesnowman level 1: grid 11 x 14 (the level file's size too), area 154, actions 4 ['left', 'right', 'down', 'up'], colours 9
+  thesnowman level 2: grid 11 x 14 (the level file's size too), area 154, actions 4 ['left', 'right', 'down', 'up'], colours 9
+  thesnowman level 3: grid 11 x 14 (the level file's size too), area 154, actions 4 ['left', 'right', 'down', 'up'], colours 9
+  thesnowman level 4: grid 11 x 14 (the level file's size too), area 154, actions 4 ['left', 'right', 'down', 'up'], colours 9
+  wrapsokoban level 0: grid 7 x 8 (the level file's size too), area 56, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  wrapsokoban level 1: grid 6 x 11 (the level file's size too), area 66, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  wrapsokoban level 2: grid 8 x 7 (the level file's size too), area 56, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  wrapsokoban level 3: grid 7 x 6 (the level file's size too), area 42, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  wrapsokoban level 4: grid 12 x 8 (the level file's size too), area 96, actions 4 ['left', 'right', 'down', 'up'], colours 5
+  zenpuzzle level 0: grid 12 x 12 (the level file's size too), area 144, actions 4 ['left', 'right', 'down', 'up'], colours 4
+  zenpuzzle level 1: grid 12 x 12 (the level file's size too), area 144, actions 4 ['left', 'right', 'down', 'up'], colours 4
+  zenpuzzle level 2: grid 12 x 12 (the level file's size too), area 144, actions 4 ['left', 'right', 'down', 'up'], colours 4
+  zenpuzzle level 3: grid 11 x 12 (the level file's size too), area 132, actions 4 ['left', 'right', 'down', 'up'], colours 4
+  zenpuzzle level 4: grid 12 x 12 (the level file's size too), area 144, actions 4 ['left', 'right', 'down', 'up'], colours 4
+
+== 3. summary: 25 games, 125 levels
+  area: from 8 to 490, 44 distinct values
+  actions: from 4 to 5, 2 distinct values; levels per value {4: 105, 5: 20}
+  colours: from 3 to 17, 14 distinct values; levels per value {3: 7, 4: 13, 5: 31, 6: 7, 7: 11, 8: 11, 9: 11, 10: 10, 11: 2, 13: 4, 14: 7, 15: 4, 16: 6, 17: 1}
+written: docs/truth/gvgai_features.json
