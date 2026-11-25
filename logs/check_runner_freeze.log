@@ -1,38 +1,122 @@
 Kaggle's Python from logs/envprobe.log: 3.13.15 CPython x86_64
 probe image: gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e
+ok   step 1: exact pin: annotated-types==0.8.0
+ok   step 1: exact pin: certifi==2026.10.19
+ok   step 1: exact pin: charset-normalizer==3.4.9
 ok   step 1: exact pin: cloudpickle==3.1.2
+ok   step 1: exact pin: contourpy==1.3.3
+ok   step 1: exact pin: cycler==0.12.1
 ok   step 1: exact pin: farama-notifications==0.0.6
+ok   step 1: exact pin: fonttools==4.64.0
 ok   step 1: exact pin: gymnasium==1.3.0
+ok   step 1: exact pin: idna==3.19
 ok   step 1: exact pin: JPype1==1.7.1
+ok   step 1: exact pin: kiwisolver==1.5.1
+ok   step 1: exact pin: matplotlib==3.10.0
 ok   step 1: exact pin: minigrid==3.1.0
 ok   step 1: exact pin: numpy==2.1.3
 ok   step 1: exact pin: packaging==26.3
+ok   step 1: exact pin: pillow==13.0.0
+ok   step 1: exact pin: pydantic==2.13.5
+ok   step 1: exact pin: pydantic-core==2.46.5
 ok   step 1: exact pin: pygame-ce==2.5.8
+ok   step 1: exact pin: pyparsing==3.3.2
+ok   step 1: exact pin: python-dateutil==2.9.0.post0
+ok   step 1: exact pin: requests==2.34.2
+ok   step 1: exact pin: six==1.17.0
 ok   step 1: exact pin: typing-extensions==4.16.0
-pins: 9
+ok   step 1: exact pin: typing-inspection==0.4.4
+ok   step 1: exact pin: urllib3==2.8.0
+pins: 27
 ok   step 2: every pin has a wheel for CPython 3.13 manylinux x86_64
-wheels: 9
+wheels: 27
+    annotated_types-0.8.0-py3-none-any.whl
+    certifi-2026.10.19-py3-none-any.whl
+    charset_normalizer-3.4.9-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
     cloudpickle-3.1.2-py3-none-any.whl
+    contourpy-1.3.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+    cycler-0.12.1-py3-none-any.whl
     farama_notifications-0.0.6-py3-none-any.whl
+    fonttools-4.64.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
     gymnasium-1.3.0-py3-none-any.whl
+    idna-3.19-py3-none-any.whl
     jpype1-1.7.1-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
+    kiwisolver-1.5.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+    matplotlib-3.10.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
     minigrid-3.1.0-py3-none-any.whl
     numpy-2.1.3-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
     packaging-26.3-py3-none-any.whl
+    pillow-13.0.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+    pydantic-2.13.5-py3-none-any.whl
+    pydantic_core-2.46.5-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
     pygame_ce-2.5.8-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+    pyparsing-3.3.2-py3-none-any.whl
+    python_dateutil-2.9.0.post0-py2.py3-none-any.whl
+    requests-2.34.2-py3-none-any.whl
+    six-1.17.0-py2.py3-none-any.whl
     typing_extensions-4.16.0-py3-none-any.whl
+    typing_inspection-0.4.4-py3-none-any.whl
+    urllib3-2.8.0-py3-none-any.whl
 ok   step 2: one wheel per pin
+ok   step 3: contourpy 1.3.3 needs numpy>=1.25: pinned 2.1.3
 ok   step 3: gymnasium 1.3.0 needs numpy>=1.21.0: pinned 2.1.3
 ok   step 3: gymnasium 1.3.0 needs cloudpickle>=1.2.0: pinned 3.1.2
 ok   step 3: gymnasium 1.3.0 needs typing-extensions>=4.3.0: pinned 4.16.0
 ok   step 3: gymnasium 1.3.0 needs farama-notifications>=0.0.1: pinned 0.0.6
 ok   step 3: jpype1 1.7.1 needs packaging: pinned 26.3
+ok   step 3: matplotlib 3.10.0 needs contourpy>=1.0.1: pinned 1.3.3
+ok   step 3: matplotlib 3.10.0 needs cycler>=0.10: pinned 0.12.1
+ok   step 3: matplotlib 3.10.0 needs fonttools>=4.22.0: pinned 4.64.0
+ok   step 3: matplotlib 3.10.0 needs kiwisolver>=1.3.1: pinned 1.5.1
+ok   step 3: matplotlib 3.10.0 needs numpy>=1.23: pinned 2.1.3
+ok   step 3: matplotlib 3.10.0 needs packaging>=20.0: pinned 26.3
+ok   step 3: matplotlib 3.10.0 needs pillow>=8: pinned 13.0.0
+ok   step 3: matplotlib 3.10.0 needs pyparsing>=2.3.1: pinned 3.3.2
+ok   step 3: matplotlib 3.10.0 needs python-dateutil>=2.7: pinned 2.9.0.post0
 ok   step 3: minigrid 3.1.0 needs numpy>=1.18.0: pinned 2.1.3
 ok   step 3: minigrid 3.1.0 needs gymnasium>=0.28.1: pinned 1.3.0
 ok   step 3: minigrid 3.1.0 needs pygame-ce>=2.4.0: pinned 2.5.8
+ok   step 3: pydantic 2.13.5 needs annotated-types>=0.6.0: pinned 0.8.0
+ok   step 3: pydantic 2.13.5 needs pydantic-core==2.46.5: pinned 2.46.5
+ok   step 3: pydantic 2.13.5 needs typing-extensions>=4.14.1: pinned 4.16.0
+ok   step 3: pydantic 2.13.5 needs typing-inspection>=0.4.2: pinned 0.4.4
+ok   step 3: pydantic-core 2.46.5 needs typing-extensions>=4.14.1: pinned 4.16.0
+ok   step 3: python-dateutil 2.9.0.post0 needs six>=1.5: pinned 1.17.0
+ok   step 3: requests 2.34.2 needs charset_normalizer<4,>=2: pinned 3.4.9
+ok   step 3: requests 2.34.2 needs idna<4,>=2.5: pinned 3.19
+ok   step 3: requests 2.34.2 needs urllib3<3,>=1.26: pinned 2.8.0
+ok   step 3: requests 2.34.2 needs certifi>=2023.5.7: pinned 2026.10.19
+ok   step 3: typing-inspection 0.4.4 needs typing-extensions>=4.15.0: pinned 4.16.0
 ok   step 4: module gymnasium (imported by sim_minigrid.py) comes from a pinned package
 ok   step 4: module jpype (imported by sim_gvgai.py) comes from a pinned package
 ok   step 4: module minigrid (imported by sim_minigrid.py) comes from a pinned package
 ok   step 4: module numpy (imported by agents_gvgai.py, eh.py, jobs.py) comes from a pinned package
-ok   step 5: the pins equal the versions the probe found on the image: [('cloudpickle', '3.1.2'), ('farama-notifications', '0.0.6'), ('gymnasium', '1.3.0'), ('jpype1', '1.7.1'), ('minigrid', '3.1.0'), ('numpy', '2.1.3'), ('packaging', '26.3'), ('pygame-ce', '2.5.8'), ('typing-extensions', '4.16.0')] against [('cloudpickle', '3.1.2'), ('farama-notifications', '0.0.6'), ('gymnasium', '1.3.0'), ('jpype1', '1.7.1'), ('minigrid', '3.1.0'), ('numpy', '2.1.3'), ('packaging', '26.3'), ('pygame-ce', '2.5.8'), ('typing-extensions', '4.16.0')]
-OK
+ok   step 5: the pins equal the versions the probe found on the image: [('annotated-types', '0.8.0'), ('certifi', '2026.10.19'), ('charset-normalizer', '3.4.9'), ('cloudpickle', '3.1.2'), ('contourpy', '1.3.3'), ('cycler', '0.12.1'), ('farama-notifications', '0.0.6'), ('fonttools', '4.64.0'), ('gymnasium', '1.3.0'), ('idna', '3.19'), ('jpype1', '1.7.1'), ('kiwisolver', '1.5.1'), ('matplotlib', '3.10.0'), ('minigrid', '3.1.0'), ('numpy', '2.1.3'), ('packaging', '26.3'), ('pillow', '13.0.0'), ('pydantic', '2.13.5'), ('pydantic-core', '2.46.5'), ('pygame-ce', '2.5.8'), ('pyparsing', '3.3.2'), ('python-dateutil', '2.9.0.post0'), ('requests', '2.34.2'), ('six', '1.17.0'), ('typing-extensions', '4.16.0'), ('typing-inspection', '0.4.4'), ('urllib3', '2.8.0')] against [('annotated-types', '0.8.0'), ('certifi', '2026.10.19'), ('charset-normalizer', '3.4.9'), ('cloudpickle', '3.1.2'), ('contourpy', '1.3.3'), ('cycler', '0.12.1'), ('farama-notifications', '0.0.6'), ('fonttools', '4.64.0'), ('gymnasium', '1.3.0'), ('idna', '3.19'), ('jpype1', '1.7.1'), ('kiwisolver', '1.5.1'), ('matplotlib', '3.10.0'), ('minigrid', '3.1.0'), ('numpy', '2.1.3'), ('packaging', '26.3'), ('pillow', '13.0.0'), ('pydantic', '2.13.5'), ('pydantic-core', '2.46.5'), ('pygame-ce', '2.5.8'), ('pyparsing', '3.3.2'), ('python-dateutil', '2.9.0.post0'), ('requests', '2.34.2'), ('six', '1.17.0'), ('typing-extensions', '4.16.0'), ('typing-inspection', '0.4.4'), ('urllib3', '2.8.0')]
+ok   step 6: the probe played the agents on the image
+distributions the agents imported on the image: 24
+ok   step 6: annotated-types 0.8.0, imported by the agents, is pinned at that version (pinned 0.8.0)
+FAIL step 6: brotli 1.2.0, imported by the agents, is pinned at that version (pinned NOT PINNED)
+ok   step 6: certifi 2026.10.19, imported by the agents, is pinned at that version (pinned 2026.10.19)
+FAIL step 6: chardet 5.2.0, imported by the agents, is pinned at that version (pinned NOT PINNED)
+ok   step 6: charset-normalizer 3.4.9, imported by the agents, is pinned at that version (pinned 3.4.9)
+ok   step 6: cycler 0.12.1, imported by the agents, is pinned at that version (pinned 0.12.1)
+ok   step 6: idna 3.19, imported by the agents, is pinned at that version (pinned 3.19)
+ok   step 6: jpype1 1.7.1, imported by the agents, is pinned at that version (pinned 1.7.1)
+ok   step 6: kiwisolver 1.5.1, imported by the agents, is pinned at that version (pinned 1.5.1)
+ok   step 6: matplotlib 3.10.0, imported by the agents, is pinned at that version (pinned 3.10.0)
+ok   step 6: numpy 2.1.3, imported by the agents, is pinned at that version (pinned 2.1.3)
+ok   step 6: packaging 26.3, imported by the agents, is pinned at that version (pinned 26.3)
+ok   step 6: pillow 13.0.0, imported by the agents, is pinned at that version (pinned 13.0.0)
+ok   step 6: pydantic 2.13.5, imported by the agents, is pinned at that version (pinned 2.13.5)
+ok   step 6: pydantic_core 2.46.5, imported by the agents, is pinned at that version (pinned 2.46.5)
+ok   step 6: pyparsing 3.3.2, imported by the agents, is pinned at that version (pinned 3.3.2)
+FAIL step 6: PySocks 1.7.1, imported by the agents, is pinned at that version (pinned NOT PINNED)
+ok   step 6: python-dateutil 2.9.0.post0, imported by the agents, is pinned at that version (pinned 2.9.0.post0)
+ok   step 6: requests 2.34.2, imported by the agents, is pinned at that version (pinned 2.34.2)
+FAIL step 6: simplejson 4.1.2, imported by the agents, is pinned at that version (pinned NOT PINNED)
+ok   step 6: six 1.17.0, imported by the agents, is pinned at that version (pinned 1.17.0)
+ok   step 6: typing-inspection 0.4.4, imported by the agents, is pinned at that version (pinned 0.4.4)
+ok   step 6: typing_extensions 4.16.0, imported by the agents, is pinned at that version (pinned 4.16.0)
+ok   step 6: urllib3 2.8.0, imported by the agents, is pinned at that version (pinned 2.8.0)
+ok   step 6: the probe found study 1's frozen files with their registered blob hashes
+4 failure(s)
