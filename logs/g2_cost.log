@@ -1,0 +1,15 @@
+G2 of docs/PREREG.md, Section 8: the work it asks for, and two rough projections (EXPLORATORY)
+
+== 1. the work
+pilot levels 20 (bait, labyrinthdual, rivers, watergame; levels 0 to 4)
+sequences 20,000; replays 40,000; actions at most 8,000,000, each followed by a state hash
+
+== 2. from logs/engine_semantics.log (laptop, one process)
+that run: 50 sequences per level, 6 replays each, 6,000 replays and check 2 in 506 s
+G2: 40,000 / 6,000 x 506 s = 3,373 s on one process; 843 s on 4 workers
+
+== 3. from Rand's pilot agent rows (Kaggle)
+Rand rows 40 on 20 levels, budget 20,000 actions each
+G2 per level = 20 Rand units; summed over the levels: 23,964 s on one process; 5,991 s on 4 workers; longest level rivers 1, 8,621 s
+
+one session's work: 28,800 s on 4 workers; the larger projection is 0.208 of it

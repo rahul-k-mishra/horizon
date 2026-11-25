@@ -1,0 +1,26 @@
+rule 3 of PREREG Section 7.4 against scripts/analyze_horizon.py, on development rows (EXPLORATORY)
+void share: excluded / units > 0.1 (analyze_horizon.EXCLUDED_MAX); ceilings 10,000, 100,000, 300,000, 1,000,000, 2,000,000
+
+== stage E, dev-minigrid-e (devsearch): 1560 rows; stopped by: none 1039, seen 521
+  C    10,000: excluded L_C 0, H_C 0, b 0, any 0 of 1560 | void under (a): none; (b): none; (c): none
+  C   100,000: excluded L_C 0, H_C 0, b 0, any 0 of 1560 | void under (a): none; (b): none; (c): none
+  C   300,000: excluded L_C 0, H_C 0, b 0, any 0 of 1560 | void under (a): none; (b): none; (c): none
+  C 1,000,000: excluded L_C 0, H_C 0, b 0, any 0 of 1560 | void under (a): none; (b): none; (c): none
+  C 2,000,000: excluded L_C 0, H_C 0, b 0, any 0 of 1560 | void under (a): none; (b): none; (c): none
+  stopped by time or memory: 0
+
+== stage D, dev-minigrid (devsearch; H_C and b only): 1560 rows; stopped by: node 343, none 1073, time 144
+  C    10,000: excluded H_C 0, b 0 of 1560 | void under (b), H_C and b: none
+  C   100,000: excluded H_C 0, b 0 of 1560 | void under (b), H_C and b: none
+  C   300,000: excluded H_C 0, b 0 of 1560 | void under (b), H_C and b: none
+  C 1,000,000: excluded H_C 0, b 0 of 1560 | void under (b), H_C and b: none
+  C 2,000,000: excluded H_C 0, b 0 of 1560 | void under (b), H_C and b: none
+  stopped by time or memory: 144; states seen by them: least 3,091,281, most 9,365,692
+
+== pilot search, gvgai-pilot-search (gvgaisearch), extended key: 20 rows; stopped by: none 12, seen 8
+  C    10,000: excluded L_C 0, H_C 0, b 0, any 0 of 20 | void under (a): none; (b): none; (c): none
+  C   100,000: excluded L_C 0, H_C 0, b 0, any 0 of 20 | void under (a): none; (b): none; (c): none
+  C   300,000: excluded L_C 0, H_C 0, b 0, any 0 of 20 | void under (a): none; (b): none; (c): none
+  C 1,000,000: excluded L_C 0, H_C 0, b 0, any 0 of 20 | void under (a): none; (b): none; (c): none
+  C 2,000,000: excluded L_C 0, H_C 0, b 0, any 0 of 20 | void under (a): none; (b): none; (c): none
+  stopped by time or memory: 0
