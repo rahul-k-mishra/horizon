@@ -67,6 +67,8 @@ ALLOW_PATH_TERMS_ROT13 = {
     "logs/envprobe.log": ["yvgryyz==", "bcranv=="],
     "logs/envprobe_pin.log": ["yvgryyz==", "bcranv=="],
     "logs/envprobe_v4.log": ["yvgryyz==", "bcranv=="],     # the probe of 23 November 2026, same image
+    "logs/envprobe_agents.log": ["yvgryyz==", "bcranv=="],     # the probes of 25 November 2026, same image
+    "logs/envprobe_agents_v2.log": ["yvgryyz==", "bcranv=="],
     # a docstring that says a test's reference code uses plain loops and dictionaries
     "scripts/automation/test_devsearch.py": ["jevggra jvgu cynva ybbcf"],
 }
