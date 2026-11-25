@@ -20,6 +20,19 @@ Part 4 also records that under the drafted rules, without the void rule of Secti
 which every level lies gives AUROC_L 0.5, "not shown", not void; and that under the rule fixed on 24 November 2026
 (form (a), 50%) the same data are void, as is 64 of 130 levels with a win, while 65 of 130 is not.  Part 5 checks the refusals: any campaign but the confirmatory one, and any run
 before the annotated tag prereg-v1 holds this script.
+Part 6, units cut by the agent unit cap (reported, entering no verdict).  On the synthetic data of part 4, agent N's
+seeds on game00 are set by hand (seeds 1000 to 1009; "cut" = cut_by_cap true):
+    level 0: seeds 1000-1003 completed, 1004 cut without completing, the rest not completed
+             done 4, open 1: Y = 0 and 4 + 1 >= 5, so undetermined
+    level 1: seeds 1000-1004 completed, 1005 and 1006 cut without completing, the rest not completed
+             done 5: Y = 1, whatever the open seeds would have done
+    level 2: seeds 1000-1003 cut without completing, none completed
+             done 0, open 4: 0 + 4 < 5, so Y = 0 whatever they would have done
+    level 3: seed 1000 cut after completing, every seed completed
+             a cut unit, not open
+  N: 1,300 units, 1 + 2 + 4 + 1 = 8 cut (share 8 / 1,300 = 0.0062), 7 open, 1 of 130 levels undetermined (game00 0).
+  The cuts change no Y, no AUROC, no verdict and no outcome: the result equals the one without cuts in every field
+  but "cut".
 Run: D:\\Research\\horizon\\.venv\\Scripts\\python.exe -W error scripts\\test_analyze_horizon.py > logs\\test_analyze_horizon.log
 """
 import itertools
@@ -331,12 +344,51 @@ def part5():
           "the supplement gives the development EH AUROC and the share not computed, labelled exploratory")
 
 
+def part6():
+    print("== 6. units cut by the agent unit cap (reported, entering no verdict)")
+    rows, truth, feats, outc = synthetic()
+    S = A.SEEDS
+    plan = {0: ([S[0], S[1], S[2], S[3]], [S[4]]), 1: ([S[0], S[1], S[2], S[3], S[4]], [S[5], S[6]]),
+            2: ([], [S[0], S[1], S[2], S[3]]), 3: (list(S), [S[0]])}
+    cuts = set()
+    for lv, (done, cut) in plan.items():
+        for s in S:
+            outc[("N", "game00", lv, s)] = s in done
+        cuts |= {("N", "game00", lv, s) for s in cut}
+    base = A.analyze(rows, truth, feats, outc, 1000, workers=1, n_boot=50)
+    res = A.analyze(rows, truth, feats, outc, 1000, workers=1, n_boot=50, cuts=cuts)
+    k = res["agents"]["N"]["cut"]
+    check(k["units"] == 1300 and k["cut"] == 8 and k["open"] == 7,
+          f"N: 8 of 1,300 units cut, 7 open (got {k['cut']} of {k['units']}, {k['open']})")
+    check(close(k["share"], 8 / 1300), f"N: share 8 / 1,300 (got {k['share']})")
+    check(k["levels"] == 130 and k["levels_undetermined"] == 1 and k["undetermined"] == [["game00", 0]],
+          f"N: 1 of 130 levels undetermined, game00 0 (got {k['levels_undetermined']}, {k['undetermined']})")
+    check(all(res["agents"][a]["cut"]["cut"] == 0 and res["agents"][a]["cut"]["units"] == 1300
+              for a in ("R", "I1", "Rand")), "R, I1 and Rand: 0 of 1,300 units cut")
+
+    def strip(r):
+        return json.dumps({**r, "agents": {a: {x: v for x, v in d.items() if x != "cut"}
+                                           for a, d in r["agents"].items()}}, sort_keys=True, default=float)
+    check(strip(base) == strip(res), "the cuts change no Y, AUROC, interval, verdict or outcome")
+    check(base["agents"]["N"]["cut"]["cut"] == 0, "without cuts the count is 0")
+    text = A.report(res)
+    check("## Units cut by the agent unit cap (reported; enters no verdict)" in text
+          and "| N | 8 of 1300 | 0.0062 | 7 | 1 of 130 |" in text
+          and "| Rand | 0 of 1300 | 0.0000 | 0 | 0 of 130 |" in text,
+          "the report gives the count, share, open units and undetermined levels per agent, Rand included")
+    r = dict(agent="I1", game="glow", level="3", seed="1004", outcome=dict(level1_completed=False), cut_by_cap=True)
+    check(A.agent_entry(r) == (("I1", "glow", 3, 1004), False, True), "a cut row's key, completion and cut are read")
+    r["cut_by_cap"], r["outcome"]["level1_completed"] = False, True
+    check(A.agent_entry(r) == (("I1", "glow", 3, 1004), True, False), "an uncut completed row is read")
+
+
 def main():
     part1()
     part2()
     part3()
     part4()
     part5()
+    part6()
     print("OK" if not FAILS else f"{len(FAILS)} failure(s)")
     return 0 if not FAILS else 1
 

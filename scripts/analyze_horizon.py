@@ -18,6 +18,11 @@ Per unit (all larger = predicted easier):
     area, actions, colours   the nuisance features, each negated; B their in-sample logistic fit
                     (oracle_v2.fit_logistic, which reproduces study 1's logistic_fit_predict), refitted in every
                     resample on the units of the comparison.
+Units cut by the agent unit cap (reported, entering no verdict; docs/STATE.md, amendment (al)): a unit whose row has
+cut_by_cap true stopped short of the budget, and its outcome is what it did in the actions it played; the
+registration has no rule on such units.  Per agent the script reports the units cut and their share of the agent's
+units, those cut without completing the level ("open": had they played on, they might have), and the levels whose Y
+those open units could have changed: Y = 0, yet the completed seeds plus the open seeds number at least 5.
 AUROC: Mann-Whitney with ties 1/2 over the pairs of a completed and an uncompleted unit from different games
 ("all"), or from different games with the same S_M ("same"), the primary pairing (Section 7.2).
 Bootstrap: 10,000 resamples of the games with replacement, each with all its levels and its S_M, seed 20261024
@@ -313,6 +318,29 @@ def outcome(verdicts, n_games):
     return "Refute", "this repository and a preprint on Zenodo"
 
 
+def cut_counts(agent, keys, outcomes, cuts):
+    """Units of one agent cut by the agent unit cap: counts only, entering no verdict.  keys: the (game, level)
+    units; cuts: the (agent, game, level, seed) units whose row has cut_by_cap true."""
+    units = cut = open_ = 0
+    undetermined = []
+    for g, lv in keys:
+        done = n_open = 0
+        for s in SEEDS:
+            u = (agent, g, lv, s)
+            units += 1
+            completed = bool(outcomes[u])
+            done += completed
+            if u in cuts:
+                cut += 1
+                if not completed:
+                    open_ += 1
+                    n_open += 1
+        if done < 5 <= done + n_open:
+            undetermined.append([g, lv])
+    return dict(units=units, cut=cut, share=cut / units if units else 0.0, open=open_,
+                levels=len(keys), levels_undetermined=len(undetermined), undetermined=undetermined)
+
+
 def agreement(y_by_agent, a, b):
     keys = sorted(y_by_agent[a])
     same = sum(y_by_agent[a][k] == y_by_agent[b][k] for k in keys)
@@ -320,9 +348,10 @@ def agreement(y_by_agent, a, b):
 
 
 # ---------------------------------------------------------------- the whole analysis on in-memory tables
-def analyze(rows, truth, features, outcomes, c, workers=1, n_boot=N_BOOT):
+def analyze(rows, truth, features, outcomes, c, workers=1, n_boot=N_BOOT, cuts=frozenset()):
     """rows {(game, level): search row}; truth {(game, level): {A1..A5: bool}}; features {(game, level):
-    {area, actions, colours}}; outcomes {(agent, game, level, seed): bool}.  Returns the result dict."""
+    {area, actions, colours}}; outcomes {(agent, game, level, seed): bool}; cuts {(agent, game, level, seed)} whose
+    row has cut_by_cap true.  Returns the result dict."""
     keys = sorted(rows)
     if set(truth) < set(keys) or set(features) < set(keys):
         raise ValueError("every search unit needs a truth-table entry and features")
@@ -363,7 +392,7 @@ def analyze(rows, truth, features, outcomes, c, workers=1, n_boot=N_BOOT):
             if agent in AGENTS else None
         res["agents"][agent] = dict(completed=sum(y_of.values()), lines=lines, skipped=skipped,
                                     pairs_same=npairs, pairs_all=allpairs, level0=level0, level0_skipped=s0,
-                                    void=reasons, verdict=ver)
+                                    void=reasons, verdict=ver, cut=cut_counts(agent, keys, outcomes, cuts))
     res["agreement"] = {"N-R": agreement(y_all, "N", "R"), "N-I1": agreement(y_all, "N", "I1")}
     res["outcome"], res["venue"] = outcome({a: res["agents"][a]["verdict"] for a in AGENTS}, n_games)
     return res
@@ -413,6 +442,15 @@ def report(res):
         l0 = res["agents"][a]["level0"]
         for name in (PRIMARY, DELTA):
             out.append(f"| {a} | level 0 alone: {name} | {f4(l0[name]['point'])} | 95% {ci_text(l0[name]['ci']['95%'])} |")
+    out += ["", "## Units cut by the agent unit cap (reported; enters no verdict)", "",
+            "A cut unit stopped short of 20,000 actions and is scored on the actions it played. Open: cut without "
+            "completing the level. Levels undetermined: Y = 0, yet the completed seeds plus the open seeds number "
+            "at least 5, so the cut could have changed Y. The registration has no rule on cut units.", "",
+            "| agent | units cut | share | open | levels undetermined |", "|---|---|---|---|---|"]
+    for a in AGENTS + REFERENCE:
+        k = res["agents"][a]["cut"]
+        out.append(f"| {a} | {k['cut']} of {k['units']} | {k['share']:.4f} | {k['open']} | "
+                   f"{k['levels_undetermined']} of {k['levels']} |")
     ag = res["agreement"]
     out += ["", f"Agreement of the outcomes (secondary): N and R the same on {ag['N-R']['same']} of "
                 f"{ag['N-R']['units']} levels; N and I1 on {ag['N-I1']['same']} of {ag['N-I1']['units']}."]
@@ -471,7 +509,7 @@ def load(campaign):
             raise ValueError(f"{p}: {e}")
         if r["game"] in conf:
             rows[(r["game"], int(r["level"]))] = r
-    outcomes = {}
+    outcomes, cuts = {}, set()
     for p in sorted(glob.glob(os.path.join(REPO, "runs", campaign, AGENT_KIND, "*.json"))):
         with open(p, encoding="utf-8") as f:
             r = json.load(f)
@@ -480,11 +518,19 @@ def load(campaign):
             raise ValueError(f"{p}: not a horizon.agent.v2 row (an agent row of the confirmatory campaign must "
                              f"carry its level): {e}")
         if r["game"] in conf:
-            outcomes[(r["agent"], r["game"], int(r["level"]), int(r["seed"]))] = bool(r["outcome"]["level1_completed"])
+            key, completed, cut = agent_entry(r)
+            outcomes[key] = completed
+            if cut:
+                cuts.add(key)
     missing = [k for k in truth if k not in rows]
     if missing:
         raise ValueError(f"{len(missing)} confirmatory levels have no search row, e.g. {missing[:3]}")
-    return rows, truth, features, outcomes
+    return rows, truth, features, outcomes, cuts
+
+
+def agent_entry(r):
+    """(agent, game, level, seed), whether the level was completed, whether the unit was cut by the cap."""
+    return (r["agent"], r["game"], int(r["level"]), int(r["seed"])), bool(r["outcome"]["level1_completed"]),         bool(r["cut_by_cap"])
 
 
 def tag_refusal(repo=REPO, tag=TAG, script=os.path.abspath(__file__)):
@@ -525,8 +571,8 @@ def main(argv=None, repo=REPO):
     if L_C_VOID_RULE is None:
         raise SystemExit("the threshold of the void rule of L_C is not fixed yet (docs/PREREG.md, Section 7.4, rule 5); "
                          "nothing is analysed")
-    rows, truth, features, outcomes = load(a.campaign)
-    res = analyze(rows, truth, features, outcomes, C, workers=a.workers)
+    rows, truth, features, outcomes, cuts = load(a.campaign)
+    res = analyze(rows, truth, features, outcomes, C, workers=a.workers, cuts=cuts)
     os.makedirs(os.path.join(REPO, "docs", "tables"), exist_ok=True)
     text = report(res)
     with open(os.path.join(REPO, "docs", "tables", "horizon.md"), "w", encoding="utf-8", newline="\n") as f:

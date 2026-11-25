@@ -1,0 +1,57 @@
+pilot agent run -- campaign gvgai-pilot-agents, 160 rows, seeds [1000, 1001], budget 20000, run cap 7200 s.  EXPLORATORY, development data (PREREG Section 8).
+rows cut by the run's own cap: 0
+
+== 1. units that a cap would have cut (I1: its play clock; N, R, Rand: the row's seconds)
+  cap 1860 s: 0 of 160 units cut (N 0 of 40, R 0 of 40, I1 0 of 40, Rand 0 of 40)
+  cap 1200 s: 0 of 160 units cut (N 0 of 40, R 0 of 40, I1 0 of 40, Rand 0 of 40)
+  cap 900 s: 2 of 160 units cut (N 1 of 40, R 1 of 40, I1 0 of 40, Rand 0 of 40)
+    R rivers level 1 seed 1000: 923.516 s; full run did not complete the level
+    N rivers level 1 seed 1001: 919.528 s; full run did not complete the level
+  the five longest clocks: 670.100, 671.150, 714.670, 919.528, 923.516 s
+
+== 2. undetermined levels per agent (k = 1 of 2 seeds; completion before the cut read as completion in the full run, an upper bound)
+  cap 1860 s, N: 0 of 20 levels undetermined
+  cap 1860 s, R: 0 of 20 levels undetermined
+  cap 1860 s, I1: 0 of 20 levels undetermined
+  cap 1860 s, Rand: 0 of 20 levels undetermined
+  cap 1200 s, N: 0 of 20 levels undetermined
+  cap 1200 s, R: 0 of 20 levels undetermined
+  cap 1200 s, I1: 0 of 20 levels undetermined
+  cap 1200 s, Rand: 0 of 20 levels undetermined
+  cap 900 s, N: 1 of 20 levels undetermined: rivers 1
+  cap 900 s, R: 1 of 20 levels undetermined: rivers 1
+  cap 900 s, I1: 0 of 20 levels undetermined
+  cap 900 s, Rand: 0 of 20 levels undetermined
+
+== 3. candidate void rules at 10%, on the pilot
+  cap 1860 s, (a) share of units cut: N 0/40 = 0.000 not void; R 0/40 = 0.000 not void; I1 0/40 = 0.000 not void
+  cap 1860 s, (b) share of levels undetermined: N 0/20 = 0.000 not void; R 0/20 = 0.000 not void; I1 0/20 = 0.000 not void
+  cap 1860 s, (c) N, R and I1 together: 0/120 = 0.000 cut, study not void
+  cap 1200 s, (a) share of units cut: N 0/40 = 0.000 not void; R 0/40 = 0.000 not void; I1 0/40 = 0.000 not void
+  cap 1200 s, (b) share of levels undetermined: N 0/20 = 0.000 not void; R 0/20 = 0.000 not void; I1 0/20 = 0.000 not void
+  cap 1200 s, (c) N, R and I1 together: 0/120 = 0.000 cut, study not void
+  cap 900 s, (a) share of units cut: N 1/40 = 0.025 not void; R 1/40 = 0.025 not void; I1 0/40 = 0.000 not void
+  cap 900 s, (b) share of levels undetermined: N 1/20 = 0.050 not void; R 1/20 = 0.050 not void; I1 0/20 = 0.000 not void
+  cap 900 s, (c) N, R and I1 together: 2/120 = 0.017 cut, study not void
+
+== 4. G3's reading and what moves it (the row's seconds, as G3 reads them)
+  all 160 units: longest 923.516 s, G3's cap 1860 s
+  seed 1000 alone: longest 923.516 s (R rivers level 1), G3's cap 1860 s
+  seed 1001 alone: longest 919.528 s (N rivers level 1), G3's cap 1860 s
+  the five longest units: R rivers 1 s1000 923.516; N rivers 1 s1001 919.528; N rivers 3 s1001 714.67; I1 bait 4 s1001 671.197; I1 bait 4 s1000 670.158
+  the 1 longest left out: longest 919.528 s, G3's cap 1860 s
+  the 2 longest left out: longest 714.67 s, G3's cap 1440 s
+  N: the two seeds differ most on rivers level 1: 214.099 and 919.528 s, ratio 4.29
+  R: the two seeds differ most on rivers level 2: 63.477 and 173.581 s, ratio 2.73
+  I1: the two seeds differ most on labyrinthdual level 4: 332.926 and 405.507 s, ratio 1.22
+  Rand: the two seeds differ most on bait level 0: 4.665 and 21.189 s, ratio 4.54
+
+== 5. the confirmatory agent campaign, bound (every unit runs to its cap): the 5000 units of the four agents together, as logs/design_budget.log counts them
+  cap 1800 s: 64 units per chunk, 79 chunks at most, 29.7 days at most
+  cap 1860 s: 60 units per chunk, 84 chunks at most, 31.6 days at most
+  cap 2400 s: 48 units per chunk, 105 chunks at most, 39.4 days at most
+
+== 6. confirmatory games ever played by an agent (every committed row of the kind gvgaiagent)
+  games with an agent row: allwin (gvgaiagent-dryrun); bait (gvgai-pilot-agents); corridor (gvgaiagent-dryrun); labyrinthdual (gvgai-pilot-agents); rivers (gvgai-pilot-agents); watergame (gvgai-pilot-agents)
+  confirmatory games with an agent row: 0 of 25
+  confirmatory games never played by an agent: 25 of 25

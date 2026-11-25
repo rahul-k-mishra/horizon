@@ -247,6 +247,8 @@ logs/make_pilot_agents_manifest.log
 jobs/pilot_agents/manifest.json
 scripts/pilot_agents_reading.py
 logs/pilot_agents_reading.log
+scripts/pilot_cut_reading.py
+logs/pilot_cut_reading.log
 runs/gvgai-pilot-agents/gvgaiagent/g1-01-I1-bait-l0-s1000.json
 runs/gvgai-pilot-agents/gvgaiagent/g1-01-I1-bait-l0-s1001.json
 runs/gvgai-pilot-agents/gvgaiagent/g1-01-I1-bait-l1-s1000.json
