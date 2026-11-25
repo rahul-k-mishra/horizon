@@ -1,0 +1,8 @@
+campaign gvgaiagent-dryrun, code e608f7577820569fef94bb40b89db19839a8cda3, kind gvgaiagent, 1 chunk, 36 units
+session: {'work_seconds': 600, 'checkpoint_reserve_seconds': 300, 'platform_limit_seconds': 3600}
+kind params: {'agent_impl': 'gvgai', 'budget': 300, 'unit_seconds_cap': 240, 'workers': 4, 'games_dir': 'scripts/automation/gvgai_testgames'}
+12 units at the kind's params (budget 300, cap 240 s): allwin 0, corridor 1, corridor 0 x N, R, I1, Rand, seed 1000
+24 units with params {'budget': 10000000, 'unit_seconds_cap': 120}: corridor 1 x N, R, I1, Rand x seeds 1000 to 1005
+the capped units alone: 6 rounds of 120 s on 4 workers = 720 s, against 600 s of work per session
+entry hash of a-01: 430d83466a96e65324d0411ac2941a2c9edb9c37a6072461b57b147f1b83e901
+written: jobs/gvgaiagent_dryrun/manifest.json

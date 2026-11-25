@@ -1,56 +1,526 @@
 {
- "campaign": "gvgai-pilot-search",
- "code_tag": "automation-v5",
+ "campaign": "gvgaiagent-dryrun",
+ "chunks": [
+  {
+   "attempts": 0,
+   "chunk_id": "a-01",
+   "failures": 0,
+   "kind": "gvgaiagent",
+   "sessions": [],
+   "status": "pending"
+  }
+ ],
+ "code_tag": "e608f7577820569fef94bb40b89db19839a8cda3",
  "kernel_slug": "horizon-runner",
- "kinds": {"gvgaisearch": {"batch": 200, "checkpoint_every_nodes": 250000, "checkpoint_every_seconds": 600, "eh_horizon": 0, "eh_state_limit": 0, "key_form": "extended", "memory_cap_bytes": 6442450944, "node_cap": 5000000, "schema": "horizon.search.v3", "seen_cap": 2000000, "simulator": "gvgai", "spill_frontier_over": 1000000, "time_cap_seconds": 14400, "workers": 4}},
+ "kinds": {
+  "gvgaiagent": {
+   "agent_impl": "gvgai",
+   "budget": 300,
+   "games_dir": "scripts/automation/gvgai_testgames",
+   "unit_seconds_cap": 240,
+   "workers": 4
+  }
+ },
  "max_failures": 3,
  "payload_commit_limit_bytes": 50000000,
  "repository": "rahul-k-mishra/horizon",
- "session": {"checkpoint_reserve_seconds": 900, "platform_limit_seconds": 32400, "work_seconds": 28800},
- "chunks": [
-  {"attempts": 1, "chunk_id": "p-01", "failures": 0, "kind": "gvgaisearch", "sessions": [{"ended_at": "2026-11-24T06:03:43Z", "kernel_status": "complete", "kernel_version": 123, "outcome": "done", "run_nonce": "gvgai-pilot-search-p-01-20261124T013655Z-7af03c", "units_done_this_session": ["p-01-bait-l2", "p-01-labyrinthdual-l1", "p-01-rivers-l0", "p-01-rivers-l0-v0", "p-01-rivers-l1", "p-01-rivers-l1-v0", "p-01-rivers-l2", "p-01-rivers-l2-v0", "p-01-rivers-l3", "p-01-rivers-l3-v0", "p-01-rivers-l4", "p-01-rivers-l4-v0"]}], "status": "done"},
-  {"attempts": 1, "chunk_id": "p-02", "failures": 0, "kind": "gvgaisearch", "sessions": [{"ended_at": "2026-11-24T08:45:46Z", "kernel_status": "complete", "kernel_version": 124, "outcome": "done", "run_nonce": "gvgai-pilot-search-p-02-20261124T061514Z-5c8c64", "units_done_this_session": ["p-02-bait-l0", "p-02-bait-l0-v0", "p-02-bait-l1", "p-02-bait-l1-v0", "p-02-bait-l2-v0", "p-02-bait-l3", "p-02-bait-l3-v0", "p-02-bait-l4", "p-02-bait-l4-v0", "p-02-labyrinthdual-l0", "p-02-labyrinthdual-l0-v0", "p-02-labyrinthdual-l1-v0", "p-02-labyrinthdual-l2", "p-02-labyrinthdual-l2-v0", "p-02-labyrinthdual-l3", "p-02-labyrinthdual-l3-v0", "p-02-labyrinthdual-l4", "p-02-labyrinthdual-l4-v0", "p-02-watergame-l0", "p-02-watergame-l0-v0", "p-02-watergame-l1", "p-02-watergame-l1-v0", "p-02-watergame-l2", "p-02-watergame-l2-v0", "p-02-watergame-l3", "p-02-watergame-l3-v0", "p-02-watergame-l4", "p-02-watergame-l4-v0"]}], "status": "done"}
- ],
+ "session": {
+  "checkpoint_reserve_seconds": 300,
+  "platform_limit_seconds": 3600,
+  "work_seconds": 600
+ },
  "units": [
-  {"agent": null, "chunk_id": "p-01", "game": "rivers", "kind": "gvgaisearch", "level": 1, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-01-rivers-l1"},
-  {"agent": null, "chunk_id": "p-01", "game": "rivers", "kind": "gvgaisearch", "level": 1, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-01-rivers-l1-v0"},
-  {"agent": null, "chunk_id": "p-01", "game": "rivers", "kind": "gvgaisearch", "level": 3, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-01-rivers-l3"},
-  {"agent": null, "chunk_id": "p-01", "game": "rivers", "kind": "gvgaisearch", "level": 3, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-01-rivers-l3-v0"},
-  {"agent": null, "chunk_id": "p-01", "game": "rivers", "kind": "gvgaisearch", "level": 0, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-01-rivers-l0"},
-  {"agent": null, "chunk_id": "p-01", "game": "rivers", "kind": "gvgaisearch", "level": 0, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-01-rivers-l0-v0"},
-  {"agent": null, "chunk_id": "p-01", "game": "rivers", "kind": "gvgaisearch", "level": 4, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-01-rivers-l4"},
-  {"agent": null, "chunk_id": "p-01", "game": "rivers", "kind": "gvgaisearch", "level": 4, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-01-rivers-l4-v0"},
-  {"agent": null, "chunk_id": "p-01", "game": "rivers", "kind": "gvgaisearch", "level": 2, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-01-rivers-l2"},
-  {"agent": null, "chunk_id": "p-01", "game": "rivers", "kind": "gvgaisearch", "level": 2, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-01-rivers-l2-v0"},
-  {"agent": null, "chunk_id": "p-01", "game": "labyrinthdual", "kind": "gvgaisearch", "level": 1, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-01-labyrinthdual-l1"},
-  {"agent": null, "chunk_id": "p-01", "game": "bait", "kind": "gvgaisearch", "level": 2, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-01-bait-l2"},
-  {"agent": null, "chunk_id": "p-02", "game": "labyrinthdual", "kind": "gvgaisearch", "level": 1, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-labyrinthdual-l1-v0"},
-  {"agent": null, "chunk_id": "p-02", "game": "labyrinthdual", "kind": "gvgaisearch", "level": 0, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-labyrinthdual-l0"},
-  {"agent": null, "chunk_id": "p-02", "game": "labyrinthdual", "kind": "gvgaisearch", "level": 0, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-labyrinthdual-l0-v0"},
-  {"agent": null, "chunk_id": "p-02", "game": "labyrinthdual", "kind": "gvgaisearch", "level": 3, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-labyrinthdual-l3"},
-  {"agent": null, "chunk_id": "p-02", "game": "labyrinthdual", "kind": "gvgaisearch", "level": 3, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-labyrinthdual-l3-v0"},
-  {"agent": null, "chunk_id": "p-02", "game": "labyrinthdual", "kind": "gvgaisearch", "level": 4, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-labyrinthdual-l4"},
-  {"agent": null, "chunk_id": "p-02", "game": "labyrinthdual", "kind": "gvgaisearch", "level": 4, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-labyrinthdual-l4-v0"},
-  {"agent": null, "chunk_id": "p-02", "game": "bait", "kind": "gvgaisearch", "level": 3, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-bait-l3"},
-  {"agent": null, "chunk_id": "p-02", "game": "bait", "kind": "gvgaisearch", "level": 3, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-bait-l3-v0"},
-  {"agent": null, "chunk_id": "p-02", "game": "labyrinthdual", "kind": "gvgaisearch", "level": 2, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-labyrinthdual-l2"},
-  {"agent": null, "chunk_id": "p-02", "game": "labyrinthdual", "kind": "gvgaisearch", "level": 2, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-labyrinthdual-l2-v0"},
-  {"agent": null, "chunk_id": "p-02", "game": "bait", "kind": "gvgaisearch", "level": 2, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-bait-l2-v0"},
-  {"agent": null, "chunk_id": "p-02", "game": "bait", "kind": "gvgaisearch", "level": 1, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-bait-l1"},
-  {"agent": null, "chunk_id": "p-02", "game": "bait", "kind": "gvgaisearch", "level": 1, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-bait-l1-v0"},
-  {"agent": null, "chunk_id": "p-02", "game": "bait", "kind": "gvgaisearch", "level": 0, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-bait-l0"},
-  {"agent": null, "chunk_id": "p-02", "game": "bait", "kind": "gvgaisearch", "level": 0, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-bait-l0-v0"},
-  {"agent": null, "chunk_id": "p-02", "game": "bait", "kind": "gvgaisearch", "level": 4, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-bait-l4"},
-  {"agent": null, "chunk_id": "p-02", "game": "bait", "kind": "gvgaisearch", "level": 4, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-bait-l4-v0"},
-  {"agent": null, "chunk_id": "p-02", "game": "watergame", "kind": "gvgaisearch", "level": 3, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-watergame-l3"},
-  {"agent": null, "chunk_id": "p-02", "game": "watergame", "kind": "gvgaisearch", "level": 3, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-watergame-l3-v0"},
-  {"agent": null, "chunk_id": "p-02", "game": "watergame", "kind": "gvgaisearch", "level": 4, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-watergame-l4"},
-  {"agent": null, "chunk_id": "p-02", "game": "watergame", "kind": "gvgaisearch", "level": 4, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-watergame-l4-v0"},
-  {"agent": null, "chunk_id": "p-02", "game": "watergame", "kind": "gvgaisearch", "level": 2, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-watergame-l2"},
-  {"agent": null, "chunk_id": "p-02", "game": "watergame", "kind": "gvgaisearch", "level": 2, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-watergame-l2-v0"},
-  {"agent": null, "chunk_id": "p-02", "game": "watergame", "kind": "gvgaisearch", "level": 1, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-watergame-l1"},
-  {"agent": null, "chunk_id": "p-02", "game": "watergame", "kind": "gvgaisearch", "level": 1, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-watergame-l1-v0"},
-  {"agent": null, "chunk_id": "p-02", "game": "watergame", "kind": "gvgaisearch", "level": 0, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-watergame-l0"},
-  {"agent": null, "chunk_id": "p-02", "game": "watergame", "kind": "gvgaisearch", "level": 0, "params": {"key_form": "v0"}, "seed": null, "status": "done", "suite": "gvgai", "unit_id": "p-02-watergame-l0-v0"}
+  {
+   "agent": "N",
+   "chunk_id": "a-01",
+   "game": "allwin",
+   "kind": "gvgaiagent",
+   "level": 0,
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-N-allwin-l0-s1000"
+  },
+  {
+   "agent": "R",
+   "chunk_id": "a-01",
+   "game": "allwin",
+   "kind": "gvgaiagent",
+   "level": 0,
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-R-allwin-l0-s1000"
+  },
+  {
+   "agent": "I1",
+   "chunk_id": "a-01",
+   "game": "allwin",
+   "kind": "gvgaiagent",
+   "level": 0,
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-I1-allwin-l0-s1000"
+  },
+  {
+   "agent": "Rand",
+   "chunk_id": "a-01",
+   "game": "allwin",
+   "kind": "gvgaiagent",
+   "level": 0,
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-Rand-allwin-l0-s1000"
+  },
+  {
+   "agent": "N",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-N-corridor-l1-s1000"
+  },
+  {
+   "agent": "R",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-R-corridor-l1-s1000"
+  },
+  {
+   "agent": "I1",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-I1-corridor-l1-s1000"
+  },
+  {
+   "agent": "Rand",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-Rand-corridor-l1-s1000"
+  },
+  {
+   "agent": "N",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 0,
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-N-corridor-l0-s1000"
+  },
+  {
+   "agent": "R",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 0,
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-R-corridor-l0-s1000"
+  },
+  {
+   "agent": "I1",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 0,
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-I1-corridor-l0-s1000"
+  },
+  {
+   "agent": "Rand",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 0,
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-Rand-corridor-l0-s1000"
+  },
+  {
+   "agent": "N",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-N-corridor-l1-s1000-cap"
+  },
+  {
+   "agent": "R",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-R-corridor-l1-s1000-cap"
+  },
+  {
+   "agent": "I1",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-I1-corridor-l1-s1000-cap"
+  },
+  {
+   "agent": "Rand",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1000,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-Rand-corridor-l1-s1000-cap"
+  },
+  {
+   "agent": "N",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1001,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-N-corridor-l1-s1001-cap"
+  },
+  {
+   "agent": "R",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1001,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-R-corridor-l1-s1001-cap"
+  },
+  {
+   "agent": "I1",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1001,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-I1-corridor-l1-s1001-cap"
+  },
+  {
+   "agent": "Rand",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1001,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-Rand-corridor-l1-s1001-cap"
+  },
+  {
+   "agent": "N",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1002,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-N-corridor-l1-s1002-cap"
+  },
+  {
+   "agent": "R",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1002,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-R-corridor-l1-s1002-cap"
+  },
+  {
+   "agent": "I1",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1002,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-I1-corridor-l1-s1002-cap"
+  },
+  {
+   "agent": "Rand",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1002,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-Rand-corridor-l1-s1002-cap"
+  },
+  {
+   "agent": "N",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1003,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-N-corridor-l1-s1003-cap"
+  },
+  {
+   "agent": "R",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1003,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-R-corridor-l1-s1003-cap"
+  },
+  {
+   "agent": "I1",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1003,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-I1-corridor-l1-s1003-cap"
+  },
+  {
+   "agent": "Rand",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1003,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-Rand-corridor-l1-s1003-cap"
+  },
+  {
+   "agent": "N",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1004,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-N-corridor-l1-s1004-cap"
+  },
+  {
+   "agent": "R",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1004,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-R-corridor-l1-s1004-cap"
+  },
+  {
+   "agent": "I1",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1004,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-I1-corridor-l1-s1004-cap"
+  },
+  {
+   "agent": "Rand",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1004,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-Rand-corridor-l1-s1004-cap"
+  },
+  {
+   "agent": "N",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1005,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-N-corridor-l1-s1005-cap"
+  },
+  {
+   "agent": "R",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1005,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-R-corridor-l1-s1005-cap"
+  },
+  {
+   "agent": "I1",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1005,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-I1-corridor-l1-s1005-cap"
+  },
+  {
+   "agent": "Rand",
+   "chunk_id": "a-01",
+   "game": "corridor",
+   "kind": "gvgaiagent",
+   "level": 1,
+   "params": {
+    "budget": 10000000,
+    "unit_seconds_cap": 120
+   },
+   "seed": 1005,
+   "status": "pending",
+   "suite": "gvgai",
+   "unit_id": "a-01-Rand-corridor-l1-s1005-cap"
+  }
  ]
 }
