@@ -642,3 +642,24 @@ Thirty-seventh amendment. The lines above are unchanged. Nothing was tagged or d
 - **Nothing adopted.** The agent unit cap, G3's ceiling, the agent family, and whether this run stands as G1 are the author's decisions. A change to G3's ceiling is a change to a cap rule. It can be made only before the tag, by a dated entry in PREREG.
 - **Also.** The protocol list gains the reading script, its console and the 160 pilot agent rows. The aid check is clean on 8,183 tracked files (logs/check_no_aid.log).
 - **Next:** the author's answer to item 15, the hand check (G4), and the third_party/ decision.
+
+## Amendment 25 Nov 2026 (al)
+
+Thirty-eighth amendment. The lines above are unchanged. Nothing was tagged or deposited, no file under jobs/ or runs/ was changed, and no Kaggle session was used. This amendment follows the author's request of 25 November 2026: three things, with nothing adopted. The ceiling, the cap and the rule on cut units are the author's.
+
+- **1. G3's ceiling, drafted** (9695d08). PREREG Section 8 gains a paragraph marked "DRAFT, NOT ADOPTED [drafted 25 Nov 2026]". It raises G3's ceiling from 1,800 s to 2,400 s, and the pilot agent run stands as G1, so the cap of 1,860 s passes. The G3 row of the table is unchanged until the author adopts it.
+  - The reason is written as it is: the change is made after the pilot times were seen, and because of them. The ceiling stood for the campaign being affordable (DESIGN.md names the gate "G3, cost"). At 1,800 s the campaign is at most 79 chunks, 29.7 days; at 1,860 s at most 84 chunks, 31.6 days (logs/design_budget.log; logs/pilot_cut_reading.log, Section 5). The author judges 84 affordable, so the constraint holds and the number 1,800 was arbitrary.
+  - Recorded separately, as a weakness of the gate and not as something fixed: G3 reads the longest of 40 runs per agent at two seeds per level. N's two seeds on rivers level 1 differ by a factor of 4.29, and leaving out the two longest units, both on that level, gives 1,440 s instead of 1,860 s (Section 4 of the same log).
+  - Why the pilot was not rerun: the stop rule allows no repair of G3; G1 passed, and no code the runner uses for the agents has changed since e296372 (git diff e296372 HEAD on scripts/automation, kaggle and third_party is empty); and a rerun would draw another maximum from the same unstable rule, and a pass got that way would choose the data by its result.
+- **2. A rule for cut units, proposed** (DECISIONS item 16; scripts/pilot_cut_reading.py, logs/pilot_cut_reading.log). EXPLORATORY, development data.
+  - Pilot units that a cap would have cut (I1 by its play clock, the others by the row's seconds): 0 of 160 at 1,860 s, 0 at 1,200 s, 2 at 900 s. The two are N and R on rivers level 1, and neither completed the level in the full run.
+  - Three candidate void rules at 10%: (a) the share of an agent's units cut; (b) the share of an agent's levels undetermined, where Y is 0 but the completed seeds plus the seeds cut without completing number at least 5; (c) the share of N, R and I1's units together. None voids anything on the pilot at any of the three caps.
+  - Recommended: (b) at 10%, with the text for Section 7.6 written out. Not adopted.
+  - What the pilot cannot tell: no agent has played any of the 25 confirmatory games. The only GVGAI agent rows are of the 4 pilot games and the 2 synthetic dry-run games (Section 6 of the log). *Correction to the request:* the request said that 21 of the 25 had never been timed. The committed rows give 25 of 25.
+- **3. The analysis script and cut units.**
+  - Before this session, scripts/analyze_horizon.py read only level1_completed and ignored cut_by_cap. A cut unit entered Y like any other, scored on the actions it played, and the report gave no count.
+  - It now reports, per agent (Rand included), the units cut, their share, those cut without completing, and the levels undetermined. The counts enter no verdict. load() returns the set of cut units as a fifth value, read by a new function agent_entry().
+  - scripts/test_analyze_horizon.py gains part 6, worked by hand in its docstring: 8 of 1,300 units cut, 7 open, 1 of 130 levels undetermined, and the result is otherwise identical to the one without cuts. Rerun: OK (logs/test_analyze_horizon.log).
+- **Also.** The protocol list gains scripts/pilot_cut_reading.py and its console. The aid check is clean on 8,185 tracked files (logs/check_no_aid.log). No added line has a word of the forbidden list.
+- **For the author, not drafted:** the pilot search paragraph of Section 8 says that the pilot search runs again if the search code changes before the tag. The draft entry has no matching clause for the agents' code. Whether it should is the author's decision.
+- **Next:** the author's answers to items 15 and 16, the hand check (G4), and the third_party/ decision.
