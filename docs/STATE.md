@@ -533,3 +533,69 @@ Thirty-fourth amendment. The lines above are unchanged. Nothing was tagged; no f
 - **Checks.** scripts/test_analyze_horizon.py, rerun unchanged: OK. The aid check is clean, and no line added has a word of the forbidden list.
 - **What remains before the tag**: items 2 to 6 of amendment (ag), unchanged.
 - **Next:** the gvgaiagent kind, or the author's hand check.
+
+## Amendment 25 Nov 2026 (ai)
+
+Thirty-fifth amendment. The lines above are unchanged. Nothing was tagged and nothing was deposited. No committed row under runs/ and no done-marker was changed. No pilot or confirmatory agent run was launched. The only Kaggle sessions were two image probes and the dry run of the kind gvgaiagent, on synthetic levels only. Every figure below is printed by a committed script whose console is named.
+
+**1. What is still open before the tag, and where each item sits.**
+- **The hand check, gate G4** (the author's). docs/truth/handcheck_answers.json holds 1 of the 100 answers. HANDCHECK_RESULT.md is not yet written. PREREG Section 5; DECISIONS item 13.
+- **The agent unit cap and G3's ceiling** (the author's decision; DECISIONS item 15, Answer blank). The cap is the wall-clock limit of one agent unit of 20,000 actions. It sets how many units a session holds, so it sets how many sessions the confirmatory agent campaign takes. As registered, G3 reads it after the tag from the pilot agents of G1, and the study is Void if it is above 1,800 s.
+  - Cost for the 5,000 confirmatory agent units (logs/design_budget.log, Section 3; logs/agent_cap_evidence.log, Section 4): 300, 600, 1,200 and 1,800 s give 14, 27, 53 and 79 chunks. For scale, 3,600 s gives 157, and one cap per agent (I1 at 3,600 s, the others at 600 s) gives 20 + 40.
+  - Evidence, *EXPLORATORY*: study 1's laptop runs of 20,000 actions (logs/agent_cap_evidence.log, Section 1). I1 took a median of 857.3 s and at most 1,283.1 s on MiniGrid macro, and up to 2,921.6 s on Procgen. G3's rule on 1,283.1 s gives 2,580 s.
+  - **Recommended: 1,800 s** as the planning value, with a decision before the tag on whether the ceiling stands. The risk the record shows is that I1 makes G3 fail. The options are listed in item 15; none is adopted.
+- **The reproduction check of the agent copies against study 1's rows** (asked for on 14 Nov). It was made on 14 November 2026 (d1e81f4, logs/check_agent_copies.log): 12 units × N, R and I1, 36 runs, every one identical to study 1's row apart from wall-clock time. It was not rerun. The copies have not changed since: the frozen blob hashes are checked before every unit, and both probes below found all 15 unchanged.
+- **docs/truth/gvgai_features.json** (build work). scripts/analyze_horizon.py reads it, but no script writes it yet.
+- **Whether third_party/ goes into the deposit** (the author's). The protocol list leaves it out, with reasons (item 5).
+- **The confirmatory code tag** and **the tag prereg-v1** are not cut. The Zenodo deposit is not made.
+
+**2. Version, path and count corrections to the registration** (7237e85). Each correction is marked "[corrected 25 Nov 2026]" and quotes the old text.
+- PREREG Section 3: "Python 3.11" becomes CPython 3.13.15, the Python of stage D's image (logs/envprobe.log, logs/envprobe_v4.log; amendments s and y). The laptop's tests and the analysis run under 3.11.9. DESIGN Section 11 gains the same note.
+- Also corrected:
+  - the header named stage E as Section 9.1; it is 9.2, and so is the placeholder in 9.1;
+  - Section 7.8 said 26 clusters; it is 25 (logs/power_at_c.log);
+  - Section 9 now names the pilot search's schema, horizon.search.v3;
+  - Section 11 and the header status now record the decisions of 14 and 24 November;
+  - Section 13 notes the corrections.
+
+**3. The kind gvgaiagent: built and tested.**
+- **I1's six external files** are added to FROZEN in scripts/automation/agents_gvgai.py (7ef447f), with the blob hashes of study 1's tag prereg-v1.1: 15 files in all, checked before every unit.
+- **scripts/automation/test_gvgaiagent.py** (logs/test_gvgaiagent.log, OK) checks four things:
+  - units worked out by hand on the synthetic games allwin and corridor;
+  - a chunk stopped after 2 of 8 units and resumed, whose rows equal an uninterrupted run apart from time fields;
+  - the wall-clock cap stopping each agent at its cap;
+  - each of the 15 frozen files, changed by one byte, making the run refuse with the file named.
+- logs/test_agents_gvgai.log was rerun: OK.
+- **Runner pins.** e608f75 adds I1's packages and their dependencies at the image's versions. The image probe of e608f75 (logs/envprobe_agents.log; 611e2dc) played N, R, I1 and Rand on corridor level 0 on stage D's image and got the laptop's rows. It found the 15 frozen files unchanged. It also found four optional imports of requests and urllib3 that were not pinned: brotli, chardet, PySocks and simplejson. a1d370b pins them at the image's versions. Its probe (logs/envprobe_agents_v2.log) gets the same rows, and scripts/automation/check_runner_freeze.py ends OK on it: 31 pins (a9bd4b4).
+
+**4. The dry run (rule R8)** (docs/DRYRUN_GVGAIAGENT.md; logs/gvgaiagent_dryrun_report.log; f1f054f). Campaign gvgaiagent-dryrun: one chunk of 36 units on synthetic levels, code e608f75, named by commit hash because no tag is cut.
+- **Sessions.** Kernel version 125 ran 24 units and stopped partial with a checkpoint. Kernel version 126 resumed and completed the chunk: 2 attempts, 0 failures. Five pushes were refused for the account's session limit and deferred.
+- **Rows.** All 36 rows are valid horizon.agent.v2. Each names stage D's image.
+  - All 12 short units equal the hand-worked or laptop rows.
+  - 23 of the 24 capped units stopped within the report's 3 s allowance. The other, I1 on seed 1003, has seconds 135.165, of which 120.0 are on I1's own play clock. The cap stops I1's play on time, and the unit's wall time includes up to 15.165 s of setup outside that clock.
+  - *EXPLORATORY*: in 120 s on Kaggle, I1 played 8,551 to 8,675 actions in one session and 4,994 to 5,076 in the other. This is now in DECISIONS item 15, marked as not a pilot time.
+- The dry run ran under e608f75. a1d370b differs from it only by the four pins, at the versions the dry run used. The finished manifest stays at jobs/manifest.json until the next campaign is installed, as before.
+
+**5. Tag preparation.**
+- **docker_image** in kaggle/kernel-metadata.json is stage D's image (12de17a). Kaggle still runs it: the dry run's 36 rows and both probes name it.
+- **docs/registration/protocol_files.txt** lists 218 tracked files (116f2f6, f1f054f).
+  - Still to be added: the hand-check answers and result, and gvgai_features.json with its script.
+  - Left out, as the author's decision: third_party/gvgai and third_party/study1, whose hashes are fixed by listed files and which hold the 41 skipped aid-check hits; the rows of stages D and E; the dry runs' rows.
+- **scripts/check_no_aid.py**: clean on 7,852 tracked files (logs/check_no_aid.log; eb0a3aa). Two package names in the image's list are allowed in the two new probe logs, as in the earlier probe logs.
+
+**6. The search code against automation-v5.** sim_gvgai.py, jobs.py, runner.py, common.py, schema.py, loop.py, kaggle/runner.ipynb, scripts/automation/gvgai_java and third_party/gvgai are unchanged since automation-v5. The search job's code has not changed, so PREREG Section 8 does not require the pilot search to run again for that reason. What did change is the runner's environment: the added pins, all at versions the image already holds, and the docker_image pin, which the pilot's sessions already used.
+
+**7. The order of what remains.**
+1. Build gvgai_features.json, its script and its console (build work).
+2. The author: the hand check (G4); the answer to DECISIONS item 15 (the cap and G3's ceiling, and whether to run G1's pilot agents before the tag); and whether third_party/ goes into the deposit.
+3. Put every answer and result into PREREG with its date, and move the last protocol files into the list.
+4. Cut the confirmatory code tag on the commit that holds the final code. If any code the runner uses for the search changes before then, run the pilot search again under it (Section 8). Run a dry run of any changed kind (R8).
+5. **The day of the tag**, from docs/registration/ZENODO.md, all on one day:
+   - check the list;
+   - run `scripts\check_no_aid.py > logs\check_no_aid.log`, which must print "clean", and commit the log;
+   - `git tag -a prereg-v1 -m "HORIZON registration v1"`, then `git push origin prereg-v1`;
+   - `scripts\zenodo_deposit.py --tag prereg-v1 --out D:\Research\horizon\zenodo\prereg-v1 > logs\zenodo_deposit_prereg-v1.log`;
+   - upload protocol.zip and SHA256SUMS.txt to Zenodo with metadata.json and description.txt, and publish;
+   - record the DOI, the date and protocol.zip's SHA-256 in a STATE amendment, with the deposit console.
+6. After the tag: G1's pilot agents (unless they run before it), then G3's cap into v1.1, tagged and deposited, before any confirmatory unit.
+- **Next:** the features file, or the author's hand check and item 15.
