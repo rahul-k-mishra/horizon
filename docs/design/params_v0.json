@@ -33,6 +33,7 @@
   1200,
   1800
  ],
+ "agent_unit_cap_seconds_registered": 1860,
  "search": {
   "node_cap": 5000000,
   "time_cap_seconds": 14400,

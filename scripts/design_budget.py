@@ -12,6 +12,8 @@ experiment.  Prints:
        whole session and the loop's largest gap;
     3. the same for the agent kind at each unit cap in params agent_unit_cap_seconds_shown, since the
        registered cap is set by the pilot (docs/PREREG.md, Section 9);
+       [added 25 November 2026] and at the registered cap, params agent_unit_cap_seconds_registered, 1,860 s,
+       set by G3 from the pilot agent run and entered in v1 (docs/PREREG.md, Section 8);
     4. what excluding within-game pairs from both AUROCs costs (docs/PREREG.md, Section 7.2): the most
        within-game pairs a game of 5 levels can hold, and their largest share of all pairs when the share
        of completed units is at the edges of the void band and at one half;
@@ -82,7 +84,11 @@ def main():
     rows = []
 
     def stage(label, units, cap):
-        per = capacity // cap
+        # per worker, since a unit starts only if its cap fits before the deadline (scripts/automation/runner.py);
+        # [corrected 25 November 2026] this read capacity // cap, the pooled worker-seconds, which gives the same
+        # count for every cap that divides the work time (all the caps shown before that day) and one too many
+        # units per chunk at 1,860 s, as scripts/pilot_cut_reading.py, Section 5, counts them
+        per = w * (s["work_seconds"] // cap)
         chunks = math.ceil(units / per)
         rows.append((label, units, cap, per, chunks))
         print(f"{label}: {units} units, cap {cap} s, {per} units per chunk, {chunks} chunks at most, "
@@ -97,6 +103,12 @@ def main():
     print("\n== 3. confirmatory agents, by the unit cap the pilot sets")
     for cap in p["agent_unit_cap_seconds_shown"]:
         con_a = stage(f"confirmatory agents, cap {cap} s", levels(n_conf) * len(agents) * seeds, cap)
+        tot = dev + pil_s + pil_a + con_s + con_a
+        print(f"   all stages with this cap: {tot} chunks at most, {tot * per_session / 86400:.1f} days at most")
+    if "agent_unit_cap_seconds_registered" in p:
+        cap = p["agent_unit_cap_seconds_registered"]
+        con_a = stage(f"confirmatory agents, the registered cap {cap} s (PREREG Section 8, 25 November 2026)",
+                      levels(n_conf) * len(agents) * seeds, cap)
         tot = dev + pil_s + pil_a + con_s + con_a
         print(f"   all stages with this cap: {tot} chunks at most, {tot * per_session / 86400:.1f} days at most")
 

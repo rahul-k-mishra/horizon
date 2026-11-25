@@ -21,6 +21,8 @@ confirmatory agents, cap 1200 s: 5000 units, cap 1200 s, 96 units per chunk, 53 
    all stages with this cap: 270 chunks at most, 101.4 days at most
 confirmatory agents, cap 1800 s: 5000 units, cap 1800 s, 64 units per chunk, 79 chunks at most, 29.7 days at most
    all stages with this cap: 296 chunks at most, 111.2 days at most
+confirmatory agents, the registered cap 1860 s (PREREG Section 8, 25 November 2026): 5000 units, cap 1860 s, 60 units per chunk, 84 chunks at most, 31.6 days at most
+   all stages with this cap: 301 chunks at most, 113.1 days at most
 
 == 4. between-game pairs
 a game of 5 levels holds at most 6 (completed, not completed) pairs of its own; 25 games at most 150
