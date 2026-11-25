@@ -688,3 +688,47 @@ Thirty-ninth amendment. The lines above are unchanged. Nothing was tagged in the
   - Steps 4 and 5 publish and were not rehearsed.
 - **Also.** The aid check is clean on 8,187 tracked files (logs/check_no_aid.log). No added line has a word of the forbidden list. The commits since 8ab58f5 are not pushed: the push of amendment (al) was refused by the session's permission check.
 - **Next:** the author's choice on REVIEW items 1 to 29, above all the aid check's own console (item 25) and G2 (item 5); then the hand check (G4) and the third_party/ decision.
+
+## Amendment 25 Nov 2026 (an)
+
+Fortieth amendment. The lines above are unchanged. Nothing was tagged in the repository or deposited. No file under jobs/ or runs/ was changed, and no Kaggle session was used. This amendment follows the author's request of the evening of 25 November 2026, in five parts. Nothing on G2 or on rule 3 of Section 7.4 was adopted.
+
+- **Push.** The 7 commits of amendments (al) and (am) were pushed to GitHub at the start of the session (8ab58f5..e5baf49).
+- **1. The deposit blocker** (f70f2a5, d0f1bd6).
+  - scripts/check_no_aid.py prints a skipped hit in every mode by its file, place and pattern number, with every match masked, never with the matched text or its line. No file is exempted from the check.
+  - scripts/test_check_no_aid.py, part 7: a committed console of the check, in either mode, is not itself a hit when the check runs over that commit. OK (logs/test_check_no_aid.log). The same part fails on the old script, with 15 counted hits. logs/test_zenodo_deposit.log was rerun: OK, unchanged.
+  - docs/registration/ZENODO.md, step 1a, uses --counts. *Found on the way:* amendment (ac) made logs/check_no_aid.log with --counts, but step 1a gave the plain command, and the console was made with it from commit 00ca721 on. That is how the skipped lines' text came to be committed.
+  - logs/check_no_aid.log, made with --counts: clean on 8,191 tracked files, and the check with --rev on the commit that holds it is clean too.
+- **2. G2: DECISIONS item 17** (823bb2c; scripts/g2_cost.py, logs/g2_cost.log).
+  - G2 asks for 20,000 sequences, 40,000 replays and at most 8,000,000 actions, each followed by a state hash. It leaves open where it runs, the random source and seed, the action draw, the end of a game, the hash, and the process. No code applies it.
+  - Projected time (EXPLORATORY): 843 s on 4 laptop workers, or 5,991 s on 4 Kaggle workers; at most 0.208 of one session.
+  - Through the loop, it changes runner.py, jobs.py and schema.py. By the reading of amendment (al), both rerun clauses of Section 8 then fire, and G3 is drawn again.
+  - Options: (A) build it before the tag, through the loop or as the author's own laptop run; (B) remove it with the reason recorded. **Recommended: (A), as the author's laptop run before the tag,** with a dated exception to Section 9. Not adopted.
+- **3. Rule 3: DECISIONS item 18** (823bb2c; scripts/rule3_reading.py, logs/rule3_reading.log).
+  - The text voids any search quantity over 10% excluded. The script applies this to L_C only.
+  - Options: (a) narrow the text; (b) make the script follow the text, with a void H_C or b marking its secondary lines void; (c) one share for all three.
+  - On stage E, stage D and the pilot search (EXPLORATORY), no unit is excluded for any quantity at any candidate C, so none of the options voids anything. Stage D's 144 time-stopped units each saw at least 3,091,281 states.
+  - **Recommended: (b).** Not adopted.
+- **4. PREREG** (12e2d0f), each marked [corrected 25 Nov 2026] with its reason:
+  - the status paragraph and the diff section name the decisions of 25 November;
+  - Section 9 gives the budget at the 1,860 s cap: 84 chunks, 301 in all;
+  - Section 9 names the features file;
+  - Section 7.5 lists the 50% and the 10% of undetermined levels.
+  ZENODO.md step 3 ends with `2>&1`, run in cmd.
+  - *Found on the way:* scripts/design_budget.py counted chunk capacity in pooled worker-seconds. That gives 82 chunks at 1,860 s, where the runner, which fills each worker separately, gets 84. It now counts per worker. Every earlier line of logs/design_budget.log is unchanged, since those caps divide the work time. The log gains the registered cap's two lines, and params_v0.json gains agent_unit_cap_seconds_registered.
+- **5. DESIGN** (44226bb): five corrections, each dated separately: C fixed; when the pilot agents ran; G3's ceiling of 2,400 s; the cap entering v1; the budget table. No blanket sentence was added.
+- **Second rehearsal** (logs/zenodo_rehearsal-2.log), on d0f1bd6, in a throwaway clone pushing to a local bare repository:
+  - step 1a: clean, and its console equals the committed one;
+  - step 2: done, to the local stand-in;
+  - **step 3: completes, exit 0.** 393 files, protocol.zip SHA-256 4202c33d79509f7e61fa2af91ad6c33dab90c1d9ab6985cc5ebe57f96c5485f5, the same on a second build;
+  - a failed step 3 now writes its reason into the console;
+  - step 1 fails only on the two hand-check files; steps 4 and 5 were not rehearsed.
+  The clone was deleted. The repository and GitHub carry no rehearsal tag.
+- **Also.** The protocol list gains the two scripts and their consoles. docs/registration/REVIEW_2026-11-25.md, part E, records what was done with each item. The aid check is clean (logs/check_no_aid.log, rerun with this amendment). No added line has a word of the forbidden list.
+- **What remains before the tag:**
+  1. the author's answers to DECISIONS items 17 (G2) and 18 (rule 3), and the build or text change each answer calls for;
+  2. the hand check (G4) and its result file;
+  3. the REVIEW items still open: 2, 3, 4, 10, 12 and 13 in PREREG, 14, 16 and 19 to 23 in DESIGN, and 28, the commit of the aid-check console in step 1a;
+  4. if any code the runner uses changes, the pilot reruns of Section 8 and a dry run of the changed kind;
+  5. the day of the tag, from ZENODO.md.
+- **Next:** the author's answers to items 17 and 18, and the hand check.

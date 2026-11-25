@@ -1,4 +1,4 @@
-searched 8191 tracked files (working tree), 20 patterns, 10 allowed terms, 11 allowed terms by path
+searched 8192 tracked files (working tree), 20 patterns, 10 allowed terms, 11 allowed terms by path
 third_party (vendored, not changed, not counted): 41 hit(s) in 7 file(s)
   skipped  third_party/gvgai/src/core/game/StateObservationMulti.java  1 hit(s): #07 x1
   skipped  third_party/gvgai/src/tools/com/google/gson/InstanceCreator.java  1 hit(s): #07 x1
