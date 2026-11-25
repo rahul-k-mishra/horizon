@@ -1,0 +1,25 @@
+campaign gvgai-pilot-agents, kind gvgaiagent, code e296372656d9cd7f257e0aa46db8795872e3c346
+pilot games (scripts/suite.py pilot()): ['bait', 'labyrinthdual', 'rivers', 'watergame']; levels [0, 1, 2, 3, 4]; 20 pilot units
+agents ['N', 'R', 'I1', 'Rand'], seeds [1000, 1001], budget 20000 actions, cap 7200 s per unit
+units: 160 = 20 levels x 4 agents x 2 seeds
+chunk g1-01: games ['bait', 'labyrinthdual'], 80 units, entry hash 4901dc1f69c298a50fc9c93106e31bf441d648bcbf5c7d6d36b0dd2f8a55c2e7
+chunk g1-02: games ['rivers', 'watergame'], 80 units, entry hash 2961ed6b6738c953f7d610d49c12f410e76dd9dfeda710db93a3365761f5957e
+session: {'work_seconds': 28800, 'checkpoint_reserve_seconds': 900, 'platform_limit_seconds': 32400}; workers 4
+
+== the pilot games enter no confirmatory analysis
+pilot games among scripts/suite.py confirmatory() (25 games): none
+scripts/analyze_horizon.py reads only campaign 'gvgai-confirmatory' and only confirmatory games; this campaign is 'gvgai-pilot-agents': different
+
+== wall-clock, the worst-case bound: every unit runs to its cap
+a worker starts at most 4 capped units in a session's 28800 s of work: 16 units per session; 10 sessions for the two chunks; at most 32400 s each with startup, checkpoint reserve and the loop's largest gap: 90.0 h (3.75 days)
+
+== wall-clock, a projection (EXPLORATORY; not a pilot time)
+  N: laptop 10.863 s for 2,000 actions on bait level 0 (logs/test_agents_gvgai.log); x 10 / 0.388 = 280 s per unit
+  R: laptop 1.509 s for 2,000 actions on bait level 0 (logs/test_agents_gvgai.log); x 10 / 0.388 = 39 s per unit
+  I1: laptop 52.407 s for 2,000 actions on bait level 0 (logs/test_agents_gvgai.log); x 10 / 0.388 = 1351 s per unit
+  Rand: laptop 0.46 s for 2,000 actions on bait level 0 (logs/test_agents_gvgai.log); x 10 / 0.388 = 12 s per unit
+  chunk g1-01: 33628 worker-seconds, 8407 s on 4 workers (fits one session's 28800 s of work)
+  chunk g1-02: 33628 worker-seconds, 8407 s on 4 workers (fits one session's 28800 s of work)
+  both chunks, with startup and the loop's largest gap each: about 6.2 h, if a Kaggle slot is free
+  the longest projected unit, I1, 1351 s, is 0.19 of the cap
+written: jobs/pilot_agents/manifest.json

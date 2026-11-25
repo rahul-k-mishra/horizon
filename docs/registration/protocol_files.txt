@@ -242,6 +242,9 @@ logs/gvgaisearch_dryrun_report.log
 scripts/make_gvgaiagent_dryrun_manifest.py
 logs/make_gvgaiagent_dryrun_manifest.log
 jobs/gvgaiagent_dryrun/manifest.json
+scripts/make_pilot_agents_manifest.py
+logs/make_pilot_agents_manifest.log
+jobs/pilot_agents/manifest.json
 docs/DRYRUN_GVGAIAGENT.md
 scripts/automation/gvgaiagent_report.py
 logs/gvgaiagent_dryrun_report.log
