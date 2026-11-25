@@ -1,0 +1,58 @@
+== 1. study 1's runs of 20,000 actions: wall-clock seconds on the author's laptop (EXPLORATORY; study 1's rows, read-only)
+  minigrid/macro N: 1670 runs, budget [20000], cap [3300.0, 86400.0] s; seconds median 147.6, 95th percentile 377.6, largest 467.3; runs stopped by the wall-clock cap 0; runs short of the budget 0; the G3 rule on the largest would give 960 s
+  minigrid/macro R: 1670 runs, budget [20000], cap [3300.0, 86400.0] s; seconds median 119.9, 95th percentile 350.3, largest 439.9; runs stopped by the wall-clock cap 0; runs short of the budget 0; the G3 rule on the largest would give 900 s
+  minigrid/macro I1: 1670 runs, budget [20000], cap [3300.0, 86400.0] s; seconds median 857.3, 95th percentile 1123.7, largest 1283.1; runs stopped by the wall-clock cap 0; runs short of the budget 0; the G3 rule on the largest would give 2580 s
+  minigrid/raw N: 1670 runs, budget [20000], cap [3300.0, 86400.0] s; seconds median 108.7, 95th percentile 361.5, largest 519.1; runs stopped by the wall-clock cap 0; runs short of the budget 0; the G3 rule on the largest would give 1080 s
+  minigrid/raw R: 1670 runs, budget [20000], cap [3300.0, 86400.0] s; seconds median 100.0, 95th percentile 348.5, largest 494.9; runs stopped by the wall-clock cap 0; runs short of the budget 0; the G3 rule on the largest would give 1020 s
+  minigrid/raw I1: 1670 runs, budget [20000], cap [3300.0, 86400.0] s; seconds median 901.2, 95th percentile 1381.9, largest 1652.3; runs stopped by the wall-clock cap 0; runs short of the budget 0; the G3 rule on the largest would give 3360 s
+  procgen/center_off N: 160 runs, budget [20000], cap [7500.0, 86400.0] s; seconds median 132.5, 95th percentile 332.0, largest 1367.9; runs stopped by the wall-clock cap 0; runs short of the budget 0; the G3 rule on the largest would give 2760 s
+  procgen/center_off R: 160 runs, budget [20000], cap [7500.0, 86400.0] s; seconds median 65.0, 95th percentile 95.3, largest 102.0; runs stopped by the wall-clock cap 0; runs short of the budget 0; the G3 rule on the largest would give 240 s
+  procgen/center_off I1: 160 runs, budget [20000], cap [7500.0, 86400.0] s; seconds median 1466.2, 95th percentile 2653.9, largest 2715.0; runs stopped by the wall-clock cap 0; runs short of the budget 0; the G3 rule on the largest would give 5460 s
+  procgen/center_on N: 160 runs, budget [20000], cap [7500.0, 86400.0] s; seconds median 220.7, 95th percentile 405.4, largest 1485.7; runs stopped by the wall-clock cap 0; runs short of the budget 0; the G3 rule on the largest would give 3000 s
+  procgen/center_on R: 160 runs, budget [20000], cap [7500.0, 86400.0] s; seconds median 64.3, 95th percentile 78.4, largest 86.0; runs stopped by the wall-clock cap 0; runs short of the budget 0; the G3 rule on the largest would give 180 s
+  procgen/center_on I1: 160 runs, budget [20000], cap [7500.0, 86400.0] s; seconds median 1577.9, 95th percentile 2883.7, largest 2921.6; runs stopped by the wall-clock cap 0; runs short of the budget 0; the G3 rule on the largest would give 5880 s
+
+== 2. this repository's agent tests on GVGAI levels, laptop seconds as printed by the tests (EXPLORATORY)
+  logs/test_agents_gvgai.log: N: level1_completed True, levels 8, actions 2000, first level end 53, 10.863 s
+  logs/test_agents_gvgai.log: R: level1_completed True, levels 7, actions 2000, first level end 42, 1.509 s
+  logs/test_agents_gvgai.log: I1: level1_completed False, levels 0, actions 2000, first level end None, 52.407 s
+  logs/test_agents_gvgai.log: Rand: level1_completed False, levels 0, actions 2000, first level end None, 0.46 s
+  logs/test_gvgaiagent.log: N on allwin 0, budget 40: level1_completed True, levels 40, actions 40, first level end 1, cut False, 1.544 s
+  logs/test_gvgaiagent.log: R on allwin 0, budget 40: level1_completed True, levels 40, actions 40, first level end 1, cut False, 0.067 s
+  logs/test_gvgaiagent.log: I1 on allwin 0, budget 40: level1_completed True, levels 40, actions 40, first level end 1, cut False, 3.862 s
+  logs/test_gvgaiagent.log: Rand on allwin 0, budget 40: level1_completed True, levels 40, actions 40, first level end 1, cut False, 0.074 s
+  logs/test_gvgaiagent.log: N on corridor 1, budget 300: level1_completed False, levels 0, actions 300, first level end None, cut False, 0.23 s
+  logs/test_gvgaiagent.log: R on corridor 1, budget 300: level1_completed False, levels 0, actions 300, first level end None, cut False, 0.23 s
+  logs/test_gvgaiagent.log: I1 on corridor 1, budget 300: level1_completed False, levels 0, actions 300, first level end None, cut False, 7.322 s
+  logs/test_gvgaiagent.log: Rand on corridor 1, budget 300: level1_completed False, levels 0, actions 300, first level end None, cut False, 0.06 s
+  logs/test_gvgaiagent.log: g-01-I1-allwin-l0-s1000: whole level1_completed True, levels 300, actions 300, first level end 1, cut False, 19.202 s | resumed level1_completed True, levels 300, actions 300, first level end 1, cut False, 21.034 s
+  logs/test_gvgaiagent.log: g-01-I1-corridor-l0-s1000: whole level1_completed True, levels 28, actions 300, first level end 14, cut False, 16.313 s | resumed level1_completed True, levels 28, actions 300, first level end 14, cut False, 17.177 s
+  logs/test_gvgaiagent.log: g-01-N-allwin-l0-s1000: whole level1_completed True, levels 300, actions 300, first level end 1, cut False, 0.486 s | resumed level1_completed True, levels 300, actions 300, first level end 1, cut False, 3.555 s
+  logs/test_gvgaiagent.log: g-01-N-corridor-l0-s1000: whole level1_completed True, levels 80, actions 300, first level end 22, cut False, 3.002 s | resumed level1_completed True, levels 80, actions 300, first level end 22, cut False, 3.905 s
+  logs/test_gvgaiagent.log: g-01-R-allwin-l0-s1000: whole level1_completed True, levels 300, actions 300, first level end 1, cut False, 0.583 s | resumed level1_completed True, levels 300, actions 300, first level end 1, cut False, 5.063 s
+  logs/test_gvgaiagent.log: g-01-R-corridor-l0-s1000: whole level1_completed True, levels 28, actions 300, first level end 14, cut False, 3.239 s | resumed level1_completed True, levels 28, actions 300, first level end 14, cut False, 1.895 s
+  logs/test_gvgaiagent.log: g-01-Rand-allwin-l0-s1000: whole level1_completed True, levels 300, actions 300, first level end 1, cut False, 0.176 s | resumed level1_completed True, levels 300, actions 300, first level end 1, cut False, 0.323 s
+  logs/test_gvgaiagent.log: g-01-Rand-corridor-l0-s1000: whole level1_completed True, levels 15, actions 300, first level end 15, cut False, 4.287 s | resumed level1_completed True, levels 15, actions 300, first level end 15, cut False, 1.943 s
+  logs/test_gvgaiagent.log: N on corridor 1, budget 10,000,000, cap 5 s: level1_completed False, levels 0, actions 7124, first level end None, cut True, 5.006 s; wall 5.0 s
+  logs/test_gvgaiagent.log: R on corridor 1, budget 10,000,000, cap 5 s: level1_completed False, levels 0, actions 6004, first level end None, cut True, 5.003 s; wall 5.0 s
+  logs/test_gvgaiagent.log: I1 on corridor 1, budget 10,000,000, cap 5 s: level1_completed False, levels 0, actions 132, first level end None, cut True, 5.038 s; wall 5.0 s
+  logs/test_gvgaiagent.log: Rand on corridor 1, budget 10,000,000, cap 5 s: level1_completed False, levels 0, actions 19848, first level end None, cut True, 5.008 s; wall 5.0 s
+
+== 3. the confirmatory agent campaign at each candidate cap (logs/design_budget.log, Section 3)
+  confirmatory agents, cap 300 s: 5000 units, cap 300 s, 384 units per chunk, 14 chunks at most, 5.3 days at most
+  confirmatory agents, cap 600 s: 5000 units, cap 600 s, 192 units per chunk, 27 chunks at most, 10.1 days at most
+  confirmatory agents, cap 1200 s: 5000 units, cap 1200 s, 96 units per chunk, 53 chunks at most, 19.9 days at most
+  confirmatory agents, cap 1800 s: 5000 units, cap 1800 s, 64 units per chunk, 79 chunks at most, 29.7 days at most
+
+== 4. chunks (one Kaggle session each) of the confirmatory agent campaign by cap, the packing rule of the runner
+     (a unit starts only if its cap fits before the work deadline: 4 workers x floor(28,800 / cap) units per chunk)
+  cap   300 s:  384 units per chunk; one agent (1250 units)    4 chunks; four agents (5000 units)   14 chunks
+  cap   600 s:  192 units per chunk; one agent (1250 units)    7 chunks; four agents (5000 units)   27 chunks
+  cap   900 s:  128 units per chunk; one agent (1250 units)   10 chunks; four agents (5000 units)   40 chunks
+  cap  1200 s:   96 units per chunk; one agent (1250 units)   14 chunks; four agents (5000 units)   53 chunks
+  cap  1800 s:   64 units per chunk; one agent (1250 units)   20 chunks; four agents (5000 units)   79 chunks
+  cap  2400 s:   48 units per chunk; one agent (1250 units)   27 chunks; four agents (5000 units)  105 chunks
+  cap  3600 s:   32 units per chunk; one agent (1250 units)   40 chunks; four agents (5000 units)  157 chunks
+  one cap per agent, for scale: N, R and Rand at 600 s and I1 at 3,600 s: 20 + 40 chunks (a chunk holds one kind, and the runner already reads the cap per unit)
+
+Every number above is EXPLORATORY. None is a GVGAI pilot time; G3 reads the cap from the pilot agents of G1.
