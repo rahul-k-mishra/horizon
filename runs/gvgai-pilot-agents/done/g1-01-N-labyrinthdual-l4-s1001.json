@@ -1,0 +1,10 @@
+{
+ "chunk_id": "g1-01",
+ "committed_at": "2026-11-25T15:06:24Z",
+ "kernel_version": 127,
+ "kind": "gvgaiagent",
+ "row_path": "runs/gvgai-pilot-agents/gvgaiagent/g1-01-N-labyrinthdual-l4-s1001.json",
+ "row_sha256": "dab85796398ff490beb8b8d34f1ba31d9a8961f54573bd9f968920ed5db88dfa",
+ "run_nonce": "gvgai-pilot-agents-g1-01-20261125T140426Z-80847b",
+ "unit_id": "g1-01-N-labyrinthdual-l4-s1001"
+}

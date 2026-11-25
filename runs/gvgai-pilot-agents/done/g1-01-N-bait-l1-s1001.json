@@ -1,0 +1,10 @@
+{
+ "chunk_id": "g1-01",
+ "committed_at": "2026-11-25T15:06:24Z",
+ "kernel_version": 127,
+ "kind": "gvgaiagent",
+ "row_path": "runs/gvgai-pilot-agents/gvgaiagent/g1-01-N-bait-l1-s1001.json",
+ "row_sha256": "76d55fe0fc9fcbd4ccf6787d284ac64af61a831d7b2db46c58fa32da2320e0fd",
+ "run_nonce": "gvgai-pilot-agents-g1-01-20261125T140426Z-80847b",
+ "unit_id": "g1-01-N-bait-l1-s1001"
+}

@@ -1,0 +1,96 @@
+$ git clone --quiet https://github.com/rahul-k-mishra/horizon.git /tmp/horizon-state
+$ git -C /tmp/horizon-state worktree add --quiet --detach /tmp/horizon-code e296372656d9cd7f257e0aa46db8795872e3c346
+$ git -C /tmp/horizon-state log -1 --format=state commit %H %s
+state commit 739d230989391570a1448f0cfd2a9cf1093a0f89 Loop: g1-01 pushed as kernel version 127
+$ git -C /tmp/horizon-code log -1 --format=code commit %H (tag e296372656d9cd7f257e0aa46db8795872e3c346)
+code commit e296372656d9cd7f257e0aa46db8795872e3c346 (tag e296372656d9cd7f257e0aa46db8795872e3c346)
+$ /usr/bin/python3 -m pip install --quiet -r /tmp/horizon-code/kaggle/requirements-runner.txt
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kaggle-environments 1.32.7 requires gymnasium==1.2.0, but you have gymnasium 1.3.0 which is incompatible.
+dopamine-rl 4.1.2 requires gym<=0.25.2, but you have gym 0.26.2 which is incompatible.
+$ /usr/bin/python3 /tmp/horizon-code/scripts/automation/runner.py --state-repo /tmp/horizon-state --out /kaggle/working --work-dir /tmp/horizon-work --t0 1795615487.10675
+[2026-11-25T14:06:58Z] chunk g1-01 (gvgaiagent), nonce gvgai-pilot-agents-g1-01-20261125T140426Z-80847b; work deadline 2026-11-25T22:04:47Z, checkpoint by 2026-11-25T22:19:47Z
+[2026-11-25T14:06:58Z] no checkpoint: starting the chunk; 0 units already have done-markers
+[2026-11-25T14:06:58Z] agents: 80 units to run on 4 workers
+[2026-11-25T14:07:19Z] agent unit g1-01-Rand-bait-l0-s1000: level1_completed True
+[2026-11-25T14:07:28Z] agent unit g1-01-R-bait-l0-s1000: level1_completed True
+[2026-11-25T14:07:41Z] agent unit g1-01-R-bait-l0-s1001: level1_completed True
+[2026-11-25T14:07:46Z] agent unit g1-01-N-bait-l0-s1000: level1_completed True
+[2026-11-25T14:07:51Z] agent unit g1-01-Rand-bait-l0-s1001: level1_completed True
+[2026-11-25T14:07:51Z] agent unit g1-01-N-bait-l0-s1001: level1_completed True
+[2026-11-25T14:08:16Z] agent unit g1-01-R-bait-l1-s1000: level1_completed True
+[2026-11-25T14:08:30Z] agent unit g1-01-N-bait-l1-s1000: level1_completed True
+[2026-11-25T14:08:44Z] agent unit g1-01-Rand-bait-l1-s1000: level1_completed False
+[2026-11-25T14:09:22Z] agent unit g1-01-N-bait-l1-s1001: level1_completed True
+[2026-11-25T14:09:47Z] agent unit g1-01-R-bait-l1-s1001: level1_completed True
+[2026-11-25T14:14:44Z] agent unit g1-01-I1-bait-l0-s1000: level1_completed True
+[2026-11-25T14:15:01Z] agent unit g1-01-Rand-bait-l1-s1001: level1_completed False
+[2026-11-25T14:15:13Z] agent unit g1-01-I1-bait-l0-s1001: level1_completed True
+[2026-11-25T14:15:45Z] agent unit g1-01-R-bait-l2-s1000: level1_completed False
+[2026-11-25T14:15:54Z] agent unit g1-01-N-bait-l2-s1000: level1_completed False
+[2026-11-25T14:16:09Z] agent unit g1-01-Rand-bait-l2-s1000: level1_completed False
+[2026-11-25T14:16:18Z] agent unit g1-01-I1-bait-l1-s1000: level1_completed False
+[2026-11-25T14:16:50Z] agent unit g1-01-R-bait-l2-s1001: level1_completed False
+[2026-11-25T14:16:58Z] agent unit g1-01-N-bait-l2-s1001: level1_completed False
+[2026-11-25T14:17:13Z] agent unit g1-01-Rand-bait-l2-s1001: level1_completed False
+[2026-11-25T14:17:46Z] agent unit g1-01-I1-bait-l1-s1001: level1_completed True
+[2026-11-25T14:18:10Z] agent unit g1-01-N-bait-l3-s1000: level1_completed False
+[2026-11-25T14:18:24Z] agent unit g1-01-R-bait-l3-s1000: level1_completed False
+[2026-11-25T14:18:44Z] agent unit g1-01-Rand-bait-l3-s1000: level1_completed False
+[2026-11-25T14:19:44Z] agent unit g1-01-N-bait-l3-s1001: level1_completed False
+[2026-11-25T14:20:20Z] agent unit g1-01-R-bait-l3-s1001: level1_completed False
+[2026-11-25T14:24:22Z] agent unit g1-01-I1-bait-l2-s1000: level1_completed False
+[2026-11-25T14:24:44Z] agent unit g1-01-Rand-bait-l3-s1001: level1_completed False
+[2026-11-25T14:25:19Z] agent unit g1-01-N-bait-l4-s1000: level1_completed False
+[2026-11-25T14:25:29Z] agent unit g1-01-I1-bait-l2-s1001: level1_completed False
+[2026-11-25T14:25:45Z] agent unit g1-01-R-bait-l4-s1000: level1_completed False
+[2026-11-25T14:25:56Z] agent unit g1-01-Rand-bait-l4-s1000: level1_completed False
+[2026-11-25T14:26:32Z] agent unit g1-01-N-bait-l4-s1001: level1_completed False
+[2026-11-25T14:26:50Z] agent unit g1-01-R-bait-l4-s1001: level1_completed False
+[2026-11-25T14:27:02Z] agent unit g1-01-I1-bait-l3-s1000: level1_completed False
+[2026-11-25T14:27:12Z] agent unit g1-01-Rand-bait-l4-s1001: level1_completed False
+[2026-11-25T14:28:07Z] agent unit g1-01-N-labyrinthdual-l0-s1000: level1_completed True
+[2026-11-25T14:28:50Z] agent unit g1-01-R-labyrinthdual-l0-s1000: level1_completed True
+[2026-11-25T14:29:03Z] agent unit g1-01-I1-bait-l3-s1001: level1_completed False
+[2026-11-25T14:29:30Z] agent unit g1-01-Rand-labyrinthdual-l0-s1000: level1_completed False
+[2026-11-25T14:30:20Z] agent unit g1-01-N-labyrinthdual-l0-s1001: level1_completed True
+[2026-11-25T14:31:09Z] agent unit g1-01-R-labyrinthdual-l0-s1001: level1_completed True
+[2026-11-25T14:36:40Z] agent unit g1-01-I1-bait-l4-s1000: level1_completed False
+[2026-11-25T14:36:47Z] agent unit g1-01-I1-labyrinthdual-l0-s1000: level1_completed False
+[2026-11-25T14:37:06Z] agent unit g1-01-Rand-labyrinthdual-l0-s1001: level1_completed False
+[2026-11-25T14:37:35Z] agent unit g1-01-N-labyrinthdual-l1-s1000: level1_completed True
+[2026-11-25T14:37:44Z] agent unit g1-01-R-labyrinthdual-l1-s1000: level1_completed True
+[2026-11-25T14:38:01Z] agent unit g1-01-I1-bait-l4-s1001: level1_completed False
+[2026-11-25T14:38:11Z] agent unit g1-01-Rand-labyrinthdual-l1-s1000: level1_completed False
+[2026-11-25T14:38:49Z] agent unit g1-01-R-labyrinthdual-l1-s1001: level1_completed True
+[2026-11-25T14:38:51Z] agent unit g1-01-N-labyrinthdual-l1-s1001: level1_completed True
+[2026-11-25T14:39:10Z] agent unit g1-01-I1-labyrinthdual-l0-s1001: level1_completed False
+[2026-11-25T14:39:16Z] agent unit g1-01-Rand-labyrinthdual-l1-s1001: level1_completed False
+[2026-11-25T14:39:51Z] agent unit g1-01-R-labyrinthdual-l2-s1000: level1_completed True
+[2026-11-25T14:39:59Z] agent unit g1-01-N-labyrinthdual-l2-s1000: level1_completed True
+[2026-11-25T14:40:25Z] agent unit g1-01-Rand-labyrinthdual-l2-s1000: level1_completed False
+[2026-11-25T14:41:13Z] agent unit g1-01-N-labyrinthdual-l2-s1001: level1_completed True
+[2026-11-25T14:41:49Z] agent unit g1-01-R-labyrinthdual-l2-s1001: level1_completed True
+[2026-11-25T14:45:24Z] agent unit g1-01-I1-labyrinthdual-l1-s1000: level1_completed True
+[2026-11-25T14:45:51Z] agent unit g1-01-Rand-labyrinthdual-l2-s1001: level1_completed False
+[2026-11-25T14:46:38Z] agent unit g1-01-I1-labyrinthdual-l1-s1001: level1_completed True
+[2026-11-25T14:46:49Z] agent unit g1-01-N-labyrinthdual-l3-s1000: level1_completed True
+[2026-11-25T14:47:21Z] agent unit g1-01-R-labyrinthdual-l3-s1000: level1_completed True
+[2026-11-25T14:47:42Z] agent unit g1-01-I1-labyrinthdual-l2-s1000: level1_completed True
+[2026-11-25T14:47:47Z] agent unit g1-01-Rand-labyrinthdual-l3-s1000: level1_completed False
+[2026-11-25T14:48:29Z] agent unit g1-01-R-labyrinthdual-l3-s1001: level1_completed True
+[2026-11-25T14:48:38Z] agent unit g1-01-N-labyrinthdual-l3-s1001: level1_completed True
+[2026-11-25T14:49:03Z] agent unit g1-01-Rand-labyrinthdual-l3-s1001: level1_completed False
+[2026-11-25T14:49:34Z] agent unit g1-01-I1-labyrinthdual-l2-s1001: level1_completed True
+[2026-11-25T14:49:48Z] agent unit g1-01-N-labyrinthdual-l4-s1000: level1_completed True
+[2026-11-25T14:50:15Z] agent unit g1-01-R-labyrinthdual-l4-s1000: level1_completed True
+[2026-11-25T14:50:39Z] agent unit g1-01-Rand-labyrinthdual-l4-s1000: level1_completed False
+[2026-11-25T14:51:24Z] agent unit g1-01-N-labyrinthdual-l4-s1001: level1_completed True
+[2026-11-25T14:52:06Z] agent unit g1-01-R-labyrinthdual-l4-s1001: level1_completed True
+[2026-11-25T14:54:24Z] agent unit g1-01-I1-labyrinthdual-l3-s1000: level1_completed True
+[2026-11-25T14:54:49Z] agent unit g1-01-Rand-labyrinthdual-l4-s1001: level1_completed False
+[2026-11-25T14:55:38Z] agent unit g1-01-I1-labyrinthdual-l3-s1001: level1_completed True
+[2026-11-25T14:56:34Z] agent unit g1-01-I1-labyrinthdual-l4-s1000: level1_completed True
+[2026-11-25T14:57:39Z] agent unit g1-01-I1-labyrinthdual-l4-s1001: level1_completed True
+[2026-11-25T14:57:39Z] chunk g1-01: done; units done 80 of 80
+[2026-11-25T14:57:39Z] wrote result.json (status done) and bundle.tar.gz
