@@ -1,21 +1,49 @@
 # The protocol files of HORIZON's registration (docs/PREREG.md, Section 0).  scripts/zenodo_deposit.py reads
 # this list at the tagged commit, takes each file as stored in git at that commit, and writes its SHA-256 and
 # git blob hash into the Zenodo deposit.  One path per line, relative to the repository root; a line that
-# starts with # is a comment.  The script stops if a listed path is missing at the tag.
+# starts with # is a comment.  The script stops if a listed path is missing at the tag.  A folder cannot be listed:
+# the script reads each line as one file.
 #
 # Files that are named by docs/PREREG.md but do not exist yet are listed as comments under "to be added";
 # each is moved into the list when it is committed, before the tag.
+# Completed on 25 November 2026 (docs/STATE.md, amendment ai): every committed file that docs/PREREG.md, docs/DESIGN.md
+# or docs/DECISIONS_BEFORE_TAG.md cites, the code the Kaggle sessions and the loop run, the tests of that code with the
+# consoles of their last runs, and the pilot search's rows.  What is left out, and why, is at the end.
 
 # the registration and its record
 docs/PREREG.md
 docs/DESIGN.md
 docs/DECISIONS_BEFORE_TAG.md
 docs/STATE.md
+docs/PROJECT_BRIEF.md
+docs/registration/ZENODO.md
+scripts/zenodo_deposit.py
+scripts/test_zenodo_deposit.py
+logs/test_zenodo_deposit.log
+scripts/check_no_aid.py
+scripts/test_check_no_aid.py
+logs/test_check_no_aid.log
+logs/check_no_aid.log
 docs/design/params_v0.json
+docs/design/DECISION_REVIEW.md
+docs/design/STAGE_E_OPTIONS.md
+docs/PREREG_stage_e_draft.md
+docs/DESIGN_stage_e_draft.md
+docs/DESIGN_gvgai_draft.md
+docs/design/ENGINE.md
+docs/oracle/READING.md
+scripts/oracle_v2.py
+logs/oracle_v2.log
+scripts/oracle_sat.py
+logs/oracle_sat.log
 
 # suite, draws and truth tables
+scripts/suite_evidence.py
+logs/suite_evidence.log
+docs/design/suite_evidence.json
 scripts/vgdl_scan.py
 docs/design/vgdl_scan.json
+logs/vgdl_scan.log
 scripts/draw_pilot.py
 logs/draw_pilot.log
 scripts/suite.py
@@ -23,61 +51,209 @@ scripts/fit_rule.py
 logs/fit_rule.log
 scripts/truth_vgdl.py
 scripts/test_truth_vgdl.py
+logs/test_truth_vgdl.log
 docs/truth/gvgai.json
 logs/truth_vgdl.log
-scripts/draw_handcheck.py
-docs/truth/HANDCHECK.md
+scripts/truth_diff.py
+logs/truth_diff_q1.log
+logs/truth_diff_q4.log
+logs/truth_diff_a4clause.log
+scripts/predicate_readings.py
+logs/predicate_readings.log
+scripts/a4_unchecked.py
+logs/a4_unchecked.log
 docs/truth/PREDICATE_QUESTIONS.md
+docs/truth/DEFAULT_MAPPING.md
+scripts/draw_handcheck.py
+logs/draw_handcheck.log
+docs/truth/HANDCHECK.md
+docs/truth/HANDCHECK_GUIDE.md
+docs/truth/handcheck_readings.json
+docs/truth/handcheck_rows.json
+logs/handcheck_rows.log
+scripts/handcheck_app.py
+scripts/handcheck_report.py
+scripts/test_handcheck.py
+logs/test_handcheck.log
 
 # development data behind registered numbers
 scripts/sdd.py
+scripts/test_sdd.py
+logs/test_sdd.log
 logs/sdd.log
 docs/design/sdd.json
 scripts/dev_reading.py
 logs/dev_reading.log
+docs/design/dev_reading.json
 scripts/stage_e_diagnosis.py
 logs/stage_e_diagnosis.log
+docs/design/stage_e_diagnosis.json
 scripts/stage_e_reading.py
+scripts/test_stage_e_reading.py
+logs/test_stage_e_reading.log
+logs/stage_e_reading.log
+docs/design/stage_e_reading.json
 scripts/power_primary.py
 logs/power_primary.log
 docs/design/power_primary.json
+scripts/power_at_c.py
+logs/power_at_c.log
 scripts/design_budget.py
 logs/design_budget.log
+scripts/make_stage_d_manifest.py
+logs/make_stage_d_manifest.log
+jobs/archive/dev-minigrid/manifest.json
+scripts/make_stage_e_manifest.py
+logs/make_stage_e_manifest.log
+jobs/archive/dev-minigrid-e/manifest.json
 
-# the state key and the copies of study 1's agents
+# the engine, the state key and the copies of study 1's agents
+scripts/engine_inventory.py
+logs/engine_inventory.log
+scripts/engine_evidence.py
+logs/engine_evidence.log
+docs/design/engine_evidence.json
 scripts/engine_semantics.py
 logs/engine_semantics.log
 logs/engine_merge_rerun.log
 scripts/engine_subset.py
 logs/engine_subset.log
+scripts/engine_speed.py
+logs/engine_speed.log
 scripts/automation/gvgai_java/core/game/HorizonBridge.java
 scripts/automation/sim_gvgai.py
 scripts/automation/agents_gvgai.py
 scripts/check_agent_copies.py
 logs/check_agent_copies.log
+scripts/agent_cap_evidence.py
+logs/agent_cap_evidence.log
+
+# the pilot search (Section 8): its manifest, its rows and its reading
+scripts/make_gvgai_manifests.py
+logs/make_gvgai_manifests.log
+jobs/pilot_search/manifest.json
+jobs/archive/gvgai-pilot-search/manifest.json
+runs/gvgai-pilot-search/gvgaisearch/p-01-bait-l2.json
+runs/gvgai-pilot-search/gvgaisearch/p-01-labyrinthdual-l1.json
+runs/gvgai-pilot-search/gvgaisearch/p-01-rivers-l0-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-01-rivers-l0.json
+runs/gvgai-pilot-search/gvgaisearch/p-01-rivers-l1-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-01-rivers-l1.json
+runs/gvgai-pilot-search/gvgaisearch/p-01-rivers-l2-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-01-rivers-l2.json
+runs/gvgai-pilot-search/gvgaisearch/p-01-rivers-l3-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-01-rivers-l3.json
+runs/gvgai-pilot-search/gvgaisearch/p-01-rivers-l4-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-01-rivers-l4.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-bait-l0-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-bait-l0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-bait-l1-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-bait-l1.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-bait-l2-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-bait-l3-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-bait-l3.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-bait-l4-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-bait-l4.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-labyrinthdual-l0-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-labyrinthdual-l0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-labyrinthdual-l1-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-labyrinthdual-l2-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-labyrinthdual-l2.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-labyrinthdual-l3-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-labyrinthdual-l3.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-labyrinthdual-l4-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-labyrinthdual-l4.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-watergame-l0-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-watergame-l0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-watergame-l1-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-watergame-l1.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-watergame-l2-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-watergame-l2.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-watergame-l3-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-watergame-l3.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-watergame-l4-v0.json
+runs/gvgai-pilot-search/gvgaisearch/p-02-watergame-l4.json
+scripts/pilot_reading.py
+logs/pilot_reading.log
+scripts/pilot_margins.py
+logs/pilot_margins.log
 
 # the registered analysis
 scripts/analyze_horizon.py
 scripts/test_analyze_horizon.py
 logs/test_analyze_horizon.log
 
-# the code the confirmatory sessions run
+# the code the confirmatory sessions run, with its tests
 scripts/automation/common.py
 scripts/automation/jobs.py
 scripts/automation/runner.py
 scripts/automation/schema.py
+scripts/automation/eh.py
+scripts/automation/sim_minigrid.py
 kaggle/runner.ipynb
 kaggle/kernel-metadata.json
 kaggle/requirements-runner.txt
-requirements-loop.txt
+scripts/automation/check_runner_freeze.py
+logs/check_runner_freeze.log
+scripts/automation/envprobe.py
+kaggle/envprobe/probe.ipynb
+kaggle/envprobe/kernel-metadata.json
+logs/envprobe.log
+logs/envprobe_pin.log
+logs/envprobe_v4.log
+scripts/automation/test_gvgaisearch.py
+logs/test_gvgaisearch.log
+scripts/automation/test_gvgai_setup_race.py
+logs/test_gvgai_setup_race.log
+scripts/automation/test_agents_gvgai.py
+logs/test_agents_gvgai.log
+scripts/automation/test_gvgaiagent.py
+logs/test_gvgaiagent.log
+scripts/automation/gvgai_testgames/allwin.txt
+scripts/automation/gvgai_testgames/allwin_lvl0.txt
+scripts/automation/gvgai_testgames/boxroom.txt
+scripts/automation/gvgai_testgames/boxroom_lvl0.txt
+scripts/automation/gvgai_testgames/corridor.txt
+scripts/automation/gvgai_testgames/corridor_lvl0.txt
+scripts/automation/gvgai_testgames/corridor_lvl1.txt
+scripts/automation/gvgai_testgames/paint.txt
+scripts/automation/gvgai_testgames/paint_lvl0.txt
 
-# to be added before the tag (docs/PREREG.md, header and Sections 3, 5, 6, 7.8, 8, 11):
-# logs/stage_e_reading.log
-# docs/truth/handcheck_answers.json
-# docs/truth/HANDCHECK_RESULT.md
-# docs/truth/gvgai_features.json (grid area, action count, colour count per level, read by scripts/analyze_horizon.py)
-# the tests of the GVGAI adapter and search job, and the logs of their final runs
-# the copies of study 1's files under third_party/study1 (listed one by one at the tag)
-# the threshold of the void rule of L_C, entered in docs/PREREG.md, Section 7.4, rule 5, after the pilot search
-# the pilot search's rows and log
-# logs/design_budget.log rerun with C
+# the loop that dispatches the sessions, with its tests and dry runs (rule R8)
+scripts/automation/loop.py
+scripts/automation/fake_kaggle.py
+scripts/automation/test_loop.py
+logs/test_loop.log
+.github/workflows/horizon.yml
+requirements-loop.txt
+scripts/automation/check_freeze.sh
+logs/check_freeze.log
+docs/AUTOMATION.md
+docs/DRYRUN.md
+docs/DRYRUN_DEVSEARCH.md
+docs/DRYRUN_GVGAISEARCH.md
+scripts/automation/gvgaisearch_report.py
+logs/gvgaisearch_dryrun_report.log
+scripts/make_gvgaiagent_dryrun_manifest.py
+logs/make_gvgaiagent_dryrun_manifest.log
+jobs/gvgaiagent_dryrun/manifest.json
+logs/automation.log
+
+# to be added before the tag (docs/PREREG.md, header and Sections 3, 5, 8, 11):
+# logs/envprobe_agents.log (the probe of the runner pins of the kind gvgaiagent; check_runner_freeze.log is rerun from it)
+# docs/DRYRUN_GVGAIAGENT.md and the console of its report (the dry run of the kind gvgaiagent, rule R8)
+# docs/truth/handcheck_answers.json (the author's 100 answers; 1 entered at 25 November 2026)
+# docs/truth/HANDCHECK_RESULT.md (written by scripts/handcheck_report.py from the answers)
+# docs/truth/gvgai_features.json (grid area, action count, colour count per level, read by scripts/analyze_horizon.py),
+#   with the script that writes it and its console
+#
+# left out, and why (the author's decision, docs/STATE.md, amendment ai):
+# third_party/gvgai (the GVGAI source and descriptions at commit e58ff6597319155218759cc178931e05b81b524c, each file
+#   with its upstream blob hash, logs/engine_inventory.log) and third_party/study1 (study 1's files, frozen by the blob
+#   hashes in scripts/automation/agents_gvgai.py, FROZEN, and in logs/check_agent_copies.log): both are third-party
+#   copies whose hashes are fixed by listed files, and both hold text that scripts/check_no_aid.py would count if they
+#   were in the deposit (41 hits in 7 files, logs/check_no_aid.log).
+# the rows of stage D and stage E (runs/dev-minigrid and runs/dev-minigrid-e, 3,120 rows and their done-markers):
+#   development data behind d and the power; the tag holds them, and the consoles that read them are listed above.
+# the dry runs' rows and the manifests of the dummy dry runs (runs/dryrun, runs/devsearch-dryrun, runs/gvgaisearch-
+#   dryrun, jobs/archive/dryrun, devsearch-dryrun, gvgaisearch-dryrun, gvgaisearch-dryrun-v4): their reports are listed.
