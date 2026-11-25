@@ -1,0 +1,97 @@
+{
+ "agent": "R",
+ "agent_stats": {
+  "actions": 226613,
+  "adapter": {
+   "action_list": [
+    "left",
+    "right",
+    "down",
+    "up"
+   ],
+   "adapter_blob": "8d629513463fabfbe7fde5e23dc3a4d9282e6763",
+   "canvas": {
+    "padding": 0,
+    "row_offset": 1,
+    "size": 64
+   },
+   "condition": "frame",
+   "crop": null,
+   "episodes": 1122,
+   "frozen": {
+    "external/rudakov_just_explore/agents/agent.py": "2052bf8372bb858784db498fb7709a3674f21168",
+    "external/rudakov_just_explore/agents/heuristic_agent.py": "2a0af90e147d91c760b19b3019b4c0c0bf374fc4",
+    "external/rudakov_just_explore/agents/recorder.py": "e349f2c61e516266f89ee994d1719f2bf426ba42",
+    "external/rudakov_just_explore/agents/structs.py": "e7de1848aff60b0858d73cef2a190fc1275f4da4",
+    "external/rudakov_just_explore/agents/tracing.py": "247f3a6988a711b816093527fc2d6bb4c7735127",
+    "external/rudakov_just_explore/graph_explorer.py": "0df7e5b4b65365c0ea7d9c7e1a7fee7c2046c1f0",
+    "scripts/e1_rudakov_adapter.py": "39ab52f82f2fef3460ce83cb9db30d892b571d5b",
+    "scripts/env_frame.py": "bb3ff60acf88c220ec64e287c6c1d6bb899f879b",
+    "scripts/g_agent.py": "72585a4dbb926d4512ff9596f58118a176bb0646",
+    "scripts/g_census_table.py": "488feaca9c10985c4d0ff62791ceb4fa6fa6b9a8",
+    "scripts/g_control_probe.py": "d5ff2a4dc77b9e1148929e7db03fe99a9d2b0bf8",
+    "scripts/g_motion.py": "14018512a5c6b0efc81aed61c5466654d338be0b",
+    "scripts/g_nav.py": "a8a7eb61e62a658c239b98e0224e3588a662d1a0",
+    "scripts/g_nav_run.py": "2cc0146a697e525e5873d4e29cb80f4ae8bd6297",
+    "scripts/i1_suite_adapter.py": "9d8a18548b958e70b1365b2eacb25d25f83284ba"
+   },
+   "game": "corridor",
+   "grid": [
+    5,
+    5
+   ],
+   "gvgai_commit": "e58ff6597319155218759cc178931e05b81b524c",
+   "key_map": {
+    "1": "up",
+    "2": "down",
+    "3": "left",
+    "4": "right"
+   },
+   "level": 1,
+   "n_colours": 4,
+   "palette": "cell-type-set",
+   "steps": 225492,
+   "suite": "gvgai"
+  },
+  "diag": {
+   "acts": 225492,
+   "changed": 0,
+   "key": 225492,
+   "key_changed": 0,
+   "state_NOT_FINISHED": 226613
+  },
+  "first_level_end": null
+ },
+ "budget": 10000000,
+ "campaign": "gvgaiagent-dryrun",
+ "chunk_id": "a-01",
+ "cut_by_cap": true,
+ "game": "corridor",
+ "level": 1,
+ "outcome": {
+  "level1_completed": false,
+  "levels": 0
+ },
+ "schema": "horizon.agent.v2",
+ "seconds": 120.003,
+ "seed": 1004,
+ "sessions": [
+  {
+   "ended_at": "2026-11-25T13:17:15Z",
+   "host": "caded827d921",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_RFnU3u8zuXXkzMtCuZxCgiC7O3nffMlPc9lXFTD6c-373963614-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "europe-west4-c",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "gvgaiagent-dryrun-a-01-20261125T131109Z-6af249",
+   "started_at": "2026-11-25T13:11:27Z"
+  }
+ ],
+ "suite": "gvgai",
+ "unit_id": "a-01-R-corridor-l1-s1004-cap",
+ "written_at": "2026-11-25T13:17:15Z"
+}
