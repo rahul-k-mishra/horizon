@@ -455,3 +455,4 @@ No token to manage; credentials are cached locally for you.
 2026-11-24T06:15:17Z actions-45338975182-1 PUSHED chunk p-02 as kernel version 124 run gvgai-pilot-search-p-02-20261124T061514Z-5c8c64
 2026-11-24T08:50:18Z actions-45359489408-1 COLLECT chunk p-02 kernel version 124 run gvgai-pilot-search-p-02-20261124T061514Z-5c8c64: done; chunks done 2
 2026-11-25T10:20:27Z actions-45593917357-1 DISPATCH chunk a-01 (gvgaiagent) attempt 1 run gvgaiagent-dryrun-a-01-20261125T102027Z-ca6df8
+2026-11-25T10:20:30Z actions-45593917357-1 DEFERRED chunk a-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 reached. (transient: account session limit; refusal 1, waiting since 2026-11-25T10:20:30Z, halt after 24 h; no failure counted)
