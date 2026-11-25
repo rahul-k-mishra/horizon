@@ -22,12 +22,16 @@ What is allowed (step 1 of the scrub of 14 November 2026, docs/STATE.md amendmen
     - ALLOW_PATH_TERMS: exact terms allowed in one path only, stored ROT13-encoded as well (package names in the
       committed consoles of the Kaggle environment probe; a docstring of a test).
     - SKIP_PREFIXES: vendored upstream code under third_party/, which is not changed; its hits are printed
-      in a separate section and do not count.
+      in a separate section and do not count.  In every mode a skipped hit is printed by its file, its place
+      and its pattern number only, with every match in the path and the place masked as <#NN>, never with the
+      matched text or the line around it (changed 25 November 2026: the plain console quoted the skipped
+      lines, so a committed console of the check was itself a hit when the check ran over the commit;
+      docs/registration/REVIEW_2026-11-25.md, item 25).
 Any other hit counts.
 
 Run (working directory D:\\Research\\horizon\\repo):
-    D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\check_no_aid.py > logs\\check_no_aid.log
-    ... scripts\\check_no_aid.py --rev prereg-v1      (the files as stored at a tag or commit)
+    D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\check_no_aid.py --counts > logs\\check_no_aid.log
+    ...scripts\\check_no_aid.py --rev prereg-v1      (the files as stored at a tag or commit)
 It reads files only.  Tested by scripts/test_check_no_aid.py.  scripts/zenodo_deposit.py runs it on the tagged
 commit and stops if it finds a hit; docs/registration/ZENODO.md runs it before the tag is made.
 """
@@ -254,21 +258,25 @@ def main(argv=None):
              f"{len(ALLOW_TERMS)} allowed terms, {sum(len(v) for v in ALLOW_PATH_TERMS.values())} allowed terms by path"))
     print(f"third_party (vendored, not changed, not counted): {len(skipped)} hit(s) in "
           f"{len(set(h[0] for h in skipped))} file(s)")
+    rx = _regex()
+    index = {p.lower(): i for i, p in enumerate(patterns())}
+
+    def mask(s):
+        return rx.sub(lambda m: f"<#{index[m.group(0).lower()]:02d}>", s)
+
     if a.counts:
-        rx = _regex()
-        index = {p.lower(): i for i, p in enumerate(patterns())}
         for label, group in (("skipped", skipped), ("HIT", hits)):
             per = {}
             for h in group:
                 per.setdefault(h[0], []).append(index[h[2].lower()])
             for path in sorted(per):
-                masked = rx.sub(lambda m: f"<#{index[m.group(0).lower()]:02d}>", path)
                 nums = ", ".join(f"#{n:02d} x{per[path].count(n)}" for n in sorted(set(per[path])))
-                print(f"  {label}  {masked}  {len(per[path])} hit(s): {nums}")
+                print(f"  {label}  {mask(path)}  {len(per[path])} hit(s): {nums}")
         print(f"files with a counted hit: {len(set(h[0] for h in hits))}")
     else:
+        # a skipped hit: file, place and pattern number, masked; never the matched text (item 25)
         for h in skipped:
-            print("  skipped  %s  %s  [%s]  %s" % h)
+            print(f"  skipped  {mask(h[0])}  {mask(h[1])}  #{index[h[2].lower()]:02d}")
         for h in hits:
             print("  HIT  %s  %s  [%s]  %s" % h)
     print(f"hits: {len(hits)}")

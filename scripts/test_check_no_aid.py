@@ -14,7 +14,12 @@ Checks:
        log and a zip member's name;
     4. a term allowed in one path only is a hit in another path;
     5. a hit under third_party/ is reported apart and does not count;
-    6. --rev searches the files as stored at that commit and not the working tree.
+    6. --rev searches the files as stored at that commit and not the working tree;
+    7. (added 25 November 2026, docs/registration/REVIEW_2026-11-25.md item 25) a committed console of the
+       check does not itself produce a hit when the check is run over the commit: in a repository whose
+       third_party/ holds hits in a line, in a directory name and in a zip member's name, the console of each
+       mode (plain and --counts) is written to logs/, committed, and the check with --rev on that commit
+       returns 0 with no counted hit; neither console holds any pattern.
 Run: D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\test_check_no_aid.py > logs\\test_check_no_aid.log
 """
 import gzip
@@ -189,6 +194,37 @@ def main():
         code_head, _ = run(repo, "--rev", "HEAD")
         check(code_tree == 0 and code_head == 0 and code_first == 1,
               f"--rev reads the commit: working tree {code_tree}, HEAD {code_head}, first commit {code_first}")
+
+        # 7. a committed console of the check is not itself a hit over the commit
+        vendored = {
+            "third_party/lib/a.txt": f"line one\nwritten by {word} and {tool}\n",
+            f"third_party/{word}_lib/b.txt": "plain\n",
+            "third_party/lib/c.zip": zip_bytes({f"{tool}.txt": "plain"}),
+            "README.md": "plain\n",
+        }
+        repo = make_repo(tmp, "console", vendored)
+        rx = C._regex()
+        _, skipped0, _ = C.scan(repo)
+        n0 = len(skipped0)
+        check(len({h[0] for h in skipped0}) == 3 and {h[1] for h in skipped0} >= {"line 2", "path", "zip member name"},
+              f"the third_party/ files give {n0} skipped hits in 3 files: in a line, a directory name and a zip member's name")
+        for mode, extra, log in (("plain", [], "logs/check_no_aid.log"),
+                                 ("--counts", ["--counts"], "logs/check_no_aid_counts.log")):
+            code, out = run(repo, *extra)
+            check(code == 0 and f"{n0} hit(s) in 3 file(s)" in out,
+                  f"{mode}: the console reports the {n0} skipped hits under third_party/ and returns 0")
+            check(not rx.search(out), f"{mode}: the console holds no pattern")
+            full = os.path.join(repo, *log.split("/"))
+            os.makedirs(os.path.dirname(full), exist_ok=True)
+            with open(full, "w", encoding="utf-8", newline="\n") as f:
+                f.write(out)
+            git(repo, "add", "-A")
+            git(repo, "commit", "-q", "-m", f"console {mode}")
+            code_rev, out_rev = run(repo, "--rev", "HEAD")
+            hits, skipped, _ = C.scan(repo, "HEAD")
+            check(code_rev == 0 and not hits and "hits: 0" in out_rev and len(skipped) == n0,
+                  f"{mode}: the check with --rev on the commit that holds its console returns {code_rev}, "
+                  f"{len(hits)} counted hit(s)")
 
     print("OK" if not FAILS else f"{len(FAILS)} failure(s)")
     return 0 if not FAILS else 1

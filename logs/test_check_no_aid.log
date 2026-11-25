@@ -63,4 +63,11 @@ ok    a zip member's name is searched
 ok    a term allowed in logs/envprobe.log is a hit in logs/other.log
 ok    a hit under third_party/ is reported apart and does not count
 ok    --rev reads the commit: working tree 0, HEAD 0, first commit 1
+ok    the third_party/ files give 6 skipped hits in 3 files: in a line, a directory name and a zip member's name
+ok    plain: the console reports the 6 skipped hits under third_party/ and returns 0
+ok    plain: the console holds no pattern
+ok    plain: the check with --rev on the commit that holds its console returns 0, 0 counted hit(s)
+ok    --counts: the console reports the 6 skipped hits under third_party/ and returns 0
+ok    --counts: the console holds no pattern
+ok    --counts: the check with --rev on the commit that holds its console returns 0, 0 counted hit(s)
 OK
