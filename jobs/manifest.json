@@ -8,7 +8,7 @@
  "repository": "rahul-k-mishra/horizon",
  "session": {"checkpoint_reserve_seconds": 300, "platform_limit_seconds": 3600, "work_seconds": 600},
  "chunks": [
-  {"attempts": 0, "chunk_id": "a-01", "failures": 0, "kind": "gvgaiagent", "sessions": [], "status": "pending"}
+  {"attempts": 1, "chunk_id": "a-01", "failures": 0, "kind": "gvgaiagent", "sessions": [], "status": "running"}
  ],
  "units": [
   {"agent": "N", "chunk_id": "a-01", "game": "allwin", "kind": "gvgaiagent", "level": 0, "seed": 1000, "status": "pending", "suite": "gvgai", "unit_id": "a-01-N-allwin-l0-s1000"},
