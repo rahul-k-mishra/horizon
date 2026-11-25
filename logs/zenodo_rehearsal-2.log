@@ -1,0 +1,55 @@
+Second rehearsal of the day of the tag, 25 November 2026 (docs/registration/ZENODO.md as corrected that day), in a
+throwaway clone outside the repository, on commit d0f1bd675f759fd83c1407c5f19297f562625fe2, with the clone's origin
+set to a local bare repository so that no push could reach GitHub. Steps 1a and 3 were run in cmd, as written in
+ZENODO.md. The clone was deleted afterwards. This file is the console of each step as it printed, copied from the
+session; the clone's own logs went with it.
+
+== step 1: the protocol list (docs/registration/protocol_files.txt) in the clone
+listed 392, tracked 392, missing 0; working tree clean
+still under "to be added":
+# docs/truth/handcheck_answers.json (the author's 100 answers; 1 entered at 25 November 2026)
+# docs/truth/HANDCHECK_RESULT.md (written by scripts/handcheck_report.py from the answers)
+(step 1 would fail on the day while these two are open; expected, REVIEW_2026-11-25.md item 27)
+
+== step 1a: scripts\check_no_aid.py --counts > logs\check_no_aid.log (working tree of the clone)
+exit 0
+searched 8191 tracked files (working tree), 20 patterns, 10 allowed terms, 11 allowed terms by path
+files with a counted hit: 0
+hits: 0
+clean
+git status after the step: no change (the console written equals the committed one)
+
+== step 2: git tag -a rehearsal-2 -m "HORIZON registration rehearsal 2"; git push origin rehearsal-2 (to the local bare repository)
+ * [new tag]         rehearsal-2 -> rehearsal-2
+push exit 0
+
+== step 3: scripts\zenodo_deposit.py --tag rehearsal-2 --out <scratch>\zenodo\rehearsal-2 > logs\zenodo_deposit_rehearsal-2.log 2>&1
+exit 0
+logs/zenodo_deposit_rehearsal-2.log, 348 bytes:
+tag rehearsal-2 (annotated), commit d0f1bd675f759fd83c1407c5f19297f562625fe2, tagger Rahul Kumar Mishra, date 2026-11-25
+files 393, bytes 5650277; protocol.zip sha256 4202c33d79509f7e61fa2af91ad6c33dab90c1d9ab6985cc5ebe57f96c5485f5
+written: protocol/, protocol.zip, SHA256SUMS.txt, description.txt, metadata.json under the folder given by --out
+folder: SHA256SUMS.txt 61292 bytes, 396 lines; description.txt 45308 bytes, 402 lines; metadata.json 88739 bytes;
+protocol.zip 1111465 bytes
+a second build into another folder: protocol.zip sha256 4202c33d79509f7e61fa2af91ad6c33dab90c1d9ab6985cc5ebe57f96c5485f5 (the same)
+
+== step 3 with a tag that does not exist, to see the console of a failure (same redirect, 2>&1)
+exit 1
+console 20 bytes: "no tag no-such-tag"
+
+== metadata.json, keys and first values
+keys: title, creators, publication_date, version, description_file, files_to_upload, related_identifiers, tag,
+zip_sha256, left_to_the_author
+title "HORIZON: registered protocol rehearsal-2"; version rehearsal-2; publication_date 2026-11-25
+
+== description.txt, first lines
+The registered protocol of HORIZON, version rehearsal-2, by Rahul Kumar Mishra.
+This deposit is one half of the registration; the other half is the annotated git tag rehearsal-2 in
+https://github.com/rahul-k-mishra/horizon, on commit d0f1bd675f759fd83c1407c5f19297f562625fe2, tagged
+2026-11-25T23:38:55+05:30. ...
+
+== steps 4 and 5 (the upload to Zenodo and the record in STATE) were not rehearsed: they publish.
+
+== after deleting the clone, the repository D:\Research\horizon\repo
+HEAD d0f1bd675f759fd83c1407c5f19297f562625fe2, working tree clean, tags the same 7 as before, no tag rehearsal* here
+or on GitHub (git ls-remote --tags origin)
