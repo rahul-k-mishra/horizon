@@ -13,6 +13,9 @@ files and PyPI only:
     4. every module outside the standard library that scripts/automation imports (tests left out) is provided
        by a pinned package;
     5. the pins equal the versions the probe found installed on stage D's image (logs/envprobe.log).
+    6. (since 25 November 2026, the kind gvgaiagent) every distribution that N, R, I1 and Rand imported when the probe
+       played them on the image, in a process of their own, is pinned at the version installed there; and the probe
+       found study 1's frozen files with their registered blob hashes.
 The import of these exact versions on that image is in logs/envprobe.log ("imported").
 Since 14 November 2026 the probe log read is logs/envprobe_v4.log, the probe of the pins of code tag automation-v4
 (JPype1 and packaging added; the JDK and GVGAI build checked there); modules that scripts/automation imports from
@@ -40,8 +43,9 @@ from packaging.utils import canonicalize_name
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
 REQ = os.path.join(REPO, "kaggle", "requirements-runner.txt")
-# the probe of the pins of code tag automation-v4 (14 November 2026); logs/envprobe.log is the probe of 1 November
-PROBE_LOG = os.path.join(REPO, "logs", "envprobe_v4.log")
+# the probe of the pins of the kind gvgaiagent (25 November 2026); logs/envprobe_v4.log is the probe of the pins of
+# code tag automation-v4 (14 November) and logs/envprobe.log the probe of 1 November
+PROBE_LOG = os.path.join(REPO, "logs", "envprobe_agents.log")
 # the module a distribution provides, where the names differ
 PROVIDES = {"numpy": "numpy", "gymnasium": "gymnasium", "minigrid": "minigrid", "JPype1": "jpype"}
 # modules of this repository that scripts/automation imports from outside its folder (scripts/ and the copies of
@@ -130,6 +134,18 @@ def main():
     probe = {canonicalize_name(k): v for k, v in probe_tree.items()}
     check(probe == pins, f"step 5: the pins equal the versions the probe found on the image: "
                          f"{sorted(pins.items())} against {sorted(probe.items())}")
+
+    head = "distributions the agents' process imported, with the version installed:"
+    check(head in log and "agents on corridor 0: FAILED" not in log, "step 6: the probe played the agents on the image")
+    if head in log:
+        imported = dict(re.findall(r"^    ([A-Za-z0-9_.-]+)==(\S+)$", log.split(head)[1].split("modules not from")[0], re.M))
+        print(f"distributions the agents imported on the image: {len(imported)}")
+        for k, v in sorted(imported.items(), key=lambda kv: kv[0].lower()):
+            n = canonicalize_name(k)
+            check(pins.get(n) == v, f"step 6: {k} {v}, imported by the agents, is pinned at that version "
+                                    f"(pinned {pins.get(n, 'NOT PINNED')})")
+        check(bool(re.search(r"^agents: frozen files checked \d+, differing none;", log, re.M)),
+              "step 6: the probe found study 1's frozen files with their registered blob hashes")
     print("OK" if not fails else f"{len(fails)} failure(s)")
     return 0 if not fails else 1
 

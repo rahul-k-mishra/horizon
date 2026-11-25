@@ -11,7 +11,8 @@ kaggle/requirements-runner.txt needs there (docs/STATE.md, amendment s).  The pr
     python scripts/automation/envprobe.py push --user <account> --ref <commit or tag>
         installs kaggle/requirements-runner.txt from that ref instead of the notebook's TAG (14 November 2026: the
         pins of code tag automation-v4, probed at the commit that carries them before the tag is cut); collect then
-        also prints the kind gvgaisearch's checks (JPype, the pinned JDK, the GVGAI build)
+        also prints the kind gvgaisearch's checks (JPype, the pinned JDK, the GVGAI build), and, since 25 November
+        2026, the kind gvgaiagent's: N, R, I1 and Rand on the synthetic level corridor 0 and every package they imported
 
 collect also reads, from the committed rows of stage D (runs/dev-minigrid/devsearch/*.json), the image digests
 that stage D's sessions recorded, and says whether the probe ran on the same image.  It changes no file in the
@@ -118,6 +119,22 @@ def collect(a):
         print(f"synthetic level corridor 0 loaded: actions {g['corridor_0_actions']}, key {g['corridor_0_key_bytes']} bytes")
     elif a.ref:
         print("NO gvgai section in probe.json")
+    if "agents" in d:                          # since 25 November 2026: the kind gvgaiagent's agents on corridor 0
+        ag = d["agents"]
+        if "error" in ag:
+            print(f"agents on corridor 0: FAILED (code {ag.get('code')}): {ag['error']}")
+        else:
+            print(f"agents: frozen files checked {ag['frozen_files']}, differing {ag['frozen_differ'] or 'none'}; "
+                  f"MPLBACKEND {ag.get('MPLBACKEND')}; {ag['seconds']} s in all")
+            for k, v in ag["plays"].items():
+                print(f"agent {k} on corridor 0, 300 actions: {v['outcome']}, actions {v['actions']}, "
+                      f"first level end {v['first_level_end']}, {v['seconds']} s")
+            print("distributions the agents' process imported, with the version installed:")
+            for k, v in sorted(ag["distributions"].items(), key=lambda kv: kv[0].lower()):
+                print(f"    {k}=={v}")
+            print(f"modules not from a distribution: {ag['modules_without_distribution']}")
+    elif a.ref:
+        print("NO agents section in probe.json")
     print("the runner's requirements and every package they need, as installed:")
     for k, v in d["runner_tree"].items():
         print(f"    {k}=={v}")
