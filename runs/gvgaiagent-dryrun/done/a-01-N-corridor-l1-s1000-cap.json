@@ -1,0 +1,10 @@
+{
+ "chunk_id": "a-01",
+ "committed_at": "2026-11-25T11:38:28Z",
+ "kernel_version": 125,
+ "kind": "gvgaiagent",
+ "row_path": "runs/gvgaiagent-dryrun/gvgaiagent/a-01-N-corridor-l1-s1000-cap.json",
+ "row_sha256": "54002b3f0c839c2cc0a18e0ffeff297b88d97651ba0746b2079222dc00ab5ce6",
+ "run_nonce": "gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2",
+ "unit_id": "a-01-N-corridor-l1-s1000-cap"
+}

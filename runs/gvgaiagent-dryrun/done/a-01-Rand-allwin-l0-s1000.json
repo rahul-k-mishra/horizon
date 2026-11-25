@@ -1,0 +1,10 @@
+{
+ "chunk_id": "a-01",
+ "committed_at": "2026-11-25T11:38:28Z",
+ "kernel_version": 125,
+ "kind": "gvgaiagent",
+ "row_path": "runs/gvgaiagent-dryrun/gvgaiagent/a-01-Rand-allwin-l0-s1000.json",
+ "row_sha256": "9b61c106eebb9a3b12b47e2d075d0a587f84729edd169400674eaca84ec07284",
+ "run_nonce": "gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2",
+ "unit_id": "a-01-Rand-allwin-l0-s1000"
+}
