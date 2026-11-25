@@ -1,0 +1,10 @@
+{
+ "chunk_id": "g1-02",
+ "committed_at": "2026-11-25T16:39:18Z",
+ "kernel_version": 128,
+ "kind": "gvgaiagent",
+ "row_path": "runs/gvgai-pilot-agents/gvgaiagent/g1-02-R-rivers-l0-s1000.json",
+ "row_sha256": "e04fc6c45d03241560252cb4eb7bea6d909abad146c9cd4fb89a16f874e6f888",
+ "run_nonce": "gvgai-pilot-agents-g1-02-20261125T150625Z-482aa1",
+ "unit_id": "g1-02-R-rivers-l0-s1000"
+}

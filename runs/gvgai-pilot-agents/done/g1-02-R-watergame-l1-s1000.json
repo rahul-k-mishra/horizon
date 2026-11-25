@@ -1,0 +1,10 @@
+{
+ "chunk_id": "g1-02",
+ "committed_at": "2026-11-25T16:39:18Z",
+ "kernel_version": 128,
+ "kind": "gvgaiagent",
+ "row_path": "runs/gvgai-pilot-agents/gvgaiagent/g1-02-R-watergame-l1-s1000.json",
+ "row_sha256": "f0a92bbddec6620991eb038022a3dc36e0fe9dd8982c6c0a19293d5932f3f8d2",
+ "run_nonce": "gvgai-pilot-agents-g1-02-20261125T150625Z-482aa1",
+ "unit_id": "g1-02-R-watergame-l1-s1000"
+}

@@ -1,0 +1,112 @@
+{
+ "agent": "I1",
+ "agent_stats": {
+  "actions": 20000,
+  "adapter": {
+   "action_list": [
+    "left",
+    "right",
+    "down",
+    "up"
+   ],
+   "adapter_blob": "8d629513463fabfbe7fde5e23dc3a4d9282e6763",
+   "canvas": {
+    "padding": 0,
+    "row_offset": 1,
+    "size": 64
+   },
+   "condition": "frame",
+   "crop": null,
+   "episodes": 694,
+   "frozen": {
+    "external/rudakov_just_explore/agents/agent.py": "2052bf8372bb858784db498fb7709a3674f21168",
+    "external/rudakov_just_explore/agents/heuristic_agent.py": "2a0af90e147d91c760b19b3019b4c0c0bf374fc4",
+    "external/rudakov_just_explore/agents/recorder.py": "e349f2c61e516266f89ee994d1719f2bf426ba42",
+    "external/rudakov_just_explore/agents/structs.py": "e7de1848aff60b0858d73cef2a190fc1275f4da4",
+    "external/rudakov_just_explore/agents/tracing.py": "247f3a6988a711b816093527fc2d6bb4c7735127",
+    "external/rudakov_just_explore/graph_explorer.py": "0df7e5b4b65365c0ea7d9c7e1a7fee7c2046c1f0",
+    "scripts/e1_rudakov_adapter.py": "39ab52f82f2fef3460ce83cb9db30d892b571d5b",
+    "scripts/env_frame.py": "bb3ff60acf88c220ec64e287c6c1d6bb899f879b",
+    "scripts/g_agent.py": "72585a4dbb926d4512ff9596f58118a176bb0646",
+    "scripts/g_census_table.py": "488feaca9c10985c4d0ff62791ceb4fa6fa6b9a8",
+    "scripts/g_control_probe.py": "d5ff2a4dc77b9e1148929e7db03fe99a9d2b0bf8",
+    "scripts/g_motion.py": "14018512a5c6b0efc81aed61c5466654d338be0b",
+    "scripts/g_nav.py": "a8a7eb61e62a658c239b98e0224e3588a662d1a0",
+    "scripts/g_nav_run.py": "2cc0146a697e525e5873d4e29cb80f4ae8bd6297",
+    "scripts/i1_suite_adapter.py": "9d8a18548b958e70b1365b2eacb25d25f83284ba"
+   },
+   "game": "watergame",
+   "grid": [
+    9,
+    7
+   ],
+   "gvgai_commit": "e58ff6597319155218759cc178931e05b81b524c",
+   "key_map": {
+    "1": "up",
+    "2": "down",
+    "3": "left",
+    "4": "right"
+   },
+   "level": 2,
+   "n_colours": 7,
+   "palette": "cell-type-set",
+   "steps": 19307,
+   "suite": "gvgai"
+  },
+  "diag": {
+   "graph_resets": 1,
+   "issued_by_id": {
+    "0": 693,
+    "1": 4417,
+    "2": 6876,
+    "3": 3108,
+    "4": 4906
+   },
+   "level_wins_at_step": [],
+   "level_wins_followed_by_graph_reset": 0,
+   "resets": 693,
+   "their_prints": {
+    "Lowest dist": 10986,
+    "Suspicious transition": 693,
+    "Will run": 1
+   }
+  },
+  "first_level_end": null,
+  "play_seconds": 497.59,
+  "sec_per_action": 0.0249,
+  "stopped": "budget",
+  "time_truncated": false
+ },
+ "budget": 20000,
+ "campaign": "gvgai-pilot-agents",
+ "chunk_id": "g1-02",
+ "cut_by_cap": false,
+ "game": "watergame",
+ "level": 2,
+ "outcome": {
+  "level1_completed": false,
+  "levels": 0
+ },
+ "schema": "horizon.agent.v2",
+ "seconds": 497.619,
+ "seed": 1000,
+ "sessions": [
+  {
+   "ended_at": "2026-11-25T16:12:47Z",
+   "host": "e2add621a08b",
+   "kaggle_env": {
+    "KAGGLE_CONTAINER_NAME": "kaggle_eTx1LDFtpq7vrXMbd3751IjRfI0ta10kzwPYjiTT4s-374007570-webtier",
+    "KAGGLE_DOCKER_IMAGE": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "KAGGLE_GCP_ZONE": "us-west1-a",
+    "KAGGLE_KERNEL_INTEGRATIONS": "",
+    "KAGGLE_KERNEL_RUN_TYPE": "Batch",
+    "KAGGLE_URL_BASE": "https://api.kaggle.com"
+   },
+   "run_nonce": "gvgai-pilot-agents-g1-02-20261125T150625Z-482aa1",
+   "started_at": "2026-11-25T15:06:44Z"
+  }
+ ],
+ "suite": "gvgai",
+ "unit_id": "g1-02-I1-watergame-l2-s1000",
+ "written_at": "2026-11-25T16:12:47Z"
+}

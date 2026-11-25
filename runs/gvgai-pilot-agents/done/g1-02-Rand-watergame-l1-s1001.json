@@ -1,0 +1,10 @@
+{
+ "chunk_id": "g1-02",
+ "committed_at": "2026-11-25T16:39:18Z",
+ "kernel_version": 128,
+ "kind": "gvgaiagent",
+ "row_path": "runs/gvgai-pilot-agents/gvgaiagent/g1-02-Rand-watergame-l1-s1001.json",
+ "row_sha256": "72bd4814f5f80baff794b17dd8dde3e1583660eb4057374d9936c0029e54f859",
+ "run_nonce": "gvgai-pilot-agents-g1-02-20261125T150625Z-482aa1",
+ "unit_id": "g1-02-Rand-watergame-l1-s1001"
+}
