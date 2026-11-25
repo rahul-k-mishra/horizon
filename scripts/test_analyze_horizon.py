@@ -20,7 +20,7 @@ Part 4 also records that under the drafted rules, without the void rule of Secti
 which every level lies gives AUROC_L 0.5, "not shown", not void; and that under the rule fixed on 24 November 2026
 (form (a), 50%) the same data are void, as is 64 of 130 levels with a win, while 65 of 130 is not.  Part 5 checks the refusals: any campaign but the confirmatory one, and any run
 before the annotated tag prereg-v1 holds this script.
-Part 6, units cut by the agent unit cap (reported, entering no verdict).  On the synthetic data of part 4, agent N's
+Part 6, units cut by the agent unit cap (docs/PREREG.md, Section 7.6, decided 25 November 2026).  On the synthetic data of part 4, agent N's
 seeds on game00 are set by hand (seeds 1000 to 1009; "cut" = cut_by_cap true):
     level 0: seeds 1000-1003 completed, 1004 cut without completing, the rest not completed
              done 4, open 1: Y = 0 and 4 + 1 >= 5, so undetermined
@@ -32,7 +32,8 @@ seeds on game00 are set by hand (seeds 1000 to 1009; "cut" = cut_by_cap true):
              a cut unit, not open
   N: 1,300 units, 1 + 2 + 4 + 1 = 8 cut (share 8 / 1,300 = 0.0062), 7 open, 1 of 130 levels undetermined (game00 0).
   The cuts change no Y, no AUROC, no verdict and no outcome: the result equals the one without cuts in every field
-  but "cut".
+  but "cut".  The void rule, more than 10% of 130 levels undetermined: 13 levels (10.0%) is not void, 14 (10.8%)
+  is.  To make them, game01 to game13 (and then game14), level 0, get 4 completed seeds and 1 cut without completing.
 Run: D:\\Research\\horizon\\.venv\\Scripts\\python.exe -W error scripts\\test_analyze_horizon.py > logs\\test_analyze_horizon.log
 """
 import itertools
@@ -345,7 +346,7 @@ def part5():
 
 
 def part6():
-    print("== 6. units cut by the agent unit cap (reported, entering no verdict)")
+    print("== 6. units cut by the agent unit cap (Section 7.6)")
     rows, truth, feats, outc = synthetic()
     S = A.SEEDS
     plan = {0: ([S[0], S[1], S[2], S[3]], [S[4]]), 1: ([S[0], S[1], S[2], S[3], S[4]], [S[5], S[6]]),
@@ -372,10 +373,35 @@ def part6():
     check(strip(base) == strip(res), "the cuts change no Y, AUROC, interval, verdict or outcome")
     check(base["agents"]["N"]["cut"]["cut"] == 0, "without cuts the count is 0")
     text = A.report(res)
-    check("## Units cut by the agent unit cap (reported; enters no verdict)" in text
+    check("## Units cut by the agent unit cap (Section 7.6)" in text
           and "| N | 8 of 1300 | 0.0062 | 7 | 1 of 130 |" in text
           and "| Rand | 0 of 1300 | 0.0000 | 0 | 0 of 130 |" in text,
           "the report gives the count, share, open units and undetermined levels per agent, Rand included")
+    for n_lv, void in ((13, False), (14, True)):
+        rows, truth, feats, outc = synthetic()
+        cuts = set()
+        for gi in range(1, n_lv + 1):
+            g = f"game{gi:02d}"
+            for s in S:
+                outc[("N", g, 0, s)] = s in S[:4]
+            cuts.add(("N", g, 0, S[4]))
+        res = A.analyze(rows, truth, feats, outc, 1000, workers=1, n_boot=50, cuts=cuts)
+        n = res["agents"]["N"]
+        got = any("undetermined" in x for x in n["void"])
+        check(n["cut"]["levels_undetermined"] == n_lv and got == void and (n["verdict"] == "void") == void,
+              f"{n_lv} of 130 levels undetermined: {'void' if void else 'not void'} (got {n['cut']['levels_undetermined']}, "
+              f"{n['verdict']}, {n['void']})")
+    rows, truth, feats, outc = synthetic()
+    cuts = set()
+    for gi in range(1, 21):
+        g = f"game{gi:02d}"
+        for s in S:
+            outc[("Rand", g, 0, s)] = s in S[:4]
+        cuts.add(("Rand", g, 0, S[4]))
+    res = A.analyze(rows, truth, feats, outc, 1000, workers=1, n_boot=50, cuts=cuts)
+    k = res["agents"]["Rand"]
+    check(k["cut"]["levels_undetermined"] == 20 and k["void"] == [] and res["agents"]["N"]["void"] == [],
+          f"Rand, 20 of 130 levels undetermined: counted, and no void, as Rand has no verdict (got {k['cut']['levels_undetermined']}, {k['void']})")
     r = dict(agent="I1", game="glow", level="3", seed="1004", outcome=dict(level1_completed=False), cut_by_cap=True)
     check(A.agent_entry(r) == (("I1", "glow", 3, 1004), False, True), "a cut row's key, completion and cut are read")
     r["cut_by_cap"], r["outcome"]["level1_completed"] = False, True

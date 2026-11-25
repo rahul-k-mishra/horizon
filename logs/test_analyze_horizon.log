@@ -66,7 +66,7 @@ ok    a lightweight tag is not enough
 ok    an annotated tag holding the same script: allowed
 ok    a script changed after the tag: refused
 ok    the supplement gives the development EH AUROC and the share not computed, labelled exploratory
-== 6. units cut by the agent unit cap (reported, entering no verdict)
+== 6. units cut by the agent unit cap (Section 7.6)
 ok    N: 8 of 1,300 units cut, 7 open (got 8 of 1300, 7)
 ok    N: share 8 / 1,300 (got 0.006153846153846154)
 ok    N: 1 of 130 levels undetermined, game00 0 (got 1, [['game00', 0]])
@@ -74,6 +74,9 @@ ok    R, I1 and Rand: 0 of 1,300 units cut
 ok    the cuts change no Y, AUROC, interval, verdict or outcome
 ok    without cuts the count is 0
 ok    the report gives the count, share, open units and undetermined levels per agent, Rand included
+ok    13 of 130 levels undetermined: not void (got 13, shown, [])
+ok    14 of 130 levels undetermined: void (got 14, void, ['14 of 130 levels undetermined by units cut by the agent unit cap, over 10% (Section 7.6)'])
+ok    Rand, 20 of 130 levels undetermined: counted, and no void, as Rand has no verdict (got 20, [])
 ok    a cut row's key, completion and cut are read
 ok    an uncut completed row is read
 OK

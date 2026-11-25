@@ -18,11 +18,11 @@ Per unit (all larger = predicted easier):
     area, actions, colours   the nuisance features, each negated; B their in-sample logistic fit
                     (oracle_v2.fit_logistic, which reproduces study 1's logistic_fit_predict), refitted in every
                     resample on the units of the comparison.
-Units cut by the agent unit cap (reported, entering no verdict; docs/STATE.md, amendment (al)): a unit whose row has
-cut_by_cap true stopped short of the budget, and its outcome is what it did in the actions it played; the
-registration has no rule on such units.  Per agent the script reports the units cut and their share of the agent's
+Units cut by the agent unit cap (docs/PREREG.md, Section 7.6; decided 25 November 2026): a unit whose row has
+cut_by_cap true stopped short of the budget, and its outcome is what it did in the actions it played.  Per agent the script reports the units cut and their share of the agent's
 units, those cut without completing the level ("open": had they played on, they might have), and the levels whose Y
-those open units could have changed: Y = 0, yet the completed seeds plus the open seeds number at least 5.
+those open units could have changed: Y = 0, yet the completed seeds plus the open seeds number at least 5.  An
+evidence agent is void if more than 10% of the levels are undetermined (in integers: undetermined * 100 > 10 * levels).
 AUROC: Mann-Whitney with ties 1/2 over the pairs of a completed and an uncompleted unit from different games
 ("all"), or from different games with the same S_M ("same"), the primary pairing (Section 7.2).
 Bootstrap: 10,000 resamples of the games with replacement, each with all its levels and its S_M, seed 20261024
@@ -87,6 +87,7 @@ NUIS = ("area", "actions", "colours")
 N_BOOT, SEED, CHUNKS = 10_000, 20261024, 8
 CI = {"95%": (2.5, 97.5), "98.33%": (100 * 0.05 / 6, 100 - 100 * 0.05 / 6)}
 FLOOR, BAND, EXCLUDED_MAX, MIN_GAMES = 0.70, (0.10, 0.90), 0.10, 20
+UNDETERMINED_MAX_PERCENT = 10   # docs/PREREG.md, Section 7.6, units cut by the agent unit cap (decided 25 Nov 2026)
 INF = -1e18          # beyond C: ranked last, tied
 PRIMARY = "L_same"
 # line name: (score, pairing); "B" is refitted per resample; "L-B" is a difference on the same pairs
@@ -264,9 +265,12 @@ def build_blocks(units, y_of):
     return blocks, games
 
 
-def void_reasons(units, y_of, c_counts, blocks, games):
-    """The void rules of Section 7.6 for one agent; [] if not void."""
+def void_reasons(units, y_of, c_counts, blocks, games, cut=None):
+    """The void rules of Section 7.6 for one agent; [] if not void.  cut: cut_counts() of the agent."""
     reasons = []
+    if cut is not None and cut["levels_undetermined"] * 100 > UNDETERMINED_MAX_PERCENT * cut["levels"]:
+        reasons.append(f"{cut['levels_undetermined']} of {cut['levels']} levels undetermined by units cut by the agent "
+                       f"unit cap, over {UNDETERMINED_MAX_PERCENT}% (Section 7.6)")
     ys = [y_of[k] for k in units]
     share = sum(ys) / len(ys)
     if not BAND[0] <= share <= BAND[1]:
@@ -387,12 +391,13 @@ def analyze(rows, truth, features, outcomes, c, workers=1, n_boot=N_BOOT, cuts=f
         p0 = line_values(b0, g0)
         v0, s0 = bootstrap(b0, g0, workers, n_boot)
         level0 = {name: dict(point=p0[name], ci=intervals(v0, name)[0]) for name in (PRIMARY, DELTA)}
-        reasons = void_reasons(units, y_of, counts, blocks, games) if agent in AGENTS else []
+        cut = cut_counts(agent, keys, outcomes, cuts)
+        reasons = void_reasons(units, y_of, counts, blocks, games, cut) if agent in AGENTS else []
         ver = ("void" if reasons else verdict(point[PRIMARY], lines[PRIMARY]["ci"]["98.33%"])) \
             if agent in AGENTS else None
         res["agents"][agent] = dict(completed=sum(y_of.values()), lines=lines, skipped=skipped,
                                     pairs_same=npairs, pairs_all=allpairs, level0=level0, level0_skipped=s0,
-                                    void=reasons, verdict=ver, cut=cut_counts(agent, keys, outcomes, cuts))
+                                    void=reasons, verdict=ver, cut=cut)
     res["agreement"] = {"N-R": agreement(y_all, "N", "R"), "N-I1": agreement(y_all, "N", "I1")}
     res["outcome"], res["venue"] = outcome({a: res["agents"][a]["verdict"] for a in AGENTS}, n_games)
     return res
@@ -442,10 +447,11 @@ def report(res):
         l0 = res["agents"][a]["level0"]
         for name in (PRIMARY, DELTA):
             out.append(f"| {a} | level 0 alone: {name} | {f4(l0[name]['point'])} | 95% {ci_text(l0[name]['ci']['95%'])} |")
-    out += ["", "## Units cut by the agent unit cap (reported; enters no verdict)", "",
+    out += ["", "## Units cut by the agent unit cap (Section 7.6)", "",
             "A cut unit stopped short of 20,000 actions and is scored on the actions it played. Open: cut without "
             "completing the level. Levels undetermined: Y = 0, yet the completed seeds plus the open seeds number "
-            "at least 5, so the cut could have changed Y. The registration has no rule on cut units.", "",
+            "at least 5, so the cut could have changed Y. An evidence agent is void if more than 10% of its levels "
+            "are undetermined.", "",
             "| agent | units cut | share | open | levels undetermined |", "|---|---|---|---|---|"]
     for a in AGENTS + REFERENCE:
         k = res["agents"][a]["cut"]
