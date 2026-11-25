@@ -5,9 +5,9 @@
   "chunk_id": "g1-02",
   "dispatched_at": "2026-11-25T15:06:25Z",
   "entry_hash": "2961ed6b6738c953f7d610d49c12f410e76dd9dfeda710db93a3365761f5957e",
-  "kernel_version": null,
+  "kernel_version": 128,
   "nonce": "gvgai-pilot-agents-g1-02-20261125T150625Z-482aa1",
-  "pushed_at": null,
+  "pushed_at": "2026-11-25T15:06:28Z",
   "runner": "actions-45641229970-1"
  },
  "halt_reason": null,
