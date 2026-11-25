@@ -1,0 +1,55 @@
+pilot agent run -- campaign gvgai-pilot-agents (jobs/manifest.json), code e296372656d9cd7f257e0aa46db8795872e3c346; budget 20000, run cap 7200 s, workers 4.  EXPLORATORY, development data (PREREG Section 8).
+
+== 1. G1: the agents play 20,000 actions on 2 seeds of every pilot unit without an error
+chunk g1-01: done, attempts 1, failures 0, sessions 1: v127 done
+chunk g1-02: done, attempts 1, failures 0, sessions 1: v128 done
+rows 160 of 160; rows failing horizon.agent.v2: none
+  N: units 40, rows 40, played 20,000 actions 40, short of 20,000 actions (cut_by_cap, by the run's cap or otherwise) 0
+  R: units 40, rows 40, played 20,000 actions 40, short of 20,000 actions (cut_by_cap, by the run's cap or otherwise) 0
+  I1: units 40, rows 40, played 20,000 actions 40, short of 20,000 actions (cut_by_cap, by the run's cap or otherwise) 0
+  Rand: units 40, rows 40, played 20,000 actions 40, short of 20,000 actions (cut_by_cap, by the run's cap or otherwise) 0
+
+== 2. G3: seconds of a unit of 20,000 actions (the row's wall-clock seconds)
+  N: 40 units; median 48.4 s, longest 919.528 s (rivers level 1, seed 1001); G3's rule on it: 1860 s, ABOVE 1800 s
+  R: 40 units; median 35.6 s, longest 923.516 s (rivers level 1, seed 1000); G3's rule on it: 1860 s, ABOVE 1800 s
+  I1: 40 units; median 477.6 s, longest 671.197 s (bait level 4, seed 1001); G3's rule on it: 1380 s, at most 1800 s
+  Rand: 40 units; median 23.5 s, longest 567.618 s (rivers level 1, seed 1001); G3's rule on it: 1140 s, at most 1800 s
+  all agents: longest 923.516 s; G3's cap 1860 s, ABOVE the ceiling of 1800 s
+  per level, the longest of the two seeds, seconds (N / R / I1 / Rand):
+    bait 0: 47.8 / 29.5 / 465.5 / 21.2
+    bait 1: 39.7 / 25.0 / 482.3 / 17.1
+    bait 2: 52.9 / 32.9 / 519.4 / 15.3
+    bait 3: 60.3 / 38.4 / 532.3 / 22.6
+    bait 4: 35.8 / 25.6 / 671.2 / 11.4
+    labyrinthdual 0: 54.8 / 48.8 / 480.5 / 27.1
+    labyrinthdual 1: 49.9 / 37.9 / 469.3 / 27.1
+    labyrinthdual 2: 49.1 / 36.0 / 471.4 / 27.6
+    labyrinthdual 3: 57.5 / 43.3 / 455.0 / 25.4
+    labyrinthdual 4: 45.4 / 41.5 / 405.5 / 25.4
+    rivers 0: 295.7 / 150.1 / 495.0 / 125.2
+    rivers 1: 919.5 / 923.5 / 481.9 / 567.6
+    rivers 2: 90.1 / 173.6 / 478.4 / 63.7
+    rivers 3: 714.7 / 242.9 / 476.5 / 309.0
+    rivers 4: 59.1 / 57.9 / 493.0 / 56.2
+    watergame 0: 27.2 / 13.7 / 434.4 / 8.7
+    watergame 1: 26.5 / 14.9 / 634.3 / 9.6
+    watergame 2: 37.2 / 26.3 / 497.6 / 10.7
+    watergame 3: 46.6 / 31.9 / 447.0 / 10.4
+    watergame 4: 46.3 / 27.7 / 383.7 / 11.4
+  per agent, the level whose two seeds differ most (longer / shorter):
+    N: rivers level 1, 214.099 s and 919.528 s, ratio 4.29
+    R: rivers level 2, 63.477 s and 173.581 s, ratio 2.73
+    I1: labyrinthdual level 4, 332.926 s and 405.507 s, ratio 1.22
+    Rand: bait level 0, 4.665 s and 21.189 s, ratio 4.54
+
+== 3. time outside the agent's own play clock
+  I1: 40 rows; seconds outside its play clock: median 0.042, largest 13.493 (g1-01-I1-bait-l0-s1000, unit 465.463 s), smallest 0.023; as a share of the unit's seconds, largest 0.0290
+  I1, the ten largest: g1-01-I1-bait-l0-s1000 13.493, g1-02-I1-rivers-l0-s1000 12.401, g1-02-I1-rivers-l2-s1001 1.511, g1-01-I1-bait-l0-s1001 1.478, g1-02-I1-watergame-l0-s1000 1.446, g1-01-I1-bait-l1-s1000 1.365, g1-01-I1-bait-l1-s1001 1.308, g1-02-I1-rivers-l0-s1001 1.248, g1-02-I1-rivers-l1-s1000 0.069, g1-01-I1-bait-l2-s1000 0.067
+  N and R: their clock starts before the level is built (study 1, g_agent.play), so the rows hold no separate play time; Rand: the unit's own clock
+
+== 4. item 15's options with these times (EXPLORATORY; nothing adopted)
+  (i) keep G3 as registered: one cap of 1860 s for every agent; G3 FAILS and the study is Void
+  (ii) raise G3's ceiling to 2400 s: the same cap of 1860 s passes; at most 84 chunks (bound), about 6.3 (projection)
+  (ii) raise G3's ceiling to 3600 s: the same cap of 1860 s passes; at most 84 chunks (bound), about 6.3 (projection)
+  (iii) one cap per agent by the same rule: N 1860 s, R 1860 s, I1 1380 s, Rand 1140 s; with the ceiling of 1800 s applied to each: N FAILS, R FAILS, I1 passes, Rand passes; at most 71 chunks (bound), about 6.3 (projection)
+  (iv) run G1's pilot agents before the tag: this run; the choice among (i) to (iii) is made with these times known

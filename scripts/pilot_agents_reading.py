@@ -11,7 +11,7 @@ once archived), the rows under runs/gvgai-pilot-agents/gvgaiagent/, and the loop
     2. G3: per agent, the longest and median seconds of a unit of 20,000 actions (the row's "seconds", the unit's
        wall-clock time), the level and seed of the longest, and the cap "twice the longest pilot time for 20,000
        actions, rounded up to a whole minute"; the same over all agents, which is G3's cap; and whether each is at
-       most 1,800 s.
+       most 1,800 s; per level, the longest of the two seeds; per agent, the level whose two seeds differ most.
     3. Time outside the agent's own play clock.  I1: the row's seconds less agent_stats.play_seconds, study 1's play
        timer, which starts after the level and I1 are built (study 1, scripts/e1_rudakov_adapter.py); N and R:
        their clock (study 1, scripts/g_agent.py, play, t0) starts before the level is built, so their rows hold no
@@ -117,6 +117,17 @@ def main():
                 xs = [r["seconds"] for r in rows.values() if r["agent"] == a and r["game"] == g and r["level"] == lv]
                 cells.append(f"{max(xs):.1f}" if xs else "-")
             print(f"    {g} {lv}: " + " / ".join(cells))
+    print("  per agent, the level whose two seeds differ most (longer / shorter):")
+    for a in AGENTS:
+        pairs = []
+        for g in sorted({u["game"] for u in m["units"]}):
+            for lv in range(5):
+                xs = sorted(r["seconds"] for r in rows.values() if r["agent"] == a and r["game"] == g and r["level"] == lv)
+                if len(xs) == 2 and xs[0] > 0:
+                    pairs.append((xs[1] / xs[0], g, lv, xs))
+        if pairs:
+            q, g, lv, xs = max(pairs)
+            print(f"    {a}: {g} level {lv}, {xs[0]} s and {xs[1]} s, ratio {q:.2f}")
     print("\n== 3. time outside the agent's own play clock")
     out = sorted(((round(r["seconds"] - float(r["agent_stats"]["play_seconds"]), 3), r["unit_id"], r["seconds"])
                   for r in rows.values() if r["agent"] == "I1" and r["agent_stats"].get("play_seconds") is not None),
