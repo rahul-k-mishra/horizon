@@ -462,3 +462,4 @@ No token to manage; credentials are cached locally for you.
 2026-11-25T11:22:32Z actions-45603712984-1 DEFERRAL cleared: the push of a-01 succeeded after 2 refusals since 2026-11-25T10:20:30Z
 2026-11-25T11:22:32Z actions-45603712984-1 PUSHED chunk a-01 as kernel version 125 run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
 2026-11-25T11:38:28Z actions-45606175327-1 COLLECT chunk a-01 kernel version 125 run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2: partial; chunks partial 1
+2026-11-25T11:38:30Z actions-45606175327-1 DISPATCH chunk a-01 (gvgaiagent) attempt 2 run gvgaiagent-dryrun-a-01-20261125T113830Z-13415d
