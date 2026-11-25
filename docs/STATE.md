@@ -617,3 +617,28 @@ Thirty-sixth amendment. The lines above are unchanged. Nothing was tagged or dep
 - **Also.** The docstring of scripts/analyze_horizon.py now names the script; scripts/test_analyze_horizon.py, rerun: OK. The protocol list moves the three files from "to be added" into the list. The aid check is clean on 7,855 tracked files, and no line added has a word of the forbidden list.
 - **What remains before the tag**: amendment (ai)'s order from item 2. The author's hand check (G4), DECISIONS item 15, and the third_party/ decision come first. To those add the colour-count definition above.
 - **Next:** the author's hand check and item 15.
+
+## Amendment 25 Nov 2026 (ak)
+
+Thirty-seventh amendment. The lines above are unchanged. Nothing was tagged or deposited. No committed row under runs/ and no done-marker was changed: the rows of the new campaign were written only by the loop. No confirmatory unit ran. This amendment follows the author's request of 25 November 2026. The request was to accept the colour-count definition, and to prepare and launch G1's pilot agent run with the figures reported before launch. When the rows were in, it asked for G3's reading and item 15's options with those times, with nothing adopted.
+
+- **The colour count** of PREREG Section 7.7 is marked "accepted by the author, 25 Nov 2026" (5dd6ab4).
+- **The run, as prepared** (5dd6ab4; scripts/make_pilot_agents_manifest.py, logs/make_pilot_agents_manifest.log).
+  - Campaign gvgai-pilot-agents, kind gvgaiagent, code e296372 (by full hash, since no tag is cut).
+  - N, R, I1 and Rand play 20,000 actions with seeds 1000 and 1001 on the 20 pilot levels: 160 units in 2 chunks of 80.
+  - Run cap 7,200 s per unit, so that no unit is cut before 20,000 actions; 4 workers; the pilot search's session settings.
+  - Worst case 10 sessions, 90.0 h. Projection, EXPLORATORY: about 6.2 h.
+  - The pilot games are not among the 25 confirmatory games, and scripts/analyze_horizon.py reads only campaign gvgai-confirmatory.
+  - PREREG Section 8 gains a dated paragraph recording the run before the tag. It says that nothing is adopted by the run, and leaves to the author whether the run stands as G1.
+- **Launch** (61c0c7d): the dry run's manifest is archived under jobs/archive/gvgaiagent-dryrun, and the pilot manifest is installed as jobs/manifest.json.
+- **The run**: chunk g1-01 ran as kernel version 127 and g1-02 as kernel version 128, each in one session, with 0 failures. All 160 rows are valid horizon.agent.v2. Every unit played 20,000 actions and none was cut.
+- **The reading** (scripts/pilot_agents_reading.py, logs/pilot_agents_reading.log). EXPLORATORY, development data.
+  - Longest unit: N 919.528 s and R 923.516 s, both on rivers level 1; I1 671.197 s on bait level 4; Rand 567.618 s on rivers level 1.
+  - G3's rule over all agents gives 1,860 s, which is above the ceiling of 1,800 s. Per agent it gives N 1,860 s, R 1,860 s, I1 1,380 s and Rand 1,140 s.
+  - The two seeds of one level differ by a factor of up to 4.29 (N on rivers level 1).
+  - Time outside I1's own play clock: median 0.042 s, maximum 13.493 s, at most 0.0290 of a unit. N and R include setup in their own clock; Rand's clock is the unit's own.
+  - Item 15's options with these times: (i) G3 fails, and the study is Void if this run stands as G1. (ii) With a ceiling of 2,400 or 3,600 s, the cap of 1,860 s passes: at most 84 chunks, and about 6.3 chunks of work by the pilot medians. (iii) N and R are still above 1,800 s, at most 71 chunks. (iv) is this run.
+  - The same figures are added to DECISIONS item 15 as a dated, exploratory paragraph. Its Answer line stays blank.
+- **Nothing adopted.** The agent unit cap, G3's ceiling, the agent family, and whether this run stands as G1 are the author's decisions. A change to G3's ceiling is a change to a cap rule. It can be made only before the tag, by a dated entry in PREREG.
+- **Also.** The protocol list gains the reading script, its console and the 160 pilot agent rows. The aid check is clean on 8,183 tracked files (logs/check_no_aid.log).
+- **Next:** the author's answer to item 15, the hand check (G4), and the third_party/ decision.
