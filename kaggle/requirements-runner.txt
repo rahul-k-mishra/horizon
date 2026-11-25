@@ -17,8 +17,13 @@
 # (graph_explorer.py); pydantic 2.13.5 and requests 2.34.2 are also the versions of study 1's environment (study 1,
 # docs/PREREG.md, and docs/W2_COMMANDS.md).  The image already holds every one of them at these versions, so the
 # install changes none of them.
+# Added 25 November 2026 after the probe of logs/envprobe_agents.log: brotli, chardet, PySocks and simplejson, which
+# requests and urllib3 import when they are installed, and which the image holds; pinned at the image's versions
+# (checked by the probe of logs/envprobe_agents_v2.log).
 annotated-types==0.8.0
+brotli==1.2.0
 certifi==2026.10.19
+chardet==5.2.0
 charset-normalizer==3.4.9
 cloudpickle==3.1.2
 contourpy==1.3.3
@@ -34,12 +39,14 @@ minigrid==3.1.0
 numpy==2.1.3
 packaging==26.3
 pillow==13.0.0
-pydantic==2.13.5
 pydantic-core==2.46.5
+pydantic==2.13.5
 pygame-ce==2.5.8
 pyparsing==3.3.2
+PySocks==1.7.1
 python-dateutil==2.9.0.post0
 requests==2.34.2
+simplejson==4.1.2
 six==1.17.0
 typing-extensions==4.16.0
 typing-inspection==0.4.4

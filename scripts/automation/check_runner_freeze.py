@@ -45,7 +45,7 @@ REPO = os.path.dirname(os.path.dirname(HERE))
 REQ = os.path.join(REPO, "kaggle", "requirements-runner.txt")
 # the probe of the pins of the kind gvgaiagent (25 November 2026); logs/envprobe_v4.log is the probe of the pins of
 # code tag automation-v4 (14 November) and logs/envprobe.log the probe of 1 November
-PROBE_LOG = os.path.join(REPO, "logs", "envprobe_agents.log")
+PROBE_LOG = os.path.join(REPO, "logs", "envprobe_agents_v2.log")
 # the module a distribution provides, where the names differ
 PROVIDES = {"numpy": "numpy", "gymnasium": "gymnasium", "minigrid": "minigrid", "JPype1": "jpype"}
 # modules of this repository that scripts/automation imports from outside its folder (scripts/ and the copies of
