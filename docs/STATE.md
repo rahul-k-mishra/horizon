@@ -599,3 +599,21 @@ Thirty-fifth amendment. The lines above are unchanged. Nothing was tagged and no
    - record the DOI, the date and protocol.zip's SHA-256 in a STATE amendment, with the deposit console.
 6. After the tag: G1's pilot agents (unless they run before it), then G3's cap into v1.1, tagged and deposited, before any confirmatory unit.
 - **Next:** the features file, or the author's hand check and item 15.
+
+## Amendment 25 Nov 2026 (aj)
+
+Thirty-sixth amendment. The lines above are unchanged. Nothing was tagged or deposited, no file under jobs/ or runs/ was changed, and no Kaggle session was used. This amendment follows the author's request of 25 November 2026 to build docs/truth/gvgai_features.json, item 1 of amendment (ai)'s order.
+
+- **What was built** (02bf457). scripts/gvgai_features.py writes docs/truth/gvgai_features.json, the three nuisance features of PREREG Section 7.7 for each of the 125 confirmatory levels: 25 games of scripts/suite.py confirmatory(), levels 0 to 4. Its console is logs/gvgai_features.log. scripts/analyze_horizon.py reads the file as {game: {level: {area, actions, colours}}}.
+- **The definitions**, entered in PREREG Section 7.7 and marked [entered 25 Nov 2026]:
+  - grid area: rows × columns;
+  - action count: the avatar's available actions without ACTION_NIL;
+  - colour count: the number of distinct cells at the level's start, a cell being the set of sprite types drawn in it.
+  All three are read through the agents' own adapter at the level's start, with no action taken, so they are the same for every agent and seed. Study 1 read the colour count from each agent's row after play. Section 9 does not allow that here, since features come only from search rows, truth tables and this file. **This is a definition, and it is the author's to accept or change before the tag.**
+- **Checks**, in the same console:
+  - the three features on the synthetic levels allwin 0, corridor 0 and corridor 1 equal the values worked out by hand from their files;
+  - GVGAI's grid equals the level file's size (scripts/suite.py, level_size) on all 125 levels.
+  Over the 125 levels, area runs from 8 (painter level 4, 2 × 4) to 490, action count is 4 on 105 levels and 5 on 20, and colour count runs from 3 to 17. The script loads levels on the laptop and plays none.
+- **Also.** The docstring of scripts/analyze_horizon.py now names the script; scripts/test_analyze_horizon.py, rerun: OK. The protocol list moves the three files from "to be added" into the list. The aid check is clean on 7,855 tracked files, and no line added has a word of the forbidden list.
+- **What remains before the tag**: amendment (ai)'s order from item 2. The author's hand check (G4), DECISIONS item 15, and the third_party/ decision come first. To those add the colour-count definition above.
+- **Next:** the author's hand check and item 15.
