@@ -1,0 +1,57 @@
+Rehearsal of the day of the tag, 25 November 2026 (docs/registration/ZENODO.md), in a throwaway clone outside the
+repository, on commit df43fc75b7eb26b873487f076af5dcb20d693561, with the clone's origin set to a local bare
+repository so that no push could reach GitHub. The clone was deleted afterwards. This file is the console of each
+step as it printed, copied from the session; the clone's own logs went with it.
+
+== step 1a: scripts/check_no_aid.py > logs/check_no_aid.log (working tree of the clone)
+exit 0
+searched 8185 tracked files (working tree), 20 patterns, 10 allowed terms, 11 allowed terms by path
+hits: 0
+clean
+
+== step 2: git tag -a rehearsal-1 -m "HORIZON registration rehearsal 1"; git push origin rehearsal-1 (to the local bare repository)
+ * [new tag]         rehearsal-1 -> rehearsal-1
+push exit 0
+
+== step 3: scripts/zenodo_deposit.py --tag rehearsal-1 --out <scratch>/zenodo/rehearsal-1 > logs/zenodo_deposit_rehearsal-1.log
+exit 1
+(on stderr, not in the redirected log, which was 0 bytes:)
+scripts/check_no_aid.py finds 104 hit(s) in the files at the tag (rule R2, docs/RULES.md); first: logs/check_no_aid.log line 3
+
+== the same check on the tagged commit: scripts/check_no_aid.py --rev rehearsal-1
+exit 1
+searched 8185 tracked files (commit rehearsal-1), 20 patterns, 10 allowed terms, 11 allowed terms by path
+third_party (vendored, not changed, not counted): 41 hit(s) in 7 file(s)
+hits by file:
+    104 logs/check_no_aid.log
+
+== step 3 again, with check_no_aid.scan wrapped to drop the hits in logs/check_no_aid.log only (a workaround in the
+   clone, to see the rest of the deposit; scripts/zenodo_deposit.py itself unchanged)
+exit 0
+tag rehearsal-1 (annotated), commit df43fc75b7eb26b873487f076af5dcb20d693561, tagger Rahul Kumar Mishra, date 2026-11-25
+files 389, bytes 5617052; protocol.zip sha256 c7665bd3555a5798494930af8dc65a2eb5aa50af07cc136cca36918e793b7780
+written: protocol/, protocol.zip, SHA256SUMS.txt, description.txt, metadata.json under the folder given by --out
+folder: SHA256SUMS.txt 60776 bytes, 392 lines; description.txt 44960 bytes, 398 lines; metadata.json 87952 bytes;
+protocol.zip 1099205 bytes; protocol/ 389 files
+a second build into another folder: protocol.zip sha256 c7665bd3555a5798494930af8dc65a2eb5aa50af07cc136cca36918e793b7780 (the same)
+
+== metadata.json, without its per-file list
+title "HORIZON: registered protocol rehearsal-1"; creators [Mishra, Rahul Kumar; Independent Researcher, Ranchi,
+Jharkhand, India; ORCID 0009-0004-9671-4055]; publication_date 2026-11-25; version rehearsal-1; files_to_upload
+[protocol.zip, SHA256SUMS.txt]; related_identifiers [https://github.com/rahul-k-mishra/horizon/tree/rehearsal-1, "the
+git tag"]; tag timestamp 2026-11-25T23:04:11+05:30; left_to_the_author [resource type, licence, keywords, relation
+type of the link]
+
+== description.txt, first and last lines
+The registered protocol of HORIZON, version rehearsal-1, by Rahul Kumar Mishra.
+This deposit is one half of the registration; the other half is the annotated git tag rehearsal-1 in
+https://github.com/rahul-k-mishra/horizon, on commit df43fc75b7eb26b873487f076af5dcb20d693561, tagged
+2026-11-25T23:04:11+05:30. ...
+then one line per file, SHA-256 and path, 389 lines, the first docs/registration/protocol_files.txt
+protocol.zip holds the same files; its SHA-256 is c7665bd3555a5798494930af8dc65a2eb5aa50af07cc136cca36918e793b7780.
+The registration and its rules are in docs/PREREG.md, Section 0.
+
+== steps 4 and 5 (the upload to Zenodo and the record in STATE) were not rehearsed: they publish.
+
+== after deleting the clone, the repository D:\Research\horizon\repo
+HEAD df43fc75b7eb26b873487f076af5dcb20d693561, working tree clean, tags the same 7 as before, no tag rehearsal*
