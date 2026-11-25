@@ -201,6 +201,8 @@ kaggle/envprobe/kernel-metadata.json
 logs/envprobe.log
 logs/envprobe_pin.log
 logs/envprobe_v4.log
+logs/envprobe_agents.log
+logs/envprobe_agents_v2.log
 scripts/automation/test_gvgaisearch.py
 logs/test_gvgaisearch.log
 scripts/automation/test_gvgai_setup_race.py
@@ -237,11 +239,12 @@ logs/gvgaisearch_dryrun_report.log
 scripts/make_gvgaiagent_dryrun_manifest.py
 logs/make_gvgaiagent_dryrun_manifest.log
 jobs/gvgaiagent_dryrun/manifest.json
+docs/DRYRUN_GVGAIAGENT.md
+scripts/automation/gvgaiagent_report.py
+logs/gvgaiagent_dryrun_report.log
 logs/automation.log
 
 # to be added before the tag (docs/PREREG.md, header and Sections 3, 5, 8, 11):
-# logs/envprobe_agents.log (the probe of the runner pins of the kind gvgaiagent; check_runner_freeze.log is rerun from it)
-# docs/DRYRUN_GVGAIAGENT.md and the console of its report (the dry run of the kind gvgaiagent, rule R8)
 # docs/truth/handcheck_answers.json (the author's 100 answers; 1 entered at 25 November 2026)
 # docs/truth/HANDCHECK_RESULT.md (written by scripts/handcheck_report.py from the answers)
 # docs/truth/gvgai_features.json (grid area, action count, colour count per level, read by scripts/analyze_horizon.py),
@@ -256,4 +259,4 @@ logs/automation.log
 # the rows of stage D and stage E (runs/dev-minigrid and runs/dev-minigrid-e, 3,120 rows and their done-markers):
 #   development data behind d and the power; the tag holds them, and the consoles that read them are listed above.
 # the dry runs' rows and the manifests of the dummy dry runs (runs/dryrun, runs/devsearch-dryrun, runs/gvgaisearch-
-#   dryrun, jobs/archive/dryrun, devsearch-dryrun, gvgaisearch-dryrun, gvgaisearch-dryrun-v4): their reports are listed.
+#   dryrun, runs/gvgaiagent-dryrun, jobs/archive/dryrun, devsearch-dryrun, gvgaisearch-dryrun, gvgaisearch-dryrun-v4): their reports are listed.

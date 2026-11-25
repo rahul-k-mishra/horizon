@@ -5,7 +5,7 @@ rows under runs/gvgaiagent-dryrun/gvgaiagent/; the session consoles under logs/k
 history; kaggle/kernel-metadata.json (the image asked for); and logs/test_gvgaiagent.log for the rows the same units
 gave on the laptop.
 Prints: per session its Kaggle kernel version, run nonce and outcome; per row its schema check, outcome, actions,
-first level end, cut flag, seconds and the sessions and image that built it, and how it compares with what is known
+first level end, cut flag, seconds (and for I1 the seconds of its own play clock) and the sessions and image that built it, and how it compares with what is known
 without Kaggle: allwin level 0 (every action a level end: 300 levels, first level end 1) and corridor level 1 (no
 level end) by hand, corridor level 0 from the laptop's rows, and the units with ids ending "-cap" against their
 120 s cap; the commits that wrote the chunk's checkpoint; the runner's lines of every session console; and the
@@ -81,6 +81,7 @@ def main():
     images = collections.Counter()
     nonces = collections.Counter()
     capped_seconds = []
+    i1_outside = []
     for u in m["units"]:
         p = os.path.join(base, f"{u['unit_id']}.json")
         if not os.path.exists(p):
@@ -98,6 +99,12 @@ def main():
         print(f"{u['unit_id']}: schema {r['schema']} {'ok' if not errs else errs}; level {r['level']}; actions {got[0]}, "
               f"levels {got[1]}, first level end {got[2]}, completed {got[3]}, cut {got[4]}; seconds {r['seconds']}; "
               f"run {', '.join(s['run_nonce'] for s in r['sessions'])}")
+        if u["agent"] == "I1":
+            ps = r["agent_stats"].get("play_seconds")
+            if ps is not None:
+                print(f"   I1's own play clock (study 1's timer, which the cap stops): {ps} s; seconds outside it "
+                      f"(setup and teardown in the unit): {round(r['seconds'] - float(ps), 3)}")
+                i1_outside.append((round(r["seconds"] - float(ps), 3), u["unit_id"]))
         if u["unit_id"].endswith("-cap"):
             cap = float(u["params"]["unit_seconds_cap"])
             ok = got[4] and got[1] == 0 and got[0] < int(u["params"]["budget"]) and r["seconds"] <= cap + SLACK
@@ -123,6 +130,9 @@ def main():
     print(f"units {len(m['units'])}: " + ", ".join(f"{k} {v}" for k, v in sorted(tally.items())))
     if capped_seconds:
         print(f"capped units: seconds from {min(capped_seconds)} to {max(capped_seconds)}")
+    if i1_outside:
+        print("I1 seconds outside its own play clock, largest first: "
+              + ", ".join(f"{u} {x}" for x, u in sorted(i1_outside, reverse=True)))
     print(f"rows by session run: {dict(sorted(nonces.items()))}")
     print("images named by the rows' session entries:")
     for img, n in images.most_common():

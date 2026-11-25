@@ -1,0 +1,181 @@
+gvgaiagent dry run -- campaign gvgaiagent-dryrun (jobs/manifest.json), code e608f7577820569fef94bb40b89db19839a8cda3, state commit b8604a4; kind params {"agent_impl": "gvgai", "budget": 300, "games_dir": "scripts/automation/gvgai_testgames", "unit_seconds_cap": 240, "workers": 4}; session {"checkpoint_reserve_seconds": 300, "platform_limit_seconds": 3600, "work_seconds": 600}
+image asked for in kaggle/kernel-metadata.json: gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e
+
+== sessions
+chunk a-01 done, attempts 2, failures 0
+   kernel version 125  run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2  outcome partial  units done this session 24  ended 2026-11-25T11:31:11Z
+   kernel version 126  run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249  outcome done  units done this session 12  ended 2026-11-25T13:19:29Z
+
+laptop rows of corridor level 0 (logs/test_gvgaiagent.log, part 2), levels and first level end: {'I1': (28, 14), 'N': (80, 22), 'R': (28, 14), 'Rand': (15, 15)}
+
+== rows
+a-01-N-allwin-l0-s1000: schema horizon.agent.v2 ok; level 0; actions 300, levels 300, first level end 1, completed True, cut False; seconds 12.89; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   by hand: actions 300, levels 300, first level end 1, completed, not cut: same
+a-01-R-allwin-l0-s1000: schema horizon.agent.v2 ok; level 0; actions 300, levels 300, first level end 1, completed True, cut False; seconds 12.821; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   by hand: actions 300, levels 300, first level end 1, completed, not cut: same
+a-01-I1-allwin-l0-s1000: schema horizon.agent.v2 ok; level 0; actions 300, levels 300, first level end 1, completed True, cut False; seconds 20.76; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   I1's own play clock (study 1's timer, which the cap stops): 8.14 s; seconds outside it (setup and teardown in the unit): 12.62
+   by hand: actions 300, levels 300, first level end 1, completed, not cut: same
+a-01-Rand-allwin-l0-s1000: schema horizon.agent.v2 ok; level 0; actions 300, levels 300, first level end 1, completed True, cut False; seconds 12.798; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   by hand: actions 300, levels 300, first level end 1, completed, not cut: same
+a-01-N-corridor-l1-s1000: schema horizon.agent.v2 ok; level 1; actions 300, levels 0, first level end None, completed False, cut False; seconds 0.236; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   by hand: actions 300, levels 0, no level end, not completed, not cut: same
+a-01-R-corridor-l1-s1000: schema horizon.agent.v2 ok; level 1; actions 300, levels 0, first level end None, completed False, cut False; seconds 0.213; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   by hand: actions 300, levels 0, no level end, not completed, not cut: same
+a-01-I1-corridor-l1-s1000: schema horizon.agent.v2 ok; level 1; actions 300, levels 0, first level end None, completed False, cut False; seconds 5.581; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   I1's own play clock (study 1's timer, which the cap stops): 4.3 s; seconds outside it (setup and teardown in the unit): 1.281
+   by hand: actions 300, levels 0, no level end, not completed, not cut: same
+a-01-Rand-corridor-l1-s1000: schema horizon.agent.v2 ok; level 1; actions 300, levels 0, first level end None, completed False, cut False; seconds 0.119; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   by hand: actions 300, levels 0, no level end, not completed, not cut: same
+a-01-N-corridor-l0-s1000: schema horizon.agent.v2 ok; level 0; actions 300, levels 80, first level end 22, completed True, cut False; seconds 0.676; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   laptop: levels 80, first level end 22, actions 300: same
+a-01-R-corridor-l0-s1000: schema horizon.agent.v2 ok; level 0; actions 300, levels 28, first level end 14, completed True, cut False; seconds 0.308; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   laptop: levels 28, first level end 14, actions 300: same
+a-01-I1-corridor-l0-s1000: schema horizon.agent.v2 ok; level 0; actions 300, levels 28, first level end 14, completed True, cut False; seconds 5.835; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   I1's own play clock (study 1's timer, which the cap stops): 4.9 s; seconds outside it (setup and teardown in the unit): 0.935
+   laptop: levels 28, first level end 14, actions 300: same
+a-01-Rand-corridor-l0-s1000: schema horizon.agent.v2 ok; level 0; actions 300, levels 15, first level end 15, completed True, cut False; seconds 0.041; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   laptop: levels 15, first level end 15, actions 300: same
+a-01-N-corridor-l1-s1000-cap: schema horizon.agent.v2 ok; level 1; actions 379207, levels 0, first level end None, completed False, cut True; seconds 120.002; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-R-corridor-l1-s1000-cap: schema horizon.agent.v2 ok; level 1; actions 393730, levels 0, first level end None, completed False, cut True; seconds 120.002; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-I1-corridor-l1-s1000-cap: schema horizon.agent.v2 ok; level 1; actions 8675, levels 0, first level end None, completed False, cut True; seconds 120.015; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   I1's own play clock (study 1's timer, which the cap stops): 120.01 s; seconds outside it (setup and teardown in the unit): 0.005
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-Rand-corridor-l1-s1000-cap: schema horizon.agent.v2 ok; level 1; actions 989724, levels 0, first level end None, completed False, cut True; seconds 120.015; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-N-corridor-l1-s1001-cap: schema horizon.agent.v2 ok; level 1; actions 372534, levels 0, first level end None, completed False, cut True; seconds 120.002; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-R-corridor-l1-s1001-cap: schema horizon.agent.v2 ok; level 1; actions 390205, levels 0, first level end None, completed False, cut True; seconds 120.002; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-I1-corridor-l1-s1001-cap: schema horizon.agent.v2 ok; level 1; actions 8551, levels 0, first level end None, completed False, cut True; seconds 120.03; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   I1's own play clock (study 1's timer, which the cap stops): 120.0 s; seconds outside it (setup and teardown in the unit): 0.03
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-Rand-corridor-l1-s1001-cap: schema horizon.agent.v2 ok; level 1; actions 907039, levels 0, first level end None, completed False, cut True; seconds 120.001; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-N-corridor-l1-s1002-cap: schema horizon.agent.v2 ok; level 1; actions 378040, levels 0, first level end None, completed False, cut True; seconds 120.002; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-R-corridor-l1-s1002-cap: schema horizon.agent.v2 ok; level 1; actions 394070, levels 0, first level end None, completed False, cut True; seconds 120.002; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-I1-corridor-l1-s1002-cap: schema horizon.agent.v2 ok; level 1; actions 8648, levels 0, first level end None, completed False, cut True; seconds 120.024; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   I1's own play clock (study 1's timer, which the cap stops): 120.0 s; seconds outside it (setup and teardown in the unit): 0.024
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-Rand-corridor-l1-s1002-cap: schema horizon.agent.v2 ok; level 1; actions 984090, levels 0, first level end None, completed False, cut True; seconds 120.001; run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-N-corridor-l1-s1003-cap: schema horizon.agent.v2 ok; level 1; actions 187033, levels 0, first level end None, completed False, cut True; seconds 120.285; run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-R-corridor-l1-s1003-cap: schema horizon.agent.v2 ok; level 1; actions 198841, levels 0, first level end None, completed False, cut True; seconds 120.273; run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-I1-corridor-l1-s1003-cap: schema horizon.agent.v2 ok; level 1; actions 4994, levels 0, first level end None, completed False, cut True; seconds 135.165; run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249
+   I1's own play clock (study 1's timer, which the cap stops): 120.0 s; seconds outside it (setup and teardown in the unit): 15.165
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: NO
+a-01-Rand-corridor-l1-s1003-cap: schema horizon.agent.v2 ok; level 1; actions 465126, levels 0, first level end None, completed False, cut True; seconds 120.238; run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-N-corridor-l1-s1004-cap: schema horizon.agent.v2 ok; level 1; actions 206827, levels 0, first level end None, completed False, cut True; seconds 120.013; run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-R-corridor-l1-s1004-cap: schema horizon.agent.v2 ok; level 1; actions 226613, levels 0, first level end None, completed False, cut True; seconds 120.003; run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-I1-corridor-l1-s1004-cap: schema horizon.agent.v2 ok; level 1; actions 5011, levels 0, first level end None, completed False, cut True; seconds 121.576; run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249
+   I1's own play clock (study 1's timer, which the cap stops): 120.0 s; seconds outside it (setup and teardown in the unit): 1.576
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-Rand-corridor-l1-s1004-cap: schema horizon.agent.v2 ok; level 1; actions 519611, levels 0, first level end None, completed False, cut True; seconds 120.002; run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-N-corridor-l1-s1005-cap: schema horizon.agent.v2 ok; level 1; actions 218021, levels 0, first level end None, completed False, cut True; seconds 120.004; run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-R-corridor-l1-s1005-cap: schema horizon.agent.v2 ok; level 1; actions 232466, levels 0, first level end None, completed False, cut True; seconds 120.003; run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-I1-corridor-l1-s1005-cap: schema horizon.agent.v2 ok; level 1; actions 5076, levels 0, first level end None, completed False, cut True; seconds 120.028; run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249
+   I1's own play clock (study 1's timer, which the cap stops): 120.01 s; seconds outside it (setup and teardown in the unit): 0.018
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+a-01-Rand-corridor-l1-s1005-cap: schema horizon.agent.v2 ok; level 1; actions 621852, levels 0, first level end None, completed False, cut True; seconds 120.002; run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249
+   expected: stopped by its 120 s cap, cut, 0 levels, seconds at most 123: yes
+
+== totals
+units 36: cap NOT as expected 1, cap as expected 23, hand same 8, laptop same 4, valid 36
+capped units: seconds from 120.001 to 135.165
+I1 seconds outside its own play clock, largest first: a-01-I1-corridor-l1-s1003-cap 15.165, a-01-I1-allwin-l0-s1000 12.62, a-01-I1-corridor-l1-s1004-cap 1.576, a-01-I1-corridor-l1-s1000 1.281, a-01-I1-corridor-l0-s1000 0.935, a-01-I1-corridor-l1-s1001-cap 0.03, a-01-I1-corridor-l1-s1002-cap 0.024, a-01-I1-corridor-l1-s1005-cap 0.018, a-01-I1-corridor-l1-s1000-cap 0.005
+rows by session run: {'gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2': 24, 'gvgaiagent-dryrun-a-01-20261125T131109Z-6af249': 12}
+images named by the rows' session entries:
+     36  gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e  (the image asked for)
+
+== checkpoint commits
+57cfdd4 2026-11-25T11:38:28Z Loop: a-01 partial (kernel version 125)
+   seq 1, run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2, units done 24
+b8604a4 2026-11-25T13:27:01Z Loop: a-01 done (kernel version 126)
+   (checkpoint removed: the chunk is done)
+
+== runner lines of every session console (logs/kaggle/)
+-- a-01__v125.log
+   state commit e125d5e43f1add68a8c0a9162a216a2e68eb147b Loop: a-01 pushed as kernel version 125
+   code commit e608f7577820569fef94bb40b89db19839a8cda3 (tag e608f7577820569fef94bb40b89db19839a8cda3)
+   [2026-11-25T11:24:50Z] chunk a-01 (gvgaiagent), nonce gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2; work deadline 2026-11-25T11:32:44Z, checkpoint by 2026-11-25T11:37:44Z
+   [2026-11-25T11:24:50Z] no checkpoint: starting the chunk; 0 units already have done-markers
+   [2026-11-25T11:24:50Z] agents: 36 units to run on 4 workers
+   [2026-11-25T11:25:03Z] agent unit a-01-Rand-allwin-l0-s1000: level1_completed True
+   [2026-11-25T11:25:03Z] agent unit a-01-R-allwin-l0-s1000: level1_completed True
+   [2026-11-25T11:25:03Z] agent unit a-01-N-allwin-l0-s1000: level1_completed True
+   [2026-11-25T11:25:03Z] agent unit a-01-R-corridor-l1-s1000: level1_completed False
+   [2026-11-25T11:25:03Z] agent unit a-01-N-corridor-l1-s1000: level1_completed False
+   [2026-11-25T11:25:03Z] agent unit a-01-Rand-corridor-l1-s1000: level1_completed False
+   [2026-11-25T11:25:03Z] agent unit a-01-R-corridor-l0-s1000: level1_completed True
+   [2026-11-25T11:25:04Z] agent unit a-01-N-corridor-l0-s1000: level1_completed True
+   [2026-11-25T11:25:04Z] agent unit a-01-Rand-corridor-l0-s1000: level1_completed True
+   [2026-11-25T11:25:08Z] agent unit a-01-I1-corridor-l1-s1000: level1_completed False
+   [2026-11-25T11:25:09Z] agent unit a-01-I1-corridor-l0-s1000: level1_completed True
+   [2026-11-25T11:25:11Z] agent unit a-01-I1-allwin-l0-s1000: level1_completed True
+   [2026-11-25T11:27:04Z] agent unit a-01-N-corridor-l1-s1000-cap: level1_completed False
+   [2026-11-25T11:27:08Z] agent unit a-01-R-corridor-l1-s1000-cap: level1_completed False
+   [2026-11-25T11:27:09Z] agent unit a-01-I1-corridor-l1-s1000-cap: level1_completed False
+   [2026-11-25T11:27:11Z] agent unit a-01-Rand-corridor-l1-s1000-cap: level1_completed False
+   [2026-11-25T11:29:04Z] agent unit a-01-N-corridor-l1-s1001-cap: level1_completed False
+   [2026-11-25T11:29:08Z] agent unit a-01-R-corridor-l1-s1001-cap: level1_completed False
+   [2026-11-25T11:29:09Z] agent unit a-01-I1-corridor-l1-s1001-cap: level1_completed False
+   [2026-11-25T11:29:11Z] agent unit a-01-Rand-corridor-l1-s1001-cap: level1_completed False
+   [2026-11-25T11:31:04Z] agent unit a-01-N-corridor-l1-s1002-cap: level1_completed False
+   [2026-11-25T11:31:08Z] agent unit a-01-R-corridor-l1-s1002-cap: level1_completed False
+   [2026-11-25T11:31:09Z] agent unit a-01-I1-corridor-l1-s1002-cap: level1_completed False
+   [2026-11-25T11:31:11Z] agent unit a-01-Rand-corridor-l1-s1002-cap: level1_completed False
+   [2026-11-25T11:31:11Z] checkpoint 1: 24 units done, in progress none, 0 payload files
+   [2026-11-25T11:31:11Z] chunk a-01: partial; units done 24 of 36; stopped: deadline: 12 agent units do not fit before it
+   [2026-11-25T11:31:11Z] wrote result.json (status partial) and bundle.tar.gz
+-- a-01__v126.log
+   state commit 2afc0fe601dfadd55452640c9d0cc17627a1545a Loop: a-01 pushed as kernel version 126
+   code commit e608f7577820569fef94bb40b89db19839a8cda3 (tag e608f7577820569fef94bb40b89db19839a8cda3)
+   [2026-11-25T13:13:14Z] chunk a-01 (gvgaiagent), nonce gvgaiagent-dryrun-a-01-20261125T131109Z-6af249; work deadline 2026-11-25T13:21:27Z, checkpoint by 2026-11-25T13:26:27Z
+   [2026-11-25T13:13:14Z] resuming from checkpoint 1 of run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2: 24 units done, in progress none
+   [2026-11-25T13:13:14Z] agents: 12 units to run on 4 workers
+   [2026-11-25T13:15:14Z] agent unit a-01-Rand-corridor-l1-s1003-cap: level1_completed False
+   [2026-11-25T13:15:15Z] agent unit a-01-R-corridor-l1-s1003-cap: level1_completed False
+   [2026-11-25T13:15:15Z] agent unit a-01-N-corridor-l1-s1003-cap: level1_completed False
+   [2026-11-25T13:15:29Z] agent unit a-01-I1-corridor-l1-s1003-cap: level1_completed False
+   [2026-11-25T13:17:15Z] agent unit a-01-N-corridor-l1-s1004-cap: level1_completed False
+   [2026-11-25T13:17:15Z] agent unit a-01-R-corridor-l1-s1004-cap: level1_completed False
+   [2026-11-25T13:17:16Z] agent unit a-01-I1-corridor-l1-s1004-cap: level1_completed False
+   [2026-11-25T13:17:29Z] agent unit a-01-Rand-corridor-l1-s1004-cap: level1_completed False
+   [2026-11-25T13:19:15Z] agent unit a-01-N-corridor-l1-s1005-cap: level1_completed False
+   [2026-11-25T13:19:15Z] agent unit a-01-R-corridor-l1-s1005-cap: level1_completed False
+   [2026-11-25T13:19:16Z] agent unit a-01-I1-corridor-l1-s1005-cap: level1_completed False
+   [2026-11-25T13:19:29Z] agent unit a-01-Rand-corridor-l1-s1005-cap: level1_completed False
+   [2026-11-25T13:19:29Z] chunk a-01: done; units done 36 of 36
+   [2026-11-25T13:19:29Z] wrote result.json (status done) and bundle.tar.gz
+
+== automation.log lines of this campaign
+2026-11-25T10:20:27Z actions-45593917357-1 DISPATCH chunk a-01 (gvgaiagent) attempt 1 run gvgaiagent-dryrun-a-01-20261125T102027Z-ca6df8
+2026-11-25T10:20:30Z actions-45593917357-1 DEFERRED chunk a-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 r
+2026-11-25T10:51:33Z actions-45598812647-1 DISPATCH chunk a-01 (gvgaiagent) attempt 1 run gvgaiagent-dryrun-a-01-20261125T105133Z-0a0333
+2026-11-25T10:51:37Z actions-45598812647-1 DEFERRED chunk a-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 r
+2026-11-25T11:22:28Z actions-45603712984-1 DISPATCH chunk a-01 (gvgaiagent) attempt 1 run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+2026-11-25T11:22:32Z actions-45603712984-1 DEFERRAL cleared: the push of a-01 succeeded after 2 refusals since 2026-11-25T10:20:30Z
+2026-11-25T11:22:32Z actions-45603712984-1 PUSHED chunk a-01 as kernel version 125 run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2
+2026-11-25T11:38:28Z actions-45606175327-1 COLLECT chunk a-01 kernel version 125 run gvgaiagent-dryrun-a-01-20261125T112228Z-98bdf2: partial; chunks partial 1
+2026-11-25T11:38:30Z actions-45606175327-1 DISPATCH chunk a-01 (gvgaiagent) attempt 2 run gvgaiagent-dryrun-a-01-20261125T113830Z-13415d
+2026-11-25T11:38:32Z actions-45606175327-1 DEFERRED chunk a-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 r
+2026-11-25T12:09:25Z actions-45610948159-1 DISPATCH chunk a-01 (gvgaiagent) attempt 2 run gvgaiagent-dryrun-a-01-20261125T120925Z-84336b
+2026-11-25T12:09:28Z actions-45610948159-1 DEFERRED chunk a-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 r
+2026-11-25T12:40:15Z actions-45615870476-1 DISPATCH chunk a-01 (gvgaiagent) attempt 2 run gvgaiagent-dryrun-a-01-20261125T124015Z-ee3498
+2026-11-25T12:40:18Z actions-45615870476-1 DEFERRED chunk a-01: kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 r
+2026-11-25T13:11:09Z actions-45620863033-1 DISPATCH chunk a-01 (gvgaiagent) attempt 2 run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249
+2026-11-25T13:11:12Z actions-45620863033-1 DEFERRAL cleared: the push of a-01 succeeded after 3 refusals since 2026-11-25T11:38:32Z
+2026-11-25T13:11:12Z actions-45620863033-1 PUSHED chunk a-01 as kernel version 126 run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249
+2026-11-25T13:27:01Z actions-45623557344-1 COLLECT chunk a-01 kernel version 126 run gvgaiagent-dryrun-a-01-20261125T131109Z-6af249: done; chunks done 1
