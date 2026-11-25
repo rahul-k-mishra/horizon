@@ -71,6 +71,15 @@ FROZEN = {
     "scripts/env_frame.py": "bb3ff60acf88c220ec64e287c6c1d6bb899f879b",
     "scripts/e1_rudakov_adapter.py": "39ab52f82f2fef3460ce83cb9db30d892b571d5b",
     "scripts/i1_suite_adapter.py": "9d8a18548b958e70b1365b2eacb25d25f83284ba",
+    # I1's own files, which e1_rudakov_adapter.load_theirs imports; their blob hashes at study 1's tag prereg-v1.1,
+    # added 25 November 2026 so that they too are checked before every unit (until then only the test checked them,
+    # by the sha256 of PROVENANCE.md)
+    "external/rudakov_just_explore/agents/heuristic_agent.py": "2a0af90e147d91c760b19b3019b4c0c0bf374fc4",
+    "external/rudakov_just_explore/agents/agent.py": "2052bf8372bb858784db498fb7709a3674f21168",
+    "external/rudakov_just_explore/agents/structs.py": "e7de1848aff60b0858d73cef2a190fc1275f4da4",
+    "external/rudakov_just_explore/agents/tracing.py": "247f3a6988a711b816093527fc2d6bb4c7735127",
+    "external/rudakov_just_explore/agents/recorder.py": "e349f2c61e516266f89ee994d1719f2bf426ba42",
+    "external/rudakov_just_explore/graph_explorer.py": "0df7e5b4b65365c0ea7d9c7e1a7fee7c2046c1f0",
 }
 AGENT_MODES = {"N": "nav", "R": "hash_state", "I1": "i1", "Rand": "rand"}
 
