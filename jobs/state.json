@@ -2,21 +2,13 @@
  "consecutive_crashes": 0,
  "deferral": {
   "chunk_id": "a-01",
-  "count": 1,
-  "last_at": "2026-11-25T10:20:30Z",
+  "count": 2,
+  "last_at": "2026-11-25T10:51:36Z",
   "last_class": "account session limit",
   "last_reason": "kernel push refused: kernel push failed: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5) Kernel push error: Maximum batch CPU session count of 5 reached.",
   "since": "2026-11-25T10:20:30Z"
  },
- "dispatch": {
-  "chunk_id": "a-01",
-  "dispatched_at": "2026-11-25T10:51:33Z",
-  "entry_hash": "430d83466a96e65324d0411ac2941a2c9edb9c37a6072461b57b147f1b83e901",
-  "kernel_version": null,
-  "nonce": "gvgaiagent-dryrun-a-01-20261125T105133Z-0a0333",
-  "pushed_at": null,
-  "runner": "actions-45598812647-1"
- },
+ "dispatch": null,
  "halt_reason": null,
  "halted": false,
  "halted_at": null
