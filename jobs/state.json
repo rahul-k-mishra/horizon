@@ -1,7 +1,15 @@
 {
  "consecutive_crashes": 0,
  "deferral": null,
- "dispatch": null,
+ "dispatch": {
+  "chunk_id": "g1-01",
+  "dispatched_at": "2026-11-25T14:04:26Z",
+  "entry_hash": "4901dc1f69c298a50fc9c93106e31bf441d648bcbf5c7d6d36b0dd2f8a55c2e7",
+  "kernel_version": null,
+  "nonce": "gvgai-pilot-agents-g1-01-20261125T140426Z-80847b",
+  "pushed_at": null,
+  "runner": "actions-45629955938-1"
+ },
  "halt_reason": null,
  "halted": false,
  "halted_at": null
