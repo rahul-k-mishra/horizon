@@ -1,45 +1,12 @@
-searched 8187 tracked files (working tree), 20 patterns, 10 allowed terms, 11 allowed terms by path
+searched 8191 tracked files (working tree), 20 patterns, 10 allowed terms, 11 allowed terms by path
 third_party (vendored, not changed, not counted): 41 hit(s) in 7 file(s)
-  skipped  third_party/gvgai/src/core/game/StateObservationMulti.java  line 192  [written with]  * Method overwritten with multi player optimisations.
-  skipped  third_party/gvgai/src/tools/com/google/gson/InstanceCreator.java  line 83  [written with]  specified type. The fields of the returned instance are overwritten with the data present
-  skipped  third_party/study1/external/rudakov_just_explore/agents/heuristic_agent.py  line 27  [LLM]  """An agent that uses a base LLM model to play games."""
-  skipped  third_party/study1/external/rudakov_just_explore/agents/heuristic_agent.py  line 411  [openai]  # logging.getLogger("openai").setLevel(logging.CRITICAL)
-  skipped  third_party/study1/scripts/e1_rudakov_adapter.py  line 26  [LLM]  B6 imports: their agents/__init__.py imports LLM templates (langgraph, openai, smolagents)
-  skipped  third_party/study1/scripts/e1_rudakov_adapter.py  line 26  [openai]  their agents/__init__.py imports LLM templates (langgraph, openai, smolagents)
-  skipped  third_party/study1/scripts/e1_rudakov_adapter.py  line 47  [LLM]  y -> Swarm) cannot be the U arm: it imports the uninstalled LLM
-  skipped  third_party/study1/scripts/g_agent.py  line 189  [written with]  """The same rule written without naming colours, so a goal that uses different colours on
-  skipped  third_party/study1/scripts/g_census_table.py  line 37  [CLAUDE]  ten on 25 Sep 2026 to codify the census already recorded in CLAUDE.md, after
-  skipped  third_party/study1/scripts/g_census_table.py  line 39  [CLAUDE]  where the rule and CLAUDE.md disagree (sc25 was in no CLAUDE.md category).  E6 freeze
-  skipped  third_party/study1/scripts/g_census_table.py  line 39  [CLAUDE]  where the rule and CLAUDE.md disagree (sc25 was in no CLAUDE.md category).  E6 freezes the rule
-  skipped  third_party/study1/scripts/g_census_table.py  line 44  [written with]  Deterministic; outputs are written atomically and never overwritten without --force.
-  skipped  third_party/study1/scripts/g_census_table.py  line 55  [CLAUDE]  CLAUDE.md agreement: 16 of 16 assigned games agree; sc25 not in CL
-  skipped  third_party/study1/scripts/g_census_table.py  line 55  [CLAUDE]  DE.md agreement: 16 of 16 assigned games agree; sc25 not in CLAUDE.md
-  skipped  third_party/study1/scripts/g_census_table.py  line 78  [CLAUDE]  # the census as CLAUDE.md records it (held-out only), for the agreement check
-  skipped  third_party/study1/scripts/g_census_table.py  line 79  [CLAUDE]  CLAUDE_MD = {
-  skipped  third_party/study1/scripts/g_census_table.py  line 201  [written with]  sys.exit(f"{p} exists; not overwritten without --force")
-  skipped  third_party/study1/scripts/g_census_table.py  line 232  [claude]  claude = {g: c for c, gs in CLAUDE_MD.items() for g in gs}
-  skipped  third_party/study1/scripts/g_census_table.py  line 232  [CLAUDE]  claude = {g: c for c, gs in CLAUDE_MD.items() for g in gs}
-  skipped  third_party/study1/scripts/g_census_table.py  line 233  [claude]  agree = [r["game"] for r in hrows if claude.get(r["game"]) == r["category"]]
-  skipped  third_party/study1/scripts/g_census_table.py  line 234  [claude]  differ = [(r["game"], claude[r["game"]], r["category"]) for r in hrows
-  skipped  third_party/study1/scripts/g_census_table.py  line 235  [claude]  if r["game"] in claude and claude[r["game"]] != r["category"]]
-  skipped  third_party/study1/scripts/g_census_table.py  line 235  [claude]  if r["game"] in claude and claude[r["game"]] != r["category"]]
-  skipped  third_party/study1/scripts/g_census_table.py  line 236  [claude]  ["game"], r["category"]) for r in hrows if r["game"] not in claude]
-  skipped  third_party/study1/scripts/g_census_table.py  line 237  [CLAUDE]  print(f"CLAUDE.md agreement: {len(agree)} of {len(claude)} assigned games
-  skipped  third_party/study1/scripts/g_census_table.py  line 237  [claude]  print(f"CLAUDE.md agreement: {len(agree)} of {len(claude)} assigned games agree"
-  skipped  third_party/study1/scripts/g_census_table.py  line 238  [CLAUDE]  + ("".join(f"; DIFFERS {g}: CLAUDE.md {a}, rule {b}" for g, a, b in differ))
-  skipped  third_party/study1/scripts/g_census_table.py  line 239  [CLAUDE]  + "".join(f"; {g} not in CLAUDE.md, rule gives {c}" for g, c in unassigned))
-  skipped  third_party/study1/scripts/g_census_table.py  line 253  [claude]  claude_md_agree=agree, claude_md_differ=differ, claude_md_unassign
-  skipped  third_party/study1/scripts/g_census_table.py  line 253  [claude]  claude_md_agree=agree, claude_md_differ=differ, claude_md_unassigned=unassigned)
-  skipped  third_party/study1/scripts/g_census_table.py  line 253  [claude]  claude_md_agree=agree, claude_md_differ=differ, claude_md_unassigned=unassigned)
-  skipped  third_party/study1/scripts/g_census_table.py  line 289  [CLAUDE]  "(otherwise). The rule codifies the census already in CLAUDE.md and was written after "
-  skipped  third_party/study1/scripts/g_census_table.py  line 327  [CLAUDE]  "- CLAUDE.md agreement: " + (f"{len(s['claude_md_agree'])} of "
-  skipped  third_party/study1/scripts/g_census_table.py  line 327  [claude]  "- CLAUDE.md agreement: " + (f"{len(s['claude_md_agree'])} of "
-  skipped  third_party/study1/scripts/g_census_table.py  line 328  [claude]  f"{len(s['claude_md_agree']) + len(s['claude_md_differ'])} "
-  skipped  third_party/study1/scripts/g_census_table.py  line 328  [claude]  f"{len(s['claude_md_agree']) + len(s['claude_md_differ'])} "
-  skipped  third_party/study1/scripts/g_census_table.py  line 330  [CLAUDE]  + "".join(f"; differs on {g} (CLAUDE.md {a}, rule {b})" for g, a, b in s["claude_md_differ"])
-  skipped  third_party/study1/scripts/g_census_table.py  line 330  [claude]  differs on {g} (CLAUDE.md {a}, rule {b})" for g, a, b in s["claude_md_differ"])
-  skipped  third_party/study1/scripts/g_census_table.py  line 331  [CLAUDE]  + "".join(f"; {g} was in no CLAUDE.md category, the rule gives {cat}"
-  skipped  third_party/study1/scripts/g_census_table.py  line 332  [claude]  for g, cat in s["claude_md_unassigned"]) + ".",
-  skipped  third_party/study1/scripts/run_suite.py  line 192  [written with]  nt("--resume", action="store_true", help="skip rows already written without error (default on)")
+  skipped  third_party/gvgai/src/core/game/StateObservationMulti.java  1 hit(s): #07 x1
+  skipped  third_party/gvgai/src/tools/com/google/gson/InstanceCreator.java  1 hit(s): #07 x1
+  skipped  third_party/study1/external/rudakov_just_explore/agents/heuristic_agent.py  2 hit(s): #16 x1, #19 x1
+  skipped  third_party/study1/scripts/e1_rudakov_adapter.py  3 hit(s): #16 x1, #19 x2
+  skipped  third_party/study1/scripts/g_agent.py  1 hit(s): #07 x1
+  skipped  third_party/study1/scripts/g_census_table.py  32 hit(s): #07 x2, #12 x30
+  skipped  third_party/study1/scripts/run_suite.py  1 hit(s): #07 x1
+files with a counted hit: 0
 hits: 0
 clean
