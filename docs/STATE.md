@@ -663,3 +663,28 @@ Thirty-eighth amendment. The lines above are unchanged. Nothing was tagged or de
 - **Also.** The protocol list gains scripts/pilot_cut_reading.py and its console. The aid check is clean on 8,185 tracked files (logs/check_no_aid.log). No added line has a word of the forbidden list.
 - **For the author, not drafted:** the pilot search paragraph of Section 8 says that the pilot search runs again if the search code changes before the tag. The draft entry has no matching clause for the agents' code. Whether it should is the author's decision.
 - **Next:** the author's answers to items 15 and 16, the hand check (G4), and the third_party/ decision.
+
+## Amendment 25 Nov 2026 (am)
+
+Thirty-ninth amendment. The lines above are unchanged. Nothing was tagged in the repository or deposited, no file under jobs/ or runs/ was changed, and no Kaggle session was used. This amendment follows the author's second request of 25 November 2026: adopt the three drafts of amendment (al), read PREREG and DESIGN end to end, and rehearse the day of the tag.
+
+- **Adopted by the author, 25 November 2026** (422125a, df43fc7).
+  - PREREG Section 8: G3's ceiling is 2,400 s, and the G3 row quotes the replaced "is at most 1,800 s". The pilot agent run stands as G1, and the agent unit cap of 1,860 s enters v1. The stop rule says so, quoting its old sentence. The recorded weakness of the gate stands, now pointing to Section 7.6.
+  - PREREG Section 8 gains the clause for the agents: if the agent code the runner uses changes between the pilot agent run (e296372) and the tag, the pilot agents run again under the tagged code, and G1 and G3 are read from that run. The clause says that this draws a new maximum from the unstable rule.
+  - PREREG Section 7.6: form (b) at 10%, with the reason that a cut can only suppress a completion, so the undetermined levels are the whole of the damage a cap can do, and that on the pilot the rule fires on nothing at any candidate cap.
+  - DECISIONS items 15 and 16 carry the answers with the author's name and the date.
+  - scripts/analyze_horizon.py applies the rule (UNDETERMINED_MAX_PERCENT = 10, in integers). scripts/test_analyze_horizon.py, part 6, checks 13 of 130 undetermined levels as not void and 14 as void, and that Rand is counted but never voided. Rerun: OK (logs/test_analyze_horizon.log).
+- **Read-through** (docs/registration/REVIEW_2026-11-25.md). PREREG and DESIGN were read end to end. No plain typing or numbering error was found. One sentence was corrected as a consequence of the adoption. 29 items are listed for the author; the main ones are below.
+  - G2 has no implementation and is not in the order of what remains.
+  - PREREG Section 9's agent budget range (14 to 79 chunks) no longer contains the cap's 84.
+  - Section 9 says features come only from search rows and truth tables, against Section 7.7.
+  - Rule 3 of Section 7.4 voids any search quantity, while the script applies it to L_C only.
+  - The status paragraph and the diff section do not name the decisions of 25 November.
+  - DESIGN contradicts PREREG Section 8 on G3, on when the pilot agents run, and on where the cap enters. It also says C is open, and its budget table is stale. One sentence at its head ("PREREG holds") would cover all of part B.
+- **Rehearsal of the day of the tag** (logs/zenodo_rehearsal-1.log). It ran in a throwaway clone with a tag rehearsal-1, the push going to a local bare repository. The clone was deleted. The repository has the same 7 tags as before and no tag rehearsal-1, and its HEAD and working tree were unchanged by it.
+  - **Step 3 stops:** the deposit script's aid check on the tagged commit finds 104 hits, all in logs/check_no_aid.log, the committed console of the same check, which quotes the third_party lines it skipped. Step 1a passes only because the shell empties that file before the check reads it. As things stand, the deposit cannot be made on any day. The fix, in scripts/check_no_aid.py, is the author's to choose (REVIEW item 25).
+  - A failed step 3 leaves a 0-byte console, since the stop message goes to stderr (item 26).
+  - With the one file set aside, the deposit holds 389 files of 5,617,052 bytes and a protocol.zip of 1,099,205 bytes. A second build gave the same zip. metadata.json and description.txt say what REVIEW part D gives.
+  - Steps 4 and 5 publish and were not rehearsed.
+- **Also.** The aid check is clean on 8,187 tracked files (logs/check_no_aid.log). No added line has a word of the forbidden list. The commits since 8ab58f5 are not pushed: the push of amendment (al) was refused by the session's permission check.
+- **Next:** the author's choice on REVIEW items 1 to 29, above all the aid check's own console (item 25) and G2 (item 5); then the hand check (G4) and the third_party/ decision.
