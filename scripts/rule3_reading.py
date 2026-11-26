@@ -20,6 +20,9 @@ analyze_horizon's own functions l_c, h_c and b_score (a missing value is a unit 
             its secondary lines void and entering no verdict;
         (c) as (b), with the share of a unit excluded by any of the three quantities.
 The comparison is the script's own, excluded / units > 0.10.
+[added 26 November 2026] Last section: rule 3 as scripts/analyze_horizon.py applies it since that day (option (b),
+adopted), through its own functions censor_counts and quantity_voids, at the registered C = analyze_horizon.C,
+with the lines a void quantity would mark (void_lines).  Stage D gives H_C and b only.
 
 Reads committed rows only and plays nothing.  Run (working directory D:\\Research\\horizon\\repo):
     D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\rule3_reading.py > logs\\rule3_reading.log
@@ -89,6 +92,18 @@ def main():
         seen = sorted(r["counts"]["states_seen"] for r in short)
         print(f"  stopped by time or memory: {len(short)}" + (f"; states seen by them: least {seen[0]:,}, most "
                                                               f"{seen[-1]:,}" if seen else ""))
+    print(f"\n== rule 3 as scripts/analyze_horizon.py applies it since 26 November 2026, at the registered C = {A.C:,}")
+    for name, pattern, keep in SETS:
+        rows = {r["unit_id"]: r for r in load(pattern, keep)}
+        counts = A.censor_counts(rows, A.C)
+        qv = A.quantity_voids(counts)
+        lines = A.void_lines(counts)
+        stage_d = next(iter(rows.values()))["schema"] == "horizon.search.v2"
+        qs = ("H_C", "b") if stage_d else ("L_C", "H_C", "b")
+        key = {"L_C": "L", "H_C": "H", "b": "b"}
+        print(f"  {name}: " + "; ".join(f"{q} excluded {counts[key[q]]['excluded']} of {counts[key[q]]['units']}, "
+                                        f"{'void' if qv[q] else 'not void'}" for q in qs)
+              + f" | lines marked void: {', '.join(sorted(lines)) or 'none'}")
     return 0
 
 

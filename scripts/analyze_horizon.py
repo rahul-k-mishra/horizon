@@ -23,6 +23,14 @@ cut_by_cap true stopped short of the budget, and its outcome is what it did in t
 units, those cut without completing the level ("open": had they played on, they might have), and the levels whose Y
 those open units could have changed: Y = 0, yet the completed seeds plus the open seeds number at least 5.  An
 evidence agent is void if more than 10% of the levels are undetermined (in integers: undetermined * 100 > 10 * levels).
+Rule 3 of docs/PREREG.md, Section 7.4 (applied to every search quantity since 26 November 2026, docs/
+DECISIONS_BEFORE_TAG.md item 18, option (b)): each of L_C, H_C and b is void if more than 10% of the levels are
+excluded for it (in integers: excluded * 100 > 10 * levels).  The search rows are the same for every agent, so
+the voids are the same for every agent.  A void L_C voids each evidence agent (Section 7.6).  A void H_C marks the
+lines H_all, H_same, S_M|H_all and Delta void, and a void b marks b_all void, for every agent and on level 0
+alone; a void line keeps its values in the json, is reported as void with the counts, and enters no verdict.
+Before 26 November 2026 the script applied the 10% to L_C only, and counted H_C's and b's exclusions without
+marking anything void; the registered text covered all three, so the script was corrected to the registration.
 AUROC: Mann-Whitney with ties 1/2 over the pairs of a completed and an uncompleted unit from different games
 ("all"), or from different games with the same S_M ("same"), the primary pairing (Section 7.2).
 Bootstrap: 10,000 resamples of the games with replacement, each with all its levels and its S_M, seed 20261024
@@ -87,6 +95,9 @@ NUIS = ("area", "actions", "colours")
 N_BOOT, SEED, CHUNKS = 10_000, 20261024, 8
 CI = {"95%": (2.5, 97.5), "98.33%": (100 * 0.05 / 6, 100 - 100 * 0.05 / 6)}
 FLOOR, BAND, EXCLUDED_MAX, MIN_GAMES = 0.70, (0.10, 0.90), 0.10, 20
+EXCLUDED_MAX_PERCENT = 10       # docs/PREREG.md, Section 7.4, rule 3, applied to L_C, H_C and b (26 Nov 2026)
+# the secondary lines each search quantity carries; a void quantity marks them void (rule 3, option (b))
+QUANTITY_LINES = {"H_C": ("H_all", "H_same", "S_M|H_all", "Delta"), "b": ("b_all",)}
 UNDETERMINED_MAX_PERCENT = 10   # docs/PREREG.md, Section 7.6, units cut by the agent unit cap (decided 25 Nov 2026)
 INF = -1e18          # beyond C: ranked last, tied
 PRIMARY = "L_same"
@@ -275,8 +286,9 @@ def void_reasons(units, y_of, c_counts, blocks, games, cut=None):
     share = sum(ys) / len(ys)
     if not BAND[0] <= share <= BAND[1]:
         reasons.append(f"completed share {share:.4f} outside [{BAND[0]:.2f}, {BAND[1]:.2f}]")
-    if c_counts["L"]["excluded"] / len(units) > EXCLUDED_MAX:
-        reasons.append(f"L_C void: {c_counts['L']['excluded']} of {len(units)} levels excluded, over 10%")
+    if quantity_voids(c_counts)["L_C"]:
+        reasons.append(f"L_C void: {c_counts['L']['excluded']} of {c_counts['L']['units']} levels excluded, over "
+                       f"{EXCLUDED_MAX_PERCENT}% (Section 7.4, rule 3)")
     if L_C_VOID_RULE is not None:
         wins, pct = c_counts["L"]["win_within_C"], L_C_VOID_RULE["min_win_percent"]
         if wins * 100 < pct * c_counts["L"]["units"]:
@@ -289,6 +301,26 @@ def void_reasons(units, y_of, c_counts, blocks, games, cut=None):
     if line_values(blocks, games)[PRIMARY] is None:
         reasons.append("no pair of a completed and an uncompleted level from different games with the same S_M")
     return reasons
+
+
+def quantity_voids(c_counts):
+    """Rule 3 of Section 7.4 for every search quantity: {"L_C": bool, "H_C": bool, "b": bool}, True if more than
+    10% of the levels are excluded for it (in integers)."""
+    return {q: c_counts[k]["excluded"] * 100 > EXCLUDED_MAX_PERCENT * c_counts[k]["units"]
+            for q, k in (("L_C", "L"), ("H_C", "H"), ("b", "b"))}
+
+
+def void_lines(c_counts):
+    """{line: reason} for the secondary lines a void H_C or b marks void (rule 3, option (b))."""
+    out = {}
+    for q, void in quantity_voids(c_counts).items():
+        if void and q in QUANTITY_LINES:
+            k = "H" if q == "H_C" else "b"
+            why = (f"{q} void: {c_counts[k]['excluded']} of {c_counts[k]['units']} levels excluded, over "
+                   f"{EXCLUDED_MAX_PERCENT}% (Section 7.4, rule 3)")
+            for name in QUANTITY_LINES[q]:
+                out[name] = why
+    return out
 
 
 def censor_counts(rows, c):
@@ -366,8 +398,10 @@ def analyze(rows, truth, features, outcomes, c, workers=1, n_boot=N_BOOT, cuts=f
                         S_M=sum(bool(t[p]) for p in PRED), **{p: bool(t[p]) for p in PRED},
                         **{f: float(features[k][f]) for f in NUIS})
     counts = censor_counts(rows, c)
+    voided = void_lines(counts)
     n_games = len({g for g, _ in keys})
-    res = dict(C=c, units=len(keys), games=n_games, n_boot=n_boot, seed=SEED, counts=counts, agents={})
+    res = dict(C=c, units=len(keys), games=n_games, n_boot=n_boot, seed=SEED, counts=counts,
+               quantity_void=quantity_voids(counts), agents={})
     y_all = {}
     for agent in AGENTS + REFERENCE:
         y_of = {k: majority([outcomes[(agent, k[0], k[1], s)] for s in SEEDS]) for k in keys}
@@ -378,7 +412,7 @@ def analyze(rows, truth, features, outcomes, c, workers=1, n_boot=N_BOOT, cuts=f
         lines = {}
         for name in list(LINES) + [DELTA]:
             ci, used = intervals(vals, name)
-            lines[name] = dict(point=point[name], ci=ci, resamples=used)
+            lines[name] = dict(point=point[name], ci=ci, resamples=used, void=voided.get(name))
         npairs = auroc_pairs(np.concatenate([blocks[g]["L"] for g in games]),
                              np.concatenate([blocks[g]["y"] for g in games]).astype(bool),
                              np.concatenate([blocks[g]["game"] for g in games]),
@@ -390,7 +424,7 @@ def analyze(rows, truth, features, outcomes, c, workers=1, n_boot=N_BOOT, cuts=f
         b0, g0 = build_blocks(l0, y_of)
         p0 = line_values(b0, g0)
         v0, s0 = bootstrap(b0, g0, workers, n_boot)
-        level0 = {name: dict(point=p0[name], ci=intervals(v0, name)[0]) for name in (PRIMARY, DELTA)}
+        level0 = {name: dict(point=p0[name], ci=intervals(v0, name)[0], void=voided.get(name)) for name in (PRIMARY, DELTA)}
         cut = cut_counts(agent, keys, outcomes, cuts)
         reasons = void_reasons(units, y_of, counts, blocks, games, cut) if agent in AGENTS else []
         ver = ("void" if reasons else verdict(point[PRIMARY], lines[PRIMARY]["ci"]["98.33%"])) \
@@ -433,6 +467,8 @@ def report(res):
             f"L_C: win within C {c['L']['win_within_C']}, complete {c['L']['complete']}, beyond C {c['L']['beyond_C']}, excluded {c['L']['excluded']} of "
             f"{c['L']['units']}. H_C: at the ceiling {c['H']['at_ceiling']}, excluded {c['H']['excluded']}. "
             f"b: excluded {c['b']['excluded']}.", "",
+            "Rule 3 (more than 10% of the levels excluded): " + "; ".join(
+                f"{q} {'void' if v else 'not void'}" for q, v in res["quantity_void"].items()) + ".", "",
             "## Secondary, registered, outside the outcome table (Section 7.7)", "",
             "Each line is secondary. Delta keeps the 98.33% level; the others are unadjusted 95% intervals.", "",
             "| agent | line | value | interval |", "|---|---|---|---|"]
@@ -440,13 +476,19 @@ def report(res):
         for name in [DELTA] + [n for n in LINES if n != PRIMARY]:
             ln = res["agents"][a]["lines"][name]
             lev = "98.33%" if name == DELTA else "95%"
-            out.append(f"| {a} | {name} | {f4(ln['point'])} | {lev} {ci_text(ln['ci'][lev])} |")
+            if ln.get("void"):
+                out.append(f"| {a} | {name} | void | {ln['void']} |")
+            else:
+                out.append(f"| {a} | {name} | {f4(ln['point'])} | {lev} {ci_text(ln['ci'][lev])} |")
         if a in REFERENCE:
             ln = res["agents"][a]["lines"][PRIMARY]
             out.append(f"| {a} | {PRIMARY} (reference, no verdict) | {f4(ln['point'])} | 95% {ci_text(ln['ci']['95%'])} |")
         l0 = res["agents"][a]["level0"]
         for name in (PRIMARY, DELTA):
-            out.append(f"| {a} | level 0 alone: {name} | {f4(l0[name]['point'])} | 95% {ci_text(l0[name]['ci']['95%'])} |")
+            if l0[name].get("void"):
+                out.append(f"| {a} | level 0 alone: {name} | void | {l0[name]['void']} |")
+            else:
+                out.append(f"| {a} | level 0 alone: {name} | {f4(l0[name]['point'])} | 95% {ci_text(l0[name]['ci']['95%'])} |")
     out += ["", "## Units cut by the agent unit cap (Section 7.6)", "",
             "A cut unit stopped short of 20,000 actions and is scored on the actions it played. Open: cut without "
             "completing the level. Levels undetermined: Y = 0, yet the completed seeds plus the open seeds number "

@@ -24,3 +24,8 @@ void share: excluded / units > 0.1 (analyze_horizon.EXCLUDED_MAX); ceilings 10,0
   C 1,000,000: excluded L_C 0, H_C 0, b 0, any 0 of 20 | void under (a): none; (b): none; (c): none
   C 2,000,000: excluded L_C 0, H_C 0, b 0, any 0 of 20 | void under (a): none; (b): none; (c): none
   stopped by time or memory: 0
+
+== rule 3 as scripts/analyze_horizon.py applies it since 26 November 2026, at the registered C = 1,000,000
+  stage E, dev-minigrid-e (devsearch): L_C excluded 0 of 1560, not void; H_C excluded 0 of 1560, not void; b excluded 0 of 1560, not void | lines marked void: none
+  stage D, dev-minigrid (devsearch; H_C and b only): H_C excluded 0 of 1560, not void; b excluded 0 of 1560, not void | lines marked void: none
+  pilot search, gvgai-pilot-search (gvgaisearch), extended key: L_C excluded 0 of 20, not void; H_C excluded 0 of 20, not void; b excluded 0 of 20, not void | lines marked void: none

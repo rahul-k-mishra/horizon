@@ -34,6 +34,14 @@ seeds on game00 are set by hand (seeds 1000 to 1009; "cut" = cut_by_cap true):
   The cuts change no Y, no AUROC, no verdict and no outcome: the result equals the one without cuts in every field
   but "cut".  The void rule, more than 10% of 130 levels undetermined: 13 levels (10.0%) is not void, 14 (10.8%)
   is.  To make them, game01 to game13 (and then game14), level 0, get 4 completed seeds and 1 cut without completing.
+Part 7, rule 3 of Section 7.4 for every search quantity (decided 26 November 2026, docs/DECISIONS_BEFORE_TAG.md
+item 18, option (b)).  On the synthetic data of part 4 (130 levels, all complete, so nothing excluded):
+    14 levels stopped by the time cap at seen 300 < C = 1,000 with a win seen at 100, length 4: they enter L_C
+        (not excluded) and are excluded from H_C and b.  14 * 100 = 1,400 > 10 * 130 = 1,300: H_C and b void,
+        L_C not.  H_all, H_same, S_M|H_all and Delta are marked void for every agent and on level 0 alone, and
+        b_all too; no other line is; no agent is void, and the verdicts and outcome are those without the 14.
+    13 such levels: 1,300 > 1,300 is false, so nothing is void.
+    14 levels complete with no branching value: b void alone (excluded 14), H_C not void (excluded 0).
 Run: D:\\Research\\horizon\\.venv\\Scripts\\python.exe -W error scripts\\test_analyze_horizon.py > logs\\test_analyze_horizon.log
 """
 import itertools
@@ -408,6 +416,58 @@ def part6():
     check(A.agent_entry(r) == (("I1", "glow", 3, 1004), True, False), "an uncut completed row is read")
 
 
+def part7():
+    print("== 7. rule 3 of Section 7.4 for every search quantity (decided 26 November 2026)")
+    rows, truth, feats, outc = synthetic()
+    keys = sorted(rows)
+    base = A.analyze(rows, truth, feats, outc, 1000, workers=1, n_boot=50)
+    check(base["quantity_void"] == {"L_C": False, "H_C": False, "b": False}
+          and not any(ln["void"] for a in base["agents"] for ln in base["agents"][a]["lines"].values()),
+          "no level excluded: no quantity void, no line void")
+    h_lines = {"H_all", "H_same", "S_M|H_all", "Delta"}
+    for n_lv, void in ((13, False), (14, True)):
+        part = dict(rows)
+        for k in keys[:n_lv]:
+            part[k] = row(False, 300, 100, 4)       # time cap before C, a win seen: in L_C, out of H_C and b
+        res = A.analyze(part, truth, feats, outc, 1000, workers=1, n_boot=50)
+        c = res["counts"]
+        check(c["L"]["excluded"] == 0 and c["H"]["excluded"] == n_lv and c["b"]["excluded"] == n_lv,
+              f"{n_lv} levels stopped by time with a win seen: excluded L_C 0, H_C {n_lv}, b {n_lv} "
+              f"(got {c['L']['excluded']}, {c['H']['excluded']}, {c['b']['excluded']})")
+        check(res["quantity_void"] == {"L_C": False, "H_C": void, "b": void},
+              f"{n_lv} of 130 ({100 * n_lv / 130:.1f}%): H_C and b {'void' if void else 'not void'}, L_C not void "
+              f"(got {res['quantity_void']})")
+        marked = {(a, name) for a in res["agents"] for name, ln in res["agents"][a]["lines"].items() if ln["void"]}
+        want = {(a, name) for a in res["agents"] for name in h_lines | {"b_all"}} if void else set()
+        check(marked == want, f"{n_lv} levels: the lines marked void are "
+              + ("H_all, H_same, S_M|H_all, Delta and b_all for all four agents" if void else "none")
+              + f" ({len(marked)} marked)")
+        l0 = {a: res["agents"][a]["level0"] for a in res["agents"]}
+        check(all(bool(l0[a]["Delta"]["void"]) == void and not l0[a]["L_same"]["void"] for a in l0),
+              f"{n_lv} levels: level 0 alone, Delta {'void' if void else 'not void'}, L_same not void")
+        check(all(res["agents"][a]["verdict"] == base["agents"][a]["verdict"] for a in A.AGENTS)
+              and res["outcome"] == base["outcome"] and not any(res["agents"][a]["void"] for a in A.AGENTS),
+              f"{n_lv} levels: no agent void, verdicts and outcome unchanged ({res['outcome']})")
+        if void:
+            text = A.report(res)
+            check("| N | H_all | void | H_C void: 14 of 130 levels excluded, over 10% (Section 7.4, rule 3) |" in text
+                  and "| N | b_all | void |" in text and "| N | L_all | void |" not in text
+                  and "L_C not void; H_C void; b void" in text,
+                  "the report shows the void lines with their counts, and the rule-3 line")
+    part = dict(rows)
+    for k in keys[:14]:
+        part[k] = row(True, 600, 100, 7, branching=None)    # complete, no branching value: out of b only
+    res = A.analyze(part, truth, feats, outc, 1000, workers=1, n_boot=50)
+    marked = {name for name, ln in res["agents"]["N"]["lines"].items() if ln["void"]}
+    check(res["quantity_void"] == {"L_C": False, "H_C": False, "b": True} and marked == {"b_all"},
+          f"14 levels without a branching value: b void alone, b_all the only line marked (got {res['quantity_void']}, {sorted(marked)})")
+    check(A.quantity_voids({"L": dict(excluded=13, units=130), "H": dict(excluded=14, units=130),
+                            "b": dict(excluded=12, units=125)}) == {"L_C": False, "H_C": True, "b": False}
+          and A.quantity_voids({"L": dict(excluded=13, units=125), "H": dict(excluded=0, units=125),
+                                "b": dict(excluded=0, units=125)})["L_C"],
+          "in integers: 13 of 130 not void, 14 of 130 void, 12 of 125 not void, 13 of 125 void")
+
+
 def main():
     part1()
     part2()
@@ -415,6 +475,7 @@ def main():
     part4()
     part5()
     part6()
+    part7()
     print("OK" if not FAILS else f"{len(FAILS)} failure(s)")
     return 0 if not FAILS else 1
 

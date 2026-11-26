@@ -79,4 +79,19 @@ ok    14 of 130 levels undetermined: void (got 14, void, ['14 of 130 levels unde
 ok    Rand, 20 of 130 levels undetermined: counted, and no void, as Rand has no verdict (got 20, [])
 ok    a cut row's key, completion and cut are read
 ok    an uncut completed row is read
+== 7. rule 3 of Section 7.4 for every search quantity (decided 26 November 2026)
+ok    no level excluded: no quantity void, no line void
+ok    13 levels stopped by time with a win seen: excluded L_C 0, H_C 13, b 13 (got 0, 13, 13)
+ok    13 of 130 (10.0%): H_C and b not void, L_C not void (got {'L_C': False, 'H_C': False, 'b': False})
+ok    13 levels: the lines marked void are none (0 marked)
+ok    13 levels: level 0 alone, Delta not void, L_same not void
+ok    13 levels: no agent void, verdicts and outcome unchanged (Support)
+ok    14 levels stopped by time with a win seen: excluded L_C 0, H_C 14, b 14 (got 0, 14, 14)
+ok    14 of 130 (10.8%): H_C and b void, L_C not void (got {'L_C': False, 'H_C': True, 'b': True})
+ok    14 levels: the lines marked void are H_all, H_same, S_M|H_all, Delta and b_all for all four agents (20 marked)
+ok    14 levels: level 0 alone, Delta void, L_same not void
+ok    14 levels: no agent void, verdicts and outcome unchanged (Support)
+ok    the report shows the void lines with their counts, and the rule-3 line
+ok    14 levels without a branching value: b void alone, b_all the only line marked (got {'L_C': False, 'H_C': False, 'b': True}, ['b_all'])
+ok    in integers: 13 of 130 not void, 14 of 130 void, 12 of 125 not void, 13 of 125 void
 OK
