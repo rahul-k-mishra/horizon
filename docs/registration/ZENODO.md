@@ -9,6 +9,7 @@ Written 14 November 2026. The registration of HORIZON is the annotated git tag `
    `D:\Research\horizon\.venv\Scripts\python.exe scripts\check_no_aid.py --counts > logs\check_no_aid.log`
    It must end with "clean" and return 0. If it does not, remove the mention, commit, and run it again before the tag. scripts/zenodo_deposit.py in step 3 runs the same check on the tagged commit and stops if it finds a hit.
    [corrected 25 Nov 2026] The command gains `--counts`. Amendment (ac) of docs/STATE.md made logs/check_no_aid.log with --counts so that the console prints no matched text of the vendored files under third_party/; this step still gave the plain command, the committed console was made with it from commit 00ca721 on, and that console then held the skipped lines' text, which the deposit's check of step 3 counted as 104 hits (docs/registration/REVIEW_2026-11-25.md, item 25). Since the same date scripts/check_no_aid.py prints no matched text of a skipped hit in either mode.
+   Then, if the run changed logs/check_no_aid.log, commit it before step 2 (git status shows whether it changed), so that the tag carries the console of the check made on the day. [added 26 Nov 2026: step 1a did not say to commit the console, so a tag could carry an older one; REVIEW_2026-11-25.md, item 28]
 2. Create the annotated tag and push it:
    `git tag -a prereg-v1 -m "HORIZON registration v1"` and `git push origin prereg-v1`.
 3. Write the deposit files from the tag (working directory D:\Research\horizon\repo):
