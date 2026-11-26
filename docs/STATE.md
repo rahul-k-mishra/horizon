@@ -732,3 +732,36 @@ Fortieth amendment. The lines above are unchanged. Nothing was tagged in the rep
   4. if any code the runner uses changes, the pilot reruns of Section 8 and a dry run of the changed kind;
   5. the day of the tag, from ZENODO.md.
 - **Next:** the author's answers to items 17 and 18, and the hand check.
+
+## Amendment 26 Nov 2026 (ao)
+
+Forty-first amendment. The lines above are unchanged. Nothing was tagged or deposited. No file under jobs/ or runs/ was changed, no Kaggle session was used, and no pilot level was played. This amendment follows the author's request of 26 November 2026: adopt DECISIONS items 18 (b) and 17 (A), with the date and the reasons; item 28; and a list of the REVIEW items still open.
+
+- **Rule 3 of Section 7.4, adopted: option (b)** (079b2e6, 0b8a9c2).
+  - scripts/analyze_horizon.py applies the 10% to each of L_C, H_C and b, in integers. A void L_C voids each evidence agent, as before. A void H_C marks H_all, H_same, S_M|H_all and Delta void, and a void b marks b_all void, for every agent and on level 0 alone; such lines enter no verdict.
+  - scripts/test_analyze_horizon.py, part 7: 14 of 130 levels stopped by time with a win seen make H_C and b void and L_C not, and change no verdict or outcome; 13 make nothing void; 14 levels without a branching value make b void alone. Parts 1 to 6 still pass. OK (logs/test_analyze_horizon.log).
+  - Reason, entered in PREREG 7.4, rule 3, and in the Answer line: the registered text covered all three quantities and the script covered one, so the script was corrected to the registration.
+  - At the registered C = 1,000,000 the rule voids nothing on the development rows. No unit of stage E (1,560) or of the pilot search (20) is excluded for L_C, H_C or b, and no unit of stage D (1,560) for H_C or b (logs/rule3_reading.log, last section; exploratory).
+- **G2, adopted: option (A), the author's laptop run before the tag** (f7dd831, 0b8a9c2).
+  - PREREG Section 8 fixes what G2 left open:
+    - where it runs: the laptop, with the pinned JDK and the classes compiled from the vendored source;
+    - the random source: numpy default_rng([20261126, game index, level]), each action drawn uniformly from the adapter's list without ACTION_NIL;
+    - a game that ends early: the replay stops where the game ends, and the two replays must stop at the same step with the same status;
+    - the hash: jobs.h64 of the registered key, with the tick rule of Section 6;
+    - processes: the two replays run in separate pools of processes, each with its own JVM.
+  - Section 9 gains the exception, pointing to Section 8.
+  - scripts/g2_replay.py has the parallel form of rule R4: worker pool, 40 units in two chunks, done-markers and a manifest. It is resumable. scripts/test_g2_replay.py runs it on the synthetic games and checks the draw, a full run, separate processes, the digest against a replay in one process, resume, a planted difference caught, and the manifest check. OK (logs/test_g2_replay.log).
+  - No file the runner uses changed: git diff e296372 HEAD on scripts/automation, kaggle and third_party is empty. So neither rerun clause of Section 8 fires.
+  - **The reason for the laptop run, as written, departs from the request.** The request asked the exception to say that determinism on Kaggle is already shown by stage E reproducing stage D on all 1,039 units, and that this is stronger evidence than G2. Stage D and stage E searched study 1's MiniGrid and BabyAI levels, not GVGAI. They show the search code, runner and loop deterministic on Kaggle, but not GVGAI's engine, which is G2's question. The exception says that, and gives the GVGAI evidence on Kaggle as it is, exploratory and small: the gvgaisearch dry run, whose three synthetic levels gave the laptop's counts, one over five resumed sessions; and the gvgaiagent dry run's 12 short units. It states that the laptop run does not check the Kaggle image. The author may reword it.
+  - **The author's command** (cmd, working directory D:\Research\horizon\repo): `D:\Research\horizon\.venv\Scripts\python.exe scripts\g2_replay.py > logs\g2_replay.log 2>&1`. It ends with "G2: PASS" or "G2: FAIL". If it is stopped, the same command resumes it. Commit runs/g2-replay and the console. EXPLORATORY projection: under an hour on 4 workers (logs/g2_cost.log).
+- **Item 28:** ZENODO.md, step 1a, now says to commit logs/check_no_aid.log before step 2 if the run changed it (a9e7da8).
+- **The open REVIEW items** are listed in docs/registration/REVIEW_2026-11-25.md, part F, each with what it says, why it is wrong or incomplete, and the options: PREREG 2, 3, 4, 10, 12 and 13; DESIGN 14, 16 and 19 to 23. None was adopted.
+- **Also.** The protocol list gains g2_replay.py, its test and console. logs/g2_replay.log and the 40 rows of runs/g2-replay go under "to be added". The aid check is clean (logs/check_no_aid.log, rerun with this amendment). No added line has a word of the forbidden list.
+- **What remains before the tag, in order:**
+  1. the author's G2 run, its rows and console committed, and its result entered in PREREG Section 8 with the date; a FAIL is repaired once by the stop rule, by a change of search code, which fires both rerun clauses;
+  2. the hand check (G4): the 100 answers, docs/truth/HANDCHECK_RESULT.md, and any generator fix it requires, with the generator rerun and 5 fresh games checked;
+  3. the author's choices on REVIEW part F, each entered with its date;
+  4. the protocol list completed: the hand-check files and the G2 files moved out of "to be added";
+  5. if any code the runner uses has changed by then, the pilot reruns of Section 8 and a dry run of the changed kind;
+  6. the day of the tag, from ZENODO.md: steps 1 to 5 on one day, with the Zenodo upload and the DOI recorded in STATE.
+- **Next:** the author's G2 run and the hand check.
