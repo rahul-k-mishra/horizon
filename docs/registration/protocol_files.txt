@@ -253,6 +253,9 @@ scripts/g2_cost.py
 logs/g2_cost.log
 scripts/rule3_reading.py
 logs/rule3_reading.log
+scripts/g2_replay.py
+scripts/test_g2_replay.py
+logs/test_g2_replay.log
 runs/gvgai-pilot-agents/gvgaiagent/g1-01-I1-bait-l0-s1000.json
 runs/gvgai-pilot-agents/gvgaiagent/g1-01-I1-bait-l0-s1001.json
 runs/gvgai-pilot-agents/gvgaiagent/g1-01-I1-bait-l1-s1000.json
@@ -421,6 +424,8 @@ logs/automation.log
 # to be added before the tag (docs/PREREG.md, header and Sections 3, 5, 8, 11):
 # docs/truth/handcheck_answers.json (the author's 100 answers; 1 entered at 25 November 2026)
 # docs/truth/HANDCHECK_RESULT.md (written by scripts/handcheck_report.py from the answers)
+# logs/g2_replay.log, runs/g2-replay/manifest.json and the 40 rows runs/g2-replay/rows/r1-<game>-l<level>.json and
+#   r2-<game>-l<level>.json (gate G2, run by the author on his laptop before the tag; PREREG Section 8, 26 Nov 2026)
 #
 # left out, and why (the author's decision, docs/STATE.md, amendment ai):
 # third_party/gvgai (the GVGAI source and descriptions at commit e58ff6597319155218759cc178931e05b81b524c, each file

@@ -1,0 +1,21 @@
+== 1. the registered values and the draw
+ok    seed 20261126, 1,000 sequences of 200 actions, two passes
+ok    20 pilot levels: bait, labyrinthdual, rivers, watergame, levels 0 to 4, in the order of logs/draw_pilot.log
+ok    the same (seed, game, level) gives the same draw; another level another; values 0 to 4 for 5 actions
+== 2. a full run on the synthetic levels
+ok    exit 0, every sequence identical, marked not G2 (exit 0)
+ok    6 rows, 6 done-markers and the manifest
+ok    some sequences end the game early, and the replay stops there; corridor 1 never ends ({'r1-allwin-l0.json': 30, 'r1-corridor-l0.json': 23, 'r1-corridor-l1.json': 0, 'r2-allwin-l0.json': 30, 'r2-corridor-l0.json': 23, 'r2-corridor-l1.json': 0})
+== 3. the passes in different processes
+ok    process tokens of pass 1 and pass 2 are disjoint (2 and 2)
+== 4. the digest recomputed in one process
+ok    sequence 7 of corridor 0: digest, steps and status equal a replay here with jobs.h64 of the key
+== 5. resume
+ok    stopped after 2 units: exit 2, 2 done-markers (exit 2)
+ok    the same command again finishes, skips the 2 done units, and gives the full run's rows (exit 0)
+== 6. a planted difference
+ok    a changed digest in pass 2 of allwin 0: exit 1, the level and sequence 5 named (exit 1)
+ok    a changed steps in pass 2 of allwin 0: exit 1, the level and sequence 5 named (exit 1)
+== 7. the manifest
+ok    other options on the same folder are refused (exit 3)
+OK
