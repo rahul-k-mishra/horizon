@@ -826,3 +826,35 @@ Forty-third amendment. The lines above are unchanged. Nothing was tagged or depo
   5. if any code the runner uses has changed by then, the pilot reruns of Section 8 and a dry run of the changed kind;
   6. the day of the tag, from ZENODO.md, steps 1 to 5 on one day (steps 4 and 5 untried, REVIEW 29), the DOI recorded here, and, if Section 8 then leaves nothing for v1.1, that fact recorded here with its date.
 - **Next:** the author's choice on G5's timing, and the hand check.
+
+## Amendment 28 Nov 2026 (ar)
+
+Forty-fourth amendment. The lines above are unchanged. Nothing was tagged or deposited. No committed row under runs/ and no done-marker was changed, no Kaggle session was used, and nothing was read from the real truth table. This amendment follows the author's third request of 28 November 2026.
+
+- **1. G5 moved before the tag, after the hand check** (the commits "PREREG 8 and head ..." and "DESIGN 8 ...").
+  - PREREG Section 8, first line, marked [changed 28 Nov 2026, later the same day]. It now names four parts run before the tag: the pilot search, the pilot agents, G2, and G5 read after the hand check. The three-part line of the same morning is quoted.
+  - A new paragraph in Section 8, "G5, read before the tag, after the hand check", gives three things:
+    - the reason: G5 reads docs/truth/gvgai.json alone, which the tag freezes, so its answer is fixed before the tag; read after the tag, it would be neither a rerun nor a repair, and its result would have no place;
+    - what a pre-tag G5 may not do: a failure is VOID with no repair, not cured by changing the game list, a predicate, the threshold, the count of two values or the suite; the 25-game suite was fixed by the fit rule on 14 November 2026; a generator fix from the hand check follows Section 5 alone and is not a repair of G5;
+    - the limitation: G5 is not blind. From Section 4's counts and the constancy of S_M within a game, S_M is 2 on 15 of 125 units (12.0%), 3 on 60 (48.0%), 4 on 35 (28.0%) and 5 on 15 (12.0%), four values at 10% or more where G5 needs two. Reading G5 before the tag gives the author no freedom he did not already have. Only a generator fix from the hand check could change the answer.
+  - These figures come from scripts/g5_implied.py (logs/g5_implied.log). It reads PREREG Section 4, logs/fit_rule.log and logs/truth_vgdl.log, checks that Section 4 agrees with the log, and does not open the truth table.
+  - The G5 row of the table gains a pointer; its condition is unchanged. The status paragraph and the diff section name the change. DESIGN Section 8 carries the same change, dated, pointing to PREREG.
+  - scripts/g5_reading.py's docstring is corrected to match, quoting what it read. Its test was rerun on synthetic tables: OK, console unchanged. The test's part 8 runs the author's command as a separate process only to show it refuses (exit 3) without opening the table; scripts/g5_reading.py has not read the real table.
+- **2. PREREG head, "Added to what is done before the tag"**, [28 Nov 2026]: it gains the pilot agent run (25 November 2026), G2 (26 November 2026) with its result of 28 November, and G5 after the hand check. It quotes the list's old last item.
+- **3. Protocol list.** scripts/g5_implied.py and logs/g5_implied.log are added, which gives 442 listed paths, all tracked. logs/g5_reading.log is now part of what the tag freezes but stays under "to be added" until it exists, since scripts/zenodo_deposit.py stops on a listed path that is missing. A line there says so.
+- **4.** scripts/g5_reading.py was not run on the real table. It stays refused until docs/truth/HANDCHECK_RESULT.md exists.
+- **5. Record.**
+  - git diff e296372 HEAD on scripts/automation, kaggle and third_party is empty, so neither rerun clause of Section 8 fires.
+  - Every changed line of PREREG and DESIGN keeps its old text; the changes are in PREREG's head, Section 8 and Section 13 and DESIGN's Section 8. No threshold, predicate, game list, gate condition or outcome rule changed.
+  - The G2 exception paragraph is byte-for-byte as adopted in commit 0b8a9c2.
+  - The aid check is clean (logs/check_no_aid.log, 8,282 tracked files). No added line has a word of the forbidden list. Pushed.
+- **Found on the way, not on any list and not changed:**
+  - The stop rule's repair clause assumes gates read after the tag. It says a repair of G1, G2 or G4 "is recorded in v1.1 and the pilot is rerun on the same pilot games". G4 is done before the tag, and Section 5 says each hand-check disagreement "fixes the generator, and is listed in v1". The registration does not say whether a hand-check disagreement is a failure of G4, and so uses up its one repair, or part of the hand check. Under the v1.1 rule changed today, a G4 repair would call for a v1.1 although Section 5 lists the fix in v1. "The pilot is rerun" has no meaning for G4. G2 is also now before the tag and passed, so this matters only for G4.
+  - PREREG Section 9: "no run is made by hand", with G2 the one exception. Whether the author's reading of G5 by script on his laptop counts as a run is not said; the hand check (G4) is made by hand under the same text.
+- **What remains before the tag, in order:**
+  1. the author's choice on the stop rule's repair clause for gates read before the tag (needs the author);
+  2. the hand check (G4): the 100 answers, docs/truth/HANDCHECK_RESULT.md, any generator fix with the generator rerun and 5 fresh games checked (needs the author); the two files moved into the protocol list (no);
+  3. G5: the author runs scripts/g5_reading.py (needs the author); its result entered in PREREG Section 8 with the date and its console moved into the protocol list (no);
+  4. if any code the runner uses has changed, the pilot reruns of Section 8 and a dry run of the changed kind (the loop; the author's decision to proceed);
+  5. the day of the tag, from ZENODO.md, steps 1 to 5 on one day (the author: tag, push, Zenodo upload), the DOI recorded here, and, if Section 8 leaves nothing for v1.1, that fact recorded here with its date.
+- **Next:** the author's choice on the repair clause, and the hand check.
