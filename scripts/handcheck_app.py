@@ -18,7 +18,9 @@ at the blob it was built from.
 
 Reads:  logs/draw_handcheck.log (the 10 games and levels drawn by scripts/draw_handcheck.py; names and levels)
         or docs/truth/handcheck_fresh_<r>.json (a fresh round, scripts/draw_handcheck_fresh.py);
-        docs/truth/HANDCHECK_GUIDE.md (the question of each predicate);
+        docs/truth/HANDCHECK_GUIDE.md (the question of each predicate; read when the rows are built, not shown);
+        docs/truth/PREDICATE_DEFINITIONS.md (the definition of each predicate, shown beside every row; added
+        28 November 2026);
         docs/truth/handcheck_readings_source.json, schema horizon.handcheck_readings.v2, a reading per row derived
         from the vendored GVGAI source under third_party/gvgai, with the script that wrote it ("written_by");
         and the GVGAI files the rows name.
@@ -58,6 +60,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TRUTH = os.path.join(REPO, "docs", "truth")
 DRAW_LOG = os.path.join(REPO, "logs", "draw_handcheck.log")
 GUIDE = os.path.join(TRUTH, "HANDCHECK_GUIDE.md")
+DEFINITIONS = os.path.join(TRUTH, "PREDICATE_DEFINITIONS.md")
 READINGS = os.path.join(TRUTH, "handcheck_readings_source.json")
 GAMES_DIR = "third_party/gvgai/examples/gridphysics"
 TRUTH_REL = "docs/truth/gvgai.json"
@@ -154,6 +157,18 @@ def guide_questions():
     return out
 
 
+def definitions():
+    """{predicate: text} from docs/truth/PREDICATE_DEFINITIONS.md, the registered wording without examples, the only
+    definition text the author reads during the blind pass (PREREG Section 5, decided 28 November 2026)."""
+    with open(DEFINITIONS, encoding="utf-8") as f:
+        text = f.read()
+    out = {p: body.strip() for p, body in re.findall(r"^## (A\d)\n\n(.+?)(?=\n## |\Z)", text, re.M | re.S)}
+    missing = [p for p in PRED if p not in out]
+    if missing:
+        raise SystemExit(f"{rel(DEFINITIONS)} has no definition for {', '.join(missing)}")
+    return out
+
+
 def source_readings(path):
     """The readings derived from the GVGAI source, and the path of the script that wrote them; refuses any other."""
     if not os.path.exists(path):
@@ -186,6 +201,7 @@ def build_rows(rnd=0, readings_path=READINGS):
     readings, writer = source_readings(readings_path)
     units, games_file = round_units(rnd)
     questions = guide_questions()
+    defs = definitions()
     rows = []
     for game, levels in units:
         desc = f"{GAMES_DIR}/{game}.txt"
@@ -204,11 +220,11 @@ def build_rows(rnd=0, readings_path=READINGS):
                     if any(not 1 <= n <= size for n in highlight[where]):
                         refuse(f"{rid}: a highlighted line is not in {path}")
                 rows.append({"id": rid, "game": game, "level": lvl, "predicate": p, "name": questions[p][0],
-                             "question": questions[p][1], "description": desc, "level_file": lvl_file,
+                             "question": questions[p][1], "definition": defs[p], "description": desc, "level_file": lvl_file,
                              "reading": (r.get("reading") or "").strip(), "highlight": highlight})
     return {"schema": ROWS_SCHEMA, "written_by": "scripts/handcheck_app.py", "round": rnd,
             "truth_blob": truth_blob(),
-            "sources": {rel(p): sha256(p) for p in (games_file, GUIDE, readings_path, writer)}, "rows": rows}
+            "sources": {rel(p): sha256(p) for p in (games_file, GUIDE, DEFINITIONS, readings_path, writer)}, "rows": rows}
 
 
 def blind_refusal(data, what):
@@ -298,7 +314,8 @@ def info_blocks(r):
     out = [(f"{r['game']}, level {r['level']}\n", "h"), (f"{r['predicate']}. {r['name']}\n", "b"),
            (r["question"] + "\n", None),
            ("Your answer: does the predicate hold on this level, by the files alone?\n", "b"),
-           ("1 holds, 2 fails, 3 unsure.\n", None)]
+           ("1 holds, 2 fails, 3 unsure.\n", None),
+           ("The definition (docs/truth/PREDICATE_DEFINITIONS.md)\n", "b"), (r["definition"] + "\n", None)]
     if r["reading"]:
         out += [("A reading of the source\n", "b"), (r["reading"] + "\n", None)]
     lines = [(desc_name, r["description"], n) for n in r["highlight"]["description"]] + \

@@ -1,8 +1,8 @@
-docs/truth/handcheck_fresh_rows_1.json written: 50 rows, 5 games, sha256 2020c91add3e6c6ef632cb17f59500e921209bafd14ccd41c9ae250eba9ec980; no verdict in it
+docs/truth/handcheck_fresh_rows_1.json written: 50 rows, 5 games, sha256 ec47c312b05be8aeb52d7cc7def6898d3b2ee36511308b8ff4fcf1c0adce3ebf; no verdict in it
    bait: levels 0, 2
    racebet2: levels 0, 2
    tercio: levels 0, 4
    watergame: levels 0, 3
    zenpuzzle: levels 0, 3
-sources: docs/truth/handcheck_fresh_1.json, docs/truth/HANDCHECK_GUIDE.md, docs/truth/handcheck_readings_source.json, scripts/handcheck_readings_source.py
+sources: docs/truth/handcheck_fresh_1.json, docs/truth/HANDCHECK_GUIDE.md, docs/truth/PREDICATE_DEFINITIONS.md, docs/truth/handcheck_readings_source.json, scripts/handcheck_readings_source.py
 sources changed since written: none

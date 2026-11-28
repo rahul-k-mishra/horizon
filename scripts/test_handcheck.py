@@ -17,7 +17,8 @@ the author.
    before any window opens; it refuses the readings that explain the generator's verdict, and readings whose
    writing script names docs/truth/gvgai.json; and showing every one of the 150 committed blind rows in the window
    (the rows loaded first, which hashes their sources, the guide among them, without showing them) opens neither docs/truth/gvgai.json nor any file listed as not to be opened in docs/truth/handcheck_seen.json,
-   and the right pane holds none of the words verdict, holds and fails beyond the fixed line naming the keys.
+   the right pane shows the predicate's definition from docs/truth/PREDICATE_DEFINITIONS.md, and it holds none of
+   the words verdict, holds and fails beyond that definition and the fixed line naming the keys.
 3. The window, driven by its own methods on the committed blind rows: answers holds, fails and unsure are kept after
    every click, keys 1 to 3 do nothing while the note has the focus, Back and Skip move without answering, a new
    window resumes at the row the last one left, and Finish marks the answers finished; an answers file of the old
@@ -190,7 +191,9 @@ def test_no_verdict(tmp):
             for i in range(len(rows)):
                 w.i = i
                 w.show()
-                text = w.info.get("1.0", "end").replace("1 holds, 2 fails, 3 unsure.", "")
+                text = w.info.get("1.0", "end")
+                check(rows[i]["definition"] in text, f"{rows[i]['id']}: the predicate's definition is shown")
+                text = text.replace("1 holds, 2 fails, 3 unsure.", "").replace(rows[i]["definition"], "")
                 check(not re.search(r"\b(verdict|holds|fails)\b", text, re.I), f"{rows[i]['id']}: no verdict shown")
                 shown_rows += 1
             root.destroy()

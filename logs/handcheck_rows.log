@@ -1,4 +1,4 @@
-docs/truth/handcheck_rows.json written: 100 rows, 10 games, sha256 302e7861b92e78206c85cabf00f1cdd6e4dd65ba0842aef8e2c18f587764ddd6; no verdict in it
+docs/truth/handcheck_rows.json written: 100 rows, 10 games, sha256 84a96b060ebed9c420d41bbf186bb53de9dada2fa61528985b51038bbe8a8672; no verdict in it
    clusters: levels 0, 3
    colourescape: levels 0, 3
    glow: levels 0, 4
@@ -9,5 +9,5 @@ docs/truth/handcheck_rows.json written: 100 rows, 10 games, sha256 302e7861b92e7
    rivers: levels 0, 4
    sokoban: levels 0, 1
    wrapsokoban: levels 0, 1
-sources: logs/draw_handcheck.log, docs/truth/HANDCHECK_GUIDE.md, docs/truth/handcheck_readings_source.json, scripts/handcheck_readings_source.py
+sources: logs/draw_handcheck.log, docs/truth/HANDCHECK_GUIDE.md, docs/truth/PREDICATE_DEFINITIONS.md, docs/truth/handcheck_readings_source.json, scripts/handcheck_readings_source.py
 sources changed since written: none
