@@ -1,0 +1,16 @@
+ok    one section per predicate, A1 to A5, in order
+ok    A1: "A1 holds iff the avatar present at level start is ..." is word for word in PREREG Section 5's A1
+ok    A2: "A2 holds iff exactly one sprite's displacement is ..." is word for word in PREREG Section 5's A2
+ok    A2: "A2 also fails wherever an action creates a sprite ..." is word for word in PREREG Section 5's A2
+ok    A3: "A3 holds iff each movement action, when not blocke..." is word for word in PREREG Section 5's A3
+ok    A4: "A4 holds iff every move without effect is explaine..." is word for word in PREREG Section 5's A4
+ok    A4: ""With the avatar" is applied with the avatar named..." is word for word in PREREG Section 5's A4
+ok    A4: "A blocking relation that depends on the avatar's s..." is word for word in PREREG Section 5's A4
+ok    A4: "The generator counts a name as standing for agent-..." is word for word in PREREG Section 5's A4
+ok    A4: "The first clause is checked through every undoAll ..." is word for word in PREREG Section 5's A4
+ok    A5: "A5 holds iff the only winning condition is a Sprit..." is word for word in PREREG Section 5's A5
+1. registered wording: 10 pieces, each word for word in its predicate's bullet of PREREG Section 5
+ok    2. no game: none of 126 game names appears
+ok    3. no verdict: every verdict word is in one of the fixed forms of the rule
+ok    3. no count: no digit outside the predicate names and the rule's own numbers
+OK
