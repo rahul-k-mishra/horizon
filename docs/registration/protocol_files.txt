@@ -298,6 +298,9 @@ runs/g2-replay/rows/r2-watergame-l1.json
 runs/g2-replay/rows/r2-watergame-l2.json
 runs/g2-replay/rows/r2-watergame-l3.json
 runs/g2-replay/rows/r2-watergame-l4.json
+scripts/g5_reading.py
+scripts/test_g5_reading.py
+logs/test_g5_reading.log
 runs/gvgai-pilot-agents/gvgaiagent/g1-01-I1-bait-l0-s1000.json
 runs/gvgai-pilot-agents/gvgaiagent/g1-01-I1-bait-l0-s1001.json
 runs/gvgai-pilot-agents/gvgaiagent/g1-01-I1-bait-l1-s1000.json
@@ -466,6 +469,10 @@ logs/automation.log
 # to be added before the tag (docs/PREREG.md, header and Sections 3, 5, 8, 11):
 # docs/truth/handcheck_answers.json (the author's 100 answers; 1 entered at 25 November 2026)
 # docs/truth/HANDCHECK_RESULT.md (written by scripts/handcheck_report.py from the answers)
+# logs/g5_reading.log (gate G5, read by scripts/g5_reading.py from docs/truth/gvgai.json; read only after the hand
+#   check and any generator fix, and not run on the real table before then; PREREG Section 8 places G5 after the tag,
+#   not among the three parts it names as run before it, so whether this console is in the deposit is the author's
+#   decision, docs/STATE.md, amendment (aq))
 #
 # left out, and why (the author's decision, docs/STATE.md, amendment ai):
 # third_party/gvgai (the GVGAI source and descriptions at commit e58ff6597319155218759cc178931e05b81b524c, each file
