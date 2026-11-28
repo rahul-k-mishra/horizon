@@ -1092,3 +1092,37 @@ Forty-ninth amendment. The lines above are unchanged. Nothing was tagged or depo
   5. pilot reruns only if runner code changed (the author's decision);
   6. the day of the tag (needs the author).
 - **Next:** the blind pass.
+
+## Amendment 28 Nov 2026 (ax)
+
+Fiftieth amendment. The lines above are unchanged. Nothing was tagged or deposited. No committed row under runs/ and no done-marker was changed, no Kaggle session was used, scripts/g5_reading.py was not run, and no hand-check row was answered. No verdict is stated here. This amendment follows the author's ninth request of 28 November 2026. The changes are registered in PREREG Section 5, marked [decided 28 Nov 2026, the pass completed] and [corrected 28 Nov 2026].
+
+- **1. A4's wording.**
+  - docs/truth/PREDICATE_DEFINITIONS.md gains, under A4, a paragraph "From Section 1:" with Section 1's wording on A4's first clause. The two game names are replaced by [a game]; reasons, counts and the file reference are left out.
+  - scripts/test_predicate_definitions.py: 3 pieces of that paragraph are word for word in Section 1's bullet, each mark standing for one word, and the file names none of 126 game names. OK (logs/test_predicate_definitions.log).
+  - PREREG gives the reason: Section 5's A4 refers to Section 1 and does not repeat it.
+- **2. The questions.**
+  - All five questions existed only in the guide, so all five were written anew from the definitions, not copied: A1, A2, A3, A4 and A5.
+  - They sit in the definitions file, one "Question:" line per predicate, and the app reads them from there. The app reads nothing from docs/truth/HANDCHECK_GUIDE.md, and the test checks that it names no path to it.
+  - The predicates' short names, which only the guide gives, are no longer shown, and the report falls back to the predicate's code. The old build kept in scripts/test_handcheck.py, part 1, reads the guide itself for its check of the old rows file.
+- **3. The boundary of the readings.**
+  - scripts/handcheck_readings_source.py also quotes the avatar's physics class (GridPhysics in every game of the row sets) with activeMovement and passiveMovement, Game.killSprite, and the 4 declarations of Game.addSprite, and stops there.
+  - The readings test: 686 quotes in 64 files byte for byte; part 8 shows every reading quotes these and nothing of any other kind. Over the 30 readings the length is 448,752 characters, against 313,092 with the effects and 119,728 at first; that is 1.43 times the last and 3.75 times the first. The longest is lasers level 0, 22,060 characters. OK.
+  - The boundary and its reason are registered, and the remainder is stated as a limitation reported with the study.
+  - Both row sets were rebuilt, still pinned to blob d2a71c2. scripts/test_handcheck.py checks that each row's question and definition are shown. Tests OK.
+- **4. The list of files not to open:** PREREG's option-B item (3) now says the register holds the list, with no count or enumeration of its own, and quotes what it read.
+- **5. Record.**
+  - DESIGN Section 4 carries a dated summary pointing to PREREG.
+  - PREREG changed in its status paragraph, Section 5 and Section 13 only. No threshold, predicate, game list, drawn game, level or outcome rule changed.
+  - git diff e296372 HEAD on scripts/automation, kaggle and third_party is empty, so neither rerun clause fires.
+  - The G2 exception and the G5 paragraph are byte-for-byte unchanged.
+  - No file was added, so the protocol list is unchanged at 463 listed paths.
+  - scripts/handcheck_seen.py's console is unchanged: 76 of 150 rows seen, 46 and 28 blind, no statement moved.
+  - The aid check is clean on 8,302 tracked files; its console is identical to the committed one, so there was nothing to commit. Pushed.
+- **Found on the way, not on any list and not changed:**
+  - **Definition text in the readings test.** scripts/test_handcheck_readings_source.py still reads the predicates' short names from the guide's headings, for its check that no reading contains them. That is a test, not the window; the author does not run it during the pass.
+  - **Other "definition text".** The definitions file's header calls it the only definition text the author reads. The window also shows a fixed line, "Your answer: does the predicate hold on this level, by the files alone?", which is an instruction, not definition text.
+  - **The "[...]" marks after the A2 and A4 definitions** hide clauses that carry decisions (the 25 October dates, the rejected reading of A4). Those are reasons and history, not rule. A reader comparing with PREREG will see the marks.
+- **The command to start answering** (working directory D:\Research\horizon\repo): D:\Research\horizon\.venv\Scripts\python.exe scripts\handcheck_app.py, and with --round 1 for fresh round 1.
+- **What remains before the tag:** as in amendment (aw). The blind pass (needs the author); resolutions, fixes and recomputations (the author confirms each resolution); the report and its files (no); G5 (needs the author to run it); pilot reruns only if runner code changed (the author's decision); the day of the tag (needs the author).
+- **Next:** the blind pass.
