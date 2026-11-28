@@ -1048,3 +1048,47 @@ Forty-eighth amendment. The lines above are unchanged. Nothing was tagged or dep
   6. pilot reruns only if runner code changed (the loop; the author's decision);
   7. the day of the tag (needs the author), with the DOI and any v1.1 note recorded here (no).
 - **Next:** the author's statement on HANDCHECK.md and the definitions, then the blind pass.
+
+## Amendment 28 Nov 2026 (aw)
+
+Forty-ninth amendment. The lines above are unchanged. Nothing was tagged or deposited. No committed row under runs/ and no done-marker was changed, no Kaggle session was used, scripts/g5_reading.py was not run, and no hand-check row was answered. No verdict is stated in this amendment that the register does not already list. This amendment follows the author's eighth request of 28 November 2026. Each part is registered in PREREG Section 5, marked [decided 28 Nov 2026, the pass prepared], with the reason and what the text said before.
+
+- **1. The definitions.**
+  - docs/truth/PREDICATE_DEFINITIONS.md: the Section 5 wording of A1 to A5, with each omission marked.
+  - scripts/test_predicate_definitions.py checks it (logs/test_predicate_definitions.log): its 10 pieces are each word for word in their predicate's bullet; it names none of 126 game names; every verdict word in it is in a fixed form of the rule. OK.
+  - The app shows the predicate's definition beside every row. PREREG names the file as the only definition text the author reads during the pass.
+- **2. The author's statement** that he never opened docs/truth/HANDCHECK.md is registered: asserted and not proved, with the corroboration (the clusters A1 level 0 row he answered and discussed outside the repository is the first row the old window showed, and it and the next row are in the register). The 46 and 28 blind rows stand as blind.
+- **3. How a seen row is read:** an agreement on it is weak evidence, a disagreement strong evidence, and the author answers it as carefully as a blind one. scripts/handcheck_report.py gives agree, disagree and unsure apart for seen and blind rows in each set; its test has 32 checks, OK.
+- **4. The cost of A1 and A4,** from scripts/handcheck_sm_constant.py (logs/handcheck_sm_constant.log), which reads PREREG Section 4, the predicate counts of Section 7.8 and the register.
+  - The sum of S_M, 85, equals the sum of the predicate counts. A1 and A4 add exactly 2 to every confirmatory game.
+  - Same-S_M pairs are unchanged by that constant: 93 pairs of games and 2,325 between-game pairs of units. The order of the games by S_M is unchanged too.
+  - One non-uniform error would move these counts to between 85 and 99 pairs of games, by the value it hits.
+  - No blind row of A1 or A4 exists in either set. PREREG states the residual risk as a limitation of the study.
+  - PREREG names the primary test's same-S_M pairs (Section 7.2) and the secondary AUROC of S_M (Section 7.7). The request called the AUROC of S_M part of the primary test, but under Section 7.2 it is secondary.
+- **5. The effect code.**
+  - Each reading now quotes the Java source of every effect its InteractionSet names, from src/ontology/effects.
+  - The readings test (logs/test_handcheck_readings_source.log): 446 quotes in 62 files byte for byte; every effect named is quoted in 30 of 30 readings; the readings are 2.62 times as long over all 30 (119,728 characters before, 313,092 now; from 1.94 to 3.65 times per reading). OK.
+  - Both row sets were rebuilt with the definitions and the effects, still pinned to blob d2a71c2. scripts/test_handcheck.py OK.
+- **6. The register matches on text.**
+  - scripts/handcheck_seen.py finds each statement by its quoted text: "MOVED" with the new line, failing only when the text is gone. A trial on a wrong line gave "moved, now on line 26, 28", and a missing text gave "gone".
+  - The register gains the registration's new statement on A1 and A4 (no new row), and logs/handcheck_sm_constant.log among the files not to open, which brings that list to 22. Counts unchanged: 76 of 150 seen; 54 seen and 46 blind in the hand check, 22 and 28 in fresh round 1.
+- **7. Record.**
+  - DESIGN Section 4 carries a dated summary pointing to PREREG.
+  - PREREG changed in its status paragraph, Section 5 and Section 13 only. No threshold, predicate, game list, drawn game, level or outcome rule changed.
+  - git diff e296372 HEAD on scripts/automation, kaggle and third_party is empty, so neither rerun clause fires.
+  - The G2 exception and the G5 paragraph are byte-for-byte unchanged.
+  - The protocol list has 463 listed paths, all tracked. The aid check is clean on 8,302 tracked files (logs/check_no_aid.log). Pushed.
+- **Found on the way, not on any list and not changed:**
+  - **The definitions file drops part of A4's wording.** It is from Section 5 alone, as asked. Section 1 holds more A4 wording, on what counts as agent-driven, but with game names on the same line, so the file leaves it out.
+  - **The window still shows the guide's one-line question** for each predicate. Each line is free of verdicts, but it comes from a file the author does not open, and it is not definition text.
+  - **The effect quotes call code they do not quote:** Effect.java, the physics, and Game's methods such as killSprite and addSprite. In those places the author still relies on his knowledge of GVGAI.
+  - **The list of files not to open is in two places.** It now has 22 entries in the register, while PREREG's option-B paragraph names 21. PREREG says the list is kept in the register.
+- **The command to start answering** (working directory D:\Research\horizon\repo): D:\Research\horizon\.venv\Scripts\python.exe scripts\handcheck_app.py, and with --round 1 for fresh round 1.
+- **What remains before the tag:**
+  1. the 100 blind answers and fresh round 1's 50, committed (needs the author);
+  2. resolutions from the GVGAI source (the author confirms each), any generator fix and rerun, and the mandatory recomputations (no, except the confirmations);
+  3. scripts/handcheck_report.py run, HANDCHECK_RESULT.md and its console committed, the answer files listed (no); fresh round 2 only after a failure of form (ii) (needs the author);
+  4. G5 (needs the author to run it; its entry no);
+  5. pilot reruns only if runner code changed (the author's decision);
+  6. the day of the tag (needs the author).
+- **Next:** the blind pass.
