@@ -765,3 +765,33 @@ Forty-first amendment. The lines above are unchanged. Nothing was tagged or depo
   5. if any code the runner uses has changed by then, the pilot reruns of Section 8 and a dry run of the changed kind;
   6. the day of the tag, from ZENODO.md: steps 1 to 5 on one day, with the Zenodo upload and the DOI recorded in STATE.
 - **Next:** the author's G2 run and the hand check.
+
+## Amendment 28 Nov 2026 (ap)
+
+Forty-second amendment. The lines above are unchanged. Nothing was tagged or deposited. No committed row under runs/ and no done-marker was changed, no file under scripts/, jobs/, kaggle/ or third_party/ changed, and no Kaggle session was used. This amendment follows the author's request of 28 November 2026, in three parts.
+
+- **1. G2: passed** (c3d9bdb, 90b47f9).
+  - The author ran scripts/g2_replay.py on his laptop; its rows were written on 28 November 2026. The console and runs/g2-replay (manifest, 40 rows, 40 done-markers) are committed as he left them.
+  - Checked before the commit, by a separate reading of the rows and not by the script's own comparison: the manifest's 40 units, 20 per pass, each have a row and a done-marker; the seed, the 1,000 sequences of 200 actions and the game indices are as registered; every action array equals numpy default_rng([20261126, game index, level]) over the adapter's list, with no ACTION_NIL; pass 1 ran in 4 processes and pass 2 in 4 others, none shared.
+  - 20,000 of 20,000 sequences gave the same digest, steps and status in both passes; 2,300,545 states hashed in each pass; 11,109 sequences ended the game before 200 actions (logs/g2_replay.log, "G2: PASS"). The log's verdict matches the rows.
+  - Entered in PREREG Section 8 as a new bullet, [entered 28 Nov 2026]; the exception to Section 9 is unchanged. No repair, so G2 enters nothing in v1.1.
+  - The protocol list takes logs/g2_replay.log, the manifest and the 40 rows out of "to be added": 437 listed paths, all committed.
+- **2. REVIEW part F, option (a) on every open item but 13** (e6ae842, 778226f), each at the place that was wrong, marked 28 November 2026 with its reason and what it read:
+  - PREREG: 2 (the v1.1 line), 3 (Section 8's first line names three exceptions), 4 (the spent clause noted), 10 (Section 11 names the cut-unit rule), 12 (Section 7.8: neither rule 5 nor the cut-unit rule in the simulation). The status paragraph and the diff section gain a sentence naming 28 November.
+  - DESIGN: 14 (head), 16 (void list), 19 (150, 11.1%, 3.8%), 20 (Section 7.1 status), 21 (Section 6, the cap and cut units), 22 (feature definitions), 23 (25 games).
+- **3. Record** (dd17e74, 1223a45).
+  - No registered value, threshold, count or gate changed: every changed line keeps its old text, and the only character removed is the "6" of DESIGN's "26 games" (item 23). git diff e296372 HEAD on scripts/automation, kaggle and third_party is empty, so neither rerun clause of Section 8 fires.
+  - No Answer line of docs/DECISIONS_BEFORE_TAG.md is affected.
+  - REVIEW part F records what was done with each item. The aid check is clean (logs/check_no_aid.log, 8,277 tracked files). No added line has a word of the forbidden list. Pushed.
+- **Found on the way, not on the list and not changed:**
+  - DESIGN Section 8 names the pilot search and pilot agents as run before the tag, not G2; its G2 row has neither the specification of 26 November nor the laptop exception.
+  - PREREG Section 8, stop rule: "the other pilot values enter v1.1, which is tagged before any confirmatory unit runs". With G1, G2 and G3 read before the tag, no pilot value is left for v1.1 unless a rerun clause fires; the text does not say whether v1.1 is tagged when it would hold nothing. DESIGN Section 8's stop rule has the same sentence.
+  - G5 is read by no script and has no recorded result or date. It reads the truth table, so it can only be read after the hand check and any generator fix.
+  - DESIGN Section 7, "The thresholds now read", omits the 50% of rule 5 and the 10% of undetermined levels, as PREREG 7.5 did before 25 November.
+- **What remains before the tag, in order:**
+  1. the hand check (G4): the 100 answers, docs/truth/HANDCHECK_RESULT.md, any generator fix with the generator rerun and 5 fresh games checked, and the two files added to the protocol list (REVIEW 13 and 27);
+  2. G5 read from the truth table after the hand check, by a committed script, and entered;
+  3. the author's choices on the four findings above;
+  4. if any code the runner uses has changed by then, the pilot reruns of Section 8 and a dry run of the changed kind;
+  5. the day of the tag, from ZENODO.md, steps 1 to 5 on one day, steps 4 and 5 untried until then (REVIEW 29), with the DOI recorded here.
+- **Next:** the hand check.
