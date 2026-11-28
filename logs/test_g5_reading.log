@@ -1,0 +1,30 @@
+== 1. S_M per unit
+ok    none, A2+A5, A1+A3+A4, all, A4 give 0, 2, 3, 5, 1 (got [0, 2, 3, 5, 1])
+== 2. a table that passes
+ok    S_M 3 on 65 and 4 on 60 of 125: PASS (exit 0)
+== 3. tables that fail: fewer than two values held by at least 10%
+ok    (a) S_M 4 on all 125 units: FAIL, the stop rule and VOID named (exit 1)
+ok    (b) S_M 3 on 113, 2 on 6, 5 on 6 of 125: FAIL (exit 1)
+ok    no value at 10%: possible in 0 of 2,000 random tables (got 0)
+== 4. the boundary of 10% on 125 units (12.5)
+ok    S_M 4 on 13 of 125 (10.4%): PASS (exit 0)
+ok    S_M 4 on 12 of 125 (9.6%): FAIL (exit 1)
+== 5. the boundary of 10% where it is whole: 100 units
+ok    S_M 4 on exactly 10 of 100 (10%): PASS, 'at least' (exit 0)
+ok    S_M 4 on 9 of 100: FAIL (exit 1)
+ok    3 of 30 is 10% exactly in integers: held
+ok    7 of 71 (9.86%): not held
+== 6. the boundary of two values
+ok    exactly two values at 10%: PASS
+ok    four values each at 10% or more: PASS (exit 0)
+== 7. an incomplete table gives no verdict
+ok    a missing game: exit 2 (exit 2)
+ok    a missing level: exit 2 (exit 2)
+ok    a missing predicate: exit 2 (exit 2)
+ok    a verdict 'undetermined': exit 2, no verdict printed (exit 2)
+== 8. no reading of the real table before the hand check
+ok    default run without the hand-check result: exit 3, truth table not opened (exit 3, opened 0)
+ok    the author's command today, as a separate process: refused (exit 3)
+== 9. test options
+ok    --truth or --games: the console says 'not G5'
+OK
