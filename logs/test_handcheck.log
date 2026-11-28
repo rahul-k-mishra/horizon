@@ -1,5 +1,5 @@
-rows: 100 rows on 10 games; equal to a fresh build; every deciding line matches its file
-cells: on all 16 rows that count a sprite in the level, the coloured squares equal the generator's count
-window: answers kept after each click; keys ignored while typing; back and skip; resumed at row 5; finish recorded
-report: refuses 3 of 100 answered rows and writes nothing
+rows (old form, as answered once and discarded): 100 rows on 10 games; equal to the old build from docs/truth/gvgai.json at blob d2a71c20bd04feb31ee0854930c1d138ab60e037; every deciding line matches its file
+no verdict: the committed rows file refused before any window, with docs/truth/gvgai.json present; the old readings and a writer naming docs/truth/gvgai.json refused; 100 and 50 synthetic blind rows built and every one shown without opening docs/truth/gvgai.json; the rows record its blob
+window: holds, fails and unsure kept after each click; keys ignored while typing; back and skip; resumed at row 5; finish recorded; old answers refused
+report: refuses the old rows file, and 3 of 100 answered blind rows, and writes nothing
 OK

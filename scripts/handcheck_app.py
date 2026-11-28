@@ -1,22 +1,47 @@
 """
 handcheck_app.py -- a window for the author's hand check of the truth tables (docs/PREREG.md draft v0, Section 5).
-Standard library only (Tkinter).  One row at a time: a predicate, on one level of one drawn game, with the
-generator's verdict.  The left pane shows the game's description and the row's level file with the deciding line
-highlighted; the right pane shows the question, the verdict, the deciding line and what it says.
+Standard library only (Tkinter).  One row at a time: a predicate, on one level of one drawn game.  The hand check is
+blind (PREREG Section 5, decided 28 November 2026): the window shows no verdict of the generator, and the author
+answers holds, fails or unsure from the game's files and the reading alone.  The left pane shows the game's
+description and the row's level file, with the lines the reading names highlighted; the right pane shows the
+question, the reading and the files.
 
-Reads:  docs/truth/gvgai.json (scripts/truth_vgdl.py), docs/truth/HANDCHECK.md (the games and levels drawn by
-        scripts/draw_handcheck.py), docs/truth/HANDCHECK_GUIDE.md (the question of each predicate) and
-        docs/truth/handcheck_readings.json (a plain reading of each verdict), and the GVGAI files they name.
-Writes: docs/truth/handcheck_rows.json, from the files above, only if it does not exist; and
-        docs/truth/handcheck_answers.json after every click, so that closing the window loses nothing and the next
-        start resumes at the row where the last one stopped.
-Keys:   1 agree, 2 disagree, 3 unsure (not while typing a note).
+Changed 28 November 2026 to the blind form.  Until then the window showed the generator's verdict, its deciding line,
+"what it says", "for the verdict to be wrong" and every clause the verdict rested on as the generator read it, and the
+author answered agree, disagree or unsure; the rows were built from docs/truth/gvgai.json and
+docs/truth/handcheck_readings.json, whose readings explain the generator's verdict.  That form was used for one
+answer, which was discarded with the change.  The Guide button, which showed docs/truth/HANDCHECK_GUIDE.md, is
+removed: the guide's examples state the generator's verdict on rows of sokoban,
+labyrinthdual, painter, wrapsokoban and rivers, games of the hand check.
+scripts/test_handcheck.py, part 1, keeps the check that the old rows file equals a build from docs/truth/gvgai.json
+at the blob it was built from.
+
+Reads:  docs/truth/HANDCHECK.md (the 10 games and levels drawn by scripts/draw_handcheck.py; names and levels only)
+        or docs/truth/handcheck_fresh_<r>.json (a fresh round, scripts/draw_handcheck_fresh.py);
+        docs/truth/HANDCHECK_GUIDE.md (the question of each predicate);
+        docs/truth/handcheck_readings_source.json, schema horizon.handcheck_readings.v2, a reading per row derived
+        from the vendored GVGAI source under third_party/gvgai, with the script that wrote it ("written_by");
+        and the GVGAI files the rows name.
+        It never opens docs/truth/gvgai.json.  It records the git blob of that file at HEAD in the rows file when it
+        builds them (git rev-parse, which reads no verdict), so that scripts/handcheck_report.py compares the answers
+        with the truth table as it stood when the rows were built.
+Refuses (exit 3): a readings file that is not of schema v2, or whose writing script names docs/truth/gvgai.json,
+        scripts/truth_vgdl.py or docs/truth/handcheck_readings.json; a missing readings file (no reading derived
+        from the source has been written yet); a rows file of the old form or with a verdict in it; an answers file
+        of the old form.
+Writes: the rows file, from the files above, only if it does not exist; and the answers file after every click, so
+        that closing the window loses nothing and the next start resumes at the row where the last one stopped.
+        Round 0 (the 100 rows): docs/truth/handcheck_rows.json and docs/truth/handcheck_answers.json.  Fresh round r:
+        docs/truth/handcheck_fresh_rows_<r>.json and docs/truth/handcheck_fresh_answers_<r>.json.
+Keys:   1 holds, 2 fails, 3 unsure (not while typing a note).
 
 Run (working directory D:\\Research\\horizon\\repo):
     D:\\Research\\horizon\\.venv\\Scripts\\python.exe scripts\\handcheck_app.py
-Options: --rows        write docs/truth/handcheck_rows.json if it does not exist, print what it holds, and stop;
-         --answers P   keep the answers in P instead of docs/truth/handcheck_answers.json.
-When finished: scripts/handcheck_report.py writes docs/truth/HANDCHECK_RESULT.md from the answers.
+Options: --round R     0 for the 100 rows (the default), 1 or 2 for a fresh round;
+         --rows        write the rows file if it does not exist, print what it holds (no verdict), and stop;
+         --answers P, --readings P, --out-dir D   for the tests.
+When finished: scripts/handcheck_report.py compares the answers with the generator and writes
+docs/truth/HANDCHECK_RESULT.md.
 """
 from __future__ import annotations
 
@@ -26,20 +51,23 @@ import hashlib
 import json
 import os
 import re
+import subprocess
 import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TRUTH = os.path.join(REPO, "docs", "truth")
-GVGAI = os.path.join(TRUTH, "gvgai.json")
 SHEET = os.path.join(TRUTH, "HANDCHECK.md")
 GUIDE = os.path.join(TRUTH, "HANDCHECK_GUIDE.md")
-READINGS = os.path.join(TRUTH, "handcheck_readings.json")
-ROWS = os.path.join(TRUTH, "handcheck_rows.json")
-ANSWERS = os.path.join(TRUTH, "handcheck_answers.json")
-ROWS_SCHEMA = "horizon.handcheck_rows.v1"
-ANSWERS_SCHEMA = "horizon.handcheck_answers.v1"
+READINGS = os.path.join(TRUTH, "handcheck_readings_source.json")
+GAMES_DIR = "third_party/gvgai/examples/gridphysics"
+TRUTH_REL = "docs/truth/gvgai.json"
+ROWS_SCHEMA = "horizon.handcheck_rows.v2"
+ANSWERS_SCHEMA = "horizon.handcheck_answers.v2"
+READINGS_SCHEMA = "horizon.handcheck_readings.v2"
+FORBIDDEN_IN_WRITER = ("gvgai.json", "truth_vgdl", "handcheck_readings.json")
+VERDICT_KEYS = ("verdict", "wrong_if", "clauses")
 PRED = ("A1", "A2", "A3", "A4", "A5")
-CHOICES = ("agree", "disagree", "unsure")
+CHOICES = ("holds", "fails", "unsure")
 
 
 def rel(path):
@@ -72,64 +100,42 @@ def now():
     return datetime.datetime.now().astimezone().isoformat(timespec="seconds")
 
 
+def refuse(msg):
+    print(f"refused: {msg}")
+    raise SystemExit(3)
+
+
 def file_lines(path):
     with open(os.path.join(REPO, path), encoding="utf-8") as f:
         return f.read().splitlines()
 
 
-def level_chars(desc_path, stype):
-    """The level-file characters that place a sprite of type stype or of a type under it in the SpriteSet."""
-    lines = file_lines(desc_path)
-    block, parents, mapping, stack = None, {}, {}, []
-    for line in lines:
-        s = line.split("#", 1)[0].rstrip()
-        if not s.strip():
-            continue
-        word = s.strip().split()[0]
-        if word in ("SpriteSet", "LevelMapping", "InteractionSet", "TerminationSet"):
-            block, stack = word, []
-            continue
-        if ">" not in s:
-            continue
-        left, right = (x.strip() for x in s.split(">", 1))
-        if block == "SpriteSet":
-            ind = len(s) - len(s.lstrip())
-            while stack and stack[-1][0] >= ind:
-                stack.pop()
-            parents[left] = stack[-1][1] if stack else None
-            stack.append((ind, left))
-        elif block == "LevelMapping" and len(left) == 1:
-            mapping[left] = right.split()
-
-    def under(name):
-        while name is not None:
-            if name == stype:
-                return True
-            name = parents.get(name)
-        return False
-    return {c for c, names in mapping.items() if any(under(n) for n in names)}
-
-
-def level_cells(row):
-    """For a row whose verdict counts a sprite type in the level: (type, [(line, column), ...]) of the squares
-    that place one; otherwise None."""
-    m = next((re.search(r"places \d+ sprite\(s\) of (\S+)", c["reads"]) for c in row["clauses"]
-              if c["in"] == "level"), None)
-    if not m:
-        return None
-    chars = level_chars(row["description"], m.group(1))
-    return m.group(1), [(n, col) for n, line in enumerate(file_lines(row["level_file"]), 1)
-                        for col, ch in enumerate(line) if ch in chars]
+def paths_for(rnd, out_dir=TRUTH):
+    """(rows file, answers file) of a round."""
+    if rnd == 0:
+        return os.path.join(out_dir, "handcheck_rows.json"), os.path.join(out_dir, "handcheck_answers.json")
+    return (os.path.join(out_dir, f"handcheck_fresh_rows_{rnd}.json"),
+            os.path.join(out_dir, f"handcheck_fresh_answers_{rnd}.json"))
 
 
 def drawn_games():
-    """The games and second levels of the sheet, in its order: [(game, level), ...]."""
+    """The games and second levels of the sheet, in its order: [(game, level), ...].  Reads names and levels only."""
     with open(SHEET, encoding="utf-8") as f:
         text = f.read()
     found = re.findall(r"^## (\S+)\n\nDescription: `[^`]+`\. Levels checked: 0 \(`[^`]+`\) and (\d+) ", text, re.M)
     if not found:
         raise SystemExit(f"no drawn games found in {rel(SHEET)}")
     return [(g, int(k)) for g, k in found]
+
+
+def round_units(rnd):
+    """[(game, [levels])] of a round, and the file the games come from."""
+    if rnd == 0:
+        return [(g, [0, k]) for g, k in drawn_games()], SHEET
+    draw = os.path.join(TRUTH, f"handcheck_fresh_{rnd}.json")
+    if not os.path.exists(draw):
+        refuse(f"fresh round {rnd} has not been drawn ({rel(draw)} does not exist)")
+    return [(d["game"], list(d["levels"])) for d in read_json(draw)["games"]], draw
 
 
 def guide_questions():
@@ -147,53 +153,80 @@ def guide_questions():
     return out
 
 
-def build_rows():
-    truth = read_json(GVGAI)
-    readings = read_json(READINGS)["readings"]
+def source_readings(path):
+    """The readings derived from the GVGAI source, and the path of the script that wrote them; refuses any other."""
+    if not os.path.exists(path):
+        refuse(f"no readings derived from the GVGAI source at {rel(path)}. docs/truth/handcheck_readings.json explains "
+               "the generator's verdict and may not be shown in the blind hand check (PREREG Section 5, decided "
+               "28 November 2026); how the source readings are written is the author's decision")
+    data = read_json(path)
+    if data.get("schema") != READINGS_SCHEMA:
+        refuse(f"{rel(path)} is {data.get('schema')}, not {READINGS_SCHEMA}")
+    writer = data.get("written_by")
+    wpath = os.path.join(REPO, writer) if writer else None
+    if not wpath or not os.path.exists(wpath):
+        refuse(f"{rel(path)} does not name an existing script that wrote it ({writer!r})")
+    with open(wpath, encoding="utf-8") as f:
+        wtext = f.read()
+    bad = [w for w in FORBIDDEN_IN_WRITER if w in wtext]
+    if bad:
+        refuse(f"{rel(wpath)}, which wrote {rel(path)}, names {', '.join(bad)}; a reading shown in the hand check is "
+               "derived from the GVGAI source, not from the generator or its output")
+    return data["readings"], wpath
+
+
+def truth_blob():
+    """The git blob of docs/truth/gvgai.json at HEAD: a hash, not the file; recorded for the report's comparison."""
+    r = subprocess.run(["git", "rev-parse", f"HEAD:{TRUTH_REL}"], cwd=REPO, capture_output=True, text=True)
+    return r.stdout.strip() if r.returncode == 0 else None
+
+
+def build_rows(rnd=0, readings_path=READINGS):
+    readings, writer = source_readings(readings_path)
+    units, games_file = round_units(rnd)
     questions = guide_questions()
     rows = []
-    for game, other in drawn_games():
-        gv = truth["games"][game]
-        desc = gv["description"]
+    for game, levels in units:
+        desc = f"{GAMES_DIR}/{game}.txt"
         for p in PRED:
-            r = readings.get(f"{game}/{p}")
-            if r is None:
-                raise SystemExit(f"{rel(READINGS)} has no reading for {game}/{p}")
-            for lvl in (0, other):
-                e = gv["levels"][str(lvl)][p]
-                lvl_file = gv["levels"][str(lvl)]["level_file"]
-                clauses = [{"in": "level" if c["file"] == lvl_file else "description", "line": c["line"],
-                            "text": (c["text"] or "").strip(), "reads": c["reads"]} for c in e["clauses"]]
-                level_clause = next((c for c in clauses if c["in"] == "level"), None)
-                if r["deciding"][0] == "level":
-                    if level_clause is None:
-                        raise SystemExit(f"{game}/{p}/{lvl}: the reading points at the level file, the verdict does not")
-                    where, line = "level", level_clause["line"]
-                else:
-                    where, line = "description", int(r["deciding"][1])
-                text = file_lines(lvl_file if where == "level" else desc)[line - 1].strip()
-                reading = r["reading"]
-                if "{n}" in reading:
-                    m = level_clause and re.search(r"places (\d+) sprite", level_clause["reads"])
-                    if not m:
-                        raise SystemExit(f"{game}/{p}/{lvl}: the reading needs a count the verdict does not give")
-                    reading = reading.replace("{n}", m.group(1))
-                rows.append({"id": f"{game}/{p}/{lvl}", "game": game, "level": lvl, "predicate": p,
-                             "name": questions[p][0], "question": questions[p][1], "verdict": e["verdict"],
-                             "description": desc, "level_file": lvl_file,
-                             "deciding": {"in": where, "line": line, "text": text},
-                             "reading": reading, "wrong_if": r["wrong_if"], "clauses": clauses})
-    return {"schema": ROWS_SCHEMA, "written_by": "scripts/handcheck_app.py",
-            "sources": {rel(p): sha256(p) for p in (GVGAI, SHEET, GUIDE, READINGS)}, "rows": rows}
+            for lvl in levels:
+                rid = f"{game}/{p}/{lvl}"
+                r = readings.get(rid)
+                if r is None:
+                    refuse(f"{rel(readings_path)} has no reading for {rid}")
+                lvl_file = f"{GAMES_DIR}/{game}_lvl{lvl}.txt"
+                hl = r.get("lines", {})
+                highlight = {"description": sorted(int(n) for n in hl.get("description", [])),
+                             "level": sorted(int(n) for n in hl.get("level", []))}
+                for where, path in (("description", desc), ("level", lvl_file)):
+                    size = len(file_lines(path))
+                    if any(not 1 <= n <= size for n in highlight[where]):
+                        refuse(f"{rid}: a highlighted line is not in {path}")
+                rows.append({"id": rid, "game": game, "level": lvl, "predicate": p, "name": questions[p][0],
+                             "question": questions[p][1], "description": desc, "level_file": lvl_file,
+                             "reading": (r.get("reading") or "").strip(), "highlight": highlight})
+    return {"schema": ROWS_SCHEMA, "written_by": "scripts/handcheck_app.py", "round": rnd,
+            "truth_blob": truth_blob() if rnd == 0 else None,
+            "sources": {rel(p): sha256(p) for p in (games_file, GUIDE, readings_path, writer)}, "rows": rows}
 
 
-def load_rows():
-    """The rows, written first if the file does not exist; and the sources changed since they were written."""
-    if not os.path.exists(ROWS):
-        write_json(ROWS, build_rows())
-    data = read_json(ROWS)
+def blind_refusal(data, what):
+    """Why a rows file may not be shown: not the blind form, or a verdict in it; None if it may."""
     if data.get("schema") != ROWS_SCHEMA:
-        raise SystemExit(f"{rel(ROWS)} is not {ROWS_SCHEMA}")
+        return f"{what} is {data.get('schema')}, not {ROWS_SCHEMA}: the old form shows the generator's verdict"
+    if any(k in r for r in data.get("rows", []) for k in VERDICT_KEYS):
+        return f"{what} carries the generator's verdict or its reading"
+    return None
+
+
+def load_rows(rows_path, rnd=0, readings_path=READINGS):
+    """The rows, written first if the file does not exist; and the sources changed since they were written."""
+    if not os.path.exists(rows_path):
+        write_json(rows_path, build_rows(rnd, readings_path))
+    data = read_json(rows_path)
+    why = blind_refusal(data, rel(rows_path))
+    if why:
+        refuse(why)
     changed = [p for p, h in data["sources"].items()
                if not os.path.exists(os.path.join(REPO, p)) or sha256(os.path.join(REPO, p)) != h]
     return data, changed
@@ -202,15 +235,17 @@ def load_rows():
 class Answers:
     """The answers file: one entry per row touched, kept on disk after every change."""
 
-    def __init__(self, path, rows_sha):
+    def __init__(self, path, rows_path, rows_sha):
         self.path = path
         self.rows_sha = rows_sha
         if os.path.exists(path):
             self.data = read_json(path)
             if self.data.get("schema") != ANSWERS_SCHEMA:
-                raise SystemExit(f"{path} is not {ANSWERS_SCHEMA}")
+                refuse(f"{rel(path)} is {self.data.get('schema')}, not {ANSWERS_SCHEMA}; answers given with the "
+                       "verdict visible were discarded on 28 November 2026 (PREREG Section 5) and stay in the git "
+                       "history; this file must be removed from this path before the blind pass")
         else:
-            self.data = {"schema": ANSWERS_SCHEMA, "rows_file": rel(ROWS), "rows_sha256": rows_sha,
+            self.data = {"schema": ANSWERS_SCHEMA, "rows_file": rel(rows_path), "rows_sha256": rows_sha,
                          "started_at": now(), "updated_at": None, "finished_at": None, "position": 0, "answers": {}}
 
     @property
@@ -256,6 +291,24 @@ def start_position(rows, answers):
     return next((i for i, r in enumerate(rows) if answers.answer(r["id"]) not in CHOICES), 0)
 
 
+def info_blocks(r):
+    """The right pane of a row, as (text, style) pairs.  Built from the row alone; a row carries no verdict."""
+    desc_name, level_name = r["description"].split("/")[-1], r["level_file"].split("/")[-1]
+    out = [(f"{r['game']}, level {r['level']}\n", "h"), (f"{r['predicate']}. {r['name']}\n", "b"),
+           (r["question"] + "\n", None),
+           ("Your answer: does the predicate hold on this level, by the files alone?\n", "b"),
+           ("1 holds, 2 fails, 3 unsure.\n", None)]
+    if r["reading"]:
+        out += [("A reading of the source\n", "b"), (r["reading"] + "\n", None)]
+    lines = [(desc_name, r["description"], n) for n in r["highlight"]["description"]] + \
+            [(level_name, r["level_file"], n) for n in r["highlight"]["level"]]
+    if lines:
+        out.append(("Lines the reading names (yellow on the left)\n", "b"))
+        out += [(f"{name}:{n}  {file_lines(path)[n - 1].strip()}\n", "small") for name, path, n in lines]
+    out += [("Files\n", "b"), (f"{r['description']}\n{r['level_file']}\n", "small")]
+    return out
+
+
 class App:
     def __init__(self, root, rows, answers, changed):
         import tkinter as tk
@@ -264,7 +317,7 @@ class App:
         self.tk, self.ttk = tk, ttk
         self.root, self.rows, self.ans = root, rows, answers
         self.i = start_position(rows, answers)
-        root.title("HORIZON hand check of the truth tables")
+        root.title("HORIZON hand check of the truth tables (blind)")
         sw, sh = root.winfo_screenwidth(), root.winfo_screenheight()
         root.geometry(f"{min(1440, sw - 40)}x{min(880, sh - 80)}+10+10")
         try:
@@ -293,7 +346,7 @@ class App:
         if changed:
             warn.append("These files changed after the rows were written: " + ", ".join(changed) + ".")
         if answers.rows_changed:
-            warn.append(f"{rel(ROWS)} changed after the first answers were kept.")
+            warn.append("The rows file changed after the first answers were kept.")
         if warn:
             ttk.Label(root, text=" ".join(warn), foreground="#a00000", wraplength=1400,
                       padding=(10, 4)).pack(side="top", fill="x")
@@ -310,7 +363,6 @@ class App:
         self.note_entry = ttk.Entry(bottom, textvariable=self.note, width=60, font=base)
         self.note_entry.pack(side="left", fill="x", expand=True)
         ttk.Button(bottom, text="Finish", command=self.finish).pack(side="right", padx=(6, 0))
-        ttk.Button(bottom, text="Guide", command=self.show_guide).pack(side="right", padx=(6, 0))
         ttk.Button(bottom, text="Skip", command=self.skip).pack(side="right", padx=(6, 0))
         ttk.Button(bottom, text="Back", command=self.back).pack(side="right", padx=(6, 0))
         self.mine = ttk.Label(root, font=bold, padding=(10, 0))
@@ -332,10 +384,7 @@ class App:
         self.info.pack(side="left", fill="both", expand=True)
         self.info.tag_configure("h", font=big, spacing3=4)
         self.info.tag_configure("b", font=bold, spacing1=10)
-        self.info.tag_configure("code", font=mono, background="#fff2a8", lmargin1=16, lmargin2=16)
         self.info.tag_configure("small", font=mono, lmargin1=16, lmargin2=40, foreground="#333333")
-        self.info.tag_configure("holds", font=big, foreground="#006400")
-        self.info.tag_configure("fails", font=big, foreground="#a00000")
         panes.add(right, weight=2)
 
         for k, choice in enumerate(CHOICES, 1):
@@ -353,77 +402,36 @@ class App:
         ys.pack(side="right", fill="y")
         xs.pack(side="bottom", fill="x")
         t.pack(side="left", fill="both", expand=True)
-        t.tag_configure("clause", background="#dcebfa")
-        t.tag_configure("deciding", background="#ffe066")
+        t.tag_configure("named", background="#ffe066")
         t.tag_configure("num", foreground="#888888")
-        t.tag_configure("cell", background="#f4a259", foreground="#000000")
-        t.tag_raise("cell")
         return t
 
-    def _fill_code(self, t, path, lines_clause, line_deciding):
+    def _fill_code(self, t, path, named):
         lines = file_lines(path)
         t.configure(state="normal")
         t.delete("1.0", "end")
         for n, line in enumerate(lines, 1):
             t.insert("end", f"{n:4d}  ", "num")
             t.insert("end", line + "\n")
-        for n in lines_clause:
-            t.tag_add("clause", f"{n}.0", f"{n}.end+1c")
-        if line_deciding:
-            t.tag_add("deciding", f"{line_deciding}.0", f"{line_deciding}.end+1c")
+        for n in named:
+            t.tag_add("named", f"{n}.0", f"{n}.end+1c")
         t.configure(state="disabled")
         t.update_idletasks()
-        target = line_deciding or (min(lines_clause) if lines_clause else 1)
-        t.yview(f"{max(1, target - 8)}.0")
-
-    def _mark_cells(self, r):
-        """Where the verdict counts sprites in the level, colour every square that places one."""
-        found = level_cells(r)
-        if found:
-            for n, col in found[1]:
-                self.level_text.tag_add("cell", f"{n}.{col + 6}", f"{n}.{col + 7}")
-        return found
+        t.yview(f"{max(1, (min(named) if named else 1) - 8)}.0")
 
     def show(self):
         r = self.rows[self.i]
-        dec = r["deciding"]
         desc_name, level_name = r["description"].split("/")[-1], r["level_file"].split("/")[-1]
-        self._fill_code(self.desc_text, r["description"],
-                        {c["line"] for c in r["clauses"] if c["in"] == "description"},
-                        dec["line"] if dec["in"] == "description" else None)
-        self._fill_code(self.level_text, r["level_file"],
-                        {c["line"] for c in r["clauses"] if c["in"] == "level"},
-                        dec["line"] if dec["in"] == "level" else None)
-        cells = self._mark_cells(r)
+        self._fill_code(self.desc_text, r["description"], r["highlight"]["description"])
+        self._fill_code(self.level_text, r["level_file"], r["highlight"]["level"])
         self.tabs.tab(0, text=f"Description: {desc_name}")
         self.tabs.tab(1, text=f"Level file: {level_name}")
-        self.tabs.select(1 if dec["in"] == "level" else 0)
-
+        self.tabs.select(1 if r["highlight"]["level"] and not r["highlight"]["description"] else 0)
         t = self.info
         t.configure(state="normal")
         t.delete("1.0", "end")
-        t.insert("end", f"{r['game']}, level {r['level']}\n", "h")
-        t.insert("end", f"{r['predicate']}. {r['name']}\n", "b")
-        t.insert("end", r["question"] + "\n")
-        t.insert("end", "The generator's verdict\n", "b")
-        t.insert("end", r["verdict"].upper() + "\n", r["verdict"] if r["verdict"] in ("holds", "fails") else "b")
-        where = desc_name if dec["in"] == "description" else level_name
-        t.insert("end", f"The deciding line: {where}, line {dec['line']}\n", "b")
-        t.insert("end", dec["text"] + "\n", "code")
-        t.insert("end", "What it says\n", "b")
-        t.insert("end", r["reading"] + "\n")
-        t.insert("end", "For the verdict to be wrong\n", "b")
-        t.insert("end", r["wrong_if"] + "\n")
-        t.insert("end", "Every line the verdict rests on (blue on the left)\n", "b")
-        for c in r["clauses"]:
-            name = desc_name if c["in"] == "description" else level_name
-            t.insert("end", f"{name}:{c['line']}  {c['text']}\n    read as: {c['reads']}\n", "small")
-        if cells:
-            t.insert("end", "In the level file\n", "b")
-            t.insert("end", f"The {len(cells[1])} orange squares are those whose character places a {cells[0]} "
-                            "or a kind under it in the SpriteSet.\n")
-        t.insert("end", "Files\n", "b")
-        t.insert("end", f"{r['description']}\n{r['level_file']}\n", "small")
+        for text, style in info_blocks(r):
+            t.insert("end", text, style or ())
         t.configure(state="disabled")
 
         n = len(self.rows)
@@ -481,47 +489,37 @@ class App:
         n, done = len(self.rows), self.ans.answered(self.rows)
         if ask:
             messagebox.showinfo("Finished", f"{done} of {n} rows answered, {n - done} without an answer.\n\n"
-                                f"The answers are in {rel(self.ans.path)}. Starting the tool again resumes at row "
-                                f"{self.i + 1}.\n\nTo write the summary:\n"
-                                r"D:\Research\horizon\.venv\Scripts\python.exe scripts\handcheck_report.py")
+                                f"The answers are in {rel(self.ans.path)}. Commit them before anything compares "
+                                "them with the generator. Starting the tool again resumes at row "
+                                f"{self.i + 1}.")
         self.root.destroy()
-
-    def show_guide(self):
-        tk, ttk = self.tk, self.ttk
-        w = tk.Toplevel(self.root)
-        w.title("Guide to the hand check")
-        w.geometry("900x800")
-        t = tk.Text(w, wrap="word", padx=12, pady=8)
-        sb = ttk.Scrollbar(w, orient="vertical", command=t.yview)
-        t.configure(yscrollcommand=sb.set)
-        sb.pack(side="right", fill="y")
-        t.pack(side="left", fill="both", expand=True)
-        with open(GUIDE, encoding="utf-8") as f:
-            t.insert("1.0", f.read())
-        t.configure(state="disabled")
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(description="The hand check of the truth tables, one row at a time.")
+    ap = argparse.ArgumentParser(description="The blind hand check of the truth tables, one row at a time.")
+    ap.add_argument("--round", type=int, default=0, choices=(0, 1, 2), help="0 the 100 rows, 1 or 2 a fresh round")
     ap.add_argument("--rows", action="store_true", help="write the rows file if it does not exist, and stop")
-    ap.add_argument("--answers", default=ANSWERS, help="the answers file")
+    ap.add_argument("--answers", default=None, help="tests only: the answers file")
+    ap.add_argument("--readings", default=READINGS, help="tests only: the readings file")
+    ap.add_argument("--out-dir", default=TRUTH, help="tests only: the folder of the rows and answers files")
     a = ap.parse_args(argv)
-    existed = os.path.exists(ROWS)
-    data, changed = load_rows()
+    rows_path, answers_path = paths_for(a.round, a.out_dir)
+    existed = os.path.exists(rows_path)
+    data, changed = load_rows(rows_path, a.round, a.readings)
     rows = data["rows"]
     if a.rows:
-        print(f"{rel(ROWS)} {'existed' if existed else 'written'}: {len(rows)} rows, "
-              f"{len({r['game'] for r in rows})} games, sha256 {sha256(ROWS)}")
+        print(f"{rel(rows_path)} {'existed' if existed else 'written'}: {len(rows)} rows, "
+              f"{len({r['game'] for r in rows})} games, sha256 {sha256(rows_path)}; no verdict in it")
         for g in dict.fromkeys(r["game"] for r in rows):
             lv = sorted({r["level"] for r in rows if r["game"] == g})
-            print(f"   {g}: levels {', '.join(map(str, lv))}; "
-                  + ", ".join(f"{p} {'/'.join(r['verdict'] for r in rows if r['game'] == g and r['predicate'] == p)}"
-                              for p in PRED))
+            print(f"   {g}: levels {', '.join(map(str, lv))}")
+        print(f"sources: {', '.join(data['sources'])}")
         print("sources changed since written: " + (", ".join(changed) if changed else "none"))
         return 0
+    answers = Answers(os.path.abspath(a.answers or answers_path), rows_path, sha256(rows_path))
     import tkinter as tk
     root = tk.Tk()
-    App(root, rows, Answers(os.path.abspath(a.answers), sha256(ROWS)), changed)
+    App(root, rows, answers, changed)
     root.mainloop()
     return 0
 
