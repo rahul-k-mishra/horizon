@@ -1,0 +1,71 @@
+G2 of docs/PREREG.md, Section 8 (registered 26 November 2026)
+levels 20; sequences 1000 of 200 actions per level; seed 20261126; workers 4; out runs\g2-replay
+== pass 1 (chunk pass-1): 0 unit(s) already done, 20 to run, in a new pool
+  r1-bait-l0: 48.3 s, process 4488
+  r1-bait-l1: 45.0 s, process 18200
+  r1-bait-l2: 86.4 s, process 9980
+  r1-bait-l3: 51.0 s, process 4776
+  r1-bait-l4: 18.4 s, process 18200
+  r1-labyrinthdual-l0: 142.9 s, process 4488
+  r1-labyrinthdual-l1: 158.3 s, process 4776
+  r1-labyrinthdual-l2: 127.8 s, process 18200
+  r1-labyrinthdual-l3: 34.5 s, process 9980
+  r1-labyrinthdual-l4: 29.5 s, process 9980
+  r1-rivers-l0: 226.1 s, process 9980
+  r1-rivers-l1: 249.0 s, process 4488
+  r1-rivers-l2: 205.2 s, process 18200
+  r1-rivers-l3: 203.6 s, process 4776
+  r1-rivers-l4: 140.5 s, process 9980
+  r1-watergame-l0: 9.6 s, process 18200
+  r1-watergame-l1: 6.3 s, process 18200
+  r1-watergame-l2: 16.4 s, process 18200
+  r1-watergame-l3: 9.6 s, process 4776
+  r1-watergame-l4: 5.8 s, process 4776
+== pass 2 (chunk pass-2): 0 unit(s) already done, 20 to run, in a new pool
+  r2-bait-l0: 24.7 s, process 7868
+  r2-bait-l1: 27.5 s, process 19204
+  r2-bait-l2: 66.7 s, process 20316
+  r2-bait-l3: 36.9 s, process 4700
+  r2-bait-l4: 15.9 s, process 7868
+  r2-labyrinthdual-l0: 125.8 s, process 19204
+  r2-labyrinthdual-l1: 135.0 s, process 4700
+  r2-labyrinthdual-l2: 109.6 s, process 7868
+  r2-labyrinthdual-l3: 26.7 s, process 20316
+  r2-labyrinthdual-l4: 24.9 s, process 20316
+  r2-rivers-l0: 204.6 s, process 20316
+  r2-rivers-l1: 228.8 s, process 7868
+  r2-rivers-l2: 187.0 s, process 19204
+  r2-rivers-l3: 189.7 s, process 4700
+  r2-rivers-l4: 139.9 s, process 20316
+  r2-watergame-l0: 9.6 s, process 19204
+  r2-watergame-l1: 6.7 s, process 19204
+  r2-watergame-l2: 16.9 s, process 19204
+  r2-watergame-l3: 8.7 s, process 4700
+  r2-watergame-l4: 5.6 s, process 4700
+
+== comparison of the two replays
+bait           0 | actions 4 | tick no  | identical 1000 of 1000 | states hashed 175001 in each pass | ended before 200 actions 229 | seconds 48.3 and 24.7
+bait           1 | actions 4 | tick no  | identical 1000 of 1000 | states hashed 47213 in each pass | ended before 200 actions 958 | seconds 45.0 and 27.5
+bait           2 | actions 4 | tick no  | identical 1000 of 1000 | states hashed 167269 in each pass | ended before 200 actions 462 | seconds 86.4 and 66.7
+bait           3 | actions 4 | tick no  | identical 1000 of 1000 | states hashed 30651 in each pass | ended before 200 actions 999 | seconds 51.0 and 36.9
+bait           4 | actions 4 | tick no  | identical 1000 of 1000 | states hashed 56633 in each pass | ended before 200 actions 972 | seconds 18.4 and 15.9
+labyrinthdual  0 | actions 4 | tick yes | identical 1000 of 1000 | states hashed 186107 in each pass | ended before 200 actions 224 | seconds 142.9 and 125.8
+labyrinthdual  1 | actions 4 | tick yes | identical 1000 of 1000 | states hashed 195279 in each pass | ended before 200 actions 95 | seconds 158.3 and 135.0
+labyrinthdual  2 | actions 4 | tick yes | identical 1000 of 1000 | states hashed 158072 in each pass | ended before 200 actions 496 | seconds 127.8 and 109.6
+labyrinthdual  3 | actions 4 | tick yes | identical 1000 of 1000 | states hashed 30396 in each pass | ended before 200 actions 937 | seconds 34.5 and 26.7
+labyrinthdual  4 | actions 4 | tick yes | identical 1000 of 1000 | states hashed 29844 in each pass | ended before 200 actions 927 | seconds 29.5 and 24.9
+rivers         0 | actions 5 | tick yes | identical 1000 of 1000 | states hashed 201000 in each pass | ended before 200 actions 0 | seconds 226.1 and 204.6
+rivers         1 | actions 5 | tick yes | identical 1000 of 1000 | states hashed 201000 in each pass | ended before 200 actions 0 | seconds 249.0 and 228.8
+rivers         2 | actions 5 | tick yes | identical 1000 of 1000 | states hashed 201000 in each pass | ended before 200 actions 0 | seconds 205.2 and 187.0
+rivers         3 | actions 5 | tick yes | identical 1000 of 1000 | states hashed 201000 in each pass | ended before 200 actions 0 | seconds 203.6 and 189.7
+rivers         4 | actions 5 | tick yes | identical 1000 of 1000 | states hashed 201000 in each pass | ended before 200 actions 0 | seconds 140.5 and 139.9
+watergame      0 | actions 4 | tick no  | identical 1000 of 1000 | states hashed 55712 in each pass | ended before 200 actions 986 | seconds 9.6 and 9.6
+watergame      1 | actions 4 | tick no  | identical 1000 of 1000 | states hashed 21688 in each pass | ended before 200 actions 966 | seconds 6.3 and 6.7
+watergame      2 | actions 4 | tick no  | identical 1000 of 1000 | states hashed 95161 in each pass | ended before 200 actions 859 | seconds 16.4 and 16.9
+watergame      3 | actions 4 | tick no  | identical 1000 of 1000 | states hashed 34680 in each pass | ended before 200 actions 999 | seconds 9.6 and 8.7
+watergame      4 | actions 4 | tick no  | identical 1000 of 1000 | states hashed 11839 in each pass | ended before 200 actions 1000 | seconds 5.8 and 5.6
+
+processes: pass 1 4, pass 2 4, shared by both passes 0
+levels compared 20 of 20; sequences identical 20000 of 20000; states hashed in each pass 2300545; sequences that ended the game before 200 actions 11109
+result: identical
+G2: PASS
