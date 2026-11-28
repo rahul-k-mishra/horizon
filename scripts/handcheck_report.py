@@ -172,7 +172,7 @@ def listing(rows, answers, pick):
         if not pick(e):
             continue
         note = (e.get("note") or "").strip() or "(no note)"
-        out.append(f"- **{r['game']}, level {r['level']}, {r['predicate']}** ({r['name']}): the author's answer "
+        out.append(f"- **{r['game']}, level {r['level']}, {r['predicate']}** ({r.get('name', r['predicate'])}): the author's answer "
                    f"**{e.get('given')}**, the generator's verdict **{r['verdict']}**. Note: {note}")
     return out or ["None."]
 

@@ -17,8 +17,8 @@ the author.
    before any window opens; it refuses the readings that explain the generator's verdict, and readings whose
    writing script names docs/truth/gvgai.json; and showing every one of the 150 committed blind rows in the window
    (the rows loaded first, which hashes their sources, the guide among them, without showing them) opens neither docs/truth/gvgai.json nor any file listed as not to be opened in docs/truth/handcheck_seen.json,
-   the right pane shows the predicate's definition from docs/truth/PREDICATE_DEFINITIONS.md, and it holds none of
-   the words verdict, holds and fails beyond that definition and the fixed line naming the keys.
+   the right pane shows the predicate's question and definition from docs/truth/PREDICATE_DEFINITIONS.md, and it
+   holds none of the words verdict, holds and fails beyond them and the fixed line naming the keys.
 3. The window, driven by its own methods on the committed blind rows: answers holds, fails and unsure are kept after
    every click, keys 1 to 3 do nothing while the note has the focus, Back and Skip move without answering, a new
    window resumes at the row the last one left, and Finish marks the answers finished; an answers file of the old
@@ -66,10 +66,22 @@ def git_show(spec):
     return subprocess.run(["git", "show", spec], cwd=app.REPO, capture_output=True, check=True).stdout
 
 
+def guide_questions():
+    """The old app's reading of the guide (before 28 November 2026): {predicate: (name, question)}."""
+    with open(os.path.join(app.TRUTH, "HANDCHECK_GUIDE.md"), encoding="utf-8") as f:
+        text = f.read()
+    out = {}
+    for p, name, body in re.findall(r"^## (A\d)\. ([^\n]+)\n(.*?)(?=^## |\Z)", text, re.M | re.S):
+        m = re.search(r"^\*\*Question\.\*\* (.+)$", body, re.M)
+        if m:
+            out[p] = (name.strip(), m.group(1).strip())
+    return out
+
+
 def build_rows_v1(truth):
     """The old build of scripts/handcheck_app.py (before 28 November 2026), from a given truth table."""
     readings = app.read_json(OLD_READINGS)["readings"]
-    questions = app.guide_questions()
+    questions = guide_questions()
     rows = []
     for game, other in app.drawn_games():
         gv = truth["games"][game]
@@ -193,7 +205,9 @@ def test_no_verdict(tmp):
                 w.show()
                 text = w.info.get("1.0", "end")
                 check(rows[i]["definition"] in text, f"{rows[i]['id']}: the predicate's definition is shown")
+                check(rows[i]["question"] in text, f"{rows[i]['id']}: the predicate's question is shown")
                 text = text.replace("1 holds, 2 fails, 3 unsure.", "").replace(rows[i]["definition"], "")
+                text = text.replace(rows[i]["question"], "")
                 check(not re.search(r"\b(verdict|holds|fails)\b", text, re.I), f"{rows[i]['id']}: no verdict shown")
                 shown_rows += 1
             root.destroy()

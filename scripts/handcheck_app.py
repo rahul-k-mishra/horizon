@@ -18,9 +18,10 @@ at the blob it was built from.
 
 Reads:  logs/draw_handcheck.log (the 10 games and levels drawn by scripts/draw_handcheck.py; names and levels)
         or docs/truth/handcheck_fresh_<r>.json (a fresh round, scripts/draw_handcheck_fresh.py);
-        docs/truth/HANDCHECK_GUIDE.md (the question of each predicate; read when the rows are built, not shown);
-        docs/truth/PREDICATE_DEFINITIONS.md (the definition of each predicate, shown beside every row; added
-        28 November 2026);
+        docs/truth/PREDICATE_DEFINITIONS.md (the question and the definition of each predicate, shown beside every
+        row; added 28 November 2026.  The app reads nothing from docs/truth/HANDCHECK_GUIDE.md since 28 November 2026:
+        the questions were read from it until then, and the predicates' short names, which only the guide gives, are
+        no longer shown);
         docs/truth/handcheck_readings_source.json, schema horizon.handcheck_readings.v2, a reading per row derived
         from the vendored GVGAI source under third_party/gvgai, with the script that wrote it ("written_by");
         and the GVGAI files the rows name.
@@ -59,7 +60,6 @@ import sys
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TRUTH = os.path.join(REPO, "docs", "truth")
 DRAW_LOG = os.path.join(REPO, "logs", "draw_handcheck.log")
-GUIDE = os.path.join(TRUTH, "HANDCHECK_GUIDE.md")
 DEFINITIONS = os.path.join(TRUTH, "PREDICATE_DEFINITIONS.md")
 READINGS = os.path.join(TRUTH, "handcheck_readings_source.json")
 GAMES_DIR = "third_party/gvgai/examples/gridphysics"
@@ -142,30 +142,21 @@ def round_units(rnd):
     return [(d["game"], list(d["levels"])) for d in read_json(draw)["games"]], draw
 
 
-def guide_questions():
-    """{predicate: (name, question)} from the guide's sections '## A1. Name' and their '**Question.**' line."""
-    with open(GUIDE, encoding="utf-8") as f:
-        text = f.read()
-    out = {}
-    for p, name, body in re.findall(r"^## (A\d)\. ([^\n]+)\n(.*?)(?=^## |\Z)", text, re.M | re.S):
-        m = re.search(r"^\*\*Question\.\*\* (.+)$", body, re.M)
-        if m:
-            out[p] = (name.strip(), m.group(1).strip())
-    missing = [p for p in PRED if p not in out]
-    if missing:
-        raise SystemExit(f"{rel(GUIDE)} has no question for {', '.join(missing)}")
-    return out
-
-
 def definitions():
-    """{predicate: text} from docs/truth/PREDICATE_DEFINITIONS.md, the registered wording without examples, the only
-    definition text the author reads during the blind pass (PREREG Section 5, decided 28 November 2026)."""
+    """{predicate: (question, definition)} from docs/truth/PREDICATE_DEFINITIONS.md: the question line ("Question: ...")
+    and the registered wording without examples, the only definition text the author reads during the blind pass
+    (PREREG Section 5, decided 28 November 2026).  The questions are read from here since 28 November 2026; until
+    then they were read from docs/truth/HANDCHECK_GUIDE.md, which the app no longer reads."""
     with open(DEFINITIONS, encoding="utf-8") as f:
         text = f.read()
-    out = {p: body.strip() for p, body in re.findall(r"^## (A\d)\n\n(.+?)(?=\n## |\Z)", text, re.M | re.S)}
+    out = {}
+    for p, body in re.findall(r"^## (A\d)\n\n(.+?)(?=\n## |\Z)", text, re.M | re.S):
+        paras = [x.strip() for x in body.split("\n\n") if x.strip()]
+        if paras and paras[0].startswith("Question: "):
+            out[p] = (paras[0][len("Question: "):], "\n\n".join(paras[1:]))
     missing = [p for p in PRED if p not in out]
     if missing:
-        raise SystemExit(f"{rel(DEFINITIONS)} has no definition for {', '.join(missing)}")
+        raise SystemExit(f"{rel(DEFINITIONS)} has no question and definition for {', '.join(missing)}")
     return out
 
 
@@ -200,7 +191,6 @@ def truth_blob():
 def build_rows(rnd=0, readings_path=READINGS):
     readings, writer = source_readings(readings_path)
     units, games_file = round_units(rnd)
-    questions = guide_questions()
     defs = definitions()
     rows = []
     for game, levels in units:
@@ -219,12 +209,12 @@ def build_rows(rnd=0, readings_path=READINGS):
                     size = len(file_lines(path))
                     if any(not 1 <= n <= size for n in highlight[where]):
                         refuse(f"{rid}: a highlighted line is not in {path}")
-                rows.append({"id": rid, "game": game, "level": lvl, "predicate": p, "name": questions[p][0],
-                             "question": questions[p][1], "definition": defs[p], "description": desc, "level_file": lvl_file,
+                rows.append({"id": rid, "game": game, "level": lvl, "predicate": p,
+                             "question": defs[p][0], "definition": defs[p][1], "description": desc, "level_file": lvl_file,
                              "reading": (r.get("reading") or "").strip(), "highlight": highlight})
     return {"schema": ROWS_SCHEMA, "written_by": "scripts/handcheck_app.py", "round": rnd,
             "truth_blob": truth_blob(),
-            "sources": {rel(p): sha256(p) for p in (games_file, GUIDE, DEFINITIONS, readings_path, writer)}, "rows": rows}
+            "sources": {rel(p): sha256(p) for p in (games_file, DEFINITIONS, readings_path, writer)}, "rows": rows}
 
 
 def blind_refusal(data, what):
@@ -311,7 +301,7 @@ def start_position(rows, answers):
 def info_blocks(r):
     """The right pane of a row, as (text, style) pairs.  Built from the row alone; a row carries no verdict."""
     desc_name, level_name = r["description"].split("/")[-1], r["level_file"].split("/")[-1]
-    out = [(f"{r['game']}, level {r['level']}\n", "h"), (f"{r['predicate']}. {r['name']}\n", "b"),
+    out = [(f"{r['game']}, level {r['level']}\n", "h"), (f"{r['predicate']}\n", "b"),
            (r["question"] + "\n", None),
            ("Your answer: does the predicate hold on this level, by the files alone?\n", "b"),
            ("1 holds, 2 fails, 3 unsure.\n", None),
