@@ -904,3 +904,48 @@ Forty-fifth amendment. The lines above are unchanged. Nothing was tagged or depo
   7. if any code the runner uses has changed, the pilot reruns of Section 8 and a dry run of the changed kind (the loop; the author's decision to proceed);
   8. the day of the tag, from ZENODO.md, steps 1 to 5 on one day (the author), the DOI recorded here, and, if Section 8 leaves nothing for v1.1, that fact recorded here with its date (no).
 - **Next:** the author's choices on the fresh-game draw, "unsure" answers and G4's re-reading; the hand check goes on.
+
+## Amendment 28 Nov 2026 (at)
+
+Forty-sixth amendment. The lines above are unchanged. Nothing was tagged or deposited. No committed row under runs/ and no done-marker was changed, no Kaggle session was used, scripts/g5_reading.py was not run, and docs/truth/handcheck_answers.json was not staged, committed, modified or read (its hash was the same before and after the tests). The only new file under docs/truth/ is the fresh draw's. This amendment follows the author's fifth request of 28 November 2026. Nothing in it was already in the record.
+
+- **1. The fresh games.**
+  - The original pool, found in scripts/draw_handcheck.py and fixed in PREREG Section 5: the 30 deterministic games of docs/truth/gvgai.json in name order, seed 20261025, 10 games without replacement, then one level from 1 to 4 per game in name order.
+  - The 100 rows, built by scripts/handcheck_app.py into docs/truth/handcheck_rows.json, are 10 games × 5 predicates × level 0 and the drawn level, each with the verdict shown.
+  - scripts/draw_handcheck_fresh.py draws from that pool with the 10 excluded, in the same way: round 1, seed 20261128, 5 of 20; round 2, seed 20261129, 5 of 15, only after a failure of form (ii). It reads game names only.
+  - Run on 28 November 2026 and committed before the answers are finished, which is the reason recorded in PREREG Section 5 (logs/draw_handcheck_fresh_1.log, docs/truth/handcheck_fresh_1.json): bait (levels 0 and 2), racebet2 (0 and 2), tercio (0 and 4), watergame (0 and 3), zenpuzzle (0 and 3). The levels follow the original construction; that part was not named in the request.
+- **2 to 6. Decisions registered** in PREREG Section 5 and the stop rule's scope sentence, marked [decided 28 Nov 2026, later the same day], each with its reason and what the text said before:
+  - unsure answers are resolved as disagreements are and reported apart, all 100 rows end answered, and the denominator stays 100;
+  - the once-only limit covers G4;
+  - failure (i) is VOID at once, with "cannot be resolved" defined;
+  - failure (ii) is read again on 5 new games, seed 20261129;
+  - the rerun's diff over the 125 confirmatory units, and the automatic re-comparison of every answered row a fix flips.
+  
+  DESIGN Sections 4 and 8 carry dated summaries pointing to PREREG.
+- **7. scripts/handcheck_report.py extended**:
+  - It reads the resolutions file (docs/truth/handcheck_resolutions.json), the truth before and after the fixes, and the fresh rounds' draw, rows and answers.
+  - It prints the error rate, the resolutions, every fix, the rerun's diff, the fresh rounds, and "G4: PASS" or "G4: FAIL" naming the condition.
+  - It refuses (exit 3, nothing written) while answers are incomplete, and stops with no verdict (exit 2) on anything missing or inconsistent. **Not run on the author's answers.**
+  - scripts/test_handcheck_report.py: 27 checks on synthetic files, OK. They cover the refusals, a clean pass, a fixed disagreement, unsure rows both ways, incomplete resolutions, a fix that flips an agreed row (including a wrong fix caught), both failure forms, round 2, and consistency.
+  - scripts/test_handcheck.py, part 4, now checks the refusal on 3 of 100 answers, with its old text named. OK.
+- **8. Record.**
+  - Every changed line of PREREG and DESIGN keeps its old text. No threshold, predicate, game list or outcome rule changed.
+  - The G2 exception and the G5 paragraph are byte-for-byte unchanged.
+  - git diff e296372 HEAD on scripts/automation, kaggle and third_party is empty, so neither rerun clause fires.
+  - The protocol list gains the draw script, its console and file, and the report's test and console: 447 paths, all tracked. The resolutions file, the report's console and the fresh rounds' rows and answers are under "to be added".
+  - The aid check is clean (8,287 tracked files). No added line has a word of the forbidden list. Pushed.
+- **Found on the way, not on any list and not changed:**
+  - **Fresh rows cannot be built yet.** scripts/handcheck_app.py builds rows only for the games of docs/truth/HANDCHECK.md, and needs a reading per game and predicate in docs/truth/handcheck_readings.json, which the fresh games do not have. Who writes those readings, and whether the author sees them, is not registered.
+  - **Two readings in the report script are not in PREREG.** (a) A fresh row "shows a disagreement" only if the source, after resolution, differs from the generator; a disagree mark that the source resolves in the generator's favour is not one. (b) Fresh round 1 is checked even if the 100 rows needed no fix, which is how Section 5's text reads.
+  - **Statements computed on the present truth table go stale after a fix.** If a hand-check fix changes any confirmatory S_M, then Section 4's S_M spread (and logs/g5_implied.log), d's estimate 2 and the power of Section 7.8 all change, since they use the confirmatory games' S_M. The registration does not say whether these are recomputed before the tag.
+  - **test_handcheck.py, part 1**, asserts that the rows file equals a fresh build from docs/truth/gvgai.json. After a generator fix it will fail, by design of that check; the rows file must stay as answered.
+- **What remains before the tag, in order:**
+  1. the author's choices on the four findings above (needs the author);
+  2. the 100 answers, finished (needs the author; in progress);
+  3. each disagreement, unsure row and flipped agreed row resolved from the GVGAI source (the author confirms each), the generator fixed and rerun, and the resolutions file written (no);
+  4. fresh round 1's 50 rows built from the fixed generator (after finding 1 is decided) and answered (needs the author); round 2 drawn and answered only if round 1 shows a disagreement;
+  5. scripts/handcheck_report.py run, HANDCHECK_RESULT.md and its console committed, fixes listed in v1, and the files moved into the protocol list (no);
+  6. G5 (needs the author to run it; its entry no);
+  7. pilot reruns only if runner code changed (the loop; the author's decision);
+  8. the day of the tag (needs the author), with the DOI and any v1.1 note recorded here (no).
+- **Next:** the author's answers, and his choices on the findings.
