@@ -91,6 +91,11 @@ logs/handcheck_seen.log
 docs/truth/handcheck_fresh_rows_1.json
 logs/handcheck_fresh_rows_1.log
 docs/truth/handcheck_answers_discarded.json
+docs/truth/PREDICATE_DEFINITIONS.md
+scripts/test_predicate_definitions.py
+logs/test_predicate_definitions.log
+scripts/handcheck_sm_constant.py
+logs/handcheck_sm_constant.log
 
 # development data behind registered numbers
 scripts/sdd.py
