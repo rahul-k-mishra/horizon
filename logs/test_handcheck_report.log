@@ -2,6 +2,8 @@
 ok    a row without an answer: exit 3, nothing written
 ok    answers not marked finished: exit 3, nothing written
 ok    a fresh row without an answer: exit 3
+ok    rows of the old form, with the generator's verdict: exit 3, nothing written
+ok    answers of the old form (agree, disagree, unsure): exit 3, nothing written
 == 2. a clean hand check
 ok    all agreed, no fix, round 1 agreed: PASS, 0 of 100, no diff (exit 0)
 == 3. a disagreement resolved and fixed
@@ -31,4 +33,6 @@ ok    round 2 without a failure of round 1: no verdict (exit 2)
 ok    no fresh round: no verdict (exit 2)
 ok    fresh rows that are not the drawn games: no verdict (exit 2)
 ok    answers kept against another rows file: no verdict (exit 2)
+ok    rows that name no truth_blob: no verdict (exit 2)
+ok    a fresh round with no pinned truth table: no verdict (exit 2)
 OK

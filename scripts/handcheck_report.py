@@ -3,41 +3,54 @@ handcheck_report.py -- writes docs/truth/HANDCHECK_RESULT.md, the result of the 
 the reading of gate G4 (docs/PREREG.md, Section 5, as decided on 28 November 2026; Section 8).  Standard library only;
 reads committed files only.
 
-NOT RUN ON THE AUTHOR'S ANSWERS.  Extended on 28 November 2026 and tested only on synthetic files
-(scripts/test_handcheck_report.py, logs/test_handcheck_report.log; scripts/test_handcheck.py, part 4).  It refuses
-(exit 3, nothing written) while any of the 100 rows has no answer or the answers are not marked finished, and while a
-fresh round's rows have no answer.
+NOT RUN ON THE AUTHOR'S ANSWERS.  Tested only on synthetic files (scripts/test_handcheck_report.py,
+logs/test_handcheck_report.log; scripts/test_handcheck.py, part 5).  It refuses (exit 3, nothing written) while any of
+the 100 rows has no answer or the answers are not marked finished, while a fresh round's rows have no answer, and on
+any rows or answers file of the old form, in which the generator's verdict was shown.
+
+Changed 28 November 2026 to the blind form (PREREG Section 5, "The hand check is blind"): the rows carry no verdict
+and the author answers holds, fails or unsure from the reading alone; the comparison with the generator is made here,
+after his answers are committed.  Until then the rows carried the verdict, the author answered agree, disagree or
+unsure, and "the verdict shown" was the verdict in the rows file.  The rules below are otherwise unchanged: "the
+verdict compared with" is the generator's verdict in the truth table pinned for the rows; an answer equal to it
+counts as agree, a different holds or fails as disagree.
 
 What it reads:
-    rows        docs/truth/handcheck_rows.json, the 100 rows, each with the generator's verdict as shown to the author.
-    answers     docs/truth/handcheck_answers.json (scripts/handcheck_app.py): agree, disagree or unsure per row.
-    resolutions docs/truth/handcheck_resolutions.json, schema horizon.handcheck_resolutions.v1: "truth_before_commit"
-                (the commit whose docs/truth/gvgai.json the rows were built from) and, per row id, an entry
+    rows        docs/truth/handcheck_rows.json, schema horizon.handcheck_rows.v2: the 100 rows with no verdict, and
+                "truth_blob", the git blob of docs/truth/gvgai.json at the commit the rows were built from (recorded
+                when they were built, not read for them; PREREG Section 5, as decided 28 November 2026).
+    answers     docs/truth/handcheck_answers.json, schema horizon.handcheck_answers.v2 (scripts/handcheck_app.py):
+                holds, fails or unsure per row.
+    resolutions docs/truth/handcheck_resolutions.json, schema horizon.handcheck_resolutions.v1: per row id, an entry
                 {"resolved": true or false, "source": [{"file", "line"}], "generator_commit", "verdict_after",
                 "note"}.  verdict_after is the verdict the GVGAI source determines for the unit, which the generator
-                gives after the fix; resolved false means the source does not determine it.
-    truth       docs/truth/gvgai.json before the fixes (at truth_before_commit, by git) and now (after them).
+                gives after the fix; resolved false means the source does not determine it.  "fresh_truth_blob":
+                {round: blob}, the truth table each fresh round is compared with: the git blob of
+                docs/truth/gvgai.json after the fixes that precede the round, entered when the round is compared.
+                It is required for every round, since a fresh round's rows are built blind and may be built before
+                those fixes, and a later fix must not change what an earlier round was compared with.
+    truth       docs/truth/gvgai.json at the rows' truth_blob (by git) and now (after the fixes).
     fresh       per round r: docs/truth/handcheck_fresh_<r>.json (scripts/draw_handcheck_fresh.py, the games and
-                levels), docs/truth/handcheck_fresh_rows_<r>.json (rows of the same form as the 100, built from the
-                fixed generator) and docs/truth/handcheck_fresh_answers_<r>.json (answers of the same form).  A fresh
-                row's resolution is kept in the same resolutions file under "fresh<r>:<row id>".  A round answered
-                before a later fix (round 1, once round 2 exists) is judged on the verdicts it was answered against.
+                levels), docs/truth/handcheck_fresh_rows_<r>.json (rows of the same blind form as the 100) and
+                docs/truth/handcheck_fresh_answers_<r>.json (answers of the same form).  A fresh row's resolution is
+                kept in the same resolutions file under "fresh<r>:<row id>".
 
 The rules applied (PREREG Section 5, decided 28 November 2026):
     a row needs a resolution if it is marked disagree or unsure, or if it is marked agree and the generator's verdict
-    for it now differs from the verdict the author saw (a fix that flips an agreed row is itself a disagreement).
-    A resolution is complete when resolved is false, or when it gives a source line and a verdict_after that the
-    generator now gives, with the generator commit wherever verdict_after differs from the verdict shown.
-    A generator error is a row whose verdict_after differs from the verdict shown.  An unsure row resolved from the
-    source counts as answered and stays in the denominator.  The error rate is errors over the 100 rows answered.
-    The rerun's diff is every (unit, predicate) of the 125 confirmatory units whose verdict differs before and after.
-    G4 fails by condition (i), VOID at once and with no repair, if any row of the hand check or of a fresh round
-    cannot be resolved from the GVGAI source.  A fresh round shows a disagreement if any of its rows is a generator
-    error after resolution.  Round 1 is required.  If it shows a disagreement, that is the first failure of G4 by
-    condition (ii): the generator is fixed and rerun and G4 is read again on round 2; a disagreement in round 2 is
-    the second failure, VOID.  Otherwise G4 passes.
-    Anything missing or inconsistent (a resolution, a source line, a commit, a fresh round, a verdict the fixed
-    generator does not give) stops the reading with no verdict (exit 2).
+    for it now differs from the verdict it was compared with (a fix that flips an agreed row is itself a
+    disagreement).  A resolution is complete when resolved is false, or when it gives a source line and a
+    verdict_after that the generator now gives, with the generator commit wherever verdict_after differs from the
+    verdict compared with.  A generator error is a row whose verdict_after differs from the verdict compared with.
+    An unsure row resolved from the source counts as answered and stays in the denominator.  The error rate is
+    errors over the 100 rows answered.  The rerun's diff is every (unit, predicate) of the 125 confirmatory units
+    whose verdict differs before and after.  G4 fails by condition (i), VOID at once and with no repair, if any row
+    of the hand check or of a fresh round cannot be resolved from the GVGAI source.  A fresh round shows a
+    disagreement only if one of its rows is a generator error after resolution; a disagree mark the source resolves
+    in the generator's favour is not one.  Round 1 is required whether or not the 100 rows required a fix.  If it
+    shows a disagreement, that is the first failure of G4 by condition (ii): the generator is fixed and rerun and G4
+    is read again on round 2; a disagreement in round 2 is the second failure, VOID.  Otherwise G4 passes.
+    Anything missing or inconsistent (a resolution, a source line, a commit, a fresh round, a pinned truth table, a
+    verdict the fixed generator does not give) stops the reading with no verdict (exit 2).
 
 Exit: 0 G4: PASS; 1 G4: FAIL (the condition named); 2 no verdict, what is missing listed; 3 refused.
 Run (working directory D:\\Research\\horizon\\repo), once every answer is in and resolved:
@@ -63,9 +76,14 @@ RESOLUTIONS = os.path.join(TRUTH, "handcheck_resolutions.json")
 GVGAI = os.path.join(TRUTH, "gvgai.json")
 OUT = os.path.join(TRUTH, "HANDCHECK_RESULT.md")
 PRED = ("A1", "A2", "A3", "A4", "A5")
-CHOICES = ("agree", "disagree", "unsure")
+ROWS_SCHEMA = "horizon.handcheck_rows.v2"
+ANSWERS_SCHEMA = "horizon.handcheck_answers.v2"
+ANSWERS_OLD = "horizon.handcheck_answers.v1"
 VERDICTS = ("holds", "fails")
+GIVEN = VERDICTS + ("unsure",)              # what the author answers
+CHOICES = ("agree", "disagree", "unsure")   # his answer compared with the generator, made here
 ROUNDS = (1, 2)
+READ_ERRORS = (OSError, subprocess.CalledProcessError, ValueError, KeyError)
 
 
 def rel(path):
@@ -84,6 +102,41 @@ def sha256(path):
 def read_json(path):
     with open(path, encoding="utf-8") as f:
         return json.load(f)
+
+
+def answered(rows, answers):
+    return sum(1 for r in rows if answers.get(r["id"], {}).get("answer") in GIVEN)
+
+
+def blind_refusal(data, what):
+    """Why a rows file may not be read: not the blind form, or a verdict in it; None if it may."""
+    if data.get("schema") != ROWS_SCHEMA:
+        return f"{what} is {data.get('schema')}, not {ROWS_SCHEMA} (the old form showed the generator's verdict)"
+    if any(k in r for r in data.get("rows", []) for k in ("verdict", "wrong_if", "clauses")):
+        return f"{what} carries the generator's verdict or its reading"
+    return None
+
+
+def load_blob(name, blob_dir):
+    """The games of docs/truth/gvgai.json as it was in git blob name; with blob_dir (tests), of <blob_dir>/<name>.json."""
+    if blob_dir is not None:
+        return read_json(os.path.join(blob_dir, f"{name}.json"))["games"]
+    text = subprocess.run(["git", "cat-file", "-p", name], cwd=REPO, capture_output=True, text=True,
+                          encoding="utf-8", check=True).stdout
+    return json.loads(text)["games"]
+
+
+def marked(rows, answers, shown):
+    """The rows with the verdict each is compared with, and each answer as agree, disagree or unsure."""
+    out_rows, marks = [], {}
+    for r in rows:
+        v = shown[(r["game"], r["level"], r["predicate"])]
+        out_rows.append(dict(r, verdict=v))
+        e = answers.get(r["id"], {})
+        a = e.get("answer")
+        m = "unsure" if a == "unsure" else (("agree" if a == v else "disagree") if a in VERDICTS else None)
+        marks[r["id"]] = {"answer": m, "given": a, "note": e.get("note", "")}
+    return out_rows, marks
 
 
 def tally(rows, answers):
@@ -111,11 +164,9 @@ def listing(rows, answers, pick):
         e = answers.get(r["id"], {})
         if not pick(e):
             continue
-        d = r["deciding"]
-        where = (r["description"] if d["in"] == "description" else r["level_file"]).split("/")[-1]
         note = (e.get("note") or "").strip() or "(no note)"
-        out.append(f"- **{r['game']}, level {r['level']}, {r['predicate']}** ({r['name']}): the generator's verdict "
-                   f"**{r['verdict']}**, deciding line {where}:{d['line']} `{d['text']}`. Note: {note}")
+        out.append(f"- **{r['game']}, level {r['level']}, {r['predicate']}** ({r['name']}): the author's answer "
+                   f"**{e.get('given')}**, the generator's verdict **{r['verdict']}**. Note: {note}")
     return out or ["None."]
 
 
@@ -126,8 +177,8 @@ def verdicts(truth_games, units):
 
 def judge(rows, answers, resolutions, now, missing, label, check_now=True):
     """Applies the rules to one set of rows.  Returns a list of per-row records; appends gaps to missing.
-    check_now False (an earlier fresh round, answered before a later fix): judged on the verdicts it was answered
-    against, with no flip and no comparison with the generator now."""
+    check_now False (an earlier fresh round, answered before a later fix): judged on the verdicts it was compared
+    with, with no flip and no comparison with the generator now."""
     out = []
     if not check_now:
         now = {(r["game"], r["level"], r["predicate"]): r["verdict"] for r in rows}
@@ -135,8 +186,8 @@ def judge(rows, answers, resolutions, now, missing, label, check_now=True):
         rid, shown = r["id"], r["verdict"]
         a = answers.get(rid, {}).get("answer")
         after = now.get((r["game"], r["level"], r["predicate"]))
-        if after is None:
-            missing.append(f"{label} {rid}: no verdict in the truth table now")
+        if after is None or shown is None:
+            missing.append(f"{label} {rid}: no verdict in the truth table")
             continue
         flipped = after != shown
         need = a in ("disagree", "unsure") or (a == "agree" and flipped)
@@ -176,21 +227,31 @@ def main(argv=None):
     ap.add_argument("--rows", default=ROWS, help="tests only")
     ap.add_argument("--answers", default=ANSWERS, help="tests only")
     ap.add_argument("--resolutions", default=RESOLUTIONS, help="tests only")
-    ap.add_argument("--truth-before", default=None, help="tests only: in place of gvgai.json at truth_before_commit")
+    ap.add_argument("--blob-dir", default=None, help="tests only: truth tables by blob name, from this folder")
     ap.add_argument("--truth-after", default=GVGAI, help="tests only")
     ap.add_argument("--fresh-dir", default=TRUTH, help="tests only: the folder of the fresh rounds' files")
     ap.add_argument("--games", default=None, help="tests only: the confirmatory games, game,game,...")
     a = ap.parse_args(argv)
 
-    # refusal: every answer in
+    # refusal: the blind form, and every answer in
     if not os.path.exists(a.answers):
         print(f"refused: no answers file at {rel(a.answers)}; nothing written")
         return 3
     rows_data, ans_data = read_json(a.rows), read_json(a.answers)
-    rows, answers = rows_data["rows"], ans_data["answers"]
-    c = tally(rows, answers)
-    if c["no answer"] or not ans_data.get("finished_at"):
-        print(f"refused: the answers are incomplete ({len(rows) - c['no answer']} of {len(rows)} rows answered, "
+    why = blind_refusal(rows_data, rel(a.rows))
+    if why:
+        print(f"refused: {why}; answers given with the verdict visible were discarded on 28 November 2026 "
+              "(PREREG Section 5); nothing written")
+        return 3
+    if ans_data.get("schema") != ANSWERS_SCHEMA:
+        print(f"refused: {rel(a.answers)} is {ans_data.get('schema')}, not {ANSWERS_SCHEMA}"
+              + ("; its answers were given with the verdict visible and were discarded on 28 November 2026"
+                 if ans_data.get("schema") == ANSWERS_OLD else "") + "; nothing written")
+        return 3
+    rows, raw = rows_data["rows"], ans_data["answers"]
+    done = answered(rows, raw)
+    if done < len(rows) or not ans_data.get("finished_at"):
+        print(f"refused: the answers are incomplete ({done} of {len(rows)} rows answered, "
               f"finished {ans_data.get('finished_at')}); nothing written")
         return 3
     fresh = {}
@@ -199,10 +260,17 @@ def main(argv=None):
         if os.path.exists(rp):
             ap_ = os.path.join(a.fresh_dir, f"handcheck_fresh_answers_{rnd}.json")
             draw_p = os.path.join(a.fresh_dir, f"handcheck_fresh_{rnd}.json")
-            frows = read_json(rp)["rows"]
-            fans = read_json(ap_)["answers"] if os.path.exists(ap_) else {}
-            if tally(frows, fans)["no answer"]:
-                print(f"refused: fresh round {rnd} has rows without an answer; nothing written")
+            fdata = read_json(rp)
+            why = blind_refusal(fdata, f"fresh round {rnd}'s rows")
+            if why:
+                print(f"refused: {why}; nothing written")
+                return 3
+            frows = fdata["rows"]
+            fans_data = read_json(ap_) if os.path.exists(ap_) else {"schema": ANSWERS_SCHEMA, "answers": {}}
+            fans = fans_data["answers"]
+            if answered(frows, fans) < len(frows) or fans_data.get("schema") != ANSWERS_SCHEMA:
+                print(f"refused: fresh round {rnd} has rows without an answer, or answers not of {ANSWERS_SCHEMA}; "
+                      "nothing written")
                 return 3
             fresh[rnd] = dict(rows=frows, answers=fans, draw=read_json(draw_p) if os.path.exists(draw_p) else None)
 
@@ -213,14 +281,14 @@ def main(argv=None):
     resolutions_data = read_json(a.resolutions) if os.path.exists(a.resolutions) else {"resolutions": {}}
     resolutions = resolutions_data.get("resolutions", {})
     after_truth = read_json(a.truth_after)["games"]
-    if a.truth_before is not None:
-        before_truth = read_json(a.truth_before)["games"]
-    elif resolutions_data.get("truth_before_commit"):
-        blob = subprocess.run(["git", "show", f"{resolutions_data['truth_before_commit']}:docs/truth/gvgai.json"],
-                              cwd=REPO, capture_output=True, text=True, encoding="utf-8", check=True).stdout
-        before_truth = json.loads(blob)["games"]
-    else:
-        before_truth = after_truth
+    if not rows_data.get("truth_blob"):
+        print("stopped, no verdict: the rows file names no truth_blob, the truth table its rows are compared with")
+        return 2
+    try:
+        before_truth = load_blob(rows_data["truth_blob"], a.blob_dir)
+    except READ_ERRORS as e:
+        print(f"stopped, no verdict: the truth table of blob {rows_data['truth_blob']} cannot be read: {e}")
+        return 2
     if a.games is not None:
         conf = [g for g in a.games.split(",") if g]
     else:
@@ -245,8 +313,23 @@ def main(argv=None):
             except KeyError:
                 pass
 
+    def shown_by(truth, rws, label):
+        out = {}
+        for r in rws:
+            k = (r["game"], r["level"], r["predicate"])
+            try:
+                out[k] = truth[r["game"]]["levels"][str(r["level"])][r["predicate"]]["verdict"]
+            except KeyError:
+                missing.append(f"{label} {r['id']}: not in the truth table it is compared with")
+                out[k] = None
+        return out
+
+    rows, answers = marked(rows, raw, shown_by(before_truth, rows, "row"))
+    c = tally(rows, answers)
     main_recs = judge(rows, answers, resolutions, now, missing, "row")
     fresh_recs = {}
+    pinned = resolutions_data.get("fresh_truth_blob", {})
+    latest = max(fresh) if fresh else None
     for rnd, f in fresh.items():
         if f["draw"] is None:
             missing.append(f"fresh round {rnd}: no draw file handcheck_fresh_{rnd}.json")
@@ -254,9 +337,21 @@ def main(argv=None):
             want = {f"{d['game']}/{p}/{lv}" for d in f["draw"]["games"] for lv in d["levels"] for p in PRED}
             if {r["id"] for r in f["rows"]} != want:
                 missing.append(f"fresh round {rnd}: its rows are not the drawn games, levels and predicates")
+        if str(rnd) in pinned:
+            try:
+                ftruth = load_blob(pinned[str(rnd)], a.blob_dir)
+            except READ_ERRORS as e:
+                missing.append(f"fresh round {rnd}: its pinned truth table {pinned[str(rnd)]} cannot be read: {e}")
+                fresh_recs[rnd] = []
+                continue
+        else:
+            missing.append(f"fresh round {rnd}: no fresh_truth_blob names the truth table it is compared with")
+            fresh_recs[rnd] = []
+            continue
+        f["rows"], f["answers"] = marked(f["rows"], f["answers"], shown_by(ftruth, f["rows"], f"fresh round {rnd}"))
         fres = {k[len(f'fresh{rnd}:'):]: v for k, v in resolutions.items() if k.startswith(f"fresh{rnd}:")}
         fresh_recs[rnd] = judge(f["rows"], f["answers"], fres, now, missing, f"fresh round {rnd}",
-                                check_now=rnd == max(fresh))
+                                check_now=rnd == latest)
     if 1 not in fresh:
         missing.append("fresh round 1 has not been checked (handcheck_fresh_rows_1.json and its answers)")
 
@@ -304,17 +399,21 @@ def main(argv=None):
            f"Written {today} by scripts/handcheck_report.py (console in logs/handcheck_report.log) from "
            f"{rel(a.answers)}, {rel(a.rows)}, {rel(a.resolutions)} and the fresh rounds. The rows are the predicates "
            "of docs/PREREG.md draft v0, Section 5, on the games and levels drawn by scripts/draw_handcheck.py "
-           "(logs/draw_handcheck.log), each with the verdict of scripts/truth_vgdl.py as shown to the author.", "",
+           "(logs/draw_handcheck.log). The hand check was blind: the author answered each row from the reading "
+           "alone, and his answers were committed before this comparison with the verdicts of "
+           f"scripts/truth_vgdl.py in docs/truth/gvgai.json at blob {rows_data['truth_blob']}.", "",
            f"- Answers started {ans_data.get('started_at')}, last changed {ans_data.get('updated_at')}, "
            f"finished {ans_data.get('finished_at')}.",
            f"- Rows file sha256 {rows_sha}.", "",
            f"## G4: {verdict}", "", f"{cond}.", "",
            "## Disagreements, unsure rows and the error rate", "",
-           f"- Marked disagree: {sum(r['answer'] == 'disagree' for r in main_recs)}. Marked unsure: {len(unsure)}, "
-           f"of which the source found the generator right on {sum(1 for r in unsure if not r['error'] and r['res'] and not r['unresolved'])}.",
-           f"- Generator errors found (the verdict the source determines differs from the verdict shown): {rate}. "
-           "Every unsure row resolved from the source is counted as answered.",
-           f"- Rows whose verdict a fix flipped: {len(flips)}, of them marked agree: {len(flipped_agree)}"
+           f"- Answers that differ from the generator's verdict: {sum(r['answer'] == 'disagree' for r in main_recs)}. "
+           f"Marked unsure: {len(unsure)}, of which the source found the generator right on "
+           f"{sum(1 for r in unsure if not r['error'] and r['res'] and not r['unresolved'])}.",
+           f"- Generator errors found (the verdict the source determines differs from the generator's verdict before "
+           f"the fixes): {rate}. Every unsure row resolved from the source is counted as answered.",
+           f"- Rows whose verdict a fix flipped: {len(flips)}, of them agreeing with the author before the fix: "
+           f"{len(flipped_agree)}"
            + (" (" + ", ".join(r["id"] for r in flipped_agree) + ", each resolved from the source)" if flipped_agree else "")
            + ".", ""]
     out += ["## Resolutions", ""]
@@ -327,7 +426,7 @@ def main(argv=None):
         state = "not resolved by the source" if r["unresolved"] else (
             "generator wrong" if r["error"] else "generator right")
         res_lines.append(f"- **{r['id']}** marked {r['answer']}{', flipped by a fix' if r['flipped'] else ''}: "
-                         f"shown {r['shown']}, source {res.get('verdict_after')}, now {r['now']}; {state}; source "
+                         f"generator {r['shown']}, source {res.get('verdict_after')}, now {r['now']}; {state}; source "
                          f"{src}; generator commit {res.get('generator_commit') or 'none'}. {res.get('note') or ''}")
     out += res_lines or ["None needed."]
     out += ["", "## Every generator fix", ""]
@@ -350,15 +449,17 @@ def main(argv=None):
         out.append(f"| {g} | {lv} | {len(sub)} | {len(sub) - cc['no answer']} |")
     out += ["", "## Per predicate", ""] + table("predicate", PRED, rows, answers)
     out += ["", "## Per game", ""] + table("game", games, rows, answers)
-    out += ["", "## Every disagreement", ""] + listing(rows, answers, lambda e: e.get("answer") == "disagree")
+    out += ["", "## Every answer that differs from the generator", ""] + listing(
+        rows, answers, lambda e: e.get("answer") == "disagree")
     out += ["", "## Every row marked unsure", ""] + listing(rows, answers, lambda e: e.get("answer") == "unsure")
     out.append("")
     with open(a.out, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(out))
 
     print(f"rows {n} ({rel(a.rows)}, sha256 {rows_sha}); answers finished {ans_data.get('finished_at')}")
+    print(f"compared with docs/truth/gvgai.json at blob {rows_data['truth_blob']}")
     print(f"all: agree {c['agree']}, disagree {c['disagree']}, unsure {c['unsure']}, no answer {c['no answer']}")
-    print(f"generator errors: {rate}; flipped by a fix {len(flips)}, of them marked agree {len(flipped_agree)}")
+    print(f"generator errors: {rate}; flipped by a fix {len(flips)}, of them agreeing before {len(flipped_agree)}")
     print(f"rerun diff over {len(units)} confirmatory units: {len(diff)} verdict(s) changed")
     for rnd in sorted(fresh):
         print(f"fresh round {rnd}: {len(fresh[rnd]['rows'])} rows, generator errors {len(fresh_bad.get(rnd, []))}")
