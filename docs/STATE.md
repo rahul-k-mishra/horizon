@@ -1007,3 +1007,44 @@ Forty-seventh amendment. The lines above are unchanged. Nothing was tagged or de
   9. the day of the tag (needs the author), with the DOI and any v1.1 note recorded here (no).
 - **Next:** the author's decision on the source readings.
 - **Correction, written in the same session after the commit above:** "31 checks" under item 5 should read 28. logs/test_handcheck_report.log has 28 "ok" lines: the 24 of the console committed before this session and 4 added. Amendment (at) gave that earlier console as 27 checks, and it has 24 "ok" lines; that line is left as written.
+
+## Amendment 28 Nov 2026 (av)
+
+Forty-eighth amendment. The lines above are unchanged. Nothing was tagged or deposited. No committed row under runs/ and no done-marker was changed, no Kaggle session was used, scripts/g5_reading.py was not run, and no hand-check row was answered. No verdict is stated in this amendment: rows are named, never their verdicts. This amendment follows the author's seventh request of 28 November 2026, his decision on the source readings, option B: blind where blindness is still possible and documented where it is not. Each part is registered in PREREG Section 5, marked [decided 28 Nov 2026, option B] (3ad7d46), with the reason and what the text said before.
+
+- **1. The readings, a transcription** (634fb3c).
+  - scripts/handcheck_readings_source.py quotes verbatim from third_party/gvgai, as committed in 4b1d7c4 (the commit that last changed it, read with git show): SpriteSet, InteractionSet, TerminationSet and LevelMapping; the level file; and the avatar's sprite lines with the lines they sit under. It also quotes the avatar class chain's declarations, loadDefaults and postProcess. The loadDefaults quotes go beyond what the request named, so that class defaults (speed, rotateInPlace) are on the page; PREREG records this.
+  - The script reads the draw console, the fresh draw and third_party/gvgai only. Output: docs/truth/handcheck_readings_source.json, with logs/handcheck_readings_source.log.
+  - scripts/test_handcheck_readings_source.py: 316 quotes in 48 files equal the named lines byte for byte. All 30 readings are their quotes under fixed headers and nothing else. No reading has a predicate name or a verdict word. The script opens none of the three forbidden files, and a second run gives the committed output. OK (logs/test_handcheck_readings_source.log).
+- **2. The contamination register** (f241b58, afecfcd). docs/truth/handcheck_seen.json contains 41 statements with file and line: the guide, docs/truth/PREDICATE_QUESTIONS.md, PREREG, DESIGN, STATE, two commit messages and the old window. A statement about a game counts for both of its levels.
+  - scripts/handcheck_seen.py checks each statement against its line and expands the rows (logs/handcheck_seen.log): 76 of 150 rows seen. In the hand check, 54 are seen and 46 blind; in fresh round 1, 22 are seen and 28 blind. Every A1 and A4 row of both sets is seen.
+  - scripts/handcheck_report.py (62f54c4) now gives two error rates: over all rows, and over blind rows only. It stops with no verdict without the register. scripts/test_handcheck_report.py: 31 checks, OK.
+- **3. Files not to be opened** during the blind pass: the 21 entries of the register, named in PREREG. The registration says plainly that this cannot be enforced and that compliance is asserted, not proved. scripts/handcheck_app.py now takes the games from logs/draw_handcheck.log instead of docs/truth/HANDCHECK.md.
+- **4. The rows rebuilt blind** (9d0d673).
+  - docs/truth/handcheck_rows.json (100 rows) and docs/truth/handcheck_fresh_rows_1.json (50 rows), with logs/handcheck_rows.log and logs/handcheck_fresh_rows_1.log. Both are pinned to docs/truth/gvgai.json blob d2a71c2; the app now pins every round.
+  - The old answers file was moved to docs/truth/handcheck_answers_discarded.json. The old rows file was removed from its path and kept at 8d53df0.
+  - scripts/test_handcheck.py (911393b): the rows equal a build now and are pinned; the old file equals the old build at the pinned blob; all 150 rows are shown with no verdict and no listed file opened. OK.
+- **5. The recomputation clause, completed:** it covers Sections 1, 7.5 and 7.8; if S_M came to differ between levels, Section 4's spread is restated per unit and fit_rule.py, g5_implied.py and sdd.py are amended to read per unit before the tag.
+- **6. Record.**
+  - DESIGN Sections 4 and 7.1 carry dated summaries pointing to PREREG (ff69d59).
+  - PREREG changed in its status paragraph, Section 5 and Section 13 only. No threshold, predicate, game list, drawn game, level or outcome rule changed.
+  - git diff e296372 HEAD on scripts/automation, kaggle and third_party is empty, so neither rerun clause fires.
+  - The G2 exception is byte-for-byte as in 0b8a9c2, and the G5 paragraph is unchanged.
+  - The protocol list has 458 listed paths, all tracked (aef6b00).
+  - The aid check is clean on 8,297 tracked files (f4f56a5). No added line has a word of the forbidden list. Pushed.
+- **Found on the way, not on any list and not changed:**
+  - **No A1 or A4 row is blind** in either set, so the blind-only rate says nothing about A1 and A4.
+  - **docs/truth/HANDCHECK.md was written "For the author"** with every verdict in a column. If he read it before 28 November 2026, every one of the 100 rows is seen. The register counts prose only, and needs his statement on this.
+  - **The definitions are in files he must not open.** The guide's sections contain the words that decide each predicate. PREREG Section 5 contains the registered definitions, but on the same lines as several statements in the register. The window shows each predicate's question only. A copy of the definitions without examples, or a statement that the registered wording is to be read only from named lines, would be needed.
+  - **The readings quote no effect code.** They do not quote the Java source of interaction effects (wrapAround, bounceForward and the others under src/ontology/effects); the author judges those from his knowledge of VGDL.
+  - **Line edits can break the register.** It cites lines of PREREG, DESIGN and STATE. An edit that inserts a line above one of them stops scripts/handcheck_seen.py with an error until the register is updated; it will report this rather than pass silently.
+- **The command to start answering** (working directory D:\Research\horizon\repo): D:\Research\horizon\.venv\Scripts\python.exe scripts\handcheck_app.py, and for fresh round 1 the same with --round 1.
+- **What remains before the tag, in order:**
+  1. the author's statement on HANDCHECK.md, and the definitions he may read during the pass (needs the author);
+  2. the 100 blind answers, committed, and fresh round 1's 50, which may be answered at any time since they are compared later (needs the author);
+  3. resolutions from the GVGAI source (the author confirms each), any generator fix and rerun, and the mandatory recomputations (no, except the confirmations);
+  4. scripts/handcheck_report.py run, HANDCHECK_RESULT.md and its console committed, the answer files moved into the protocol list (no); fresh round 2 only after a failure of form (ii) (needs the author);
+  5. G5 (needs the author to run it; its entry no);
+  6. pilot reruns only if runner code changed (the loop; the author's decision);
+  7. the day of the tag (needs the author), with the DOI and any v1.1 note recorded here (no).
+- **Next:** the author's statement on HANDCHECK.md and the definitions, then the blind pass.
