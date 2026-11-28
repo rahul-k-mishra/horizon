@@ -1,0 +1,47 @@
+register docs\truth\handcheck_seen.json: 40 statements
+  ok   docs/truth/HANDCHECK_GUIDE.md:26 (stated): sokoban A1
+  ok   docs/truth/HANDCHECK_GUIDE.md:11 (inferred): colourescape A1
+  ok   docs/truth/HANDCHECK_GUIDE.md:36 (stated): labyrinthdual A2
+  ok   docs/truth/HANDCHECK_GUIDE.md:38 (stated): sokoban A2, painter A2
+  ok   docs/truth/HANDCHECK_GUIDE.md:46 (stated): sokoban A3
+  ok   docs/truth/HANDCHECK_GUIDE.md:48 (stated): wrapsokoban A3
+  ok   docs/truth/HANDCHECK_GUIDE.md:56 (stated): sokoban A4
+  ok   docs/truth/HANDCHECK_GUIDE.md:58 (stated): rivers A4
+  ok   docs/truth/HANDCHECK_GUIDE.md:66 (stated): labyrinthdual A5
+  ok   docs/truth/HANDCHECK_GUIDE.md:68 (stated): sokoban A5
+  ok   docs/truth/PREDICATE_QUESTIONS.md:13 (stated): painter A2
+  ok   docs/truth/PREDICATE_QUESTIONS.md:15 (stated): painter A2, zenpuzzle A2
+  ok   docs/truth/PREDICATE_QUESTIONS.md:27 (stated): clusters A4, colourescape A4, glow A4, lasers A4, painter A4, racebet A4, racebet2 A4, sokoban A4, tercio A4, wrapsokoban A4, zenpuzzle A4, rivers A4
+  ok   docs/truth/PREDICATE_QUESTIONS.md:39 (stated): tercio A4, bait A4, labyrinthdual A4
+  ok   docs/truth/PREDICATE_QUESTIONS.md:51 (stated): colourescape A4
+  ok   docs/truth/PREDICATE_QUESTIONS.md:59 (stated): painter A2, zenpuzzle A2
+  ok   docs/truth/PREDICATE_QUESTIONS.md:63 (stated): tercio A4, labyrinthdual A4
+  ok   docs/truth/PREDICATE_QUESTIONS.md:69 (stated): wrapsokoban A4
+  ok   docs/truth/PREDICATE_QUESTIONS.md:71 (stated): clusters A1/A4, colourescape A1/A4, glow A1/A4, lasers A1/A4, painter A1/A4, racebet A1/A4, racebet2 A1/A4, sokoban A1/A4, tercio A1/A4, wrapsokoban A1/A4, zenpuzzle A1/A4, painter A2
+  ok   docs/PREREG.md:60 (stated): clusters A1/A4, colourescape A1/A4, glow A1/A4, lasers A1/A4, painter A1/A4, racebet A1/A4, racebet2 A1/A4, sokoban A1/A4, tercio A1/A4, wrapsokoban A1/A4, zenpuzzle A1/A4
+  ok   docs/PREREG.md:102 (stated): painter A2, zenpuzzle A2
+  ok   docs/PREREG.md:104 (stated; rivers' blocker 'counts as created and removed' on the same line): tercio A4, rivers A4
+  ok   docs/PREREG.md:195 (stated): clusters A1/A4, colourescape A1/A4, glow A1/A4, lasers A1/A4, painter A1/A4, racebet A1/A4, racebet2 A1/A4, sokoban A1/A4, tercio A1/A4, wrapsokoban A1/A4, zenpuzzle A1/A4
+  ok   docs/DESIGN.md:88 (stated): painter A2, zenpuzzle A2
+  ok   docs/DESIGN.md:90 (stated; on the same line rivers' house 'counts as a blocker created and removed'): labyrinthdual A4, rivers A4, lasers A4
+  ok   docs/DESIGN.md:179 (stated): clusters A1/A4, colourescape A1/A4, glow A1/A4, lasers A1/A4, painter A1/A4, racebet A1/A4, racebet2 A1/A4, sokoban A1/A4, tercio A1/A4, wrapsokoban A1/A4, zenpuzzle A1/A4
+  ok   docs/STATE.md:87 (stated): bait A1, clusters A1, colourescape A1, glow A1, labyrinthdual A1, lasers A1, painter A1, racebet A1, racebet2 A1, rivers A1, sokoban A1, tercio A1, watergame A1, wrapsokoban A1, zenpuzzle A1
+  ok   docs/STATE.md:87 (inferred): watergame A4
+  ok   docs/STATE.md:98 (stated): clusters A1/A4, colourescape A1/A4, glow A1/A4, lasers A1/A4, painter A1/A4, racebet A1/A4, racebet2 A1/A4, sokoban A1/A4, tercio A1/A4, wrapsokoban A1/A4, zenpuzzle A1/A4
+  ok   docs/STATE.md:131 (stated): painter A2, zenpuzzle A2, tercio A4, colourescape A4
+  ok   docs/STATE.md:145 (stated): painter A2, zenpuzzle A2
+  ok   docs/STATE.md:149 (stated): painter A2
+  ok   docs/STATE.md:158 (stated): wrapsokoban A4
+  ok   docs/STATE.md:147 (stated): clusters A1/A4, colourescape A1/A4, glow A1/A4, lasers A1/A4, painter A1/A4, racebet A1/A4, racebet2 A1/A4, sokoban A1/A4, tercio A1/A4, wrapsokoban A1/A4, zenpuzzle A1/A4
+  ok   docs/STATE.md:162 (stated): clusters A1/A4, colourescape A1/A4, glow A1/A4, lasers A1/A4, painter A1/A4, racebet A1/A4, racebet2 A1/A4, sokoban A1/A4, tercio A1/A4, wrapsokoban A1/A4, zenpuzzle A1/A4
+  ok   docs/STATE.md:990 (names the guide's statements above): sokoban A1/A2/A3/A4/A5, labyrinthdual A2/A5, painter A2, wrapsokoban A3, rivers A4
+  ok   docs/STATE.md:991 (stated): zenpuzzle A2, tercio A4, bait A4
+  ok   commit 3b6356b (stated in the commit message): painter A2, zenpuzzle A2
+  ok   commit da81547 (stated in the commit message): painter A2
+  ok   docs/truth/handcheck_answers.json:8 at f6da724 (shown in the window of the old form): clusters A1
+must not be opened during the blind pass: 21 entries
+hand check (100 rows): 100 rows, seen 54 (A1 20, A2 6, A3 4, A4 20, A5 4), blind 46
+fresh round 1 (50 rows): 50 rows, seen 22 (A1 10, A2 2, A3 0, A4 10, A5 0), blind 28
+rows seen in all: 76 of 150
+the register's rows equal the expansion
+OK

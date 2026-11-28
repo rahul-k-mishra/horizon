@@ -1,0 +1,1189 @@
+{
+ "schema": "horizon.handcheck_seen.v1",
+ "written": "2026-11-28",
+ "about": "The contamination register of the blind hand check (docs/PREREG.md, Section 5, decided 28 November 2026, option B): every statement in the repository, its commit messages included, that gives the generator's verdict on a predicate of a game in the hand check or in fresh round 1, with the file and line where it is stated. A row is seen if a statement gives its game's verdict on its predicate. A statement about a game counts for every level of the game in the row sets, since the record states that no game's vector differs between its levels (docs/PREREG.md, Section 4, logs/truth_vgdl.log). Statements marked 'inferred' give the verdict only together with the statements they name. The rows are expanded, and the counts printed, by scripts/handcheck_seen.py (logs/handcheck_seen.log). Files that state verdicts as tables or data rather than prose are listed under must_not_open and are not counted: whether the author opened any of them before the blind pass is his to state. In 'games', *confirmatory* stands for the confirmatory games of scripts/suite.py and *deterministic* for its 30 deterministic games, each taken only where it is in a row set.",
+ "statements": [
+  {
+   "file": "docs/truth/HANDCHECK_GUIDE.md",
+   "line": 26,
+   "excerpt": "so A1 holds",
+   "games": {
+    "sokoban": [
+     "A1"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/truth/HANDCHECK_GUIDE.md",
+   "line": 11,
+   "excerpt": "therefore a MovingAvatar too",
+   "games": {
+    "colourescape": [
+     "A1"
+    ]
+   },
+   "how": "inferred, with docs/truth/HANDCHECK_GUIDE.md line 26: a MovingAvatar holds A1"
+  },
+  {
+   "file": "docs/truth/HANDCHECK_GUIDE.md",
+   "line": 36,
+   "excerpt": "so A2 holds",
+   "games": {
+    "labyrinthdual": [
+     "A2"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/truth/HANDCHECK_GUIDE.md",
+   "line": 38,
+   "excerpt": "A2 fails",
+   "games": {
+    "sokoban": [
+     "A2"
+    ],
+    "painter": [
+     "A2"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/truth/HANDCHECK_GUIDE.md",
+   "line": 46,
+   "excerpt": "A3 holds",
+   "games": {
+    "sokoban": [
+     "A3"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/truth/HANDCHECK_GUIDE.md",
+   "line": 48,
+   "excerpt": "A3 fails",
+   "games": {
+    "wrapsokoban": [
+     "A3"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/truth/HANDCHECK_GUIDE.md",
+   "line": 56,
+   "excerpt": "A4 holds",
+   "games": {
+    "sokoban": [
+     "A4"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/truth/HANDCHECK_GUIDE.md",
+   "line": 58,
+   "excerpt": "A4 fails",
+   "games": {
+    "rivers": [
+     "A4"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/truth/HANDCHECK_GUIDE.md",
+   "line": 66,
+   "excerpt": "A5 holds",
+   "games": {
+    "labyrinthdual": [
+     "A5"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/truth/HANDCHECK_GUIDE.md",
+   "line": 68,
+   "excerpt": "A5 fails",
+   "games": {
+    "sokoban": [
+     "A5"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/truth/PREDICATE_QUESTIONS.md",
+   "line": 13,
+   "excerpt": "The generator holds A2",
+   "games": {
+    "painter": [
+     "A2"
+    ]
+   },
+   "how": "stated, before the decision of 25 October 2026 that changed it (line 59)"
+  },
+  {
+   "file": "docs/truth/PREDICATE_QUESTIONS.md",
+   "line": 15,
+   "excerpt": "2 of them are confirmatory, painter and zenpuzzle",
+   "games": {
+    "painter": [
+     "A2"
+    ],
+    "zenpuzzle": [
+     "A2"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/truth/PREDICATE_QUESTIONS.md",
+   "line": 27,
+   "excerpt": "A4 holds on 26 of 26 confirmatory games either way",
+   "games": {
+    "*confirmatory*": [
+     "A4"
+    ],
+    "rivers": [
+     "A4"
+    ]
+   },
+   "how": "stated: every confirmatory game, and rivers among the games that change from fails to holds under the other reading"
+  },
+  {
+   "file": "docs/truth/PREDICATE_QUESTIONS.md",
+   "line": 39,
+   "excerpt": "2 of them are confirmatory, modality and tercio, and 2 are pilot games, bait and labyrinthdual",
+   "games": {
+    "tercio": [
+     "A4"
+    ],
+    "bait": [
+     "A4"
+    ],
+    "labyrinthdual": [
+     "A4"
+    ]
+   },
+   "how": "stated: they change from holds to fails under the other reading, so hold under the decided one"
+  },
+  {
+   "file": "docs/truth/PREDICATE_QUESTIONS.md",
+   "line": 51,
+   "excerpt": "colourescape holds A4 under this reading too",
+   "games": {
+    "colourescape": [
+     "A4"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/truth/PREDICATE_QUESTIONS.md",
+   "line": 59,
+   "excerpt": "only painter and zenpuzzle change, both confirmatory",
+   "games": {
+    "painter": [
+     "A2"
+    ],
+    "zenpuzzle": [
+     "A2"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/truth/PREDICATE_QUESTIONS.md",
+   "line": 63,
+   "excerpt": "The other reading would fail A4 on modality and tercio",
+   "games": {
+    "tercio": [
+     "A4"
+    ],
+    "labyrinthdual": [
+     "A4"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/truth/PREDICATE_QUESTIONS.md",
+   "line": 69,
+   "excerpt": "failed A4 on thecitadel and wrapsokoban",
+   "games": {
+    "wrapsokoban": [
+     "A4"
+    ]
+   },
+   "how": "stated, with 'A4 still holds on all 26 confirmatory games' on the same line"
+  },
+  {
+   "file": "docs/truth/PREDICATE_QUESTIONS.md",
+   "line": 71,
+   "excerpt": "A1 and A4 still hold on all 26",
+   "games": {
+    "*confirmatory*": [
+     "A1",
+     "A4"
+    ],
+    "painter": [
+     "A2"
+    ]
+   },
+   "how": "stated: every confirmatory game; painter's A2 rows 'from holds to fails' on the same line"
+  },
+  {
+   "file": "docs/PREREG.md",
+   "line": 60,
+   "excerpt": "A1 and A4 still hold on all 26 confirmatory games of v0, and on all 25 after the fit rule",
+   "games": {
+    "*confirmatory*": [
+     "A1",
+     "A4"
+    ]
+   },
+   "how": "stated: every confirmatory game"
+  },
+  {
+   "file": "docs/PREREG.md",
+   "line": 102,
+   "excerpt": "In the deterministic suite it changes painter and zenpuzzle, both confirmatory",
+   "games": {
+    "painter": [
+     "A2"
+    ],
+    "zenpuzzle": [
+     "A2"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/PREREG.md",
+   "line": 104,
+   "excerpt": "it would fail A4 on modality and tercio",
+   "games": {
+    "tercio": [
+     "A4"
+    ],
+    "rivers": [
+     "A4"
+    ]
+   },
+   "how": "stated; rivers' blocker 'counts as created and removed' on the same line"
+  },
+  {
+   "file": "docs/PREREG.md",
+   "line": 195,
+   "excerpt": "A1 and A4 hold on all 25",
+   "games": {
+    "*confirmatory*": [
+     "A1",
+     "A4"
+    ]
+   },
+   "how": "stated: every confirmatory game"
+  },
+  {
+   "file": "docs/DESIGN.md",
+   "line": 88,
+   "excerpt": "the change fails A2 on painter and zenpuzzle",
+   "games": {
+    "painter": [
+     "A2"
+    ],
+    "zenpuzzle": [
+     "A2"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/DESIGN.md",
+   "line": 90,
+   "excerpt": "as in labyrinthdual, where the avatar's coat changes which walls block, holds A4",
+   "games": {
+    "labyrinthdual": [
+     "A4"
+    ],
+    "rivers": [
+     "A4"
+    ],
+    "lasers": [
+     "A4"
+    ]
+   },
+   "how": "stated; on the same line rivers' house 'counts as a blocker created and removed', and lasers 'failed A4' only before the generator was corrected"
+  },
+  {
+   "file": "docs/DESIGN.md",
+   "line": 179,
+   "excerpt": "A1 and A4 hold on all 26",
+   "games": {
+    "*confirmatory*": [
+     "A1",
+     "A4"
+    ]
+   },
+   "how": "stated: every confirmatory game"
+  },
+  {
+   "file": "docs/STATE.md",
+   "line": 87,
+   "excerpt": "A1 holds on 150, A2 on 50, A3 on 110, A4 on 145",
+   "games": {
+    "*deterministic*": [
+     "A1"
+    ]
+   },
+   "how": "stated: A1 on all 150 units of the 30 deterministic games, which hold every game of both row sets"
+  },
+  {
+   "file": "docs/STATE.md",
+   "line": 87,
+   "excerpt": "A4 on 145",
+   "games": {
+    "watergame": [
+     "A4"
+    ]
+   },
+   "how": "inferred, with docs/PREREG.md line 60 (A4 fails on '5 of 150' deterministic units) and docs/truth/HANDCHECK_GUIDE.md line 58 (rivers fails A4, on its 5 levels): every other deterministic game holds A4"
+  },
+  {
+   "file": "docs/STATE.md",
+   "line": 98,
+   "excerpt": "A1 and A4 hold on all 26 confirmatory games",
+   "games": {
+    "*confirmatory*": [
+     "A1",
+     "A4"
+    ]
+   },
+   "how": "stated: every confirmatory game"
+  },
+  {
+   "file": "docs/STATE.md",
+   "line": 131,
+   "excerpt": "Q1 2 (painter, zenpuzzle), Q2 0, Q3 2 (modality, tercio), Q4 1 (colourescape)",
+   "games": {
+    "painter": [
+     "A2"
+    ],
+    "zenpuzzle": [
+     "A2"
+    ],
+    "tercio": [
+     "A4"
+    ],
+    "colourescape": [
+     "A4"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/STATE.md",
+   "line": 145,
+   "excerpt": "only painter and zenpuzzle change",
+   "games": {
+    "painter": [
+     "A2"
+    ],
+    "zenpuzzle": [
+     "A2"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/STATE.md",
+   "line": 149,
+   "excerpt": "painter's two from holds to fails",
+   "games": {
+    "painter": [
+     "A2"
+    ]
+   },
+   "how": "stated"
+  },
+  {
+   "file": "docs/STATE.md",
+   "line": 158,
+   "excerpt": "failed A4 on thecitadel (a crate pushed along by a crate, line 34) and wrapsokoban",
+   "games": {
+    "wrapsokoban": [
+     "A4"
+    ]
+   },
+   "how": "stated, before the decision on the same line"
+  },
+  {
+   "file": "docs/STATE.md",
+   "line": 147,
+   "excerpt": "A1 and A4 hold on all 26",
+   "games": {
+    "*confirmatory*": [
+     "A1",
+     "A4"
+    ]
+   },
+   "how": "stated: every confirmatory game"
+  },
+  {
+   "file": "docs/STATE.md",
+   "line": 162,
+   "excerpt": "A1 and A4 hold on all 26",
+   "games": {
+    "*confirmatory*": [
+     "A1",
+     "A4"
+    ]
+   },
+   "how": "stated: every confirmatory game"
+  },
+  {
+   "file": "docs/STATE.md",
+   "line": 990,
+   "excerpt": "give the generator's verdict for sokoban (A1 to A5)",
+   "games": {
+    "sokoban": [
+     "A1",
+     "A2",
+     "A3",
+     "A4",
+     "A5"
+    ],
+    "labyrinthdual": [
+     "A2",
+     "A5"
+    ],
+    "painter": [
+     "A2"
+    ],
+    "wrapsokoban": [
+     "A3"
+    ],
+    "rivers": [
+     "A4"
+    ]
+   },
+   "how": "names the guide's statements above, written 28 November 2026"
+  },
+  {
+   "file": "docs/STATE.md",
+   "line": 991,
+   "excerpt": "zenpuzzle fails A2 and that tercio holds A4",
+   "games": {
+    "zenpuzzle": [
+     "A2"
+    ],
+    "tercio": [
+     "A4"
+    ],
+    "bait": [
+     "A4"
+    ]
+   },
+   "how": "stated, 28 November 2026"
+  },
+  {
+   "commit": "3b6356b",
+   "line": 1,
+   "excerpt": "painter and zenpuzzle change",
+   "games": {
+    "painter": [
+     "A2"
+    ],
+    "zenpuzzle": [
+     "A2"
+    ]
+   },
+   "how": "stated in the commit message"
+  },
+  {
+   "commit": "da81547",
+   "line": 1,
+   "excerpt": "painter's A2 rows",
+   "games": {
+    "painter": [
+     "A2"
+    ]
+   },
+   "how": "stated in the commit message, which follows the decided rule"
+  },
+  {
+   "file": "docs/truth/handcheck_answers.json",
+   "at": "f6da724",
+   "line": 8,
+   "excerpt": "\"position\": 1",
+   "games": {
+    "clusters": [
+     "A1"
+    ]
+   },
+   "how": "shown in the window of the old form, which gave the verdict: the first row was answered and the window then showed the second (position 1), clusters level 3, A1"
+  }
+ ],
+ "must_not_open": [
+  "docs/truth/HANDCHECK.md",
+  "docs/truth/HANDCHECK_GUIDE.md",
+  "docs/truth/gvgai.json",
+  "docs/truth/handcheck_readings.json",
+  "logs/handcheck_rows.log",
+  "logs/truth_vgdl.log",
+  "docs/truth/PREDICATE_QUESTIONS.md",
+  "docs/truth/gvgai_features.json",
+  "docs/design/vgdl_scan.json",
+  "docs/design/sdd.json",
+  "docs/design/power_primary.json",
+  "logs/vgdl_scan.log",
+  "logs/pilot_margins.log",
+  "logs/predicate_readings.log",
+  "logs/truth_diff.log",
+  "logs/truth_diff_q1.log",
+  "logs/truth_diff_q4.log",
+  "logs/truth_diff_a4clause.log",
+  "logs/a4_unchecked.log",
+  "logs/gvgai_features.log",
+  "the earlier versions of docs/truth/handcheck_rows.json in the git history"
+ ],
+ "rows": {
+  "bait/A1/0": [
+   "docs/STATE.md:87"
+  ],
+  "bait/A1/2": [
+   "docs/STATE.md:87"
+  ],
+  "bait/A4/0": [
+   "docs/STATE.md:991",
+   "docs/truth/PREDICATE_QUESTIONS.md:39"
+  ],
+  "bait/A4/2": [
+   "docs/STATE.md:991",
+   "docs/truth/PREDICATE_QUESTIONS.md:39"
+  ],
+  "clusters/A1/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71",
+   "docs/truth/handcheck_answers.json:8 at f6da724"
+  ],
+  "clusters/A1/3": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71",
+   "docs/truth/handcheck_answers.json:8 at f6da724"
+  ],
+  "clusters/A4/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "clusters/A4/3": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "colourescape/A1/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/HANDCHECK_GUIDE.md:11",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "colourescape/A1/3": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/HANDCHECK_GUIDE.md:11",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "colourescape/A4/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:131",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:51",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "colourescape/A4/3": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:131",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:51",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "glow/A1/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "glow/A1/4": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "glow/A4/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "glow/A4/4": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "labyrinthdual/A1/0": [
+   "docs/STATE.md:87"
+  ],
+  "labyrinthdual/A1/1": [
+   "docs/STATE.md:87"
+  ],
+  "labyrinthdual/A2/0": [
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:36"
+  ],
+  "labyrinthdual/A2/1": [
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:36"
+  ],
+  "labyrinthdual/A4/0": [
+   "docs/DESIGN.md:90",
+   "docs/truth/PREDICATE_QUESTIONS.md:39",
+   "docs/truth/PREDICATE_QUESTIONS.md:63"
+  ],
+  "labyrinthdual/A4/1": [
+   "docs/DESIGN.md:90",
+   "docs/truth/PREDICATE_QUESTIONS.md:39",
+   "docs/truth/PREDICATE_QUESTIONS.md:63"
+  ],
+  "labyrinthdual/A5/0": [
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:66"
+  ],
+  "labyrinthdual/A5/1": [
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:66"
+  ],
+  "lasers/A1/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "lasers/A1/1": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "lasers/A4/0": [
+   "docs/DESIGN.md:179",
+   "docs/DESIGN.md:90",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "lasers/A4/1": [
+   "docs/DESIGN.md:179",
+   "docs/DESIGN.md:90",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "painter/A1/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "painter/A1/3": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "painter/A2/0": [
+   "commit 3b6356b",
+   "commit da81547",
+   "docs/DESIGN.md:88",
+   "docs/PREREG.md:102",
+   "docs/STATE.md:131",
+   "docs/STATE.md:145",
+   "docs/STATE.md:149",
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:38",
+   "docs/truth/PREDICATE_QUESTIONS.md:13",
+   "docs/truth/PREDICATE_QUESTIONS.md:15",
+   "docs/truth/PREDICATE_QUESTIONS.md:59",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "painter/A2/3": [
+   "commit 3b6356b",
+   "commit da81547",
+   "docs/DESIGN.md:88",
+   "docs/PREREG.md:102",
+   "docs/STATE.md:131",
+   "docs/STATE.md:145",
+   "docs/STATE.md:149",
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:38",
+   "docs/truth/PREDICATE_QUESTIONS.md:13",
+   "docs/truth/PREDICATE_QUESTIONS.md:15",
+   "docs/truth/PREDICATE_QUESTIONS.md:59",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "painter/A4/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "painter/A4/3": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "racebet/A1/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "racebet/A1/4": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "racebet/A4/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "racebet/A4/4": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "racebet2/A1/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "racebet2/A1/2": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "racebet2/A4/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "racebet2/A4/2": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "rivers/A1/0": [
+   "docs/STATE.md:87"
+  ],
+  "rivers/A1/4": [
+   "docs/STATE.md:87"
+  ],
+  "rivers/A4/0": [
+   "docs/DESIGN.md:90",
+   "docs/PREREG.md:104",
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:58",
+   "docs/truth/PREDICATE_QUESTIONS.md:27"
+  ],
+  "rivers/A4/4": [
+   "docs/DESIGN.md:90",
+   "docs/PREREG.md:104",
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:58",
+   "docs/truth/PREDICATE_QUESTIONS.md:27"
+  ],
+  "sokoban/A1/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:26",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "sokoban/A1/1": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:26",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "sokoban/A2/0": [
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:38"
+  ],
+  "sokoban/A2/1": [
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:38"
+  ],
+  "sokoban/A3/0": [
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:46"
+  ],
+  "sokoban/A3/1": [
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:46"
+  ],
+  "sokoban/A4/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:56",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "sokoban/A4/1": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:56",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "sokoban/A5/0": [
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:68"
+  ],
+  "sokoban/A5/1": [
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:68"
+  ],
+  "tercio/A1/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "tercio/A1/4": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "tercio/A4/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:104",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:131",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/STATE.md:991",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:39",
+   "docs/truth/PREDICATE_QUESTIONS.md:63",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "tercio/A4/4": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:104",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:131",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/STATE.md:991",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:39",
+   "docs/truth/PREDICATE_QUESTIONS.md:63",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "watergame/A1/0": [
+   "docs/STATE.md:87"
+  ],
+  "watergame/A1/3": [
+   "docs/STATE.md:87"
+  ],
+  "watergame/A4/0": [
+   "docs/STATE.md:87"
+  ],
+  "watergame/A4/3": [
+   "docs/STATE.md:87"
+  ],
+  "wrapsokoban/A1/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "wrapsokoban/A1/1": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "wrapsokoban/A3/0": [
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:48"
+  ],
+  "wrapsokoban/A3/1": [
+   "docs/STATE.md:990",
+   "docs/truth/HANDCHECK_GUIDE.md:48"
+  ],
+  "wrapsokoban/A4/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:158",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:69",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "wrapsokoban/A4/1": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:158",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:69",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "zenpuzzle/A1/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "zenpuzzle/A1/3": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:87",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "zenpuzzle/A2/0": [
+   "commit 3b6356b",
+   "docs/DESIGN.md:88",
+   "docs/PREREG.md:102",
+   "docs/STATE.md:131",
+   "docs/STATE.md:145",
+   "docs/STATE.md:991",
+   "docs/truth/PREDICATE_QUESTIONS.md:15",
+   "docs/truth/PREDICATE_QUESTIONS.md:59"
+  ],
+  "zenpuzzle/A2/3": [
+   "commit 3b6356b",
+   "docs/DESIGN.md:88",
+   "docs/PREREG.md:102",
+   "docs/STATE.md:131",
+   "docs/STATE.md:145",
+   "docs/STATE.md:991",
+   "docs/truth/PREDICATE_QUESTIONS.md:15",
+   "docs/truth/PREDICATE_QUESTIONS.md:59"
+  ],
+  "zenpuzzle/A4/0": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ],
+  "zenpuzzle/A4/3": [
+   "docs/DESIGN.md:179",
+   "docs/PREREG.md:195",
+   "docs/PREREG.md:60",
+   "docs/STATE.md:147",
+   "docs/STATE.md:162",
+   "docs/STATE.md:98",
+   "docs/truth/PREDICATE_QUESTIONS.md:27",
+   "docs/truth/PREDICATE_QUESTIONS.md:71"
+  ]
+ }
+}
