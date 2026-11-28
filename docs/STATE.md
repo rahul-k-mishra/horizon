@@ -1006,3 +1006,4 @@ Forty-seventh amendment. The lines above are unchanged. Nothing was tagged or de
   8. pilot reruns only if runner code changed (the loop; the author's decision);
   9. the day of the tag (needs the author), with the DOI and any v1.1 note recorded here (no).
 - **Next:** the author's decision on the source readings.
+- **Correction, written in the same session after the commit above:** "31 checks" under item 5 should read 28. logs/test_handcheck_report.log has 28 "ok" lines: the 24 of the console committed before this session and 4 added. Amendment (at) gave that earlier console as 27 checks, and it has 24 "ok" lines; that line is left as written.
