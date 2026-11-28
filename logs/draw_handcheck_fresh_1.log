@@ -1,0 +1,5 @@
+numpy 2.4.3; pool: 30 deterministic games in name order (scripts/suite.py)
+excluded (10): clusters, colourescape, glow, labyrinthdual, lasers, painter, racebet, rivers, sokoban, wrapsokoban
+round 1: seed 20261128; 5 games from the 20 left
+drawn: bait (levels 0 and 2), racebet2 (levels 0 and 2), tercio (levels 0 and 4), watergame (levels 0 and 3), zenpuzzle (levels 0 and 3)
+written docs/truth/handcheck_fresh_1.json: 5 games, 50 rows to mark once the generator is fixed and rerun

@@ -1,0 +1,57 @@
+{
+ "schema": "horizon.handcheck_fresh.v1",
+ "round": 1,
+ "seed": 20261128,
+ "written_by": "scripts/draw_handcheck_fresh.py",
+ "pool": 30,
+ "excluded": [
+  "clusters",
+  "colourescape",
+  "glow",
+  "labyrinthdual",
+  "lasers",
+  "painter",
+  "racebet",
+  "rivers",
+  "sokoban",
+  "wrapsokoban"
+ ],
+ "games": [
+  {
+   "game": "bait",
+   "levels": [
+    0,
+    2
+   ]
+  },
+  {
+   "game": "racebet2",
+   "levels": [
+    0,
+    2
+   ]
+  },
+  {
+   "game": "tercio",
+   "levels": [
+    0,
+    4
+   ]
+  },
+  {
+   "game": "watergame",
+   "levels": [
+    0,
+    3
+   ]
+  },
+  {
+   "game": "zenpuzzle",
+   "levels": [
+    0,
+    3
+   ]
+  }
+ ],
+ "rows": 50
+}
