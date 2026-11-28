@@ -527,6 +527,21 @@
     ]
    },
    "how": "shown in the window of the old form, which gave the verdict: the first row was answered and the window then showed the second (position 1), clusters level 3, A1"
+  },
+  {
+   "file": "docs/PREREG.md",
+   "line": 109,
+   "excerpt": "that A1 and A4 hold on every confirmatory game, that A1 holds on every unit of the 30 deterministic games",
+   "games": {
+    "*confirmatory*": [
+     "A1",
+     "A4"
+    ],
+    "*deterministic*": [
+     "A1"
+    ]
+   },
+   "how": "stated, 28 November 2026, in the registration of this register; it gives no row the statements above do not"
   }
  ],
  "must_not_open": [
@@ -554,9 +569,11 @@
  ],
  "rows": {
   "bait/A1/0": [
+   "docs/PREREG.md:109",
    "docs/STATE.md:87"
   ],
   "bait/A1/2": [
+   "docs/PREREG.md:109",
    "docs/STATE.md:87"
   ],
   "bait/A4/0": [
@@ -569,6 +586,7 @@
   ],
   "clusters/A1/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -580,6 +598,7 @@
   ],
   "clusters/A1/3": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -591,6 +610,7 @@
   ],
   "clusters/A4/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -601,6 +621,7 @@
   ],
   "clusters/A4/3": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -611,6 +632,7 @@
   ],
   "colourescape/A1/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -622,6 +644,7 @@
   ],
   "colourescape/A1/3": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -633,6 +656,7 @@
   ],
   "colourescape/A4/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:131",
@@ -645,6 +669,7 @@
   ],
   "colourescape/A4/3": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:131",
@@ -657,6 +682,7 @@
   ],
   "glow/A1/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -667,6 +693,7 @@
   ],
   "glow/A1/4": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -677,6 +704,7 @@
   ],
   "glow/A4/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -687,6 +715,7 @@
   ],
   "glow/A4/4": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -696,9 +725,11 @@
    "docs/truth/PREDICATE_QUESTIONS.md:71"
   ],
   "labyrinthdual/A1/0": [
+   "docs/PREREG.md:109",
    "docs/STATE.md:87"
   ],
   "labyrinthdual/A1/1": [
+   "docs/PREREG.md:109",
    "docs/STATE.md:87"
   ],
   "labyrinthdual/A2/0": [
@@ -729,6 +760,7 @@
   ],
   "lasers/A1/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -739,6 +771,7 @@
   ],
   "lasers/A1/1": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -750,6 +783,7 @@
   "lasers/A4/0": [
    "docs/DESIGN.md:179",
    "docs/DESIGN.md:90",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -761,6 +795,7 @@
   "lasers/A4/1": [
    "docs/DESIGN.md:179",
    "docs/DESIGN.md:90",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -771,6 +806,7 @@
   ],
   "painter/A1/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -781,6 +817,7 @@
   ],
   "painter/A1/3": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -821,6 +858,7 @@
   ],
   "painter/A4/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -831,6 +869,7 @@
   ],
   "painter/A4/3": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -841,6 +880,7 @@
   ],
   "racebet/A1/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -851,6 +891,7 @@
   ],
   "racebet/A1/4": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -861,6 +902,7 @@
   ],
   "racebet/A4/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -871,6 +913,7 @@
   ],
   "racebet/A4/4": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -881,6 +924,7 @@
   ],
   "racebet2/A1/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -891,6 +935,7 @@
   ],
   "racebet2/A1/2": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -901,6 +946,7 @@
   ],
   "racebet2/A4/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -911,6 +957,7 @@
   ],
   "racebet2/A4/2": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -920,9 +967,11 @@
    "docs/truth/PREDICATE_QUESTIONS.md:71"
   ],
   "rivers/A1/0": [
+   "docs/PREREG.md:109",
    "docs/STATE.md:87"
   ],
   "rivers/A1/4": [
+   "docs/PREREG.md:109",
    "docs/STATE.md:87"
   ],
   "rivers/A4/0": [
@@ -941,6 +990,7 @@
   ],
   "sokoban/A1/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -953,6 +1003,7 @@
   ],
   "sokoban/A1/1": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -981,6 +1032,7 @@
   ],
   "sokoban/A4/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -993,6 +1045,7 @@
   ],
   "sokoban/A4/1": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -1013,6 +1066,7 @@
   ],
   "tercio/A1/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -1023,6 +1077,7 @@
   ],
   "tercio/A1/4": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -1034,6 +1089,7 @@
   "tercio/A4/0": [
    "docs/DESIGN.md:179",
    "docs/PREREG.md:104",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:131",
@@ -1049,6 +1105,7 @@
   "tercio/A4/4": [
    "docs/DESIGN.md:179",
    "docs/PREREG.md:104",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:131",
@@ -1062,9 +1119,11 @@
    "docs/truth/PREDICATE_QUESTIONS.md:71"
   ],
   "watergame/A1/0": [
+   "docs/PREREG.md:109",
    "docs/STATE.md:87"
   ],
   "watergame/A1/3": [
+   "docs/PREREG.md:109",
    "docs/STATE.md:87"
   ],
   "watergame/A4/0": [
@@ -1075,6 +1134,7 @@
   ],
   "wrapsokoban/A1/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -1085,6 +1145,7 @@
   ],
   "wrapsokoban/A1/1": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -1103,6 +1164,7 @@
   ],
   "wrapsokoban/A4/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -1115,6 +1177,7 @@
   ],
   "wrapsokoban/A4/1": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -1127,6 +1190,7 @@
   ],
   "zenpuzzle/A1/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -1137,6 +1201,7 @@
   ],
   "zenpuzzle/A1/3": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -1167,6 +1232,7 @@
   ],
   "zenpuzzle/A4/0": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
@@ -1177,6 +1243,7 @@
   ],
   "zenpuzzle/A4/3": [
    "docs/DESIGN.md:179",
+   "docs/PREREG.md:109",
    "docs/PREREG.md:195",
    "docs/PREREG.md:60",
    "docs/STATE.md:147",
