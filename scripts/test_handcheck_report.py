@@ -12,7 +12,8 @@ Checks:
        disagree, unsure, schema v1);
     2. a clean hand check: every row agreed, no fix, fresh round 1 agreed: G4: PASS, 0 of 100 errors, no diff;
     3. a disagreement resolved from the source and fixed: G4: PASS, 1 of 100 errors (1.0%), the fix and its commit
-       listed, the rerun's diff names the unit;
+       listed, the rerun's diff names the unit; the rate over the blind rows only, those the synthetic register
+       does not list, and an error on a listed row counted in the first rate only (added 28 November 2026);
     4. an unsure row: resolved with the generator right, it is not an error and stays in the denominator (0 of 100);
        resolved with the generator wrong, it is an error (1 of 100) and is reported apart from the disagreements;
        left without a resolution, no verdict;
@@ -27,7 +28,8 @@ Checks:
        row marked disagree that the source resolves in the generator's favour is not a disagreement; round 2 without a
        failure of round 1, no verdict;
     9. consistency: fresh round 1 missing, fresh rows that are not the drawn games, answers kept against another rows
-       file, rows that name no truth_blob, a fresh round with no pinned truth table: no verdict.
+       file, rows that name no truth_blob, a fresh round with no pinned truth table, no contamination register: no
+       verdict.
 
 Changed 28 November 2026 to the blind form of the hand check (PREREG Section 5): the synthetic rows carry no verdict
 and name the truth table they are compared with by blob ("before", read from the case's folder by --blob-dir); the
@@ -104,7 +106,7 @@ def dump(path, obj):
 
 
 def case(before=None, after=None, marks=None, res=None, fresh=None, unanswered=(), finished=True, bad_sha=False,
-         old_rows=False, old_answers=False, no_blob=False):
+         old_rows=False, old_answers=False, no_blob=False, no_seen=False):
     """fresh: {round: dict(games=[...], truth=t, marks={...}, extra_row=False, pin=False)}: truth is the truth table
     the round is compared with, kept as blob "fresh<round>" and named in the resolutions file unless pin is False.  Returns
     (code, console, result)."""
@@ -131,6 +133,8 @@ def case(before=None, after=None, marks=None, res=None, fresh=None, unanswered=(
     dump(os.path.join(d, "res.json"), {"fresh_truth_blob": pins, "resolutions": res or {}})
     dump(os.path.join(d, "before.json"), tb)
     dump(os.path.join(d, "after.json"), ta)
+    if not no_seen:
+        dump(os.path.join(d, "seen.json"), {"rows": {f"g00/A1/{lv}": ["x"] for lv in (0, 1)}})
     for rnd, f in (fresh or {}).items():
         dump(os.path.join(d, f"handcheck_fresh_{rnd}.json"),
              {"round": rnd, "seed": {1: 20261128, 2: 20261129}[rnd],
@@ -150,7 +154,7 @@ def case(before=None, after=None, marks=None, res=None, fresh=None, unanswered=(
     buf = io.StringIO()
     with contextlib.redirect_stdout(buf):
         code = R.main(["--out", out, "--rows", os.path.join(d, "rows.json"), "--answers", os.path.join(d, "answers.json"),
-                       "--resolutions", os.path.join(d, "res.json"), "--blob-dir", d,
+                       "--resolutions", os.path.join(d, "res.json"), "--blob-dir", d, "--seen", os.path.join(d, "seen.json"),
                        "--truth-after", os.path.join(d, "after.json"), "--fresh-dir", d, "--games", ",".join(CONF)])
     text = None
     if os.path.exists(out):
@@ -199,6 +203,12 @@ def part3():
           and "- g00, level 0, A2: holds before, fails after" in text
           and "Answers that differ from the generator's verdict: 1" in text,
           f"PASS; error 1 of 100; fix abc123 listed; diff names g00 level 0 A2 (exit {code})")
+    check("1 of 98 blind rows (1.0%)" in text, "the blind-only rate: 1 of the 98 rows the register does not list")
+    k = ("g00", 0, "A1")
+    code, out, text = case(after={k: "fails"}, marks={"g00/A1/0": "disagree"}, res={"g00/A1/0": fixed("fails", "abc124")},
+                           fresh=OK1)
+    check(code == 0 and "1 of 100 rows answered (1.0%)" in text and "0 of 98 blind rows (0.0%)" in text,
+          f"an error on a row the author had seen counts in the rate over all rows, not in the blind one (exit {code})")
 
 
 def part4():
@@ -290,6 +300,8 @@ def part9():
     check(code == 2 and "not the drawn games" in out, f"fresh rows that are not the drawn games: no verdict (exit {code})")
     code, out, _ = case(fresh=OK1, bad_sha=True)
     check(code == 2 and "another version of the rows file" in out, f"answers kept against another rows file: no verdict (exit {code})")
+    code, out, _ = case(fresh=OK1, no_seen=True)
+    check(code == 2 and "no contamination register" in out, f"no contamination register: no verdict (exit {code})")
     code, out, _ = case(fresh=OK1, no_blob=True)
     check(code == 2 and "names no truth_blob" in out, f"rows that name no truth_blob: no verdict (exit {code})")
     kf = ("f01", 0, "A3")

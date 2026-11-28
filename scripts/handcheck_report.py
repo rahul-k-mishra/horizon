@@ -21,6 +21,8 @@ What it reads:
                 when they were built, not read for them; PREREG Section 5, as decided 28 November 2026).
     answers     docs/truth/handcheck_answers.json, schema horizon.handcheck_answers.v2 (scripts/handcheck_app.py):
                 holds, fails or unsure per row.
+    seen        docs/truth/handcheck_seen.json, the contamination register (scripts/handcheck_seen.py): the rows
+                whose verdict the author had seen before the blind pass.
     resolutions docs/truth/handcheck_resolutions.json, schema horizon.handcheck_resolutions.v1: per row id, an entry
                 {"resolved": true or false, "source": [{"file", "line"}], "generator_commit", "verdict_after",
                 "note"}.  verdict_after is the verdict the GVGAI source determines for the unit, which the generator
@@ -73,6 +75,7 @@ TRUTH = os.path.join(REPO, "docs", "truth")
 ROWS = os.path.join(TRUTH, "handcheck_rows.json")
 ANSWERS = os.path.join(TRUTH, "handcheck_answers.json")
 RESOLUTIONS = os.path.join(TRUTH, "handcheck_resolutions.json")
+SEEN = os.path.join(TRUTH, "handcheck_seen.json")
 GVGAI = os.path.join(TRUTH, "gvgai.json")
 OUT = os.path.join(TRUTH, "HANDCHECK_RESULT.md")
 PRED = ("A1", "A2", "A3", "A4", "A5")
@@ -227,6 +230,7 @@ def main(argv=None):
     ap.add_argument("--rows", default=ROWS, help="tests only")
     ap.add_argument("--answers", default=ANSWERS, help="tests only")
     ap.add_argument("--resolutions", default=RESOLUTIONS, help="tests only")
+    ap.add_argument("--seen", default=SEEN, help="tests only")
     ap.add_argument("--blob-dir", default=None, help="tests only: truth tables by blob name, from this folder")
     ap.add_argument("--truth-after", default=GVGAI, help="tests only")
     ap.add_argument("--fresh-dir", default=TRUTH, help="tests only: the folder of the fresh rounds' files")
@@ -279,6 +283,11 @@ def main(argv=None):
     if ans_data.get("rows_sha256") != rows_sha:
         missing.append("the answers were kept against another version of the rows file")
     resolutions_data = read_json(a.resolutions) if os.path.exists(a.resolutions) else {"resolutions": {}}
+    if os.path.exists(a.seen):
+        seen = set(read_json(a.seen).get("rows", {}))
+    else:
+        seen = None
+        missing.append(f"no contamination register at {rel(a.seen)}")
     resolutions = resolutions_data.get("resolutions", {})
     after_truth = read_json(a.truth_after)["games"]
     if not rows_data.get("truth_blob"):
@@ -393,6 +402,10 @@ def main(argv=None):
 
     n = len(rows)
     rate = f"{len(errors)} of {n} rows answered ({100 * len(errors) / n:.1f}%)"
+    blind = [r for r in main_recs if r["id"] not in seen]
+    berr = [r for r in blind if r["error"]]
+    brate = (f"{len(berr)} of {len(blind)} blind rows ({100 * len(berr) / len(blind):.1f}%)" if blind
+             else "no blind row")
     games = list(dict.fromkeys(r["game"] for r in rows))
     today = datetime.date.today().isoformat()
     out = ["# Result of the hand check of the truth tables", "",
@@ -412,6 +425,9 @@ def main(argv=None):
            f"{sum(1 for r in unsure if not r['error'] and r['res'] and not r['unresolved'])}.",
            f"- Generator errors found (the verdict the source determines differs from the generator's verdict before "
            f"the fixes): {rate}. Every unsure row resolved from the source is counted as answered.",
+           f"- The same over the blind rows only, those whose verdict the author had not seen before the blind pass "
+           f"(docs/truth/handcheck_seen.json lists the {n - len(blind)} rows seen): {brate}. This is the rate that "
+           "bears on how far G4's result can be relied on; G4's condition is the same for every row.",
            f"- Rows whose verdict a fix flipped: {len(flips)}, of them agreeing with the author before the fix: "
            f"{len(flipped_agree)}"
            + (" (" + ", ".join(r["id"] for r in flipped_agree) + ", each resolved from the source)" if flipped_agree else "")
@@ -459,7 +475,8 @@ def main(argv=None):
     print(f"rows {n} ({rel(a.rows)}, sha256 {rows_sha}); answers finished {ans_data.get('finished_at')}")
     print(f"compared with docs/truth/gvgai.json at blob {rows_data['truth_blob']}")
     print(f"all: agree {c['agree']}, disagree {c['disagree']}, unsure {c['unsure']}, no answer {c['no answer']}")
-    print(f"generator errors: {rate}; flipped by a fix {len(flips)}, of them agreeing before {len(flipped_agree)}")
+    print(f"generator errors: {rate}; over blind rows only: {brate}; flipped by a fix {len(flips)}, of them agreeing "
+          f"before {len(flipped_agree)}")
     print(f"rerun diff over {len(units)} confirmatory units: {len(diff)} verdict(s) changed")
     for rnd in sorted(fresh):
         print(f"fresh round {rnd}: {len(fresh[rnd]['rows'])} rows, generator errors {len(fresh_bad.get(rnd, []))}")
