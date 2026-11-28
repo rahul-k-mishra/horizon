@@ -949,3 +949,60 @@ Forty-sixth amendment. The lines above are unchanged. Nothing was tagged or depo
   7. pilot reruns only if runner code changed (the loop; the author's decision);
   8. the day of the tag (needs the author), with the DOI and any v1.1 note recorded here (no).
 - **Next:** the author's answers, and his choices on the findings.
+
+## Amendment 28 Nov 2026 (au)
+
+Forty-seventh amendment. The lines above are unchanged. Nothing was tagged or deposited. No committed row under runs/ and no done-marker was changed, no Kaggle session was used, scripts/g5_reading.py was not run, and no hand-check row was answered. docs/truth/handcheck_answers.json was read and not modified (its sha256 is the same before and after: 9cef5fffa745fcc442d1e8fd526dc7ccac21f6257740c480d6a192c7c405d75b). No file under docs/truth/ was written. This amendment follows the author's sixth request of 28 November 2026. None of its parts was already in the record.
+
+- **The answers that existed.** docs/truth/handcheck_answers.json, committed in f6da724, holds one answer: the first row, clusters, level 0, A1 (row id clusters/A1/0), marked agree on 25 October 2026, with the verdict shown. Its "finished_at" is null and its "position" points at the second row.
+- **1. The hand check made blind** (be5d677). PREREG Section 5 gains a paragraph marked [decided 28 Nov 2026, blind]. Its items:
+  - (1) every row, the 100 and the fresh rounds, is built without the generator's verdict; the author answers holds, fails or unsure; his answers are committed first and scripts/handcheck_report.py compares them afterwards. What the text and the tool said before is quoted.
+  - (2) the reading shown for a row is derived from the GVGAI source under third_party/gvgai, not from the generator or its output.
+  - (3) the one answer above is discarded, named, dated.
+  - (4) the reason as the author gave it.
+  - (5) to (7) are findings 2 to 4 (below).
+  
+  The status paragraph and Section 13 name the decisions.
+- **The readings came from the generator, so nothing was rebuilt.** No script writes docs/truth/handcheck_readings.json. It was written by hand on 25 October 2026 (3590100, da81547, 8d53df0) to explain the generator's verdict, as the file says of itself. Each reading has a "wrong_if" line ("The verdict would be wrong if ..."), and its counts are filled in from the generator's clauses in docs/truth/gvgai.json. As the request directed, I stopped before rebuilding: docs/truth/handcheck_rows.json was not rebuilt and fresh round 1's rows were not built. Which script writes readings from the source is the author's decision, and PREREG item (2) says so.
+- **2. Finding 2 registered** (item (5)): a row shows a disagreement only if the source, after resolution, differs from the generator; fresh round 1 is checked whether or not the 100 rows needed a fix.
+- **3. Finding 3 registered** (item (7)). If a fix changes any confirmatory S_M, these are recomputed before the tag and entered with the date, each quoting the value it replaces:
+  - Section 4's spread: scripts/fit_rule.py;
+  - the shares in logs/g5_implied.log: scripts/g5_implied.py;
+  - d's estimate 2, d, and Section 7.8's counts: scripts/sdd.py;
+  - the power: scripts/stage_e_reading.py Section 4 and scripts/power_at_c.py, with the stage D values from scripts/power_primary.py.
+  
+  The recomputation is mandatory, and the value after the fix is the registered one. None of these needs a Kaggle session.
+- **4. Finding 4 registered** (item (6)): the answered rows file is frozen as answered, and the comparison after a fix is the rerun's diff. scripts/test_handcheck.py part 1 now compares the committed rows file with docs/truth/gvgai.json at blob d2a71c20bd04feb31ee0854930c1d138ab60e037 (commit 3d6faa2), whose content has the hash the rows file records. The old build, removed from the app, is kept in the test for this check alone. OK (logs/test_handcheck.log).
+- **5. The app and the report in the blind form.**
+  - scripts/handcheck_app.py (afed204) shows no verdict, deciding line, "wrong_if" or generator clause. It answers holds, fails or unsure, and never opens docs/truth/gvgai.json; it records that file's blob at HEAD in the rows by git rev-parse. It builds the rows of round 0 or a fresh round from docs/truth/handcheck_readings_source.json (schema horizon.handcheck_readings.v2).
+  - The app refuses (exit 3): readings of another schema; readings whose writing script names docs/truth/gvgai.json, scripts/truth_vgdl.py or docs/truth/handcheck_readings.json; missing readings; rows of the old form or with a verdict; answers of the old form. The Guide button is removed, for the first item under "Found on the way".
+  - scripts/test_handcheck.py, part 2, proves the app cannot show a verdict with the truth table present. It refuses the committed rows before any window opens, and it builds 100 and 50 synthetic blind rows and shows every one without docs/truth/gvgai.json being opened. Parts 3 and 4 cover the window and the report. OK.
+  - scripts/handcheck_report.py (7c27bc0) refuses the old forms and incomplete answers. It compares holds, fails or unsure with the generator's verdict at the rows' truth_blob, and each fresh round with the blob named for it in the resolutions file ("fresh_truth_blob", required for every round). The rules are otherwise as registered.
+  - scripts/test_handcheck_report.py: 31 checks on synthetic files, OK (logs/test_handcheck_report.log). Not run on any answer of the author.
+- **6. Record.**
+  - DESIGN Sections 4, 7.1 and 8 carry dated summaries pointing to PREREG (798613d).
+  - PREREG changed in its status paragraph, Section 5 and Section 13 only. No threshold, predicate, game list, drawn game, level or outcome rule changed.
+  - git diff e296372 HEAD on scripts/automation, kaggle and third_party is empty, so neither rerun clause fires.
+  - The G2 exception paragraph is byte-for-byte as in 0b8a9c2, and the G5 paragraph is byte-for-byte as before this session.
+  - The protocol list's "to be added" comments name the blind files to come and the discarded answer (f8bd8ff); there are still 447 listed paths.
+  - The aid check is clean on 8,287 tracked files. Its console is identical to the committed one, so there was nothing to commit. No added line has a word of the forbidden list. Pushed.
+- **Found on the way, not on any list and not changed:**
+  - **The guide states verdicts on hand-check rows.** docs/truth/HANDCHECK_GUIDE.md's examples give the generator's verdict for sokoban (A1 to A5), labyrinthdual (A2, A5), painter (A2), wrapsokoban (A3) and rivers (A4), with counts read from docs/truth/gvgai.json. The author has read it. The app no longer shows it.
+  - **Registered text states verdicts on fresh games.** docs/truth/PREDICATE_QUESTIONS.md and PREREG Section 5 say that zenpuzzle fails A2 and that tercio holds A4 under the decided reading; PREDICATE_QUESTIONS.md also implies bait holds A4.
+  - **Other files show every verdict:** docs/truth/HANDCHECK.md (a column of the generator's verdicts), logs/handcheck_rows.log, docs/truth/gvgai.json and logs/truth_vgdl.log. Blindness rests on the author not opening them during the pass. The registration does not say so, or what is done with rows he has already seen.
+  - **The recomputation clause has two gaps.**
+    - scripts/g5_implied.py parses Section 4's sentence as written, and stops if logs/truth_vgdl.log no longer reports S_M constant within every game. scripts/fit_rule.py and scripts/sdd.py read level 0 only. A fix that made S_M differ between levels would need a decision.
+    - Sections 1 and 7.5 also cite power values (0.7513 and others) that use the confirmatory S_M; item (7) names Section 7.8 only.
+  - **The old answers file sits at the app's default path**, so the app refuses to start until it is removed there.
+- **The command to start answering does not exist yet.** It will be D:\Research\horizon\.venv\Scripts\python.exe scripts\handcheck_app.py, once source readings exist, the rows are rebuilt, and the old answers file is removed from its path.
+- **What remains before the tag, in order:**
+  1. the author's decisions: who writes the source readings and how (a script reading third_party/gvgai only, or no reading beyond the files); what is done about the verdicts already in view (the guide, PREDICATE_QUESTIONS.md, PREREG, HANDCHECK.md); and the two gaps of the recomputation clause (needs the author);
+  2. the readings script written and run, the 100 rows and fresh round 1's 50 rows built blind with consoles, test part 1 repinned to the rows' blob, and the old answers file moved off its path (no, once item 1 is decided);
+  3. the 100 blind answers, committed (needs the author);
+  4. resolutions from the GVGAI source (the author confirms each), any generator fix and rerun, and the mandatory recomputations of item (7) (no, except the confirmations);
+  5. fresh round 1 answered blind (needs the author); round 2 only after a failure of form (ii);
+  6. scripts/handcheck_report.py run, HANDCHECK_RESULT.md and its console committed, and the files moved into the protocol list (no);
+  7. G5 (needs the author to run it; its entry no);
+  8. pilot reruns only if runner code changed (the loop; the author's decision);
+  9. the day of the tag (needs the author), with the DOI and any v1.1 note recorded here (no).
+- **Next:** the author's decision on the source readings.
