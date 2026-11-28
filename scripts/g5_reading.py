@@ -19,8 +19,11 @@ What it does, as registered:
                 units: at least 13).
 G5 passes if at least two values of S_M are each held by at least 10% of the units.  If it fails, the stop rule of
 PREREG Section 8 applies: no confirmatory unit runs and the study stops with the outcome VOID; G5 has no repair.
-When: PREREG Section 8 places the gates after the tag of v1 and before any confirmatory unit; G5 is not one of the
-three parts named there as running before the tag.
+When: before the tag, after the hand check and any generator fix; G5 is the fourth of the parts that PREREG Section 8
+names as run before the tag (changed 28 November 2026).  Until then this docstring read: "PREREG Section 8 places the
+gates after the tag of v1 and before any confirmatory unit; G5 is not one of the three parts named there as running
+before the tag."  A failure read before the tag is VOID with no repair, and may not be cured by changing the game
+list, a predicate, the threshold or the suite (PREREG Section 8).
 
 Parallel form: none.  The script reads 125 entries of one file; there is nothing to divide among workers, and no
 unit of work long enough for a done-marker.
