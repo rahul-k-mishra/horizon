@@ -80,6 +80,17 @@ logs/test_handcheck_report.log
 scripts/draw_handcheck_fresh.py
 logs/draw_handcheck_fresh_1.log
 docs/truth/handcheck_fresh_1.json
+scripts/handcheck_readings_source.py
+docs/truth/handcheck_readings_source.json
+logs/handcheck_readings_source.log
+scripts/test_handcheck_readings_source.py
+logs/test_handcheck_readings_source.log
+docs/truth/handcheck_seen.json
+scripts/handcheck_seen.py
+logs/handcheck_seen.log
+docs/truth/handcheck_fresh_rows_1.json
+logs/handcheck_fresh_rows_1.log
+docs/truth/handcheck_answers_discarded.json
 
 # development data behind registered numbers
 scripts/sdd.py
@@ -477,15 +488,12 @@ logs/automation.log
 # docs/truth/handcheck_answers.json (the author's 100 blind answers, PREREG Section 5, decided 28 Nov 2026, blind; the
 #   one answer entered on 25 October 2026 with the verdict visible was discarded on 28 November 2026 and stays in the
 #   git history at f6da724; the blind pass starts from the first row)
-# docs/truth/handcheck_readings_source.json and the script that writes it (the readings derived from the GVGAI
-#   source, schema horizon.handcheck_readings.v2; the script is the author's decision), with its console; then
-#   docs/truth/handcheck_rows.json rebuilt blind in place of the listed file of the old form, with its build console
 # docs/truth/HANDCHECK_RESULT.md (written by scripts/handcheck_report.py from the answers)
 # logs/handcheck_report.log (the console of that report, which reads G4)
 # docs/truth/handcheck_resolutions.json (one entry per disagreement, unsure row or flipped agreed row: PREREG Section 5,
 #   decided 28 Nov 2026)
-# docs/truth/handcheck_fresh_rows_1.json and docs/truth/handcheck_fresh_answers_1.json (the 50 rows of fresh round 1,
-#   built blind and compared with the fixed generator by its pinned blob, and the author's answers to them)
+# docs/truth/handcheck_fresh_answers_1.json (the author's blind answers to the 50 rows of fresh round 1, whose rows,
+#   built 28 November 2026, are listed above; compared with the fixed generator by the blob its resolutions name)
 # only if fresh round 1 shows a disagreement: logs/draw_handcheck_fresh_2.log, docs/truth/handcheck_fresh_2.json,
 #   docs/truth/handcheck_fresh_rows_2.json and docs/truth/handcheck_fresh_answers_2.json (seed 20261129)
 # logs/g5_reading.log (gate G5, read by the author with scripts/g5_reading.py after the hand check, before the tag;
