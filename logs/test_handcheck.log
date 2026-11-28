@@ -1,5 +1,5 @@
-rows (old form, as answered once and discarded): 100 rows on 10 games; equal to the old build from docs/truth/gvgai.json at blob d2a71c20bd04feb31ee0854930c1d138ab60e037; every deciding line matches its file
-no verdict: the committed rows file refused before any window, with docs/truth/gvgai.json present; the old readings and a writer naming docs/truth/gvgai.json refused; 100 and 50 synthetic blind rows built and every one shown without opening docs/truth/gvgai.json; the rows record its blob
+rows: the 100 blind rows and fresh round 1's 50 equal a build now from their sources, carry no verdict and are pinned to docs/truth/gvgai.json at blob d2a71c20bd04feb31ee0854930c1d138ab60e037; the old rows file of 8d53df0 (as answered once and discarded) equals the old build at that blob
+no verdict: a rows file of the old form refused before any window, with docs/truth/gvgai.json present; the old readings and a writer naming docs/truth/gvgai.json refused; all 150 committed blind rows shown without opening docs/truth/gvgai.json or any of the 20 files the register lists
 window: holds, fails and unsure kept after each click; keys ignored while typing; back and skip; resumed at row 5; finish recorded; old answers refused
 report: refuses the old rows file, and 3 of 100 answered blind rows, and writes nothing
 OK
