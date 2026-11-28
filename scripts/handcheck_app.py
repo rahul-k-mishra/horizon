@@ -16,15 +16,15 @@ labyrinthdual, painter, wrapsokoban and rivers, games of the hand check.
 scripts/test_handcheck.py, part 1, keeps the check that the old rows file equals a build from docs/truth/gvgai.json
 at the blob it was built from.
 
-Reads:  docs/truth/HANDCHECK.md (the 10 games and levels drawn by scripts/draw_handcheck.py; names and levels only)
+Reads:  logs/draw_handcheck.log (the 10 games and levels drawn by scripts/draw_handcheck.py; names and levels)
         or docs/truth/handcheck_fresh_<r>.json (a fresh round, scripts/draw_handcheck_fresh.py);
         docs/truth/HANDCHECK_GUIDE.md (the question of each predicate);
         docs/truth/handcheck_readings_source.json, schema horizon.handcheck_readings.v2, a reading per row derived
         from the vendored GVGAI source under third_party/gvgai, with the script that wrote it ("written_by");
         and the GVGAI files the rows name.
         It never opens docs/truth/gvgai.json.  It records the git blob of that file at HEAD in the rows file when it
-        builds them (git rev-parse, which reads no verdict), so that scripts/handcheck_report.py compares the answers
-        with the truth table as it stood when the rows were built.
+        builds them (git rev-parse, which reads no verdict), for every round: scripts/handcheck_report.py compares
+        the 100 answers with the truth table of that blob, and a fresh round's with the blob its resolutions name.
 Refuses (exit 3): a readings file that is not of schema v2, or whose writing script names docs/truth/gvgai.json,
         scripts/truth_vgdl.py or docs/truth/handcheck_readings.json; a missing readings file (no reading derived
         from the source has been written yet); a rows file of the old form or with a verdict in it; an answers file
@@ -56,7 +56,7 @@ import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TRUTH = os.path.join(REPO, "docs", "truth")
-SHEET = os.path.join(TRUTH, "HANDCHECK.md")
+DRAW_LOG = os.path.join(REPO, "logs", "draw_handcheck.log")
 GUIDE = os.path.join(TRUTH, "HANDCHECK_GUIDE.md")
 READINGS = os.path.join(TRUTH, "handcheck_readings_source.json")
 GAMES_DIR = "third_party/gvgai/examples/gridphysics"
@@ -119,19 +119,20 @@ def paths_for(rnd, out_dir=TRUTH):
 
 
 def drawn_games():
-    """The games and second levels of the sheet, in its order: [(game, level), ...].  Reads names and levels only."""
-    with open(SHEET, encoding="utf-8") as f:
-        text = f.read()
-    found = re.findall(r"^## (\S+)\n\nDescription: `[^`]+`\. Levels checked: 0 \(`[^`]+`\) and (\d+) ", text, re.M)
+    """The games and second levels of the draw of 25 October 2026, in its order: [(game, level), ...], from the
+    draw's console (changed 28 November 2026: until then from docs/truth/HANDCHECK.md, which also shows verdicts)."""
+    with open(DRAW_LOG, encoding="utf-8") as f:
+        m = re.search(r"^drawn: (.+)$", f.read(), re.M)
+    found = re.findall(r"(\w+) \(levels 0 and (\d+)\)", m.group(1)) if m else []
     if not found:
-        raise SystemExit(f"no drawn games found in {rel(SHEET)}")
+        raise SystemExit(f"no drawn games found in {rel(DRAW_LOG)}")
     return [(g, int(k)) for g, k in found]
 
 
 def round_units(rnd):
     """[(game, [levels])] of a round, and the file the games come from."""
     if rnd == 0:
-        return [(g, [0, k]) for g, k in drawn_games()], SHEET
+        return [(g, [0, k]) for g, k in drawn_games()], DRAW_LOG
     draw = os.path.join(TRUTH, f"handcheck_fresh_{rnd}.json")
     if not os.path.exists(draw):
         refuse(f"fresh round {rnd} has not been drawn ({rel(draw)} does not exist)")
@@ -206,7 +207,7 @@ def build_rows(rnd=0, readings_path=READINGS):
                              "question": questions[p][1], "description": desc, "level_file": lvl_file,
                              "reading": (r.get("reading") or "").strip(), "highlight": highlight})
     return {"schema": ROWS_SCHEMA, "written_by": "scripts/handcheck_app.py", "round": rnd,
-            "truth_blob": truth_blob() if rnd == 0 else None,
+            "truth_blob": truth_blob(),
             "sources": {rel(p): sha256(p) for p in (games_file, GUIDE, readings_path, writer)}, "rows": rows}
 
 

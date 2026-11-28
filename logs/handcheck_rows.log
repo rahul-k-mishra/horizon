@@ -1,12 +1,13 @@
-docs/truth/handcheck_rows.json written: 100 rows, 10 games, sha256 c03aaa851548f3c4be400905e640104c7d7519cfaa124e3b40088540f2a92cd8
-   clusters: levels 0, 3; A1 holds/holds, A2 fails/fails, A3 holds/holds, A4 holds/holds, A5 fails/fails
-   colourescape: levels 0, 3; A1 holds/holds, A2 fails/fails, A3 holds/holds, A4 holds/holds, A5 holds/holds
-   glow: levels 0, 4; A1 holds/holds, A2 fails/fails, A3 fails/fails, A4 holds/holds, A5 fails/fails
-   labyrinthdual: levels 0, 1; A1 holds/holds, A2 holds/holds, A3 holds/holds, A4 holds/holds, A5 holds/holds
-   lasers: levels 0, 1; A1 holds/holds, A2 fails/fails, A3 fails/fails, A4 holds/holds, A5 holds/holds
-   painter: levels 0, 3; A1 holds/holds, A2 fails/fails, A3 holds/holds, A4 holds/holds, A5 fails/fails
-   racebet: levels 0, 4; A1 holds/holds, A2 holds/holds, A3 holds/holds, A4 holds/holds, A5 fails/fails
-   rivers: levels 0, 4; A1 holds/holds, A2 fails/fails, A3 fails/fails, A4 fails/fails, A5 fails/fails
-   sokoban: levels 0, 1; A1 holds/holds, A2 fails/fails, A3 holds/holds, A4 holds/holds, A5 fails/fails
-   wrapsokoban: levels 0, 1; A1 holds/holds, A2 fails/fails, A3 fails/fails, A4 holds/holds, A5 fails/fails
+docs/truth/handcheck_rows.json written: 100 rows, 10 games, sha256 302e7861b92e78206c85cabf00f1cdd6e4dd65ba0842aef8e2c18f587764ddd6; no verdict in it
+   clusters: levels 0, 3
+   colourescape: levels 0, 3
+   glow: levels 0, 4
+   labyrinthdual: levels 0, 1
+   lasers: levels 0, 1
+   painter: levels 0, 3
+   racebet: levels 0, 4
+   rivers: levels 0, 4
+   sokoban: levels 0, 1
+   wrapsokoban: levels 0, 1
+sources: logs/draw_handcheck.log, docs/truth/HANDCHECK_GUIDE.md, docs/truth/handcheck_readings_source.json, scripts/handcheck_readings_source.py
 sources changed since written: none
