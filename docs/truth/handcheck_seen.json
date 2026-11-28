@@ -1,7 +1,7 @@
 {
  "schema": "horizon.handcheck_seen.v1",
  "written": "2026-11-28",
- "about": "The contamination register of the blind hand check (docs/PREREG.md, Section 5, decided 28 November 2026, option B): every statement in the repository, its commit messages included, that gives the generator's verdict on a predicate of a game in the hand check or in fresh round 1, with the file and line where it is stated. A row is seen if a statement gives its game's verdict on its predicate. A statement about a game counts for every level of the game in the row sets, since the record states that no game's vector differs between its levels (docs/PREREG.md, Section 4, logs/truth_vgdl.log). Statements marked 'inferred' give the verdict only together with the statements they name. The rows are expanded, and the counts printed, by scripts/handcheck_seen.py (logs/handcheck_seen.log). Files that state verdicts as tables or data rather than prose are listed under must_not_open and are not counted: whether the author opened any of them before the blind pass is his to state. In 'games', *confirmatory* stands for the confirmatory games of scripts/suite.py and *deterministic* for its 30 deterministic games, each taken only where it is in a row set.",
+ "about": "The contamination register of the blind hand check (docs/PREREG.md, Section 5, decided 28 November 2026, option B): every statement in the repository, its commit messages included, that gives the generator's verdict on a predicate of a game in the hand check or in fresh round 1, with the file and line where it is stated. A row is seen if a statement gives its game's verdict on its predicate. A statement about a game counts for every level of the game in the row sets, since the record states that no game's vector differs between its levels (docs/PREREG.md, Section 4, logs/truth_vgdl.log). Statements marked 'inferred' give the verdict only together with the statements they name. The rows are expanded, and the counts printed, by scripts/handcheck_seen.py (logs/handcheck_seen.log). Each statement keeps its exact quoted text ('excerpt') with its file and line; the script matches on the text, reports a new line when the text has moved, and fails only when the text is gone (28 November 2026). Files that state verdicts as tables or data rather than prose are listed under must_not_open and are not counted: whether the author opened any of them before the blind pass is his to state. In 'games', *confirmatory* stands for the confirmatory games of scripts/suite.py and *deterministic* for its 30 deterministic games, each taken only where it is in a row set.",
  "statements": [
   {
    "file": "docs/truth/HANDCHECK_GUIDE.md",
@@ -542,6 +542,18 @@
     ]
    },
    "how": "stated, 28 November 2026, in the registration of this register; it gives no row the statements above do not"
+  },
+  {
+   "file": "docs/PREREG.md",
+   "line": 109,
+   "excerpt": "A1 and A4 hold on all 25 confirmatory games, so together they add exactly 2",
+   "games": {
+    "*confirmatory*": [
+     "A1",
+     "A4"
+    ]
+   },
+   "how": "stated, 28 November 2026, in the registration of what the contamination of A1 and A4 costs; it gives no row the statements above do not"
   }
  ],
  "must_not_open": [
@@ -565,6 +577,7 @@
   "logs/truth_diff_a4clause.log",
   "logs/a4_unchecked.log",
   "logs/gvgai_features.log",
+  "logs/handcheck_sm_constant.log",
   "the earlier versions of docs/truth/handcheck_rows.json in the git history"
  ],
  "rows": {

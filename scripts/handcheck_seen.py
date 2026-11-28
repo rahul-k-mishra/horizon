@@ -3,8 +3,11 @@ handcheck_seen.py -- checks and expands the contamination register of the blind 
 docs/truth/handcheck_seen.json (docs/PREREG.md, Section 5, decided 28 November 2026, option B).  Standard library only;
 reads committed files and the commit messages named in the register.
 
-For each statement of the register it checks that its excerpt is on the line it names: a line of a file in the
-working tree, a line of a file at a named commit ("at"), or the subject of a named commit ("commit").  It expands the
+For each statement of the register it looks for the statement's quoted text ("excerpt", stored word for word with
+the file and line) in its source: a file in the working tree, a file at a named commit ("at"), or the subject of a
+named commit ("commit").  It matches on the text, not the line (changed 28 November 2026): a statement whose text
+is on another line than the register names is reported as moved, with its new line, and still counts; only a
+statement whose text is gone fails.  The rows keep the file and line the register names as their label.  It expands the
 statements into rows, a statement about a game counting for every level of the game in the row sets, with
 *confirmatory* and *deterministic* read from scripts/suite.py.  The row sets are those of the hand check (the draw of
 25 October 2026, logs/draw_handcheck.log) and of fresh round 1 (docs/truth/handcheck_fresh_1.json).  It checks that
@@ -45,15 +48,26 @@ def row_sets():
             "fresh round 1 (50 rows)": [(d["game"], list(d["levels"])) for d in fresh]}
 
 
-def source_line(st):
+def locate(st):
+    """Where the statement's quoted text is now: (state, where, note).  state is "here" when the text is on the line
+    the register names, "moved" when it is on another line (note names the line or lines), "gone" when it is
+    nowhere in the source.  where is the label the register's rows use: the file and the line the register names."""
     if "commit" in st:
-        return git("log", "-1", "--format=%s", st["commit"]).strip(), f"commit {st['commit']}"
+        found = st["excerpt"] in git("log", "-1", "--format=%s", st["commit"])
+        return ("here" if found else "gone"), f"commit {st['commit']}", ""
     if "at" in st:
         lines = git("show", f"{st['at']}:{st['file']}").splitlines()
-        return (lines[st["line"] - 1] if st["line"] <= len(lines) else ""), f"{st['file']}:{st['line']} at {st['at']}"
-    with open(os.path.join(REPO, st["file"]), encoding="utf-8") as f:
-        lines = f.read().splitlines()
-    return (lines[st["line"] - 1] if st["line"] <= len(lines) else ""), f"{st['file']}:{st['line']}"
+        where = f"{st['file']}:{st['line']} at {st['at']}"
+    else:
+        with open(os.path.join(REPO, st["file"]), encoding="utf-8") as f:
+            lines = f.read().splitlines()
+        where = f"{st['file']}:{st['line']}"
+    hits = [n for n, ln in enumerate(lines, 1) if st["excerpt"] in ln]
+    if st["line"] in hits:
+        return "here", where, ""
+    if hits:
+        return "moved", where, "now on line " + ", ".join(map(str, hits))
+    return "gone", where, ""
 
 
 def main(argv=None):
@@ -68,8 +82,8 @@ def main(argv=None):
     ok, rows = True, {}
     print(f"register {os.path.relpath(REGISTER, REPO)}: {len(reg['statements'])} statements")
     for st in reg["statements"]:
-        text, where = source_line(st)
-        found = st["excerpt"] in text
+        state, where, note = locate(st)
+        found = state != "gone"
         ok &= found
         names = []
         for g, preds in st["games"].items():
@@ -83,7 +97,9 @@ def main(argv=None):
                     for lv in levels[game]:
                         rows.setdefault(f"{game}/{p}/{lv}", []).append(where)
                 names.append(f"{game} {'/'.join(preds)}")
-        print(f"  {'ok  ' if found else 'FAIL'} {where} ({st['how'].split(':')[0].split(',')[0]}): {', '.join(names)}")
+        mark = {"here": "ok  ", "moved": "MOVED", "gone": "FAIL"}[state]
+        print(f"  {mark} {where}{' (' + note + ')' if note else ''} ({st['how'].split(':')[0].split(',')[0]}): "
+              f"{', '.join(names)}")
     rows = {k: sorted(set(v)) for k, v in sorted(rows.items())}
     for p in reg["must_not_open"]:
         if " " in p:

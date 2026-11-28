@@ -1,4 +1,4 @@
-register docs\truth\handcheck_seen.json: 41 statements
+register docs\truth\handcheck_seen.json: 42 statements
   ok   docs/truth/HANDCHECK_GUIDE.md:26 (stated): sokoban A1
   ok   docs/truth/HANDCHECK_GUIDE.md:11 (inferred): colourescape A1
   ok   docs/truth/HANDCHECK_GUIDE.md:36 (stated): labyrinthdual A2
@@ -40,7 +40,8 @@ register docs\truth\handcheck_seen.json: 41 statements
   ok   commit da81547 (stated in the commit message): painter A2
   ok   docs/truth/handcheck_answers.json:8 at f6da724 (shown in the window of the old form): clusters A1
   ok   docs/PREREG.md:109 (stated): clusters A1/A4, colourescape A1/A4, glow A1/A4, lasers A1/A4, painter A1/A4, racebet A1/A4, racebet2 A1/A4, sokoban A1/A4, tercio A1/A4, wrapsokoban A1/A4, zenpuzzle A1/A4, bait A1, clusters A1, colourescape A1, glow A1, labyrinthdual A1, lasers A1, painter A1, racebet A1, racebet2 A1, rivers A1, sokoban A1, tercio A1, watergame A1, wrapsokoban A1, zenpuzzle A1
-must not be opened during the blind pass: 21 entries
+  ok   docs/PREREG.md:109 (stated): clusters A1/A4, colourescape A1/A4, glow A1/A4, lasers A1/A4, painter A1/A4, racebet A1/A4, racebet2 A1/A4, sokoban A1/A4, tercio A1/A4, wrapsokoban A1/A4, zenpuzzle A1/A4
+must not be opened during the blind pass: 22 entries
 hand check (100 rows): 100 rows, seen 54 (A1 20, A2 6, A3 4, A4 20, A5 4), blind 46
 fresh round 1 (50 rows): 50 rows, seen 22 (A1 10, A2 2, A3 0, A4 10, A5 0), blind 28
 rows seen in all: 76 of 150
