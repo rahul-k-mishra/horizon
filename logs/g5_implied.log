@@ -1,0 +1,10 @@
+What text written before 28 November 2026 implies about G5; not G5's reading; docs/truth/gvgai.json not opened
+PREREG Section 4: {2: 3, 3: 12, 4: 7, 5: 3}
+logs/fit_rule.log: {2: 3, 3: 12, 4: 7, 5: 3}
+logs/truth_vgdl.log: deterministic games whose vector differs between levels: 0
+games 25; units 125 (5 levels each); a value needs at least 13 units (10%)
+  S_M = 2:  3 games,  15 units, 12.0%  at least 10%
+  S_M = 3: 12 games,  60 units, 48.0%  at least 10%
+  S_M = 4:  7 games,  35 units, 28.0%  at least 10%
+  S_M = 5:  3 games,  15 units, 12.0%  at least 10%
+implied: 4 values of S_M held by at least 10% of the units (2, 3, 4, 5); G5 needs 2
