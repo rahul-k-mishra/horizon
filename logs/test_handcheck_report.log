@@ -1,0 +1,34 @@
+== 1. refusals
+ok    a row without an answer: exit 3, nothing written
+ok    answers not marked finished: exit 3, nothing written
+ok    a fresh row without an answer: exit 3
+== 2. a clean hand check
+ok    all agreed, no fix, round 1 agreed: PASS, 0 of 100, no diff (exit 0)
+== 3. a disagreement resolved and fixed
+ok    PASS; error 1 of 100; fix abc123 listed; diff names g00 level 0 A2 (exit 0)
+== 4. an unsure row
+ok    resolved, generator right: not an error, denominator 100, apart from disagreements (exit 0)
+ok    resolved, generator wrong: an error, reported as unsure, not as a disagreement (exit 0)
+ok    unsure without a resolution: no verdict (exit 2)
+== 5. incomplete resolutions
+ok    no source line: no verdict (exit 2)
+ok    an error without its commit: no verdict (exit 2)
+ok    the fix not made (generator unchanged): no verdict (exit 2)
+== 6. a fix that flips a row marked agree
+ok    flipped agreed row without a resolution: no verdict (exit 2)
+ok    resolved with the new verdict: PASS, listed, counted as an error (exit 0)
+ok    resolved with the old verdict, a wrong fix: caught, no verdict (exit 2)
+== 7. failure form (i)
+ok    an unresolvable disagreement, no fresh round yet: FAIL (i), VOID at once (exit 1)
+ok    the same in fresh round 1: FAIL (i) (exit 1)
+== 8. failure form (ii)
+ok    an error in round 1: first failure, read again on round 2 (exit 1)
+ok    an error in round 2 too: second failure, VOID (exit 1)
+ok    round 2 clean: PASS after the first failure (exit 0)
+ok    a fresh disagree mark the source resolves for the generator: not a disagreement (exit 0)
+ok    round 2 without a failure of round 1: no verdict (exit 2)
+== 9. consistency
+ok    no fresh round: no verdict (exit 2)
+ok    fresh rows that are not the drawn games: no verdict (exit 2)
+ok    answers kept against another rows file: no verdict (exit 2)
+OK

@@ -8,7 +8,9 @@ only; every answer it makes is kept in a temporary folder, never in docs/truth/h
 3. The window, driven by its own methods: answers are kept after every click, keys 1 to 3 do nothing while the
    note has the focus, Back and Skip move without answering, a new window resumes at the row the last one left,
    and Finish marks the answers finished.
-4. The report counts the answers so made and lists the disagreement and the unsure row with their notes.
+4. The report refuses the answers so made, 3 of 100 rows, and writes nothing (changed 28 November 2026: it reads G4
+   and refuses while answers are incomplete; until then this part checked its counts and listings on the same
+   answers; those are now tested in scripts/test_handcheck_report.py).
 Run (working directory D:\\Research\\horizon\\repo):
     D:\\Research\\horizon\\.venv\\Scripts\\python.exe -W error scripts\\test_handcheck.py > logs\\test_handcheck.log
 """
@@ -117,15 +119,11 @@ def test_report(path, tmp):
     out = os.path.join(tmp, "RESULT.md")
     buf = io.StringIO()
     with redirect_stdout(buf):
-        check(report.main(["--answers", path, "--out", out]) == 0, "the report runs")
-    with open(out, encoding="utf-8") as f:
-        text = f.read()
-    con = buf.getvalue()
-    check(f"all: agree 1, disagree 1, unsure 1, no answer {len(rows) - 3}" in con, "the report's counts")
-    check("the push at line 40 is a second sprite" in text, "the disagreement is listed with its note")
-    check("## Every row marked unsure" in text and "to look at again" in text, "unsure rows and notes are listed")
-    check("| clusters | 0, 3 | 10 | 3 |" in text, "games and levels covered")
-    print("report: counts per predicate and game, the disagreement and the unsure row with notes, games and levels")
+        code = report.main(["--answers", path, "--out", out])
+    check(code == 3, f"the report refuses incomplete answers (exit {code})")
+    check(f"3 of {len(rows)} rows answered" in buf.getvalue(), "the refusal gives the count answered")
+    check(not os.path.exists(out), "nothing is written")
+    print(f"report: refuses 3 of {len(rows)} answered rows and writes nothing")
 
 
 if __name__ == "__main__":
