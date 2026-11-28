@@ -858,3 +858,49 @@ Forty-fourth amendment. The lines above are unchanged. Nothing was tagged or dep
   4. if any code the runner uses has changed, the pilot reruns of Section 8 and a dry run of the changed kind (the loop; the author's decision to proceed);
   5. the day of the tag, from ZENODO.md, steps 1 to 5 on one day (the author: tag, push, Zenodo upload), the DOI recorded here, and, if Section 8 leaves nothing for v1.1, that fact recorded here with its date.
 - **Next:** the author's choice on the repair clause, and the hand check.
+
+## Amendment 28 Nov 2026 (as)
+
+Forty-fifth amendment. The lines above are unchanged. Nothing was tagged or deposited. No committed row under runs/ and no done-marker was changed, no Kaggle session was used, scripts/g5_reading.py was not run, and no file under docs/truth/ was staged, committed or modified (the author is filling the hand-check answers). This amendment follows the author's fourth request of 28 November 2026. The request arrived a second time after its changes were committed; they were not applied again.
+
+- **1. The hand check, G4 and the repair clause, decided 28 November 2026** (6f9bdba). PREREG Section 5, hand check, marked [decided 28 Nov 2026]:
+  - A disagreement found by the hand check is not a failure of G4. It is part of the hand check, fixed from the GVGAI source and listed in v1, as the quoted sentence of Section 5 already provides. The reason is as the author gave it.
+  - G4 fails if a disagreement cannot be resolved from the GVGAI source, or if any of the 5 fresh games shows a disagreement after the fix and rerun. Such a failure is governed by the stop rule.
+  - The count of disagreements and every fix are recorded in v1 and reported with the study whatever G4's result. The hand check's error rate is part of what the study reports about the truth table.
+  - A fix from the hand check is listed in v1, not v1.1.
+- **The G4 row** gains a pointer to Section 5; its text is unchanged.
+- **The stop rule** gains "The scope of the repair clause", marked [decided 28 Nov 2026]. The clause, quoted, governs a gate re-read after the tag. A gate read before the tag that fails is corrected before the tag, the correction is listed in v1, and the gate is read again. The once-only limit holds for G1 and G2, and "the pilot is rerun" means the pilot run the gate is read from. Every gate is now read before the tag, so the post-tag form applies only if a rerun clause fires.
+- **2. Section 9**, [decided 28 Nov 2026]. The rule governs runs that produce rows under runs/: the search and agent units, and the loop's dry runs. Reading a gate from committed files with a committed script is not such a run, nor is the hand check. G2 remains the one exception, with its 40 rows under runs/g2-replay. The old bullet is quoted. Every other folder under runs/ was committed by the loop.
+- The PREREG status paragraph and diff section name these decisions.
+- **3. DESIGN** (0a17542):
+  - Section 4, which carries PREREG Section 5's hand-check text, and Section 8's stop rule gain the same changes, dated, pointing to PREREG.
+  - DESIGN has no copy of Section 9's rule (no "made by hand" or "Kaggle account" rule in it), so it has no Section 9 change.
+- **4. Record.**
+  - Every changed line keeps its old text. PREREG changed in the status paragraph, Section 5's hand-check paragraph, the G4 row, the stop rule, Section 9 and Section 13; DESIGN in Sections 4 and 8. No threshold, predicate, game list, outcome rule or written gate condition changed.
+  - G4's row reads as before, but what counts as its failure is now defined where it was open. That is the purpose of the change, and it is stated here so that it is not read as no change.
+  - git diff e296372 HEAD on scripts/automation, kaggle and third_party is empty, so neither rerun clause fires.
+  - The G2 exception paragraph and the G5 paragraph of Section 8 are byte-for-byte unchanged.
+  - The aid check is clean on 8,282 tracked files. Its console is identical to the committed one, so there was nothing to commit. No file was added, so the protocol list is unchanged. No added line has a word of the forbidden list. Pushed.
+- **scripts/handcheck_report.py against these decisions.** It records the count of disagreements (all rows, per predicate, per game) and lists each disagreement with the author's note. It writes that it "resolves no disagreement". It does not record:
+  - whether each disagreement was resolved from the GVGAI source, and where;
+  - the generator fix and the units its rerun changed;
+  - the 5 fresh games and their check;
+  - G4's verdict by the two conditions now registered.
+  
+  To meet the decisions it needs: a committed file of resolutions, one per disagreement (row, resolved or not, the GVGAI source file and line, the generator commit, the verdict after the fix); the diff of the generator rerun; the answers on the 5 fresh games; and a section that prints the error rate (disagreements over rows answered), every fix, and "G4: PASS" or "G4: FAIL" with the condition that failed, with synthetic tests. It would be written after the author's choices below, and not run on the answers until they are finished.
+- **Found on the way, not on any list and not changed:**
+  - **How the 5 fresh games are drawn is not registered**: no seed, no pool, no script. scripts/draw_handcheck.py draws the 10 games only.
+  - **An "unsure" answer**, which scripts/handcheck_app.py allows, is neither an agreement nor a disagreement, and the registration does not say what it means for G4.
+  - **Once-only for G4 before the tag.** The scope sentence names G1 and G2. The stop rule's "a second failure of the same gate ... stops the study" covers G4 as well. Whether a second G4 failure before the tag is VOID is therefore read from that sentence, not stated in the new one.
+  - **A G4 failure of form (i)**, a disagreement that cannot be resolved from the source, cannot be "corrected" at all.
+  - **A G4 failure of form (ii)**: "read again" does not say whether on the same 5 fresh games or on new ones.
+- **What remains before the tag, in order:**
+  1. the author's choices on the fresh-game draw, "unsure" answers, and G4's second failure and re-reading (needs the author);
+  2. scripts/handcheck_report.py extended as above, with tests (no, once item 1 is decided);
+  3. the hand check's 100 answers (needs the author; in progress);
+  4. each disagreement resolved from the GVGAI source, the generator fixed and rerun on all units, and each fix listed in v1 (the author confirms each resolution; the code and the listing need not be his);
+  5. the 5 fresh games drawn and checked (the check needs the author), and HANDCHECK_RESULT.md written; the hand-check files moved into the protocol list (no);
+  6. G5: the author runs scripts/g5_reading.py (needs the author); its result entered and its console listed (no);
+  7. if any code the runner uses has changed, the pilot reruns of Section 8 and a dry run of the changed kind (the loop; the author's decision to proceed);
+  8. the day of the tag, from ZENODO.md, steps 1 to 5 on one day (the author), the DOI recorded here, and, if Section 8 leaves nothing for v1.1, that fact recorded here with its date (no).
+- **Next:** the author's choices on the fresh-game draw, "unsure" answers and G4's re-reading; the hand check goes on.
