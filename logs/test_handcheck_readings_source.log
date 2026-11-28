@@ -1,6 +1,38 @@
 1. rows: 150 readings, the 10 games of the hand check and the 5 of fresh round 1, levels as drawn, every predicate; one reading per game and level
-2. byte for byte: 316 quotes in 48 files equal the named lines at 4b1d7c4f215daff2f0f50b9ff866143c2702f1b6, and the working tree equals that commit but for line endings
+2. byte for byte: 446 quotes in 62 files equal the named lines at 4b1d7c4f215daff2f0f50b9ff866143c2702f1b6, and the working tree equals that commit but for line endings
 3. nothing but quotes: 30 of 30 readings are their quotes under fixed headers, whose only numbers are the quotes' own lines and the level; no other line
 4. words: no reading contains A1 to A5, any of the 5 predicate names of the guide, or a verdict word
 5. files: the script opened 4 files, none of the three forbidden ones; top folders read: docs, logs; its text names none of them; a second run gives the committed output
+6. effects: in 30 of 30 readings every effect the InteractionSet names is quoted from its own file under src/ontology/effects, in the order named
+   bait level 0: 3182 characters before, 11626 now, 3.65 times
+   bait level 2: 3287 characters before, 11731 now, 3.57 times
+   clusters level 0: 3768 characters before, 11491 now, 3.05 times
+   clusters level 3: 3768 characters before, 11491 now, 3.05 times
+   colourescape level 0: 4426 characters before, 12149 now, 2.74 times
+   colourescape level 3: 4426 characters before, 12149 now, 2.74 times
+   glow level 0: 5044 characters before, 10237 now, 2.03 times
+   glow level 4: 5180 characters before, 10373 now, 2.00 times
+   labyrinthdual level 0: 3844 characters before, 9037 now, 2.35 times
+   labyrinthdual level 1: 3844 characters before, 9037 now, 2.35 times
+   lasers level 0: 6190 characters before, 17538 now, 2.83 times
+   lasers level 1: 6189 characters before, 17537 now, 2.83 times
+   painter level 0: 3141 characters before, 9798 now, 3.12 times
+   painter level 3: 3154 characters before, 9811 now, 3.11 times
+   racebet level 0: 4776 characters before, 9317 now, 1.95 times
+   racebet level 4: 4776 characters before, 9317 now, 1.95 times
+   racebet2 level 0: 5006 characters before, 10199 now, 2.04 times
+   racebet2 level 2: 5006 characters before, 10199 now, 2.04 times
+   rivers level 0: 5508 characters before, 10701 now, 1.94 times
+   rivers level 4: 5487 characters before, 10680 now, 1.95 times
+   sokoban level 0: 2567 characters before, 6516 now, 2.54 times
+   sokoban level 1: 2567 characters before, 6516 now, 2.54 times
+   tercio level 0: 3585 characters before, 10656 now, 2.97 times
+   tercio level 4: 3585 characters before, 10656 now, 2.97 times
+   watergame level 0: 2652 characters before, 7322 now, 2.76 times
+   watergame level 3: 2668 characters before, 7338 now, 2.75 times
+   wrapsokoban level 0: 3305 characters before, 11518 now, 3.49 times
+   wrapsokoban level 1: 3314 characters before, 11527 now, 3.48 times
+   zenpuzzle level 0: 2748 characters before, 8319 now, 3.03 times
+   zenpuzzle level 3: 2735 characters before, 8306 now, 3.04 times
+7. length: over the 30 readings, 119728 characters before (634fb3c), 313092 now, 2.62 times
 OK

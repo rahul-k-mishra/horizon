@@ -14,6 +14,9 @@ docs/truth/handcheck_readings_source.json (docs/PREREG.md, Section 5, decided 28
    description: <file>" and "The description has no <block> block."  So no line outside a quote holds a count.
 4. No reading contains a predicate name (A1 to A5, or the name of any of them in docs/truth/HANDCHECK_GUIDE.md's
    headings, read here by the test, not by the script) or a verdict word (holds, hold, fails, fail, verdict).
+6. Every effect the InteractionSet names is quoted from its own Java file under src/ontology/effects, in the order
+   named (added 28 November 2026 with the effects).
+7. The length of each reading before the effects were added (the readings as committed in 634fb3c) and now.
 5. Run again with every opened file recorded, into a temporary folder: the script opens none of
    docs/truth/gvgai.json, scripts/truth_vgdl.py and docs/truth/handcheck_readings.json, its text names none of them,
    and its output equals the committed file.
@@ -100,10 +103,11 @@ def part2(data, units):
 
 
 HEAD = re.compile(r"^(SpriteSet|InteractionSet|TerminationSet|LevelMapping|Level (\d) map|Avatar sprite|"
-                  r"Avatar class \w+|Defaults of \w+|Actions of \w+), (third_party/gvgai/[\w/.]+), "
+                  r"Avatar class \w+|Defaults of \w+|Actions of \w+|Effect \w+), (third_party/gvgai/[\w/.]+), "
                   r"(?:line (\d+)|lines (\d+) to (\d+)):$")
 OTHER = [re.compile(r"^Game description: third_party/gvgai/examples/gridphysics/\w+\.txt$"),
-         re.compile(r"^The description has no (SpriteSet|InteractionSet|TerminationSet|LevelMapping) block\.$")]
+         re.compile(r"^The description has no (SpriteSet|InteractionSet|TerminationSet|LevelMapping) block\.$"),
+         re.compile(r"^No source file for the effect \w+ under third_party/gvgai/src/ontology/effects\.$")]
 
 
 def part3(data, units):
@@ -182,6 +186,44 @@ def part5():
           f"{', '.join(outside)}; its text names none of them; a second run gives the committed output")
 
 
+BEFORE_COMMIT = "634fb3c"  # the readings as first committed, without the effects
+
+
+def part6(data, units):
+    """Every effect the InteractionSet names is quoted, from its own file, under its own header."""
+    bad = 0
+    for g, lv in sorted(units):
+        qs = data["readings"][f"{g}/A1/{lv}"]["quotes"]
+        inter = next((q["text"] for q in qs if q["label"] == "InteractionSet"), "")
+        named = []
+        for ln in inter.replace("\r", "").split("\n")[1:]:
+            ln = ln.split("#", 1)[0]
+            if ">" in ln:
+                t = ln.split(">", 1)[1].split()
+                if t and "=" not in t[0] and t[0] not in named:
+                    named.append(t[0])
+        quoted = [q["label"][len("Effect "):] for q in qs if q["label"].startswith("Effect ")]
+        files_ok = all(q["file"].startswith("third_party/gvgai/src/ontology/effects/")
+                       and q["file"].endswith("/" + q["label"][7:8].upper() + q["label"][8:] + ".java")
+                       for q in qs if q["label"].startswith("Effect "))
+        if not check(quoted == named and files_ok, f"{g} level {lv}: effects named {named}, quoted {quoted}"):
+            bad += 1
+    print(f"6. effects: in {len(units) - bad} of {len(units)} readings every effect the InteractionSet names is quoted "
+          "from its own file under src/ontology/effects, in the order named")
+
+
+def part7(data, units):
+    """How much longer each reading is than the readings first committed, without the effects."""
+    old = json.loads(git_bytes(BEFORE_COMMIT, "docs/truth/handcheck_readings_source.json").decode("utf-8"))["readings"]
+    tot_b = tot_a = 0
+    for g, lv in sorted(units, key=lambda x: (x[0], x[1])):
+        b, a = len(old[f"{g}/A1/{lv}"]["reading"]), len(data["readings"][f"{g}/A1/{lv}"]["reading"])
+        tot_b, tot_a = tot_b + b, tot_a + a
+        print(f"   {g} level {lv}: {b} characters before, {a} now, {a / b:.2f} times")
+    print(f"7. length: over the {len(units)} readings, {tot_b} characters before ({BEFORE_COMMIT}), {tot_a} now, "
+          f"{tot_a / tot_b:.2f} times")
+
+
 if __name__ == "__main__":
     with open(OUT, encoding="utf-8") as f:
         data = json.load(f)
@@ -191,5 +233,7 @@ if __name__ == "__main__":
     part3(data, u)
     part4(data, u)
     part5()
+    part6(data, u)
+    part7(data, u)
     print("OK" if not FAILS else f"FAILED: {len(FAILS)}")
     sys.exit(1 if FAILS else 0)

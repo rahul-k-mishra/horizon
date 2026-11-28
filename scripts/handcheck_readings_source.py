@@ -13,7 +13,11 @@ and of fresh round 1 (docs/truth/handcheck_fresh_1.json), the reading quotes ver
     of that avatar class, with each class it extends under src/ontology/avatar, and the loadDefaults method of each
     that has one, where GVGAI sets the class's default parameters;
     the avatar's available actions: the postProcess method of each of those classes that has one, where GVGAI adds
-    the actions.
+    the actions;
+    the effects: for each effect the InteractionSet names, in the order of its first appearance, the Java source of
+    that effect under src/ontology/effects, from its class declaration to its last line that is not blank (added 28
+    November 2026, so that the reading is self-contained where it was not: the effects were otherwise judged from
+    memory).
 Each quote is the exact text of the named lines of the named file as committed at the commit that last changed
 third_party/gvgai (read with git show), carriage returns included.  The reading shown is
 the quotes in that order, each under a fixed one-line header naming the file and the lines, with the carriage
@@ -40,6 +44,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GVGAI_DIR = "third_party/gvgai"
 GAMES_DIR = f"{GVGAI_DIR}/examples/gridphysics"
 AVATAR_SRC = f"{GVGAI_DIR}/src/ontology/avatar"
+EFFECTS_SRC = f"{GVGAI_DIR}/src/ontology/effects"
 DRAW_LOG = "logs/draw_handcheck.log"
 FRESH_DRAWS = ["docs/truth/handcheck_fresh_1.json"]
 OUT = "docs/truth/handcheck_readings_source.json"
@@ -209,7 +214,44 @@ def reading_for(game, level):
         cq = class_quotes(cls)
         quotes += cq
         items += cq
+    for name in effect_names(lines, spans):
+        path = effect_file(name)
+        if path is None:
+            items.append(f"No source file for the effect {name} under {EFFECTS_SRC}.")
+            continue
+        elines = raw_lines(path)
+        first = next(n for n, ln in enumerate(elines, 1) if re.search(r"\bclass \w+", ln))
+        last = len(elines)
+        while last > first and not elines[last - 1].strip():
+            last -= 1
+        q = quote(f"Effect {name}", path, first, last, elines)
+        quotes.append(q)
+        items.append(q)
     return {"reading": render(items, notes), "quotes": quotes, "lines": {"description": [], "level": []}}
+
+
+def effect_names(lines, spans):
+    """The effects the InteractionSet names, in the order of their first appearance."""
+    out = []
+    if "InteractionSet" not in spans:
+        return out
+    a, b = spans["InteractionSet"]
+    for n in range(a + 1, b + 1):
+        s = lines[n - 1].split("#", 1)[0]
+        if ">" in s:
+            right = s.split(">", 1)[1].split()
+            if right and "=" not in right[0] and right[0] not in out:
+                out.append(right[0])
+    return out
+
+
+def effect_file(name):
+    """The Java file of an effect under src/ontology/effects: the effect's name with its first letter in capitals."""
+    target = name[:1].upper() + name[1:] + ".java"
+    for root, _, files in os.walk(os.path.join(REPO, EFFECTS_SRC)):
+        if target in files:
+            return os.path.relpath(os.path.join(root, target), REPO).replace("\\", "/")
+    return None
 
 
 def vendored_commit():
