@@ -1,16 +1,27 @@
 ok    one section per predicate, A1 to A5, in order
+ok    A1: one question line
 ok    A1: "A1 holds iff the avatar present at level start is ..." is word for word in PREREG Section 5's A1
+ok    A2: one question line
 ok    A2: "A2 holds iff exactly one sprite's displacement is ..." is word for word in PREREG Section 5's A2
 ok    A2: "A2 also fails wherever an action creates a sprite ..." is word for word in PREREG Section 5's A2
+ok    A3: one question line
 ok    A3: "A3 holds iff each movement action, when not blocke..." is word for word in PREREG Section 5's A3
+ok    A4: one question line
 ok    A4: "A4 holds iff every move without effect is explaine..." is word for word in PREREG Section 5's A4
 ok    A4: ""With the avatar" is applied with the avatar named..." is word for word in PREREG Section 5's A4
 ok    A4: "A blocking relation that depends on the avatar's s..." is word for word in PREREG Section 5's A4
 ok    A4: "The generator counts a name as standing for agent-..." is word for word in PREREG Section 5's A4
 ok    A4: "The first clause is checked through every undoAll ..." is word for word in PREREG Section 5's A4
+ok    A4: a paragraph from Section 1 only under A4
+ok    A4: "The generator checks A4's first clause, that every..." is word for word in PREREG Section 1, game names apart
+ok    A4: ", so a line without the avatar first also cancels ..." is word for word in PREREG Section 1, game names apart
+ok    A4: "What remains a limit: only stepBack and undoAll ar..." is word for word in PREREG Section 1, game names apart
+ok    A5: one question line
 ok    A5: "A5 holds iff the only winning condition is a Sprit..." is word for word in PREREG Section 5's A5
-1. registered wording: 10 pieces, each word for word in its predicate's bullet of PREREG Section 5
+1. registered wording: 10 pieces each word for word in their predicate's bullet of Section 5, and 3 pieces of A4's paragraph from Section 1 word for word in its bullet there, game names apart
 ok    2. no game: none of 126 game names appears
 ok    3. no verdict: every verdict word is in one of the fixed forms of the rule
 ok    3. no count: no digit outside the predicate names and the rule's own numbers
+ok    4. the app reads each question from this file
+ok    4. the app names no path to docs/truth/HANDCHECK_GUIDE.md to read
 OK
