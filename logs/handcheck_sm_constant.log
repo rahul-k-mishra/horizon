@@ -1,0 +1,20 @@
+1. the texts
+   PREREG Section 4: S_M on 25 games: 2: 3 games, 3: 12 games, 4: 7 games, 5: 3 games
+   PREREG Section 7.8: games where each predicate holds: A1 25, A2 6, A3 19, A4 25, A5 10
+   games in the spread 25; sum of S_M 85; sum of the predicate counts 85: they agree
+2. A1 and A4
+   A1 holds on 25 of 25 games and A4 on 25 of 25: together exactly 2 on every game
+   S_M minus 2, from A2, A3 and A5 alone: 0: 3 games, 1: 12 games, 2: 7 games, 3: 3 games; sum 35 = A2 + A3 + A5 = 35
+3. a constant added to every game's S_M
+   same-S_M pairs of games 93 with S_M, 93 with S_M minus 2; between-game same-S_M pairs of units 2325 and 2325: unchanged
+   the order of the values, and so of the games, by S_M and by S_M minus 2: the same; the AUROC of S_M depends on that order alone
+4. a non-uniform error: A1 or A4 reported as holding on one game where it fails
+   a game with S_M 2 counted as 1: same-S_M pairs of games 93 -> 91, of units 2325 -> 2275; the game leaves its group of 3 and joins one of 0
+   a game with S_M 3 counted as 2: same-S_M pairs of games 93 -> 85, of units 2325 -> 2125; the game leaves its group of 12 and joins one of 3
+   a game with S_M 4 counted as 3: same-S_M pairs of games 93 -> 99, of units 2325 -> 2475; the game leaves its group of 7 and joins one of 12
+   a game with S_M 5 counted as 4: same-S_M pairs of games 93 -> 98, of units 2325 -> 2450; the game leaves its group of 3 and joins one of 7
+5. seen and blind rows by predicate (docs/truth/handcheck_seen.json)
+   hand check: A1 seen 20, blind 0; A2 seen 6, blind 14; A3 seen 4, blind 16; A4 seen 20, blind 0; A5 seen 4, blind 16
+   fresh round 1: A1 seen 10, blind 0; A2 seen 2, blind 8; A3 seen 0, blind 10; A4 seen 10, blind 0; A5 seen 0, blind 10
+   blind rows of A1 and A4 in both sets: 0
+OK
