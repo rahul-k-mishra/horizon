@@ -17,7 +17,11 @@ and of fresh round 1 (docs/truth/handcheck_fresh_1.json), the reading quotes ver
     the effects: for each effect the InteractionSet names, in the order of its first appearance, the Java source of
     that effect under src/ontology/effects, from its class declaration to its last line that is not blank (added 28
     November 2026, so that the reading is self-contained where it was not: the effects were otherwise judged from
-    memory).
+    memory);
+    the physics class the avatar uses, GridPhysics unless a line of the avatar's sprite sets physicstype to CONT
+    (none of the games of the row sets does; VGDLSprite's default is GRID), with its activeMovement and
+    passiveMovement methods; and Game.killSprite and every Game.addSprite (added 28 November 2026).  The readings
+    stop there: beyond these the author judges from documented GVGAI semantics (PREREG Section 5).
 Each quote is the exact text of the named lines of the named file as committed at the commit that last changed
 third_party/gvgai (read with git show), carriage returns included.  The reading shown is
 the quotes in that order, each under a fixed one-line header naming the file and the lines, with the carriage
@@ -45,6 +49,8 @@ GVGAI_DIR = "third_party/gvgai"
 GAMES_DIR = f"{GVGAI_DIR}/examples/gridphysics"
 AVATAR_SRC = f"{GVGAI_DIR}/src/ontology/avatar"
 EFFECTS_SRC = f"{GVGAI_DIR}/src/ontology/effects"
+PHYSICS_SRC = f"{GVGAI_DIR}/src/ontology/physics"
+GAME_SRC = f"{GVGAI_DIR}/src/core/game/Game.java"
 DRAW_LOG = "logs/draw_handcheck.log"
 FRESH_DRAWS = ["docs/truth/handcheck_fresh_1.json"]
 OUT = "docs/truth/handcheck_readings_source.json"
@@ -227,7 +233,37 @@ def reading_for(game, level):
         q = quote(f"Effect {name}", path, first, last, elines)
         quotes.append(q)
         items.append(q)
+    phys = "ContinuousPhysics" if any(re.search(r"\bphysicstype=\S*CONT", q["text"]) for q in av) else "GridPhysics"
+    ppath = f"{PHYSICS_SRC}/{phys}.java"
+    plines = raw_lines(ppath)
+    decl = next(n for n, ln in enumerate(plines, 1) if re.search(rf"\bclass {phys}\b", ln))
+    pq = [quote(f"Physics class {phys}", ppath, decl, decl, plines)]
+    pq += method_quotes(ppath, plines, "activeMovement", f"Physics {phys}.activeMovement")
+    pq += method_quotes(ppath, plines, "passiveMovement", f"Physics {phys}.passiveMovement")
+    glines = raw_lines(GAME_SRC)
+    pq += method_quotes(GAME_SRC, glines, "killSprite", "Game.killSprite")
+    pq += method_quotes(GAME_SRC, glines, "addSprite", "Game.addSprite")
+    quotes += pq
+    items += pq
     return {"reading": render(items, notes), "quotes": quotes, "lines": {"description": [], "level": []}}
+
+
+def method_quotes(path, lines, name, label):
+    """Every declaration of the method name in the file, each from its declaration line to its closing brace."""
+    out = []
+    for n, ln in enumerate(lines, 1):
+        code = ln.split("//", 1)[0]
+        if not re.match(rf"^\s*(public|protected|private)\b[^;=(]*\b{name}\s*\(", code) or code.rstrip().endswith(";"):
+            continue
+        depth, seen, end = 0, False, n
+        for k in range(n, len(lines) + 1):
+            depth += lines[k - 1].count("{") - lines[k - 1].count("}")
+            seen = seen or "{" in lines[k - 1]
+            if seen and depth == 0:
+                end = k
+                break
+        out.append(quote(label, path, n, end, lines))
+    return out
 
 
 def effect_names(lines, spans):

@@ -1,18 +1,18 @@
 third_party/gvgai as last committed in 4b1d7c4f215daff2f0f50b9ff866143c2702f1b6
-round 0 clusters: level 0: 14 quotes, 11491 characters shown; level 3: 14 quotes, 11491 characters shown
-round 0 colourescape: level 0: 15 quotes, 12149 characters shown; level 3: 15 quotes, 12149 characters shown
-round 0 glow: level 0: 17 quotes, 10237 characters shown; level 4: 17 quotes, 10373 characters shown
-round 0 labyrinthdual: level 0: 13 quotes, 9037 characters shown; level 1: 13 quotes, 9037 characters shown
-round 0 lasers: level 0: 22 quotes, 17538 characters shown; level 1: 22 quotes, 17537 characters shown
-round 0 painter: level 0: 15 quotes, 9798 characters shown; level 3: 15 quotes, 9811 characters shown
-round 0 racebet: level 0: 12 quotes, 9317 characters shown; level 4: 12 quotes, 9317 characters shown
-round 0 rivers: level 0: 17 quotes, 10701 characters shown; level 4: 17 quotes, 10680 characters shown
-round 0 sokoban: level 0: 13 quotes, 6516 characters shown; level 1: 13 quotes, 6516 characters shown
-round 0 wrapsokoban: level 0: 16 quotes, 11518 characters shown; level 1: 16 quotes, 11527 characters shown
-round 1 bait: level 0: 16 quotes, 11626 characters shown; level 2: 16 quotes, 11731 characters shown
-round 1 racebet2: level 0: 13 quotes, 10199 characters shown; level 2: 13 quotes, 10199 characters shown
-round 1 tercio: level 0: 14 quotes, 10656 characters shown; level 4: 14 quotes, 10656 characters shown
-round 1 watergame: level 0: 14 quotes, 7322 characters shown; level 3: 14 quotes, 7338 characters shown
-round 1 zenpuzzle: level 0: 12 quotes, 8319 characters shown; level 3: 12 quotes, 8306 characters shown
+round 0 clusters: level 0: 22 quotes, 16013 characters shown; level 3: 22 quotes, 16013 characters shown
+round 0 colourescape: level 0: 23 quotes, 16671 characters shown; level 3: 23 quotes, 16671 characters shown
+round 0 glow: level 0: 25 quotes, 14759 characters shown; level 4: 25 quotes, 14895 characters shown
+round 0 labyrinthdual: level 0: 21 quotes, 13559 characters shown; level 1: 21 quotes, 13559 characters shown
+round 0 lasers: level 0: 30 quotes, 22060 characters shown; level 1: 30 quotes, 22059 characters shown
+round 0 painter: level 0: 23 quotes, 14320 characters shown; level 3: 23 quotes, 14333 characters shown
+round 0 racebet: level 0: 20 quotes, 13839 characters shown; level 4: 20 quotes, 13839 characters shown
+round 0 rivers: level 0: 25 quotes, 15223 characters shown; level 4: 25 quotes, 15202 characters shown
+round 0 sokoban: level 0: 21 quotes, 11038 characters shown; level 1: 21 quotes, 11038 characters shown
+round 0 wrapsokoban: level 0: 24 quotes, 16040 characters shown; level 1: 24 quotes, 16049 characters shown
+round 1 bait: level 0: 24 quotes, 16148 characters shown; level 2: 24 quotes, 16253 characters shown
+round 1 racebet2: level 0: 21 quotes, 14721 characters shown; level 2: 21 quotes, 14721 characters shown
+round 1 tercio: level 0: 22 quotes, 15178 characters shown; level 4: 22 quotes, 15178 characters shown
+round 1 watergame: level 0: 22 quotes, 11844 characters shown; level 3: 22 quotes, 11860 characters shown
+round 1 zenpuzzle: level 0: 20 quotes, 12841 characters shown; level 3: 20 quotes, 12828 characters shown
 readings: 150 rows, 15 games
-written docs/truth/handcheck_readings_source.json, sha256 4b32d1b865e1edcd3a45dd70377986a90689a343346da81d06f6d93cb972858c
+written docs/truth/handcheck_readings_source.json, sha256 c2dd1a4e190ad80aec60a9c767821d33ff20c04765727e9769076be2a16051b6

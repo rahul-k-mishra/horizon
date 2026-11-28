@@ -16,7 +16,9 @@ docs/truth/handcheck_readings_source.json (docs/PREREG.md, Section 5, decided 28
    headings, read here by the test, not by the script) or a verdict word (holds, hold, fails, fail, verdict).
 6. Every effect the InteractionSet names is quoted from its own Java file under src/ontology/effects, in the order
    named (added 28 November 2026 with the effects).
-7. The length of each reading before the effects were added (the readings as committed in 634fb3c) and now.
+7. The length of each reading as first committed (634fb3c), with the effects (9ebc46b) and now, and the longest.
+8. The boundary (added 28 November 2026): every reading quotes the avatar's physics class with activeMovement and
+   passiveMovement, Game.killSprite and every declaration of Game.addSprite, and no quote of any other kind.
 5. Run again with every opened file recorded, into a temporary folder: the script opens none of
    docs/truth/gvgai.json, scripts/truth_vgdl.py and docs/truth/handcheck_readings.json, its text names none of them,
    and its output equals the committed file.
@@ -103,7 +105,8 @@ def part2(data, units):
 
 
 HEAD = re.compile(r"^(SpriteSet|InteractionSet|TerminationSet|LevelMapping|Level (\d) map|Avatar sprite|"
-                  r"Avatar class \w+|Defaults of \w+|Actions of \w+|Effect \w+), (third_party/gvgai/[\w/.]+), "
+                  r"Avatar class \w+|Defaults of \w+|Actions of \w+|Effect \w+|Physics class \w+|Physics \w+\.\w+|"
+                  r"Game\.\w+), (third_party/gvgai/[\w/.]+), "
                   r"(?:line (\d+)|lines (\d+) to (\d+)):$")
 OTHER = [re.compile(r"^Game description: third_party/gvgai/examples/gridphysics/\w+\.txt$"),
          re.compile(r"^The description has no (SpriteSet|InteractionSet|TerminationSet|LevelMapping) block\.$"),
@@ -187,6 +190,7 @@ def part5():
 
 
 BEFORE_COMMIT = "634fb3c"  # the readings as first committed, without the effects
+EFFECTS_COMMIT = "9ebc46b"  # the readings with the effects, before the physics and Game methods
 
 
 def part6(data, units):
@@ -213,15 +217,43 @@ def part6(data, units):
 
 
 def part7(data, units):
-    """How much longer each reading is than the readings first committed, without the effects."""
-    old = json.loads(git_bytes(BEFORE_COMMIT, "docs/truth/handcheck_readings_source.json").decode("utf-8"))["readings"]
-    tot_b = tot_a = 0
+    """How long each reading is now, against the readings first committed (no effects) and the readings with the
+    effects but without the physics and Game methods."""
+    first = json.loads(git_bytes(BEFORE_COMMIT, "docs/truth/handcheck_readings_source.json").decode("utf-8"))["readings"]
+    prev = json.loads(git_bytes(EFFECTS_COMMIT, "docs/truth/handcheck_readings_source.json").decode("utf-8"))["readings"]
+    tf = tp = tn = 0
+    longest = (0, "")
     for g, lv in sorted(units, key=lambda x: (x[0], x[1])):
-        b, a = len(old[f"{g}/A1/{lv}"]["reading"]), len(data["readings"][f"{g}/A1/{lv}"]["reading"])
-        tot_b, tot_a = tot_b + b, tot_a + a
-        print(f"   {g} level {lv}: {b} characters before, {a} now, {a / b:.2f} times")
-    print(f"7. length: over the {len(units)} readings, {tot_b} characters before ({BEFORE_COMMIT}), {tot_a} now, "
-          f"{tot_a / tot_b:.2f} times")
+        f_, p_, n_ = (len(x[f"{g}/A1/{lv}"]["reading"]) for x in (first, prev, data["readings"]))
+        tf, tp, tn = tf + f_, tp + p_, tn + n_
+        longest = max(longest, (n_, f"{g} level {lv}"))
+        print(f"   {g} level {lv}: {f_} characters first, {p_} with the effects, {n_} now")
+    print(f"7. length: over the {len(units)} readings, {tf} characters first ({BEFORE_COMMIT}), {tp} with the effects "
+          f"({EFFECTS_COMMIT}), {tn} now ({tn / tp:.2f} times the last, {tn / tf:.2f} times the first); the longest "
+          f"reading now is {longest[1]}, {longest[0]} characters")
+
+
+def part8(data, units):
+    """Every reading quotes the avatar's physics class with activeMovement and passiveMovement, Game.killSprite and
+    every declaration of Game.addSprite, and nothing past them."""
+    with open(os.path.join(REPO, "third_party", "gvgai", "src", "core", "game", "Game.java"), encoding="utf-8") as f:
+        game = f.read().splitlines()
+    adds = sum(1 for ln in game if re.match(r"^\s*(public|protected|private)\b[^;=(]*\baddSprite\s*\(", ln))
+    bad = 0
+    allowed = ("SpriteSet", "InteractionSet", "TerminationSet", "LevelMapping", "Level ", "Avatar ", "Defaults of ",
+               "Actions of ", "Effect ", "Physics ", "Game.")
+    for g, lv in sorted(units):
+        labels = [q["label"] for q in data["readings"][f"{g}/A1/{lv}"]["quotes"]]
+        ok = any(x.startswith("Physics class ") for x in labels) \
+            and sum(x.startswith("Physics ") and x.endswith(".activeMovement") for x in labels) == 1 \
+            and sum(x.startswith("Physics ") and x.endswith(".passiveMovement") for x in labels) == 1 \
+            and labels.count("Game.killSprite") == 1 and labels.count("Game.addSprite") == adds \
+            and all(x.startswith(allowed) for x in labels)
+        if not check(ok, f"{g} level {lv}: physics, Game.killSprite and Game.addSprite quoted, and nothing else"):
+            bad += 1
+    print(f"8. the boundary: {len(units) - bad} of {len(units)} readings quote the avatar's physics class with "
+          f"activeMovement and passiveMovement, Game.killSprite and the {adds} declarations of Game.addSprite, and "
+          "nothing beyond the parts registered")
 
 
 if __name__ == "__main__":
@@ -235,5 +267,6 @@ if __name__ == "__main__":
     part5()
     part6(data, u)
     part7(data, u)
+    part8(data, u)
     print("OK" if not FAILS else f"FAILED: {len(FAILS)}")
     sys.exit(1 if FAILS else 0)
