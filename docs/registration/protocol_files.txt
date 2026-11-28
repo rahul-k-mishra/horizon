@@ -75,6 +75,11 @@ scripts/handcheck_app.py
 scripts/handcheck_report.py
 scripts/test_handcheck.py
 logs/test_handcheck.log
+scripts/test_handcheck_report.py
+logs/test_handcheck_report.log
+scripts/draw_handcheck_fresh.py
+logs/draw_handcheck_fresh_1.log
+docs/truth/handcheck_fresh_1.json
 
 # development data behind registered numbers
 scripts/sdd.py
@@ -471,6 +476,13 @@ logs/automation.log
 # to be added before the tag (docs/PREREG.md, header and Sections 3, 5, 8, 11):
 # docs/truth/handcheck_answers.json (the author's 100 answers; 1 entered at 25 November 2026)
 # docs/truth/HANDCHECK_RESULT.md (written by scripts/handcheck_report.py from the answers)
+# logs/handcheck_report.log (the console of that report, which reads G4)
+# docs/truth/handcheck_resolutions.json (one entry per disagreement, unsure row or flipped agreed row: PREREG Section 5,
+#   decided 28 Nov 2026)
+# docs/truth/handcheck_fresh_rows_1.json and docs/truth/handcheck_fresh_answers_1.json (the 50 rows of fresh round 1,
+#   built from the fixed generator, and the author's answers to them)
+# only if fresh round 1 shows a disagreement: logs/draw_handcheck_fresh_2.log, docs/truth/handcheck_fresh_2.json,
+#   docs/truth/handcheck_fresh_rows_2.json and docs/truth/handcheck_fresh_answers_2.json (seed 20261129)
 # logs/g5_reading.log (gate G5, read by the author with scripts/g5_reading.py after the hand check, before the tag;
 #   PREREG Section 8, changed 28 Nov 2026): part of what the tag freezes, but kept here until it exists, because
 #   scripts/zenodo_deposit.py stops on a listed path that is missing; moved into the list when it is committed)
