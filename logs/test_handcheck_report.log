@@ -9,6 +9,7 @@ ok    all agreed, no fix, round 1 agreed: PASS, 0 of 100, no diff (exit 0)
 == 3. a disagreement resolved and fixed
 ok    PASS; error 1 of 100; fix abc123 listed; diff names g00 level 0 A2 (exit 0)
 ok    the blind-only rate: 1 of the 98 rows the register does not list
+ok    agreements and disagreements given apart for seen and blind rows in each row set
 ok    an error on a row the author had seen counts in the rate over all rows, not in the blind one (exit 0)
 == 4. an unsure row
 ok    resolved, generator right: not an error, denominator 100, apart from disagreements (exit 0)

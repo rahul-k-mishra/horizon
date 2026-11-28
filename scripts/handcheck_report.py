@@ -44,7 +44,11 @@ The rules applied (PREREG Section 5, decided 28 November 2026):
     verdict_after that the generator now gives, with the generator commit wherever verdict_after differs from the
     verdict compared with.  A generator error is a row whose verdict_after differs from the verdict compared with.
     An unsure row resolved from the source counts as answered and stays in the denominator.  The error rate is
-    errors over the 100 rows answered.  The rerun's diff is every (unit, predicate) of the 125 confirmatory units
+    errors over the 100 rows answered; a second rate counts the blind rows only, those docs/truth/handcheck_seen.json
+    does not list, and it is the one that bears on how far G4's result can be relied on (decided 28 November 2026).
+    Agreements, disagreements and unsure marks are given separately for the seen and the blind rows of each row set
+    (decided the same day): an agreement on a seen row is weak evidence, a disagreement on one strong evidence.  The
+    rerun's diff is every (unit, predicate) of the 125 confirmatory units
     whose verdict differs before and after.  G4 fails by condition (i), VOID at once and with no repair, if any row
     of the hand check or of a fresh round cannot be resolved from the GVGAI source.  A fresh round shows a
     disagreement only if one of its rows is a generator error after resolution; a disagree mark the source resolves
@@ -404,6 +408,11 @@ def main(argv=None):
     rate = f"{len(errors)} of {n} rows answered ({100 * len(errors) / n:.1f}%)"
     blind = [r for r in main_recs if r["id"] not in seen]
     berr = [r for r in blind if r["error"]]
+    split_lines = []
+    for name, recs in [("hand check", main_recs)] + [(f"fresh round {k}", v) for k, v in sorted(fresh_recs.items())]:
+        for kind in ("seen", "blind"):
+            sub = [r for r in recs if (r["id"] in seen) == (kind == "seen")]
+            split_lines.append((f"{name}, {kind}", len(sub), {k: sum(r["answer"] == k for r in sub) for k in CHOICES}))
     brate = (f"{len(berr)} of {len(blind)} blind rows ({100 * len(berr) / len(blind):.1f}%)" if blind
              else "no blind row")
     games = list(dict.fromkeys(r["game"] for r in rows))
@@ -432,7 +441,15 @@ def main(argv=None):
            f"{len(flipped_agree)}"
            + (" (" + ", ".join(r["id"] for r in flipped_agree) + ", each resolved from the source)" if flipped_agree else "")
            + ".", ""]
-    out += ["## Resolutions", ""]
+    out += ["## Seen and blind rows", "",
+            "A row is seen if docs/truth/handcheck_seen.json lists it: the author had read its verdict before the blind "
+            "pass. Anchoring biases a seen row toward agreement, so an agreement on a seen row is weak evidence, while a "
+            "disagreement found on a seen row is strong evidence, having been found against a stated verdict (PREREG "
+            "Section 5, decided 28 November 2026). The marks are the answers compared with the generator's verdict.", "",
+            "| row set | rows | agree | disagree | unsure |", "|---|---|---|---|---|"]
+    for label, rows_n, recs_n in split_lines:
+        out.append(f"| {label} | {rows_n} | " + " | ".join(str(recs_n[k]) for k in CHOICES) + " |")
+    out += ["", "## Resolutions", ""]
     res_lines = []
     for r in main_recs + [dict(x, id=f"fresh{k}:{x['id']}") for k, v in fresh_recs.items() for x in v]:
         if not r["need"]:
@@ -475,6 +492,8 @@ def main(argv=None):
     print(f"rows {n} ({rel(a.rows)}, sha256 {rows_sha}); answers finished {ans_data.get('finished_at')}")
     print(f"compared with docs/truth/gvgai.json at blob {rows_data['truth_blob']}")
     print(f"all: agree {c['agree']}, disagree {c['disagree']}, unsure {c['unsure']}, no answer {c['no answer']}")
+    for label, rows_n, cnt in split_lines:
+        print(f"{label}: {rows_n} rows, agree {cnt['agree']}, disagree {cnt['disagree']}, unsure {cnt['unsure']}")
     print(f"generator errors: {rate}; over blind rows only: {brate}; flipped by a fix {len(flips)}, of them agreeing "
           f"before {len(flipped_agree)}")
     print(f"rerun diff over {len(units)} confirmatory units: {len(diff)} verdict(s) changed")

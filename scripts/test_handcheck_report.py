@@ -13,7 +13,9 @@ Checks:
     2. a clean hand check: every row agreed, no fix, fresh round 1 agreed: G4: PASS, 0 of 100 errors, no diff;
     3. a disagreement resolved from the source and fixed: G4: PASS, 1 of 100 errors (1.0%), the fix and its commit
        listed, the rerun's diff names the unit; the rate over the blind rows only, those the synthetic register
-       does not list, and an error on a listed row counted in the first rate only (added 28 November 2026);
+       does not list, and an error on a listed row counted in the first rate only (added 28 November 2026); the
+       agreements, disagreements and unsure marks of seen and blind rows given apart in each row set (added the same
+       day);
     4. an unsure row: resolved with the generator right, it is not an error and stays in the denominator (0 of 100);
        resolved with the generator wrong, it is an error (1 of 100) and is reported apart from the disagreements;
        left without a resolution, no verdict;
@@ -204,6 +206,10 @@ def part3():
           and "Answers that differ from the generator's verdict: 1" in text,
           f"PASS; error 1 of 100; fix abc123 listed; diff names g00 level 0 A2 (exit {code})")
     check("1 of 98 blind rows (1.0%)" in text, "the blind-only rate: 1 of the 98 rows the register does not list")
+    check("| hand check, seen | 2 | 2 | 0 | 0 |" in text and "| hand check, blind | 98 | 97 | 1 | 0 |" in text
+          and "| fresh round 1, seen | 0 |" in text and "| fresh round 1, blind | 50 | 50 | 0 | 0 |" in text
+          and "hand check, blind: 98 rows, agree 97, disagree 1, unsure 0" in out,
+          "agreements and disagreements given apart for seen and blind rows in each row set")
     k = ("g00", 0, "A1")
     code, out, text = case(after={k: "fails"}, marks={"g00/A1/0": "disagree"}, res={"g00/A1/0": fixed("fails", "abc124")},
                            fresh=OK1)
