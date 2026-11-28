@@ -795,3 +795,34 @@ Forty-second amendment. The lines above are unchanged. Nothing was tagged or dep
   4. if any code the runner uses has changed by then, the pilot reruns of Section 8 and a dry run of the changed kind;
   5. the day of the tag, from ZENODO.md, steps 1 to 5 on one day, steps 4 and 5 untried until then (REVIEW 29), with the DOI recorded here.
 - **Next:** the hand check.
+
+## Amendment 28 Nov 2026 (aq)
+
+Forty-third amendment. The lines above are unchanged. Nothing was tagged or deposited. No committed row under runs/ and no done-marker was changed, no Kaggle session was used, and nothing was run on the real truth table. This amendment follows the author's second request of 28 November 2026, in three parts.
+
+- **1. G5's reading script** (the commit "g5_reading.py: gate G5 as registered ...").
+  - G5's registered text, PREREG Section 8, verbatim: "| G5 | from the truth table alone, at least two values of S_M are each held by at least 10% of the confirmatory units |".
+  - Fully specified by the registration. It reads the truth table, docs/truth/gvgai.json (Section 5). The units are the 125 confirmatory units: 25 games of scripts/suite.py (Section 4), levels 0 to 4. S_M is the number of A1 to A5 that hold for the unit (Section 5). The threshold is 10%, "at least". A failure stops the study with the outcome VOID and has no repair (the stop rule). It is read after the tag and before any confirmatory unit (Section 8, first line).
+  - scripts/g5_reading.py applies it in integers: a value counts when units * 10 <= count * 100, which is at least 13 of 125. It stops with no verdict (exit 2) on a missing unit, missing predicate or a verdict other than holds or fails. While docs/truth/HANDCHECK_RESULT.md does not exist, it refuses the real table without opening it (exit 3); that refusal is a safeguard of the script, not a registered rule. No parallel form: it reads 125 entries of one file.
+  - **It has not been run on the real truth table.** scripts/test_g5_reading.py, on synthetic tables only: OK (logs/test_g5_reading.log).
+- **2. The findings of amendment (ap)**, each dated 28 November 2026 with its reason and what it read:
+  - finding 1: DESIGN Section 8 names G2 among the parts run before the tag, pointing to PREREG Section 8 for its specification, the laptop exception and its result;
+  - finding 2: the PREREG Section 8 stop rule, marked [changed 28 Nov 2026]. v1.1 is made only if Section 8 leaves a value for it: a pilot rerun under either rerun clause, or a repair under the stop rule. If nothing is left, no v1.1 tag is made and that fact is recorded here with its date. The replaced clause, "the other pilot values enter v1.1, which is tagged before any confirmatory unit runs", is quoted. The old text could not be satisfied: with G1, G2 and G3 read before the tag, it required a v1.1 that might hold nothing. **The change says only when a version is made; it changes no threshold, no hypothesis, no gate and no outcome.** DESIGN Section 8's copy carries the same change, pointing to PREREG. The PREREG status paragraph and diff section name it.
+  - finding 4: DESIGN Section 7, "The thresholds now read", gains the 50% of rule 5 and the 10% of undetermined levels, pointing to PREREG;
+  - finding 3 is part 1.
+- **3. Record.**
+  - The protocol list gains scripts/g5_reading.py, scripts/test_g5_reading.py and logs/test_g5_reading.log, which gives 440 listed paths, all tracked. logs/g5_reading.log goes under "to be added" with a line saying it is read after the hand check.
+  - git diff e296372 HEAD on scripts/automation, kaggle and third_party is empty, so neither rerun clause of Section 8 fires.
+  - The aid check is clean (logs/check_no_aid.log, 8,280 tracked files). No added line has a word of the forbidden list. Pushed.
+- **Correction to amendment (ap).** Its list of what remains put "G5 read from the truth table after the hand check ... and entered" before the tag. PREREG Section 8 places G5 after the tag: it is not one of the three parts that line names as run before the tag. Amendment (ap)'s line is left as written, and this note corrects it.
+- **Found on the way, not on any list and not changed:**
+  - G5's timing. The registration reads G5 after the tag. The author's request lists its console under "to be added before the tag". Under the stop rule as changed today, a G5 result read after the tag is neither a rerun nor a repair, so v1.1 is not made for it, and the registration names no place where it is entered. Two ways to close this: (a) move G5 before the tag, after the hand check, as a fourth exception in Section 8's first line; (b) keep it after the tag and say where its result is entered. This is the author's choice.
+  - PREREG head, "Added to what is done before the tag": it does not name the pilot agent run (25 November 2026) or G2 (26 November 2026), which Section 8 places before the tag.
+- **What remains before the tag, in order:**
+  1. the author's choice on G5's timing, entered with its date;
+  2. the hand check (G4): the 100 answers, docs/truth/HANDCHECK_RESULT.md, any generator fix with the generator rerun and 5 fresh games checked, and the files added to the protocol list;
+  3. if (a), G5 read by the author's command in scripts/g5_reading.py and entered in PREREG Section 8, and its console listed;
+  4. the author's choice on the head's list of work done before the tag;
+  5. if any code the runner uses has changed by then, the pilot reruns of Section 8 and a dry run of the changed kind;
+  6. the day of the tag, from ZENODO.md, steps 1 to 5 on one day (steps 4 and 5 untried, REVIEW 29), the DOI recorded here, and, if Section 8 then leaves nothing for v1.1, that fact recorded here with its date.
+- **Next:** the author's choice on G5's timing, and the hand check.
